@@ -27,7 +27,12 @@ owners:
 labels:
   vendor: Red Hat
   License: GPLv2+
-  architecture: x86_64
+  architecture: x86_64  
+
+# How to derive the value of the LABEL:version
+version:
+  mode: match
+  repo: openshift-enterprise-docker
 
 content:
   # The method by which the dist-git Dockerfile will be arrived at. "git" means we will pull a reference Dockerfile
