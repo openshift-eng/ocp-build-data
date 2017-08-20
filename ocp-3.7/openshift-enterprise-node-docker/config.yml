@@ -1,8 +1,11 @@
-repo_type: rpms   # default is "rpms", but can be set to "apbs" for new dist-git repo type
+---
 
-# Several different alias nodes will be setup by the build process which can be referenced within the 
-# config.yml. In this case, the default "rhaos-3.7-rhel-7" for an OCP 3.7 build.
-repo_branch: *OCP_DIST_GIT_BRANCH
+# Information about the dist-git repo
+repo:
+  type: rpms   # default is "rpms", but can be set to "apbs" for new dist-git repo type
+  # Several different alias nodes will be setup by the build process which can be referenced within the 
+  # config.yml. In this case, the default "rhaos-3.7-rhel-7" for an OCP 3.7 build.
+  branch: *OCP_DIST_GIT_BRANCH
 
 # The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
 name: openshift3/node
