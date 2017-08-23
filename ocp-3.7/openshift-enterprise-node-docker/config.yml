@@ -1,33 +1,28 @@
----
-
 # Information about the dist-git repo
 repo:
   type: rpms   # default is "rpms", but can be set to "apbs" for new dist-git repo type
-  # Several different alias nodes will be setup by the build process which can be referenced within the 
-  # config.yml. In this case, the default "rhaos-3.7-rhel-7" for an OCP 3.7 build.
-  branch: *OCP_DIST_GIT_BRANCH
 
 # The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
 name: openshift3/node
 
-from: 
+from:
   # The FROM field in the Dockerfile will be updated with the name configured for the repo.
-  # The image label will be updated with the last version built. 
+  # The image label will be updated with the last version built.
   repo: openshift-enterprise-docker
 
 # Owners are emailed when merge process detects a substantitive change in source Dockerfile. Owners
 # get one email with the "merged" result after a source change. Owners are also emailed when an image
 # is no longer building.
-owners: 
+owners:
   - email@redhat.com
   - email2@redhat.com
 
 # Labels that will be set into the Dockerfile. name, version, and release will be set automatically.
-# com.redhat.component  will default to the dist-git repo name (openshift-enterprise-node-docker). 
+# com.redhat.component  will default to the dist-git repo name (openshift-enterprise-node-docker).
 labels:
   vendor: Red Hat
   License: GPLv2+
-  architecture: x86_64  
+  architecture: x86_64
 
 # How to derive the value of the LABEL:version
 version:
@@ -39,20 +34,19 @@ content:
   # from github and make a series of well defined changes to it, insert labels, etc. Another method could be "dist-git"
   # where the Dockerfile resides only in dist-git and only needs its version / labels adjusted.
   method: git
-  
-  # Several different alias nodes will be setup by the build process which can be referenced within the 
-  # config.yml. In this case, a node specifies the "git@github.com:openshift/ose.git#master" . If 3.6 is being
-  # built, the build process would set this alias to "git@github.com:openshift/ose.git#enterprise-3.5".
-  source: *OCP_GIT_REPO
-  
+
+  # Git repos will be referenced by "aliases" which must be specified on the command line as --source alias path.
+  # This leaves it up a control process what branch the source repo is in at any given time.
+  source: ose
+
   # The name of the Dockfile to fix up within the repo. Any content in the same directory as the Dockfile will
-  # be moved into dist-git. 
+  # be moved into dist-git.
   filename: ose/images/node/Dockerfile
-  
-  # Non-default steps to perform on the git Dockerfile. Default steps include updating "FROM". 
+
+  # Non-default steps to perform on the git Dockerfile. Default steps include updating "FROM".
   steps:
     - action: replace
-      # Required field capturing why a particular change is necessary. 
+      # Required field capturing why a particular change is necessary.
       description: Only origin requires this package. It is included in the RHEL package.
       match: "origin-sdn-ovs"
       replacement: ""
