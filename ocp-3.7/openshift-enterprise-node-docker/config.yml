@@ -30,18 +30,14 @@ version:
   repo: openshift-enterprise-docker
 
 content:
-  # The method by which the dist-git Dockerfile will be arrived at. "git" means we will pull a reference Dockerfile
-  # from github and make a series of well defined changes to it, insert labels, etc. Another method could be "dist-git"
-  # where the Dockerfile resides only in dist-git and only needs its version / labels adjusted.
-  method: git
 
-  # Git repos will be referenced by "aliases" which must be specified on the command line as --source alias path.
-  # This leaves it up a control process what branch the source repo is in at any given time.
-  source: ose
-
-  # The name of the Dockfile to fix up within the repo. Any content in the same directory as the Dockfile will
-  # be moved into dist-git.
-  filename: ose/images/node/Dockerfile
+  source:
+    # If the source has an alias defined, an extracted local directory can be specified on the local file system
+    # using --source alias path.
+    alias: ose
+    path: images/node
+    dockerfile: Dockerfile
+    recursive: true
 
   # Non-default steps to perform on the git Dockerfile. Default steps include updating "FROM".
   steps:
