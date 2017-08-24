@@ -39,12 +39,12 @@ content:
     dockerfile: Dockerfile
     recursive: true
 
-  # Non-default steps to perform on the git Dockerfile. Default steps include updating "FROM".
-  steps:
-    - action: replace
-      # Required field capturing why a particular change is necessary.
-      description: Only origin requires this package. It is included in the RHEL package.
-      match: "origin-sdn-ovs"
-      replacement: ""
-      # Should we fail if the replacement does not find a match? Defaults to false.
-      optional: false
+    # Non-default modifications to perform on the git Dockerfile. Default steps include updating "FROM".
+    modifications:
+      - action: replace
+        # Required field capturing why a particular change is necessary.
+        description: Only origin requires this package. It is included in the RHEL package.
+        match: "origin-sdn-ovs"
+        replacement: ""
+        # Should we fail if the replacement does not find a match? Defaults to false.
+        optional: false
