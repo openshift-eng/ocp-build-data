@@ -1,0 +1,30 @@
+# The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
+name: openshift3/ose
+
+from:
+  member: openshift-enterprise-base-docker
+
+owners:
+  - email@redhat.com
+  - email2@redhat.com
+
+labels:
+  vendor: Red Hat
+  License: GPLv2+
+  architecture: "x86_64"
+  io.k8s.display-name: "OpenShift Container Platform Application Platform"
+  io.k8s.description: "OpenShift Container Platform is a platform for developing, building, and deploying containerized applications."
+  io.openshift.tags: "openshift,core"
+
+push:
+  # Informs oit to push this image later than others. Push order defaults to zero.
+  # Pushing this image later ensures that those that key off its existence for CI
+  # will have all images in registry before this one triggers them.
+  order: 1000
+
+content:
+  source:
+    # If the source has an alias defined, an extracted local directory can be specified on the local file system
+    # using --source alias path.
+    alias: ose
+    path: images/origin
