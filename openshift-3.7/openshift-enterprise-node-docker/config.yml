@@ -39,8 +39,8 @@ content:
     path: images/node
 
     # Non-default modifications to perform on the git Dockerfile. Default steps include updating "FROM".
+    # The Origin RPM "origin-sdn-ovs" has a different name when packaged for OCP.
     modifications:
       - action: replace
-        description: This RPM has a different name when packaged for origin vs OCP.
         match: "origin-sdn-ovs"
         replacement: "atomic-openshift-sdn-ovs"
