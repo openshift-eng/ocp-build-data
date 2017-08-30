@@ -1,0 +1,19 @@
+content:
+  source:
+    alias: jenkins
+    path: slave-nodejs
+from:
+  member: jenkins-slave-base-rhel7-docker
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: The jenkins slave nodejs image has the nodejs tools on top of
+    the jenkins slave base image.
+  io.k8s.display-name: Jenkins Slave Nodejs
+  io.openshift.tags: openshift,jenkins,slave,nodejs
+  vendor: Red Hat
+name: openshift3/jenkins-slave-nodejs-rhel7
+owners:
+- bparees@redhat.com
+repo:
+  type: rpms
