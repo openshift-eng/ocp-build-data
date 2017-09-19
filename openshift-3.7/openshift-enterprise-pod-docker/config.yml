@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     path: images/pod
+  modifications:
+    - action: replace
+      match: "origin-pod"
+      replacement: "atomic-openshift-pod"
 from:
   stream: rhel
 labels:
