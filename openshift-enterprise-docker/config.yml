@@ -29,3 +29,9 @@ content:
     # using --source alias path.
     alias: ose
     path: images/origin
+  modifications:
+    - action: replace
+      match: "INSTALL_PKGS=\"origin\""
+      replacement: "INSTALL_PKGS=\"atomic-openshift\""
+enabled_repos:
+    - rhel-server-ose-rpms

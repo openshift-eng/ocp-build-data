@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     path: images/dockerregistry
+  modifications:
+    - action: replace
+      match: "origin-dockerregistry"
+      replacement: "atomic-openshift-dockerregistry"
 from:
   member: openshift-enterprise-base-docker
 labels:
@@ -16,3 +20,5 @@ name: openshift3/ose-docker-registry
 owners: []
 repo:
   type: rpms
+enabled_repos:
+    - rhel-server-ose-rpms

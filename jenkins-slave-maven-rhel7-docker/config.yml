@@ -2,6 +2,7 @@ content:
   source:
     alias: jenkins
     path: slave-maven
+    dockerfile: Dockerfile.rhel7
 from:
   member: jenkins-slave-base-rhel7-docker
 labels:
@@ -17,3 +18,5 @@ owners:
 - bparees@redhat.com
 repo:
   type: rpms
+enabled_repos:
+    - rhel-server-rhscl-7-rpms
