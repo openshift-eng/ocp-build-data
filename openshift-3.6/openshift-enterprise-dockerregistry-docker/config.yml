@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     path: images/dockerregistry
+  modifications:
+    - action: replace
+      match: "origin-dockerregistry"
+      replacement: "atomic-openshift-dockerregistry"
 from:
   member: openshift-enterprise-base-docker
 labels:

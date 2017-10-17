@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     path: images/origin
+  modifications:
+    - action: replace
+      match: "INSTALL_PKGS=\"origin\""
+      replacement: "INSTALL_PKGS=\"atomic-openshift\""
 from:
   member: openshift-enterprise-base-docker
 labels:

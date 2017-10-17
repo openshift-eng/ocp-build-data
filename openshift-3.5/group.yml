@@ -7,3 +7,34 @@ name: openshift-3.5
 
 # Distgit branch to use with this group
 branch: rhaos-3.5-rhel-7
+
+repos:
+    signed:
+        rhel-server-ose-rpms:
+            baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.5/building/RH7-RHAOS-3.5/x86_64/os
+            enabled: 1
+    unsigned:
+        rhel-server-ose-rpms:
+            baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.5/building/x86_64/os
+            enabled: 1
+    common:
+        rhel-server-rhscl-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
+        rhel-server-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
+            enabled: 1
+        rhel-server-extras-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+        rhel-fast-datapath-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+        rhel-fast-datapath-htb-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
+        rhel-server-optional-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
+            enabled: 1
+        rhel-server-rh-common-rpms:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
+        rhel-server-ose-released:
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/3.3/os/
+        abp-rhel-server-extras-rpms:
+            baseurl: http://download.devel.redhat.com/rel-eng/EXTRAS-7.4-RHEL-7-Snapshot-5.0/compose/Server/x86_64/os/
