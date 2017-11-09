@@ -1,0 +1,18 @@
+# The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
+name: openshift3/ose-base
+
+from:
+  stream: rhel
+
+labels:
+  vendor: Red Hat
+  License: GPLv2+
+  architecture: "x86_64"
+  io.k8s.display-name: "OpenShift Container Platform RHEL 7 Base"
+  io.k8s.description: "This is the base image from which all OpenShift Container Platform images inherit."
+  io.openshift.tags: "openshift,base"
+
+content:
+  source:
+    alias: ose
+    path: images/base
