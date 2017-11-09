@@ -1,0 +1,22 @@
+content:
+  source:
+    alias: jenkins
+    path: slave-base
+    dockerfile: Dockerfile.rhel7
+from:
+  image: openshift3/ose:v3.7.0-0.125.0.0
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: The jenkins slave base image is intended to be built on top
+    of, to add your own tools that your jenkins job needs. The slave base image includes
+    all the jenkins logic to operate as a slave, so users just have to yum install
+    any additional packages their specific jenkins job will need
+  io.k8s.display-name: Jenkins Slave Base
+  io.openshift.tags: openshift,jenkins,slave
+  vendor: Red Hat
+name: openshift3/jenkins-slave-base-rhel7
+owners:
+- bparees@redhat.com
+repo:
+  type: rpms
