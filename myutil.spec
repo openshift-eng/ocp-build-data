@@ -10,7 +10,7 @@ Name:           myutil
 
 # Version and release information will be automatically managed by CD --
 # It will be kept in sync with OCP builds.
-Version:        0.1
+Version:        0.2
 Release:        1%{?dist}
 Summary:        Example utility image to demonstrate how RPMs and images are build for OCP.
 
@@ -40,5 +40,8 @@ install -m 755 enterprise-images-upstream-example $RPM_BUILD_ROOT%{_bindir}
 %{_bindir}/enterprise-images-upstream-example
 
 %changelog
+* Wed Nov 15 2017 jupierce <jupierce@redhat.com> 0.2-1
+- new package built with tito
+
 * Fri Jul 14 2017 jupierce <jupierce@redhat.com>
 -
