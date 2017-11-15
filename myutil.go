@@ -1,1 +1,9 @@
-package enterprise_images_upstream_example
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World - from myutil")
+}
+
+
