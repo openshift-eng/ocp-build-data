@@ -1,0 +1,22 @@
+# This group member metadata describes how we should find an RPM described
+# in a GitHub repo, build it, and make it available for an image group
+# member to consume.
+
+# Eventually, owners may also be notified if their RPM is causing the overall build to fail.
+owners:
+  - email@redhat.com
+  - email2@redhat.com
+
+rpm:
+  # Describes where *.spec for this RPM can be found.
+  # Where to pull the upstream Dockerfile from. Source locations are defined by an "alias" which is a logical
+  # name for a git repository. Source aliases must be defined in group.yml or specified on the command line
+  # by the build process. In the following example, oit will use the following file for its upstream source Dockerfile:
+  # [cloned ose repo root]/images/node/Dockerfile.rhel7
+  source:
+    alias: enterprise-images-upstream-example
+    # The path within the git repository to find *.spec (defaults to root of repo)
+    ## path: images/node
+    # Only specify if there are more than one spec files int the path.
+    ## specfile: myutil.spec
+
