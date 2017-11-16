@@ -15,8 +15,8 @@ Release:        1%{?dist}
 Summary:        Example utility image to demonstrate how RPMs and images are build for OCP.
 
 License:        MIT
-URL:            https://github.com/josephspurrier/goversioninfo
-Source0:        goversioninfo-0.1.tar.gz
+URL:            https://github.com/jupierce/enterprise-images-upstream-example
+Source0:        https://github.com/jupierce/enterprise-images-upstream-example/archive/%{commit}/%{name}-%{version}.tar.gz
 
 BuildRequires:  bsdtar
 BuildRequires:  golang
@@ -27,17 +27,16 @@ Example utility image to demonstrate how RPMs and images are build for OCP.
 %prep
 %autosetup
 
-
 %build
-go build
+go build myutil.go
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/bin
-install -m 755 enterprise-images-upstream-example $RPM_BUILD_ROOT%{_bindir}
+install -m 755 myutil $RPM_BUILD_ROOT%{_bindir}
 
 %files
-%{_bindir}/enterprise-images-upstream-example
+%{_bindir}/myutil
 
 %changelog
 * Wed Nov 15 2017 jupierce <jupierce@redhat.com> 0.2-1
