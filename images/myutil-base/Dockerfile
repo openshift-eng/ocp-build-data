@@ -14,7 +14,11 @@ ENV SOME_ENV=2
 
 # Specify any labels you want. They can be overridden by oit metadata if necessary
 # for RHEL based images.
-LABEL myutil_mode=nifty
+LABEL   myutil_mode=nifty
+
+# OIT can also be used to replace origin specific strings with values appropriate for OCP.
+# For example, OIT could be configured to replace this string with "some_atomic_openshift_string"
+LABEL   some_origin_string=value
 
 # You can do whatever you want to enable/disable repos for centos/CI; however,
 # when building in brew, these commands will be effectively ignored.
