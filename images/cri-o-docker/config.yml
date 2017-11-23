@@ -1,0 +1,23 @@
+from:
+  stream: rhel
+
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: CRI-O is an implementation of the Kubernetes CRI. It is a lightweight, OCI-compliant runtime that is native to kubernetes. CRI-O supports OCI container images and can pull from any container registry.
+  io.k8s.display-name: CRI-O
+  vendor: Red Hat
+
+name: openshift3/cri-o
+
+owners:
+- jhonce@redhat.com
+
+repo:
+  type: rpms
+
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-7-server-extras-rpms
+# Once run-c release -16 is in the normal server extras, this rep ocan go away
+- cri-o-rhel-7-server-extras-rpms
