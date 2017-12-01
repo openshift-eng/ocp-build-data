@@ -1,0 +1,13 @@
+# The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
+name: openshift3/prometheus
+
+from:
+  stream: rhel
+
+labels:
+  vendor: Red Hat
+  License: GPLv2+
+  architecture: "x86_64"
+  io.k8s.display-name: "Prometheus"
+  io.k8s.description: "This is the Prometheus base image."
+  io.openshift.tags: "openshift,prometheus"
