@@ -1,0 +1,21 @@
+from:
+  stream: rhel
+
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: Provisioner for local PersistentVolumes.
+  io.k8s.display-name: Local storage provisioner
+  io.openshift.tags: "local,dynamic,provisioner"
+  vendor: Red Hat
+
+name: openshift3/local-storage-provisioner
+
+owners:
+- jsafrane@redhat.com
+
+repo:
+  type: rpms
+
+enabled_repos:
+- rhel-server-ose-rpms
