@@ -8,8 +8,10 @@ content:
     - action: replace
       match: "origin-sdn-ovs"
       replacement: "atomic-openshift-sdn-ovs"
+
 from:
   member: openshift-enterprise-docker
+
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -18,8 +20,13 @@ labels:
   io.k8s.display-name: OpenShift Container Platform Node
   io.openshift.tags: openshift,node
   vendor: Red Hat
+
 name: openshift3/node
-owners:
-- dgoodwin@redhat.com
+
 repo:
   type: rpms
+
+enabled_repos:
+    - rhel-server-ose-rpms
+    - rhel-fast-datapath-rpms
+    - rhel-server-extras-rpms
