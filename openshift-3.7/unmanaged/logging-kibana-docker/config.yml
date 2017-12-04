@@ -1,5 +1,6 @@
 from:
   image: rhscl/nodejs-6-rhel7
+
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -7,9 +8,11 @@ labels:
   io.k8s.display-name: Kibana
   io.openshift.tags: logging,elk,kibana
   vendor: Red Hat
+
 name: openshift3/logging-kibana
-owners:
-- dev@lists.openshift.redhat.com
+
 repo:
   type: rpms
-no_oit_comments: true
+
+enabled_repos:
+    - rhel-server-ose-rpms
