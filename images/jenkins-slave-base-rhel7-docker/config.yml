@@ -3,9 +3,10 @@ content:
     alias: jenkins
     path: slave-base
     dockerfile: Dockerfile.rhel7
+
 from:
-  # THIS IS WRONG AND BRITTLE. MOVE TO ose member ASAP.
-  image: openshift3/ose:v3.9
+  member: openshift-enterprise-docker
+  
 labels:
   License: GPLv2+
   architecture: x86_64
