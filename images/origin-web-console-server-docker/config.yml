@@ -1,0 +1,28 @@
+content:
+  source:
+    alias: origin-web-console-server
+    path: images/origin-web-console
+    modifications:
+      - action: replace
+        match: "INSTALL_PKGS=\"origin-web-console"
+        replacement: "INSTALL_PKGS=\"atomic-openshift-web-console"
+
+from:
+  member: openshift-enterprise-base-docker
+
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is a component of OpenShift Container Platform and provides a web console.
+  io.k8s.display-name: OpenShift Web Console
+  io.openshift.tags: openshift,console,web-console
+  vendor: Red Hat
+
+name: openshift3/ose-web-console
+owners: []
+
+repo:
+  type: rpms
+
+enabled_repos:
+    - rhel-server-ose-rpms
