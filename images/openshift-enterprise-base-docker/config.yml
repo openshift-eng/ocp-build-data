@@ -16,3 +16,13 @@ content:
   source:
     alias: ose
     path: images/base
+    modifications:
+      # addition of centos ceph package incompatible with RHEL builds
+      # added here: https://github.com/openshift/ose/commit/2120bad7fb4e1682c7f73107d577d8368b68cd41#diff-065f169938b73c43248f266b4fc6291bR10
+      # follow up with storage team required. Brute force removing for now
+      - action: replace
+        match: "yum install -y centos-release-ceph-luminous && "
+        replacement: ""
+      - action: replace
+        match: "rpm -V centos-release-ceph-luminous && "
+        replacement: ""
