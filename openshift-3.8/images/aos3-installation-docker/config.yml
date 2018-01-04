@@ -3,11 +3,6 @@ content:
     alias: openshift-ansible
     path: images/installer
     dockerfile: Dockerfile.rhel7
-    # Temporary modification until: https://github.com/openshift/openshift-ansible/pull/6600
-    modifications:
-      - action: replace
-        match: "google-cloud-sdk"
-        replacement: ""    
     
 from:
   stream: rhel
