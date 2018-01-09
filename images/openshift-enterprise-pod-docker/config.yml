@@ -2,10 +2,7 @@ content:
   source:
     alias: ose
     path: images/pod
-    modifications:
-      - action: replace
-        match: "origin-pod"
-        replacement: "atomic-openshift-pod"
+    dockerfile: Dockerfile.product
 from:
   stream: rhel
 labels:
