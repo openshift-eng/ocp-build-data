@@ -2,6 +2,7 @@ content:
   source:
     alias: ose
     path: images/node
+    dockerfile: Dockerfile.centos7
     modifications:
       - action: replace
         match: "origin-sdn-ovs"
@@ -19,7 +20,7 @@ labels:
 name: openshift3/node
 repo:
   type: rpms
-
+owners: []
 enabled_repos:
     - rhel-server-ose-rpms
     - rhel-fast-datapath-rpms

@@ -2,10 +2,11 @@ content:
   source:
     alias: ose
     path: images/origin
+    dockerfile: Dockerfile.centos7
     modifications:
       - action: replace
-        match: "INSTALL_PKGS=\"origin\""
-        replacement: "INSTALL_PKGS=\"atomic-openshift\""
+        match: "\"origin\""
+        replacement: "\"atomic-openshift\""
 from:
   member: openshift-enterprise-base-docker
 labels:
