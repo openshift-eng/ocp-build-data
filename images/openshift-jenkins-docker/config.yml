@@ -3,6 +3,14 @@ content:
     alias: jenkins
     path: '1'
     dockerfile: Dockerfile.rhel7
+    modifications:
+      - action: replace
+        match: "jenkins-1.651.2"
+        replacement: "jenkins-1-1.651.2"
+      - action: replace
+        match: "jenkins-plugin-workflow-aggregator-2.1-1.el7.x86_64"
+        replacement: "jenkins-plugin-workflow-aggregator"
+      
 from:
   stream: rhel
 labels:
