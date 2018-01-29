@@ -42,8 +42,10 @@ repos:
 sources:
   cri-o:
     url: git@github.com:kubernetes-incubator/cri-o.git
-    branch: release-1.8
+    branch:
+      target: release-1.8
   image-registry:
     url: git@github.com:openshift/image-registry.git
-    branch: release-3.8
-    fallback-branch: master
+    branch:
+      target: release-3.8
+      fallback: master
