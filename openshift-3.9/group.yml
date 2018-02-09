@@ -42,20 +42,26 @@ repos:
 sources:
   cri-o:
     url: git@github.com:kubernetes-incubator/cri-o.git
-    branch: release-1.9
+    branch:
+      target: release-1.9
   origin-web-console-server:
     url: git@github.com:openshift/origin-web-console-server.git
-    branch: enterprise-3.9
-    fallback-branch: master
+    branch:
+      target: enterprise-3.9
+      fallback: master
+      stage: stage
   image-registry:
     url: git@github.com:openshift/image-registry.git
-    branch: release-3.9
-    fallback-branch: master
+    branch:
+      target: release-3.9
+      fallback: master
   node-problem-detector:
     url: git@github.com:openshift/node-problem-detector.git
-    branch: release-3.9
-    fallback-branch: master 
+    branch:
+      target: release-3.9
+      fallback: master 
   descheduler:
     url: git@github.com:openshift/descheduler.git
-    branch: release-3.9
-    fallback-branch: master 
+    branch:
+      target: release-3.9
+      fallback: master 
