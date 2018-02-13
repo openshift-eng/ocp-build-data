@@ -1,11 +1,14 @@
+alt_name: rhel7/pod-infrastructure
 content:
   source:
     alias: ose
-    path: images/pod
     modifications:
-      - action: replace
-        match: "origin-pod"
-        replacement: "atomic-openshift-pod"
+    - action: replace
+      match: origin-pod
+      replacement: atomic-openshift-pod
+    path: images/pod
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   stream: rhel
 labels:
@@ -17,11 +20,4 @@ labels:
   io.openshift.tags: openshift,pod
   vendor: Red Hat
 name: openshift3/ose-pod
-alt_name: rhel7/pod-infrastructure
 owners: []
-repo:
-  type: rpms
-
-
-enabled_repos:
-    - rhel-server-ose-rpms
