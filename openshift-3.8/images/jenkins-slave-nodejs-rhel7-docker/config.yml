@@ -1,8 +1,11 @@
 content:
   source:
     alias: jenkins
-    path: slave-nodejs
     dockerfile: Dockerfile.rhel7
+    path: slave-nodejs
+enabled_repos:
+- rhel-server-rhscl-rpms
+- rhel-server-optional-rpms
 from:
   member: jenkins-slave-base-rhel7-docker
 labels:
@@ -16,8 +19,3 @@ labels:
 name: openshift3/jenkins-slave-nodejs-rhel7
 owners:
 - bparees@redhat.com
-repo:
-  type: rpms
-enabled_repos:
-    - rhel-server-rhscl-rpms
-    - rhel-server-optional-rpms

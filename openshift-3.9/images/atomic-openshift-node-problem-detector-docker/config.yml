@@ -1,26 +1,20 @@
-non_release: true
-
 content:
   source:
     alias: node-problem-detector
     path: images
-
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   stream: rhel
-
 labels:
   License: GPLv2+
   architecture: x86_64
-  io.k8s.description: node-problem-detector aims to make various node problems visible to the upstream layers in cluster management stack. It is a daemon which runs on each node, detects node problems and reports them to apiserver.
+  io.k8s.description: node-problem-detector aims to make various node problems visible
+    to the upstream layers in cluster management stack. It is a daemon which runs
+    on each node, detects node problems and reports them to apiserver.
   io.k8s.display-name: Node Problem Detector
   io.openshift.tags: openshift,node
   vendor: Red Hat
-
 name: openshift3/node-problem-detector
+non_release: true
 owners: []
-
-repo:
-  type: rpms
-
-enabled_repos:
-    - rhel-server-ose-rpms

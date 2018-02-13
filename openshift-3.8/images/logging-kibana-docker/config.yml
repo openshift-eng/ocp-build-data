@@ -1,3 +1,5 @@
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   image: rhscl/nodejs-6-rhel7
 labels:
@@ -8,8 +10,3 @@ labels:
   io.openshift.tags: logging,elk,kibana
   vendor: Red Hat
 name: openshift3/logging-kibana
-repo:
-  type: rpms
-
-enabled_repos:
-    - rhel-server-ose-rpms

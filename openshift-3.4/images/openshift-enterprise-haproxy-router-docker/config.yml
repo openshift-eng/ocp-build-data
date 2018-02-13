@@ -1,8 +1,8 @@
 content:
   source:
     alias: ose
-    path: images/router/haproxy
     dockerfile: Dockerfile.product
+    path: images/router/haproxy
 from:
   member: openshift-enterprise-docker
 labels:
@@ -17,5 +17,3 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-haproxy-router
 owners: []
-repo:
-  type: rpms

@@ -1,8 +1,11 @@
+alt_name: rhel7/pod-infrastructure
 content:
   source:
     alias: ose
-    path: images/pod
     dockerfile: Dockerfile.product
+    path: images/pod
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   stream: rhel
 labels:
@@ -14,10 +17,4 @@ labels:
   io.openshift.tags: openshift,pod
   vendor: Red Hat
 name: openshift3/ose-pod
-alt_name: rhel7/pod-infrastructure
 owners: []
-repo:
-  type: rpms
-
-enabled_repos:
-    - rhel-server-ose-rpms

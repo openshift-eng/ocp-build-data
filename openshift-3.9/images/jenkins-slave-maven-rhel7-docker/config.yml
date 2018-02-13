@@ -1,8 +1,10 @@
 content:
   source:
     alias: jenkins
-    path: slave-maven
     dockerfile: Dockerfile.rhel7
+    path: slave-maven
+enabled_repos:
+- rhel-server-rhscl-rpms
 from:
   member: jenkins-slave-base-rhel7-docker
 labels:
@@ -13,10 +15,6 @@ labels:
   io.k8s.display-name: Jenkins Slave Maven
   io.openshift.tags: openshift,jenkins,slave,maven
   vendor: Red Hat
-name: "openshift3/jenkins-slave-maven-rhel7"
+name: openshift3/jenkins-slave-maven-rhel7
 owners:
 - bparees@redhat.com
-repo:
-  type: rpms
-enabled_repos:
-    - rhel-server-rhscl-rpms

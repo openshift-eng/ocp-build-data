@@ -1,8 +1,12 @@
 content:
   source:
     alias: ose
-    path: images/node
     dockerfile: Dockerfile.product
+    path: images/node
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-fast-datapath-rpms
+- rhel-server-extras-rpms
 from:
   member: openshift-enterprise-docker
 labels:
@@ -14,10 +18,4 @@ labels:
   io.openshift.tags: openshift,node
   vendor: Red Hat
 name: openshift3/node
-repo:
-  type: rpms
 owners: []
-enabled_repos:
-    - rhel-server-ose-rpms
-    - rhel-fast-datapath-rpms
-    - rhel-server-extras-rpms

@@ -1,16 +1,13 @@
-# The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
-name: openshift3/prometheus-alertmanager
-
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   stream: rhel
-
 labels:
-  vendor: Red Hat
   License: GPLv2+
-  architecture: "x86_64"
-  io.k8s.display-name: "Prometheus Alert Manager"
-  io.k8s.description: "This is the Prometheus Alert Manager image."
-  io.openshift.tags: "openshift,prometheus"
-enabled_repos:
-    - rhel-server-ose-rpms
+  architecture: x86_64
+  io.k8s.description: This is the Prometheus Alert Manager image.
+  io.k8s.display-name: Prometheus Alert Manager
+  io.openshift.tags: openshift,prometheus
+  vendor: Red Hat
+name: openshift3/prometheus-alertmanager
 owners: []
