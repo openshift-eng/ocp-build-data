@@ -1,8 +1,8 @@
 content:
   source:
     alias: ose
-    path: images/ipfailover/keepalived
     dockerfile: Dockerfile.product
+    path: images/ipfailover/keepalived
 from:
   member: openshift-enterprise-base-docker
 labels:
@@ -16,5 +16,3 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-keepalived-ipfailover
 owners: []
-repo:
-  type: rpms

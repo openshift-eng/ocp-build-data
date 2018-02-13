@@ -1,8 +1,8 @@
 content:
   source:
     alias: ose
-    path: images/builder/docker/sti-builder
     dockerfile: Dockerfile.product
+    path: images/builder/docker/sti-builder
 from:
   member: openshift-enterprise-docker
 labels:
@@ -15,5 +15,3 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-sti-builder
 owners: []
-repo:
-  type: rpms
