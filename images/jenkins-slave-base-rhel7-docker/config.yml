@@ -1,12 +1,10 @@
 content:
   source:
     alias: jenkins
-    path: slave-base
     dockerfile: Dockerfile.rhel7
-
+    path: slave-base
 from:
   member: openshift-enterprise-docker
-  
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -20,5 +18,3 @@ labels:
 name: openshift3/jenkins-slave-base-rhel7
 owners:
 - bparees@redhat.com
-repo:
-  type: rpms

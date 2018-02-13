@@ -1,36 +1,24 @@
-# The image name this repo builds. This is the value set into LABEL:name (used by OSBS when naming image).
-name: openshift3/ose
-
-from:
-  member: openshift-enterprise-base-docker
-
-owners: []
-
-labels:
-  vendor: Red Hat
-  License: GPLv2+
-  architecture: "x86_64"
-  io.k8s.display-name: "OpenShift Container Platform Application Platform"
-  io.k8s.description: "OpenShift Container Platform is a platform for developing, building, and deploying containerized applications."
-  io.openshift.tags: "openshift,core"
-
-push:
-  # Instructs oit to push this image later than others. CI/CD systems may key off
-  # when a given image is updated and expect all other imgages to be in place
-  # when that special image changes. Setting this flag to true indicates this
-  # is one such special image.
-  late: true
-
 content:
   source:
-    # If the source has an alias defined, an extracted local directory can be specified on the local file system
-    # using --source alias path.
     alias: ose
-    path: images/origin
     modifications:
-      - action: replace
-        match: "INSTALL_PKGS=\"origin\""
-        replacement: "INSTALL_PKGS=\"atomic-openshift\""
-
+    - action: replace
+      match: INSTALL_PKGS="origin"
+      replacement: INSTALL_PKGS="atomic-openshift"
+    path: images/origin
 enabled_repos:
-    - rhel-server-ose-rpms
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base-docker
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: OpenShift Container Platform is a platform for developing, building,
+    and deploying containerized applications.
+  io.k8s.display-name: OpenShift Container Platform Application Platform
+  io.openshift.tags: openshift,core
+  vendor: Red Hat
+name: openshift3/ose
+owners: []
+push:
+  late: true
