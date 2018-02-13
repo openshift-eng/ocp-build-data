@@ -1,8 +1,8 @@
 content:
   source:
     alias: ose
-    path: images/dockerregistry
     dockerfile: Dockerfile.product
+    path: images/dockerregistry
 from:
   member: openshift-enterprise-base-docker
 labels:
@@ -15,5 +15,3 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-docker-registry
 owners: []
-repo:
-  type: rpms
