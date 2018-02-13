@@ -1,8 +1,10 @@
 content:
   source:
     alias: openshift-ansible
-    path: images/installer
     dockerfile: Dockerfile.rhel7
+    path: images/installer
+enabled_repos:
+- rhel-server-rh-common-rpms
 from:
   stream: rhel
 labels:
@@ -15,7 +17,3 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-ansible
 owners: []
-repo:
-  type: rpms
-enabled_repos:
-  - rhel-server-rh-common-rpms
