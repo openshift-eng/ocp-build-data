@@ -24,7 +24,9 @@ repos:
         rhel-server-extras-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
         rhel-fast-datapath-rpms:
-            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+            # baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+            # Needed for testing OVS 2.9. Remove the URL below an use original ^^ after March 15, 2018. 
+            baseurl: http://cdn.stage.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
         rhel-fast-datapath-htb-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
         rhel-server-optional-rpms:
