@@ -12,9 +12,18 @@ repos:
     signed:
         rhel-server-ose-rpms:
             baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.9/building/RH7-RHAOS-3.9/x86_64/os
+        rhel-fast-datapath-rpms:
+            # Contains RPMs which have shipped.
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
     unsigned:
         rhel-server-ose-rpms:
             baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.9/building/x86_64/os
+        rhel-fast-datapath-rpms:
+            # Contains RPMs which are staged to ship.
+            baseurl: http://pulp.dist.stage.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/           
+        rhel-fast-datapath-htb-rpms:
+            # High touch beta fast-datapath; only needed when we need to build something for testing.
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
     common:
         rhel-server-rhscl-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
@@ -23,10 +32,6 @@ repos:
             enabled: 1
         rhel-server-extras-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
-        rhel-fast-datapath-rpms:
-            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
-        rhel-fast-datapath-htb-rpms:
-            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
         rhel-server-optional-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
             enabled: 1
