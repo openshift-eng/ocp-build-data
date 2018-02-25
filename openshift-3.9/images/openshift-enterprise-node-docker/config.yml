@@ -5,6 +5,9 @@ content:
     - action: replace
       match: origin-sdn-ovs
       replacement: atomic-openshift-sdn-ovs
+    - action: replace
+      match: "rpm -V $INSTALL_PKGS &&"
+      replacement:
     path: images/node
 enabled_repos:
 - rhel-server-ose-rpms
