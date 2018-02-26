@@ -24,9 +24,6 @@ repos:
         rhel-fast-datapath-htb-rpms:
             # High touch beta fast-datapath; only needed when we need to build something for testing.
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-        docker-1-13-temporary:
-            # For container engine only. Go back to normal extras once docker 1.13 ships.
-            baseurl: http://download-node-02.eng.bos.redhat.com/nightly/EXTRAS-RHEL-7.4/latest-EXTRAS-7-RHEL-7/compose/Server/x86_64/os/
     common:
         rhel-server-rhscl-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
@@ -46,6 +43,9 @@ repos:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
         rhel-server-ose-OLD_NODE_JS-rpms:
             baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.2/building/x86_64/os
+        docker-1-13-temporary:
+            # For container engine only. Go back to normal extras once docker 1.13 ships.
+            baseurl: http://download-node-02.eng.bos.redhat.com/nightly/EXTRAS-RHEL-7.4/latest-EXTRAS-7-RHEL-7/compose/Server/x86_64/os/
 
 sources:
   cri-o:
