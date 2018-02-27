@@ -1,0 +1,22 @@
+content:
+  source:
+    alias: ose
+    modifications:
+    - action: replace
+      match: 'yum install -y centos-release-ceph-luminous && '
+      replacement: ''
+    - action: replace
+      match: 'rpm -V centos-release-ceph-luminous && '
+      replacement: ''
+    path: images/base
+from:
+  stream: rhel
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is the base image from which all OpenShift Container Platform
+    images inherit.
+  io.k8s.display-name: OpenShift Container Platform RHEL 7 Base
+  io.openshift.tags: openshift,base
+  vendor: Red Hat
+name: openshift3/ose-base
