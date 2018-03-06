@@ -21,7 +21,7 @@ repos:
         rhel-fast-datapath-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
             # Contains RPMs which are staged to ship.
-            # baseurl: http://pulp.dist.stage.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/           
+            # baseurl: http://pulp.dist.stage.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
         rhel-fast-datapath-htb-rpms:
             # High touch beta fast-datapath; only needed when we need to build something for testing.
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
@@ -68,14 +68,18 @@ sources:
     url: git@github.com:openshift/node-problem-detector.git
     branch:
       target: release-3.9
-      fallback: master 
+      fallback: master
   descheduler:
     url: git@github.com:openshift/descheduler.git
     branch:
       target: release-3.9
-      fallback: master 
+      fallback: master
   jenkins:
     url: git@github.com:openshift/jenkins.git
     branch:
       target: openshift-3.9
       fallback: master
+  node_exporter:
+    url: git@github.com:openshift/node_exporter.git
+    branch:
+      target: openshift-master
