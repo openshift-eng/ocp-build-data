@@ -3,4 +3,4 @@ Unless otherwise required, repositories which contribute RPMs and images to the 
     - This spec should include a %commit variable as shown in myutil.spec.
 - Place Dockerfiles in images/some-name path.
     - Read the example Dockerfiles in this repo for more details about the content of these Dockerfiles.
-- Use tito init to initialize the repo for tito based management (https://github.com/dgoodwin/tito)
+
