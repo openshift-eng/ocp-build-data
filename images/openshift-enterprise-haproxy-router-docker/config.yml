@@ -2,6 +2,11 @@ content:
   source:
     alias: ose
     path: images/router/haproxy
+    # Replacement to fix mysterious osbs repo containing of haproxy RPM: cbs-paas7-openshift-multiarch-el7-build
+    modifications:
+    - action: replace
+      match: yum install
+      replacement: yum --disablerepo='cbs-paas7-openshift-multiarch-el7-build' install
 from:
   member: openshift-enterprise-docker
 labels:
