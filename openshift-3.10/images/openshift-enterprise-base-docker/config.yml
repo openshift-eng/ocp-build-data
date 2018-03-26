@@ -8,6 +8,9 @@ content:
     - action: replace
       match: 'rpm -V centos-release-ceph-luminous && '
       replacement: ''
+    - action: replace
+      match: "COPY *.repo /etc/yum.repos.d/"
+      replacement: ""
     path: images/base
 from:
   stream: rhel
