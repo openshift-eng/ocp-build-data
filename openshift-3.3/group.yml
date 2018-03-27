@@ -1,40 +1,55 @@
+vars:
+  MAJOR: 3
+  MINOR: 3
+
 # Specifying a name in this file to avoid the situation where we copy
 # a group and don't remember to come into this file and update branch
 # information. If someone copies a pre-existing group without updating
 # the group name, they will get an error and be reminded to update this
 # file.
-name: openshift-3.3
+name: openshift-{MAJOR}.{MINOR}
 
 # Distgit branch to use with this group
-branch: rhaos-3.3-rhel-7
+branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 
 repos:
     signed:
         rhel-server-ose-rpms:
-            baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.3/building/RH7-RHAOS-3.3/x86_64/os
+            baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
             enabled: 1
+            name: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
     unsigned:
         rhel-server-ose-rpms:
-            baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.3/building/x86_64/os
+            baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
             enabled: 1
+            name: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
     common:
         rhel-server-rhscl-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
+            name: rhel-server-rhscl-7-rpms
         rhel-server-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
             enabled: 1
+            name: rhel-7-server-rpms
         rhel-server-extras-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+            name: rhel-7-server-extras-rpms
         rhel-fast-datapath-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+            name: rhel-7-fast-datapath-rpms
         rhel-fast-datapath-htb-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
+            name: rhel-7-fast-datapath-htb-rpms
         rhel-server-optional-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
             enabled: 1
+            name: rhel-7-server-optional-rpms
         rhel-server-rh-common-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
+            name: rhel-7-server-rh-common-rpms
         rhel-server-ose-released:
-            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/3.3/os/
+            baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
+            name: rhel-7-server-ose-released
         apb-rhel-server-extras-rpms:
             baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+            name: rhel-7-server-extras-rpms
