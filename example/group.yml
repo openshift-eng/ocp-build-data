@@ -21,39 +21,55 @@ sources:
       # Fallback branch is used if release-3.8 does not exist yet
       fallback: master
 
-# If an image is set to "non_release", it will not show up by default in images:print or be 
+# If an image is set to "non_release", it will not show up by default in images:print or be
 # included in elliott actions. This allows us to build images without tempting people
 # to attach it to errata.
 non_release:
     - openshift-enterprise-base-docker
 
+# Specify the arches to be built
+arches:
+- x86_64
+- ppc64le
+
 # Advanced. In general, developers do not need to worry with this section unless, for some reason, your
 # image needs non-OCP rpms to be installed.
 repos:
-  signed:
-    rhel-server-ose-rpms:
-      baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.8/building/RH7-RHAOS-3.8/x86_64/os
-  unsigned:
-    rhel-server-ose-rpms:
-      baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.8/building/x86_64/os
-  common:
-      rhel-server-rhscl-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
-      rhel-server-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
-        enabled: 1
-      rhel-server-extras-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
-      rhel-fast-datapath-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
-      rhel-fast-datapath-htb-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-      rhel-server-optional-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
-        enabled: 1
-      rhel-server-rh-common-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
-      rhel-server-ose-released:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/3.3/os/
-      apb-rhel-server-extras-rpms:
-        baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+  rhel-server-ose-rpms:
+    conf:
+      baseurl: # can either be a string or a dict with signed/unsigned. Correct version will be retrieved either way.
+        signed: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
+        unsigned: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
+    content_set:
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+  rhel-server-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
+      # enable by default in generated .repo file
+      enabled: 1
+    content_set:
+      # content set names to be added to content_sets.yml
+      # will use entry for current arch, otherwise default.
+      # must provide default unless all arches specified.
+      default: rhel-7-server-rpms
+      ppc64le: rhel-7-server-ppc64le-rpms
+  rhel-server-rhscl-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
+    content_set:
+      default: rhel-server-rhscl-7-rpms
+  rhel-server-extras-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+    content_set:
+      default: rhel-7-server-extras-rpms
+  rhel-fast-datapath-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+    content_set:
+      default: rhel-7-fast-datapath-rpms
+  rhel-fast-datapath-htb-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
+    content_set:
+      default: rhel-7-fast-datapath-htb-rpms
