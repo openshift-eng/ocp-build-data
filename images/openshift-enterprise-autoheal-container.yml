@@ -1,0 +1,23 @@
+content:
+  source:
+    alias: autoheal
+    path: images/autoheal
+    modifications:
+    - action: replace
+      match: "openshift-autoheal"
+      replacement: "openshift-enterprise-autoheal"
+from:
+  member: openshift-enterprise-base-docker
+labels:
+  License: ASL 2.0
+  architecture: x86_64
+  io.k8s.description: OpenShift Autoheal
+  io.k8s.display-name: OpenShift Autoheal
+  io.openshift.tags: openshift
+  vendor: Red Hat
+name: openshift3/ose-autoheal
+owners: []
+distgit:
+  namespace: containers
+enabled_repos:
+- rhel-server-ose-rpms
