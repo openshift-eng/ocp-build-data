@@ -1,7 +1,15 @@
+content:
+  source:
+    alias: service-catalog
+    path: images/service-catalog
+    modifications:
+    - action: replace
+      match: origin-service-catalog
+      replacement: atomic-enterprise-service-catalog
 enabled_repos:
 - rhel-server-ose-rpms
 from:
-  stream: rhel
+  member: openshift-enterprise-base-docker
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -11,4 +19,5 @@ labels:
   io.openshift.tags: openshift,service-catalog
   vendor: Red Hat
 name: openshift3/ose-service-catalog
-owners: []
+owners:
+- jpeeler@redhat.com
