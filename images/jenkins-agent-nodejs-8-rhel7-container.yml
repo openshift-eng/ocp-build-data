@@ -1,0 +1,25 @@
+content:
+  source:
+    alias: jenkins
+    dockerfile: Dockerfile.rhel7
+    path: agent-nodejs-8
+from:
+  member: jenkins-slave-base-rhel7-docker
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: The jenkins agent nodejs image has the nodejs tools on top
+    of the jenkins slave base image.
+  io.k8s.display-name: Jenkins Agent Nodejs
+  io.openshift.tags: openshift,jenkins,agent,nodejs
+  vendor: Red Hat
+name: openshift3/jenkins-agent-nodejs-8-rhel7
+distgit:
+  namespace: containers
+owners:
+- gmontero@redhat.com
+- bparees@redhat.com
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-optional-rpms
+- rhel-server-rhscl-rpms
