@@ -1,0 +1,24 @@
+content:
+  source:
+    alias: metrics-server
+    path: images/metrics-server
+    modifications:
+    - action: replace
+      match: "origin-metrics-server"
+      replacement: "atomic-openshift-metrics-server"
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base-docker
+labels:
+  License: ASL 2.0
+  architecture: x86_64
+  io.k8s.description: This is a component of OpenShift Container Platform and exposes the cluster resources metrics API.
+  io.k8s.display-name: OpenShift Container Platform Metrics Server
+  io.openshift.tags: openshift,metrics
+  vendor: Red Hat
+name: openshift3/ose-metrics-server
+owners:
+  - sjenning@redhat.com
+distgit:
+  namespace: containers
