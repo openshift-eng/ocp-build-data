@@ -1,7 +1,13 @@
-enabled_repos:
-- rhel-server-ose-rpms
+content:
+  source:
+    alias: cluster-capacity
+    path: images/cluster-capacity
+    modifications:
+    - action: replace
+      match: "openshift-cluster-capacity"
+      replacement: "openshift-enterprise-cluster-capacity"
 from:
-  stream: rhel
+  member: openshift-enterprise-base-docker
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -11,4 +17,7 @@ labels:
   io.openshift.tags: openshift,cluster-capacity
   vendor: Red Hat
 name: openshift3/ose-cluster-capacity
-owners: []
+owners:
+  - avagarwa@redhat.com
+enabled_repos:
+- rhel-server-ose-rpms
