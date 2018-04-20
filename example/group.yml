@@ -21,11 +21,14 @@ sources:
       # Fallback branch is used if release-3.8 does not exist yet
       fallback: master
 
-# If an image is set to "non_release", it will not show up by default in images:print or be
+# If an image or RPM is set to "non_release", it will not show up by default in images:print or be
 # included in elliott actions. This allows us to build images without tempting people
 # to attach it to errata.
 non_release:
-    - openshift-enterprise-base-docker
+  images:
+  - some-image-distgit_key
+  rpms:
+  - some-rpm-distgit_key
 
 # Specify the arches to be built
 arches:

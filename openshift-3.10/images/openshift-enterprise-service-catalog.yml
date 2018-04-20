@@ -1,0 +1,23 @@
+content:
+  source:
+    alias: service-catalog
+    path: images/service-catalog
+    modifications:
+    - action: replace
+      match: origin-service-catalog
+      replacement: atomic-enterprise-service-catalog
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is a component of OpenShift Container Platform and runs
+    Service Catalog.
+  io.k8s.display-name: OpenShift Container Platform Service Catalog
+  io.openshift.tags: openshift,service-catalog
+  vendor: Red Hat
+name: openshift3/ose-service-catalog
+owners:
+- jpeeler@redhat.com

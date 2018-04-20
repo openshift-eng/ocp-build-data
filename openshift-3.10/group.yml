@@ -10,6 +10,10 @@ vars:
 name: openshift-{MAJOR}.{MINOR}
 
 non_release:
+  images:
+  - atomic-openshift-metrics-server-container
+  - atomic-openshift-cluster-autoscaler-container
+  rpms:
   - atomic-openshift-metrics-server-container
   - atomic-openshift-cluster-autoscaler-container
 
