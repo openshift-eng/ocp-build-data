@@ -1,0 +1,22 @@
+content:
+  source:
+    alias: ose
+    modifications:
+    - action: replace
+      match: origin-hypershift
+      replacement: openshift-enterprise-hypershift
+    path: images/hypershift
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base-docker
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: OpenShift is a platform for developing, building, and deploying containerized applications.
+  io.k8s.display-name: OpenShift Server Commands
+  io.openshift.tags: openshift,hypershift
+  vendor: Red Hat
+name: openshift3/ose-hypershift
+distgit:
+  namespace: containers
