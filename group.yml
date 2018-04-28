@@ -74,11 +74,6 @@ repos:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
     content_set:
       default: rhel-7-server-rh-common-rpms
-  rhel-server-ose-released:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/3.3/os/
-    content_set:
-      default: rhel-7-server-ose-3.3-rpms
   apb-rhel-server-extras-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
@@ -89,12 +84,6 @@ repos:
       baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/x86_64/os/
     content_set:
       default: rhel-7-server-ose-3.2-rpms
-  docker-1-13-temporary:
-    # For container engine only. Go back to normal extras once docker 1.13 ships.
-    conf:
-      baseurl: http://download-node-02.eng.bos.redhat.com/nightly/EXTRAS-RHEL-7.4/latest-EXTRAS-7-RHEL-7/compose/Server/x86_64/os/
-    content_set:
-      default: null
 
 sources:
   cri-o:
