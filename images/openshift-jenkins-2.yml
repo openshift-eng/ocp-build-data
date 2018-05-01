@@ -17,3 +17,20 @@ labels:
 name: openshift3/jenkins-2-rhel7
 owners:
 - bparees@redhat.com
+odcs:
+  packages:
+    mode: manual
+    list:
+      - rsync
+      - git
+      - zip
+      - tar
+      - atomic-openshift-clients
+      - gettext
+      - dejavu-sans-fonts
+      - unzip
+      - jenkins-2-plugins
+      - wget
+      # leave out openjdk because it must come from pulp
+      # - java-1.8.0-openjdk
+      # - java-1.8.0-openjdk-devel
