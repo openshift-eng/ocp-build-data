@@ -18,3 +18,18 @@ labels:
 name: openshift3/jenkins-slave-base-rhel7
 owners:
 - bparees@redhat.com
+odcs:
+  packages:
+    mode: manual
+    list:
+      - rsync
+      - git
+      - zip
+      - tar
+      - bc
+      - gettext
+      - unzip
+      - which
+      - lsof
+      # leave out openjdk because it must come from pulp
+      # - java-1.8.0-openjdk-headless

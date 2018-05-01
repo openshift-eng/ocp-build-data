@@ -81,3 +81,16 @@ push:
   # Tags that will be added to the default set associated with the image
   additional_tags:
     - 2.4
+
+# Setup options for ODCS output (container.yaml)
+odcs:
+  packages:
+      mode: auto | manual (default)
+      # auto - detect packages in Dockerfile and merge with list below
+      # manual - only use list below. Ignore Dockerfile
+      list:
+          - package1
+          - package2
+  platforms:
+      mode: auto | manual
+  config: ... # verbatim container.yaml content (see https://mojo.redhat.com/docs/DOC-1159997)

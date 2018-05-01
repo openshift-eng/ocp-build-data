@@ -29,7 +29,11 @@ repos:
         signed: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
         unsigned: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
     content_set:
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      optional: true
+      # ODCS cannot see hidden content sets at the moment.
+      # https://projects.engineering.redhat.com/browse/FACTORY-2629
+      # giving it a name that isn't real will fix this for now.
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms-DONOTUSE
   rhel-fast-datapath-rpms:
     # Contains RPMs which are staged to ship.
     conf:
