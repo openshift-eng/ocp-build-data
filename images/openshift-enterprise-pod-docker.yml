@@ -1,4 +1,8 @@
-alt_name: rhel7/pod-infrastructure
+push:
+  repos:
+    - openshift3/ose-pod   # Push with standard name to group registries
+    - rhel7/pod-infrastructure  # Push with alternative name to group registries
+
 content:
   source:
     alias: ose
@@ -21,3 +25,4 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-pod
 owners: []
+
