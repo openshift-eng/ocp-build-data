@@ -66,3 +66,18 @@ content:
     path: images/myutil
     # Optionally specify the name of the upstream Dockerfile if it is not the default
     ## dockerfile: Dockerfile.rhel7
+
+# Images can specify they would like to be pushed to a completely different
+# registry/namesapce/repo during default pushes.
+push:
+  # A list of names that will be used when pushing to registries without ns/repo. If
+  # not specified, default to 'name:' field.
+  repos:
+    - openshift3/myutil
+    - another_ns/another-repo
+  also:
+    # Additional full registry/ns/repos to push to.
+    - quay.io/openshift/ocp-myutil
+  # Tags that will be added to the default set associated with the image
+  additional_tags:
+    - 2.4
