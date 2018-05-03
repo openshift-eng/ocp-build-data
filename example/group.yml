@@ -73,3 +73,11 @@ repos:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
     content_set:
       default: rhel-7-fast-datapath-htb-rpms
+
+# Registries to which images will be pushed 'by default' after being build in brew.
+# The registry name may also include a namespace which will overrides the image's standard
+# namespace.
+# Each image can also specify registries as well.
+push:
+  registries:
+    - registry.reg-aws.openshift.com:443
