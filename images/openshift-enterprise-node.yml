@@ -2,9 +2,19 @@ content:
   source:
     alias: ose
     modifications:
+
     - action: replace
       match: origin-sdn-ovs
       replacement: atomic-openshift-sdn-ovs
+
+    - action: replace
+      match: origin-hyperkube
+      replacement: atomic-openshift-hyperkube
+
+    - action: replace
+      match: origin-node
+      replacement: atomic-openshift-node
+
     - action: replace
       match: "rpm -V $INSTALL_PKGS &&"
       replacement:
