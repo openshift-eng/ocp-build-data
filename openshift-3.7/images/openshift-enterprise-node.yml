@@ -1,11 +1,15 @@
 content:
   source:
     alias: ose
+    path: images/node
     modifications:
     - action: replace
       match: origin-sdn-ovs
       replacement: atomic-openshift-sdn-ovs
-    path: images/node
+    - action: replace
+      match: "rpm -V $INSTALL_PKGS && "
+      replacement:
+
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-fast-datapath-rpms
