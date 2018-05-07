@@ -3,6 +3,10 @@ content:
     alias: ose
     dockerfile: Dockerfile.product
     path: images/openvswitch
+    modifications:
+    - action: replace
+      match: "rpm -V $INSTALL_PKGS && "
+      replacement:
 from:
   member: openshift-enterprise-base
 labels:
