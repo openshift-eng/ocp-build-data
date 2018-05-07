@@ -4,6 +4,12 @@ enabled_repos:
 - rhel-server-ose-rpms
 from:
   member: openshift-enterprise-apb-base
+
+# osbs presently has a bug that does not respsect namespaces.
+# so don't build the media wikis at the same time.
+# https://projects.engineering.redhat.com/browse/OSBS-5592
+wait_for: openshift-enterprise-mediawiki.container
+
 labels:
   License: GPLv2+
   vendor: Red Hat
