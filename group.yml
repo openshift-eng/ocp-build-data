@@ -144,7 +144,7 @@ sources:
   metrics-server:
     url: git@github.com:openshift/kubernetes-metrics-server.git
     branch:
-      target: release-3.10
+      target: release-{MAJOR}.{MINOR}
       fallback: master
   autoheal:
     url: git@github.com:openshift/autoheal.git
@@ -155,5 +155,10 @@ sources:
     url: git@github.com:openshift/cluster-capacity.git
     branch:
       target: openshift-{MAJOR}.{MINOR}
+      fallback: master
+  kubernetes-autoscaler:
+    url: git@github.com:openshift/kubernetes-autoscaler.git
+    branch:
+      target: release-{MAJOR}.{MINOR}
       fallback: master
 
