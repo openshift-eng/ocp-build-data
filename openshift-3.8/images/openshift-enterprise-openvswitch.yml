@@ -4,7 +4,7 @@ content:
     path: images/openvswitch
     modifications:
     - action: replace
-      match: "rpm -V $INSTALL_PKGS && "
+      match: "rpm -V ${INSTALL_PKGS} && "
       replacement:
 from:
   member: openshift-enterprise-node
