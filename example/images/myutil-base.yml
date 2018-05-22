@@ -12,6 +12,13 @@ distgit:
 # in registry.access.redhat.com/openshift3/my-util-base:vX.Y.Z once shipped.
 name: openshift3/my-util-base
 
+# Mark this image for use only as a base image. Base images are not included
+# in the release image list.
+# Type: boolean
+# Required: false
+# Default: false
+base_only: true
+
 # This section defines how the FROM field in the upstream Dockerfile will be set
 # before each build.
 from:
