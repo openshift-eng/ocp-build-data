@@ -79,3 +79,9 @@ push:
   registries:
     - registry.reg-aws.openshift.com:443
 
+sources:
+  openshift-ansible:
+    url: git@github.com:openshift/openshift-ansible.git
+    branch:
+      target: release-1.{MINOR}
+      fallback: master
