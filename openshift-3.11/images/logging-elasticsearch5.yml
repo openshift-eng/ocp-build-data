@@ -1,0 +1,24 @@
+content:
+  source:
+    alias: origin-aggregated-logging
+    dockerfile: Dockerfile
+    path: elasticsearch
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-extras-rpms
+from:
+    stream: rhel
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: Elasticsearch container for EFK aggregated logging storage
+  io.k8s.display-name: Elasticsearch 5
+  io.openshift.tags: logging,elk,elasticsearch
+  vendor: Red Hat
+name: openshift3/ose-logging-elasticsearch5
+owners:
+- jcantril@redhat.com
+- ewolinet@redhat.com
+- rmeggins@redhat.com
+distgit:
+  namespace: containers

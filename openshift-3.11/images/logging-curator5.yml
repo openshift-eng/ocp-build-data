@@ -1,0 +1,24 @@
+content:
+  source:
+    alias: origin-aggregated-logging
+    dockerfile: Dockerfile
+    path: curator
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-extras-rpms
+from:
+    stream: rhel
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: Curator elasticsearch container for elasticsearch deletion/archival
+  io.k8s.display-name: Curator 5
+  io.openshift.tags: logging,elk,elasticsearch,curator
+  vendor: Red Hat
+name: openshift3/ose-logging-curator5
+owners:
+- jcantril@redhat.com
+- ewolinet@redhat.com
+- rmeggins@redhat.com
+distgit:
+  namespace: containers

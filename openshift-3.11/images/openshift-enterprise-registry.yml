@@ -1,0 +1,22 @@
+content:
+  source:
+    alias: image-registry
+    modifications:
+    - action: replace
+      match: origin-dockerregistry
+      replacement: atomic-openshift-dockerregistry
+    path: images/dockerregistry
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is a component of OpenShift Container Platform and exposes
+    a container registry that is integrated with the cluster for authentication and management.
+  io.k8s.display-name: OpenShift Container Platform Image Registry
+  io.openshift.tags: openshift,container,image,registry
+  vendor: Red Hat
+name: openshift3/ose-docker-registry
+owners: []

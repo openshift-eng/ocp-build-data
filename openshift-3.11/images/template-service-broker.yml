@@ -1,0 +1,23 @@
+content:
+  source:
+    alias: ose
+    dockerfile: Dockerfile
+    modifications:
+    - action: replace
+      match: INSTALL_PKGS="origin
+      replacement: INSTALL_PKGS="atomic-openshift
+    path: images/template-service-broker
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  stream: rhel
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: Template Service Broker
+  io.k8s.display-name: Template Service Broker
+  vendor: Red Hat
+name: openshift3/ose-template-service-broker
+owners:
+- bparees@redhat.com
+- jminter@redhat.com

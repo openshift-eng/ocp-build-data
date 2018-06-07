@@ -1,0 +1,21 @@
+content:
+  source:
+    alias: openshift-ansible
+    dockerfile: Dockerfile.rhel7
+    path: images/installer
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-rh-common-rpms
+- rhel-server-extras-rpms
+- rhel-7-server-ansible-2.4-rpms
+from:
+  stream: rhel
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: A containerized openshift-ansible image to let you run playbooks
+    to install, upgrade, maintain and check an OpenShift cluster
+  io.k8s.display-name: openshift-ansible
+  io.openshift.tags: openshift,install,upgrade,ansible
+  vendor: Red Hat
+name: openshift3/ose-ansible
