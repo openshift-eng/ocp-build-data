@@ -1,8 +1,13 @@
+content:
+  source:
+    alias: origin-aggregated-logging
+    dockerfile: Dockerfile
+    path: curator
+from:
+    stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-extras-rpms
-from:
-  stream: rhel
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -11,4 +16,7 @@ labels:
   io.openshift.tags: logging,elk,elasticsearch,curator
   vendor: Red Hat
 name: openshift3/logging-curator
-no_oit_comments: true
+owners:
+- jcantril@redhat.com
+- ewolinet@redhat.com
+- rmeggins@redhat.com

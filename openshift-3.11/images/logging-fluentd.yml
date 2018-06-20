@@ -1,3 +1,10 @@
+content:
+  source:
+    alias: origin-aggregated-logging
+    dockerfile: Dockerfile
+    path: fluentd
+from:
+    stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
 labels:
@@ -8,4 +15,7 @@ labels:
   io.openshift.tags: logging,elk,fluentd
   vendor: Red Hat
 name: openshift3/logging-fluentd
-no_oit_comments: true
+owners:
+- jcantril@redhat.com
+- ewolinet@redhat.com
+- rmeggins@redhat.com

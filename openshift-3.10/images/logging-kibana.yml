@@ -1,3 +1,8 @@
+content:
+  source:
+    alias: origin-aggregated-logging
+    dockerfile: Dockerfile
+    path: kibana
 enabled_repos:
 - rhel-server-ose-rpms
 from:
@@ -10,6 +15,10 @@ labels:
   io.openshift.tags: logging,elk,kibana
   vendor: Red Hat
 name: openshift3/logging-kibana
+owners:
+- jcantril@redhat.com
+- ewolinet@redhat.com
+- rmeggins@redhat.com
 odcs:
   packages:
     mode: auto
