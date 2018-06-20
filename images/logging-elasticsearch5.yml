@@ -3,11 +3,11 @@ content:
     alias: origin-aggregated-logging
     dockerfile: Dockerfile
     path: elasticsearch
+from:
+    stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-extras-rpms
-from:
-    stream: rhel
 labels:
   License: GPLv2+
   architecture: x86_64
