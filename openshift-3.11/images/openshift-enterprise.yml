@@ -3,11 +3,18 @@ content:
     alias: ose
     modifications:
     - action: replace
-      match: INSTALL_PKGS="origin"
-      replacement: INSTALL_PKGS="atomic-openshift"
+      match: INSTALL_PKGS="origin ceph-common"
+      replacement: INSTALL_PKGS="atomic-openshift ceph-common"
+    - action: replace
+      match: 'yum install -y centos-release-ceph-luminous && '
+      replacement: ''
+    - action: replace
+      match: 'rpm -V centos-release-ceph-luminous && '
+      replacement: ''
     path: images/origin
 enabled_repos:
 - rhel-server-ose-rpms
+- rhel-7-server-rhceph-3-tools-rpms
 from:
   member: openshift-enterprise-cli
 labels:
