@@ -232,9 +232,13 @@ sources:
     url: git@github.com:openshift/grafana.git
     branch:
       target: openshift-master
-
   oauth-proxy:
     url: git@github.com:openshift/oauth-proxy.git
+    branch:
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
+  service-idler:
+    url: git@github.com:openshift/service-idler.git
     branch:
       target: release-{MAJOR}.{MINOR}
       fallback: master
