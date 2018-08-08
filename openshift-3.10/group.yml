@@ -23,6 +23,7 @@ branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 
 arches:
 - x86_64
+# - ppc64le
 repos:
   rhel-server-ose-rpms:
     conf:
@@ -31,10 +32,8 @@ repos:
         unsigned: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
     content_set:
       optional: true
-      # ODCS cannot see hidden content sets at the moment.
-      # https://projects.engineering.redhat.com/browse/FACTORY-2629
-      # giving it a name that isn't real will fix this for now.
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms-DONOTUSE
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      ppc64le: rhel-7-server-for-power-le-ose-{MAJOR}.{MINOR}-rpms
   rhel-fast-datapath-rpms:
     # Contains RPMs which are staged to ship.
     conf:
@@ -43,64 +42,81 @@ repos:
         unsigned: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
     content_set:
       default: rhel-7-fast-datapath-rpms
+      ppc64le: rhel-7-for-power-le-fast-datapath-rpms
   rhel-fast-datapath-htb-rpms:
     # High touch beta fast-datapath; only needed when we need to build something for testing.
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
     content_set:
+      optional: true
       default: rhel-7-fast-datapath-htb-rpms
+      # ppc64le: rhel-7-for-power-le-fast-datapath-htb-rpms
   rhel-7-server-ansible-2.5-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.5/os/
     content_set:
       default: rhel-7-server-ansible-2.5-rpms
+      ppc64le: rhel-7-server-ansible-2.5-for-power-le-rpms
   rhel-7-server-ansible-2.4-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.4/os/
     content_set:
       default: rhel-7-server-ansible-2.4-rpms
+      ppc64le: rhel-7-server-ansible-2.4-for-power-le-rpms
   rhel-server-rhscl-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
     content_set:
       default: rhel-server-rhscl-7-rpms
+      ppc64le: rhel-7-server-for-power-le-rhscl-rpms
   rhel-server-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
       enabled: 1
     content_set:
       default: rhel-7-server-rpms
+      ppc64le: rhel-7-for-power-le-rpms
   rhel-server-extras-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
     content_set:
       default: rhel-7-server-extras-rpms
+      ppc64le: rhel-7-for-power-le-extras-rpms
   rhel-server-optional-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
       enabled: 1
     content_set:
       default: rhel-7-server-optional-rpms
+      ppc64le: rhel-7-for-power-le-optional-rpms
   rhel-server-rh-common-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
     content_set:
+      optional: true
       default: rhel-7-server-rh-common-rpms
+      # ppc64le: rhel-7-server-for-power-le-rh-common-rpms
   apb-rhel-server-extras-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
     content_set:
+      optional: true
       default: rhel-7-server-extras-rpms
+      # ppc64le: rhel-7-server-for-power-le-extras-rpms
   rhel-server-ose-OLD_NODE_JS-rpms:
     conf:
       baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/x86_64/os/
     content_set:
+      optional: true
       default: rhel-7-server-ose-3.2-rpms
+      # ppc64le: rhel-7-server-for-power-le-ose-3.2-rpms
   rhel-7-server-rhceph-3-tools-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhceph-tools/3/os/
     content_set:
+      optional: true
       default: rhel-7-server-rhceph-3-tools-rpms
+      # ppc64le: rhel-7-server-for-power-le-rhceph-3-tools-rpms
 
 push:
   registries:
