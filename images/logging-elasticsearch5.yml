@@ -3,16 +3,6 @@ content:
     alias: origin-aggregated-logging
     dockerfile: Dockerfile
     path: elasticsearch
-    modifications:
-    - action: replace
-      match: "OSE_ES_VER=5.6.10.2"
-      replacement: "OSE_ES_VER=5.6.10.2-redhat-1"
-    - action: replace
-      match: "PROMETHEUS_EXPORTER_VER=5.6.10.0"
-      replacement: "PROMETHEUS_EXPORTER_VER=5.6.10.0-redhat-2"
-    - action: replace
-      match: "ARG MAVEN_REPO_URL=https://repo1.maven.org/maven2/"
-      replacement: "ARG MAVEN_REPO_URL=http://download-node-02.eng.bos.redhat.com/brewroot/repos/lpc-rhel-7-maven-build/latest/maven/"
 from:
   image: elasticsearch:5.6.10
 enabled_repos:
