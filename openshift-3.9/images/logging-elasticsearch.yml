@@ -16,6 +16,14 @@ labels:
   io.openshift.tags: logging,elk,elasticsearch
   vendor: Red Hat
 name: openshift3/logging-elasticsearch
+
+# logging images push with and without ose- alias to access.redhat.
+# Replicate that for operations registry.
+push:
+  repos:
+    - openshift3/logging-elasticsearch
+    - openshift3/ose-logging-elasticsearch
+
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com

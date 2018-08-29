@@ -10,8 +10,10 @@ labels:
   io.k8s.display-name: Logging auth proxy
   vendor: Red Hat
 name: openshift3/logging-auth-proxy
-# odcs:
-#   packages:
-#     mode: auto
-#     list:
-#       - nodejs-openshift-auth-proxy
+
+# logging images push with and without ose- alias to access.redhat.
+# Replicate that for operations registry.
+push:
+  repos:
+    - openshift3/logging-auth-proxy
+    - openshift3/ose-logging-auth-proxy

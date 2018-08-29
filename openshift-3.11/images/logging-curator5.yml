@@ -15,7 +15,16 @@ labels:
   io.k8s.display-name: Curator 5
   io.openshift.tags: logging,elk,elasticsearch,curator
   vendor: Red Hat
+
 name: openshift3/ose-logging-curator5
+
+# logging images push with and without ose- alias to access.redhat.
+# Replicate that for operations registry.
+push:
+  repos:
+    - openshift3/logging-curator5
+    - openshift3/ose-logging-curator5
+
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com
