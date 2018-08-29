@@ -1,10 +1,10 @@
 # This group member image metadata describes a image which builds on the myutil-base image:
 #    *review myutil-base.yml  before reading this*
-# How we should find a the Dockerfile in a GitHub repo and build it for an OCP release.
+# How we should find a Dockerfile in a GitHub repo and build it for an OCP release.
 
 # Information about the dist-git repo
 distgit:
-  namespace: rpms   # default is "rpms", but can be set to "apbs" for new dist-git repo type
+  namespace: containers   # default is "containers", but can be set to "apbs" for new dist-git repo type
   # Component specifies the Bugzilla components associated with this image. It defaults to
   # the name of the distgit repo.
   ## component: myutil
@@ -28,6 +28,14 @@ from:
   # This is uncommon and oit will not attempt to change the specified literal string to, for example,
   # pick up new CVEs in the base image.
   ## image: namespace/imagename:tag
+
+  # Use "builder" for multistage builds to specify the builder image(s) in addition to the base image.
+  # This is an array where each member has the above properties available.
+  # The entries must be in the same order as the FROMs in the Dockerfile.
+  ## builder:
+  ## - member: myutl-builder
+  ## - image: namespace/imagename:tag
+  ## - stream: rhel
 
 # rpm group members on which this image is reliant (rpm will always be built before image)
 rpms:
@@ -94,3 +102,6 @@ odcs:
   platforms:
       mode: auto | manual
   config: ... # verbatim container.yaml content (see https://mojo.redhat.com/docs/DOC-1159997)
+
+# explicitly set the build method to be used in OSBS, overriding any other default. may be 'docker_api' or 'imagebuilder'
+## image_build_method: imagebuilder
