@@ -15,6 +15,14 @@ labels:
   io.openshift.tags: logging,elk,kibana
   vendor: Red Hat
 name: openshift3/logging-kibana
+
+# logging images push with and without ose- alias to access.redhat.
+# Replicate that for operations registry.
+push:
+  repos:
+    - openshift3/logging-kibana
+    - openshift3/ose-logging-kibana
+
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com
