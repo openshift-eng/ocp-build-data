@@ -1,0 +1,18 @@
+content:
+  source:
+    alias: prometheus-alertmanager
+    dockerfile: Dockerfile.rhel7
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  stream: rhel
+# use standard build or this build runs into https://github.com/openshift/imagebuilder/issues/87
+image_build_method: docker_api
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is the Prometheus Alert Manager image.
+  io.k8s.display-name: Prometheus Alert Manager
+  io.openshift.tags: openshift,prometheus
+  vendor: Red Hat
+name: openshift/prometheus-alertmanager

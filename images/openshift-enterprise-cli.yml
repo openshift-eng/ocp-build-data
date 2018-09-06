@@ -1,0 +1,22 @@
+content:
+  source:
+    alias: ose
+    modifications:
+    - action: replace
+      match: origin-clients
+      replacement: atomic-openshift-clients
+    path: images/cli
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: OpenShift is a platform for developing, building, and deploying containerized applications.
+  io.k8s.display-name: OpenShift Client
+  io.openshift.tags: openshift,cli
+  vendor: Red Hat
+name: openshift/ose-cli
+distgit:
+  namespace: containers

@@ -1,0 +1,21 @@
+content:
+  source:
+    alias: monitor-sample-app
+    path: images/origin-monitor-sample-app
+    modifications:
+    - action: replace
+      match: origin-monitor-sample-app
+      replacement: openshift-monitor-sample-app
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: OpenShift Monitor Sample App
+  io.k8s.display-name: OpenShift Monitor Sample App
+  io.openshift.tags: openshift
+  vendor: Red Hat
+name: openshift/monitor-sample-app
+owners: []
+enabled_repos:
+- rhel-server-ose-rpms

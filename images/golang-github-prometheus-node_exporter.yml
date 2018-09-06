@@ -1,0 +1,19 @@
+content:
+  source:
+    alias: node_exporter
+    dockerfile: Dockerfile.rhel7
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  stream: rhel
+# use standard build or this build runs into https://github.com/openshift/imagebuilder/issues/87
+image_build_method: docker_api
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors
+  io.k8s.display-name: Node Exporter
+  io.openshift.tags: openshift,node
+  vendor: Red Hat
+name: openshift/prometheus-node-exporter
+owners: []

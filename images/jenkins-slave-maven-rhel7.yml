@@ -1,0 +1,20 @@
+content:
+  source:
+    alias: jenkins
+    dockerfile: Dockerfile.rhel7
+    path: slave-maven
+enabled_repos:
+- rhel-server-rhscl-rpms
+from:
+  member: jenkins-slave-base-rhel7
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: The jenkins slave maven image has the maven tools on top of
+    the jenkins slave base image.
+  io.k8s.display-name: Jenkins Slave Maven
+  io.openshift.tags: openshift,jenkins,slave,maven
+  vendor: Red Hat
+name: openshift/jenkins-slave-maven-rhel7
+owners:
+- bparees@redhat.com

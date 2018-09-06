@@ -1,0 +1,49 @@
+content:
+  source:
+    alias: ose
+    modifications:
+
+    - action: replace
+      match: origin-sdn-ovs
+      replacement: atomic-openshift-sdn-ovs
+
+    - action: replace
+      match: origin-hyperkube
+      replacement: atomic-openshift-hyperkube
+
+    - action: replace
+      match: origin-node
+      replacement: atomic-openshift-node
+
+    - action: replace
+      match: "rpm -V $INSTALL_PKGS &&"
+      replacement:
+
+    - action: replace
+      match: 'yum install -y centos-release-ceph-luminous && '
+      replacement: ''
+
+    - action: replace
+      match: 'rpm -V centos-release-ceph-luminous && '
+      replacement: ''
+
+    path: images/node
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-fast-datapath-rpms
+- rhel-server-extras-rpms
+from:
+  member: openshift-enterprise
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is a component of OpenShift Container Platform and contains
+    the software for individual nodes when using SDN.
+  io.k8s.display-name: OpenShift Container Platform Node
+  io.openshift.tags: openshift,node
+  vendor: Red Hat
+name: openshift/ose-node
+
+push:
+  also:
+    - quay.io/openshift/ocp-node

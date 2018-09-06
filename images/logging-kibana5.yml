@@ -1,0 +1,31 @@
+content:
+  source:
+    alias: origin-aggregated-logging
+    dockerfile: Dockerfile
+    path: kibana
+from:
+  image: rhscl/nodejs-6-rhel7
+enabled_repos:
+- rhel-server-ose-rpms
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: Kibana container for querying Elasticsearch for aggregated logs
+  io.k8s.display-name: Kibana
+  io.openshift.tags: logging,elk,kibana
+  vendor: Red Hat
+name: openshift/ose-logging-kibana5
+
+# logging images push with and without ose- alias to access.redhat.
+# Replicate that for operations registry.
+push:
+  repos:
+    - openshift/logging-kibana5
+    - openshift/ose-logging-kibana5
+
+owners:
+- jcantril@redhat.com
+- ewolinet@redhat.com
+- rmeggins@redhat.com
+distgit:
+  namespace: containers
