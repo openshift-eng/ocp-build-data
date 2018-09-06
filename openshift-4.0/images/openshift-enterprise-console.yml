@@ -1,0 +1,21 @@
+content:
+  source:
+    alias: console
+    dockerfile: Dockerfile.product
+from:
+  builder:  # for a multistage build
+  # golang builder does not need to be rebuilt per build run
+  - image: openshift/golang-builder:v3.11.0-0.base
+  # nodejs builder is rebuilt per build run to capture any build tool changes
+  - member: openshift-nodejs-builder
+  # base image to build on
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  io.k8s.description: This is a component of OpenShift Container Platform and provides a web console.
+  io.k8s.display-name: OpenShift Console
+  io.openshift.tags: openshift,console
+  vendor: Red Hat
+name: openshift/ose-console
+owners:
+- spadgett@redhat.com

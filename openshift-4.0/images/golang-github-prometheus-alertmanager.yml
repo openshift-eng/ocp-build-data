@@ -1,3 +1,7 @@
+content:
+  source:
+    alias: prometheus-alertmanager
+    dockerfile: Dockerfile.rhel7
 enabled_repos:
 - rhel-server-ose-rpms
 from:
@@ -7,8 +11,8 @@ image_build_method: docker_api
 labels:
   License: GPLv2+
   architecture: x86_64
-  io.k8s.description: This is the Prometheus Alert Buffer image.
-  io.k8s.display-name: Prometheus Alert Buffer
+  io.k8s.description: This is the Prometheus Alert Manager image.
+  io.k8s.display-name: Prometheus Alert Manager
   io.openshift.tags: openshift,prometheus
   vendor: Red Hat
-name: openshift3/prometheus-alert-buffer
+name: openshift/prometheus-alertmanager

@@ -1,0 +1,20 @@
+content:
+  source:
+    alias: ose
+    path: images/egress/dns-proxy
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  architecture: x86_64
+  io.k8s.description: This is the egress router L4 DNS proxy for OpenShift Origin.
+  io.k8s.display-name: OpenShift Container Platform Egress DNS Proxy
+  io.openshift.tags: openshift,egress,dns,proxy
+  vendor: Red Hat
+name: openshift/ose-egress-dns-proxy
+owners: []
+distgit:
+  namespace: containers
+  component: openshift-enterprise-egress-dns-proxy-container
+enabled_repos:
+- rhel-server-ose-rpms
