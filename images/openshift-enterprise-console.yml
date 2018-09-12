@@ -6,8 +6,8 @@ from:
   builder:  # for a multistage build
   # golang builder does not need to be rebuilt per build run
   - image: openshift/golang-builder:v3.11.0-0.base
-  # nodejs builder is rebuilt per build run to capture any build tool changes
-  - member: openshift-nodejs-builder
+  # nodejs builder is from RH SCL
+  - image: rhscl/nodejs-8-rhel7:1
   # base image to build on
   member: openshift-enterprise-base
 labels:
