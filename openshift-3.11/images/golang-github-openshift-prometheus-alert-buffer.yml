@@ -1,7 +1,13 @@
+name: openshift3/prometheus-alert-buffer
+
 enabled_repos:
 - rhel-server-ose-rpms
+
 from:
   stream: rhel
+
+image_build_method: docker_api
+
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -9,4 +15,3 @@ labels:
   io.k8s.display-name: Prometheus Alert Buffer
   io.openshift.tags: openshift,prometheus
   vendor: Red Hat
-name: openshift3/prometheus-alert-buffer
