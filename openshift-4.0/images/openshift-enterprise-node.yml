@@ -19,14 +19,6 @@ content:
       match: "rpm -V $INSTALL_PKGS &&"
       replacement:
 
-    - action: replace
-      match: 'yum install -y centos-release-ceph-luminous && '
-      replacement: ''
-
-    - action: replace
-      match: 'rpm -V centos-release-ceph-luminous && '
-      replacement: ''
-
     path: images/node
 enabled_repos:
 - rhel-server-ose-rpms
