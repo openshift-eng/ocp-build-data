@@ -1,0 +1,15 @@
+name: openshift/ose-elasticsearch-operator
+
+owners:
+- jcantril@redhat.com
+- ewolinetz@redhat.com
+- rmeggins@redhat.com
+
+from:
+  builder:
+  - image: openshift/golang-builder:v4.0.0
+  member: openshift-enterprise-base
+
+content:
+  source:
+    alias: elasticsearch-operator
