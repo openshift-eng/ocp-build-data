@@ -1,9 +1,10 @@
 content:
   source:
-    alias: ose
-    path: images/builder/docker/docker-builder
+    alias: container-image-builder
 from:
-  member: openshift-enterprise-cli
+  builder:
+    - image: openshift/golang-builder:1.10
+  stream: rhel
 labels:
   License: GPLv2+
   architecture: x86_64
@@ -13,4 +14,4 @@ labels:
   io.openshift.tags: openshift,builder
   vendor: Red Hat
 name: openshift/ose-docker-builder
-owners: []
+owners: ["bparees@redhat.com"]
