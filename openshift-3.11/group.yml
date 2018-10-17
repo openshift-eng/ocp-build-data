@@ -152,7 +152,8 @@ sources:
   node_exporter:
     url: git@github.com:openshift/node_exporter.git
     branch:
-      target: openshift-master
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
   monitor-project-lifecycle:
     url: git@github.com:openshift/monitor-project-lifecycle.git
     branch:
@@ -202,7 +203,7 @@ sources:
     url: git@github.com:openshift/prometheus-alertmanager.git
     branch:
       target: release-{MAJOR}.{MINOR}
-      fallback: openshift-master
+      fallback: master
   console:
     url: git@github.com:openshift/console.git
     branch:
@@ -212,7 +213,7 @@ sources:
     url: git@github.com:openshift/prometheus.git
     branch:
       target: release-{MAJOR}.{MINOR}
-      fallback: openshift-master
+      fallback: master
   kube-state-metrics:
     url: git@github.com:openshift/kube-state-metrics.git
     branch:
