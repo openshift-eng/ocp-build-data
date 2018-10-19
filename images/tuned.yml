@@ -1,0 +1,14 @@
+name: openshift/ose-tuned
+
+owners:
+- jmencak@redhat.com
+
+content:
+  source:
+    alias: tuned
+    dockerfile: Dockerfile
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  stream: rhel
