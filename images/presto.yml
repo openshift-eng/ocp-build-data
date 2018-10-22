@@ -1,0 +1,15 @@
+name: openshift/ose-presto
+
+owners:
+- sd-operator-metering@redhat.com
+- czibolsk@redhat.com
+
+content:
+  source:
+    alias: operator-framework-presto
+    dockerfile: Dockerfile.rhel7
+
+from:
+  builder:
+  - stream: rhel
+  stream: rhel
