@@ -1,0 +1,15 @@
+name: openshift3/ose-prometheus-adapter
+
+owners:
+- fbranczy@redhat.com
+- surbania@redhat.com
+
+content:
+  source:
+    alias: k8s-prometheus-adapter
+    dockerfile: Dockerfile.ocp
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
