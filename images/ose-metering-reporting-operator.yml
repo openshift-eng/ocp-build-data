@@ -1,0 +1,17 @@
+name: openshift/ose-metering-reporting-operator
+
+owners:
+- czibolsk@redhat.com
+- sd-operator-metering@redhat.com
+
+content:
+  source:
+    alias: operator-metering
+    dockerfile: Dockerfile.reporting-operator
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+  
