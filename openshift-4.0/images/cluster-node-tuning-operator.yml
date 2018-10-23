@@ -1,0 +1,13 @@
+name: openshift/ose-cluster-node-tuning-operator
+
+owners:
+- jmencak@redhat.com
+
+content:
+  source:
+    alias: cluster-node-tuning-operator
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  stream: rhel
