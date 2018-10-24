@@ -4,7 +4,9 @@ content:
     dockerfile: Dockerfile
     path: fluentd
 from:
-    stream: rhel
+  builder:  # for a multistage build
+  - image: rhscl/ruby-25-rhel7:latest
+  stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
 labels:
