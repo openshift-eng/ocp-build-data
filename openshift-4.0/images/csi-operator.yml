@@ -1,0 +1,13 @@
+name: openshift/ose-csi-operator
+
+owners:
+- aos-storage-staff@redhat.com
+
+content:
+  source:
+    alias: csi-operator
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
