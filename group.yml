@@ -62,11 +62,6 @@ repos:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.4/os/
     content_set:
       default: rhel-7-server-ansible-2.4-rpms
-  rhel-7-server-ansible-2.6-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.6/os/
-    content_set:
-      default: rhel-7-server-ansible-2.6-rpms
   rhel-server-rhscl-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
@@ -94,11 +89,6 @@ repos:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
     content_set:
       default: rhel-7-server-rh-common-rpms
-  apb-rhel-server-extras-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
-    content_set:
-      default: rhel-7-server-extras-rpms
   rhel-server-ose-OLD_NODE_JS-rpms:
     conf:
       baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/x86_64/os/
@@ -300,7 +290,7 @@ sources:
     branch:
       target: release-{MAJOR}.{MINOR}
       fallback: master
-    
+
   cluster-node-tuning-operator:
     url: git@github.com:openshift/cluster-node-tuning-operator.git
     branch:
