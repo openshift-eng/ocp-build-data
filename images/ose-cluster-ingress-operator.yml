@@ -1,0 +1,16 @@
+name: openshift/ose-cluster-ingress-operator
+
+owners:
+- dev@lists.openshift.redhat.com
+- aos-network-edge@redhat.com
+
+content:
+  source:
+    alias: cluster-ingress-operator
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+mode: wip

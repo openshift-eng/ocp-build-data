@@ -1,0 +1,15 @@
+name: openshift/ose-aws-machine-controllers
+
+owners:
+  - aos-cloud@redhat.com
+
+content:
+  source:
+    alias: cluster-api-provider-aws
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+mode: wip
