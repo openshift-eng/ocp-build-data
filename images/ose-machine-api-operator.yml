@@ -1,0 +1,15 @@
+name: openshift/ose-machine-api-operator
+
+owners:
+  - aos-cloud@redhat.com
+
+content:
+  source:
+    alias: machine-api-operator
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+mode: wip
