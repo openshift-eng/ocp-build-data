@@ -1,0 +1,17 @@
+name: openshift/ose-coredns
+
+owners:
+- dev@lists.openshift.redhat.com
+- aos-network-edge@redhat.com
+
+content:
+  source:
+    alias: coredns
+    path: images/coredns
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+mode: wip
