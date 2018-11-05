@@ -204,27 +204,33 @@ sources:
   kube-state-metrics:
     url: git@github.com:openshift/kube-state-metrics.git
     branch:
-      target: openshift-master
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
   prometheus-operator:
     url: git@github.com:openshift/prometheus-operator.git
     branch:
-      target: openshift-master
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
   kube-rbac-proxy:
     url: git@github.com:openshift/kube-rbac-proxy.git
     branch:
-      target: openshift-master
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
   configmap-reload:
     url: git@github.com:openshift/configmap-reload.git
     branch:
-      target: openshift-master
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
   cluster-monitoring-operator:
     url: git@github.com:openshift/cluster-monitoring-operator.git
     branch:
       target: release-{MAJOR}.{MINOR}
+      fallback: master
   grafana:
     url: git@github.com:openshift/grafana.git
     branch:
-      target: openshift-master
+      target: release-{MAJOR}.{MINOR}
+      fallback: openshift-master
   oauth-proxy:
     url: git@github.com:openshift/oauth-proxy.git
     branch:
