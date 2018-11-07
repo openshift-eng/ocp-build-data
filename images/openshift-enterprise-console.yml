@@ -2,6 +2,10 @@ content:
   source:
     alias: console
     dockerfile: Dockerfile.product
+    modifications:
+      - action: command
+        command:
+        - update-console-sources
 from:
   builder:  # for a multistage build
   # golang builder is like origin-release:golang-1.10
