@@ -7,11 +7,9 @@ owners:
 content:
   source:
     alias: operator-metering
-    dockerfile: Dockerfile.reporting-operator
+    dockerfile: Dockerfile.reporting-operator.rhel
 
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
-
-  
