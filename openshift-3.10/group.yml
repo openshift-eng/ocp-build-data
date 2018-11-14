@@ -28,21 +28,21 @@ repos:
   rhel-server-ose-rpms:
     conf:
       baseurl:
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os
-    content_set:
-      optional: true
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
-  rhel-server-ose-puddle:
-    conf:
-      baseurl:
         signed:
           x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
           ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/ppc64le/os
         unsigned:
           x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
           ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/ppc64le/os
+    content_set:
+      optional: true
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
+  rhel-server-ose-rpms-shipped:
+    conf:
+      baseurl:
+        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os
     content_set:
       optional: true
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
