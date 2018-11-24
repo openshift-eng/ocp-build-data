@@ -63,9 +63,12 @@ content:
     # If the source has an alias defined, an extracted local directory can be specified on the local file system
     # using --source alias path.
     alias: enterprise-images-upstream-example
-    path: images/myutil-base
-    # Optionally specify the name of the upstream Dockerfile if it is not the default
-    ## dockerfile: Dockerfile.rhel7
+    # Specify the path in the upstream repo to use as build context (default: top of the repo)
+    # If a build does not require the entire source tree then use a subdirectory as the container build context.
+    path: images/myutil
+    # Optionally specify non-default upstream Dockerfile (within and relative to path)
+    dockerfile: Dockerfile.rhel7
+    ##dockerfile: image/myutil/Dockerfile.rhel7
 
     # Effectively search and replace operations to perform on the upstream Dockerfile. Fields like FROM
     # and label changes are always overrwritten, but we occassionally need to make fine adjustments to
