@@ -1,13 +1,10 @@
-mode: disabled
 content:
   source:
     alias: cluster-capacity
-    path: images/cluster-capacity
-    modifications:
-    - action: replace
-      match: "openshift-cluster-capacity"
-      replacement: "openshift-enterprise-cluster-capacity"
+    dockerfile: images/cluster-capacity/Dockerfile.rhel7
 from:
+  builder:
+  - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
