@@ -1,14 +1,12 @@
 content:
   source:
     alias: kubernetes-autoscaler
-    path: images/cluster-autoscaler
-    modifications:
-      - action: replace
-        match: "origin-cluster-autoscaler"
-        replacement: "atomic-openshift-cluster-autoscaler"
+    dockerfile: images/cluster-autoscaler/Dockerfile.rhel7
 enabled_repos:
 - rhel-server-ose-rpms
 from:
+  builder:
+  - image: openshift/golang-builder:1.10
   stream: rhel
 labels:
   License: ASL 2.0
