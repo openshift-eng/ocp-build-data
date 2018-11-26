@@ -1,0 +1,17 @@
+name: openshift/ose-container-networking-plugins-unsupported
+
+mode: wip
+
+owners:
+- dosmith@redhat.com
+- nfvpe-container@redhat.com
+
+content:
+  source:
+    alias: container-networking-plugins
+    dockerfile: openshift/ose-container-networking-plugins-unsupported
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  stream: rhel
