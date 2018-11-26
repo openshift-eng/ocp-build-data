@@ -1,0 +1,21 @@
+name: openshift/ose-metering-helm-operator
+
+mode: wip
+
+enabled_repos:
+- rhel-server-ose-rpms
+
+owners:
+- czibolsk@redhat.com
+- sd-operator-metering@redhat.com
+
+content:
+  source:
+    alias: metering-helm-operator
+    dockerfile: Dockerfile.metering-operator.rhel
+
+from:
+  builder:
+  - member: ose-metering-helm
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
