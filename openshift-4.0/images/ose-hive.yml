@@ -1,0 +1,14 @@
+name: openshift/ose-hive
+
+owners:
+- czibolsk@redhat.com
+
+content:
+  source:
+    alias: hive
+    dockerfile: Dockerfile.rhel
+
+from:
+  builder:
+  -  stream: rhel
+  member: ose-hadoop
