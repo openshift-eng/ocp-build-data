@@ -1,0 +1,15 @@
+name: openshift/ose-cluster-nfd-operator
+mode: wip
+
+owners:
+- zkosic@redhat.com
+
+content:
+  source:
+    alias: ose-cluster-nfd-operator
+    dockerfile: Dockerfile.rhel7
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
