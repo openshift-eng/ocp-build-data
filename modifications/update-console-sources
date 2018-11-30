@@ -1,0 +1,152 @@
+#!/bin/bash
+# A tool to update the sources in distgit to enable an upstream change
+# to modify the yarn dependencies. Specific to the console build at this time.
+# This is intended to run on a rebased distgit repo before it is committed.
+
+# Requirements:
+#
+# docker (to run a container and cp to/from it)
+# rhpkg  (to download and upload sources)
+# git
+# connection to RH vpn
+# valid kerberos ticket (run kinit)
+# sources already initialized on distgit branch (branch cut requires bootstrapping)
+
+set -euxo pipefail
+
+usage(){
+  echo <<EOM
+$0 [options]
+
+This script updates the console distgit sources lookaside with a tarball containing the NPM sources
+necessary to do the offline build in OSBS and track the build tool sources used.
+
+Options:
+        -h|--help
+            Display this usage and exit
+        -r|--dg-repo <dir>
+            Location of dir for dist-git repo where we build the project for OCP
+        -d|--dry-run
+            Download and package the sources, but do not upload the tarball
+        -i|--builder-img
+            NodeJS builder image to use
+
+Example:
+
+    $0 -r \$workspace/containers/openshift-enterprise-console -t rhaos-4.0-rhel-7
+EOM
+}
+
+# Variables and defaults:
+#
+# distgit repo where we build the project for OCP
+dg_repo="${DISTGIT_REPO:-${PWD}}"
+#
+# set $DRY_RUN to anything else to prevent actually uploading the new sources
+dry_run="${DRY_RUN:-false}"
+#
+# NodeJS builder image to use (may need local pull/tag since brew-pulp is insecure)
+builder_img="${BUILDER_IMAGE:-brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/rhscl/nodejs-8-rhel7:1}"
+
+longopts=help,dg-repo:,dg-branch:,dry-run,builder-img:
+options=hr:t:di:
+! parsed=$(getopt --options=$options --longoptions=$longopts --name "$0" -- "$@")
+if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+    #  getopt already complains about wrong arguments to stdout
+    exit 2
+fi
+# read getopt’s output this way to handle the quoting right:
+eval set -- "$parsed"
+
+while true; do
+    case "$1" in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -r|--dg-repo)
+            dg_repo="$2"
+            shift 2
+            ;;
+        -d|--dry-run)
+            dry_run=true
+            shift
+            ;;
+        -i|--builder-img)
+            builder_img="$2"
+            shift 2
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            echo "something broke -- no such option $1"
+            exit 3
+            ;;
+    esac
+done
+
+# expect no non-option arguments
+if [[ $# -ne 0 ]]; then
+    echo "$0: No arguments are expected, only options"
+    exit 4
+fi
+
+
+#
+# Execution begins
+#
+# everything happens in the distgit dir
+pushd "$dg_repo"
+
+# retrieve existing "sources" file and download existing sources
+git checkout HEAD sources
+rhpkg sources
+
+# prevent adding sources to git
+echo /node-v8.9.4-headers.tar.gz >> .gitignore
+echo /yarn-offline.tar >> .gitignore
+echo /yarn-offline >> .gitignore
+
+# start the container
+container="nodejs_deps-$(date +%H%M%S)"
+docker run --name "$container" -du 0 "$builder_img" sleep 3600
+
+# copy project sources into container
+docker cp . $container:/opt/app-root/src/
+
+# run the build inside the container which populates the offline cache
+run="docker exec $container bash -c"
+$run "tar fx yarn-offline.tar"
+$run "npm install ./yarn-1.9.4.tgz"
+$run "rm -rf npm-packages-offline-cache/"
+$run "./build-frontend.sh"
+
+# locally, unpack the sources and update them with what the container got
+rm -rf yarn-offline && mkdir yarn-offline
+tar fx yarn-offline.tar -C yarn-offline
+pushd yarn-offline
+  mv npm-packages-offline-cache{,.previous}
+  docker cp $container:/opt/app-root/src/npm-packages-offline-cache ./
+  if diff -qr npm-packages-offline-cache{.previous,}; then
+    echo "nothing is changed. not updating sources."
+    docker rm -f "$container"
+    popd
+    exit 0
+  fi
+  rm -rf npm-packages-offline-cache.previous
+  tar fc ../yarn-offline.tar .
+popd
+
+# upload latest sources to dist-git lookaside
+if [ "$dry_run" = false ]; then
+  sed -i -e '/yarn-offline/ d' sources
+  rhpkg upload yarn-offline.tar
+  echo "Updated source lookaside:"
+  git diff --cached sources
+  git add sources
+fi
+
+docker rm -f "$container"
+popd
