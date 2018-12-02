@@ -45,8 +45,15 @@ repos:
   rhel-server-ose-rpms-shipped:
     conf:
       baseurl:
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os/
+        signed:
+          x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
+          ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os/
+        ## during backfill the x86 signed+shipped RPMs shouldn't be used in unsigned builds
+        ## because the equivalent signed ppc64le RPMs haven't shipped.
+        ## so, we just reuse the puddles during unsigned builds.
+        unsigned:
+          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
+          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/ppc64le/os
     content_set:
       optional: true
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
