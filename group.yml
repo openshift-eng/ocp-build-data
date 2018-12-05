@@ -1,17 +1,7 @@
-vars:
-  MAJOR: 3
-  MINOR: 8
-
-# Specifying a name in this file to avoid the situation where we copy
-# a group and don't remember to come into this file and update branch
-# information. If someone copies a pre-existing group without updating
-# the group name, they will get an error and be reminded to update this
-# file.
-name: openshift-{MAJOR}.{MINOR}
-
-# Distgit branch to use with this group
+arches:
+- x86_64
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
-
+name: openshift-{MAJOR}.{MINOR}
 non_release:
   images:
   - openshift-enterprise-base
@@ -20,10 +10,41 @@ non_release:
   rpms:
   - atomic-openshift-node-descheduler
   - atomic-openshift-node-problem-detector
-
-arches:
-- x86_64
+push:
+  registries:
+  - registry.reg-aws.openshift.com:443
 repos:
+  rhel-7-server-ansible-2.4-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.4/os/
+    content_set:
+      default: rhel-7-server-ansible-2.4-rpms
+  rhel-fast-datapath-htb-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
+    content_set:
+      default: rhel-7-fast-datapath-htb-rpms
+  rhel-fast-datapath-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+    content_set:
+      default: rhel-7-fast-datapath-rpms
+  rhel-server-extras-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+    content_set:
+      default: rhel-7-server-extras-rpms
+  rhel-server-optional-rpms:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
+      enabled: 1
+    content_set:
+      default: rhel-7-server-optional-rpms
+  rhel-server-ose-OLD_NODE_JS-rpms:
+    conf:
+      baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/x86_64/os/
+    content_set:
+      default: rhel-7-server-ose-3.2-rpms
   rhel-server-ose-rpms:
     conf:
       baseurl:
@@ -31,11 +52,11 @@ repos:
         unsigned: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-  rhel-7-server-ansible-2.4-rpms:
+  rhel-server-rh-common-rpms:
     conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.4/os/
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
     content_set:
-      default: rhel-7-server-ansible-2.4-rpms
+      default: rhel-7-server-rh-common-rpms
   rhel-server-rhscl-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
@@ -47,63 +68,6 @@ repos:
       enabled: 1
     content_set:
       default: rhel-7-server-rpms
-  rhel-server-extras-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
-    content_set:
-      default: rhel-7-server-extras-rpms
-  rhel-fast-datapath-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-rpms
-  rhel-fast-datapath-htb-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-htb-rpms
-  rhel-server-optional-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
-      enabled: 1
-    content_set:
-      default: rhel-7-server-optional-rpms
-  rhel-server-rh-common-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
-    content_set:
-      default: rhel-7-server-rh-common-rpms
-  rhel-server-ose-OLD_NODE_JS-rpms:
-    conf:
-      baseurl: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/x86_64/os/
-    content_set:
-      default: rhel-7-server-ose-3.2-rpms
-
-push:
-  registries:
-    - registry.reg-aws.openshift.com:443
-
-sources:
-  cri-o:
-    url: git@github.com:kubernetes-incubator/cri-o.git
-    branch:
-      target: release-1.{MINOR}
-  image-registry:
-    url: git@github.com:openshift/image-registry.git
-    branch:
-      target: release-{MAJOR}.{MINOR}
-      fallback: master
-  jenkins:
-    url: git@github.com:openshift/jenkins.git
-    branch:
-      target: openshift-{MAJOR}.{MINOR}
-      fallback: master
-  openshift-ansible:
-    url: git@github.com:openshift/openshift-ansible.git
-    branch:
-      target: release-{MAJOR}.{MINOR}
-      fallback: master
-  origin-aggregated-logging:
-    url: git@github.com:openshift/origin-aggregated-logging.git
-    branch:
-      target: release-{MAJOR}.{MINOR}
+vars:
+  MAJOR: 3
+  MINOR: 8
