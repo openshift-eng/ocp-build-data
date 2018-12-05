@@ -1,7 +1,11 @@
 content:
   source:
-    alias: openshift-ansible
     dockerfile: Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-1.{MINOR}
+      url: git@github.com:openshift/openshift-ansible.git
 enabled_repos:
 - rhel-server-rh-common-rpms
 from:
