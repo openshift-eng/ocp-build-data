@@ -1,6 +1,9 @@
 content:
   source:
-    alias: cri-o
+    git:
+      branch:
+        target: release-1.{MINOR}
+      url: git@github.com:kubernetes-incubator/cri-o.git
     path: contrib/system_containers/rhel
 enabled_repos:
 - rhel-server-ose-rpms
