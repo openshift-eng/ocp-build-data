@@ -1,9 +1,13 @@
-distgit:
-  namespace: rpms
 content:
   source:
-    alias: online
+    git:
+      branch:
+        fallback: master
+        target: online-3.6.0
+      url: git@github.com:openshift/online.git
     path: notifications
+distgit:
+  namespace: rpms
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-optional-rpms
