@@ -1,0 +1,28 @@
+name: openshift/ose-manila-provisioner
+mode: wip
+
+enabled_repos:
+- rhel-server-ose-rpms
+
+owners:
+- tsmetana@redhat.com
+- jsafrane@redhat.com
+
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/cloud-provider-openstack.git
+    path: cluster/images/manila-provisioner
+
+from:
+  stream: rhel
+
+labels:
+  License: GPLv2+
+  io.k8s.description: Provisions PersistentVolumes using OpenStack Manila
+  io.k8s.display-name: Manila presistent volumes provisioner
+  io.openshift.tags: openshift,provisioner,manila,dynamic,provisioner,openstack
+  vendor: Red Hat
