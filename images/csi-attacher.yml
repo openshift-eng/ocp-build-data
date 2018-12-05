@@ -15,13 +15,12 @@ from:
 
 content:
   source:
-    dockerfile: Dockerfile.rhel
+    dockerfile: Dockerfile.openshift.rhel7
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
         fallback: master 
       url: git@github.com:openshift/csi-external-attacher.git
-      dockerfile: Dockerfile.openshift.rhel7
 
 labels:
   License: ASL 2.0
