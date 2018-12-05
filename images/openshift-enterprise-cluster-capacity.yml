@@ -1,11 +1,18 @@
 content:
   source:
-    alias: cluster-capacity
-    path: images/cluster-capacity
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-capacity.git
     modifications:
     - action: replace
-      match: "openshift-cluster-capacity"
-      replacement: "openshift-enterprise-cluster-capacity"
+      match: openshift-cluster-capacity
+      replacement: openshift-enterprise-cluster-capacity
+    path: images/cluster-capacity
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-ose-rpms-shipped
 from:
   member: openshift-enterprise-base
 labels:
@@ -17,7 +24,4 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-cluster-capacity
 owners:
-  - avagarwa@redhat.com
-enabled_repos:
-- rhel-server-ose-rpms
-- rhel-server-ose-rpms-shipped
+- avagarwa@redhat.com

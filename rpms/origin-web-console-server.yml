@@ -1,6 +1,11 @@
 content:
   source:
-    alias: origin-web-console-server
+    git:
+      branch:
+        fallback: master
+        stage: stage
+        target: enterprise-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin-web-console-server.git
     specfile: origin-web-console-server.spec
 name: atomic-openshift-web-console
 owners:

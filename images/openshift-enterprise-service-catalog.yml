@@ -1,11 +1,15 @@
 content:
   source:
-    alias: service-catalog
-    path: images/service-catalog
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/service-catalog.git
     modifications:
     - action: replace
       match: origin-service-catalog
       replacement: atomic-enterprise-service-catalog
+    path: images/service-catalog
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-ose-rpms-shipped

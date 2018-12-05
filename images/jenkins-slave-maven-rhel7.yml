@@ -1,7 +1,13 @@
+arches:
+- x86_64
 content:
   source:
-    alias: jenkins
     dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/jenkins.git
     path: slave-maven
 enabled_repos:
 - rhel-server-rhscl-rpms
@@ -17,6 +23,3 @@ labels:
 name: openshift3/jenkins-slave-maven-rhel7
 owners:
 - bparees@redhat.com
-
-arches:
-  - x86_64

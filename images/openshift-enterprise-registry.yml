@@ -1,6 +1,10 @@
 content:
   source:
-    alias: image-registry
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/image-registry.git
     modifications:
     - action: replace
       match: origin-dockerregistry
@@ -14,7 +18,8 @@ from:
 labels:
   License: GPLv2+
   io.k8s.description: This is a component of OpenShift Container Platform and exposes
-    a container registry that is integrated with the cluster for authentication and management.
+    a container registry that is integrated with the cluster for authentication and
+    management.
   io.k8s.display-name: OpenShift Container Platform Image Registry
   io.openshift.tags: openshift,container,image,registry
   vendor: Red Hat
