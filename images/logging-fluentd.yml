@@ -1,13 +1,17 @@
 content:
   source:
-    alias: origin-aggregated-logging
     dockerfile: Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin-aggregated-logging.git
     path: fluentd
-from:
-    stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-ose-rpms-shipped
+from:
+  stream: rhel
 labels:
   License: GPLv2+
   io.k8s.description: Fluentd container for collecting of container logs
@@ -15,16 +19,11 @@ labels:
   io.openshift.tags: logging,elk,fluentd
   vendor: Red Hat
 name: openshift3/ose-logging-fluentd
-
-# As of 3.11, openshift-ansible will default to trying to use the ose-logging-fluentd image.
-# RCM will configure the distgit to push by ose- and non-ose prefix images to the RH registry
-# but this config will ensure we push both variations to the ops registry.
-push:
-  repos:
-    - openshift3/logging-fluentd
-    - openshift3/ose-logging-fluentd
-
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com
 - rmeggins@redhat.com
+push:
+  repos:
+  - openshift3/logging-fluentd
+  - openshift3/ose-logging-fluentd

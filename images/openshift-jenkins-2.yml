@@ -1,7 +1,11 @@
 content:
   source:
-    alias: jenkins
     dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/jenkins.git
     path: '2'
 enabled_repos:
 - rhel-server-ose-rpms
@@ -15,25 +19,11 @@ labels:
   io.openshift.tags: jenkins,jenkins2,ci
   vendor: Red Hat
 name: openshift3/jenkins-2-rhel7
-owners:
-- bparees@redhat.com
 odcs:
   packages:
-    mode: auto
     exclude:
-      - java-1.8.0-openjdk
-      - java-1.8.0-openjdk-devel
-    # list:
-    #   - rsync
-    #   - git
-    #   - zip
-    #   - tar
-    #   - atomic-openshift-clients
-    #   - gettext
-    #   - dejavu-sans-fonts
-    #   - unzip
-    #   - jenkins-2-plugins
-    #   - wget
-    #   # leave out openjdk because it must come from pulp
-    #   # - java-1.8.0-openjdk
-    #   # - java-1.8.0-openjdk-devel
+    - java-1.8.0-openjdk
+    - java-1.8.0-openjdk-devel
+    mode: auto
+owners:
+- bparees@redhat.com

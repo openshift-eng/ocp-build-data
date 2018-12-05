@@ -1,6 +1,10 @@
 content:
   source:
-    alias: prometheus
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/prometheus.git
     specfile: golang-github-prometheus-prometheus.spec
 name: golang-github-prometheus-prometheus
 owners:

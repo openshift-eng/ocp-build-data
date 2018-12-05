@@ -1,26 +1,24 @@
-name: openshift3/ose-manila-provisioner
-
-owners:
-- tsmetana@redhat.com
-- jsafrane@redhat.com
-
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/cloud-provider-openstack.git
+    path: cluster/images/manila-provisioner
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-ose-rpms-shipped
-
 from:
   stream: rhel
-
-content:
-  source:
-    alias: cloud-provider-openstack
-    path: cluster/images/manila-provisioner
-
 labels:
   License: GPLv2+
   io.k8s.description: OpenStack Manila Provisioner.
   io.k8s.display-name: Manila
   io.openshift.tags: openshift,provisioner
   vendor: Red Hat
-
 mode: wip
+name: openshift3/ose-manila-provisioner
+owners:
+- tsmetana@redhat.com
+- jsafrane@redhat.com

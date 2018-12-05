@@ -1,13 +1,13 @@
-name: atomic-openshift-manila-provisioner
-
-owners:
-  - tsmetana@redhat.com
-  - jsafrane@redhat.com
-
 content:
   source:
-    alias: cloud-provider-openstack
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/cloud-provider-openstack.git
     specfile: cloud-provider-openstack.spec
-
 mode: wip
-
+name: atomic-openshift-manila-provisioner
+owners:
+- tsmetana@redhat.com
+- jsafrane@redhat.com

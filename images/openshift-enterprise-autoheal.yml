@@ -1,11 +1,18 @@
 content:
   source:
-    alias: autoheal
-    path: images/autoheal
+    git:
+      branch:
+        fallback: master
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/autoheal.git
     modifications:
     - action: replace
-      match: "openshift-autoheal"
-      replacement: "openshift-enterprise-autoheal"
+      match: openshift-autoheal
+      replacement: openshift-enterprise-autoheal
+    path: images/autoheal
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-ose-rpms-shipped
 from:
   member: openshift-enterprise-base
 labels:
@@ -16,6 +23,3 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-autoheal
 owners: []
-enabled_repos:
-- rhel-server-ose-rpms
-- rhel-server-ose-rpms-shipped

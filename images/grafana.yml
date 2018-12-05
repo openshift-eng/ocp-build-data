@@ -1,12 +1,17 @@
 content:
   source:
-    alias: grafana
     dockerfile: Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/grafana.git
 from:
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
-  io.k8s.description: Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
+  io.k8s.description: Grafana is an open source, feature rich metrics dashboard and
+    graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
   io.k8s.display-name: Grafana
   io.openshift.tags: openshift
   vendor: Red Hat

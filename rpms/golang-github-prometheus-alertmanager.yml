@@ -1,6 +1,10 @@
 content:
   source:
-    alias: prometheus-alertmanager
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/prometheus-alertmanager.git
     specfile: golang-github-prometheus-alertmanager.spec
 name: golang-github-prometheus-alertmanager
 owners:

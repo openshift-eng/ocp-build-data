@@ -1,13 +1,16 @@
 content:
   source:
-    alias: prometheus-alertmanager
     dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/prometheus-alertmanager.git
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-ose-rpms-shipped
 from:
   stream: rhel
-# use standard build or this build runs into https://github.com/openshift/imagebuilder/issues/87
 image_build_method: docker_api
 labels:
   License: ASL 2.0
