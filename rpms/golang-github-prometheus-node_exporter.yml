@@ -1,6 +1,9 @@
 content:
   source:
-    alias: node_exporter
+    git:
+      branch:
+        target: release-3.11
+      url: git@github.com:openshift/node_exporter.git
     specfile: golang-github-prometheus-node_exporter.spec
 name: golang-github-prometheus-node_exporter
 owners:

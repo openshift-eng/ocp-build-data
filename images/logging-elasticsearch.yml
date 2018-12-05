@@ -1,13 +1,16 @@
 content:
   source:
-    alias: origin-aggregated-logging
     dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin-aggregated-logging.git
     path: elasticsearch
-from:
-    stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-extras-rpms
+from:
+  stream: rhel
 labels:
   License: GPLv2+
   io.k8s.description: Elasticsearch container for EFK aggregated logging storage
@@ -15,15 +18,11 @@ labels:
   io.openshift.tags: logging,elk,elasticsearch
   vendor: Red Hat
 name: openshift3/logging-elasticsearch
-
-# logging images push with and without ose- alias to access.redhat.
-# Replicate that for operations registry.
-push:
-  repos:
-    - openshift3/logging-elasticsearch
-    - openshift3/ose-logging-elasticsearch
-
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com
 - rmeggins@redhat.com
+push:
+  repos:
+  - openshift3/logging-elasticsearch
+  - openshift3/ose-logging-elasticsearch

@@ -1,12 +1,15 @@
 content:
   source:
-    alias: origin-aggregated-logging
     dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin-aggregated-logging.git
     path: fluentd
-from:
-    stream: rhel
 enabled_repos:
 - rhel-server-ose-rpms
+from:
+  stream: rhel
 labels:
   License: GPLv2+
   io.k8s.description: Fluentd container for collecting of container logs
@@ -14,15 +17,11 @@ labels:
   io.openshift.tags: logging,elk,fluentd
   vendor: Red Hat
 name: openshift3/logging-fluentd
-
-# logging images push with and without ose- alias to access.redhat.
-# Replicate that for operations registry.
-push:
-  repos:
-    - openshift3/logging-fluentd
-    - openshift3/ose-logging-fluentd
-
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com
 - rmeggins@redhat.com
+push:
+  repos:
+  - openshift3/logging-fluentd
+  - openshift3/ose-logging-fluentd
