@@ -2,6 +2,10 @@
 # in a GitHub repo, build it, and make it available for an image group
 # member to consume.
 
+# Config mode: enabled | disabled | wip
+# Leaving this out entirely means `enable` which is normal operation
+mode: wip  # new configs default to Work In Progress mode
+
 # Eventually, owners may also be notified if their RPM is causing the overall build to fail.
 owners:
   - email@redhat.com
@@ -9,14 +13,22 @@ owners:
 
 content:
   # Describes where *.spec for this RPM can be found.
-  # Where to pull the upstream Dockerfile from. Source locations are defined by an "alias" which is a logical
+  # Where to pull the upstream spec file from. Source locations are defined by an "alias" which is a logical
   # name for a git repository. Source aliases must be defined in group.yml or specified on the command line
-  # by the build process. In the following example, oit will use the following file for its upstream source Dockerfile:
-  # [cloned ose repo root]/images/node/Dockerfile.rhel7
+  # by the build process. In the following example, oit will use the following file for its upstream source spec file:
+  # [cloned ose repo root]/myutil.spec
   source:
-    alias: enterprise-images-upstream-example
+    # alias: enterprise-images-upstream-example # DEPRECATED
+    git: # source content to use for this rpm
+      url: git@github.com:OpenShiftART/image-upstream-example.git
+      branch:
+        target: release-3.8
+        # Fallback branch is used if release-3.8 does not exist yet
+        fallback: master
     # The path within the git repository to find *.spec (defaults to root of repo)
     ## path: images/node
     # Only specify if there are more than one spec files int the path.
     ## specfile: myutil.spec
 
+# Name of RPM package being built
+name: template_rpm
