@@ -1,23 +1,22 @@
-name: openshift3/ose-efs-provisioner
-
-owners: [ 'aos-storage-staff@redhat.com' ]
-
-enabled_repos:
-- rhel-server-ose-rpms
-
-from:
-  stream: rhel
-
 content:
   source:
-    alias: efs-provisioner
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/external-storage
     path: images/efs-provisioner
-
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  stream: rhel
 labels:
   License: GPLv2+
   io.k8s.description: AWS EFS dynamic PV provisioner.
   io.k8s.display-name: EFS Provisioner
   io.openshift.tags: aws,efs,dynamic,provisioner
   vendor: Red Hat
-
 mode: wip
+name: openshift3/ose-efs-provisioner
+owners:
+- aos-storage-staff@redhat.com

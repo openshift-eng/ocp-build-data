@@ -1,7 +1,11 @@
 content:
   source:
-    alias: jenkins
     dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/jenkins.git
     path: slave-base
 from:
   stream: rhel
@@ -15,20 +19,18 @@ labels:
   io.openshift.tags: openshift,jenkins,slave
   vendor: Red Hat
 name: openshift3/jenkins-slave-base-rhel7
-owners:
-- bparees@redhat.com
 odcs:
   packages:
-    mode: manual
     list:
-      - rsync
-      - git
-      - zip
-      - tar
-      - bc
-      - gettext
-      - unzip
-      - which
-      - lsof
-      # leave out openjdk because it must come from pulp
-      # - java-1.8.0-openjdk-headless
+    - rsync
+    - git
+    - zip
+    - tar
+    - bc
+    - gettext
+    - unzip
+    - which
+    - lsof
+    mode: manual
+owners:
+- bparees@redhat.com
