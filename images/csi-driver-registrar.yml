@@ -1,13 +1,30 @@
+name: openshift/csi-driver-registrar
+
+mode: wip
+
+owners:
+- jsafrane@redhat.com
+
 enabled_repos:
 - rhel-server-ose-rpms
+
 from:
-  stream: rhel
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+content:
+  source:
+    dockerfile: Dockerfile.openshift.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+        fallback: master 
+      url: git@github.com:openshift/csi-driver-registrar.git
+
 labels:
   License: ASL 2.0
   io.k8s.description: OpenShift registrar for CSI drivers
   io.k8s.display-name: OpenShift registrar for CSI drivers
   io.openshift.tags: csi,storage,registrar
   vendor: Red Hat
-name: openshift/csi-driver-registrar
-owners:
-  - jsafrane@redhat.com
