@@ -1,14 +1,15 @@
-name: openshift/ose-cluster-node-tuned
-
-owners:
-- jmencak@redhat.com
-
 content:
   source:
-    alias: tuned
     dockerfile: Dockerfile
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/openshift-tuned.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   stream: rhel
+name: openshift/ose-cluster-node-tuned
+owners:
+- jmencak@redhat.com

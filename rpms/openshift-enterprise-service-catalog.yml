@@ -1,6 +1,10 @@
 content:
   source:
-    alias: service-catalog
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/service-catalog.git
     specfile: service-catalog.spec
 name: atomic-enterprise-service-catalog
 owners:

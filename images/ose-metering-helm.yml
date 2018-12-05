@@ -1,15 +1,16 @@
-name: openshift/ose-metering-helm
-
-owners:
-- czibolsk@redhat.com
-- sd-operator-metering@redhat.com
-
 content:
   source:
-    alias: helm
     dockerfile: Dockerfile.rhel
-
+    git:
+      branch:
+        fallback: metering-master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:operator-framework/helm.git
 from:
   builder:
   - stream: rhel
   stream: rhel
+name: openshift/ose-metering-helm
+owners:
+- czibolsk@redhat.com
+- sd-operator-metering@redhat.com

@@ -6,4 +6,8 @@ owners:
 - mnguyen@redhat.com
 
 source:
-  alias: ignition-rpm
+  git:
+    url: https://src.fedoraproject.org/rpms/ignition.git
+    branch:
+      target: release-{MAJOR}.{MINOR}
+      fallback: master

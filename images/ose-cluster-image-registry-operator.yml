@@ -1,13 +1,14 @@
-name: openshift/ose-cluster-image-registry-operator
-
-owners:
-- aos-developer-experience@redhat.com
-
 content:
   source:
-    alias: cluster-image-registry-operator
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-image-registry-operator.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   stream: rhel
+name: openshift/ose-cluster-image-registry-operator
+owners:
+- aos-developer-experience@redhat.com

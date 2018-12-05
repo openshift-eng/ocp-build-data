@@ -1,6 +1,10 @@
 content:
   source:
-    alias: metrics-server
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kubernetes-metrics-server.git
     specfile: metrics-server.spec
 name: atomic-openshift-metrics-server
 owners:

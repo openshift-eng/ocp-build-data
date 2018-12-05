@@ -1,15 +1,16 @@
-name: openshift/ose-prometheus-adapter
-
-owners:
-- fbranczy@redhat.com
-- surbania@redhat.com
-
 content:
   source:
-    alias: k8s-prometheus-adapter
     dockerfile: Dockerfile.ocp
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/k8s-prometheus-adapter.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
+name: openshift/ose-prometheus-adapter
+owners:
+- fbranczy@redhat.com
+- surbania@redhat.com

@@ -1,7 +1,11 @@
 content:
   source:
-    alias: metrics-server
     dockerfile: images/metrics-server/Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kubernetes-metrics-server.git
 enabled_repos:
 - rhel-server-ose-rpms
 from:
@@ -10,10 +14,11 @@ from:
   member: openshift-enterprise-base
 labels:
   License: ASL 2.0
-  io.k8s.description: This is a component of OpenShift Container Platform and exposes the cluster resources metrics API.
+  io.k8s.description: This is a component of OpenShift Container Platform and exposes
+    the cluster resources metrics API.
   io.k8s.display-name: OpenShift Container Platform Metrics Server
   io.openshift.tags: openshift,metrics
   vendor: Red Hat
 name: openshift/ose-metrics-server
 owners:
-  - sjenning@redhat.com
+- sjenning@redhat.com

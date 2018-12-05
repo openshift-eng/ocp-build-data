@@ -1,9 +1,13 @@
 content:
   source:
-    alias: container-image-builder
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/builder
 from:
   builder:
-    - image: openshift/golang-builder:1.10
+  - image: openshift/golang-builder:1.10
   stream: rhel
 labels:
   License: GPLv2+
@@ -13,4 +17,5 @@ labels:
   io.openshift.tags: openshift,builder
   vendor: Red Hat
 name: openshift/ose-docker-builder
-owners: ["bparees@redhat.com"]
+owners:
+- bparees@redhat.com

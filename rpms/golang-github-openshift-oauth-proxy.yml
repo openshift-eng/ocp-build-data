@@ -1,9 +1,12 @@
 content:
   source:
-    alias: oauth-proxy
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/oauth-proxy.git
     specfile: oauth-proxy.spec
 name: golang-github-openshift-oauth-proxy
 owners:
-  - mrogers@redhat.com
-  - simo@redhat.com
-
+- mrogers@redhat.com
+- simo@redhat.com

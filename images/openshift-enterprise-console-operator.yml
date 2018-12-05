@@ -1,16 +1,16 @@
-name: openshift/ose-console-operator 
-
-owners:
-- bpeterse@redhat.com
-- spadgett@redhat.com
-- jforrest@redhat.com
-
 content:
   source:
-    alias: ose-console-operator
     dockerfile: Dockerfile.rhel7
-
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift/console-operator.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
+name: openshift/ose-console-operator
+owners:
+- bpeterse@redhat.com
+- spadgett@redhat.com
+- jforrest@redhat.com

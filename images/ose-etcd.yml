@@ -1,23 +1,22 @@
-name: openshift/ose-etcd
-
-owners:
-- sbatsche@redhat.com
-- spahl@redhat.com
-- knewcomer@redhat.com
-
 content:
   source:
-    alias: etcd
     dockerfile: Dockerfile.rhel
-
+    git:
+      branch:
+        target: origin-{MAJOR}.{MINOR}-etcd-v3.3.10
+      url: git@github.com:openshift/etcd.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
-
 labels:
   License: Apache 2.0
-  io.k8s.description: etcd is distributed key-value store which stores the
-    persistent master state for Kubernetes and OpenShift.
+  io.k8s.description: etcd is distributed key-value store which stores the persistent
+    master state for Kubernetes and OpenShift.
   io.k8s.display-name: etcd server
   io.openshift.tags: etcd
+name: openshift/ose-etcd
+owners:
+- sbatsche@redhat.com
+- spahl@redhat.com
+- knewcomer@redhat.com

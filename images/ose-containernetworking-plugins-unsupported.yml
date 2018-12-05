@@ -1,14 +1,14 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release
+      url: git@github.com:openshift/ose-containernetworking-plugins.git
+    path: images/unsupported
+from:
+  stream: rhel
 name: openshift/ose-container-networking-plugins-unsupported
-
 owners:
 - dosmith@redhat.com
 - nfvpe-container@redhat.com
-
-content:
-  source:
-    alias: container-networking-plugins
-    path: images/unsupported
-    dockerfile: Dockerfile
-
-from:
-  stream: rhel

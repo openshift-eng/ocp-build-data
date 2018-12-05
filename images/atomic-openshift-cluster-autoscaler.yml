@@ -1,7 +1,13 @@
 content:
   source:
-    alias: kubernetes-autoscaler
     dockerfile: images/cluster-autoscaler/Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kubernetes-autoscaler.git
+distgit:
+  namespace: containers
 enabled_repos:
 - rhel-server-ose-rpms
 from:
@@ -16,6 +22,4 @@ labels:
   vendor: Red Hat
 name: openshift/ose-cluster-autoscaler
 owners:
-  - avagarwa@redhat.com
-distgit:
-  namespace: containers
+- avagarwa@redhat.com

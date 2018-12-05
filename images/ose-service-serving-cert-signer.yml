@@ -1,6 +1,10 @@
 content:
   source:
-    alias: service-serving-cert-signer
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/service-serving-cert-signer.git
 from:
   builder:
   - image: openshift/golang-builder:1.10

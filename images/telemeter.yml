@@ -1,6 +1,10 @@
 content:
   source:
-    alias: telemeter
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/telemeter.git
 from:
   builder:
   - image: openshift/golang-builder:1.10

@@ -1,17 +1,16 @@
-name: openshift/ose-cluster-samples-operator
-
-owners:
-- gmontero@redhat.com
-
-from:
-  builder:  # for a multistage build
-  - image: openshift/golang-builder:1.10
-  # base image to build on
-  stream: rhel
-
 content:
   source:
-    alias: cluster-samples-operator
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-samples-operator.git
 enabled_repos:
 - rhel-server-ose-rpms
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  stream: rhel
+name: openshift/ose-cluster-samples-operator
+owners:
+- gmontero@redhat.com

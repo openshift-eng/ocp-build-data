@@ -1,11 +1,12 @@
-name: openshift/ose-sriov-device-plugin
-
-owners:
-- zshi@redhat.com
-
 content:
   source:
-    alias: sriov-network-device-plugin
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/ose-sriov-network-device-plugin.git
 from:
   stream: rhel
+name: openshift/ose-sriov-device-plugin
+owners:
+- zshi@redhat.com

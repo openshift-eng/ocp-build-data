@@ -1,14 +1,15 @@
-name: openshift/ose-cluster-nfd-operator
-
-owners:
-- zkosic@redhat.com
-
 content:
   source:
-    alias: ose-cluster-nfd-operator
     dockerfile: Dockerfile
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-nfd-operator.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
+name: openshift/ose-cluster-nfd-operator
+owners:
+- zkosic@redhat.com

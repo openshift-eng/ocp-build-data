@@ -1,18 +1,18 @@
-name: openshift/ose-hadoop
-
-enabled_repos:
-- rhel-server-ose-rpms
-
-owners:
-- czibolsk@redhat.com
-- sd-operator-metering@redhat.com
-
 content:
   source:
-    alias: hadoop
     dockerfile: Dockerfile.rhel
-
+    git:
+      branch:
+        fallback: metering-master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:operator-framework/hadoop.git
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   builder:
   - stream: rhel
   stream: rhel
+name: openshift/ose-hadoop
+owners:
+- czibolsk@redhat.com
+- sd-operator-metering@redhat.com

@@ -1,15 +1,15 @@
-name: openshift/prom-label-proxy
-
-owners:
-- fbranczy@redhat.com
-- mloibl@redhat.com
-
 content:
   source:
-    alias: prom-label-proxy
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/prom-label-proxy.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   stream: rhel
-
+name: openshift/prom-label-proxy
+owners:
+- fbranczy@redhat.com
+- mloibl@redhat.com

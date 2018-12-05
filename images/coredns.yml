@@ -1,14 +1,15 @@
-name: openshift/ose-coredns
-
-owners:
-- aos-network-edge@redhat.com
-
 content:
   source:
-    alias: coredns
     dockerfile: Dockerfile.openshift.rhel7
-
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/coredns.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
+name: openshift/ose-coredns
+owners:
+- aos-network-edge@redhat.com

@@ -1,15 +1,16 @@
-name: openshift/ose-elasticsearch-operator
-
-owners:
-- jcantril@redhat.com
-- ewolinetz@redhat.com
-- rmeggins@redhat.com
-
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/elasticsearch-operator.git
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
-
-content:
-  source:
-    alias: elasticsearch-operator
+name: openshift/ose-elasticsearch-operator
+owners:
+- jcantril@redhat.com
+- ewolinetz@redhat.com
+- rmeggins@redhat.com

@@ -1,7 +1,10 @@
 content:
   source:
-    alias: cluster-monitoring-operator
     dockerfile: Dockerfile
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift/cluster-monitoring-operator.git
     path: ''
 from:
   builder:

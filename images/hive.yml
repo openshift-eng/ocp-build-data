@@ -1,15 +1,16 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        fallback: metering-master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:operator-framework/hive.git
+from:
+  builder:
+  - stream: rhel
+  member: hadoop
 name: openshift/ose-hive
-
 owners:
 - czibolsk@redhat.com
 - sd-operator-metering@redhat.com
-
-content:
-  source:
-    alias: hive
-    dockerfile: Dockerfile.rhel
-
-from:
-  builder:
-  -  stream: rhel
-  member: hadoop

@@ -1,6 +1,10 @@
 content:
   source:
-    alias: kubernetes-autoscaler
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kubernetes-autoscaler.git
     specfile: cluster-autoscaler.spec
 name: atomic-openshift-cluster-autoscaler
 owners:
