@@ -1,13 +1,30 @@
+name: openshift/csi-provisioner
+
+mode: wip
+
+owners:
+- jsafrane@redhat.com
+
 enabled_repos:
 - rhel-server-ose-rpms
+
 from:
-  stream: rhel
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+content:
+  source:
+    dockerfile: Dockerfile.openshift.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+        fallback: master 
+      url: git@github.com:openshift/csi-external-provisioner.git
+
 labels:
   License: ASL 2.0
   io.k8s.description: External provisioner for CSI volumes
   io.k8s.display-name: External provisioner for CSI volumes
   io.openshift.tags: csi,storage,provisioner
   vendor: Red Hat
-name: openshift/csi-provisioner
-owners:
-  - jsafrane@redhat.com
