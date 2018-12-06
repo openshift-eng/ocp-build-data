@@ -1,13 +1,30 @@
+name: openshift/csi-livenessprobe
+
+mode: wip
+
+owners:
+- jsafrane@redhat.com
+
 enabled_repos:
 - rhel-server-ose-rpms
+
 from:
-  stream: rhel
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+
+content:
+  source:
+    dockerfile: Dockerfile.openshift.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+        fallback: master 
+      url: git@github.com:openshift/csi-livenessprobe.git
+
 labels:
   License: ASL 2.0
   io.k8s.description: Liveness probe for CSI drivers
   io.k8s.display-name: Liveness probe for CSI drivers
   io.openshift.tags: csi,storage,probe
   vendor: Red Hat
-name: openshift/csi-livenessprobe
-owners:
-  - jsafrane@redhat.com
