@@ -1,0 +1,19 @@
+name: openshift/ose-cluster-autoscaler-operator
+mode: wip
+
+owners:
+- aos-cloud@redhat.com
+
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-autoscaler-operator.git
+
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
