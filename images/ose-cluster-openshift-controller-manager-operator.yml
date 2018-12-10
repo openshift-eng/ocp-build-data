@@ -1,0 +1,15 @@
+mode: wip
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-openshift-controller-manager-operator.git
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+name: openshift/ose-cluster-openshift-controller-manager-operator
+owners:
+- aos-master@redhat.com
