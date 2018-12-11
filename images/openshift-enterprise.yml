@@ -1,0 +1,20 @@
+content:
+  source:
+    alias: ose
+    dockerfile: Dockerfile.product
+    path: images/origin
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  io.k8s.description: OpenShift Container Platform is a platform for developing, building,
+    and deploying containerized applications.
+  io.k8s.display-name: OpenShift Container Platform Application Platform
+  io.openshift.tags: openshift,core
+  vendor: Red Hat
+name: openshift3/ose
+owners: []
+push:
+  late: true
