@@ -1,0 +1,17 @@
+name: openshift/openshift-enterprise-template-service-broker-operator
+
+owners:
+- ccpeng-team@redhat.com
+- jmontleo@redhat.com
+
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/template-service-broker-operator.git
+
+from:
+  member: openshift-enterprise-base
+
