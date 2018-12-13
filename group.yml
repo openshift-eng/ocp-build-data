@@ -20,6 +20,13 @@ non_release:
 arches:
   - x86_64
 repos:
+    smunilla-ose-rpms:
+      conf:
+        baseurl: http://file.rdu.redhat.com/smunilla/repos/openshift-3.1-signed/
+        enabled: 1
+      cs_optional: true
+      content_set:
+        default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
     rhel-server-ose-rpms:
       conf:
         baseurl:
