@@ -142,3 +142,12 @@ repos:
 vars:
   MAJOR: 3
   MINOR: 11
+image_build_log_scanner:
+  matches:
+  - "No package .* available"
+  - "Failed component comparison for components:.*"
+  files:
+  - x86_64.log
+  - ppc64le.log
+  - task_failed.log
+  - orchestrator.log
