@@ -2,6 +2,11 @@ arches:
 - x86_64
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 name: openshift-{MAJOR}.{MINOR}
+image_build_log_scanner:
+  matches:
+  - "No package .* available"
+  files:
+  - x86_64.log
 non_release:
   images:
   - openshift-enterprise-base
