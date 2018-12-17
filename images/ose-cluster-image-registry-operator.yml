@@ -1,5 +1,7 @@
+mode: wip
 content:
   source:
+    dockerfile: Dockerfile.rhel7
     git:
       branch:
         fallback: master
@@ -8,7 +10,7 @@ content:
 from:
   builder:
   - image: openshift/golang-builder:1.10
-  stream: rhel
+  member: openshift-enterprise-base
 name: openshift/ose-cluster-image-registry-operator
 owners:
 - aos-developer-experience@redhat.com
