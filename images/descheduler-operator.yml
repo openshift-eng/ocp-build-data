@@ -1,0 +1,16 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/descheduler-operator.git
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+name: openshift/ose-descheduler-operator
+owners:
+- aos-pod@redhat.com
