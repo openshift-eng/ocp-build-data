@@ -8,6 +8,8 @@ content:
       url: git@github.com:openshift/kube-state-metrics.git
     path: ''
 from:
+  builder:
+    - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
 labels:
   License: ASL 2.0
