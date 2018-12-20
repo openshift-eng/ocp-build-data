@@ -1,0 +1,13 @@
+mode: wip
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/federation-v2-operator.git
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-federation-v2
+owners:
+- aos-multicluster@redhat.com
