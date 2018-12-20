@@ -1,0 +1,17 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile.machine-config-operator.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/machine-config-operator.git
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+name: openshift/ose-machine-config-operator
+owners:
+- acrawfor@redhat.com
+- imcleod@redhat.com
