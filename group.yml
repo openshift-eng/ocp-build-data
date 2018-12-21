@@ -95,8 +95,12 @@ vars:
   MINOR: 0
 image_build_log_scanner:
   matches:
+    # yum failed to install a package (but may not give an error result)
   - "No package .* available"
+    # on multiarch builds, installed different NVR of pkg for different arches:
   - "Failed component comparison for components:.*"
+    # docker does not understand multi-stage builds
+  - "is not a valid repository/tag: invalid reference format"
   files:
   - x86_64.log
   - ppc64le.log
