@@ -143,6 +143,8 @@ image_build_log_scanner:
   - "Failed component comparison for components:.*"
     # docker does not understand multi-stage builds
   - "is not a valid repository/tag: invalid reference format"
+    # indicative of imagebuilder bug https://github.com/openshift/imagebuilder/issues/87
+  - "plugins.imagebuilder.*no such file or directory"
   files:
   - x86_64.log
   - ppc64le.log
