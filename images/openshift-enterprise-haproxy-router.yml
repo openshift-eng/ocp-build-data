@@ -7,12 +7,6 @@ content:
         fallback: master
       url: git@github.com:openshift/router.git
     path: images/router/haproxy
-    # Replacement to fix mysterious osbs repo containing of haproxy RPM: cbs-paas7-openshift-multiarch-el7-build
-    # https://projects.engineering.redhat.com/browse/OSBS-5297
-    modifications:
-    - action: replace
-      match: yum install
-      replacement: yum --disablerepo=cbs-paas7-openshift-multiarch-el7-build install
 from:
   member: openshift-enterprise-cli
 labels:
@@ -28,6 +22,3 @@ name: openshift/ose-haproxy-router
 owners: []
 enabled_repos:
 - rhel-server-ose-rpms
-
-# temporary while upstream sources move
-mode: disabled
