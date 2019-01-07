@@ -3,11 +3,14 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: release
+        fallback: release
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/ose-containernetworking-plugins.git
     path: images/unsupported
 from:
-  stream: rhel
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
 name: openshift/ose-container-networking-plugins-unsupported
 owners:
 - dosmith@redhat.com

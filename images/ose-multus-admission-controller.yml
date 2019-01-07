@@ -1,12 +1,14 @@
 content:
   source:
-    dockerfile: Dockerfile.rhel
+    dockerfile: Dockerfile.openshift
     git:
       branch:
-        fallback: master
-        target: release
+        fallback: release
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/ose-multus-admission-controller.git
 from:
+  builder:
+  - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
 name: openshift/ose-multus-admission-controller
 owners:
