@@ -1,0 +1,14 @@
+mode: wip
+content:
+  source:
+    dockerfile: images/hypershift/Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/origin.git
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-integrated-oauth-server
+owners:
+- aos-auth-team@redhat.com
