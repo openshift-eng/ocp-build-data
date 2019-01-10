@@ -1,6 +1,10 @@
 mode: wip
 content:
   source:
+    modifications:
+    - action: replace
+      match: origin-hypershift
+      replacement: atomic-openshift-hypershift
     dockerfile: images/hypershift/Dockerfile
     git:
       branch:
@@ -10,5 +14,7 @@ content:
 from:
   member: openshift-enterprise-base
 name: openshift/ose-integrated-oauth-server
+enabled_repos:
+- rhel-server-ose-rpms
 owners:
 - aos-auth-team@redhat.com
