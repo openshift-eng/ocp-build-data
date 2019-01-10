@@ -1,0 +1,23 @@
+mode: wip
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+        fallback: master
+      url: git@github.com:openshift/router.git
+    path: images/router/base
+from:
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the base image from which all template based routers inherit.
+  io.k8s.display-name: OpenShift Container Platform Router
+  io.openshift.tags: openshift,router
+  vendor: Red Hat
+name: openshift/ose-haproxy-router-base
+owners: []
+enabled_repos:
+- rhel-server-ose-rpms
