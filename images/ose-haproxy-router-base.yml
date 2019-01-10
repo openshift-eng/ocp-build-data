@@ -2,14 +2,15 @@ mode: wip
 base_only: true
 content:
   source:
-    dockerfile: Dockerfile.rhel
+    dockerfile: images/router/base/Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
         fallback: master
       url: git@github.com:openshift/router.git
-    path: images/router/base
 from:
+  builder:
+  - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
