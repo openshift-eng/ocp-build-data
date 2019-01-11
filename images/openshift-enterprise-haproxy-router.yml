@@ -1,12 +1,11 @@
 content:
   source:
-    dockerfile: Dockerfile.rhel
+    dockerfile: images/router/haproxy/Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
         fallback: master
       url: git@github.com:openshift/router.git
-    path: images/router/haproxy
 from:
   member: ose-haproxy-router-base
 labels:
