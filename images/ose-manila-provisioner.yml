@@ -17,7 +17,9 @@ content:
     path: images/manila-provisioner
 
 from:
-  stream: rhel
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
 
 labels:
   License: GPLv2+
