@@ -9,6 +9,8 @@ enabled_repos:
 - rhel-fast-datapath-rpms
 - rhel-server-ose-rpms
 from:
+  builder:
+  - image: openshift/golang-builder:1.10
   stream: rhel
 labels:
   License: GPLv2+
