@@ -121,7 +121,7 @@ run="docker exec $container bash -c"
 $run "tar fx yarn-offline.tar"
 $run "npm install ./yarn-1.9.4.tgz"
 $run "rm -rf npm-packages-offline-cache/"
-$run "./build-frontend.sh"
+$run "CHROMEDRIVER_SKIP_DOWNLOAD=true ./build-frontend.sh"
 
 # locally, unpack the sources and update them with what the container got
 rm -rf yarn-offline && mkdir yarn-offline
