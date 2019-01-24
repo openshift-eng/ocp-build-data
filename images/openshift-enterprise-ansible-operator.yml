@@ -1,0 +1,20 @@
+mode: wip
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-extras-rpms
+- rhel-server-optional-rpms
+- rhel-7-server-ansible-2.6-rpms
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/ocp-release-operator-sdk.git
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  image: ansible-runner:1.2.0
+name: openshift/ose-ansible-operator
+owners:
+- ccpeng-team@redhat.com
