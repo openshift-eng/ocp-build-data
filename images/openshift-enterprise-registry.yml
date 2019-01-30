@@ -5,16 +5,11 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/image-registry.git
-    modifications:
-    - action: replace
-      match: origin-dockerregistry
-      replacement: atomic-openshift-dockerregistry
-    path: images/dockerregistry
-enabled_repos:
-- rhel-server-ose-rpms
+    dockerfile: Dockerfile.rhel7
 from:
+  builder:
+  - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
-image_build_method: docker_api
 labels:
   License: GPLv2+
   io.k8s.description: This is a component of OpenShift Container Platform and exposes
@@ -24,4 +19,5 @@ labels:
   io.openshift.tags: openshift,container,image,registry
   vendor: Red Hat
 name: openshift/ose-docker-registry
-owners: []
+owners:
+- aos-developer-experience@redhat.com
