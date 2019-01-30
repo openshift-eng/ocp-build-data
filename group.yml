@@ -8,6 +8,9 @@ urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
   cgit: http://pkgs.devel.redhat.com/cgit
+# Is the `brew_image_host` source a secure endpoint or will
+# --insecure=true be required?
+insecure_source: true
 non_release:
   images:
   - openshift-enterprise-base
@@ -19,6 +22,8 @@ non_release:
 push:
   registries:
   - registry.reg-aws.openshift.com:443
+  formatted_tags:
+  - quay.io/openshift-release-dev/ocp-v4.0-art-dev:{version}-{release}-{image_name_short}
 sources:
   ose:
     url: git@github.com:openshift/ose.git
