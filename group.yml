@@ -171,7 +171,7 @@ image_build_log_scanner:
     # indicative of https://github.com/openshift/imagebuilder/issues/87 or file(s) missing
   - "plugins.imagebuilder.*lstat.*no such file or directory"
     # koji sucks at auto-incrementing releases
-  - "bump_release: BuildError('Unable to increment release value:"
+  - "bump_release: BuildError.'Unable to increment release value:"
   files:
   - x86_64.log
   - ppc64le.log
