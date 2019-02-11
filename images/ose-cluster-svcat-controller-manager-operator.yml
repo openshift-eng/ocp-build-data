@@ -1,0 +1,18 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-svcat-controller-manager-operator.git
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+name: openshift/ose-cluster-svcat-controller-manager-operator
+owners:
+- jaboyd@redhat.com
