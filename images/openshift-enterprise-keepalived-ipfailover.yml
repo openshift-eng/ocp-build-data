@@ -1,7 +1,11 @@
 content:
   source:
-    alias: ose
-    path: images/ipfailover/keepalived
+    path: ipfailover/keepalived
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/images.git
 from:
   member: openshift-enterprise-base
 labels:

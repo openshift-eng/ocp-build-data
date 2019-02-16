@@ -1,7 +1,11 @@
 content:
   source:
-    alias: ose
-    path: images/egress/http-proxy
+    path: egress/http-proxy
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/images.git
 from:
   member: openshift-enterprise-base
 labels:
