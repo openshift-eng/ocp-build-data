@@ -1,28 +1,23 @@
-name: openshift/ose-csi-external-attacher
-
-owners:
-- jsafrane@redhat.com
-
-enabled_repos:
-- rhel-server-ose-rpms
-
-from:
-  builder:
-  - image: openshift/golang-builder:1.10
-  member: openshift-enterprise-base
-
 content:
   source:
     dockerfile: Dockerfile.openshift.rhel7
     git:
       branch:
+        fallback: master
         target: release-{MAJOR}.{MINOR}
-        fallback: master 
       url: git@github.com:openshift/csi-external-attacher.git
-
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
 labels:
   License: ASL 2.0
   io.k8s.description: External attacher for CSI volumes
   io.k8s.display-name: External attacher for CSI volumes
   io.openshift.tags: csi,storage,attacher
   vendor: Red Hat
+name: openshift/ose-csi-external-attacher
+owners:
+- jsafrane@redhat.com

@@ -1,8 +1,3 @@
-name: openshift/ose-cluster-kube-scheduler-operator
-
-owners:
-- aos-pod@redhat.com
-
 content:
   source:
     dockerfile: Dockerfile.rhel7
@@ -11,8 +6,11 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/cluster-kube-scheduler-operator.git
-
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
+name: openshift/ose-cluster-kube-scheduler-operator
+owners:
+- aos-pod@redhat.com
+required: true

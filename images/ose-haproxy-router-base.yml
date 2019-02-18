@@ -4,20 +4,21 @@ content:
     dockerfile: images/router/base/Dockerfile.rhel
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
         fallback: master
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/router.git
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
-  io.k8s.description: This is the base image from which all template based routers inherit.
+  io.k8s.description: This is the base image from which all template based routers
+    inherit.
   io.k8s.display-name: OpenShift Container Platform Router
   io.openshift.tags: openshift,router
   vendor: Red Hat
 name: openshift/ose-haproxy-router-base
 owners: []
-enabled_repos:
-- rhel-server-ose-rpms
