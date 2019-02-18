@@ -3,9 +3,11 @@ content:
     dockerfile: images/router/haproxy/Dockerfile.rhel
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
         fallback: master
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/router.git
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   member: ose-haproxy-router-base
 labels:
@@ -19,5 +21,4 @@ labels:
   vendor: Red Hat
 name: openshift/ose-haproxy-router
 owners: []
-enabled_repos:
-- rhel-server-ose-rpms
+required: true

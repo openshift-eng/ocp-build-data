@@ -10,12 +10,8 @@ labels:
   io.openshift.tags: logging
   vendor: Red Hat
 name: openshift/ose-logging-eventrouter
-
-# logging images push with and without ose- alias to access.redhat.
-# Replicate that for operations registry.
+no_oit_comments: true
 push:
   repos:
-    - openshift/logging-eventrouter
-    - openshift/ose-logging-eventrouter
-
-no_oit_comments: true
+  - openshift/logging-eventrouter
+  - openshift/ose-logging-eventrouter

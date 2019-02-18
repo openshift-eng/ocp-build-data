@@ -2,6 +2,11 @@ content:
   source:
     alias: ose
     path: images/egress/dns-proxy
+distgit:
+  component: openshift-enterprise-egress-dns-proxy-container
+  namespace: containers
+enabled_repos:
+- rhel-server-ose-rpms
 from:
   member: openshift-enterprise-base
 labels:
@@ -12,8 +17,3 @@ labels:
   vendor: Red Hat
 name: openshift/ose-egress-dns-proxy
 owners: []
-distgit:
-  namespace: containers
-  component: openshift-enterprise-egress-dns-proxy-container
-enabled_repos:
-- rhel-server-ose-rpms

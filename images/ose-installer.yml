@@ -1,8 +1,3 @@
-name: openshift/ose-installer
-
-owners:
-- aos-install@redhat.com
-
 content:
   source:
     dockerfile: images/installer/Dockerfile.ci
@@ -11,8 +6,11 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/installer.git
-
 from:
   builder:
   - image: openshift/golang-builder:1.10
   member: openshift-enterprise-base
+name: openshift/ose-installer
+owners:
+- aos-install@redhat.com
+required: true

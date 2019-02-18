@@ -1,10 +1,11 @@
+base_only: true
 content:
   source:
     alias: ose
     modifications:
     - action: replace
-      match: "COPY *.repo /etc/yum.repos.d/"
-      replacement: ""
+      match: COPY *.repo /etc/yum.repos.d/
+      replacement: ''
     path: images/base
 from:
   stream: rhel
@@ -16,4 +17,3 @@ labels:
   io.openshift.tags: openshift,base
   vendor: Red Hat
 name: openshift/ose-base
-base_only: true

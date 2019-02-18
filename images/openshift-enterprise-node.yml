@@ -2,23 +2,18 @@ content:
   source:
     alias: ose
     modifications:
-
     - action: replace
       match: origin-sdn-ovs
       replacement: atomic-openshift-sdn-ovs
-
     - action: replace
       match: origin-hyperkube
       replacement: atomic-openshift-hyperkube
-
     - action: replace
       match: origin-node
       replacement: atomic-openshift-node
-
     - action: replace
-      match: "rpm -V $INSTALL_PKGS &&"
-      replacement:
-
+      match: rpm -V $INSTALL_PKGS &&
+      replacement: null
     path: images/node
 enabled_repos:
 - rhel-server-ose-rpms
@@ -34,3 +29,4 @@ labels:
   io.openshift.tags: openshift,node
   vendor: Red Hat
 name: openshift/ose-node
+required: true
