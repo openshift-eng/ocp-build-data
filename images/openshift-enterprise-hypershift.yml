@@ -1,16 +1,14 @@
 content:
   source:
     alias: ose
-    modifications:
-    - action: replace
-      match: origin-hypershift
-      replacement: atomic-openshift-hypershift
-    path: images/hypershift
+    dockerfile: images/hypershift/Dockerfile.rhel
 distgit:
   namespace: containers
 enabled_repos:
 - rhel-server-ose-rpms
 from:
+  builder:
+  - stream: golang
   member: openshift-enterprise-base
 labels:
   License: GPLv2+

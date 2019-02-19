@@ -1,16 +1,14 @@
 content:
   source:
     alias: ose
-    modifications:
-    - action: replace
-      match: origin-hyperkube
-      replacement: atomic-openshift-hyperkube
-    path: images/hyperkube
+    dockerfile: images/hyperkube/Dockerfile.rhel
 distgit:
   namespace: containers
 enabled_repos:
 - rhel-server-ose-rpms
 from:
+  builder:
+  - stream: golang
   member: openshift-enterprise-base
 labels:
   License: GPLv2+

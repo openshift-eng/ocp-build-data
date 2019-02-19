@@ -1,16 +1,14 @@
 content:
   source:
     alias: ose
-    modifications:
-    - action: replace
-      match: origin-clients
-      replacement: atomic-openshift-clients
-    path: images/cli
+    dockerfile: images/cli/Dockerfile.rhel
 distgit:
   namespace: containers
 enabled_repos:
 - rhel-server-ose-rpms
 from:
+  builder:
+  - stream: golang
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
