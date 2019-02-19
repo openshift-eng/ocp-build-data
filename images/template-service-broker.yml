@@ -1,15 +1,12 @@
 content:
   source:
     alias: ose
-    dockerfile: Dockerfile
-    modifications:
-    - action: replace
-      match: INSTALL_PKGS="origin
-      replacement: INSTALL_PKGS="atomic-openshift
-    path: images/template-service-broker
+    dockerfile: images/template-service-broker/Dockerfile.rhel
 enabled_repos:
 - rhel-server-ose-rpms
 from:
+  builder:
+  - stream: golang
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
