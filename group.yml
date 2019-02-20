@@ -82,6 +82,15 @@ repos:
     content_set:
       default: rhel-7-server-optional-rpms
       ppc64le: rhel-7-for-power-le-optional-rpms
+  rhel-server-ose-OLD_NODE_JS-rpms:
+    conf:
+      baseurl:
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/ppc64le/os/
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/3.2/building/RH7-RHAOS-3.2/x86_64/os/
+    content_set:
+      default: rhel-7-server-ose-3.2-rpms
+      optional: true
+      ppc64le: rhel-7-for-power-le-ose-3.2-rpms
   rhel-server-ose-rpms:
     conf:
       baseurl:
