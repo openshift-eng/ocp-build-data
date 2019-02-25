@@ -1,0 +1,17 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/must-gather.git
+from:
+  builder:
+  - image: openshift/golang-builder:1.10
+  member: openshift-enterprise-base
+name: openshift/ose-must-gather
+owners:
+- aos-master@redhat.com
+required: true
