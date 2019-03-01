@@ -1,0 +1,16 @@
+mode: wip
+content:
+  source:
+    path: images/kube-proxy
+    dockerfile: Dockerfile.rhel 
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin.git
+from:
+  member: openshift-enterprise-hyperkube
+name: openshift/ose-telemeter
+owners:
+- pcameron@redhat.com
+required: true
