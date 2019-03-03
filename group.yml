@@ -78,6 +78,12 @@ repos:
       enabled: 1
     content_set:
       default: rhel-7-server-rpms
+image_build_log_scanner:
+  matches:
+    # yum failed to install a package (but may not give an error result)
+  - "No package .* available"
+  files:
+  - x86_64.log
 vars:
   MAJOR: 3
   MINOR: 8
