@@ -2,10 +2,6 @@ content:
   source:
     alias: ose
     dockerfile: images/sdn/Dockerfile.rhel
-    modifications:
-    - action: replace
-      match: rpm -V $INSTALL_PKGS &&
-      replacement: null
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-fast-datapath-rpms
