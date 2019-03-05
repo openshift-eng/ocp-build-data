@@ -1,0 +1,16 @@
+mode: wip
+content:
+  source:
+    dockerfile: controller.Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kuryr-kubernetes.git
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-kuryr-controller
+owners:
+- shiftstack-team@redhat.com
+- mdulko@redhat.com
+required: true
