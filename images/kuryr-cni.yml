@@ -1,4 +1,6 @@
 mode: wip
+enabled_repos:
+- rhel-openstack-rpms
 content:
   source:
     dockerfile: openshift-kuryr-cni.Dockerfile
@@ -9,7 +11,7 @@ content:
       url: git@github.com:openshift/kuryr-kubernetes.git
 from:
   member: openshift-enterprise-base
-name: openshift/ose-kuryr-controller
+name: openshift/ose-kuryr-cni
 owners:
 - shiftstack-team@redhat.com
 - mdulko@redhat.com
