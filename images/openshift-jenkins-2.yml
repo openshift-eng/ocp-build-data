@@ -7,6 +7,10 @@ content:
         target: openshift-{MAJOR}.{MINOR}
       url: git@github.com:openshift/jenkins.git
     path: '2'
+    modifications:
+    - action: replace
+      match: INSTALL_JENKINS_VIA_RPMS=false
+      replacement: INSTALL_JENKINS_VIA_RPMS=true
 enabled_repos:
 - rhel-server-ose-rpms
 from:
