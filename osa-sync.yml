@@ -1,0 +1,15 @@
+mode: wip
+content:
+  source:
+    path: images/sync
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/openshift-azure.git
+from:
+  member: openshift-enterprise-base
+name: openshift/osa-sync
+owners:
+- aos-azure@redhat.com
+required: true
