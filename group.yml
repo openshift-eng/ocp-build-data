@@ -28,9 +28,9 @@ sources:
   ose:
     url: git@github.com:openshift/ose.git
     branch:
-      # [lmeyer 2019-03-16] do not use existing 4.1 branch until we have explicitly branched
-      # target: enterprise-{MAJOR}.{MINOR}
-      target: master
+      target: enterprise-{MAJOR}.{MINOR}
+      fallback: master
+use_source_fallback_branch: always
 repos:
   rhel-7-server-ansible-2.4-rpms:
     conf:
