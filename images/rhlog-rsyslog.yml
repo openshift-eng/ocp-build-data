@@ -1,0 +1,15 @@
+mode: wip
+content:
+  source:
+    path: rsyslog
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin-aggregated-logging.git
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-logging-rsyslog
+owners:
+- aos-logging@redhat.com
+required: true
