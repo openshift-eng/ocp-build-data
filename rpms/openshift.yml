@@ -1,7 +1,11 @@
 content:
   source:
-    alias: ose
+    # alias: ose  # need to build RPM from branch temporarily
     specfile: origin.spec
+    git:
+      url: git@github.com:openshift/ose.git
+      branch:
+        target: enterprise-4.0-rm-utf8
 name: openshift
 owners:
 - aos-master@redhat.com
