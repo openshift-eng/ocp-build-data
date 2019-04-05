@@ -1,0 +1,14 @@
+content:
+  source:
+    alias: ose
+    dockerfile: images/cli-artifacts/Dockerfile.rhel
+distgit:
+  namespace: containers
+enabled_repos:
+- rhel-server-ose-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-cli
+name: openshift/ose-cli-artifacts
+required: true
