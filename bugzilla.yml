@@ -34,7 +34,7 @@ target_release:
   - "3.11.z"
 
 filters:
-  - "default":
+  default:
     - field: "component"
       operator: "notequals"
       value: "RFE"
@@ -44,7 +44,7 @@ filters:
     - field: "component"
       operator: "notequals"
       value: "Security"
-  - "security"
+  security:
     - field: "component"
       operator: "notequals"
       value: "RFE"
