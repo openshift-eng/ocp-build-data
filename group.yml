@@ -208,3 +208,6 @@ image_build_log_scanner:
   - ppc64le.log
   - task_failed.log
   - orchestrator.log
+scan_freshness:
+  release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
+  threshold_hours: 24
