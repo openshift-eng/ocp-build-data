@@ -1,0 +1,16 @@
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/openshift-ansible.git
+    specfile: openshift-ansible.spec
+  build:
+    use_source_tito_config: true
+    tito_target: aos-{MAJOR}.{MINOR}
+    push_release_commit: true
+name: openshift-ansible
+owners:
+- rteague@redhat.com
+- sdodson@redhat.com
