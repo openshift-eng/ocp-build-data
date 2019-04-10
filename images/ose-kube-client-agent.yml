@@ -1,5 +1,3 @@
-mode: disabled
-# this does not have a 4.1 branch in dist-git yet
 content:
   source:
     dockerfile: Dockerfile.kube-client-agent.rhel
@@ -9,7 +7,7 @@ content:
       url: git@github.com:openshift/kubecsr.git
 from:
   builder:
-  - image: openshift/golang-builder:1.10
+  - stream: golang
   member: openshift-enterprise-base
 labels:
   License: Apache 2.0
