@@ -47,8 +47,8 @@ labels:
   vendor: Red Hat
   License: GPLv2+
   io.k8s.display-name: "MyUtil Base Image"
-  io.k8s.description: "This is an example BASE (i.e. myutil specifies it in FROM) image to be managed by OIT."
-  io.openshift.tags: "fake,openshift,oit"
+  io.k8s.description: "This is an example BASE (i.e. myutil specifies it in FROM) image to be managed by doozer."
+  io.openshift.tags: "fake,openshift,doozer"
 
 # This section describes:
 # (1) where to find the upstream Dockerfile for this image.
@@ -57,7 +57,7 @@ content:
 
   # Where to pull the upstream Dockerfile from. Source locations are defined by an "alias" which is a logical
   # name for a git repository. Source aliases must be defined in group.yml or specified on the command line
-  # by the build process. In the following example, oit will use the following file for its upstream source Dockerfile:
+  # by the build process. In the following example, doozer will use the following file for its upstream source Dockerfile:
   # [cloned ose repo root]/images/node/Dockerfile.rhel7
   source:
     # If the source has an alias defined, an extracted local directory can be specified on the local file system
