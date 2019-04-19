@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Template
+labels:
+  app: rhcos
+  template: rhcos-template
+metadata:
+  annotations:
+    description: |-
+      Jenkins pipeline for CoreOS distributions.
+    iconClass: icon-jenkins
+    openshift.io/display-name: Red Hat CoreOS Pipeline
+    tags: rhcos,jenkins
+  name: rhcos
+
+parameters:
+ - name: SPEC_REF
+   value: "master"
+   description:  Branch or Ref for this repo.
+ - name: SPEC_URL
+   value: "https://gitlab.cee.redhat.com/coreos/redhat-coreos.git"
+   description: URL for this repo.
+ - name: PREFIX
+   value: "declarative-dev"
+   description: Prefix to job name
+
+objects:
+  - kind: BuildConfig
+    apiVersion: build.openshift.io/v1
+    metadata:
+      name: ${PREFIX}-ootpa
+    label:
+      app: rhcos
+      distro: ootpa
+      template: rhcos-template
+    spec:
+      triggers:
+      - type: ConfigChange
+      source:
+        type: Git
+        git:
+          uri: ${SPEC_URL}
+          ref: ${SPEC_REF}
+        sourceSecret:
+          name: redhat-internal-ca
+      strategy:
+        jenkinsPipelineStrategy:
+          type: JenkinsPipeline
+          jenkinsfilePath: Jenkinsfile
+        env:
+          - name: GIT_SSL_NO_VERIFY
+            value: 1
