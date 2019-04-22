@@ -10,6 +10,10 @@ content:
     - action: command
       command:
       - update-console-sources
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/console
 from:
   builder:
   - image: openshift/golang-builder:1.10
