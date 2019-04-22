@@ -6,6 +6,10 @@ content:
         target: master
       url: git@github.com:openshift/cluster-monitoring-operator.git
     path: ''
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/cluster-monitoring-operator
 from:
   builder:
   - stream: golang
