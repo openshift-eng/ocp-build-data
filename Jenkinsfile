@@ -24,10 +24,10 @@ Checking out Upshift Pipeline from:
 set -xeuo pipefail
 git config --global http.sslCAInfo ${env.WORKSPACE}/ca.crt
 rm -rf ${env.WORKSPACE}/pipeline
-git clone -b ${git_ref} ${git_url} ${env.WORKSPACE}/pipeline
-git --git-dir=${env.WORKSPACE}/pipeline/.git log -1
-
+git clone ${git_url} ${env.WORKSPACE}/pipeline
 pushd ${env.WORKSPACE}/pipeline
+git reset --hard ${git_ref}
+git log -1
 """)
 
     build = load "${env.WORKSPACE}/pipeline/upshift/osbuild.groovy";
