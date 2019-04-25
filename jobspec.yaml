@@ -1,30 +1,30 @@
 spec:
   declarative: true
-  git_url: https://gitlab.cee.redhat.com/coreos/rhcos-upshift.git
-  git_ref: master
+  git_url: https://github.com/openshift/ocp-build-data
+  git_ref: rhcos-4.1
 cosa:
   override: false
   image: coreos-assembler:latest
 job:
-  build_name: ben-ootpa
-  brew_profile: brew-stage
+  build_name: rhcos-4.1
+  brew_profile: brew
   dry_run: false
-  init: true
+  init: false
   force: false
-  is_production: false
+  is_production: true
   skip_kola: true
   os_name: ootpa
   pipeline_yaml: src/config/buildparams.yaml
 recipe:
   os_name: ootpa
-  git_ref: master
+  git_ref: 4eb5e6c74f7d3ade81966d6707caf88c6d3cb538
   git_url: https://gitlab.cee.redhat.com/coreos/redhat-coreos.git
 oscontainer:
-  push_url: # put the docker push reference here, e.g. my.repo/project/awesome
+  push_url: registry.svc.ci.openshift.org/rhcos/machine-os-content:latest
 s3:
   acl: private
-  bucket: # put the name of the S3 bucket you want to push to
-  path: # the path inside the S3 bucket for pushing to
+  bucket: art-rhcos-ci
+  path: releases/ootpa
 runtime:
   jnlp_image: jdk8-jenkins-slave:latest
   node_selector: oci_kvm_hook=allowed
