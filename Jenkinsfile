@@ -22,7 +22,6 @@ Checking out Upshift Pipeline from:
     // Checkout the RHCOS pipeline _and_ version that we want.
     sh("""
 set -xeuo pipefail
-git config --global http.sslCAInfo ${env.WORKSPACE}/ca.crt
 rm -rf ${env.WORKSPACE}/pipeline
 git clone ${git_url} ${env.WORKSPACE}/pipeline
 pushd ${env.WORKSPACE}/pipeline
