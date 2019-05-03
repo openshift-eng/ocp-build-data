@@ -6,6 +6,10 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/cluster-network-operator.git
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/cluster-network-operator
 from:
   builder:
   - stream: golang

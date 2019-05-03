@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     dockerfile: images/sdn/Dockerfile.rhel
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/origin
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-fast-datapath-rpms

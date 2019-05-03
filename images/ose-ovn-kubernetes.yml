@@ -5,6 +5,10 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/ose-ovn-kubernetes.git
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/ose-ovn-kubernetes/go-controller
 enabled_repos:
 - rhel-fast-datapath-rpms
 - rhel-fast-datapath-candidate-rpms

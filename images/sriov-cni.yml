@@ -6,6 +6,10 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/sriov-cni.git
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/sriov-cni
 from:
   builder:
   - stream: golang

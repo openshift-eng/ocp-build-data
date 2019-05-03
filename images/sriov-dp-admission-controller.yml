@@ -6,6 +6,10 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/sriov-dp-admission-controller.git
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/sriov-dp-admission-controller
 from:
   builder:
   - stream: golang
