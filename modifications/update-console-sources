@@ -100,6 +100,10 @@ fi
 # everything happens in the distgit dir
 pushd "$dg_repo"
 
+# rh-manifest.txt is automated downstream; copy yarn.lock as supplemental
+cp frontend/yarn.lock rh-manifest-ext.txt
+git add rh-manifest-ext.txt
+
 # retrieve existing "sources" file and download existing sources
 git checkout HEAD sources
 rhpkg sources
@@ -138,10 +142,6 @@ pushd yarn-offline
   rm -rf npm-packages-offline-cache.previous
   tar fc ../yarn-offline.tar .
 popd
-
-# rh-manifest.txt is automated downstream; copy yarn.lock as supplemental
-cp frontend/yarn.lock rh-manifest-ext.txt
-git add rh-manifest-ext.txt
 
 if [ "$dry_run" = false ]; then
   # upload latest sources to dist-git lookaside
