@@ -139,8 +139,12 @@ pushd yarn-offline
   tar fc ../yarn-offline.tar .
 popd
 
-# upload latest sources to dist-git lookaside
+# rh-manifest.txt is automated downstream; copy yarn.lock as supplemental
+cp frontend/yarn.lock rh-manifest-ext.txt
+git add rh-manifest-ext.txt
+
 if [ "$dry_run" = false ]; then
+  # upload latest sources to dist-git lookaside
   sed -i -e '/yarn-offline/ d' sources
   rhpkg upload yarn-offline.tar
   echo "Updated source lookaside:"
