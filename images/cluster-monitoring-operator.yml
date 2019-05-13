@@ -3,7 +3,8 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: master
+        target: release-{MAJOR}.{MINOR}
+        fallback: master
       url: git@github.com:openshift/cluster-monitoring-operator.git
     path: ''
 container_yaml:
