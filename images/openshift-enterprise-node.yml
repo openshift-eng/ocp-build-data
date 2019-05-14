@@ -1,3 +1,7 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/origin
 content:
   source:
     alias: ose
@@ -18,8 +22,7 @@ labels:
   io.k8s.display-name: OpenShift Container Platform Node
   io.openshift.tags: openshift,node
   vendor: Red Hat
-# TODO: this will become openshift/ose-sdn in 4.1
 name: openshift/ose-node
-required: true
 owners:
-  - aos-pod@redhat.com
+- aos-pod@redhat.com
+required: true

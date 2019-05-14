@@ -1,3 +1,7 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/prometheus-alertmanager
 content:
   source:
     dockerfile: Dockerfile.rhel
@@ -19,6 +23,6 @@ labels:
   io.openshift.tags: openshift,prometheus
   vendor: Red Hat
 name: openshift/ose-prometheus-alertmanager
-required: true
 owners:
 - team-monitoring@redhat.com
+required: true

@@ -1,7 +1,13 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/origin
 content:
   source:
     alias: ose
     dockerfile: images/template-service-broker/Dockerfile.rhel
+dependents:
+- openshift-enterprise-template-service-broker-operator
 enabled_repos:
 - rhel-server-ose-rpms
 from:
@@ -17,5 +23,3 @@ name: openshift/ose-template-service-broker
 owners:
 - jkim@redhat.com
 - shurley@redhat.com
-dependents:
-  - openshift-enterprise-template-service-broker-operator

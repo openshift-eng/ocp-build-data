@@ -1,3 +1,7 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/coreos/kubecsr
 content:
   source:
     dockerfile: Dockerfile.kube-client-agent.rhel
@@ -11,7 +15,8 @@ from:
   member: openshift-enterprise-base
 labels:
   License: Apache 2.0
-  io.k8s.description: This client agent generates a valid CSR according to the configuration flags provided to it.
+  io.k8s.description: This client agent generates a valid CSR according to the configuration
+    flags provided to it.
   io.k8s.display-name: kube-client-agent
   io.openshift.tags: kube-client-agent
 name: openshift/ose-kube-client-agent

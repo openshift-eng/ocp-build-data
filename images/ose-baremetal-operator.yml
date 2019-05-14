@@ -1,3 +1,7 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/metalkube/baremetal-operator
 content:
   source:
     git:
@@ -7,11 +11,9 @@ content:
       url: git@github.com:openshift/baremetal-operator.git
 from:
   builder:
-    - stream: golang
+  - stream: golang
   member: openshift-enterprise-base
-
 name: openshift/ose-baremetal-operator
-
 owners:
 - kni-devel@redhat.com
 - kni-deployment-devel@redhat.com

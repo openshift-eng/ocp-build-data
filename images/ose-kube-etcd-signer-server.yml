@@ -1,3 +1,7 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/coreos/kubecsr
 content:
   source:
     dockerfile: Dockerfile.kube-etcd-signer-server.rhel
@@ -11,7 +15,8 @@ from:
   member: openshift-enterprise-base
 labels:
   License: Apache 2.0
-  io.k8s.description: The certificate signer approves a given valid CSR provided by the client agent and returns a signed certificate.
+  io.k8s.description: The certificate signer approves a given valid CSR provided by
+    the client agent and returns a signed certificate.
   io.k8s.display-name: kube-etcd-signer-server
   io.openshift.tags: kube-etcd-signer-server
 name: openshift/ose-kube-etcd-signer-server
