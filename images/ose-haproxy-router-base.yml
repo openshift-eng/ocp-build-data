@@ -1,4 +1,8 @@
 base_only: true
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/router
 content:
   source:
     dockerfile: images/router/base/Dockerfile.rhel
@@ -7,10 +11,6 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/router.git
-container_yaml:
-  go:
-    modules:
-    - module: github.com/openshift/router
 enabled_repos:
 - rhel-server-ose-rpms
 from:
