@@ -1,6 +1,8 @@
 ---
 rhel:
-  image: ubi7:7-released
+  # image: ubi7:7-released  need newer for CVE fixes
+  # check https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=71184
+  image: ubi7:7.6-159
 golang:
   image: openshift/golang-builder:1.10
 golang-1.11:
