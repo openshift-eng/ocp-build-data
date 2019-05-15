@@ -1,0 +1,14 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-update-keys.git
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-cluster-update-keys
+owners:
+- aos-art-team@redhat.com
+required: true
