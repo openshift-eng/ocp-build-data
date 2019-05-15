@@ -1,7 +1,7 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/metalkube/cluster-api-provider-baremetal
+    - module: github.com/openshift/cluster-api-provider-baremetal
 content:
   source:
     git:
@@ -9,10 +9,6 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/cluster-api-provider-baremetal.git
-container_yaml:
-  go:
-    modules:
-    - module: github.com/openshift/cluster-api-provider-baremetal
 from:
   builder:
   - stream: golang
