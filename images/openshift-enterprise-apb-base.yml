@@ -3,13 +3,14 @@ enabled_repos:
 - rhel-server-extras-rpms
 - rhel-server-optional-rpms
 - rhel-7-server-ansible-2.6-rpms
+- rhel-7-server-ansible-2.6-rpms
+- rhel-7-server-ansible-runner-1.2-rpms
 from:
-  image: ansible-runner:1.1.2
+  stream: rhel
 labels:
   License: GPLv2+
   vendor: Red Hat
 name: openshift/apb-base
 no_oit_comments: true
 owners:
-- tsanders@redhat.com
-- jmatthew@redhat.com
+- shurley@redhat.com
