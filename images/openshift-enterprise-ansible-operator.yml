@@ -14,10 +14,11 @@ enabled_repos:
 - rhel-server-extras-rpms
 - rhel-server-optional-rpms
 - rhel-7-server-ansible-2.6-rpms
+- rhel-7-server-ansible-runner-1.2-rpms
 from:
   builder:
   - stream: golang
-  image: ansible-runner:1.2.0
+  member: openshift-enterprise-apb-base
 name: openshift/ose-ansible-operator
 owners:
 - ccpeng-team@redhat.com
