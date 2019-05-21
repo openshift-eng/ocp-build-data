@@ -1,0 +1,20 @@
+content:
+  source:
+    dockerfile: Dockerfile.metering-operator.rhel
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:operator-framework/operator-metering.git
+enabled_repos:
+- rhel-server-ose-rpms
+- rhel-server-extras-rpms
+from:
+  builder:
+  - member: ose-metering-helm
+  - member: openshift-enterprise-cli
+  member: openshift-enterprise-base
+name: openshift/ose-metering-helm-operator
+owners:
+- czibolsk@redhat.com
+- sd-operator-metering@redhat.com

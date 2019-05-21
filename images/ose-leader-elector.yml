@@ -1,0 +1,19 @@
+container_yaml:
+  go:
+    modules:
+    - module: k8s.io/contrib/election
+content:
+  source:
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/leader-elector.git
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-leader-elector
+owners:
+- shiftstack-team@redhat.com
+- mdulko@redhat.com
