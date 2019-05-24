@@ -138,6 +138,8 @@ image_build_log_scanner:
   matches:
   - "No package .* available"
   - "Failed component comparison for components:.*"
+    # indicative of https://projects.engineering.redhat.com/browse/OSBS-7508
+  - "Primary tag already exists in registry"
   files:
   - x86_64.log
   - ppc64le.log
