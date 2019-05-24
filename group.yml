@@ -148,6 +148,8 @@ image_build_log_scanner:
   - "is not a valid repository/tag: invalid reference format"
     # indicative of https://github.com/openshift/imagebuilder/issues/87 or file(s) missing
   - "plugins.imagebuilder.*lstat.*no such file or directory"
+    # indicative of https://projects.engineering.redhat.com/browse/OSBS-7508
+  - "Primary tag already exists in registry"
   files:
   - x86_64.log
   - ppc64le.log
