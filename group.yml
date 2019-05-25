@@ -89,3 +89,12 @@ repos:
 vars:
   MAJOR: 3
   MINOR: 9
+image_build_log_scanner:
+  matches:
+  - "No package .* available"
+    # indicative of https://projects.engineering.redhat.com/browse/OSBS-7508
+  - "Primary tag already exists in registry"
+  files:
+  - x86_64.log
+  - task_failed.log
+  - orchestrator.log
