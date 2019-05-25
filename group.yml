@@ -54,6 +54,12 @@ repos:
       enabled: 1
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+  rhel-server-ose-rpms-shipped:
+    conf:
+      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
+    content_set:
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      optional: true
   rhel-server-rh-common-rpms:
     conf:
       baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rh-common/os/
