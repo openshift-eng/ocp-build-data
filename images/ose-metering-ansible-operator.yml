@@ -11,7 +11,14 @@ container_yaml:
   go:
     modules:
       - module: github.com/operator-framework/operator-metering
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-ose-rpms
+- rhel-7-server-ansible-2.7-rpms
 from:
+  builder:
+  - member: ose-metering-helm
+  - member: openshift-enterprise-cli
   member: ose-ansible-operator
 name: openshift/ose-metering-ansible-operator
 owners:
