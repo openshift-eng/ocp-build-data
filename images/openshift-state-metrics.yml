@@ -1,0 +1,22 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/openshift-state-metrics.git
+    path: ''
+container_yaml:
+  go:
+    modules:
+      - module: github.com/openshift/openshift-state-metrics
+from:
+  builder:
+    - stream: golang
+  member: openshift-enterprise-base
+
+name: openshift/ose-openshift-state-metrics
+owners:
+  - haowang@redhat.com
+required: true
