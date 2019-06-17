@@ -115,6 +115,6 @@ image_schema = Schema({
 
 def validate(data):
     try:
-        return (image_schema.validate(data), None)
+        image_schema.validate(data)
     except SchemaError as err:
-        return (None, '{}'.format(err))
+        return '{}'.format(err)

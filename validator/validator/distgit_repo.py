@@ -1,9 +1,9 @@
 import requests
 
 
-def validate(filename, data):
+def validate(filename, data, kind):
     endpoint = _get_cgit_endpoint()
-    namespace = _get_namespace(data)
+    namespace = _get_namespace(data, kind)
     repo = _get_repo_name(filename)
 
     url = '{}/{}/{}'.format(endpoint, namespace, repo)
@@ -23,11 +23,11 @@ def _get_cgit_endpoint():
     return 'http://pkgs.devel.redhat.com/cgit'
 
 
-def _get_namespace(data):
+def _get_namespace(data, kind):
     # @TODO: check correct logic on doozer
     if 'distgit' in data and 'namespace' in data['distgit']:
         return data['distgit']['namespace']
-    return 'containers'
+    return 'containers' if kind == 'image' else 'rpms'
 
 
 def _get_repo_name(filename):
