@@ -1,6 +1,12 @@
-from schema import Schema, Optional, Use, And, Or, SchemaError
+from schema import Schema, Optional, Use, And, Or, Regex, SchemaError
 
-valid_arches = ['x86_64']
+valid_arches = [
+    'x86_64',
+]
+valid_modification_actions = [
+    'command',
+    'replace',
+]
 valid_modification_commands = [
     'update-console-sources',
 ]
@@ -17,15 +23,17 @@ image_schema = Schema({
     Optional('config'): 'wip',
     Optional('container_yaml'): {
         'go': {
-            'modules': [{
-                'module': And(str, len),
-                Optional('path'): str,
-            }],
+            'modules': [
+                {
+                    'module': And(str, len),
+                    Optional('path'): str,
+                },
+            ],
         },
     },
     Optional('content'): {
         'source': {
-            Optional('alias'): 'ose',
+            Optional('alias'): And(str, len),
             Optional('dockerfile'): And(str, len),
             Optional('git'): {
                 'branch': {
@@ -35,21 +43,37 @@ image_schema = Schema({
                 'url': And(Use(str), github_repo_exists),
             },
             Optional('modifications'): [{
-                'action': And(str, len),
-                Optional('command'): [Or(*valid_modification_commands)],
+                'action': Or(*valid_modification_actions),
+                Optional('command'): [
+                    Or(*valid_modification_commands),
+                ],
                 Optional('match'): And(str, len),
                 Optional('replacement'): And(str, len),
             }],
             Optional('path'): str,
         },
     },
-    Optional('dependents'): [And(str, len)],
+    Optional('dependents'): [
+        And(str, len)
+    ],
     Optional('distgit'): {
-        Or('namespace', 'component'): And(str, len),
+        Optional('namespace'): Or('rpms', 'apbs', 'containers'),
+        Optional('component'): And(str, len),
+        Optional('branch'): And(str, len),
     },
-    Optional('enabled_repos'): [And(str, len)],
+    Optional('enabled_repos'): [
+        And(str, len),
+    ],
     'from': {
-        Optional('builder'): [{Or('stream', 'image', 'member'): Use(str)}],
+        Optional('builder'): [
+            {
+                Optional('stream'): Or(Regex(r'^golang'),
+                                       Regex(r'^ruby'),
+                                       'rhel'),
+                Optional('member'): And(str, len),
+                Optional('image'): And(str, len),
+            },
+        ],
         Optional('image'): And(str, len),
         Optional('stream'): And(str, len),
         Optional('member'): And(str, len),
@@ -65,14 +89,20 @@ image_schema = Schema({
     'name': And(str, len),
     Optional('odcs'): {
         'packages': {
-            'exclude': [And(str, len)],
+            'exclude': [
+                And(str, len),
+            ],
             'mode': 'auto',
         },
     },
     Optional('no_oit_comments'): bool,
-    Optional('owners'): [And(str, len)],
+    Optional('owners'): [
+        And(str, len),
+    ],
     Optional('push'): {
-        'repos': [And(str, len)],
+        'repos': [
+            And(str, len),
+        ],
     },
     Optional('required'): bool,
     Optional('update-csv'): {
