@@ -1,21 +1,28 @@
 import sys
 
-from . import format, schema
+from . import format, distgit_repo
+from .schema import image_schema
 
 
 def main():
-    file = sys.argv[1]
+    filename = sys.argv[1]
 
-    (parsed, err) = format.validate(open(file).read())
+    (parsed, err) = format.validate(open(filename).read())
     if err:
-        print('{} is not a valid YAML.'.format(file), file=sys.stderr)
+        print('{} is not a valid YAML.'.format(filename), file=sys.stderr)
         print('Returned error: {}.'.format(err), file=sys.stderr)
         exit(1)
 
-    (_, err) = schema.validate(parsed)
+    (_, err) = image_schema.validate(parsed)
     if err:
-        print('{} schema is invalid.'.format(file), file=sys.stderr)
+        print('{} schema is invalid.'.format(filename), file=sys.stderr)
         print('Returned error: {}.'.format(err), file=sys.stderr)
+        exit(1)
+
+    (repo_url, err) = distgit_repo.validate(filename, parsed)
+    if err:
+        print('{} is not reacheable.'.format(repo_url), file=sys.stderr)
+        print('Returned error: {}.'.format(err, file=sys.stderr))
         exit(1)
 
 
