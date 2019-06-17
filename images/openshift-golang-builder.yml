@@ -1,0 +1,20 @@
+content:
+  source:
+    git:
+      branch:
+        target: 1.11
+      url: git@gitlab.cee.redhat.com:openshift-art/builders/golang-builder.git
+distgit:
+  branch: rhaos-4.1-rhel-7
+enabled_repos:
+- rhel-server-ose-build-rpms
+- rhel-7-server-go-toolset-2019.3-rpms
+from:
+  image: rhel7:7-released
+labels:
+  io.k8s.description: golang builder image for Red Hat internal builds
+name: openshift/golang-builder
+owners:
+- aos-team-art@redhat.com
+additional_tags:
+  - '1.11'
