@@ -8,7 +8,7 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        fallback: master
+        fallback: art
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/sriov-network-operator.git
 from:
@@ -18,3 +18,6 @@ from:
 name: openshift/ose-sriov-network-operator
 owners:
 - multus-dev@redhat.com
+update-csv:
+  manifests-dir: operator-manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
