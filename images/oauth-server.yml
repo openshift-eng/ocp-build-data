@@ -1,0 +1,20 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/origin
+content:
+  source:
+    dockerfile: images/oauth-server/Dockerfile.rhel
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/origin.git
+from:
+  builder:
+  - stream: golang-1.12
+  member: openshift-enterprise-base
+mode: wip
+name: openshift/ose-auth-server
+owners:
+- mfojtik@redhat.com
