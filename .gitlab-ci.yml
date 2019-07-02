@@ -1,0 +1,5 @@
+test:
+  tags:
+    - ocp-build-data
+  script:
+    - for f in ./{images,rpms}/*; do validate-ocp-build-data $f || exit 1; done
