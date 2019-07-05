@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+is_mr()         { test ! -z "${CI_MERGE_REQUEST_ID}"; }
+before_sha()    { is_mr && echo "${CI_COMMIT_BEFORE_SHA}" || echo "${CI_COMMIT_SHA}~"; }
+changed_files() { git diff --name-only "$(before_sha)" "${CI_COMMIT_SHA}"; }
+all_files()     { ls ./{images,rpms}/*; }
+validate()      { for f in "$@"; do validate-ocp-build-data $f || exit 1; done; }
+
+if changed_files | grep -E '^(group|streams)\.yml'; then
+    validate $(all_files)
+else
+    validate $(changed_files | grep -E '^(images|rpms)\/')
+fi
