@@ -1,0 +1,26 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/ironic-image
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/ironic-image.git
+from:
+  member: openshift-enterprise-base
+mode: wip
+name: openshift/ose-ironic
+owners:
+- kni-devel@redhat.com
+- jkreger@redhat.com
+- dtantsur@redhat.com
+- bfournie@redhat.com
+- rpittau@redhat.com
+- derekh@redhat.com
+- rbryant@redhat.com
+- dhellmann@redhat.com
+- shardy@redhat.com
