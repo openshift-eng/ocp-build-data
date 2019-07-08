@@ -10,12 +10,14 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/containernetworking-plugins.git
-    path: images/supported
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-container-networking-plugins-supported
+name: openshift/ose-container-networking-plugins
 owners:
-- dosmith@redhat.com
 - nfvpe-container@redhat.com
+- dosmith@redhat.com
+- fpan@redhat.com
+- tohayash@redhat.com
+- dcbw@redhat.com
