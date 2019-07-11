@@ -1,17 +1,13 @@
-container_yaml:
-  go:
-    modules:
-    - module: github.com/openshift/ironic-inspector-image
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.ocp
     git:
       branch:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/ironic-inspector-image.git
 from:
-  member: openshift-enterprise-base
+  stream: rhel
 mode: wip
 name: openshift/ose-ironic-inspector
 owners:
