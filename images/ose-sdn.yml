@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/origin
+content:
+  source:
+    dockerfile: images/sdn/Dockerfile.rhel
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/origin.git
+distgit:
+  component: ose-node-container
+from:
+  builder:
+  - stream: golang-1.12
+  member: openshift-enterprise-base
+name: openshift/ose-node
+owners:
+- mfojtik@redhat.com
