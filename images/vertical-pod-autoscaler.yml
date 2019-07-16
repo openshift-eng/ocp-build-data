@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/kubernetes-autoscaler
+content:
+  source:
+    dockerfile: vertical-pod-autoscaler/Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/kubernetes-autoscaler.git
+distgit:
+  component: ose-vertical-pod-autoscaler-container
+from:
+  builder:
+  - stream: golang-1.12
+  member: openshift-enterprise-base
+name: openshift/ose-vertical-pod-autoscaler
+owners:
+- joesmith@redhat.com
