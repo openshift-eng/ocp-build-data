@@ -5,12 +5,13 @@ container_yaml:
     - module: github.com/openshift/kubernetes-autoscaler
 content:
   source:
-    dockerfile: vertical-pod-autoscaler/Dockerfile.rhel7
+    dockerfile: Dockerfile.rhel7
     git:
       branch:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: https://github.com/openshift/kubernetes-autoscaler.git
+    path: vertical-pod-autoscaler
 distgit:
   component: ose-vertical-pod-autoscaler-container
 from:
