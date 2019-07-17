@@ -1,11 +1,17 @@
+mode: wip
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/origin
+    - module: github.com/openshift/template-service-broker
 content:
   source:
     alias: ose
-    dockerfile: images/template-service-broker/Dockerfile.rhel
+    dockerfile: images/Dockerfile.rhel
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/template-service-broker.git
 dependents:
 - openshift-enterprise-template-service-broker-operator
 enabled_repos:
