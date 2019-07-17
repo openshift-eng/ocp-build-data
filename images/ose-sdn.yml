@@ -1,15 +1,14 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/origin
+    - module: github.com/openshift/sdn
 content:
   source:
-    dockerfile: images/sdn/Dockerfile.rhel
+    dockerfile: images/node/Dockerfile.rhel
     git:
       branch:
-        fallback: master
-        target: release-{MAJOR}.{MINOR}
-      url: https://github.com/openshift/origin.git
+        target: master
+      url: https://github.com/openshift/sdn.git
 distgit:
   component: ose-node-container
 from:
