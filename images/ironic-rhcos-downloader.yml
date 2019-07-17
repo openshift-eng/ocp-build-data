@@ -1,0 +1,22 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/ironic-rhcos-downloader.git
+from:
+  stream: rhel
+name: openshift/ose-ironic-rhcos-downloader
+owners:
+- kni-devel@redhat.com
+- jkreger@redhat.com
+- dtantsur@redhat.com
+- bfournie@redhat.com
+- rpittau@redhat.com
+- derekh@redhat.com
+- rbryant@redhat.com
+- dhellmann@redhat.com
+- shardy@redhat.com
