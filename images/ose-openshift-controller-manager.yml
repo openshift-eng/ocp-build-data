@@ -1,15 +1,16 @@
+mode: wip
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/origin
+    - module: github.com/openshift/openshift-controller-manager
 content:
   source:
-    dockerfile: staging/src/github.com/openshift/openshift-controller-manager/Dockerfile.rhel
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         fallback: master
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift/origin.git
+      url: git@github.com:openshift/openshift-controller-manager.git
 from:
   builder:
   - stream: golang-1.12
