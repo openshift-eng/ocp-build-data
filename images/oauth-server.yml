@@ -1,15 +1,16 @@
+mode: wip
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/origin
+    - module: github.com/openshift/oauth-server
 content:
   source:
-    dockerfile: images/oauth-server/Dockerfile.rhel
+    dockerfile: images/Dockerfile.rhel
     git:
       branch:
         fallback: master
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift/origin.git
+      url: git@github.com:openshift/oauth-server.git
 from:
   builder:
   - stream: golang-1.12
