@@ -1,11 +1,15 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/origin
+    - module: github.com/openshift/oc
 content:
   source:
     alias: ose
-    dockerfile: images/cli/Dockerfile.rhel
+    dockerfile: images/Dockerfile.rhel
+    git:
+      branch:
+        target: master
+      url: https://github.com/openshift/oc.git
 distgit:
   namespace: containers
 enabled_repos:
