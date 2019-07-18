@@ -1,0 +1,19 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/sdn
+content:
+  source:
+    dockerfile: images/sdn-controller/Dockerfile.rhel
+    git:
+      branch:
+        target: master
+      url: https://github.com/openshift/sdn.git
+from:
+  builder:
+  - stream: golang-1.12
+  member: openshift-enterprise-base
+name: openshift/ose-sdn-controller
+owners:
+- aos-sdn-staff@redhat.com
