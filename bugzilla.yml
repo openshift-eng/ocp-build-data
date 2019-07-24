@@ -10,13 +10,21 @@ target_release:
   - "4.1.0"
   - "4.1.z"
 
-filter:
-  - field: "component"
-    operator: "notequals"
-    value: "RFE"
-  - field: "component"
-    operator: "notequals"
-    value: "Documentation"
-  - field: "component"
-    operator: "notequals"
-    value: "Security"
+filters:
+  default:
+    - field: "component"
+      operator: "notequals"
+      value: "RFE"
+    - field: "component"
+      operator: "notequals"
+      value: "Documentation"
+    - field: "component"
+      operator: "notequals"
+      value: "Security"
+  security:
+    - field: "component"
+      operator: "notequals"
+      value: "RFE"
+    - field: "component"
+      operator: "notequals"
+      value: "Documentation"
