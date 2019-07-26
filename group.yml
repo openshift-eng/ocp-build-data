@@ -176,7 +176,7 @@ repos:
     content_set:
       default: rhel-7-server-openstack-14-rpms
       ppc64le: rhel-7-server-openstack-14-for-power-le-rpms
-  rhel-8-server-rpms:
+  rhel-8-baseos-beta-rpms:
     conf:
       baseurl:
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel8/8/ppc64le/baseos/os/
@@ -185,6 +185,15 @@ repos:
       optional: true
       default: rhel-8-for-x86_64-baseos-beta-rpms
       ppc64le: rhel-8-for-ppc64le-baseos-beta-rpms
+  rhel-8-appstream-beta-rpms:
+    conf:
+      baseurl:
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel8/8/ppc64le/appstream/os
+        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel8/8/x86_64/appstream/os/
+    content_set:
+      optional: true
+      default: rhel-8-for-x86_64-appstream-beta-rpms
+      ppc64le: rhel-8-for-ppc64le-appstream-beta-rpms
   rhel-server-rpms:
     conf:
       baseurl:
