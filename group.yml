@@ -194,6 +194,15 @@ repos:
       optional: true
       default: rhel-8-for-x86_64-appstream-beta-rpms
       ppc64le: rhel-8-for-ppc64le-appstream-beta-rpms
+  openstack-beta-for-rhel-8-rpms:
+    conf:
+      baseurl:
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
+        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/x86_64/openstack/os
+    content_set:
+      optional: true
+      default: openstack-beta-for-rhel-8-x86_64-rpms
+      ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
   rhel-server-rpms:
     conf:
       baseurl:
