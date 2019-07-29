@@ -11,11 +11,13 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: https://github.com/openshift/origin.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
+- rhel-server-ose-rpms-shipped
 from:
   member: openshift-enterprise-base
 name: openshift/ose-integrated-oauth-server
-enabled_repos:
-- rhel-server-ose-rpms
-- rhel-server-ose-rpms-shipped
 owners:
 - aos-auth-team@redhat.com

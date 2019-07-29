@@ -2,6 +2,9 @@ content:
   source:
     alias: ose
     dockerfile: images/deployer/Dockerfile.rhel
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
 from:
   member: openshift-enterprise-cli
 labels:
