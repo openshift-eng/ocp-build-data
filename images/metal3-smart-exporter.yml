@@ -11,7 +11,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/metal3-smart-exporter.git
 from:
-  member: openshift-enterprise-base
+  builder:
+    - stream: golang
 mode: wip
 name: openshift/ose-metal3-smart-exporter
 owners:
