@@ -215,6 +215,8 @@ image_build_log_scanner:
   matches:
     # yum failed to install a package (but may not give an error result)
   - "No package .* available"
+    # dnf failed to find a package to install:
+  - "Error: Unable to find a match"
     # on multiarch builds, installed different NVR of pkg for different arches:
   - "Failed component comparison for components:.*"
     # docker does not understand multi-stage builds
