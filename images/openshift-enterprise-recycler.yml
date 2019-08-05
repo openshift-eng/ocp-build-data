@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     dockerfile: images/recycler/Dockerfile.rhel
+    git:
+      branch:
+	target: master
+      url: https://github.com/openshift/oc.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
