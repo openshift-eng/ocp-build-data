@@ -1,4 +1,3 @@
-mode: wip
 container_yaml:
   go:
     modules:
@@ -8,8 +7,8 @@ content:
     git:
       branch:
         fallback: master
-        target: master
-      url: https://github.com/openshift/kubefed.git
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kubefed.git
     dockerfile: Dockerfile
 enabled_repos:
 - rhel-server-rpms
