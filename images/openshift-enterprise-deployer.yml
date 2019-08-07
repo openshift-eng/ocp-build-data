@@ -1,7 +1,11 @@
 content:
   source:
-    alias: ose
-    dockerfile: images/deployer/Dockerfile.rhel
+    path: images/deployer
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/oc.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
