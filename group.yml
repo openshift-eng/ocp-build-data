@@ -1,11 +1,6 @@
 arches:
 - x86_64
 
-advisories:
-  image: 43533
-  rpm: 43535
-  # security:
-
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 name: openshift-{MAJOR}.{MINOR}
 urls:
@@ -168,7 +163,7 @@ repos:
       ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
 vars:
   MAJOR: 4
-  MINOR: 2
+  MINOR: 3
 default_image_build_method: imagebuilder
 image_build_log_scanner:
   matches:
@@ -188,6 +183,7 @@ image_build_log_scanner:
   - "not in list for tag rhaos-.*-candidate"
   files:
   - x86_64.log
+  - s390x.log
   - ppc64le.log
   - task_failed.log
   - orchestrator.log
