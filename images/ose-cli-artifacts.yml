@@ -6,8 +6,11 @@ container_yaml:
     - module: github.com/openshift/oc
 content:
   source:
-    alias: ose
     dockerfile: images/cli-artifacts/Dockerfile.rhel
+    git:
+      branch:
+        target: release-4.2
+      url: https://github.com/openshift/oc.git
 distgit:
   namespace: containers
 enabled_repos:
@@ -22,3 +25,4 @@ from:
 name: openshift/ose-cli-artifacts
 owners:
 - ccoleman@redhat.com
+- aos-master@redhat.com
