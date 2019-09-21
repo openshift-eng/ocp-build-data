@@ -4,11 +4,10 @@ container_yaml:
     - module: github.com/openshift/oc
 content:
   source:
-    alias: ose
     dockerfile: images/cli/Dockerfile.rhel
     git:
       branch:
-        target: master
+        target: release-4.2
       url: https://github.com/openshift/oc.git
 distgit:
   namespace: containers
