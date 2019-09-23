@@ -1,0 +1,13 @@
+owners:
+  - shiftstack-team@redhat.com
+enabled_repos:
+- rhel-openstack-rpms
+content:
+  source:
+    git:
+      url: git@github.com:openshift/kuryr-kubernetes.git
+      branch:
+        target: release-{MAJOR}.{MINOR}
+        fallback: master
+    specfile: openshift-kuryr-kubernetes.spec
+name: openshift-kuryr

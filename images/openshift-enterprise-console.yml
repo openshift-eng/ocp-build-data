@@ -16,7 +16,7 @@ container_yaml:
     - module: github.com/openshift/console
 from:
   builder:
-  - image: openshift/golang-builder:1.10
+  - stream: golang
   - image: rhscl/nodejs-8-rhel7:1
   member: openshift-enterprise-base
 labels:

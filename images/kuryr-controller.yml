@@ -1,0 +1,24 @@
+arches:
+- x86_64
+distgit:
+  component: ose-kuryr-controller-container
+content:
+  source:
+    dockerfile: openshift-kuryr-controller.Dockerfile
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kuryr-kubernetes.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+- rhel-openstack-rpms
+- rhel-server-ose-rpms
+- rhel-server-ose-rpms-shipped
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-kuryr-controller
+owners:
+- shiftstack-team@redhat.com
+- mdulko@redhat.com
