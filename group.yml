@@ -26,6 +26,12 @@ non_release:
 push:
   registries:
   - registry.reg-aws.openshift.com:443
+sources:
+  ose:
+    url: git@github.com:openshift/ose.git
+    branch:
+      target: enterprise-{MAJOR}.{MINOR}
+      fallback: master
 repos:
   rhel-7-server-ansible-2.4-rpms:
     conf:
