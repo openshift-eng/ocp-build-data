@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/cluster-policy-controller
+content:
+  source:
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift/cluster-policy-controller.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-cluster-policy-controller
+owners:
+- mfojtik@redhat.com
