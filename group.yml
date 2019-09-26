@@ -138,8 +138,9 @@ repos:
   rhel-openstack-rpms:
     conf:
       baseurl:
-        default: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/openstack/14/os/
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/openstack/14/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
+        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
     content_set:
       default: rhel-7-server-openstack-14-rpms
       ppc64le: rhel-7-server-openstack-14-for-power-le-rpms
@@ -178,8 +179,9 @@ repos:
   openstack-beta-for-rhel-8-rpms:
     conf:
       baseurl:
-        default: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/x86_64/openstack/os
+        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
     content_set:
       default: openstack-beta-for-rhel-8-x86_64-rpms
       ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
@@ -189,7 +191,8 @@ repos:
     conf:
       baseurl:
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
-        default: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
     content_set:
       default: rhel-7-for-system-z-rpms
       optional: true
