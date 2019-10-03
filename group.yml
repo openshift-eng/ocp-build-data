@@ -206,6 +206,18 @@ repos:
     content_set:
       default: rhel-7-for-system-z-rpms
       optional: true
+  openstack-16-for-rhel-8-rpms:
+    conf:
+      baseurl:
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/ppc64le/os/
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/x86_64/os/
+          # XXX: s390x doesn't exist, point it at something that exists so yum doesn't choke
+          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/x86_64/os/
+    content_set:
+      default: openstack-16-for-rhel-8-x86_64-rpms
+      ppc64le: openstack-16-for-rhel-8-ppc64le-rpms
+      # don't have content set for s390x
+      optional: true
 vars:
   MAJOR: 4
   MINOR: 3
