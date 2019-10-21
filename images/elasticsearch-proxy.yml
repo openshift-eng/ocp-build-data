@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/elasticsearch-proxy
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift/elasticsearch-proxy.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-elasticsearch-proxy
+owners:
+- aos-logging@redhat.com
