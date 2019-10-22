@@ -1,3 +1,14 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/eventrouter
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift/eventrouter.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
@@ -5,7 +16,9 @@ enabled_repos:
 - rhel-server-ose-rpms-shipped
 - rhel-server-extras-rpms
 from:
-  stream: rhel
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
 labels:
   License: GPLv2+
   io.k8s.description: OpenShift logging event router
