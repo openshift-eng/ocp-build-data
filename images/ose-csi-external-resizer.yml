@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/csi-external-resizer
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift/csi-external-resizer.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-extras-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-csi-external-resizer
+owners:
+- aos-storage-staff@redhat.com
