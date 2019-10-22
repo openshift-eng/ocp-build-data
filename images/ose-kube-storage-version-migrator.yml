@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/kubernetes-kube-storage-version-migrator
+content:
+  source:
+    dockerfile: images/release/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/kubernetes-kube-storage-version-migrator.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-extras-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-kube-storage-version-migrator
+owners:
+- aos-master@redhat.com
