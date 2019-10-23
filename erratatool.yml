@@ -9,7 +9,7 @@ brew_tag: "rhaos-3.11-rhel-7"
 
 release: "RHOSE ASYNC"
 
-synopsis: 
+synopsis:
   rpm: "OpenShift Container Platform 3.11 bug fix and enhancement update"
   image: "OpenShift Container Platform 3.11 images update"
 
@@ -38,3 +38,61 @@ description: |
 topic: "Red Hat OpenShift Container Platform releases 3.11.z are now available with updates to packages and images that fix several bugs and add enhancements."
 
 quality_responsibility_name: 'OpenShift QE'
+
+boilerplates:
+  rpm:
+    synopsis: "OpenShift Container Platform 3.11 bug fix and enhancement update"
+    topic: &common_topic "Red Hat OpenShift Container Platform release 3.11.z is now available with updates to packages and images that fix several bugs and add enhancements."
+    description: &common_description |
+      Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
+
+      This advisory contains the RPM packages for Red Hat OpenShift Container Platform 3.11.z. See the following advisory for the container images for this release:
+
+      [[Advisory URL]] https://access.redhat.com/errata/RHBA-2019:3139
+
+      This release fixes the following bugs:
+
+      [[Bug fixes]]
+
+      All OpenShift Container Platform 3.11 users are advised to upgrade to these updated packages and images.
+    solution: &common_solution |
+      Before applying this update, ensure all previously released errata relevant to your system is applied.
+
+      See the following documentation, which will be updated shortly for release 3.11.z, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
+
+      https://docs.openshift.com/container-platform/3.11/release_notes/ocp_3_11_release_notes.html
+
+      This update is available via the Red Hat Network. Details on how to use the Red Hat Network to apply this update are available at https://access.redhat.com/articles/11258.
+  image:
+    synopsis: "OpenShift Container Platform 3.11 images update"
+    topic: *common_topic
+    description: |
+      Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
+
+      This advisory contains the container images for Red Hat OpenShift Container Platform 3.11.z. See the following advisory for the RPM packages for this release:
+
+      [[Advisory URL]] https://access.redhat.com/errata/RHBA-2019:3139
+
+      Space precludes documenting all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these images:
+
+      https://docs.openshift.com/container-platform/3.11/release_notes/ocp_3_11_release_notes.html
+
+      All OpenShift Container Platform 3.11 users are advised to upgrade to these updated packages and images.
+    solution: *common_solution
+  cve:
+    synopsis: OpenShift Container Platform 3.11 security update
+    topic: |
+      Red Hat OpenShift Container Platform release 3.11.z is now available with updates to packages and images that fix several bugs and add enhancements.
+
+      Red Hat Product Security has rated this update as having a security impact of [[Important]]. A Common Vulnerability Scoring System (CVSS) base score, which gives a detailed severity rating, is available for each vulnerability from the CVE link(s) in the References section.
+    description: |
+      Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
+
+      Security Fix(es):
+
+      [[CVEs]]
+
+      For more details about the security issue(s), including the impact, a CVSS
+      score, acknowledgments, and other related information, refer to the CVE page(s)
+      listed in the References section.
+    solution: *common_solution
