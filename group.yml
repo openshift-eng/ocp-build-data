@@ -139,11 +139,7 @@ repos:
     conf:
       baseurl:
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os/
-        # XXX: this won't be present until https://projects.engineering.redhat.com/browse/RCM-66823 completes
-        # (see also https://projects.engineering.redhat.com/browse/RCM-66018 for 4.2)
-        #s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/ose/{MAJOR}.{MINOR}/os/
-        # for now, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
+        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/ose/{MAJOR}.{MINOR}/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
@@ -224,15 +220,6 @@ repos:
       default: openstack-beta-for-rhel-8-x86_64-rpms
       ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
       # don't have content set for s390x yet
-      optional: true
-  rhel-s390x-missing-rpms:
-    conf:
-      baseurl:
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/RHEL/7.7-newarches/latest/s390x/os/
-    content_set:
-      default: rhel-7-for-system-z-rpms
       optional: true
   openstack-16-for-rhel-8-rpms:
     conf:
