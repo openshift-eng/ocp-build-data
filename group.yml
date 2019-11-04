@@ -144,9 +144,13 @@ repos:
   rhel-server-ose-rpms-shipped:
     conf:
       baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/ose/{MAJOR}.{MINOR}/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
+        # Include empty repo until there is a dist repo built on pulp. 
+        ppc64le: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift_Empty/
+        s390x: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift_Empty/
+        x86_64: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift_Empty/
+        #ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os/
+        #s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/ose/{MAJOR}.{MINOR}/os/
+        #x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
