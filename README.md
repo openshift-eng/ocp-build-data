@@ -4,13 +4,14 @@ Welcome to the OpenShift ocp-build-data repo, managed by ART.  This
 repository is the source of truth for all images built for any
 OpenShift Container Platform release.  However, you will not find any
 data in the `master` branch as all data lives in branches specific to
-each version of OCP. For example, OCP 4.2 data lives in the
-[`openshift-4.2`](https://github.com/openshift/ocp-build-data/tree/openshift-4.2)
+
+each version of OCP. For example, OCP 4.3 data lives in the
+[`openshift-4.3`](https://github.com/openshift/ocp-build-data/tree/openshift-4.3)
 branch.
 
 If your images are in dist-git, then ART has a service that can mirror
 your images once a day to `registry.reg-aws`. The
-[`misc-sync`](https://gitlab.cee.redhat.com/openshift-art/ocp-build-data/tree/sync-misc)
+[`misc-sync`](https://github.com/openshift/ocp-build-data/tree/sync-misc)
 branch contains the configuration information. Specify the branch you
 build out of in dist-git and the `<repo>/<name>` of your image
 there. This is for software outside OpenShift that must be tested with
@@ -27,7 +28,7 @@ change. If you are unsure, please contact
 
 For examples with extensive comment documentation of the config data
 yaml files, see the
-[examples](https://gitlab.cee.redhat.com/openshift-art/ocp-build-data/tree/master/example)
+[examples](https://github.com/openshift/ocp-build-data/tree/master/example)
 directory.
 
 For the full documentation on how to build your image or rpm with OCP,
