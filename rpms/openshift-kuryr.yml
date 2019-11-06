@@ -1,7 +1,5 @@
 owners:
   - shiftstack-team@redhat.com
-enabled_repos:
-- rhel-openstack-rpms
 content:
   source:
     git:
@@ -9,5 +7,7 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
         fallback: master
-    specfile: openshift-kuryr-kubernetes.spec
+    specfile: openshift-kuryr-kubernetes-rhel8.spec
 name: openshift-kuryr
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8

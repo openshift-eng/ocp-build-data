@@ -2,20 +2,20 @@ arches:
 - x86_64
 content:
   source:
-    dockerfile: openshift-kuryr-controller.Dockerfile
+    dockerfile: openshift-kuryr-controller-rhel8.Dockerfile
     git:
       branch:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/kuryr-kubernetes.git
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-openstack-rpms
-- rhel-server-ose-rpms
-- rhel-server-ose-rpms-shipped
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-fast-datapath-rpms
+- openstack-16-for-rhel-8-rpms
+- rhel-8-server-ose-rpms
 from:
-  member: openshift-enterprise-base
+  stream: rhel8
 name: openshift/ose-kuryr-controller
 owners:
 - shiftstack-team@redhat.com
