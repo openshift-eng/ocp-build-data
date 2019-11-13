@@ -11,3 +11,10 @@ labels:
   vendor: Red Hat
 name: openshift3/snapshot-controller
 owners: []
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/snapshot-controller/gating_yaml
+      path: gating.yaml
+      overwriting: true

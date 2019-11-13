@@ -2,6 +2,11 @@ content:
   source:
     alias: ose
     path: images/egress/dns-proxy
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-egress-dns-proxy/gating_yaml
+      path: gating.yaml
+      overwriting: true
 from:
   member: openshift-enterprise-base
 labels:

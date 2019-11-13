@@ -7,3 +7,10 @@ labels:
   License: GPLv2+
   vendor: Red Hat
 name: openshift3/ose-ansible-service-broker
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-asb/gating_yaml
+      path: gating.yaml
+      overwriting: true

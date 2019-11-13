@@ -7,11 +7,16 @@ content:
         target: openshift-{MAJOR}.{MINOR}
       url: git@github.com:openshift/jenkins.git
     path: slave-base
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/jenkins-slave-base-rhel7/gating_yaml
+      path: gating.yaml
+      overwriting: true
 from:
   member: openshift-enterprise-cli
 enabled_repos:
 - rhel-server-ose-rpms
-- rhel-server-ose-rpms-shipped  
+- rhel-server-ose-rpms-shipped
 labels:
   License: GPLv2+
   io.k8s.description: The jenkins slave base image is intended to be built on top

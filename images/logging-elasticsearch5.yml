@@ -7,6 +7,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/origin-aggregated-logging.git
     path: elasticsearch
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/logging-elasticsearch5/gating_yaml
+      path: gating.yaml
+      overwriting: true
 distgit:
   namespace: containers
 enabled_repos:

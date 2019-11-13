@@ -17,3 +17,10 @@ owners: []
 push:
   additional_tags:
   - '2.1'
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/image-inspector/gating_yaml
+      path: gating.yaml
+      overwriting: true

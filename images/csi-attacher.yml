@@ -11,4 +11,11 @@ labels:
   vendor: Red Hat
 name: openshift3/csi-attacher
 owners:
-  - jsafrane@redhat.com
+- jsafrane@redhat.com
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/csi-attacher/gating_yaml
+      path: gating.yaml
+      overwriting: true

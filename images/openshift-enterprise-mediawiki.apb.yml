@@ -17,3 +17,10 @@ labels:
 name: openshift3/mediawiki-apb
 no_oit_comments: true
 owners: []
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-mediawiki.apb/gating_yaml
+      path: gating.yaml
+      overwriting: true

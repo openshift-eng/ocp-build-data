@@ -10,6 +10,10 @@ content:
     - action: command
       command:
       - update-console-sources
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-console/gating_yaml
+      path: gating.yaml
+      overwriting: true
 container_yaml:
   go:
     modules:

@@ -12,3 +12,10 @@ labels:
 name: openshift3/apb-base
 no_oit_comments: true
 owners: []
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-apb-base/gating_yaml
+      path: gating.yaml
+      overwriting: true

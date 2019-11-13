@@ -9,6 +9,10 @@ content:
     - action: replace
       match: origin-cluster-autoscaler
       replacement: atomic-openshift-cluster-autoscaler
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/atomic-openshift-cluster-autoscaler/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/cluster-autoscaler
 distgit:
   namespace: containers

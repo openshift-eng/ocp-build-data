@@ -2,6 +2,11 @@ content:
   source:
     alias: ose
     path: images/deployer
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-deployer/gating_yaml
+      path: gating.yaml
+      overwriting: true
 from:
   member: openshift-enterprise-cli
 labels:

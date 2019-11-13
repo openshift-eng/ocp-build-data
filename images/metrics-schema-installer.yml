@@ -14,4 +14,11 @@ labels:
 name: openshift3/metrics-schema-installer
 
 owners:
-  - rvargasp@redhat.com
+- rvargasp@redhat.com
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/metrics-schema-installer/gating_yaml
+      path: gating.yaml
+      overwriting: true

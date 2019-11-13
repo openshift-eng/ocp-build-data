@@ -5,6 +5,10 @@ content:
     - action: replace
       match: origin-hyperkube
       replacement: atomic-openshift-hyperkube
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-hyperkube/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/hyperkube
 enabled_repos:
 - rhel-server-ose-rpms
@@ -13,7 +17,8 @@ from:
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
-  io.k8s.description: OpenShift is a platform for developing, building, and deploying containerized applications.
+  io.k8s.description: OpenShift is a platform for developing, building, and deploying
+    containerized applications.
   io.k8s.display-name: OpenShift Kubernetes Server Commands
   io.openshift.tags: openshift,hyperkube
   vendor: Red Hat
