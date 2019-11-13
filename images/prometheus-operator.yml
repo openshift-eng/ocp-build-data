@@ -7,6 +7,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/prometheus-operator.git
     path: ''
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/prometheus-operator/gating_yaml
+      path: gating.yaml
+      overwriting: true
 container_yaml:
   go:
     modules:

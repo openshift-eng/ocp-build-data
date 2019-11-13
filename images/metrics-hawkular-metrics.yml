@@ -11,4 +11,11 @@ no_oit_comments: true
 owners: []
 
 arches:
-  - x86_64
+- x86_64
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/metrics-hawkular-metrics/gating_yaml
+      path: gating.yaml
+      overwriting: true

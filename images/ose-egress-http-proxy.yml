@@ -2,6 +2,11 @@ content:
   source:
     alias: ose
     path: images/egress/http-proxy
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/ose-egress-http-proxy/gating_yaml
+      path: gating.yaml
+      overwriting: true
 from:
   member: openshift-enterprise-base
 labels:

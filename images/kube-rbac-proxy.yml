@@ -6,13 +6,18 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/kube-rbac-proxy.git
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/kube-rbac-proxy/gating_yaml
+      path: gating.yaml
+      overwriting: true
 container_yaml:
   go:
     modules:
     - module: github.com/brancz/kube-rbac-proxy
 from:
   builder:
-    - stream: golang
+  - stream: golang
   member: openshift-enterprise-base
 labels:
   License: ASL 2.0

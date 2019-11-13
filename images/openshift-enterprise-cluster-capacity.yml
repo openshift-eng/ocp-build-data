@@ -9,6 +9,10 @@ content:
     - action: replace
       match: openshift-cluster-capacity
       replacement: openshift-enterprise-cluster-capacity
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-cluster-capacity/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/cluster-capacity
 enabled_repos:
 - rhel-server-ose-rpms

@@ -9,6 +9,10 @@ content:
     - action: replace
       match: origin-metrics-server
       replacement: atomic-openshift-metrics-server
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/atomic-openshift-metrics-server/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/metrics-server
 enabled_repos:
 - rhel-server-ose-rpms

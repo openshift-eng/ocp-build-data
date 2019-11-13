@@ -9,6 +9,10 @@ content:
     - action: replace
       match: origin-dockerregistry
       replacement: atomic-openshift-dockerregistry
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-registry/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/dockerregistry
 enabled_repos:
 - rhel-server-ose-rpms

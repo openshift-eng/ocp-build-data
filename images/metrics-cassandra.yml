@@ -9,3 +9,10 @@ labels:
 name: openshift3/metrics-cassandra
 no_oit_comments: true
 owners: []
+content:
+  source:
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/metrics-cassandra/gating_yaml
+      path: gating.yaml
+      overwriting: true

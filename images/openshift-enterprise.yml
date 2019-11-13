@@ -11,6 +11,10 @@ content:
     - action: replace
       match: 'rpm -V centos-release-ceph-luminous && '
       replacement: ''
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/origin
 enabled_repos:
 - rhel-server-ose-rpms

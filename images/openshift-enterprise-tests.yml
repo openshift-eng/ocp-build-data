@@ -5,6 +5,10 @@ content:
     - action: replace
       match: origin-tests
       replacement: atomic-openshift-tests
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-tests/gating_yaml
+      path: gating.yaml
+      overwriting: true
     path: images/tests
 enabled_repos:
 - rhel-server-ose-rpms
@@ -13,7 +17,8 @@ from:
   member: openshift-enterprise-cli
 labels:
   License: GPLv2+
-  io.k8s.description: OpenShift is a platform for developing, building, and deploying containerized applications.
+  io.k8s.description: OpenShift is a platform for developing, building, and deploying
+    containerized applications.
   io.k8s.display-name: OpenShift End-to-End Tests
   io.openshift.tags: openshift,tests,e2e
   vendor: Red Hat

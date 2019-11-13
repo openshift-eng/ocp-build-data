@@ -6,6 +6,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/oauth-proxy.git
     path: images
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/golang-github-openshift-oauth-proxy/gating_yaml
+      path: gating.yaml
+      overwriting: true
 enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-ose-rpms-shipped
