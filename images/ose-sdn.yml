@@ -1,11 +1,10 @@
-# this is same as openshift-enterprise-node.yml
 container_yaml:
   go:
     modules:
     - module: github.com/openshift/sdn
 content:
   source:
-    dockerfile: images/node/Dockerfile.rhel
+    dockerfile: images/sdn/Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -23,6 +22,6 @@ from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-node
+name: openshift/ose-sdn
 owners:
 - mfojtik@redhat.com
