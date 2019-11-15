@@ -1,0 +1,13 @@
+mode: disabled    
+content:
+  source:
+    alias: ose
+    specfile: origin.spec
+  build:
+    use_source_tito_config: true
+    tito_target: aos-{MAJOR}.{MINOR}
+    push_release_commit: true
+name: atomic-openshift
+owners:
+- aos-master@redhat.com
+- ccoleman@redhat.com
