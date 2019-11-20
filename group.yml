@@ -34,7 +34,6 @@ non_release:
   - atomic-openshift-metrics-server-container
   - atomic-openshift-cluster-autoscaler-container
   - openshift-enterprise-autoheal
-  - csi-provisioner
   - efs-provisioner
   - ose-haproxy-router-base
   - ose-manila-provisioner
@@ -144,7 +143,7 @@ repos:
   rhel-server-ose-rpms-shipped:
     conf:
       baseurl:
-        # Include empty repo until there is a dist repo built on pulp. 
+        # Include empty repo until there is a dist repo built on pulp.
         ppc64le: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift_Empty/
         s390x: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift_Empty/
         x86_64: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift_Empty/
@@ -240,7 +239,7 @@ repos:
       default: rhel-8-for-x86_64-fast-datapath-beta-rpms
       ppc64le: rhel-8-for-ppc64le-fast-datapath-beta-rpms
       s390x: rhel-8-for-s390x-fast-datapath-beta-rpms
-      optional: true           
+      optional: true
   openstack-beta-for-rhel-8-rpms:
     conf:
       baseurl:
