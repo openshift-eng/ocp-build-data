@@ -113,9 +113,9 @@ repos:
           s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/s390x/os
           x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
         signed:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
+          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/ppc64le/os
+          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/s390x/os
+          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/x86_64/os
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
@@ -138,17 +138,6 @@ repos:
       optional: true
       ppc64le: rhel-8-for-power-le-ose-{MAJOR}.{MINOR}-rpms
       s390x: rhel-8-for-system-z-ose-{MAJOR}.{MINOR}-rpms
-  rhel-server-ose-rpms-shipped:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ose/{MAJOR}.{MINOR}/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/ose/{MAJOR}.{MINOR}/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/{MAJOR}.{MINOR}/os/
-    content_set:
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
-      s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
   rhel-server-rhscl-rpms:
     conf:
       baseurl:
