@@ -235,6 +235,18 @@ repos:
       ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
       # don't have content set for s390x yet
       optional: true
+  openstack-15-for-rhel-8-rpms:
+    conf:
+      baseurl:
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/15/os/
+        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/15/os/
+        # XXX: s390x doesn't exist yet, point it at something that exists so yum doesn't choke
+        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/15/os/
+    content_set:
+      default: openstack-15-for-rhel-8-x86_64-rpms
+      ppc64le: openstack-15-for-rhel-8-ppc64le-rpms
+      # don't have content set for s390x yet
+      optional: true
   openstack-16-for-rhel-8-rpms:
     conf:
       baseurl:
