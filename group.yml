@@ -67,14 +67,14 @@ repos:
       default: rhel-7-server-ansible-2.8-rpms
       ppc64le: rhel-7-server-ansible-2.8-for-power-le-rpms
       s390x: rhel-7-server-ansible-2.8-for-system-z-rpms
-  rhel-fast-datapath-beta-rpms:
+  rhel-fast-datapath-htb-rpms:
     conf:
       baseurl:
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-7-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-7-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-7-build/latest/x86_64/
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel/power-le/7/ppc64le/fast-datapath/os/
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Beta/latest/s390x/os/
+        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
     content_set:
-      default: rhel-7-fast-datapath-beta-rpms
+      default: rhel-7-fast-datapath-htb-rpms
       optional: true
       ppc64le: rhel-7-for-power-le-fast-datapath-beta-rpms
       s390x: rhel-7-for-system-z-fast-datapath-beta-rpms
