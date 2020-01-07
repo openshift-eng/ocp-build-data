@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/cluster-kube-storage-version-migrator-operator
+content:
+  source:
+    dockerfile: images/ci/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/cluster-kube-storage-version-migrator-operator.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-cluster-kube-storage-version-migrator-operator
+owners:
+- aos-master@redhat.com
