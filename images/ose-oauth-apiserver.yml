@@ -1,0 +1,21 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/oauth-apiserver
+content:
+  source:
+    dockerfile: images/Dockerfile.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/oauth-apiserver.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-oauth-apiserver
+owners:
+- aos-auth-team@redhat.com
