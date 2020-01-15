@@ -32,9 +32,13 @@ description: |
 
   You may download the oc tool and use it to inspect release image metadata as follows:
 
-    $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.2.z>
+    (For x86_64 architecture)
+    $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE TAG e.g. 4.2.z-x86_64>
+    The image digest is sha256:<SHASUM_HERE>
 
-  The image digest is sha256:<SHASUM_HERE>
+    (For s390x architecture)
+    $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE TAG e.g. 4.2.z-s390x>
+    The image digest is sha256:<SHASUM_HERE>
 
   All OpenShift Container Platform 4.2 users are advised to upgrade to these updated packages and images.
 
