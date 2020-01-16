@@ -3,13 +3,9 @@ server: "https://errata.devel.redhat.com"
 
 product: "RHOSE"
 
-product_version: "RHEL-7-OSE-3.11"
-
-brew_tag: "rhaos-3.11-rhel-7"
-
 brew_tag_product_version_mapping:
-  rhaos-3.11-rhel-7-candidate: "RHEL-7-OSE-3.11"
-  rhaos-3.11-rhel-8-candidate: "OSE-3.11-RHEL-8"
+  rhaos-{MAJOR}.{MINOR}-rhel-7-candidate: RHEL-7-OSE-{MAJOR}.{MINOR}
+  rhaos-{MAJOR}.{MINOR}-rhel-8-candidate: OSE-{MAJOR}.{MINOR}-RHEL-8
 
 release: "RHOSE ASYNC"
 
