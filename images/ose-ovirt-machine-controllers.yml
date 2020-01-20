@@ -8,7 +8,8 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: master
+        fallback: master
+        target: release-4.4
       url: git@github.com:openshift/cluster-api-provider-ovirt.git
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
