@@ -1,7 +1,7 @@
 FROM openshift/ose-base:ubi8
 
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
-    VERSION="1.12"
+    VERSION="1.13"
 
 LABEL summary="$SUMMARY" \
       description="$SUMMARY" \
