@@ -8,7 +8,9 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: master
+        target: release-{MAJOR}.{MINOR}
+        # At this time, this repo does not follow the release branch convention. Remove fallback when it does.
+        fallback: master
       url: git@github.com:openshift/elasticsearch-proxy.git
 distgit:
   component: ose-elasticsearch-proxy-container
