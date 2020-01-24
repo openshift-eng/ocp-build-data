@@ -10,5 +10,5 @@ LABEL summary="$SUMMARY" \
       com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
       version="$VERSION"
 
-RUN yum install -y --setopt=tsflags=nodocs "golang-$VERSION.*" && \
+RUN yum install -y --setopt=tsflags=nodocs "go-toolset-$VERSION.*" && \
     yum clean all -y
