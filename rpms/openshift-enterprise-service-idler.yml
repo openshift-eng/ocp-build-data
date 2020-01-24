@@ -2,8 +2,9 @@ content:
   source:
     git:
       branch:
-        fallback: master
         target: release-{MAJOR}.{MINOR}
+        # At present, this repo does not use the release- branch pattern. Remove fallback when it does.
+        fallback: master
       url: git@github.com:openshift/service-idler.git
     specfile: service-idler.spec
 name: atomic-openshift-service-idler
