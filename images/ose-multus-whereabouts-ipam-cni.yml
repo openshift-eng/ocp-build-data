@@ -1,0 +1,20 @@
+arches:
+- x86_64
+- ppc64le
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/whereabouts-cni.git
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-7
+from:
+  builder:
+  - stream: golang
+  - stream: rhel-8-golang
+  stream: rhel
+name: openshift/ose-multus-whereabouts-ipam-cni
+owners:
+- multus-dev@redhat.com
