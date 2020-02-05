@@ -10,6 +10,28 @@ advisories:
   rpm: 50532
   image: 50533
   security: 46350
+
+
+build_profiles:
+  image:
+    unsigned:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-containers-candidate
+      signing_intent: unsigned
+      repo_type: unsigned
+    signed:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-signed-containers-candidate
+      signing_intent: release
+      repo_type: signed
+  rpm:
+    default:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-candidate
+
+default_image_build_profile: unsigned
+default_rpm_build_profile: default
+
 arches:
 - x86_64
 - ppc64le
