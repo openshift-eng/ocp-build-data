@@ -1,0 +1,34 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/template-service-broker
+content:
+  source:
+    alias: ose
+    dockerfile: images/Dockerfile.rhel
+    git:
+      branch:
+        fallback: master
+        target: release-{MAJOR}.{MINOR}
+      url: https://github.com/openshift/template-service-broker.git
+dependents:
+- openshift-enterprise-template-service-broker-operator
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  io.k8s.description: Template Service Broker
+  io.k8s.display-name: Template Service Broker
+  vendor: Red Hat
+name: openshift/ose-template-service-broker
+owners:
+- aos-operator-sdk@redhat.com
+- jesusr@redhat.com
+- jlanford@redhat.com
+- fabian@redhat.com
