@@ -1,14 +1,14 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/descheduler-operator
+    - module: github.com/openshift/cluster-kube-descheduler-operator
 content:
   source:
     dockerfile: Dockerfile.rhel7
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift/descheduler-operator.git
+      url: git@github.com:openshift/cluster-kube-descheduler-operator.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
@@ -16,6 +16,6 @@ from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-descheduler-operator
+name: openshift/ose-cluster-kube-descheduler-operator
 owners:
-- aos-pod@redhat.com
+- aos-workloads@redhat.com
