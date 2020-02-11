@@ -11,8 +11,8 @@ content:
       url: git@github.com:openshift/cluster-nfd-operator.git
     modifications:
       - action: replace
-        match: 'go build -mod=vendor'
-        replacement: 'GO111MODULE=on go build -mod=vendor'
+        match: 'make build'
+        replacement: 'GO111MODULE=on make build'
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
