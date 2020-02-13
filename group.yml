@@ -81,8 +81,9 @@ repos:
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
-          ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/fast-datapath/os/
-          s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/fast-datapath/os/
+          # XXX: ovn2.12 is currently missing on P&Z, revert to pulp once fixed
+          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/ppc64le/os/
+          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/s390x/os/
           x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
     content_set:
       default: rhel-7-fast-datapath-rpms
@@ -213,8 +214,9 @@ repos:
   rhel-8-fast-datapath-rpms:
     conf:
       baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
+        # XXX: ovn2.12 is currently missing on P&Z, revert to pulp once fixed
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/s390x/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
     content_set:
       default: rhel-8-for-x86_64-fast-datapath-rpms
