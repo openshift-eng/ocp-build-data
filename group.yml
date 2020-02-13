@@ -67,24 +67,23 @@ repos:
       s390x: rhel-7-server-ansible-2.8-for-system-z-rpms
     reposync:
       enabled: false
-  rhel-fast-datapath-htb-rpms:
+  rhel-fast-datapath-beta-rpms:
     conf:
       baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel/power-le/7/ppc64le/fast-datapath/os/
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Beta/latest/s390x/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
+        s390x: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDN/latest-FDP-7-RHEL-7/compose/Server/s390x/os/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDN/latest-FDP-7-RHEL-7/compose/Server/ppc64le/os/
+        x86_64: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDN/latest-FDP-7-RHEL-7/compose/Server/x86_64/os/
     content_set:
-      default: rhel-7-fast-datapath-htb-rpms
+      default: rhel-7-fast-datapath-beta-rpms
       optional: true
-      ppc64le: rhel-7-for-power-le-fast-datapath-htb-rpms
-      s390x: rhel-7-for-system-z-fast-datapath-htb-rpms
+      ppc64le: rhel-7-for-power-le-fast-datapath-beta-rpms
+      s390x: rhel-7-for-system-z-fast-datapath-beta-rpms
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
-          # XXX: ovn2.12 is currently missing on P&Z, revert to pulp once fixed
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/ppc64le/os/
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/s390x/os/
-          x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+          s390x: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDN/latest-FDP-7-RHEL-7/compose/Server/s390x/os/
+          ppc64le: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDN/latest-FDP-7-RHEL-7/compose/Server/ppc64le/os/
+          x86_64: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDN/latest-FDP-7-RHEL-7/compose/Server/x86_64/os/
     content_set:
       default: rhel-7-fast-datapath-rpms
       ppc64le: rhel-7-for-power-le-fast-datapath-rpms
