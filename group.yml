@@ -18,6 +18,23 @@ advisories:
   metadata: 0
   # security:
 
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+    signed:
+      signing_intent: release
+      repo_type: signed
+  rpm:
+    default:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-candidate
+      - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+
+default_image_build_profile: unsigned
+default_rpm_build_profile: default
+
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 name: openshift-{MAJOR}.{MINOR}
 urls:
