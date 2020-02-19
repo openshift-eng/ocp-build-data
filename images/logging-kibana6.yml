@@ -14,20 +14,20 @@ enabled_repos:
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
 from:
-  stream: nodejs-6
+  stream: nodejs-10
 labels:
   License: GPLv2+
   io.k8s.description: Kibana container for querying Elasticsearch for aggregated logs
   io.k8s.display-name: Kibana
   io.openshift.tags: logging,elk,kibana
   vendor: Red Hat
-name: openshift/ose-logging-kibana5
+name: openshift/ose-logging-kibana6
 owners:
 - jcantril@redhat.com
 - ewolinet@redhat.com
 push:
   repos:
-  - openshift/logging-kibana5
-  - openshift/ose-logging-kibana5
+  - openshift/logging-kibana6
+  - openshift/ose-logging-kibana6
 dependents:
 - cluster-logging-operator
