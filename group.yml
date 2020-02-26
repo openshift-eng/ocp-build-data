@@ -1,4 +1,4 @@
-freeze_automation: no
+freeze_automation: scheduled
 
 vars:
   MAJOR: 4
@@ -12,21 +12,21 @@ arches:
 operator_image_ref_mode: by-arch
 
 advisories:
-  image: 51997
-  rpm: 51996
-  extras: 51998
-  metadata: 51999
+  image: 51758
+  rpm: 51757
+  extras: 51759
+  metadata: 51760
   # security:
 
 build_profiles:
-  image: 51997
+  image:
     unsigned:
       signing_intent: unsigned
       repo_type: unsigned
     signed:
       signing_intent: release
       repo_type: signed
-  rpm: 51996
+  rpm:
     default:
       targets:
       - rhaos-{MAJOR}.{MINOR}-rhel-7-candidate
