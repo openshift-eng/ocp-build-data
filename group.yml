@@ -251,25 +251,13 @@ repos:
       ppc64le: rhel-8-for-ppc64le-fast-datapath-beta-rpms
       s390x: rhel-8-for-s390x-fast-datapath-beta-rpms
       optional: true
-  openstack-beta-for-rhel-8-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/x86_64/openstack/os
-        # XXX: s390x doesn't exist yet, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
-    content_set:
-      default: openstack-beta-for-rhel-8-x86_64-rpms
-      ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
-      # don't have content set for s390x yet
-      optional: true
   openstack-16-for-rhel-8-rpms:
     conf:
       baseurl:
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/ppc64le/os/
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/x86_64/os/
+        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16/os/
+        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
         # XXX: s390x doesn't exist, point it at something that exists so yum doesn't choke
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/x86_64/os/
+        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
     content_set:
       default: openstack-16-for-rhel-8-x86_64-rpms
       ppc64le: openstack-16-for-rhel-8-ppc64le-rpms
