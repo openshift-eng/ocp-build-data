@@ -4,6 +4,7 @@ container_yaml:
     - module: github.com/operator-framework/operator-sdk
 content:
   source:
+    dockerfile: release/ansible/Dockerfile
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -13,7 +14,7 @@ enabled_repos:
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
 - rhel-server-extras-rpms
-- rhel-7-server-ansible-2.8-rpms
+- rhel-7-server-ansible-2.9-rpms
 from:
   builder:
   - stream: golang
