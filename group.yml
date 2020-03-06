@@ -1,9 +1,5 @@
 freeze_automation: no
 
-vars:
-  MAJOR: 4
-  MINOR: 5
-
 arches:
 - x86_64
 - ppc64le
@@ -12,10 +8,10 @@ arches:
 operator_image_ref_mode: manifest-list
 
 advisories:
-  image: 51809
-  rpm: 51808
-  extras: 51810
-  metadata: 51811
+  image: 0
+  rpm: 0
+  extras: 0
+  metadata: 0
   # security:
 
 build_profiles:
@@ -29,14 +25,14 @@ build_profiles:
   rpm:
     default:
       targets:
-      - rhaos-{MAJOR}.{MINOR}-rhel-7-candidate
-      - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+      - dummy-rhel-7-candidate
+      - dummy-rhel-8-candidate
 
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
 
-branch: rhaos-{MAJOR}.{MINOR}-rhel-7
-name: openshift-{MAJOR}.{MINOR}
+branch: dummy-rhel-7
+name: ci-deps
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
@@ -47,30 +43,10 @@ urls:
 insecure_source: true
 dist_git_ignore:
   - gating.yaml
-non_release:
-  images:
-  - openshift-enterprise-base
-  - atomic-openshift-metrics-server-container
-  - atomic-openshift-cluster-autoscaler-container
-  - openshift-enterprise-autoheal
-  - efs-provisioner
-  - ose-haproxy-router-base
-  - ose-manila-provisioner
-  - snapshot-controller
-  - snapshot-provisioner
-  - openshift-enterprise-service-idler
-  rpms:
-  - atomic-openshift-service-idler
-  - atomic-openshift-metrics-server-container
-  - atomic-openshift-cluster-autoscaler-container
 push:
   registries:
   - registry.reg-aws.openshift.com:443
-sources:
-  ose:
-    url: git@github.com:openshift/ose.git
-    branch:
-      target: enterprise-{MAJOR}.{MINOR}
+
 repos:
   rhel-7-server-ansible-2.9-rpms:
     conf:
@@ -94,32 +70,6 @@ repos:
       default: rhel-7-server-ansible-2.8-rpms
       ppc64le: rhel-7-server-ansible-2.8-for-power-le-rpms
       s390x: rhel-7-server-ansible-2.8-for-system-z-rpms
-    reposync:
-      enabled: false
-  rhel-fast-datapath-htb-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel/power-le/7/ppc64le/fast-datapath/os/
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Beta/latest/s390x/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-htb-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-fast-datapath-htb-rpms
-      s390x: rhel-7-for-system-z-fast-datapath-htb-rpms
-  rhel-fast-datapath-rpms:
-    conf:
-      baseurl:
-          ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/fast-datapath/os/
-          s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/fast-datapath/os/
-          x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-rpms
-      ppc64le: rhel-7-for-power-le-fast-datapath-rpms
-      s390x: rhel-7-for-system-z-fast-datapath-rpms
-      optional: true
-    reposync:
-      enabled: false
   rhel-server-extras-rpms:
     conf:
       baseurl:
@@ -130,8 +80,6 @@ repos:
       default: rhel-7-server-extras-rpms
       ppc64le: rhel-7-for-power-le-extras-rpms
       s390x: rhel-7-for-system-z-extras-rpms
-    reposync:
-      enabled: false
   rhel-server-optional-rpms:
     conf:
       baseurl:
@@ -142,41 +90,6 @@ repos:
       default: rhel-7-server-optional-rpms
       ppc64le: rhel-7-for-power-le-optional-rpms
       s390x: rhel-7-for-system-z-optional-rpms
-    reposync:
-      enabled: false
-  rhel-server-ose-rpms:
-    conf:
-      baseurl:
-        unsigned:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
-        signed:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/x86_64/os
-    content_set:
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
-      s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
-  # Included to trigger reposync of rhel-8 rpms
-  rhel-8-server-ose-rpms:
-    conf:
-      baseurl:
-        unsigned:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}-el8/latest/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}-el8/latest/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}-el8/latest/x86_64/os
-        signed:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}-el8/latest/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}-el8/latest/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}-el8/latest/x86_64/os
-    content_set:
-      default: rhel-8-server-ose-{MAJOR}.{MINOR}-rpms
-      optional: true
-      ppc64le: rhel-8-for-power-le-ose-{MAJOR}.{MINOR}-rpms
-      s390x: rhel-8-for-system-z-ose-{MAJOR}.{MINOR}-rpms
   rhel-server-rhscl-rpms:
     conf:
       baseurl:
@@ -187,22 +100,6 @@ repos:
       default: rhel-server-rhscl-7-rpms
       ppc64le: rhel-7-server-for-power-le-rhscl-rpms
       s390x: rhel-7-server-for-system-z-rhscl-rpms
-    reposync:
-      enabled: false
-  rhel-openstack-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/openstack/14/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
-        # XXX: s390x doesn't exist yet, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
-    content_set:
-      default: rhel-7-server-openstack-14-rpms
-      ppc64le: rhel-7-server-openstack-14-for-power-le-rpms
-      # don't have content set for s390x yet
-      optional: true
-    reposync:
-      enabled: false
   rhel-server-rpms:
     conf:
       baseurl:
@@ -213,8 +110,6 @@ repos:
       default: rhel-7-server-rpms
       ppc64le: rhel-7-for-power-le-rpms
       s390x: rhel-7-for-system-z-rpms
-    reposync:
-      enabled: false
   rhel-8-baseos-rpms:
     conf:
       baseurl:
@@ -225,8 +120,6 @@ repos:
       default: rhel-8-for-x86_64-baseos-rpms
       ppc64le: rhel-8-for-ppc64le-baseos-rpms
       s390x: rhel-8-for-s390x-baseos-rpms
-    reposync:
-      enabled: false
   rhel-8-appstream-rpms:
     conf:
       baseurl:
@@ -237,44 +130,6 @@ repos:
       default: rhel-8-for-x86_64-appstream-rpms
       ppc64le: rhel-8-for-ppc64le-appstream-rpms
       s390x: rhel-8-for-s390x-appstream-rpms
-    reposync:
-      enabled: false
-  rhel-8-fast-datapath-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-8-for-x86_64-fast-datapath-rpms
-      ppc64le: rhel-8-for-ppc64le-fast-datapath-rpms
-      s390x: rhel-8-for-s390x-fast-datapath-rpms
-      optional: true
-    reposync:
-      enabled: false
-  rhel-8-fast-datapath-beta-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-8-build/latest/ppc64le
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-8-build/latest/s390x
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-8-build/latest/x86_64
-    content_set:
-      default: rhel-8-for-x86_64-fast-datapath-beta-rpms
-      ppc64le: rhel-8-for-ppc64le-fast-datapath-beta-rpms
-      s390x: rhel-8-for-s390x-fast-datapath-beta-rpms
-      optional: true
-  openstack-16-for-rhel-8-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
-        # XXX: s390x doesn't exist, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
-    content_set:
-      default: openstack-16-for-rhel-8-x86_64-rpms
-      ppc64le: openstack-16-for-rhel-8-ppc64le-rpms
-      # don't have content set for s390x
-      optional: true
 
 default_image_build_method: imagebuilder
 image_build_log_scanner:
