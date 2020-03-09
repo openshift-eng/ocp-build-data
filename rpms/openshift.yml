@@ -3,10 +3,10 @@ content:
     alias: ose
     specfile: origin.spec
   build:
-    use_source_tito_config: true
+    use_source_tito_config: false
     tito_target: aos-{MAJOR}.{MINOR}
     # Address https://coreos.slack.com/archives/GDBRP5YJH/p1573497720048000 before turning to false
-    push_release_commit: true
+    push_release_commit: false
 name: openshift
 owners:
 - aos-master@redhat.com
