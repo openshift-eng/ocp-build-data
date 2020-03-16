@@ -1,17 +1,52 @@
 arches:
 - x86_64
+
+# switches for experimental Doozer features
+doozer_feature_gates:
+  # odcs_enabled: whether to enable Doozer ODCS support (without explicitly specifying --odcs-mode option)
+  # See https://issues.redhat.com/browse/ART-128 for more information about ODCS mode.
+  odcs_enabled: true
+  # odcs_aggressive: true to build an image with ODCS auto mode even if its image config doesn't have `odcs` field defined
+  odcs_aggressive: true
+
+advisories:
+  rpm: 0
+  image: 0
+  security: 0
+
+build_profiles:
+  image:
+    unsigned:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-containers-candidate
+      signing_intent: unsigned
+      repo_type: unsigned
+    signed:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-signed-containers-candidate
+      signing_intent: release
+      repo_type: signed
+  rpm:
+    default:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-7-candidate
+
+default_image_build_profile: unsigned
+default_rpm_build_profile: default
+
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 name: openshift-{MAJOR}.{MINOR}
 insecure_source: true
+
+dist_git_ignore:
+  - gating.yaml
+
 urls:
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
   brewhub: https://brewhub.engineering.redhat.com/brewhub
-  brew_image_host: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
   cgit: http://pkgs.devel.redhat.com/cgit
-image_build_log_scanner:
-  matches:
-  - "No package .* available"
-  files:
-  - x86_64.log
+
 non_release:
   images:
   - openshift-enterprise-base
@@ -77,12 +112,20 @@ repos:
 vars:
   MAJOR: 3
   MINOR: 7
-image_build_log_scanner:
-  matches:
-  - "No package .* available"
-    # indicative of https://projects.engineering.redhat.com/browse/OSBS-7508
-  - "Primary tag already exists in registry"
-  files:
-  - x86_64.log
-  - task_failed.log
-  - orchestrator.log
+
+ image_build_log_scanner:
+   matches:
+     # yum failed to install a package (but may not give an error result)
+   - "No package .* available"
+     # on multiarch builds, installed different NVR of pkg for different arches:
+   - "Failed component comparison for components:.*"
+     # docker does not understand multi-stage builds
+   - "is not a valid repository/tag: invalid reference format"
+     # indicative of https://github.com/openshift/imagebuilder/issues/87 or file(s) missing
+   - "plugins.imagebuilder.*lstat.*no such file or directory"
+     # indicative of https://projects.engineering.redhat.com/browse/OSBS-7508
+   - "Primary tag already exists in registry"
+   files:
+   - x86_64.log
+   - task_failed.log
+   - orchestrator.log
