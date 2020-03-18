@@ -45,8 +45,8 @@ dg_repo="${DISTGIT_REPO:-${PWD}}"
 # set $DRY_RUN to anything else to prevent actually uploading the new sources
 dry_run="${DRY_RUN:-false}"
 #
-# NodeJS builder image to use (may need local pull/tag since brew-pulp is insecure)
-builder_img="${BUILDER_IMAGE:-brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/rhscl/nodejs-8-rhel7:1}"
+# NodeJS builder image to use
+builder_img="${BUILDER_IMAGE:-registry-proxy.engineering.redhat.com/rh-osbs/openshift-ose-base:rhscl.nodejs.12.rhel7}"
 
 longopts=help,dg-repo:,dg-branch:,dry-run,builder-img:
 options=hr:t:di:
