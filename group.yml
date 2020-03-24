@@ -117,9 +117,13 @@ repos:
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/ppc64le/os/
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/s390x/os/
           x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+          ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/fast-datapath/os/
+          s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/fast-datapath/os/
+          # [lmeyer] multi-arch releases might lag behind x86_64, which may require pointing at pre-release MA composes.
+          # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
+          # ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/ppc64le/os/
+          # s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/s390x/os/
     content_set:
       default: rhel-7-fast-datapath-rpms
       ppc64le: rhel-7-for-power-le-fast-datapath-rpms
