@@ -1,0 +1,23 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/aws-pod-identity-webhook
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+        # This repo does not follow the release- branch convention. Remove fallback when it does.
+        fallback: master
+      url: git@github.com:openshift/aws-pod-identity-webhook.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-aws-pod-identity-webhook
+owners:
+- sjenning@redhat.com
