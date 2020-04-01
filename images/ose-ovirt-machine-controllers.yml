@@ -7,17 +7,15 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: release-4.4
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/cluster-api-provider-ovirt.git
-distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-server-ose-rpms
+- rhel-server-rpms
+- rhel-server-optional-rpms
 from:
   builder:
   - stream: golang
-  stream: rhel8
+  member: openshift-enterprise-base
 name: openshift/ose-ovirt-machine-controllers
 owners:
 - rgolan@redhat.com
