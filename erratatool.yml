@@ -10,88 +10,88 @@ brew_tag_product_version_mapping:
   rhaos-{MAJOR}.{MINOR}-rhel-8-candidate: OSE-{MAJOR}.{MINOR}-RHEL-8
 
 synopsis:
-  rpm: "OpenShift Container Platform 4.5 bug fix and enhancement update"
-  image: "OpenShift Container Platform 4.5 images update"
-  extras: "OpenShift Container Platform 4.5.z extras update"
-  metadata: "OpenShift Container Platform 4.5.z OLM Operators metadata update"
+  rpm: "OpenShift Container Platform 4.6 bug fix and enhancement update"
+  image: "OpenShift Container Platform 4.6 images update"
+  extras: "OpenShift Container Platform 4.6.z extras update"
+  metadata: "OpenShift Container Platform 4.6.z OLM Operators metadata update"
 
 description: |
   Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-  This advisory contains the RPM packages / container images for Red Hat OpenShift Container Platform 4.5.z. See the following advisory for the container images / RPM packages for this release:
+  This advisory contains the RPM packages / container images for Red Hat OpenShift Container Platform 4.6.z. See the following advisory for the container images / RPM packages for this release:
 
   <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2018:1234
 
   Space precludes documenting all of the bug fixes and enhancements in this advisory, as well as all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
-  https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html
+  https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html
 
   You may download the oc tool and use it to inspect release image metadata as follows:
 
-    $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.5.z>
+    $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.6.z>
 
   The image digest is sha256:<SHASUM_HERE>
 
-  All OpenShift Container Platform 4.5 users are advised to upgrade to these updated packages and images.
+  All OpenShift Container Platform 4.6 users are advised to upgrade to these updated packages and images.
 
 solution: |
-  For OpenShift Container Platform 4.5 see the following documentation, which will be updated shortly for release 4.5.z, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
+  For OpenShift Container Platform 4.6 see the following documentation, which will be updated shortly for release 4.6.z, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-  https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html
+  https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html
 
-topic: "Red Hat OpenShift Container Platform release 4.5.z is now available with updates to packages and images that fix several bugs and add enhancements."
+topic: "Red Hat OpenShift Container Platform release 4.6.z is now available with updates to packages and images that fix several bugs and add enhancements."
 
 quality_responsibility_name: "OpenShift QE"
 
 boilerplates:
   rpm:
-    synopsis: "OpenShift Container Platform 4.5.z packages update"
-    topic: &common_topic "Red Hat OpenShift Container Platform release 4.5.z is now available with updates to packages and images that fix several bugs."
+    synopsis: "OpenShift Container Platform 4.6.z packages update"
+    topic: &common_topic "Red Hat OpenShift Container Platform release 4.6.z is now available with updates to packages and images that fix several bugs."
     description: &common_description |
       Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-      This advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.5.z. See the following advisory for the container images for this release:
+      This advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.6.z. See the following advisory for the container images for this release:
 
       <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2019:1234
 
-      All OpenShift Container Platform 4.5 users are advised to upgrade to these updated packages and images.
+      All OpenShift Container Platform 4.6 users are advised to upgrade to these updated packages and images.
     solution: &common_solution |
-      For OpenShift Container Platform 4.5 see the following documentation, which will be updated shortly for release 4.5.z, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
+      For OpenShift Container Platform 4.6 see the following documentation, which will be updated shortly for release 4.6.z, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-      https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html
+      https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html
 
-      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.5/updating/updating-cluster-cli.html.
+      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-cli.html.
   image:
-    synopsis: "OpenShift Container Platform 4.5.z bug fix update"
+    synopsis: "OpenShift Container Platform 4.6.z bug fix update"
     topic: *common_topic
     description: |
       Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-      This advisory contains the container images for Red Hat OpenShift Container Platform 4.5.z. See the following advisory for the RPM packages for this release:
+      This advisory contains the container images for Red Hat OpenShift Container Platform 4.6.z. See the following advisory for the RPM packages for this release:
 
       <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2019:1234
 
       Space precludes documenting all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
-      https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html
+      https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html
 
       You may download the oc tool and use it to inspect release image metadata as follows:
 
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.5.z>
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.6.z>
 
       The image digest is sha256:<SHASUM_HERE>
 
-      All OpenShift Container Platform 4.5 users are advised to upgrade to these updated packages and images.
+      All OpenShift Container Platform 4.6 users are advised to upgrade to these updated packages and images.
     solution: *common_solution
   extras:
-    synopsis: OpenShift Container Platform 4.5.z extras update
+    synopsis: OpenShift Container Platform 4.6.z extras update
     topic: *common_topic
     description: *common_description
     solution: *common_solution
   metadata:
-    synopsis: OpenShift Container Platform 4.5.z OLM Operators metadata update
+    synopsis: OpenShift Container Platform 4.6.z OLM Operators metadata update
     topic: |
-      Red Hat OpenShift Container Platform release 4.5.z is now available with updates to packages and images that fix several bugs.
+      Red Hat OpenShift Container Platform release 4.6.z is now available with updates to packages and images that fix several bugs.
 
       This advisory will be used to release the corresponding operator manifests via new operator metadata containers.
 
@@ -100,12 +100,12 @@ boilerplates:
 
       This advisory will be used to release the corresponding operator manifests via new operator metadata containers.
 
-      All OpenShift Container Platform 4.5 users are advised to upgrade to these updated packages and images.
+      All OpenShift Container Platform 4.6 users are advised to upgrade to these updated packages and images.
     solution: *common_solution
   cve:
-    synopsis: OpenShift Container Platform 4.5.z security update
+    synopsis: OpenShift Container Platform 4.6.z security update
     topic: |
-      Red Hat OpenShift Container Platform release 4.5.z is now available with updates to packages and images that fix several bugs and add enhancements.
+      Red Hat OpenShift Container Platform release 4.6.z is now available with updates to packages and images that fix several bugs and add enhancements.
 
       Red Hat Product Security has rated this update as having a security impact of [[Important]]. A Common Vulnerability Scoring System (CVSS) base score, which gives a detailed severity rating, is available for each vulnerability from the CVE link(s) in the References section.
     description: |
