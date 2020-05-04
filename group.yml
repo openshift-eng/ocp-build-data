@@ -73,14 +73,21 @@ non_release:
   - atomic-openshift-service-idler
   - atomic-openshift-metrics-server-container
   - atomic-openshift-cluster-autoscaler-container
+
 push:
   registries:
   - registry.reg-aws.openshift.com:443
+
 sources:
   ose:
     url: git@github.com:openshift/ose.git
     branch:
       target: enterprise-{MAJOR}.{MINOR}
+
+public_upstreams:
+  "https://github.com/openshift-priv" : "https://github.com/openshift"
+  "https://github.com/openshift/ose" : "https://github.com/openshift/origin"
+
 repos:
   rhel-7-server-ansible-2.4-rpms:
     conf:
