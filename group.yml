@@ -184,20 +184,6 @@ repos:
       s390x: rhel-7-server-for-system-z-rhscl-rpms
     reposync:
       enabled: false
-  rhel-openstack-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/openstack/14/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
-        # XXX: s390x doesn't exist yet, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
-    content_set:
-      default: rhel-7-server-openstack-14-rpms
-      ppc64le: rhel-7-server-openstack-14-for-power-le-rpms
-      # don't have content set for s390x yet
-      optional: true
-    reposync:
-      enabled: false
   rhel-server-rpms:
     conf:
       baseurl:
