@@ -11,7 +11,11 @@ pipeline {
     stages {
         stage("validate modified files") {
             when { changeRequest() }
-            steps { ocpBuildDataCISteps() }
+            steps {
+                sshagent (credentials: ['openshift-bot']) {
+                    ocpBuildDataCISteps()
+                }
+            }
         }
     }
 }
