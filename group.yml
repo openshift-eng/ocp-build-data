@@ -158,36 +158,30 @@ repos:
   rhel-server-ose-rpms:
     conf:
       baseurl:
-        unsigned:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
-        signed:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/latest/x86_64/os
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
       ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
       s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
+    reposync:
+      enabled: false
   # Included to trigger reposync of rhel-8 rpms
   rhel-8-server-ose-rpms:
     conf:
       baseurl:
-        unsigned:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}-el8/latest/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}-el8/latest/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}-el8/latest/x86_64/os
-        signed:
-          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}-el8/latest/ppc64le/os
-          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}-el8/latest/s390x/os
-          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}-el8/latest/x86_64/os
+          ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/latest/ppc64le/os
+          s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/latest/s390x/os
+          x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/latest/x86_64/os
     content_set:
       default: rhel-8-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
       ppc64le: rhel-8-for-power-le-ose-{MAJOR}.{MINOR}-rpms
       s390x: rhel-8-for-system-z-ose-{MAJOR}.{MINOR}-rpms
+    reposync:
+      enabled: false
   rhel-server-rhscl-rpms:
     conf:
       baseurl:
