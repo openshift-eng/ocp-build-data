@@ -1,4 +1,3 @@
-mode: wip
 container_yaml:
   go:
     modules:
@@ -22,5 +21,7 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-elasticsearch-proxy
+dependents:
+- elasticsearch-operator
 owners:
 - aos-logging@redhat.com
