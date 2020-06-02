@@ -79,8 +79,12 @@ sources:
       target: enterprise-{MAJOR}.{MINOR}
 
 public_upstreams:
-  "https://github.com/openshift-priv" : "https://github.com/openshift"
-  "https://github.com/openshift/ose" : "https://github.com/openshift/origin"
+- private: "https://github.com/openshift-priv"
+  public: "https://github.com/openshift"
+  public_branch: release-{MAJOR}.{MINOR}
+- private: "https://github.com/openshift/ose"
+  public: "https://github.com/openshift/origin"
+  public_branch: release-{MAJOR}.{MINOR}
 
 repos:
   rhel-7-server-ansible-2.9-rpms:
