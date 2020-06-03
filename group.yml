@@ -252,7 +252,7 @@ image_build_log_scanner:
   - "plugins.imagebuilder.*lstat.*no such file or directory"
     # koji sucks at auto-incrementing releases
   - "bump_release: BuildError.'Unable to increment release value:"
-    # need to add the image component to whitelist building into candidate tag
+    # need to add the image component to allowlist building into candidate tag
   - "not in list for tag rhaos-.*-candidate"
   files:
   - x86_64.log
