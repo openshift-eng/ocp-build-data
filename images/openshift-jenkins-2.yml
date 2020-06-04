@@ -7,11 +7,6 @@ content:
         target: openshift-{MAJOR}.{MINOR}
       url: git@github.com:openshift/jenkins.git
     path: '2'
-    modifications:
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-jenkins-2/gating_yaml
-      path: gating.yaml
-      overwriting: true
 enabled_repos:
 - rhel-server-ose-rpms
 from:

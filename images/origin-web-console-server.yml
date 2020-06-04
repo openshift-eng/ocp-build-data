@@ -10,10 +10,6 @@ content:
     - action: replace
       match: INSTALL_PKGS="origin-web-console
       replacement: INSTALL_PKGS="atomic-openshift-web-console
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/origin-web-console-server/gating_yaml
-      path: gating.yaml
-      overwriting: true
     path: images/origin-web-console
 enabled_repos:
 - rhel-server-ose-rpms

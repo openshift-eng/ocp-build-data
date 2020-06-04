@@ -6,10 +6,6 @@ content:
     - action: replace
       match: INSTALL_PKGS="origin
       replacement: INSTALL_PKGS="atomic-openshift
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/template-service-broker/gating_yaml
-      path: gating.yaml
-      overwriting: true
     path: images/template-service-broker
 enabled_repos:
 - rhel-server-ose-rpms
