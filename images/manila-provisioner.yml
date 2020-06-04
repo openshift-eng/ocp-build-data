@@ -6,11 +6,6 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: https://github.com/openshift/cloud-provider-openstack.git
     path: cluster/images/manila-provisioner
-    modifications:
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/manila-provisioner/gating_yaml
-      path: gating.yaml
-      overwriting: true
 enabled_repos:
 - rhel-server-ose-rpms
 from:

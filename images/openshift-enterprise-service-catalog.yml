@@ -9,10 +9,6 @@ content:
     - action: replace
       match: origin-service-catalog
       replacement: atomic-enterprise-service-catalog
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-service-catalog/gating_yaml
-      path: gating.yaml
-      overwriting: true
     path: images/service-catalog
 enabled_repos:
 - rhel-server-ose-rpms

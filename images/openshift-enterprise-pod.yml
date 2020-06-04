@@ -10,10 +10,6 @@ content:
     - action: replace
       match: origin-pod
       replacement: atomic-openshift-pod
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-pod/gating_yaml
-      path: gating.yaml
-      overwriting: true
     path: images/pod
 enabled_repos:
 - rhel-server-ose-rpms

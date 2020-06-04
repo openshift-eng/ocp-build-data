@@ -5,10 +5,6 @@ content:
     - action: replace
       match: COPY *.repo /etc/yum.repos.d/
       replacement: ''
-    - action: add
-      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/openshift-enterprise-base/gating_yaml
-      path: gating.yaml
-      overwriting: true
     path: images/base
 from:
   stream: rhel
