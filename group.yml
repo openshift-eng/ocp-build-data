@@ -70,30 +70,6 @@ public_upstreams:
   public_branch: release-{MAJOR}.{MINOR}
 
 repos:
-  rhel-7-server-ansible-2.4-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.4/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.4/os/
-    content_set:
-      default: rhel-7-server-ansible-2.4-rpms
-      ppc64le: rhel-7-server-ansible-2.4-for-power-le-rpms
-  rhel-7-server-ansible-2.5-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.5/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.5/os/
-    content_set:
-      default: rhel-7-server-ansible-2.5-rpms
-      ppc64le: rhel-7-server-ansible-2.5-for-power-le-rpms
-  rhel-7-server-ansible-2.6-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.6/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.6/os/
-    content_set:
-      default: rhel-7-server-ansible-2.6-rpms
-      ppc64le: rhel-7-server-ansible-2.6-for-power-le-rpms
   rhel-7-server-ansible-2.8-rpms:
     conf:
       baseurl:
@@ -111,15 +87,6 @@ repos:
       default: rhel-7-server-rhceph-3-tools-rpms
       optional: true
       ppc64le: rhel-7-server-rhceph-3-for-power-le-tools-rpms
-  rhel-fast-datapath-htb-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel/power-le/7/ppc64le/fast-datapath/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-htb-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-fast-datapath-beta-rpms
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
