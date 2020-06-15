@@ -95,17 +95,6 @@ repos:
       s390x: rhel-7-server-ansible-2.8-for-system-z-rpms
     reposync:
       enabled: false
-  rhel-fast-datapath-beta-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDP/latest-FDP-7-RHEL-7/compose/Server/ppc64le/os/
-        s390x: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDP/latest-FDP-7-RHEL-7/compose/Server/s390x/os/
-        x86_64: http://download-node-02.eng.bos.redhat.com/rhel-7/nightly/FDP/latest-FDP-7-RHEL-7/compose/Server/x86_64/os/
-    content_set:
-      default: rhel-7-fast-datapath-beta-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-fast-datapath-beta-rpms
-      s390x: rhel-7-for-system-z-fast-datapath-beta-rpms
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
@@ -227,41 +216,6 @@ repos:
       optional: true
     reposync:
       enabled: false
-  rhel-8-fast-datapath-beta-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-8-build/latest/ppc64le
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-8-build/latest/s390x
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/fast-datapath-rhel-8-build/latest/x86_64
-    content_set:
-      default: rhel-8-for-x86_64-fast-datapath-beta-rpms
-      ppc64le: rhel-8-for-ppc64le-fast-datapath-beta-rpms
-      s390x: rhel-8-for-s390x-fast-datapath-beta-rpms
-      optional: true
-  openstack-beta-for-rhel-8-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/x86_64/openstack/os
-        # XXX: s390x doesn't exist yet, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
-    content_set:
-      default: openstack-beta-for-rhel-8-x86_64-rpms
-      ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
-      # don't have content set for s390x yet
-      optional: true
-  openstack-16-for-rhel-8-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/ppc64le/os/
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/x86_64/os/
-        # XXX: s390x doesn't exist, point it at something that exists so yum doesn't choke
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/16.0-RHEL-8/passed_phase2/compose/OpenStack/x86_64/os/
-    content_set:
-      default: openstack-16-for-rhel-8-x86_64-rpms
-      ppc64le: openstack-16-for-rhel-8-ppc64le-rpms
-      # don't have content set for s390x
-      optional: true
 
 default_image_build_method: imagebuilder
 image_build_log_scanner:
