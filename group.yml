@@ -95,17 +95,6 @@ repos:
       s390x: rhel-7-server-ansible-2.8-for-system-z-rpms
     reposync:
       enabled: false
-  rhel-fast-datapath-htb-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/rhel/power-le/7/ppc64le/fast-datapath/os/
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Beta/latest/s390x/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-htb-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-fast-datapath-beta-rpms
-      s390x: rhel-7-for-system-z-fast-datapath-beta-rpms
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
@@ -228,18 +217,6 @@ repos:
       s390x: rhel-8-for-s390x-appstream-rpms
     reposync:
       enabled: false
-  openstack-beta-for-rhel-8-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/x86_64/openstack/os
-        # XXX: s390x doesn't exist yet, point it at something that exists so yum doesn't choke
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/beta/layered/rhel8/ppc64le/openstack/os
-    content_set:
-      default: openstack-beta-for-rhel-8-x86_64-rpms
-      ppc64le: openstack-beta-for-rhel-8-ppc64le-rpms
-      # don't have content set for s390x yet
-      optional: true
   openstack-15-for-rhel-8-rpms:
     conf:
       baseurl:
