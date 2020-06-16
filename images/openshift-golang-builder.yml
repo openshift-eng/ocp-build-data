@@ -5,7 +5,7 @@ content:
         target: 1.12
       url: git@gitlab.cee.redhat.com:openshift-art/builders/golang-builder.git
 distgit:
-  branch: rhaos-4.2-rhel-7
+  branch: rhaos-3.11-rhel-7
 enabled_repos:
 - rhel-server-ose-build-rpms
 from:
@@ -15,21 +15,6 @@ labels:
 name: openshift/golang-builder
 owners:
 - aos-team-art@redhat.com
-
-# Pushing this image to quay with this tag will cause dominoes to fall. The
-# builder-base imagestream will detect the update, triggering buildconfigs
-# on api.ci to create & expose new goloang images.
-# Relevant PRs:
-# - https://github.com/openshift/release/pull/5529
-# - https://github.com/openshift/release/pull/5542
-push:
-  also:
-  - quay.io/openshift-release-dev/ocp-v4.0-art-dev
-  additional_tags:
-  - 'rhel-7-golang-1.12'
-  - 'rhel_7_golang_1.12'
-
-# Tag in osbs for consumption by various streams.yml
 additional_tags:
 - '1.12'
 - 'rhel_7_1.12'
