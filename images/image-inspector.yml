@@ -10,8 +10,13 @@ name: openshift3/image-inspector
 owners: []
 
 push:
+  # when pushing to aws...
   additional_tags:
   - '2.1'
+# Tag in osbs and portal - this is what is really pulled, not the 3.11 version
+additional_tags:
+- '2.1'
+
 content:
   source:
     modifications:
