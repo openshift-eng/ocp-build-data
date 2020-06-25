@@ -2,7 +2,7 @@ content:
   source:
     git:
       branch:
-        target: 1.13
+        target: 1.14
       url: git@gitlab.cee.redhat.com:openshift-art/builders/golang-builder.git
 distgit:
   branch: rhaos-4.4-rhel-7
@@ -26,9 +26,10 @@ push:
   also:
   - quay.io/openshift-release-dev/ocp-v4.0-art-dev
   additional_tags:
-  - 'rhel-7-golang-1.13'
+  - 'rhel-7-golang-1.14'
+  - 'rhel-7-golang-openshift-4.6'
 
 # Tag in osbs for consumption by various streams.yml
 additional_tags:
-- '1.13'
-- 'rhel-7-1.13'
+- '1.14'
+- 'rhel-7-1.14'
