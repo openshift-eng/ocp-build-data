@@ -3,7 +3,7 @@ content:
     dockerfile: images/openshift-golang-builder.Dockerfile
     git:
       branch:
-        target: rhel-8-golang-1.13
+        target: rhel-8-golang-1.14
       url: git@github.com:openshift/ocp-build-data.git
 distgit:
   branch: rhaos-4.4-rhel-8
@@ -32,9 +32,10 @@ push:
   also:
   - quay.io/openshift-release-dev/ocp-v4.0-art-dev
   additional_tags:
-  - 'rhel-8-golang-1.13'
-  - 'rhel_8_golang_1.13'
+  - 'rhel-8-golang-1.14'
+  - 'rhel_8_golang_1.14'
+  - 'rhel-8-golang-openshift-4.6'
   
 additional_tags:
-- 'rhel_8_golang_1.13'
-- 'rhel_8_1.13'
+- 'rhel_8_golang_1.14'
+- 'rhel_8_1.14'
