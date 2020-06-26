@@ -5,6 +5,10 @@ arches:
 - ppc64le
 - s390x
 
+vars:
+  MAJOR: 4
+  MINOR: 6
+
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
@@ -14,7 +18,7 @@ urls:
 insecure_source: true
 
 # default branch because RPMs can't override (yet)
-branch: rhaos-4.6-rhel-8
+branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 
 repos:
   rhel-8-server-ose-build-rpms:
@@ -22,13 +26,13 @@ repos:
       extra_options:
         module_hotfixes: 1
       baseurl:
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.4-rhel-8-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.4-rhel-8-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.4-rhel-8-build/latest/x86_64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
 
     # These content sets are not used, so just putting something here
     content_set:
-      default: rhel-7-server-ose-4.2-rpms
-      ppc64le: rhel-7-for-power-le-ose-4.2-rpms
-      s390x: rhel-7-for-system-z-ose-4.2-rpms
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
+      s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
       optional: true
