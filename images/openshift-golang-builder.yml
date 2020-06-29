@@ -30,10 +30,10 @@ owners:
 # - https://github.com/openshift/release/pull/5609
 push:
   also:
-  - quay.io/openshift-release-dev/ocp-v4.0-art-dev
+  # Requires oc registry login with art-publish creds
+  - registry.svc.ci.openshift.org/ocp/builder-base
   additional_tags:
   - 'rhel-8-golang-1.14'
-  - 'rhel_8_golang_1.14'
   - 'rhel-8-golang-openshift-4.6'
   
 additional_tags:
