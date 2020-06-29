@@ -24,9 +24,10 @@ owners:
 # - https://github.com/openshift/release/pull/5542
 push:
   also:
-  - quay.io/openshift-release-dev/ocp-v4.0-art-dev
+  - registry.svc.ci.openshift.org/ocp/builder-base
   additional_tags:
   - 'rhel-7-golang-1.13'
+  - 'rhel-7-golang-openshift-4.5'
 
 # Tag in osbs for consumption by various streams.yml
 additional_tags:
