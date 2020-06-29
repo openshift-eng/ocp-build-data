@@ -24,10 +24,11 @@ owners:
 # - https://github.com/openshift/release/pull/5542
 push:
   also:
-  - registry.svc.ci.openshift.org/ocp/builder-base
+  - registry.svc.ci.openshift.org/ocp/builder
   additional_tags:
   - 'rhel-7-golang-1.13'
   - 'rhel-7-golang-openshift-4.5'
+  - 'rhel-7-golang-openshift-4.4'
 
 # Tag in osbs for consumption by various streams.yml
 additional_tags:
