@@ -49,17 +49,14 @@ dist_git_ignore:
   - gating.yaml
 non_release:
   images:
+  - clusterresourceoverride
+  - clusterresourceoverride-operator
   - openshift-enterprise-base
-  - atomic-openshift-metrics-server-container
-  - atomic-openshift-cluster-autoscaler-container
-  - openshift-enterprise-autoheal
-  - efs-provisioner
   - ose-haproxy-router-base
-  - ose-manila-provisioner
-  - snapshot-controller
-  - snapshot-provisioner
   - openshift-enterprise-service-idler
   - ose-leader-elector
+  - vertical-pod-autoscaler
+  - vertical-pod-autoscaler-operator
   rpms:
   - atomic-openshift-service-idler
   - atomic-openshift-metrics-server-container
@@ -78,7 +75,7 @@ sources:
 public_upstreams:
 - private: "https://github.com/openshift-priv"
   public: "https://github.com/openshift"
-- private: "https://github.com/openshift/ose" 
+- private: "https://github.com/openshift/ose"
   public: "https://github.com/openshift/origin"
   public_branch: release-{MAJOR}.{MINOR}
 
