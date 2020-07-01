@@ -6,8 +6,12 @@ vars:
 
 arches:
 - x86_64
-- ppc64le
-- s390x
+
+## disable these when we need to release for GA
+#arches_override:
+#- x86_64
+#- ppc64le
+#- s390x
 
 operator_image_ref_mode: manifest-list
 
