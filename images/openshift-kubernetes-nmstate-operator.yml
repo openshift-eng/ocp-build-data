@@ -1,0 +1,27 @@
+container_yaml:
+  go:
+    modules:
+      - module: github.com/openshift/kubernetes-nmstate
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kubernetes-nmstate.git
+    dockerfile: Dockerfile.operator.openshift
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+    - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-kubernetes-nmstate-operator
+owners:
+- yboaron@redhat.com
+- asegurap@redhat.com
+- bcrochet@redhat.com
+- bnemec@redhat.com
+- phoracek@redhat.com
+- ellorent@redhat.com
+  
