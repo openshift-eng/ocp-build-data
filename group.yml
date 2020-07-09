@@ -4,6 +4,7 @@ arches:
 - x86_64
 - ppc64le
 - s390x
+- aarch64
 
 vars:
   MAJOR: 4
@@ -26,13 +27,15 @@ repos:
       extra_options:
         module_hotfixes: 1
       baseurl:
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
         ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
         s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
         x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
 
     # These content sets are not used, so just putting something here
     content_set:
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
-      s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
       optional: true
