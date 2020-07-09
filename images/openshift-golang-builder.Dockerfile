@@ -10,5 +10,7 @@ LABEL summary="$SUMMARY" \
       com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
       version="$VERSION"
 
-RUN yum install -y --setopt=tsflags=nodocs "go-toolset-$VERSION.*" && \
+RUN yum install -y --setopt=tsflags=nodocs \
+    bc file findutils gpgme git hostname lsof make socat tar tree util-linux wget which zip \
+    "go-toolset-$VERSION.*" goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel && \
     yum clean all -y
