@@ -11,9 +11,9 @@ content:
       match: INSTALL_JENKINS_VIA_RPMS=false
       replacement: INSTALL_JENKINS_VIA_RPMS=true
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
 from:
   builder:
   - stream: golang
