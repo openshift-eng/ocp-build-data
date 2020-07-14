@@ -10,10 +10,9 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/multus-cni.git
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
-- rhel-server-rh-common-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
 from:
   builder:
   - stream: rhel-8-golang
