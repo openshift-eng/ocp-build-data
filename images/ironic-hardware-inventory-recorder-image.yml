@@ -12,15 +12,13 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ironic-hardware-inventory-recorder-image.git
-distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
 - openstack-16-for-rhel-8-rpms
 from:
-  stream: rhel8
+  stream: rhel
 name: openshift/ose-ironic-hardware-inventory-recorder
 owners:
 - ironic-osp-owners@redhat.com
