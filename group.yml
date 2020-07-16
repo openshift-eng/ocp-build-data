@@ -79,18 +79,6 @@ public_upstreams:
   public_branch: release-{MAJOR}.{MINOR}
 
 repos:
-  rhel-7-server-ansible-2.9-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.9/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/ansible/2.9/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.9/os/
-    content_set:
-      default: rhel-7-server-ansible-2.9-rpms
-      ppc64le: rhel-7-server-ansible-2.9-for-power-le-rpms
-      s390x: rhel-7-server-ansible-2.9-for-system-z-rpms
-    reposync:
-      enabled: false
   rhel-8-server-ansible-2.9-rpms:
     conf:
       baseurl:
@@ -103,58 +91,6 @@ repos:
       s390x: ansible-2.9-for-rhel-8-s390x-rpms
     reposync:
       enabled: false
-  rhel-fast-datapath-rpms:
-    conf:
-      baseurl:
-          x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
-          ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/fast-datapath/os/
-          s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/fast-datapath/os/
-          # [lmeyer] multi-arch releases might lag behind x86_64, which may require pointing at pre-release MA composes.
-          # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
-          # ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/ppc64le/os/
-          # s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/Production/latest/s390x/os/
-    content_set:
-      default: rhel-7-fast-datapath-rpms
-      ppc64le: rhel-7-for-power-le-fast-datapath-rpms
-      s390x: rhel-7-for-system-z-fast-datapath-rpms
-      optional: true
-    reposync:
-      enabled: false
-  rhel-server-extras-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/extras/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/extras/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
-    content_set:
-      default: rhel-7-server-extras-rpms
-      ppc64le: rhel-7-for-power-le-extras-rpms
-      s390x: rhel-7-for-system-z-extras-rpms
-    reposync:
-      enabled: false
-  rhel-server-optional-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/optional/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/optional/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
-    content_set:
-      default: rhel-7-server-optional-rpms
-      ppc64le: rhel-7-for-power-le-optional-rpms
-      s390x: rhel-7-for-system-z-optional-rpms
-    reposync:
-      enabled: false
-  rhel-server-ose-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
-    content_set:
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-      optional: true
-      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
-      s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
   # Included to trigger reposync of rhel-8 rpms
   rhel-8-server-ose-rpms:
     conf:
@@ -167,30 +103,6 @@ repos:
       optional: true
       ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
       s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
-  rhel-server-rhscl-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/rhscl/1/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/rhscl/1/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
-    content_set:
-      default: rhel-server-rhscl-7-rpms
-      ppc64le: rhel-7-server-for-power-le-rhscl-rpms
-      s390x: rhel-7-server-for-system-z-rhscl-rpms
-    reposync:
-      enabled: false
-  rhel-server-rpms:
-    conf:
-      baseurl:
-        ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/os/
-        s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/system-z/7/7Server/s390x/os/
-        x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
-    content_set:
-      default: rhel-7-server-rpms
-      ppc64le: rhel-7-for-power-le-rpms
-      s390x: rhel-7-for-system-z-rpms
-    reposync:
-      enabled: false
   rhel-8-baseos-rpms:
     conf:
       baseurl:
