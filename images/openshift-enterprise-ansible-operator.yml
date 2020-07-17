@@ -14,6 +14,8 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
 - rhel-8-server-ansible-2.9-rpms
+# this image is not RHOS specific but uses some general Python RPMs built there
+- openstack-16-for-rhel-8-rpms
 from:
   builder:
   - stream: golang
