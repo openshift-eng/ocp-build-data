@@ -79,11 +79,13 @@ repos:
   rhel-8-server-ansible-2.9-rpms:
     conf:
       baseurl:
+        aarch64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/aarch64/ansible/2.9/os/
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/ansible/2.9/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/s390x/ansible/2.9/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/ansible/2.9/os/
     content_set:
       default: ansible-2.9-for-rhel-8-x86_64-rpms
+      aarch64: ansible-2.9-for-rhel-8-aarch64-rpms
       ppc64le: ansible-2.9-for-rhel-8-ppc64le-rpms
       s390x: ansible-2.9-for-rhel-8-s390x-rpms
     reposync:
@@ -92,22 +94,26 @@ repos:
   rhel-8-server-ose-rpms:
     conf:
       baseurl:
+        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/aarch64/os
         ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/ppc64le/os
         s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/s390x/os
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/x86_64/os
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
       optional: true
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
       ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
       s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
   rhel-8-baseos-rpms:
     conf:
       baseurl:
+        aarch64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/aarch64/baseos/os/
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/ppc64le/baseos/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/s390x/baseos/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
     content_set:
       default: rhel-8-for-x86_64-baseos-rpms
+      aarch64: rhel-8-for-aarch64-baseos-rpms
       ppc64le: rhel-8-for-ppc64le-baseos-rpms
       s390x: rhel-8-for-s390x-baseos-rpms
     reposync:
@@ -115,11 +121,13 @@ repos:
   rhel-8-appstream-rpms:
     conf:
       baseurl:
+        aarch64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/aarch64/appstream/os/
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/ppc64le/appstream/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/s390x/appstream/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/x86_64/appstream/os/
     content_set:
       default: rhel-8-for-x86_64-appstream-rpms
+      aarch64: rhel-8-for-aarch64-appstream-rpms
       ppc64le: rhel-8-for-ppc64le-appstream-rpms
       s390x: rhel-8-for-s390x-appstream-rpms
     reposync:
@@ -130,12 +138,15 @@ repos:
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
+        # FDP has yet to be released for aarch64
+        # aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/aarch64/os/
         # [lmeyer] multi-arch releases might lag behind x86_64, which may require pointing at pre-release MA composes.
         # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
         # ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
         # s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/s390x/os/
     content_set:
       default: fast-datapath-for-rhel-8-x86_64-rpms
+      aarch64: fast-datapath-for-rhel-8-aarch64-rpms
       ppc64le: fast-datapath-for-rhel-8-ppc64le-rpms
       s390x: fast-datapath-for-rhel-8-s390x-rpms
       optional: true
@@ -146,12 +157,13 @@ repos:
       baseurl:
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
-        # XXX: s390x doesn't exist, point it at something that exists so yum doesn't choke
+        # XXX: aarch64 and s390x don't exist, point it at something that exists so yum doesn't choke
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
+        aarch64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
     content_set:
       default: openstack-16-for-rhel-8-x86_64-rpms
       ppc64le: openstack-16-for-rhel-8-ppc64le-rpms
-      # don't have content set for s390x
+      # don't have content set for aarch64 or s390x
       optional: true
 
 default_image_build_method: imagebuilder
