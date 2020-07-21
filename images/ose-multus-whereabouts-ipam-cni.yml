@@ -7,13 +7,14 @@ content:
       url: git@github.com:openshift-priv/whereabouts-cni.git
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-7
+enabled_repos:
+- rhel-server-rpms
+for_payload: 'true'
 from:
   builder:
   - stream: rhel-8-golang
   - stream: golang
   stream: rhel
-enabled_repos:
-- rhel-server-rpms
 name: openshift/ose-multus-whereabouts-ipam-cni
 owners:
 - multus-dev@redhat.com

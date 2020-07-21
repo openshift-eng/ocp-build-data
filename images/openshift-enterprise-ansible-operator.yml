@@ -15,15 +15,16 @@ enabled_repos:
 - rhel-server-ose-rpms
 - rhel-server-extras-rpms
 - rhel-7-server-ansible-2.9-rpms
+for_payload: 'false'
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
+maintainer:
+  component: Operator SDK
 name: openshift/ose-ansible-operator
 owners:
 - aos-operator-sdk@redhat.com
 - jesusr@redhat.com
 - jlanford@redhat.com
 - fabian@redhat.com
-maintainer:
-  component: Operator SDK

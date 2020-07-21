@@ -12,8 +12,7 @@ content:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms
-non_shipping_repos:
-- rhel-server-ose-rpms
+for_payload: 'false'
 from:
   member: openshift-enterprise-base
 labels:
@@ -24,6 +23,8 @@ labels:
   io.openshift.tags: openshift,service-catalog
   vendor: Red Hat
 name: openshift/ose-service-catalog
+non_shipping_repos:
+- rhel-server-ose-rpms
 owners:
 - aos-operator-sdk@redhat.com
 - jesusr@redhat.com

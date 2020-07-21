@@ -2,9 +2,8 @@ content:
   source:
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
-        # At present, this repo does not use the release- branch pattern. Remove fallback when it does.
         fallback: master
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/service-idler.git
     modifications:
     - action: replace
@@ -14,8 +13,7 @@ content:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms
-non_shipping_repos:
-- rhel-server-ose-rpms
+for_payload: 'false'
 from:
   member: openshift-enterprise-base
 labels:
@@ -26,5 +24,7 @@ labels:
   io.openshift.tags: openshift
   vendor: Red Hat
 name: openshift/ose-service-idler
+non_shipping_repos:
+- rhel-server-ose-rpms
 owners:
 - sross@redhat.com
