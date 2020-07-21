@@ -3,13 +3,14 @@ arches:
 - ppc64le
 content:
   source:
-    path: ipfailover/keepalived
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/images.git
+    path: ipfailover/keepalived
 enabled_repos:
 - rhel-server-rpms
+for_payload: 'true'
 from:
   member: openshift-enterprise-base
 labels:

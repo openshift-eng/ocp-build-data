@@ -13,6 +13,7 @@ distgit:
   component: ose-ptp-operator-container
 enabled_repos:
 - rhel-server-rpms
+for_payload: 'false'
 from:
   builder:
   - stream: golang
@@ -21,6 +22,6 @@ name: openshift/ose-ptp-operator
 owners:
 - multus-dev@redhat.com
 update-csv:
+  bundle-dir: '{MAJOR}.{MINOR}/'
   manifests-dir: manifests/
-  bundle-dir: "{MAJOR}.{MINOR}/"
   registry: image-registry.openshift-image-registry.svc:5000
