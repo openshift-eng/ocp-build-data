@@ -1,3 +1,5 @@
+arches:
+- x86_64
 container_yaml:
   go:
     modules:
@@ -12,6 +14,7 @@ content:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
+for_payload: 'false'
 from:
   builder:
   - stream: golang-1.11
@@ -19,5 +22,3 @@ from:
 name: openshift/ose-ghostunnel
 owners:
 - sd-operator-metering@redhat.com
-arches:
-  - x86_64

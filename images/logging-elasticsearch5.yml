@@ -6,6 +6,9 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/origin-aggregated-logging.git
     path: elasticsearch
+dependents:
+- cluster-logging-operator
+- elasticsearch-operator
 distgit:
   namespace: containers
 enabled_repos:
@@ -13,6 +16,7 @@ enabled_repos:
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
 - rhel-server-extras-rpms
+for_payload: 'false'
 from:
   stream: elasticsearch
 labels:
@@ -28,6 +32,3 @@ push:
   repos:
   - openshift/logging-elasticsearch5
   - openshift/ose-logging-elasticsearch5
-dependents:
-  - cluster-logging-operator
-  - elasticsearch-operator

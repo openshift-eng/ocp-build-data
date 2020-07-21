@@ -5,17 +5,18 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/ansible-service-broker.git
+dependents:
+- openshift-enterprise-ansible-service-broker-operator
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+for_payload: 'false'
 from:
   builder:
   - stream: golang-1.11
   member: openshift-enterprise-base
 name: openshift/ose-ansible-service-broker
-dependents:
-- openshift-enterprise-ansible-service-broker-operator
 owners:
 - aos-operator-sdk@redhat.com
 - jesusr@redhat.com

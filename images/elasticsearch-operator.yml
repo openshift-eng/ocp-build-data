@@ -11,6 +11,7 @@ content:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
+for_payload: 'false'
 from:
   builder:
   - stream: golang-1.11
@@ -19,6 +20,6 @@ name: openshift/ose-elasticsearch-operator
 owners:
 - team-logging@redhat.com
 update-csv:
+  bundle-dir: '{MAJOR}.{MINOR}/'
   manifests-dir: manifests/
-  bundle-dir: "{MAJOR}.{MINOR}/"
   registry: image-registry.openshift-image-registry.svc:5000

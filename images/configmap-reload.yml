@@ -1,3 +1,7 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/jimmidyson/configmap-reload
 content:
   source:
     dockerfile: Dockerfile.ocp
@@ -6,13 +10,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/configmap-reload.git
     path: ''
-container_yaml:
-  go:
-    modules:
-    - module: github.com/jimmidyson/configmap-reload
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
+for_payload: 'true'
 from:
   builder:
   - stream: golang-1.11
