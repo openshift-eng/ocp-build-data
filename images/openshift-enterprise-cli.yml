@@ -14,8 +14,7 @@ distgit:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
-non_shipping_repos:
-- rhel-server-optional-rpms
+for_payload: 'true'
 from:
   builder:
   - stream: golang
@@ -28,5 +27,7 @@ labels:
   io.openshift.tags: openshift,cli
   vendor: Red Hat
 name: openshift/ose-cli
+non_shipping_repos:
+- rhel-server-optional-rpms
 owners:
 - aos-master@redhat.com

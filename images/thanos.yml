@@ -14,12 +14,13 @@ distgit:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms
-non_shipping_rpms:
-- rhel-server-ose-rpms
+for_payload: 'true'
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-thanos
+non_shipping_rpms:
+- rhel-server-ose-rpms
 owners:
 - team-monitoring@redhat.com
