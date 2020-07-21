@@ -7,6 +7,7 @@ content:
     dockerfile: Dockerfile.openshift
     git:
       branch:
+        # Remove fallback when https://github.com/openshift/csi-external-resizer/issues/104 is addressed.
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/csi-external-resizer.git
