@@ -1,8 +1,6 @@
-# temporarily prevent OLM operator rebase errors
-mode: disabled
 content:
   source:
-    dockerfile: Dockerfile.metering-ansible-operator.rhel
+    dockerfile: Dockerfile.metering-ansible-operator.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}

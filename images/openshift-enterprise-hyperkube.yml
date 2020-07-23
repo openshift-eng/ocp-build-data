@@ -1,11 +1,14 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/origin
+    - module: k8s.io/kubernetes
 content:
   source:
-    alias: ose
-    dockerfile: images/hyperkube/Dockerfile.rhel
+    dockerfile: openshift-hack/images/hyperkube/Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kubernetes.git
 distgit:
   namespace: containers
 enabled_repos:
