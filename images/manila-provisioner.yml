@@ -4,7 +4,7 @@ content:
       branch:
         fallback: master
         target: release-{MAJOR}.{MINOR}
-      url: https://github.com/openshift/cloud-provider-openstack.git
+      url: git@github.com:openshift/cloud-provider-openstack.git
     path: cluster/images/manila-provisioner
 enabled_repos:
 - rhel-server-ose-rpms
@@ -16,7 +16,7 @@ labels:
   io.k8s.display-name: Manila
   io.openshift.tags: openshift,provisioner
   vendor: Red Hat
-mode: wip
+mode: disabled
 name: openshift3/ose-manila-provisioner
 owners:
 - tsmetana@redhat.com
