@@ -1,33 +1,17 @@
 ---
 rhel:
   image: openshift/ose-base:ubi8
-  mirror: false
-  # ART does not push to this upstream registry location. It is built by
-  # DPTP pipelines when changes are detected to the builder:ubi8.art image,
-  # described by the do-not-use--art-rhel-8 stream below.
-  # The upstream_image is used by DPTP tooling to make sure that upstream images
-  # build using ART base images. In this case, we need an ART image, but one
-  # with changes layered on top so that those images can yum install dependencies
-  # without a subscription.
+  mirror: true
+  # The upstream image base serves as a base for the upstream_image.
+  # ART does not try to mirror to the upstream_image in this case. DPTP
+  # tooling must layer files on top of upstream_image_base to formulate
+  # upstream_image. In this case, it will be layering on yum configuration
+  # files necessary for CI images to pull RPM dependencies from the CDN/
+  # & reposync repositories.
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:ubi8.art
   # Note that it must be qualified by {MAJOR}.{MINOR} so that it installs non-CDN
   # rpms for the appropriate release.
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8-openshift-{MAJOR}.{MINOR}
-do-not-use--art-rhel-8:
-  image: openshift/ose-base:ubi8
-  mirror: true
-  # No image in the group should use this stream. It is used to mirror ART's
-  # latest ose-base:ubi8 image to the api.ci cluster. A DPTP pipeline is
-  # triggered to layer on yum repositories that will cause CI images
-  # to pull RPM dependencies from the RHEL RPM cache services in CI.
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.art
-do-not-use--art-rhel-7:
-  image: openshift/ose-base:ubi7
-  mirror: true
-  # No image in the group should use this stream. It is used to mirror ART's
-  # latest ose-base:ubi7 image to the api.ci cluster. A DPTP pipeline is
-  # triggered to layer on yum repositories that will cause CI images
-  # to pull RPM dependencies from the RHEL RPM cache services in CI.
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi7.art
 golang:
   image: openshift/golang-builder:rhel_8_golang_1.14
   mirror: true
@@ -52,3 +36,12 @@ nodejs-12:
   image: openshift/ose-base:ubi8.nodejs.12
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.nodejs.12
+# The following is only included to push an image for DPTP to start building
+# ubi7 base images with yum repos. It is probably not going to be necessary
+# in 4.6 if we successfully transition everything to rhel8.
+rhel-7:
+  image: openshift/ose-base:ubi7
+  mirror: true
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:ubi7.art
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi7-openshift-{MAJOR}.{MINOR}
+
