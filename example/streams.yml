@@ -1,3 +1,24 @@
----
 rhel:
-  image: rhel7:7-released
+  # The image in brew that images referencing this stream will ultimately resolve.
+  image: openshift/ose-base:ubi7
+  # Setting mirror to true means that images:mirror-streams will mirror the brew
+  # image to either upstream_image or upstream_image_base (base takes precendence)
+  mirror: true
+  # The upstream image base serves as a base for the upstream_image.
+  # ART does not try to mirror to the upstream_image in this case. DPTP
+  # tooling must layer files on top of upstream_image_base to formulate
+  # upstream_image. In this case, it will be layering on yum configuration
+  # files necessary for CI images to pull RPM dependencies from the CDN/
+  # & reposync repositories.
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:ubi8.art
+  # Note that it must be qualified by {MAJOR}.{MINOR} so that it installs non-CDN
+  # rpms for the appropriate release.
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8-openshift-{MAJOR}.{MINOR}
+
+golang:
+  image: openshift/golang-builder:rhel_8_golang_1.14
+  mirror: true
+  # Here the same mechanism is used to push the brew image directly to an
+  # upstream location (since upstream_image_base is not specified
+  # upstream_image is the destination. 
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-8-golang-1.14
