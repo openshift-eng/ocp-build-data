@@ -15,12 +15,13 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
 - openstack-16-for-rhel-8-rpms
-non_shipping_repos:
-- openstack-16-for-rhel-8-rpms
+for_payload: true
 from:
   builder:
   - stream: rhel8
   stream: rhel8
 name: openshift/ose-ironic-ipa-downloader
+non_shipping_repos:
+- openstack-16-for-rhel-8-rpms
 owners:
 - ironic-osp-owners@redhat.com

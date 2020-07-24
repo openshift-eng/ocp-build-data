@@ -1,3 +1,6 @@
+arches:
+- x86_64
+- ppc64le
 container_yaml:
   go:
     modules:
@@ -11,6 +14,7 @@ content:
       url: git@github.com:openshift-priv/cluster-api-provider-gcp.git
 enabled_repos:
 - rhel-server-rpms
+for_payload: true
 from:
   builder:
   - stream: golang
@@ -18,6 +22,3 @@ from:
 name: openshift/ose-gcp-machine-controllers
 owners:
 - aos-cloud@redhat.com
-arches:
-  - x86_64
-  - ppc64le

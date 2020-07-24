@@ -9,12 +9,13 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/sdn.git
+distgit:
+  component: ose-node-container
 enabled_repos:
 - rhel-server-rpms
 - rhel-fast-datapath-rpms
 - rhel-server-extras-rpms
-distgit:
-  component: ose-node-container
+for_payload: true
 from:
   builder:
   - stream: golang
