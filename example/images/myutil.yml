@@ -98,6 +98,16 @@ push:
   additional_tags:
     - 2.4
 
+# Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
+# However, certain images may consume RPMs in unexpected way that make it programmatically impossible to 
+# detect they were used.
+# e.g. https://github.com/openshift/ironic-ipa-downloader/blob/999c80f17472d5dbbd4775d901e1be026b239652/Dockerfile.ocp#L11-L14
+# Here, we can provide hints to scan-sources above additional package changes to analyze.
+scan_sources:
+  extra_packages:
+  - name: rhosp-director-images
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+
 # Setup options for ODCS output (container.yaml)
 odcs:
   packages:
