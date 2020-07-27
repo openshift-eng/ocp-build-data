@@ -1,0 +1,22 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/ovirt-csi-driver-operator
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ovirt-csi-driver-operator.git
+enabled_repos:
+- rhel-server-rpms
+- rhel-server-optional-rpms
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-ovirt-csi-driver-operator
+owners:
+- rgolan@redhat.com
