@@ -1,6 +1,7 @@
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms
+for_payload: false
 from:
   stream: rhel
 labels:
@@ -11,9 +12,9 @@ labels:
   vendor: Red Hat
 name: openshift/ose-logging-eventrouter
 no_oit_comments: true
+owners:
+- team-logging@redhat.com
 push:
   repos:
   - openshift/logging-eventrouter
   - openshift/ose-logging-eventrouter
-owners:
-- team-logging@redhat.com

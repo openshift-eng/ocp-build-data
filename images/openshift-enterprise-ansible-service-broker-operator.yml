@@ -10,6 +10,7 @@ enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+for_payload: false
 from:
   member: openshift-enterprise-ansible-operator
 name: openshift/ose-ansible-service-broker-operator
@@ -19,6 +20,6 @@ owners:
 - jlanford@redhat.com
 - fabian@redhat.com
 update-csv:
-  manifests-dir: deploy/olm-catalog/openshift-ansible-service-broker-manifests/
   bundle-dir: "{MAJOR}.{MINOR}/"
+  manifests-dir: deploy/olm-catalog/openshift-ansible-service-broker-manifests/
   registry: image-registry.openshift-image-registry.svc:5000

@@ -8,9 +8,10 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: https://github.com/openshift/template-service-broker.git
+      url: git@github.com:openshift/template-service-broker.git
 enabled_repos:
 - rhel-server-rpms
+for_payload: false
 from:
   builder:
   - stream: golang

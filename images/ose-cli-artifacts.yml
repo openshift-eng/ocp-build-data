@@ -1,4 +1,3 @@
-
 container_yaml:
   go:
     modules:
@@ -9,7 +8,7 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: https://github.com/openshift/oc.git
+      url: git@github.com:openshift/oc.git
 distgit:
   namespace: containers
 enabled_repos:
@@ -17,6 +16,7 @@ enabled_repos:
 - rhel-server-optional-rpms
 non_shipping_repos:
 - rhel-server-optional-rpms
+for_payload: true
 from:
   builder:
   - stream: golang

@@ -1,13 +1,14 @@
 content:
   source:
-    path: images/recycler
     dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/oc.git
+    path: images/recycler
 enabled_repos:
 - rhel-server-rpms
+for_payload: false
 from:
   member: openshift-enterprise-cli
 labels:

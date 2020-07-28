@@ -11,6 +11,7 @@ content:
       url: git@github.com:openshift/sriov-network-operator.git
 enabled_repos:
 - rhel-server-rpms
+for_payload: false
 from:
   builder:
   - stream: golang
@@ -19,6 +20,6 @@ name: openshift/ose-sriov-network-operator
 owners:
 - multus-dev@redhat.com
 update-csv:
-  manifests-dir: manifests
   bundle-dir: "{MAJOR}.{MINOR}/"
+  manifests-dir: manifests
   registry: image-registry.openshift-image-registry.svc:5000

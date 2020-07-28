@@ -8,18 +8,19 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: https://github.com/openshift/thanos.git
+      url: git@github.com:openshift/thanos.git
 distgit:
   component: ose-thanos-container
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms
-non_shipping_rpms:
-- rhel-server-ose-rpms
+for_payload: true
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-thanos
+non_shipping_rpms:
+- rhel-server-ose-rpms
 owners:
 - team-monitoring@redhat.com
