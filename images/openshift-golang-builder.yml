@@ -33,8 +33,8 @@ push:
   # Requires oc registry login with art-publish creds
   - registry.svc.ci.openshift.org/ocp/builder
   additional_tags:
-  - 'rhel-8-golang-1.14'
-  - 'rhel-8-golang-openshift-4.6'
+  # DPTP will layer content on top of this image to create the upstream builder:rhel-8-golang-1.14
+  - 'rhel-8-golang-1.14.art'
   
 additional_tags:
 - 'rhel_8_golang_1.14'
