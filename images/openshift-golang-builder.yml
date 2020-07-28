@@ -27,9 +27,8 @@ push:
   # Requires oc registry login to push
   - registry.svc.ci.openshift.org/ocp/builder
   additional_tags:
-  - 'rhel-7-golang-1.14'
-  - 'rhel-7-golang-openshift-4.6'
-  - 'golang-openshift-4.6'
+  # DPTP will layer content on top of this to create the upstream builder:rhel-7-golang-1.14
+  - 'rhel-7-golang-1.14.art'
 
 # Tag in osbs for consumption by various streams.yml
 additional_tags:
