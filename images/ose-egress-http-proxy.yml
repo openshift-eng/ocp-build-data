@@ -1,12 +1,13 @@
 content:
   source:
-    path: egress/http-proxy
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/images.git
+    path: egress/http-proxy
 enabled_repos:
 - rhel-server-rpms
+for_payload: false
 from:
   member: openshift-enterprise-base
 labels:

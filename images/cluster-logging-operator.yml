@@ -10,6 +10,7 @@ content:
       url: git@github.com:openshift-priv/cluster-logging-operator.git
 enabled_repos:
 - rhel-server-rpms
+for_payload: false
 from:
   builder:
   - stream: golang
@@ -24,6 +25,6 @@ name: openshift/ose-cluster-logging-operator
 owners:
 - team-logging@redhat.com
 update-csv:
-  manifests-dir: manifests/
   bundle-dir: "{MAJOR}.{MINOR}/"
+  manifests-dir: manifests/
   registry: image-registry.openshift-image-registry.svc:5000

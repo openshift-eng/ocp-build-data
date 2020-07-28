@@ -11,6 +11,7 @@ content:
       url: git@github.com:openshift-priv/cluster-nfd-operator.git
 enabled_repos:
 - rhel-server-rpms
+for_payload: false
 from:
   builder:
   - stream: golang
@@ -19,6 +20,6 @@ name: openshift/ose-cluster-nfd-operator
 owners:
 - openshift-psap@redhat.com
 update-csv:
-  manifests-dir: manifests/olm-catalog
   bundle-dir: "{MAJOR}.{MINOR}/"
+  manifests-dir: manifests/olm-catalog
   registry: image-registry.openshift-image-registry.svc:5000

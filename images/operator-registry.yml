@@ -11,12 +11,13 @@ content:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
-non_shipping_repos:
-- rhel-server-optional-rpms
+for_payload: true
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-operator-registry
+non_shipping_repos:
+- rhel-server-optional-rpms
 owners:
 - aos-odin@redhat.com

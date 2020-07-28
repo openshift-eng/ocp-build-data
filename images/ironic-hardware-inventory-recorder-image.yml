@@ -4,7 +4,7 @@ arches:
 container_yaml:
   go:
     modules:
-      - module: github.com/openshift/ironic-hardware-inventory-recorder-image
+    - module: github.com/openshift/ironic-hardware-inventory-recorder-image
 content:
   source:
     dockerfile: Dockerfile.ocp
@@ -19,6 +19,7 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
 - openstack-16-for-rhel-8-rpms
+for_payload: true
 from:
   stream: rhel8
 name: openshift/ose-ironic-hardware-inventory-recorder
