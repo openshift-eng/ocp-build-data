@@ -1,3 +1,8 @@
+container_yaml:
+  go:
+    modules:
+    - module: go.etcd.io/etcd/cmd
+      path: cmd
 content:
   source:
     dockerfile: Dockerfile.rhel
@@ -5,11 +10,6 @@ content:
       branch:
         target: openshift-{MAJOR}.{MINOR}
       url: git@github.com:openshift/etcd.git
-container_yaml:
-  go:
-    modules:
-    - module: go.etcd.io/etcd/cmd
-      path: cmd
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms

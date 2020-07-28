@@ -1,4 +1,3 @@
-# this is same as openshift-enterprise-node.yml
 container_yaml:
   go:
     modules:
@@ -10,14 +9,14 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: https://github.com/openshift/sdn.git
+distgit:
+  component: ose-node-container
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
 - rhel-fast-datapath-rpms
 - rhel-server-extras-rpms
-distgit:
-  component: ose-node-container
 from:
   builder:
   - stream: golang-1.12
