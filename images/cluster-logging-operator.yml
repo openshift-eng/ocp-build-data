@@ -7,10 +7,11 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift/cluster-logging-operator
+      url: git@github.com:openshift/cluster-logging-operator.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
+for_payload: false
 from:
   builder:
   - stream: golang-1.11
@@ -25,6 +26,6 @@ name: openshift/ose-cluster-logging-operator
 owners:
 - team-logging@redhat.com
 update-csv:
-  manifests-dir: manifests/
   bundle-dir: "{MAJOR}.{MINOR}/"
+  manifests-dir: manifests/
   registry: image-registry.openshift-image-registry.svc:5000

@@ -8,10 +8,11 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift/machine-api-operator
+      url: git@github.com:openshift/machine-api-operator.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
+for_payload: true
 from:
   builder:
   - stream: golang-1.11

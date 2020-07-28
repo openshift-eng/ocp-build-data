@@ -7,11 +7,12 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift/builder
+      url: git@github.com:openshift/builder.git
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-rhscl-rpms
+for_payload: true
 from:
   builder:
   - stream: golang-1.11
