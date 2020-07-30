@@ -18,5 +18,17 @@ from:
   - stream: rhel
   stream: rhel
 name: openshift/ose-ironic-ipa-downloader
+
+# This image dynamically installs a package on top of its builder image
+# during the image build.
+# https://github.com/openshift/ironic-ipa-downloader/blob/999c80f17472d5dbbd4775d901e1be026b239652/Dockerfile.ocp#L11-L14
+# This is programmatically undetectable through
+# koji, so we need to inform scan-sources to make image builds sensitive
+# to this package.
+scan_sources:
+  extra_packages:
+  - name: rhosp-director-images
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+
 owners:
 - ironic-osp-owners@redhat.com
