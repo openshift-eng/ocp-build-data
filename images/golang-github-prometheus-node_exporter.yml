@@ -12,6 +12,8 @@ content:
 enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms  # required by the builder
+non_shipping_repos:
+- rhel-server-ose-rpms
 from:
   builder:
   - stream: golang
