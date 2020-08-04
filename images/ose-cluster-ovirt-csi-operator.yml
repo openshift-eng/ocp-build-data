@@ -1,14 +1,14 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/ovirt-csi-driver
+    - module: github.com/openshift/ovirt-csi-driver-operator
 content:
   source:
-    dockerfile: Dockerfile.openshift
+    dockerfile: Dockerfile
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/ovirt-csi-driver.git
+      url: git@github.com:openshift-priv/ovirt-csi-driver-operator.git
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -16,6 +16,6 @@ from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-ovirt-csi-driver
+name: openshift/ose-ovirt-csi-driver-operator
 owners:
 - rgolan@redhat.com
