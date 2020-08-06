@@ -13,7 +13,7 @@ distgit:
   component: ose-thanos-container
 enabled_repos:
 - rhel-server-rpms
-- rhel-server-ose-rpms
+- rhel-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
@@ -21,8 +21,8 @@ from:
   member: openshift-enterprise-base
 name: openshift/ose-thanos
 non_shipping_rpms:
-- rhel-server-ose-rpms
+- rhel-server-ose-rpms-embargoed
 owners:
 - team-monitoring@redhat.com
 non_shipping_repos:
-- rhel-server-ose-rpms
+- rhel-server-ose-rpms-embargoed
