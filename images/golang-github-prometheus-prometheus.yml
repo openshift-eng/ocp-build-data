@@ -11,7 +11,7 @@ content:
       url: git@github.com:openshift-priv/prometheus.git
 enabled_repos:
 - rhel-server-rpms
-- rhel-server-ose-rpms
+- rhel-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
@@ -25,6 +25,6 @@ labels:
   vendor: Red Hat
 name: openshift/ose-prometheus
 non_shipping_repos:
-- rhel-server-ose-rpms
+- rhel-server-ose-rpms-embargoed
 owners:
 - team-monitoring@redhat.com

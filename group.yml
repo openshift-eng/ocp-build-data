@@ -150,7 +150,7 @@ repos:
       s390x: rhel-7-for-system-z-optional-rpms
     reposync:
       enabled: false
-  rhel-server-ose-rpms:
+  rhel-server-ose-rpms-embargoed:
     conf:
       baseurl:
         ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building-embargoed/ppc64le/os
@@ -161,8 +161,18 @@ repos:
       optional: true
       ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
       s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
+    reposync:
+      enabled: false
+  rhel-server-ose-rpms:  # for reposync and CI build only
+    conf:
+      baseurl:
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
+    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
   # Included to trigger reposync of rhel-8 rpms
-  rhel-8-server-ose-rpms:
+  rhel-8-server-ose-rpms-embargoed:
     conf:
       baseurl:
         ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/ppc64le/os
@@ -173,6 +183,16 @@ repos:
       optional: true
       ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
       s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+    reposync:
+      enabled: false
+  rhel-8-server-ose-rpms:  # for reposync and CI build only
+    conf:
+      baseurl:
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/x86_64/os
+    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
   rhel-server-rhscl-rpms:
     conf:
       baseurl:
