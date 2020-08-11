@@ -11,14 +11,14 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
 from:
-  member: jenkins-slave-base-rhel7
+  member: ose-jenkins-agent-base
 labels:
   License: GPLv2+
   io.k8s.description: The jenkins agent nodejs image has the nodejs tools on top of
-    the jenkins slave base image.
+    the jenkins agent base image.
   io.k8s.display-name: Jenkins Agent Nodejs
   io.openshift.tags: openshift,jenkins,agent,nodejs
   vendor: Red Hat
-name: openshift/jenkins-agent-nodejs-10-rhel7
+name: openshift/ose-jenkins-agent-nodejs-10
 owners:
 - openshift-dev-services+jenkins@redhat.com
