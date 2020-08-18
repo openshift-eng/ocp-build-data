@@ -74,16 +74,13 @@ non_release:
 
 sources:
   ose:
-    url: git@github.com:openshift/ose.git
+    url: git@github.com:openshift-priv/origin.git
     branch:
-      target: enterprise-{MAJOR}.{MINOR}
+      target: release-{MAJOR}.{MINOR}
 
 public_upstreams:
 - private: "https://github.com/openshift-priv"
   public: "https://github.com/openshift"
-- private: "https://github.com/openshift/ose"
-  public: "https://github.com/openshift/origin"
-  public_branch: release-{MAJOR}.{MINOR}
 
 repos:
   rhel-7-server-ansible-2.8-rpms:
