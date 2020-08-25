@@ -1,4 +1,24 @@
 ---
+
+################################################################################################
+#  STOP. HOLD. PLEASE WAIT. PLEASE READ. FAILURE TO READ HAVE IMPACTS ACROSS THE ORGANIZATION.
+################################################################################################
+# If you are about to modify this file, please know that the end result may be changing the
+# base images for all upstream CI.
+#
+# ******IF you are about to bump ART's golang version******
+# Please announce to aos-devel/aos-leads before doing so. Tell them when it will occur and
+# hold to that schedule so that new CI issues can be correlated with the event.
+#
+# ******IF you are about to change an upstream_image name******
+# Do so only if discussed with your team lead. This field does not impact ART builds.
+# When this field is changed, it will open upstream PRs for each image using the stream
+# in ART's ocp-build-data. i.e. if you change the upstream_image for golang, you will
+# indirectly be responsible for openining >150 upstream PRs.
+# Details: https://docs.google.com/document/d/1vTf_Ev_9iv_myWu7ClYLlsiN54rEDIblq-90n3sNscs/edit
+#
+################################################################################################
+
 rhel:
   image: openshift/ose-base:ubi8
   mirror: true
@@ -12,6 +32,7 @@ rhel:
   # Note that it must be qualified by {MAJOR}.{MINOR} so that it installs non-CDN
   # rpms for the appropriate release.
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-8-base-openshift-{MAJOR}.{MINOR}
+
 golang:
   image: openshift/golang-builder:rhel_8_golang_1.14
   mirror: true
@@ -34,18 +55,22 @@ ruby-25:
   image: openshift/ose-base:ubi8.ruby.25
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.ruby.25
+
 python-36:
   image: openshift/ose-base:ubi8.python.36
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.python.36
+
 nodejs-10:
   image: openshift/ose-base:ubi8.nodejs.10
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.nodejs.10
+
 nodejs-12:
   image: openshift/ose-base:ubi8.nodejs.12
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.nodejs.12
+
 # The following is only included to push an image for DPTP to start building
 # ubi7 base images with yum repos. It is probably not going to be necessary
 # in 4.6 if we successfully transition everything to rhel8.
