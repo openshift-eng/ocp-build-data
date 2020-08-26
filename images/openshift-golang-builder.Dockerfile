@@ -1,6 +1,9 @@
 FROM openshift/ose-base:ubi8
 
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
+    container=oci \
+    GOFLAGS='-mod=vendor' \
+    GOPATH=/go \
     VERSION="1.13"
 
 LABEL summary="$SUMMARY" \
@@ -10,5 +13,8 @@ LABEL summary="$SUMMARY" \
       com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
       version="$VERSION"
 
-RUN yum install -y --setopt=tsflags=nodocs "go-toolset-$VERSION.*" && \
+RUN yum install -y --setopt=tsflags=nodocs \
+    bc diffutils file findutils gpgme git hostname lsof make rsync socat tar tree util-linux wget which zip \
+    "go-toolset-$VERSION.*" goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel && \
+    mkdir -p /go/src && \
     yum clean all -y
