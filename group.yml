@@ -4,6 +4,7 @@ arches:
 - x86_64
 - ppc64le
 - s390x
+- aarch64
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -20,13 +21,15 @@ repos:
   rhel-8-server-ose-build-rpms:
     conf:
       baseurl:
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.3-rhel-8-build/latest/aarch64/
         ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.3-rhel-8-build/latest/ppc64le/
         s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.3-rhel-8-build/latest/s390x/
         x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.3-rhel-8-build/latest/x86_64/
 
     # These content sets are not used, so just putting something here
     content_set:
-      default: rhel-7-server-ose-4.2-rpms
-      ppc64le: rhel-7-for-power-le-ose-4.2-rpms
-      s390x: rhel-7-for-system-z-ose-4.2-rpms
+      default: rhocp-4.3-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-4.3-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-4.3-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-4.3-for-rhel-8-s390x-rpms
       optional: true
