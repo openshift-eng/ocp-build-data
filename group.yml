@@ -20,6 +20,8 @@ branch: rhaos-4.3-rhel-8
 repos:
   rhel-8-server-ose-build-rpms:
     conf:
+      extra_options:
+        module_hotfixes: 1
       baseurl:
         aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.3-rhel-8-build/latest/aarch64/
         ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.3-rhel-8-build/latest/ppc64le/
