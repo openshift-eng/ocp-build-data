@@ -11,8 +11,8 @@ content:
       url: git@github.com:openshift/kube-state-metrics.git
     path: ''
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -27,3 +27,5 @@ labels:
 name: openshift/ose-kube-state-metrics
 owners:
 - team-monitoring@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

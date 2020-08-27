@@ -7,8 +7,8 @@ content:
       url: git@github.com:openshift/oc.git
     path: images/deployer
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   member: openshift-enterprise-cli
@@ -23,3 +23,5 @@ labels:
 name: openshift/ose-deployer
 owners:
 - aos-master@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

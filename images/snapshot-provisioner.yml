@@ -1,7 +1,7 @@
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   stream: rhel
@@ -14,3 +14,5 @@ labels:
 name: openshift/ose-snapshot-provisioner
 owners:
 - aos-storage-devel@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

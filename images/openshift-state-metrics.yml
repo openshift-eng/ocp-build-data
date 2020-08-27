@@ -11,8 +11,8 @@ content:
       url: git@github.com:openshift/openshift-state-metrics.git
     path: ''
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -22,3 +22,5 @@ name: openshift/ose-openshift-state-metrics
 owners:
 - haowang@redhat.com
 required: true
+non_shipping_repos:
+- rhel-server-optional-rpms

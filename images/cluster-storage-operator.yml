@@ -11,8 +11,8 @@ content:
 distgit:
   component: ose-cluster-storage-operator-container
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -21,3 +21,5 @@ from:
 name: openshift/ose-cluster-storage-operator
 owners:
 - mawong@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

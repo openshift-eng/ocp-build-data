@@ -10,11 +10,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/ovn-kubernetes.git
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
 - rhel-fast-datapath-rpms
 - rhel-server-extras-rpms
+- rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -31,3 +31,6 @@ labels:
 name: openshift/ose-ovn-kubernetes
 owners:
 - aos-networking-staff@redhat.com
+non_shipping_repos:
+- rhel-server-extras-rpms
+- rhel-server-optional-rpms

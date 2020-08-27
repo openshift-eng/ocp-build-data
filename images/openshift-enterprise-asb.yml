@@ -8,9 +8,9 @@ content:
 dependents:
 - openshift-enterprise-ansible-service-broker-operator
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   builder:
@@ -22,3 +22,6 @@ owners:
 - jesusr@redhat.com
 - jlanford@redhat.com
 - fabian@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

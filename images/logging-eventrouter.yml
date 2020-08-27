@@ -1,8 +1,8 @@
 enabled_repos:
-- rhel-server-rpms
+- rhel-server-extras-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
-- rhel-server-extras-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   stream: rhel
@@ -20,3 +20,6 @@ push:
   repos:
   - openshift/logging-eventrouter
   - openshift/ose-logging-eventrouter
+non_shipping_repos:
+- rhel-server-extras-rpms
+- rhel-server-optional-rpms

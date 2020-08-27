@@ -6,8 +6,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/template-service-broker-operator.git
 enabled_repos:
-- rhel-server-rpms
+- rhel-7-server-ansible-2.8-rpms
+- rhel-server-extras-rpms
 - rhel-server-optional-rpms
+- rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   member: openshift-enterprise-ansible-operator

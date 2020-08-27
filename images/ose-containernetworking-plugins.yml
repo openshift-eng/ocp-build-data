@@ -10,8 +10,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/containernetworking-plugins.git
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -24,3 +24,5 @@ owners:
 - fpan@redhat.com
 - tohayash@redhat.com
 - dcbw@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

@@ -1,10 +1,10 @@
 distgit:
   component: openshift-enterprise-apb-tools-container
 enabled_repos:
-- rhel-server-rpms
+- rhel-server-extras-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
-- rhel-server-extras-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   stream: rhel
@@ -15,3 +15,6 @@ name: openshift/apb-tools
 no_oit_comments: true
 owners:
 - dzager@redhat.com
+non_shipping_repos:
+- rhel-server-extras-rpms
+- rhel-server-optional-rpms

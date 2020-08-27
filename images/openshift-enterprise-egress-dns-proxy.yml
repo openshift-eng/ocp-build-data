@@ -9,9 +9,9 @@ distgit:
   component: openshift-enterprise-egress-dns-proxy-container
   namespace: containers
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   member: openshift-enterprise-base
@@ -24,3 +24,5 @@ labels:
 name: openshift/ose-egress-dns-proxy
 owners:
 - aos-network-edge@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

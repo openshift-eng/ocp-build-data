@@ -14,8 +14,8 @@ content:
       match: make build
       replacement: GO111MODULE=on make build
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   builder:
@@ -28,3 +28,5 @@ update-csv:
   bundle-dir: "{MAJOR}.{MINOR}/"
   manifests-dir: manifests/olm-catalog
   registry: image-registry.openshift-image-registry.svc:5000
+non_shipping_repos:
+- rhel-server-optional-rpms
