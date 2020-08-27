@@ -11,6 +11,7 @@ content:
       replacement: atomic-openshift-dockerregistry
     path: images/dockerregistry
 enabled_repos:
+- rhel-server-optional-rpms
 - rhel-server-ose-rpms
 from:
   member: openshift-enterprise-base
@@ -25,3 +26,6 @@ labels:
   vendor: Red Hat
 name: openshift3/ose-docker-registry
 owners: []
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

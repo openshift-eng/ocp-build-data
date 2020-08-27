@@ -8,9 +8,10 @@ content:
       url: git@github.com:openshift/jenkins.git
     path: agent-nodejs-12
 enabled_repos:
-- rhel-server-ose-rpms
 - rhel-server-optional-rpms
+- rhel-server-ose-rpms
 - rhel-server-rhscl-rpms
+- rhel-server-rpms
 from:
   member: jenkins-slave-base-rhel7
 labels:
@@ -23,3 +24,5 @@ labels:
 name: openshift3/jenkins-agent-nodejs-12-rhel7
 owners:
 - openshift-dev-services+jenkins@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

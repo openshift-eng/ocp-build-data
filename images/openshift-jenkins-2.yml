@@ -8,7 +8,9 @@ content:
       url: git@github.com:openshift/jenkins.git
     path: '2'
 enabled_repos:
+- rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 from:
   member: openshift-enterprise-cli
 labels:
@@ -26,3 +28,5 @@ odcs:
     mode: auto
 owners:
 - openshift-dev-services+jenkins@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

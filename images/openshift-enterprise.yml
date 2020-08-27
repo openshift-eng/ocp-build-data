@@ -13,8 +13,9 @@ content:
       replacement: ''
     path: images/origin
 enabled_repos:
-- rhel-server-ose-rpms
 - rhel-7-server-rhceph-3-tools-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
 from:
   member: openshift-enterprise-cli
 labels:
@@ -28,3 +29,5 @@ name: openshift3/ose-control-plane
 owners: []
 push:
   late: true
+non_shipping_repos:
+- rhel-server-optional-rpms
