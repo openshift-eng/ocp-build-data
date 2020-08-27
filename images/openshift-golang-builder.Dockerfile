@@ -6,6 +6,11 @@ ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     GOPATH=/go \
     VERSION="1.14"
 
+ENV SOURCE_GIT_COMMIT= \
+    OS_GIT_COMMIT= \
+    SOURCE_GIT_URL= \
+    SOURCE_GIT_TAG= 
+
 LABEL summary="$SUMMARY" \
       description="$SUMMARY" \
       io.k8s.description="$SUMMARY" \
