@@ -10,8 +10,8 @@ content:
       replacement: atomic-enterprise-service-catalog
     path: images/service-catalog
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-ose-rpms-embargoed
+- rhel-server-rpms
 for_payload: true
 from:
   member: openshift-enterprise-base
@@ -27,3 +27,5 @@ owners:
 - aos-operator-sdk@redhat.com
 - jesusr@redhat.com
 - jlanford@redhat.com
+non_shipping_repos:
+- rhel-server-ose-rpms-embargoed
