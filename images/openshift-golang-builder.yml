@@ -1,6 +1,7 @@
 content:
   source:
-    dockerfile: images/openshift-golang-builder.Dockerfile
+    path: images
+    dockerfile: openshift-golang-builder.Dockerfile
     git:
       branch:
         target: rhel-8-golang-1.14
@@ -37,7 +38,7 @@ push:
   additional_tags:
   # DPTP will layer content on top of this image to create the upstream builder:rhel-8-golang-1.14
   - 'rhel-8-golang-1.14.art'
-  
+
 additional_tags:
 - 'rhel_8_golang_1.14'
 - 'rhel_8_1.14'
