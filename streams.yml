@@ -7,6 +7,12 @@ golang:
   image: openshift/golang-builder:1.12
 rhel-8-golang:
   image: openshift/golang-builder:rhel_8_golang_1.12
+  mirror: true
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:rhel-8-golang-openshift-{MAJOR}.{MINOR}.art
+  # dptp will layer yum repos / extra packages on top of ART's image to create the
+  # actual upstream_image. This is to allow upstream some extra helpers to build
+  # tests that don't happen downstream.
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-8-golang-openshift-{MAJOR}.{MINOR}  
 elasticsearch:
   image: openshift/ose-base:elasticsearch
 ruby-25:
