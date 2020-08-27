@@ -10,7 +10,9 @@ content:
 from:
   member: openshift-enterprise-cli
 enabled_repos:
+- rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 labels:
   License: GPLv2+
   io.k8s.description: The jenkins slave base image is intended to be built on top
@@ -28,3 +30,5 @@ odcs:
     mode: auto
 owners:
 - openshift-dev-services+jenkins@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

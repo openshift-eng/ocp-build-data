@@ -29,9 +29,13 @@ content:
 
     path: images/node
 enabled_repos:
-- rhel-server-ose-rpms
+- rhel-7-server-rhceph-3-tools-rpms
 - rhel-fast-datapath-rpms
+- rhel-openstack-rpms
 - rhel-server-extras-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
+- rhel-server-rpms
 from:
   member: openshift-enterprise
 labels:
@@ -42,3 +46,6 @@ labels:
   io.openshift.tags: openshift,node
   vendor: Red Hat
 name: openshift3/ose-node
+non_shipping_repos:
+- rhel-server-extras-rpms
+- rhel-server-optional-rpms

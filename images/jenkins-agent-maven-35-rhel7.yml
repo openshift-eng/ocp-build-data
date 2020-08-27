@@ -8,7 +8,10 @@ content:
       url: git@github.com:openshift/jenkins.git
     path: agent-maven-3.5
 enabled_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
 - rhel-server-rhscl-rpms
+- rhel-server-rpms
 from:
   member: jenkins-slave-base-rhel7
 labels:
@@ -21,3 +24,5 @@ labels:
 name: openshift3/jenkins-agent-maven-35-rhel7
 owners:
 - openshift-dev-services+jenkins@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

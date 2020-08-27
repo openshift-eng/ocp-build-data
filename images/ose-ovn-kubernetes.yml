@@ -6,8 +6,9 @@ content:
       url: git@github.com:openshift/ose-ovn-kubernetes.git
 enabled_repos:
 - rhel-fast-datapath-rpms
-- rhel-server-ose-rpms
 - rhel-server-extras-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
 from:
   stream: rhel
 labels:
@@ -18,3 +19,6 @@ labels:
   io.openshift.tags: openshift
   vendor: Red Hat
 name: openshift3/ose-ovn-kubernetes
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
