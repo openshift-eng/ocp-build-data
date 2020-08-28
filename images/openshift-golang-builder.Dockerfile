@@ -23,8 +23,8 @@ RUN yum install -y --setopt=tsflags=nodocs \
     "go-toolset-$VERSION.*" goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel && \
     mkdir -p /go/src && \
     yum clean all -y
-    
-ADD cross.tar.gz .
+
+COPY cross.tar.gz .
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
@@ -33,10 +33,12 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     # Required packages for windows cross-compilation
     glibc mingw64-gcc && \
     # compile macos cross-compilers
+    tar zfx cross.tar.gz && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
     popd && \
     cp -avr cross/osxcross/target/bin/* /usr/local/bin/ && \
+    rm -rf cross && \
     yum clean all -y)
-RUN rm -rf cross
+RUN rm -rf cross.tar.gz
