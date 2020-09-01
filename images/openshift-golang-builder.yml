@@ -17,20 +17,6 @@ name: openshift/golang-builder
 owners:
 - aos-team-art@redhat.com
 
-# Pushing this image to quay with this tag will cause dominoes to fall. The
-# builder-base imagestream will detect the update, triggering buildconfigs
-# on api.ci to create & expose new goloang images.
-# Relevant PRs:
-# - https://github.com/openshift/release/pull/5529
-# - https://github.com/openshift/release/pull/5542
-push:
-  also:
-  # Requires oc registry login to push
-  - registry.svc.ci.openshift.org/ocp/builder
-  additional_tags:
-  # DPTP will layer content on top of this to create the upstream builder:rhel-7-golang-1.14
-  - 'rhel-7-golang-1.14.art'
-
 # Tag in osbs for consumption by various streams.yml
 additional_tags:
 - '1.14'
