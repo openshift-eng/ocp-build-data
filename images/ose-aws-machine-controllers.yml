@@ -4,6 +4,7 @@ container_yaml:
     - module: sigs.k8s.io/cluster-api-provider-aws
 content:
   source:
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
