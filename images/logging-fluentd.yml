@@ -9,10 +9,10 @@ content:
 dependents:
 - cluster-logging-operator
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
 - rhel-server-rhscl-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   builder:
@@ -31,3 +31,6 @@ push:
   repos:
   - openshift/logging-fluentd
   - openshift/ose-logging-fluentd
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

@@ -10,9 +10,9 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/prometheus-alertmanager.git
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -27,3 +27,6 @@ labels:
 name: openshift/ose-prometheus-alertmanager
 owners:
 - team-monitoring@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

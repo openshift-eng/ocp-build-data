@@ -12,10 +12,10 @@ dependents:
 distgit:
   namespace: containers
 enabled_repos:
-- rhel-server-rpms
+- rhel-server-extras-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
-- rhel-server-extras-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   stream: elasticsearch
@@ -32,3 +32,7 @@ push:
   repos:
   - openshift/logging-elasticsearch5
   - openshift/ose-logging-elasticsearch5
+non_shipping_repos:
+- rhel-server-extras-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

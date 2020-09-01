@@ -11,12 +11,14 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
 - openstack-15-for-rhel-8-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 for_payload: true
 from:
   stream: rhel8
 name: openshift/ose-ironic-static-ip-manager
 owners:
 - ironic-osp-owners@redhat.com
+non_shipping_repos:
+- openstack-15-for-rhel-8-rpms

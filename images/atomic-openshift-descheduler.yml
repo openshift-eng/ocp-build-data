@@ -10,9 +10,9 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/descheduler.git
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   builder:
@@ -28,3 +28,6 @@ name: openshift/ose-descheduler
 owners:
 - rgudimet@redhat.com
 - sjenning@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

@@ -13,11 +13,11 @@ content:
 distgit:
   component: ose-node-container
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
 - rhel-fast-datapath-rpms
 - rhel-server-extras-rpms
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: true
 from:
   builder:
@@ -26,3 +26,6 @@ from:
 name: openshift/ose-node
 owners:
 - aos-networking-staff@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

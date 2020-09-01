@@ -7,8 +7,8 @@ content:
       url: git@github.com:openshift/oc.git
     path: images/recycler
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   member: openshift-enterprise-cli
@@ -22,3 +22,5 @@ labels:
 name: openshift/ose-recycler
 owners:
 - aos-storage-devel@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms

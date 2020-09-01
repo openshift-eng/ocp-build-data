@@ -12,9 +12,9 @@ content:
 dependents:
 - openshift-enterprise-template-service-broker-operator
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
 - rhel-server-ose-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   builder:
@@ -29,3 +29,6 @@ name: openshift/ose-template-service-broker
 owners:
 - aos-operator-sdk@redhat.com
 - jesusr@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms
+- rhel-server-ose-rpms

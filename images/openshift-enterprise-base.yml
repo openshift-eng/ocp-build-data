@@ -8,8 +8,8 @@ content:
       url: git@github.com:openshift/images.git
     path: base
 enabled_repos:
-- rhel-server-rpms
 - rhel-server-optional-rpms
+- rhel-server-rpms
 for_payload: false
 from:
   stream: rhel
@@ -23,3 +23,5 @@ labels:
 name: openshift/ose-base
 owners:
 - ccoleman@redhat.com
+non_shipping_repos:
+- rhel-server-optional-rpms
