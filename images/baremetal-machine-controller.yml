@@ -4,6 +4,7 @@ container_yaml:
     - module: github.com/openshift/cluster-api-provider-baremetal
 content:
   source:
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
