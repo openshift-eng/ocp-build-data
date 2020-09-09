@@ -44,7 +44,9 @@ hadoop-builder:
   # the actual upstream_image is completely separate from .image. So we mirror
   # to a :trash tag upstream. The upstream_image is just the rhel-7-base.
   upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:trash
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}
+  # Use the release image (which is a DPTP-only image layered on top of base) and installs
+  # epel repositories.
+  upstream_image: registry.svc.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 # Used to support hadoop-builder upstream builder image.
 rhel-7:
