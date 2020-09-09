@@ -80,9 +80,8 @@ nodejs-12:
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.nodejs.12
 
-# The following is only included to push an image for DPTP to start building
-# ubi7 base images with yum repos. It is probably not going to be necessary
-# in 4.6 if we successfully transition everything to rhel8.
+# Hadoop requires a rhel-7 based builder image for their dependency on protobuf
+# 2.5.0 (which is not available in rhel-8),
 rhel-7:
   image: openshift/ose-base:ubi7
   mirror: true

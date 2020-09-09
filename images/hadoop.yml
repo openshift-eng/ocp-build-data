@@ -11,7 +11,9 @@ enabled_repos:
 - rhel-8-server-ose-rpms
 from:
   builder:
-  - stream: rhel
+  # Hadoop requires a rhel-7 based builder image for their dependency on protobuf
+  # 2.5.0 (which is not available in rhel-8),
+  - stream: rhel-7
   stream: rhel
 name: openshift/ose-metering-hadoop
 owners:
