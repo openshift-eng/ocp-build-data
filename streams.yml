@@ -33,6 +33,26 @@ rhel:
   # rpms for the appropriate release.
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-8-base-openshift-{MAJOR}.{MINOR}
 
+# hadoop requires protobuf 2.5.0 for upstream CI builds, which is only available
+# in RHEL7. For downstream builds, we can (and must) use RHEL8 for ARM support and
+# there is no dependency on protobuf 2.5.0 (there is conditional logic that differentiates
+# the flow of ART and CI builds).
+hadoop-builder:
+  image: openshift/ose-base:ubi8
+  mirror: true
+  # Set mirror:true so that DPTP will open FROM alignment PRs upstream. However,
+  # the actual upstream_image is completely separate from .image. So we mirror
+  # to a :trash tag upstream. The upstream_image is just the rhel-7-base.
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:trash
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}
+
+# Used to support hadoop-builder upstream builder image.
+rhel-7:
+  image: openshift/ose-base:ubi7
+  mirror: true
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}
+
 golang:
   image: openshift/golang-builder:rhel_8_golang_1.14
   mirror: true
@@ -79,12 +99,3 @@ nodejs-12:
   image: openshift/ose-base:ubi8.nodejs.12
   mirror: true
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.nodejs.12
-
-# Hadoop requires a rhel-7 based builder image for their dependency on protobuf
-# 2.5.0 (which is not available in rhel-8),
-rhel-7:
-  image: openshift/ose-base:ubi7
-  mirror: true
-  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}
-
