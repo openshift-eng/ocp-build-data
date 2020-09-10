@@ -12,10 +12,11 @@ content:
 distgit:
   component: ose-thanos-container
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-ose-rpms  # required by the builder
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms  # required by the builder
 non_shipping_repos:
-- rhel-server-ose-rpms
+- rhel-8-server-ose-rpms
 from:
   builder:
   - stream: golang

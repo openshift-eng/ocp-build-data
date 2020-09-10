@@ -4,12 +4,14 @@ container_yaml:
     - module: sigs.k8s.io/cluster-api-provider-aws
 content:
   source:
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-api-provider-aws.git
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 from:
   builder:
   - stream: golang

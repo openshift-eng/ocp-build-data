@@ -10,14 +10,15 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-resource-override-admission-operator.git
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 distgit:
   component: ose-clusterresourceoverride-operator-container
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-clusterresourceoverride-rhel7-operator
+name: openshift/ose-clusterresourceoverride-rhel8-operator
 owners:
 - aos-node@redhat.com
 update-csv:

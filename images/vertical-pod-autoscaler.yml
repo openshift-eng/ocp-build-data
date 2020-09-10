@@ -4,7 +4,7 @@ container_yaml:
     - module: github.com/openshift/kubernetes-autoscaler
 content:
   source:
-    dockerfile: Dockerfile.rhel7
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -13,12 +13,13 @@ content:
 distgit:
   component: ose-vertical-pod-autoscaler-container
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-vertical-pod-autoscaler-rhel7
+name: openshift/ose-vertical-pod-autoscaler-rhel8
 dependents:
 - vertical-pod-autoscaler-operator
 owners:

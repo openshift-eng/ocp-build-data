@@ -4,17 +4,18 @@ container_yaml:
     - module: github.com/operator-framework/operator-sdk
 content:
   source:
-    dockerfile: release/ansible/Dockerfile
+    dockerfile: release/ansible/Dockerfile.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ocp-release-operator-sdk.git
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
-- rhel-server-extras-rpms
-- rhel-7-server-ansible-2.9-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
+- rhel-8-server-ansible-2.9-rpms
+# this image is not RHOS specific but uses some general Python RPMs built there
+- openstack-16-for-rhel-8-rpms
 from:
   builder:
   - stream: golang

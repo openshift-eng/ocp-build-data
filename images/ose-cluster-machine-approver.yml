@@ -4,13 +4,14 @@ container_yaml:
     - module: github.com/openshift/cluster-machine-approver
 content:
   source:
-    dockerfile: Dockerfile.rhel7
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-machine-approver.git
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 from:
   builder:
   - stream: golang

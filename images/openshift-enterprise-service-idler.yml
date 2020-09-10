@@ -12,7 +12,9 @@ content:
       replacement: atomic-openshift-service-idler
     path: images/service-idler
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
 from:
   member: openshift-enterprise-base
 labels:
@@ -25,6 +27,3 @@ labels:
 name: openshift/ose-service-idler
 owners:
 - sross@redhat.com
-non_shipping_repos:
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms

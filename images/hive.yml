@@ -1,12 +1,13 @@
 content:
   source:
-    dockerfile: Dockerfile.rhel
+    dockerfile: Dockerfile.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:kube-reporting/hive.git
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 from:
   builder:
   - stream: rhel

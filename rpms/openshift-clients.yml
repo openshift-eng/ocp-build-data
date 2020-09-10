@@ -8,3 +8,7 @@ content:
 name: openshift-clients
 owners:
 - aos-master@redhat.com
+distgit:
+  # this is needed for RHEL 7 worker node support
+  # aos-cd-jobs' el8-rebuilds causes this to be rebuilt for RHEL 8 for RHCOS
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-7

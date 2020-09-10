@@ -4,7 +4,7 @@ container_yaml:
     - module: k8s.io/autoscaler
 content:
   source:
-    dockerfile: images/cluster-autoscaler/Dockerfile.rhel7
+    dockerfile: images/cluster-autoscaler/Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -12,7 +12,9 @@ content:
 distgit:
   namespace: containers
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
 from:
   builder:
   - stream: golang

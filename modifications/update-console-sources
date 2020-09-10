@@ -46,7 +46,7 @@ dg_repo="${DISTGIT_REPO:-${PWD}}"
 dry_run="${DRY_RUN:-false}"
 #
 # NodeJS builder image to use
-builder_img="${BUILDER_IMAGE:-registry-proxy.engineering.redhat.com/rh-osbs/openshift-ose-base:rhscl.nodejs.12.rhel7}"
+builder_img="${BUILDER_IMAGE:-registry-proxy.engineering.redhat.com/rh-osbs/openshift-ose-base:ubi8.nodejs.12}"
 
 longopts=help,dg-repo:,dg-branch:,dry-run,builder-img:
 options=hr:t:di:
@@ -122,6 +122,7 @@ docker cp . $container:/opt/app-root/src/
 
 # run the build inside the container which populates the offline cache
 run="docker exec $container bash -c"
+$run "yum install -y python2"
 $run "tar fx yarn-offline.tar"
 $run "npm install ./yarn-1.9.4.tgz"
 $run "rm -rf npm-packages-offline-cache/"

@@ -1,6 +1,6 @@
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -9,10 +9,9 @@ content:
 distgit:
   namespace: containers
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
-- rhel-server-extras-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
 from:
   stream: rhel
 labels:
@@ -30,7 +29,3 @@ push:
   - openshift/ose-logging-elasticsearch6
 dependents:
 - elasticsearch-operator
-non_shipping_repos:
-- rhel-server-extras-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms

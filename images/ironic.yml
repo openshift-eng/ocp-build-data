@@ -8,8 +8,6 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ironic-image.git
-distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -17,10 +15,8 @@ enabled_repos:
 - openstack-16-for-rhel-8-rpms
 from:
   builder:
-  - stream: rhel8
-  stream: rhel8
+  - stream: rhel
+  stream: rhel
 name: openshift/ose-ironic
 owners:
 - ironic-osp-owners@redhat.com
-non_shipping_repos:
-- rhel-8-server-ose-rpms

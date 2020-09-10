@@ -12,12 +12,13 @@ content:
 distgit:
   component: ose-clusterresourceoverride-container
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-clusterresourceoverride-rhel7
+name: openshift/ose-clusterresourceoverride-rhel8
 owners:
 - aos-node@redhat.com
 dependents:

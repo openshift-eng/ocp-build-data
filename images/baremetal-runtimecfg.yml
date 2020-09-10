@@ -4,7 +4,7 @@ container_yaml:
     - module: github.com/openshift/baremetal-runtimecfg
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.openshift
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -12,7 +12,8 @@ content:
 distgit:
   component: ose-baremetal-runtimecfg-container
 enabled_repos:
-- rhel-server-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 from:
   builder:
   - stream: golang

@@ -6,12 +6,14 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:kube-reporting/hadoop.git
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
 from:
   builder:
-  - stream: rhel
+  # Upstream CI builds require a RHEL7 based builder image because it requires protobuf 2.5.0 to compile.
+  # This is not a requirement downstream, so RHEL8 is used. See streams.yml for how this magic is down.
+  - stream: hadoop-builder
   stream: rhel
 name: openshift/ose-metering-hadoop
 owners:
@@ -20,6 +22,3 @@ dependents:
 - ose-metering-ansible-operator
 arches:
 - x86_64
-non_shipping_repos:
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms

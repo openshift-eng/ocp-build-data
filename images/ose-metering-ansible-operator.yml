@@ -1,6 +1,6 @@
 content:
   source:
-    dockerfile: Dockerfile.metering-ansible-operator.rhel
+    dockerfile: Dockerfile.metering-ansible-operator.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -10,10 +10,12 @@ container_yaml:
     modules:
     - module: github.com/kube-reporting/metering-operator
 enabled_repos:
-- rhel-server-rpms
-- rhel-server-optional-rpms
-- rhel-server-ose-rpms
-- rhel-7-server-ansible-2.8-rpms
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms
+- rhel-8-server-ansible-2.9-rpms
+# this image is not RHOS specific but inherits some RPMs from ansible-operator
+- openstack-16-for-rhel-8-rpms
 from:
   builder:
   - member: ose-metering-helm
