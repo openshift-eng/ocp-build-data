@@ -54,3 +54,20 @@ repos:
       s390x: rhel-8-for-s390x-appstream-rpms
     reposync:
       enabled: false
+
+  rhel-8-golang-1.14:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8030020200827141259-13702366-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8030020200827141259-13702366-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8030020200827141259-13702366-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8030020200827141259-13702366-build/latest/x86_64/
+    # These content sets are not used, so just putting something here
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+      optional: true
