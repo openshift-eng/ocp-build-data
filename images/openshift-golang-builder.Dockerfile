@@ -14,7 +14,7 @@ LABEL summary="$SUMMARY" \
       version="$VERSION"
 
 RUN yum install -y --setopt=tsflags=nodocs \
-    bc diffutils file findutils gpgme git hostname lsof make rsync socat tar tree util-linux wget which zip \
+    bc diffutils file findutils gpgme git hostname lsof make rsync socat tar tree util-linux wget which zip python3 \
     "go-toolset-$VERSION.*" goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel && \
     mkdir -p /go/src && \
     yum clean all -y
