@@ -34,7 +34,10 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     UNATTENDED=yes ./build.sh && \
     popd && \
     cp -avr cross/osxcross/target/bin/* /usr/local/bin/ && \
-    cp -avr cross/osxcross/target/SDK /usr/local/SDK && \ 
+    cp -avr cross/osxcross/target/lib/* /usr/local/lib64/ && \
+    cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
+    echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
+    /sbin/ldconfig && \
     rm -rf cross && \
     yum clean all -y)
 RUN rm -rf cross.tar.gz
