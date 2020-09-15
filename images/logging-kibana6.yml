@@ -6,6 +6,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/origin-aggregated-logging.git
     path: kibana
+dependents:
+- elasticsearch-operator
 distgit:
   namespace: containers
 enabled_repos:
@@ -27,5 +29,3 @@ push:
   repos:
   - openshift/logging-kibana6
   - openshift/ose-logging-kibana6
-dependents:
-- elasticsearch-operator

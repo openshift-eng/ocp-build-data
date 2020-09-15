@@ -9,6 +9,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-resource-override-admission.git
+dependents:
+- clusterresourceoverride-operator
 distgit:
   component: ose-clusterresourceoverride-container
 enabled_repos:
@@ -21,5 +23,3 @@ from:
 name: openshift/ose-clusterresourceoverride-rhel8
 owners:
 - aos-node@redhat.com
-dependents:
-- clusterresourceoverride-operator

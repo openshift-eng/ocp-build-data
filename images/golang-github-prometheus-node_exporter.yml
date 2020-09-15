@@ -12,8 +12,6 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms  # required by the builder
-non_shipping_repos:
 - rhel-8-server-ose-rpms
 from:
   builder:
@@ -27,5 +25,7 @@ labels:
   io.openshift.tags: openshift,node
   vendor: Red Hat
 name: openshift/ose-prometheus-node-exporter
+non_shipping_repos:
+- rhel-8-server-ose-rpms
 owners:
 - team-monitoring@redhat.com

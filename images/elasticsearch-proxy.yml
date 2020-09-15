@@ -7,10 +7,11 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
-        # This repo does not follow the release- branch convention. Remove fallback when it does.
         fallback: master
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/elasticsearch-proxy.git
+dependents:
+- elasticsearch-operator
 distgit:
   component: ose-elasticsearch-proxy-container
 enabled_repos:
@@ -21,7 +22,5 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-elasticsearch-proxy
-dependents:
-- elasticsearch-operator
 owners:
 - team-logging@redhat.com

@@ -1,3 +1,8 @@
+container_yaml:
+  go:
+    modules:
+    - module: go.etcd.io/etcd/cmd
+      path: cmd
 content:
   source:
     dockerfile: Dockerfile.rhel
@@ -5,19 +10,11 @@ content:
       branch:
         target: openshift-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/etcd.git
-container_yaml:
-  go:
-    modules:
-    - module: go.etcd.io/etcd/cmd
-      path: cmd
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 from:
   builder:
-  # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
-  # approval to diverge from what kube apiserver uses for a given release.
-  # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
   - stream: etcd_golang
   member: openshift-enterprise-base
 labels:
