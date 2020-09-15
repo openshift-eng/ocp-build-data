@@ -6,12 +6,15 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/origin-aggregated-logging.git
     path: curator
+dependents:
+- cluster-logging-operator
 distgit:
   namespace: containers
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
+for_payload: false
 from:
   stream: python-36
 labels:
@@ -27,5 +30,3 @@ push:
   repos:
   - openshift/logging-curator5
   - openshift/ose-logging-curator5
-dependents:
-- cluster-logging-operator

@@ -5,15 +5,16 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/jenkins.git
-    path: '2'
     modifications:
     - action: replace
       match: INSTALL_JENKINS_VIA_RPMS=false
       replacement: INSTALL_JENKINS_VIA_RPMS=true
+    path: '2'
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
+for_payload: true
 from:
   builder:
   - stream: golang

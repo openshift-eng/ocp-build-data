@@ -12,6 +12,7 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+for_payload: false
 from:
   builder:
   - stream: golang
@@ -20,6 +21,6 @@ name: openshift/ose-cluster-nfd-operator
 owners:
 - openshift-psap@redhat.com
 update-csv:
+  bundle-dir: '{MAJOR}.{MINOR}/'
   manifests-dir: manifests/olm-catalog
-  bundle-dir: "{MAJOR}.{MINOR}/"
   registry: image-registry.openshift-image-registry.svc:5000

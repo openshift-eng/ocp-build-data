@@ -10,17 +10,18 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/kubernetes-autoscaler.git
     path: vertical-pod-autoscaler
+dependents:
+- vertical-pod-autoscaler-operator
 distgit:
   component: ose-vertical-pod-autoscaler-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+for_payload: false
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-vertical-pod-autoscaler-rhel8
-dependents:
-- vertical-pod-autoscaler-operator
 owners:
 - joesmith@redhat.com

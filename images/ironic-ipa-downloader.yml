@@ -13,12 +13,14 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms
 - openstack-16-for-rhel-8-rpms
+for_payload: true
 from:
   builder:
   - stream: rhel
   stream: rhel
 name: openshift/ose-ironic-ipa-downloader
-
+owners:
+- ironic-osp-owners@redhat.com
 # This image dynamically installs a package on top of its builder image
 # during the image build.
 # https://github.com/openshift/ironic-ipa-downloader/blob/999c80f17472d5dbbd4775d901e1be026b239652/Dockerfile.ocp#L11-L14
@@ -29,6 +31,3 @@ scan_sources:
   extra_packages:
   - name: rhosp-director-images
     tag: rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
-
-owners:
-- ironic-osp-owners@redhat.com
