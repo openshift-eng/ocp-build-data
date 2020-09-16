@@ -41,25 +41,12 @@ urls:
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
   cgit: http://pkgs.devel.redhat.com/cgit
-# Is the `brew_image_host` source a secure endpoint or will
-# --insecure=true be required?
-# insecure_source: false
 dist_git_ignore:
   - gating.yaml
 non_release:
   images:
-  - clusterresourceoverride
-  - clusterresourceoverride-operator
   - openshift-enterprise-base
   - ose-haproxy-router-base
-  - openshift-enterprise-service-idler
-  - ose-leader-elector
-  - vertical-pod-autoscaler
-  - vertical-pod-autoscaler-operator
-  rpms:
-  - atomic-openshift-service-idler
-  - atomic-openshift-metrics-server-container
-  - atomic-openshift-cluster-autoscaler-container
 
 push:
   registries:
