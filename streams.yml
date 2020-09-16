@@ -57,7 +57,7 @@ rhel-7:
   transform: rhel-7/base-repos
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-base-openshift-{MAJOR}.{MINOR}
 
-golang-1.14:
+golang:
   image: openshift/golang-builder:rhel_8_golang_1.14
   mirror: true
   upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:rhel-8-golang-openshift-{MAJOR}.{MINOR}.art
@@ -65,7 +65,8 @@ golang-1.14:
   transform: rhel-8/golang
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-8-golang-openshift-{MAJOR}.{MINOR}
 
-golang:
+# Added to mirror out a golang 1.15 version for early adoption
+golang-1.15:
   image: openshift/golang-builder:rhel_8_golang_1.15
   mirror: true
   transform: rhel-8/golang
