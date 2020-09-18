@@ -78,7 +78,7 @@ repos:
     reposync:
       enabled: false
   # Included to trigger reposync of rhel-8 rpms
-  rhel-8-server-ose-rpms:
+  rhel-8-server-ose-rpms-embargoed:
     conf:
       baseurl:
         aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/aarch64/os
@@ -91,6 +91,19 @@ repos:
       aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
       ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
       s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-server-ose-rpms:
+    conf:
+      baseurl:
+        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/aarch64/os
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/x86_64/os
+    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
+
   rhel-8-baseos-rpms:
     conf:
       baseurl:
