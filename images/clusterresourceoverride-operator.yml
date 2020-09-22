@@ -9,6 +9,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-resource-override-admission-operator.git
+delivery_repo:
+- openshift4/ose-clusterresourceoverride-rhel8-operator
 distgit:
   component: ose-clusterresourceoverride-operator-container
 enabled_repos:
@@ -20,6 +22,10 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-clusterresourceoverride-rhel8-operator
+operator_bundle:
+  component: ose-clusterresourceoverride-operator-bundle-container
+  delivery_repo: openshift4/ose-clusterresourceoverride-operator-bundle
+  distgit: clusterresourceoverride-operator-bundle
 owners:
 - aos-node@redhat.com
 update-csv:

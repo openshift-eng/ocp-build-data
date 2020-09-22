@@ -9,6 +9,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-kube-descheduler-operator.git
+delivery_repo:
+- openshift4/ose-cluster-kube-descheduler-operator-bundle
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -18,6 +20,10 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-cluster-kube-descheduler-operator
+operator_bundle:
+  component: ose-cluster-kube-descheduler-operator-bundle-container
+  delivery_repo: openshift4/ose-cluster-kube-descheduler-operator-bundle
+  distgit: ose-cluster-kube-descheduler-operator-bundle
 owners:
 - jchaloup@redhat.com
 - aos-workloads@redhat.com

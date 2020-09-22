@@ -9,6 +9,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/vertical-pod-autoscaler-operator.git
+delivery_repo:
+- openshift4/ose-clusterresourceoverride-rhel8-operator
 distgit:
   component: ose-vertical-pod-autoscaler-operator-container
 enabled_repos:
@@ -22,6 +24,10 @@ from:
 labels:
   com.redhat.delivery.appregistry: 'false'
 name: openshift/ose-vertical-pod-autoscaler-rhel8-operator
+operator_bundle:
+  component: ose-vertical-pod-autoscaler-operator-bundle-container
+  delivery_repo: openshift4/ose-vertical-pod-autoscaler-operator-bundle
+  distgit: vertical-pod-autoscaler-operator-bundle
 owners:
 - joesmith@redhat.com
 update-csv:
