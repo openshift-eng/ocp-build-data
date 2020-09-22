@@ -9,11 +9,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/kuryr-kubernetes.git
 enabled_repos:
-- rhel-8-baseos-rpms
+- openstack-16-for-rhel-8-rpms
 - rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 - rhel-8-fast-datapath-rpms
 - rhel-8-server-ose-rpms
-- openstack-16-for-rhel-8-rpms
 for_payload: true
 from:
   builder:
@@ -23,3 +23,5 @@ name: openshift/ose-kuryr-cni
 owners:
 - kuryr-team@redhat.com
 - mdulko@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

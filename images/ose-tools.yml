@@ -8,8 +8,8 @@ content:
 distgit:
   namespace: containers
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms
 for_payload: true
 from:
@@ -25,3 +25,5 @@ name: openshift/ose-tools
 owners:
 - ccoleman@redhat.com
 - aos-master@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

@@ -12,10 +12,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:kube-reporting/metering-operator.git
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms
+- rhel-8-baseos-rpms
 - rhel-8-server-ansible-2.9-rpms
+- rhel-8-server-ose-rpms
 for_payload: false
 from:
   builder:
@@ -29,3 +29,5 @@ update-csv:
   bundle-dir: '{MAJOR}.{MINOR}/'
   manifests-dir: manifests/deploy/openshift/olm/bundle
   registry: image-registry.openshift-image-registry.svc:5000
+non_shipping_repos:
+- rhel-8-server-ose-rpms

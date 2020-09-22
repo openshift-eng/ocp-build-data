@@ -12,10 +12,10 @@ content:
 distgit:
   component: ose-node-container
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms
+- rhel-8-baseos-rpms
 - rhel-8-fast-datapath-rpms
+- rhel-8-server-ose-rpms
 for_payload: true
 from:
   builder:
@@ -24,3 +24,5 @@ from:
 name: openshift/ose-sdn
 owners:
 - aos-networking-staff@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

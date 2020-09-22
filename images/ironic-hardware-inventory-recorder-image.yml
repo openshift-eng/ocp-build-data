@@ -13,13 +13,15 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ironic-hardware-inventory-recorder-image.git
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms
 - openstack-16-for-rhel-8-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
+- rhel-8-server-ose-rpms
 for_payload: true
 from:
   stream: rhel
 name: openshift/ose-ironic-hardware-inventory-recorder
 owners:
 - ironic-osp-owners@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

@@ -11,8 +11,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/router.git
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms
 for_payload: false
 from:
@@ -29,3 +29,5 @@ labels:
 name: openshift/ose-haproxy-router-base
 owners:
 - aos-network-edge@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

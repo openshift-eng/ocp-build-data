@@ -9,8 +9,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-samples-operator.git
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms
 for_payload: true
 from:
@@ -20,3 +20,5 @@ from:
 name: openshift/ose-cluster-samples-operator
 owners:
 - openshift-build-api@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

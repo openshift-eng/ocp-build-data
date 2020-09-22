@@ -7,8 +7,8 @@ content:
       url: git@github.com:openshift-priv/jenkins.git
     path: agent-nodejs-10
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms
 for_payload: false
 from:
@@ -23,3 +23,5 @@ labels:
 name: openshift/ose-jenkins-agent-nodejs-10
 owners:
 - openshift-dev-services+jenkins@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms

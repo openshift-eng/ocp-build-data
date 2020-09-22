@@ -10,8 +10,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-capacity.git
 enabled_repos:
-- rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms
 for_payload: false
 from:
@@ -29,3 +29,5 @@ name: openshift/ose-cluster-capacity
 owners:
 - jchaloup@redhat.com
 - aos-workloads@redhat.com
+non_shipping_repos:
+- rhel-8-server-ose-rpms
