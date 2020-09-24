@@ -83,6 +83,10 @@ content:
     dockerfile: Dockerfile.rhel7
     ##dockerfile: image/myutil/Dockerfile.rhel7
 
+# if set true means this image is included in payload, false means it's a non-payload image
+# mandatory for all the images. 
+for_payload: false
+
 # Images can specify they would like to be pushed to a completely different
 # registry/namesapce/repo during default pushes.
 push:
