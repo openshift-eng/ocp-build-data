@@ -1,12 +1,15 @@
+mode: disabled
+# [lmeyer] the spec needs modifications to work properly with tito and it's
+# just been easier to do it by hand so far.
 content:
   source:
     git:
       branch:
-        target: 1.12
+        target: 1.15
       url: git@gitlab.cee.redhat.com:openshift-art/builders/golang-scl-shim.git
     specfile: golang-scl-shim.spec
 distgit:
-  branch: rhaos-4.2-rhel-7
+  branch: rhaos-4.6-rhel-7
 name: golang-scl-shim
 owners:
 - aos-team-art@redhat.com
