@@ -104,14 +104,14 @@ etcd_golang:
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12-openshift-{MAJOR}.{MINOR}
 
 rhel-7-golang:
-  image: openshift/golang-builder:1.14
+  image: openshift/golang-builder:1.15
   mirror: true
-  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:rhel-7-golang-openshift-{MAJOR}.{MINOR}.art
+  upstream_image_base: registry.svc.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}.art
   # dptp will layer yum repos / extra packages on top of ART's image to create the
   # actual upstream_image. This is to allow upstream some extra helpers to build
   # tests that don't happen downstream.
   transform: rhel-7/golang
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-golang-openshift-{MAJOR}.{MINOR}
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}
 
 ruby-25:
   image: openshift/ose-base:ubi8.ruby.25
