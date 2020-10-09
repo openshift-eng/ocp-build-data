@@ -1,0 +1,22 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/ptp-operator
+content:
+  source:
+    dockerfile: must-gather/Dockerfile.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ptp-operator.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-ptp-operator-must-gather
+owners:
+- multus-dev@redhat.com
