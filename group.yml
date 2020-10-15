@@ -17,6 +17,8 @@ advisories:
   extras: 65129
   # security:
 
+signing_advisory: 60054
+
 build_profiles:
   image:
     unsigned:
@@ -102,8 +104,8 @@ repos:
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/x86_64/os
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
-      
-  # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd. 
+
+  # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
   rhel-server-ose-rpms:
     conf:
       baseurl:
@@ -112,7 +114,7 @@ repos:
         s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
-      optional: true      
+      optional: true
 
   rhel-8-baseos-rpms:
     conf:
