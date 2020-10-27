@@ -1,0 +1,23 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/cluster-baremetal-operator
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/cluster-baremetal-operator.git
+distgit:
+  component: ose-cluster-baremetal-operator-container
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-cluster-baremetal-operator
+owners:
+- kni-deployment-devel@redhat.com
