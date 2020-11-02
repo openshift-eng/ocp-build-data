@@ -1,7 +1,3 @@
-container_yaml:
-  go:
-    modules:
-    - module: github.com/openshift/baremetal-runtimecfg
 content:
   source:
     dockerfile: Dockerfile.openshift
@@ -9,6 +5,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/baremetal-runtimecfg.git
+    pkg_managers:
+    - gmod
 distgit:
   component: ose-baremetal-runtimecfg-container
 enabled_repos:
