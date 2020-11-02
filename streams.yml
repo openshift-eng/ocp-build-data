@@ -20,7 +20,7 @@
 ####################################################################################################
 
 rhel:
-  image: openshift/ose-base:ubi8
+  image: openshift/ose-base:rhel8.2.els.rhel
   mirror: true
   # The upstream image base serves as a starting point for the upstream_image.
   # ART does not try to mirror to the upstream_image in this case. DPTP
@@ -39,7 +39,7 @@ rhel:
 # there is no dependency on protobuf 2.5.0 (there is conditional logic that differentiates
 # the flow of ART and CI builds).
 hadoop-builder:
-  image: openshift/ose-base:ubi8
+  image: openshift/ose-base:rhel8.2.els.rhel
   mirror: true
   # Set mirror:true so that DPTP will open FROM alignment PRs upstream. However,
   # the actual upstream_image is completely separate from .image. So we mirror
@@ -113,20 +113,22 @@ rhel-7-golang:
   upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}
 
 ruby-25:
-  image: openshift/ose-base:ubi8.ruby.25
+  image: openshift/ose-base:rhel8.2.els.ruby.25
   mirror: true
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.ruby.25
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel8.2.els.ruby.25
 
 python-36:
-  image: openshift/ose-base:ubi8.python.36
+  image: openshift/ose-base:rhel8.2.els.python.36
   mirror: true
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.python.36
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel8.2.els.python.36
 
 nodejs-10:
-  image: openshift/ose-base:ubi8.nodejs.10
+  image: openshift/ose-base:rhel8.2.els.nodejs.10
   mirror: true
-  upstream_image: registry.svc.ci.openshift.org/ocp/builder:ubi8.nodejs.10
+  upstream_image: registry.svc.ci.openshift.org/ocp/builder:rhel8.2.els.nodejs.10
 
+# This image is only used in building the console image and not as a base for
+# anything shipped.  Therefore it does not have a rhel8.2.els variant.
 nodejs-12:
   image: openshift/ose-base:ubi8.nodejs.12
   mirror: true
