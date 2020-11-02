@@ -1,4 +1,4 @@
-FROM openshift/ose-base:ubi8
+FROM openshift/ose-base:rhel8.2.els.rhel
 
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     container=oci \
