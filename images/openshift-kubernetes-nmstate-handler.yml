@@ -1,0 +1,30 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/kubernetes-nmstate
+content:
+  source:
+    dockerfile: build/Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kubernetes-nmstate.git
+distgit:
+  component: ose-kubernetes-nmstate-handler-container 
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-kubernetes-nmstate-handler
+owners:
+- asegurap@redhat.com 
+- bcrochet@redhat.com
+- bnemec@redhat.com
+- ellorent@redhat.com
+- phoracek@redhat.com 
+- yboaron@redhat.com 
