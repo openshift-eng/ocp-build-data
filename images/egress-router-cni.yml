@@ -5,7 +5,7 @@ container_yaml:
     - module: github.com/openshift/egress-router-cni
 content:
   source:
-    dockerfile: images/egress-router/Dockerfile
+    dockerfile: Dockerfile.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -18,7 +18,6 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: golang
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-ovn-kubernetes
