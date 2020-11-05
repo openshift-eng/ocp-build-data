@@ -30,7 +30,6 @@ build_profiles:
     default:
       targets:
       - rhaos-{MAJOR}.{MINOR}-rhel-7-candidate
-      - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
 
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
@@ -278,3 +277,5 @@ scan_freshness:
   release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
   threshold_hours: 24
 csv_namespace: openshift
+# whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
+check_golang_versions: exact  # "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check

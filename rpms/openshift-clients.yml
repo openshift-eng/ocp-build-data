@@ -8,3 +8,8 @@ content:
 name: openshift-clients
 owners:
 - aos-master@redhat.com
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-7
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-7-candidate  # this is needed for RHEL 7 worker node support
+- rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
