@@ -13,7 +13,7 @@ content:
     modifications:
     - action: replace
       match: 'GO111MODULE=on go build --mod=vendor -o build/_output/bin/manager main.go'
-      replacement: 'GO111MODULE=on && go mod tidy && go mod vendor && go build --mod=vendor -o build/_output/bin/manager main.go'
+      replacement: 'go mod tidy && go mod vendor && GO111MODULE=on go build --mod=vendor -o build/_output/bin/manager main.go'
 distgit:
   component: openshift-kubernetes-nmstate-handler-rhel-8-container
 enabled_repos:
