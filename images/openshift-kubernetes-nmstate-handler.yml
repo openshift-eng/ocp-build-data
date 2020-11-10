@@ -10,10 +10,6 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/kubernetes-nmstate.git
-    modifications:
-    - action: replace
-      match: 'GO111MODULE=on go build --mod=vendor -o build/_output/bin/manager main.go'
-      replacement: 'go mod tidy && go mod vendor && GO111MODULE=on go build --mod=vendor -o build/_output/bin/manager main.go'
 distgit:
   component: openshift-kubernetes-nmstate-handler-rhel-8-container
 enabled_repos:
