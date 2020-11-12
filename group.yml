@@ -101,6 +101,11 @@ repos:
         ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/ppc64le/os
         s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/s390x/os
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/x86_64/os
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
   
