@@ -63,6 +63,7 @@ public_upstreams:
   public: "https://github.com/openshift"
 
 repos:
+
   rhel-8-server-ansible-2.9-rpms:
     conf:
       baseurl:
@@ -70,6 +71,11 @@ repos:
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/ppc64le/ansible/2.9/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/s390x/ansible/2.9/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/ansible/2.9/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
     content_set:
       default: ansible-2.9-for-rhel-8-x86_64-rpms
       aarch64: ansible-2.9-for-rhel-8-aarch64-rpms
@@ -77,6 +83,7 @@ repos:
       s390x: ansible-2.9-for-rhel-8-s390x-rpms
     reposync:
       enabled: false
+
   # Included to trigger reposync of rhel-8 rpms
   rhel-8-server-ose-rpms-embargoed:
     conf:
@@ -85,6 +92,7 @@ repos:
         ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/ppc64le/os
         s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/s390x/os
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building-embargoed/x86_64/os
+      # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
       optional: true
@@ -108,8 +116,8 @@ repos:
           enabled: true
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
-  
-  # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd. 
+
+  # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
   rhel-server-ose-rpms:
     conf:
       baseurl:
@@ -117,6 +125,11 @@ repos:
         ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
         s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
+      ci_alignment:
+        profiles:
+        - el7
+        localdev:
+          enabled: true
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
 
@@ -127,6 +140,11 @@ repos:
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/ppc64le/baseos/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/s390x/baseos/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
     content_set:
       default: rhel-8-for-x86_64-baseos-rpms
       aarch64: rhel-8-for-aarch64-baseos-rpms
@@ -134,6 +152,7 @@ repos:
       s390x: rhel-8-for-s390x-baseos-rpms
     reposync:
       enabled: false
+
   rhel-8-appstream-rpms:
     conf:
       baseurl:
@@ -141,6 +160,11 @@ repos:
         ppc64le: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/ppc64le/appstream/os/
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/s390x/appstream/os/
         x86_64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel8/8/x86_64/appstream/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
     content_set:
       default: rhel-8-for-x86_64-appstream-rpms
       aarch64: rhel-8-for-aarch64-appstream-rpms
@@ -148,6 +172,7 @@ repos:
       s390x: rhel-8-for-s390x-appstream-rpms
     reposync:
       enabled: false
+
   rhel-8-fast-datapath-rpms:
     conf:
       baseurl:
@@ -160,6 +185,11 @@ repos:
         # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
         # ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
         # s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/s390x/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
     content_set:
       default: fast-datapath-for-rhel-8-x86_64-rpms
       aarch64: fast-datapath-for-rhel-8-aarch64-rpms
@@ -168,6 +198,7 @@ repos:
       optional: true
     reposync:
       enabled: false
+
   openstack-16-for-rhel-8-rpms:
     conf:
       baseurl:
@@ -176,6 +207,11 @@ repos:
         # XXX: aarch64 and s390x don't exist, point it at something that exists so yum doesn't choke
         s390x: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
         aarch64: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
     content_set:
       default: openstack-16-for-rhel-8-x86_64-rpms
       ppc64le: openstack-16-for-rhel-8-ppc64le-rpms
