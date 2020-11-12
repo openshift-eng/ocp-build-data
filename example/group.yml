@@ -45,6 +45,15 @@ repos:
       baseurl: # can either be a string or a dict with signed/unsigned. Correct version will be retrieved either way.
         signed: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
         unsigned: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
+      ci_alignment: # used to instruct how to expose these RPMs in upstream ART equivalent images (see streams.yml)
+        # By default, ART equivalent images will pull from repos that only resolve in the CI cluster. When
+        # a developer tries to build them with a local 'docker build', they will fail because the repo
+        # URLs cannot be resolved. If localdev is enabled, images:streams will attempt to populate a repo
+        # which will resolve on a developer's laptop if they are behind the firewall.
+        localdev:
+          enabled: true
+        profiles:
+          - el7  # vs el8; el7 based images will receive this localdev repo.
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
   rhel-server-rpms:
