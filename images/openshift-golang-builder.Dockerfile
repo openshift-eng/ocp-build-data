@@ -1,5 +1,6 @@
 FROM rhel7:7-released
 
+ARG GOPATH
 # This feels a little ugly but it seems to be the simplest way to enable the SCL automatically for docker exec:
 ENV container=oci \
     MANPATH=/opt/rh/go-toolset-1.13/root/usr/share/man: \
@@ -7,7 +8,7 @@ ENV container=oci \
     GOFLAGS='-mod=vendor' \
     LD_LIBRARY_PATH=/opt/rh/go-toolset-1.13/root/usr/lib64 \
     PATH=/opt/rh/go-toolset-1.13/root/usr/bin:/opt/rh/go-toolset-1.13/root/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
-    GOPATH=/go \
+    GOPATH=${GOPATH:-/go} \
     PKG_CONFIG_PATH=/opt/rh/go-toolset-1.13/root/usr/lib64/pkgconfig
 
 
