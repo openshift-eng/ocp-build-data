@@ -1,9 +1,10 @@
 FROM openshift/ose-base:rhel8.2.els.rhel
 
+ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     container=oci \
     GOFLAGS='-mod=vendor' \
-    GOPATH=/go \
+    GOPATH=${GOPATH:-/go} \
     VERSION="1.15"
 
 LABEL summary="$SUMMARY" \
