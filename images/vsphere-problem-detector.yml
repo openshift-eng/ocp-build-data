@@ -1,0 +1,23 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/vsphere-problem-detector
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/vsphere-problem-detector.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-vsphere-problem-detector
+owners:
+- aos-storage-staff@redhat.com
