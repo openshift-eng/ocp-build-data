@@ -1,0 +1,25 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/local-storage-operator
+content:
+  source:
+    dockerfile: Dockerfile.mustgather
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/local-storage-operator.git
+distgit:
+  component: ose-local-storage-mustgather-container
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-cli
+name: openshift/ose-local-storage-mustgather
+owners:
+- aos-storage-staff@redhat.com
