@@ -75,11 +75,17 @@ content:
     # Optionally specify non-default upstream Dockerfile (within and relative to path)
     dockerfile: Dockerfile.rhel7
     ##dockerfile: image/myutil/Dockerfile.rhel7
-
-    # Effectively search and replace operations to perform on the upstream Dockerfile. Fields like FROM
-    # and label changes are always overrwritten, but we occassionally need to make fine adjustments to
-    # RPM names. For example, the Origin RPM "origin-sdn-ovs" has a different name when packaged for OCP.
+    # A list of operations to perform on the distgit source
     modifications:
+      # Effectively search and replace operations to perform on the upstream Dockerfile. Fields like FROM
+      # and label changes are always overrwritten, but we occassionally need to make fine adjustments to
+      # RPM names. For example, the Origin RPM "origin-sdn-ovs" has a different name when packaged for OCP.
       - action: replace
         match: "some-origin-string"
         replacement: "some-atomic-openshift-string"
+      # "Add" action is used to download a file from an external URL, save it to the distgit directory, and perform optional checks.
+      - action: add
+        source: https://example.com/path/file/1234  # external URL (http or https)
+        path: file.yaml  # a file name relative to the distgit repo directory
+        overwriting: true  # whether to overwrite if the file already exists on distgit
+        validate: yaml  # If given, raise an error if it is not a valid YAML file
