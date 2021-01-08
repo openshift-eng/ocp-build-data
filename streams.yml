@@ -108,6 +108,7 @@ etcd_golang:
   image: openshift/golang-builder:rhel_8_golang_1.12
   mirror: true
   # No transform required as etcd does not yum install any packages.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
 
 rhel-7-golang:
@@ -123,19 +124,23 @@ rhel-7-golang:
 ruby-25:
   image: openshift/ose-base:ubi8.ruby.25
   mirror: true
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.ruby.25
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.ruby.25
 
 python-36:
   image: openshift/ose-base:ubi8.python.36
   mirror: true
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.python.36
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.python.36
 
 nodejs-10:
   image: openshift/ose-base:ubi8.nodejs.10
   mirror: true
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.10
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.10
 
 nodejs-14:
   image: openshift/ose-base:ubi8.nodejs.14
   mirror: true
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.14
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.14
