@@ -65,14 +65,6 @@ rhel-7-ci-build-root:
   transform: rhel-7/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
-golang-1.14:
-  image: openshift/golang-builder:rhel_8_golang_1.14
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-openshift-{MAJOR}.{MINOR}.art
-  # The transform will layer yum repos & extra CI specific configuration on top of the ART image.
-  transform: rhel-8/golang
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-openshift-{MAJOR}.{MINOR}
-
 golang:
   image: openshift/golang-builder:rhel_8_golang_1.15
   mirror: true
