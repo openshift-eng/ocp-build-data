@@ -15,8 +15,34 @@ LABEL summary="$SUMMARY" \
       version="$VERSION"
 
 RUN yum install -y --setopt=tsflags=nodocs \
-    bc diffutils file findutils gpgme git hostname lsof make rsync socat tar tree util-linux wget which zip python3 \
-    "go-toolset-$VERSION.*" goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel && \
+        bc \
+        diffutils \
+        file \
+        findutils \
+        git \
+        "go-toolset-$VERSION.*" \
+        goversioninfo \
+        gpgme \
+        gpgme-devel \
+        hostname \
+        libassuan-devel \
+        libtool \
+        lsof \
+        make \
+        openssl \
+        openssl-devel \
+        patch \
+        python3 \
+        rsync \
+        socat \
+        systemd-devel \
+        tar \
+        tree \
+        util-linux \
+        wget \
+        which \
+        xz \
+        zip && \
     mkdir -p /go/src && \
     yum clean all -y
 
@@ -25,7 +51,7 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
     # Required packages for mac cross-compilation
-    patch xz llvm-toolset libtool cmake3 gcc-c++ libxml2-devel \
+    llvm-toolset cmake3 gcc-c++ libxml2-devel \
     # Required packages for windows cross-compilation
     glibc mingw64-gcc && \
     # compile macos cross-compilers
