@@ -47,16 +47,23 @@ hadoop-builder:
   # to a :trash tag upstream. The upstream_image is just the rhel-7-base.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:trash
   # Use the release image (which is a DPTP-only image layered on top of base) and installs
-  # epel repositories.
+  # epel repositories. See rhel-7-ci-build-root stream.
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
-# Used to support hadoop-builder upstream builder image.
 rhel-7:
   image: openshift/ose-base:ubi7
   mirror: true
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-base-openshift.art
   transform: rhel-7/base-repos
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-base-openshift
+
+# Used only to support hadoop-builder upstream builder image.
+rhel-7-ci-build-root:
+  image: openshift/ose-base:ubi7
+  mirror: true
+  upstream_image_base: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}.art
+  transform: rhel-7/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 golang-1.14:
   image: openshift/golang-builder:rhel_8_golang_1.14
