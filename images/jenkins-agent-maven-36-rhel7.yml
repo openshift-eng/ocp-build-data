@@ -1,0 +1,28 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        fallback: master
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/jenkins.git
+    path: agent-maven-3.6
+    modifications:
+    - action: add
+      source: https://gitlab.cee.redhat.com/aosqe/ocp-build-data-gating/raw/master/openshift-{MAJOR}.{MINOR}/jenkins-agent-maven-36-rhel7/gating_yaml
+      path: gating.yaml
+      overwriting: true
+enabled_repos:
+- rhel-server-rhscl-rpms
+from:
+  member: jenkins-slave-base-rhel7
+labels:
+  License: GPLv2+
+  io.k8s.description: The jenkins agent maven image has the maven tools on top of
+    the jenkins slave base image.
+  io.k8s.display-name: Jenkins Agent Maven
+  io.openshift.tags: openshift,jenkins,agent,maven
+  vendor: Red Hat
+name: openshift3/jenkins-agent-maven-36-rhel7
+owners:
+- openshift-dev-services+jenkins@redhat.com
