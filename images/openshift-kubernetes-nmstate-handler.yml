@@ -13,8 +13,9 @@ content:
     - action: replace
       match: microdnf
       replacement: yum
-dependents:
-- openshift-kubernetes-nmstate-operator
+## [lmeyer] disabled until upstream is configured for 4.8
+#dependents:
+#- openshift-kubernetes-nmstate-operator
 distgit:
   component: openshift-kubernetes-nmstate-handler-rhel-8-container
 enabled_repos:
