@@ -57,11 +57,11 @@ rhel-7:
   transform: rhel-7/base-repos
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-base-openshift
 
-# Used only to support hadoop-builder upstream builder image.
+# Used only to support hadoop-builder upstream builder image. Common tools used
+# exclusively for testing are bundled on top of the golang builder image.
 rhel-7-ci-build-root:
-  image: openshift/ose-base:ubi7
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}.art
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}
   transform: rhel-7/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
