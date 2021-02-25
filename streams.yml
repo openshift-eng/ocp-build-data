@@ -56,6 +56,7 @@ etcd_golang:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
 
+# This image must only be used by -alt images, as this image cannot be built for aarch64.
 rhel-7-golang:
   image: openshift/golang-builder:1.16
   mirror: true
