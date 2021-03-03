@@ -9,9 +9,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/sriov-network-operator.git
-## [lmeyer] disabled until upstream is configured for 4.8
-#dependents:
-#- sriov-network-operator
+dependents:
+- sriov-network-operator
 for_payload: false
 from:
   builder:
