@@ -1,0 +1,23 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/driver-toolkit
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        #target: release-{MAJOR}.{MINOR}
+        target: master
+      #url: git@github.com:openshift-priv/driver-toolkit.git
+      url: git@github.com:openshift/driver-toolkit.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  member: openshift-enterprise-base
+name: openshift/driver-toolkit
+owners:
+- openshift-psap@redhat.com
