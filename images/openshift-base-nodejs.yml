@@ -1,0 +1,21 @@
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/ocp-build-data.git
+    path: base-images/nodejs
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  image: registry.redhat.io/ubi8/nodejs-12:1-45
+labels:
+  io.k8s.description: This image is only used in building the console image and not as a base for anything shipped.
+name: openshift/base-nodejs
+owners:
+- aos-team-art@redhat.com
