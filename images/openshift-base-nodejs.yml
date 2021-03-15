@@ -1,0 +1,20 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-nodejs
+      url: git@github.com:openshift/ocp-build-data.git
+enabled_repos:
+- rhel-server-rpms
+for_release: false
+from:
+  # lock in nodejs 12.16.1, cannot be updated without corresponding
+  # update of headers tarball in ose-console distgit
+  image: registry.redhat.io/rhscl/nodejs-12-rhel7:1-6.1584463517
+
+labels:
+  io.k8s.description: This image is only used in building the console image and not as a base for anything shipped.
+name: openshift/base-nodejs
+owners:
+- aos-team-art@redhat.com
