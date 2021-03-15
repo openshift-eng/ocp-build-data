@@ -1,0 +1,15 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-nodejs-runtime
+      url: git@github.com:openshift/ocp-build-data.git
+enabled_repos:
+- rhel-server-rpms
+for_release: false
+from:
+  image: rhscl/nodejs-6-rhel7:6-53.1589821762
+name: openshift/base-nodejs-runtime
+owners:
+- aos-team-art@redhat.com
