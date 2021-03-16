@@ -1,0 +1,21 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/azure-disk-csi-driver
+content:
+  source:
+    dockerfile: pkg/azurediskplugin/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/azure-disk-csi-driver.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-azure-disk-csi-driver-rhel8
+owners:
+- aos-storage-staff@redhat.com
