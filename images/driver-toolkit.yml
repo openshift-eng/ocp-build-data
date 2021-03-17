@@ -6,10 +6,29 @@ container_yaml:
 content:
   source:
     dockerfile: Dockerfile
+    modifications:
+    - action: replace
+      match: 'ARG KERNEL_VERSION'
+      replacement: ''
+
+    - action: replace
+      match: 'ARG RT_KERNEL_VERSION'
+      replacement: ''
+
+    - action: replace
+      match: 'ARG RHEL_VERSION'
+      replacement: ''
+
+    - action: replace
+      match: '-${KERNEL_VERSION}'
+      replacement: ''
+
+    - action: replace
+      match: '-${RT_KERNEL_VERSION}'
+      replacement: ''
     git:
       branch:
-        #target: release-{MAJOR}.{MINOR}
-        target: master
+        target: release-{MAJOR}.{MINOR}
       #url: git@github.com:openshift-priv/driver-toolkit.git
       url: git@github.com:openshift/driver-toolkit.git
 enabled_repos:
