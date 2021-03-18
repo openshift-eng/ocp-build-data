@@ -6,26 +6,15 @@ container_yaml:
 content:
   source:
     dockerfile: Dockerfile
-    modifications:
-    - action: replace
-      match: 'ARG KERNEL_VERSION'
-      replacement: ''
+    # Uncomment the following section to pin specific kernel versions
+    # modifications:
+    # - action: replace
+    #   match: "ARG KERNEL_VERSION=''"
+    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
 
-    - action: replace
-      match: 'ARG RT_KERNEL_VERSION'
-      replacement: ''
-
-    - action: replace
-      match: 'ARG RHEL_VERSION'
-      replacement: ''
-
-    - action: replace
-      match: '-${KERNEL_VERSION}'
-      replacement: ''
-
-    - action: replace
-      match: '-${RT_KERNEL_VERSION}'
-      replacement: ''
+    # - action: replace
+    #   match: "ARG RT_KERNEL_VERSION=''"
+    #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
