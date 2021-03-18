@@ -197,6 +197,27 @@ repos:
     reposync:
       enabled: false
 
+  rhel-8-advanced-virt-rpms:
+    conf:
+      baseurl:
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/advanced-virt/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/advanced-virt/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/advanced-virt/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/advanced-virt/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: advanced-virt-for-rhel-8-x86_64-rpms
+      aarch64: advanced-virt-for-rhel-8-aarch64-rpms
+      ppc64le: advanced-virt-for-rhel-8-ppc64le-rpms
+      s390x: advanced-virt-for-rhel-8-s390x-rpms
+      optional: true
+    reposync:
+      enabled: false
+
   openstack-16-for-rhel-8-rpms:
     conf:
       baseurl:
