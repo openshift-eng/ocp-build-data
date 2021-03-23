@@ -66,6 +66,16 @@ rhel-7-ci-build-root:
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 golang:
+  image: openshift/golang-builder:rhel_8_golang_1.15
+  mirror: true
+  transform: rhel-8/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.15-openshift-{MAJOR}.{MINOR}.art
+  # dptp will layer yum repos / extra packages on top of ART's image to create the
+  # actual upstream_image. This is to allow upstream some extra helpers to build
+  # tests that don't happen downstream.
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.15-openshift-{MAJOR}.{MINOR}
+
+golang-1.16:
   image: openshift/golang-builder:rhel_8_golang_1.16
   mirror: true
   transform: rhel-8/golang
