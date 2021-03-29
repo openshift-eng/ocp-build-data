@@ -1,0 +1,16 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-jboss
+      url: git@github.com:openshift/ocp-build-data.git
+enabled_repos:
+- rhel-server-rpms
+for_release: false
+from:
+  image: jboss/openjdk18-rhel7:latest
+
+name: openshift/base-jboss
+owners:
+- aos-team-art@redhat.com
