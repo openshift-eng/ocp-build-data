@@ -1,0 +1,18 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-rhel7
+      url: git@github.com:openshift/ocp-build-data.git
+enabled_repos:
+- rhel-server-rpms
+for_release: false
+from:
+  image: registry.redhat.io/rhel7:latest
+
+labels:
+  io.k8s.description: This is used in building the base image for most other images.
+name: openshift/base-rhel7
+owners:
+- aos-team-art@redhat.com
