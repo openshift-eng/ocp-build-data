@@ -19,7 +19,7 @@ from:
   # Upstream CI builds require a RHEL7 based builder image because it requires protobuf 2.5.0 to compile.
   # This is not a requirement downstream, so RHEL8 is used. See streams.yml for how this magic is down.
   - stream: hadoop-builder
-  stream: rhel
+  member: openshift-base-rhel8
 name: openshift/ose-metering-hadoop
 owners:
 - metering-team@redhat.com
