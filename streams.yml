@@ -49,13 +49,6 @@ hadoop-builder:
   # epel repositories. See rhel-7-ci-build-root stream.
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
-rhel-7:
-  image: openshift/ose-base:ubi7
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-base-openshift.art
-  transform: rhel-7/base-repos
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-base-openshift
-
 # Used only to support hadoop-builder upstream builder image.
 rhel-7-ci-build-root:
   image: openshift/ose-base:ubi7
@@ -111,24 +104,6 @@ rhel-7-golang:
   # tests that don't happen downstream.
   transform: rhel-7/golang
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}
-
-ruby-25:
-  image: openshift/ose-base:ubi8.ruby.25
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.ruby.25
-  upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.ruby.25
-
-python-36:
-  image: openshift/ose-base:ubi8.python.36
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.python.36
-  upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.python.36
-
-nodejs-10:
-  image: openshift/ose-base:ubi8.nodejs.10
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.10
-  upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.10
 
 nodejs-14:
   image: openshift/ose-base:ubi8.nodejs.14
