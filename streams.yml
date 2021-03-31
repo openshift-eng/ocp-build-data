@@ -104,9 +104,3 @@ rhel-7-golang:
   # tests that don't happen downstream.
   transform: rhel-7/golang
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}
-
-nodejs-14:
-  image: openshift/ose-base:ubi8.nodejs.14
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.14
-  upstream_image: registry.ci.openshift.org/ocp/builder:ubi8.nodejs.14
