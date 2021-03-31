@@ -5,7 +5,7 @@ container_yaml:
     - module: github.com/openshift/azure-disk-csi-driver
 content:
   source:
-    dockerfile: pkg/azurediskplugin/Dockerfile
+    dockerfile: Dockerfile.openshift.rhel7
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -15,6 +15,8 @@ enabled_repos:
 - rhel-8-appstream-rpms
 for_payload: true
 from:
+  builder:
+  - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-azure-disk-csi-driver-rhel8
 owners:
