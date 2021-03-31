@@ -19,22 +19,8 @@
 #
 ####################################################################################################
 
-# hadoop requires protobuf 2.5.0 for upstream CI builds, which is only available
-# in RHEL7. For downstream builds, we can (and must) use RHEL8 for ARM support and
-# there is no dependency on protobuf 2.5.0 (there is conditional logic that differentiates
-# the flow of ART and CI builds).
-hadoop-builder:
-  image: openshift/ose-base:ubi8
-  mirror: true
-  # Set mirror:true so that DPTP will open FROM alignment PRs upstream. However,
-  # the actual upstream_image is completely separate from .image. So we mirror
-  # to a :trash tag upstream. The upstream_image is just the rhel-7-base.
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:trash
-  # Use the release image (which is a DPTP-only image layered on top of base) and installs
-  # epel repositories. See rhel-7-ci-build-root stream.
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
-
-# Used only to support hadoop-builder upstream builder image.
+# Used only to support hadoop-builder upstream builder image. Common tools used
+# exclusively for testing are bundled on top of the golang builder image.
 rhel-7-ci-build-root:
   image: openshift/ose-base:ubi7
   mirror: true
