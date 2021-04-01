@@ -3,8 +3,6 @@ golang:
   image: openshift/golang-builder:1.13
 rhel-8-golang:
   image: openshift/golang-builder:rhel_8_golang_1.13
-elasticsearch:
-  image: openshift/ose-base:elasticsearch
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
