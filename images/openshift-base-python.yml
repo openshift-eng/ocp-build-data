@@ -1,0 +1,21 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-python
+      url: git@github.com:openshift/ocp-build-data.git
+    ci_alignment:
+      mirror: true
+      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel8.2.els.python.36
+      upstream_image: registry.ci.openshift.org/ocp/builder:rhel8.2.els.python.36
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  image: registry.redhat.io/ubi8/python-36:1-114.1599745041
+name: openshift/base-python
+owners:
+- aos-team-art@redhat.com
