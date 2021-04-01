@@ -127,6 +127,25 @@ repos:
       s390x: rhel-8-for-s390x-baseos-eus-rpms__8_DOT_2
     reposync:
       enabled: false
+
+  rhel-8-rt-rpms:
+    conf:
+      baseurl:
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
+        # other arches don't exist, pointing at something that exists
+        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-8-for-x86_64-rt-rpms
+      # don't have content set for other arches
+      optional: true
+
   rhel-8-appstream-rpms:
     conf:
       baseurl:
