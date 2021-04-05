@@ -25,7 +25,7 @@ description: |
 
   This advisory contains the RPM packages / container images for Red Hat OpenShift Container Platform 4.8.z. See the following advisory for the container images / RPM packages for this release:
 
-  <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2020:1234
+  <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2021:1234
 
   Space precludes documenting all of the bug fixes and enhancements in this advisory, as well as all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
@@ -33,11 +33,25 @@ description: |
 
   You may download the oc tool and use it to inspect release image metadata as follows:
 
-    $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.8.z>
+      (For x86_64 architecture)
 
-  The image digest is sha256:<SHASUM_HERE>
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.8.z-x86_64
 
-  All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor.
+      The image digest is sha256:<SHASUM_HERE>
+
+      (For s390x architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.8.z-s390x
+
+      The image digest is sha256:<SHASUM_HERE>
+
+      (For ppc64le architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.8.z-ppc64le
+
+      The image digest is sha256:<SHASUM_HERE>
+
+  All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor
 
 solution: |
   For OpenShift Container Platform 4.8 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
@@ -57,15 +71,15 @@ boilerplates:
 
       This advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.8.z. See the following advisory for the container images for this release:
 
-      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2020:1234
+      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2021:1234
 
-      All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor.
+      All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor
     solution: &common_solution |
       For OpenShift Container Platform 4.8 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
       https://docs.openshift.com/container-platform/4.8/release_notes/ocp-4-8-release-notes.html
 
-      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-cli.html.
+      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-cli.html
   image:
     synopsis: "OpenShift Container Platform 4.8.z bug fix update"
     topic: *common_topic
@@ -74,7 +88,7 @@ boilerplates:
 
       This advisory contains the container images for Red Hat OpenShift Container Platform 4.8.z. See the following advisory for the RPM packages for this release:
 
-      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2020:1234
+      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2021:1234
 
       Space precludes documenting all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
@@ -86,11 +100,25 @@ boilerplates:
 
       You may download the oc tool and use it to inspect release image metadata as follows:
 
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:<RELEASE HERE e.g. 4.8.z>
+          (For x86_64 architecture)
 
-      The image digest is sha256:<SHASUM_HERE>
+            $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.8.z-x86_64
 
-      All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor.
+          The image digest is sha256:<SHASUM_HERE>
+
+          (For s390x architecture)
+
+            $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.8.z-s390x
+
+          The image digest is sha256:<SHASUM_HERE>
+
+          (For ppc64le architecture)
+
+            $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.8.z-ppc64le
+
+          The image digest is sha256:<SHASUM_HERE>
+
+      All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor
     solution: *common_solution
   extras:
     synopsis: OpenShift Container Platform 4.8.z extras update
@@ -109,7 +137,7 @@ boilerplates:
 
       This advisory will be used to release the corresponding Operator manifests via new Operator metadata containers.
 
-      All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor.
+      All OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-between-minor.html#understanding-upgrade-channels_updating-cluster-between-minor
     solution: *common_solution
   cve:
     synopsis: OpenShift Container Platform 4.8.z security update
