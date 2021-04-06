@@ -74,3 +74,31 @@ rhel-7-golang:
   # tests that don't happen downstream.
   transform: rhel-7/golang
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}
+
+rhel8:
+  # the most recent release at present. since we yum update this, maybe it does not need to float.
+  # but it is important that we not build from unreleased builds.
+  image: rhel8-2-els/rhel:8.2-13
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+
+nodejs:
+  # the most recent release with precise nodejs 12 version we need.
+  image: ubi8/nodejs-12:1-45
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-nodejs-base-{MAJOR}.{MINOR}.art
+  mirror: true
+
+nodejs-runtime:
+  image: ubi8/nodejs-10:1-108
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-nodejs-runtime-base-{MAJOR}.{MINOR}.art
+  mirror: true
+
+python:
+  image: ubi8/python-36:1-114.1599745041
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-python-base-{MAJOR}.{MINOR}.art
+  mirror: true
+
+ruby:
+  image: ubi8/ruby-25:1-122
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-ruby-base-{MAJOR}.{MINOR}.art
+  mirror: true
