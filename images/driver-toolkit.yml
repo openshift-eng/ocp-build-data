@@ -5,8 +5,13 @@ container_yaml:
 content:
   source:
     dockerfile: Dockerfile
-    # Uncomment the following section to pin specific kernel versions
-    # modifications:
+    modifications:
+    - action: replace
+      match: "ARG RHEL_VERSION=''"
+      replacement: "ARG RHEL_VERSION='8.3'"
+
+    # Uncomment the following sections to pin specific kernel versions
+
     # - action: replace
     #   match: "ARG KERNEL_VERSION=''"
     #   replacement: "ARG KERNEL_VERSION='1.2.3'"
