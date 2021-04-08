@@ -13,7 +13,9 @@ enabled_repos:
 for_payload: false
 for_release: false
 from:
-  image: registry.redhat.io/rhel8-2-els/rhel:latest
+  # the most recent release at present. since we yum update this, maybe it does not need to float.
+  # but it is important that we not build from unreleased builds.
+  image: rhel8-2-els/rhel:8.2-13
 name: openshift/base-rhel8
 owners:
 - aos-team-art@redhat.com
