@@ -1,0 +1,18 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-nodejs
+      url: git@github.com:openshift/ocp-build-data.git
+enabled_repos:
+- rhel-server-rpms
+for_release: false
+from:
+  image: registry.redhat.io/rhscl/nodejs-8-rhel7:1
+
+labels:
+  io.k8s.description: This image is only used in building the console image and not as a base for anything shipped.
+name: openshift/base-nodejs
+owners:
+- aos-team-art@redhat.com

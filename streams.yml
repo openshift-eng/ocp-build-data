@@ -1,15 +1,4 @@
-# currently all the base images are refresh by job/aos-cd-builds/job/build%252Fupdate-base-images
 ---
-rhel: # latest 7.6 https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=67330
-  image: openshift/ose-base:rhel7
-ansible-runner: # https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=67496
-  image: openshift/ose-base:ansible.runner
-elasticsearch: # https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=67545
-  image: openshift/ose-base:elasticsearch
-jboss-openjdk18: # https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=66550
-  image: openshift/ose-base:jboss.openjdk18.rhel7
-nodejs-6:
-  image: openshift/ose-base:rhscl.nodejs.6.rhel7
 golang:
   image: openshift/golang-builder:1.10
 golang-1.11:
