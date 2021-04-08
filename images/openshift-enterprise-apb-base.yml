@@ -1,3 +1,11 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift/ocp-build-data.git
+    path: base-images/ansible-runner
 enabled_repos:
 - rhel-7-server-ansible-2.8-rpms
 - rhel-server-extras-rpms
@@ -5,7 +13,7 @@ enabled_repos:
 - rhel-server-ose-rpms-embargoed
 - rhel-server-rpms
 from:
-  stream: ansible-runner
+  stream: rhel
 labels:
   License: GPLv2+
   vendor: Red Hat
