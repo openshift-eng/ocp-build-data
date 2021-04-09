@@ -1,3 +1,5 @@
 ---
 rhel8:
-  image: openshift/ose-base:ubi8
+  # the most recent release at present. since we yum update this, maybe it does not need to float.
+  # but it is important that we not build from unreleased builds.
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8:8.3-297
