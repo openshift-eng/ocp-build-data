@@ -1,0 +1,21 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-nodejs-runtime
+      url: git@github.com:openshift/ocp-build-data.git
+    ci_alignment:
+      mirror: true
+      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel8.2.els.nodejs.10
+      upstream_image: registry.ci.openshift.org/ocp/builder:rhel8.2.els.nodejs.10
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  stream: nodejs-runtime
+name: openshift/base-nodejs-upstream
+owners:
+- aos-team-art@redhat.com

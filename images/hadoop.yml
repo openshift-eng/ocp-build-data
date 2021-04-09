@@ -2,6 +2,20 @@ arches:
 - x86_64
 content:
   source:
+    ci_alignment:
+      # Upstream CI builds require a RHEL7 based builder image because it requires protobuf 2.5.0 for tests.
+      # This is not a requirement downstream; instead RHEL8 must be used.
+      #
+      # ART still opens FROM alignment PRs upstream as needed, but this specifies
+      # the upstream images explicitly to prevent PR reconciliation from trying
+      # to "correct" the intentional difference:
+      streams_prs:
+        from:
+          # Upstream uses the release image (which is a DPTP-only image layered on top of base)
+          # which installs epel repositories. See rhel-7-ci-build-root stream.
+        - registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
+          # built from the normal rhel8 base image:
+        - registry.ci.openshift.org/ocp/builder:rhel-8-base-openshift-{MAJOR}.{MINOR}
     dockerfile: Dockerfile.rhel
     git:
       branch:
@@ -16,10 +30,8 @@ enabled_repos:
 for_payload: false
 from:
   builder:
-  # Upstream CI builds require a RHEL7 based builder image because it requires protobuf 2.5.0 to compile.
-  # This is not a requirement downstream, so RHEL8 is used. See streams.yml for how this magic is down.
-  - stream: hadoop-builder
-  stream: rhel
+  - member: openshift-base-rhel8
+  member: openshift-base-rhel8
 name: openshift/ose-metering-hadoop
 owners:
 - metering-team@redhat.com

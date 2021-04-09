@@ -1,22 +1,24 @@
 base_only: true
 content:
   source:
-    dockerfile: Dockerfile
     git:
       branch:
-        target: openshift-{MAJOR}.{MINOR}
+        target: openshift-base-nodejs
       url: git@github.com:openshift/ocp-build-data.git
-    path: base-images/nodejs
     ci_alignment:
       mirror: true
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}
+      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}.art
+      transform: rhel-8/base-repos
+      # the console build cares not, but just to keep us/ds same as possible, end with same USER:
+      final_user: 1001
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 for_payload: false
 for_release: false
 from:
-  image: ubi8/nodejs-12:1-45
+  stream: nodejs
 labels:
   io.k8s.description: This image is only used in building the console image and not as a base for anything shipped.
 name: openshift/base-nodejs
