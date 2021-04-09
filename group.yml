@@ -114,6 +114,8 @@ repos:
           enabled: true
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
+    reposync:
+      latest_only: false
 
   # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
   rhel-server-ose-rpms:
@@ -130,6 +132,8 @@ repos:
           enabled: true
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
+    reposync:
+      latest_only: false
 
   rhel-8-baseos-rpms:
     conf:
