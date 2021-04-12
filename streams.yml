@@ -1,22 +1,8 @@
 ---
-rhel:
-  image: openshift/ose-base:ubi7
-rhel8:
-  image: openshift/ose-base:rhel8.2.els.rhel
 golang:
   image: openshift/golang-builder:1.13
 rhel-8-golang:
   image: openshift/golang-builder:rhel_8_golang_1.13
-elasticsearch:
-  image: openshift/ose-base:elasticsearch
-rhel8-ruby-25:
-  image: openshift/ose-base:rhel8.2.els.ruby.25
-nodejs-6:
-  image: openshift/ose-base:rhscl.nodejs.6.rhel7
-nodejs-10:
-  image: openshift/ose-base:rhscl.nodejs.10.rhel7
-nodejs-12:
-  image: openshift/ose-base:rhscl.nodejs.12.rhel7
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.

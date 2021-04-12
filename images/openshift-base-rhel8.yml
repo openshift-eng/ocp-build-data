@@ -1,0 +1,21 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-rhel8
+      url: git@github.com:openshift/ocp-build-data.git
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  # the most recent release at present. since we yum update this, maybe it does not need to float.
+  # but it is important that we not build from unreleased builds.
+  image: rhel8-2-els/rhel:8.2-13
+name: openshift/base-rhel8
+owners:
+- aos-team-art@redhat.com

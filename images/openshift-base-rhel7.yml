@@ -1,0 +1,18 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-rhel7
+      url: git@github.com:openshift/ocp-build-data.git
+enabled_repos:
+- rhel-server-rpms
+for_release: false
+from:
+  # the most recent release at present. since we yum update this, maybe it does not need to float.
+  # but it is important that we not build from unreleased builds.
+  image: rhel7:7.9-333
+
+name: openshift/base-rhel7
+owners:
+- aos-team-art@redhat.com
