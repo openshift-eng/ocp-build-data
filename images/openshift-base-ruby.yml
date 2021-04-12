@@ -5,11 +5,8 @@ content:
       branch:
         target: openshift-base-ruby
       url: git@github.com:openshift/ocp-build-data.git
-# TODO: it SHOULD be:
-#distgit:
-  #branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-# but the idiot who requested the repo didn't ask for this branch; do ^^ once
-# https://projects.engineering.redhat.com/browse/CLOUDBLD-5166 is complete...
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
