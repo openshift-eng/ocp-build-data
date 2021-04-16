@@ -1,4 +1,4 @@
-FROM openshift/ose-base:rhel8.2.els.rhel
+FROM registry.redhat.io/ubi8:latest
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
@@ -14,7 +14,8 @@ LABEL summary="$SUMMARY" \
       com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
       version="$VERSION"
 
-RUN yum install -y --setopt=tsflags=nodocs \
+RUN yum update -y && \
+    yum install -y --setopt=tsflags=nodocs \
         bc \
         diffutils \
         file \
