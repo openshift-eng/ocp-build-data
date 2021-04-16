@@ -131,11 +131,12 @@ repos:
   rhel-8-rt-rpms:
     conf:
       baseurl:
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
+        # for whatever reason, "EUS" kernel-rt is shipped in TUS NFV channels
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.2/x86_64/nfv/os/
         # other arches don't exist, pointing at something that exists
-        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/rt/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.2/x86_64/nfv/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.2/x86_64/nfv/os/
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.2/x86_64/nfv/os/
       ci_alignment:
         profiles:
         - el8
