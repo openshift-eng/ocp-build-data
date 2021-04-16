@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8:8.3
+FROM registry.redhat.io/ubi8:latest
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
