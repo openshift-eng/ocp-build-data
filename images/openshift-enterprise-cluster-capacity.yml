@@ -1,7 +1,7 @@
 container_yaml:
   go:
     modules:
-    - module: github.com/kubernetes-incubator/cluster-capacity
+    - module: github.com/kubernetes-sigs/cluster-capacity
 content:
   source:
     dockerfile: images/cluster-capacity/Dockerfile.rhel7
@@ -12,7 +12,6 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms-embargoed
 for_payload: false
 from:
   builder:
@@ -25,6 +24,7 @@ labels:
   io.k8s.display-name: OpenShift Container Platform Cluster Capacity
   io.openshift.tags: openshift,cluster-capacity
   vendor: Red Hat
+  summary: Framework that estimates a number of instances of a specified pod that would be scheduled in a cluster
 name: openshift/ose-cluster-capacity
 owners:
 - jchaloup@redhat.com
