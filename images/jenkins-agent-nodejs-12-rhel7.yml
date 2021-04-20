@@ -10,7 +10,7 @@ enabled_repos:
 - rhel-server-rpms
 - rhel-server-ose-rpms-embargoed
 - rhel-server-rhscl-rpms
-for_payload: false
+for_payload: true
 from:
   member: jenkins-slave-base-rhel7
 labels:
@@ -20,6 +20,6 @@ labels:
   io.k8s.display-name: Jenkins Agent Nodejs
   io.openshift.tags: openshift,jenkins,agent,nodejs
   vendor: Red Hat
-name: openshift/jenkins-agent-nodejs-12-rhel7
+name: openshift/ose-jenkins-agent-nodejs
 owners:
 - openshift-dev-services+jenkins@redhat.com
