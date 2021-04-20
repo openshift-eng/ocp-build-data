@@ -9,6 +9,7 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+- rhel-8-codeready-builder-rpms
 for_payload: true
 from:
   builder:
@@ -24,5 +25,7 @@ labels:
   io.openshift.tags: openshift,pod
   vendor: Red Hat
 name: openshift/ose-pod
+non_shipping_repos:
+- rhel-8-codeready-builder-rpms
 owners:
 - aos-pod@redhat.com
