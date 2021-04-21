@@ -219,8 +219,10 @@ repos:
         x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
         ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
         s390x: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
-        # FDP has yet to be released for aarch64
-        # aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/aarch64/os/
+        # Trying to solve the problem of a missing repomd.xml
+        # See: https://github.com/openshift/release/pull/17851
+        # See: https://github.com/openshift/os/pull/541#issuecomment-823601083
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/fast-datapath/os/
         # [lmeyer] multi-arch releases might lag behind x86_64, which may require pointing at pre-release MA composes.
         # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
         # ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
