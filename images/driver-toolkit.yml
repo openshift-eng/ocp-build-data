@@ -8,7 +8,7 @@ content:
     modifications:
     - action: replace
       match: "ARG RHEL_VERSION=''"
-      replacement: "ARG RHEL_VERSION='8.3'"
+      replacement: "ARG RHEL_VERSION='8.4'"
 
     # Uncomment the following sections to pin specific kernel versions
 
@@ -27,9 +27,9 @@ enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-rt-rpms
 - rhel-8-appstream-rpms
-for_payload: false
+for_payload: true
 from:
   member: openshift-enterprise-base
-name: openshift/driver-toolkit
+name: openshift/ose-driver-toolkit
 owners:
 - openshift-psap@redhat.com
