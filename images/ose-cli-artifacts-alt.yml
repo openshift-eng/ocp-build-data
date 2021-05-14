@@ -1,3 +1,8 @@
+# These arches require compatibility with RHEL 7
+arches:
+- x86_64
+- ppc64le
+- s390x
 container_yaml:
   go:
     modules:
@@ -22,8 +27,6 @@ from:
   member: openshift-enterprise-cli
 name: openshift/ose-cli-artifacts-alt
 payload_name: cli-artifacts
-arches:
-- x86_64
 owners:
 - ccoleman@redhat.com
 - aos-master@redhat.com
