@@ -1,3 +1,8 @@
+# These arches require compatibility with RHEL 7
+arches:
+- x86_64
+- ppc64le
+- s390x
 container_yaml:
   go:
     modules:
@@ -33,7 +38,5 @@ labels:
   vendor: Red Hat
 name: openshift/ose-cli-alt
 payload_name: cli
-arches:
-- x86_64
 owners:
 - aos-master@redhat.com
