@@ -9,8 +9,6 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/multus-cni.git
-    ci_alignment:
-      enabled: false
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -19,7 +17,7 @@ for_payload: true
 from:
   builder:
   - stream: golang
-  - stream: golang
+  - stream: rhel-7-golang
   member: openshift-enterprise-base
 labels:
   io.k8s.description: This is a component of OpenShift Container Platform and provides
@@ -27,6 +25,9 @@ labels:
   io.k8s.display-name: Multus CNI
   io.openshift.tags: openshift
   vendor: Red Hat
-name: openshift/ose-multus-cni
+name: openshift/ose-multus-cni-alt
+payload_name: multus-cni
+arches:
+- x86_64
 owners:
 - multus-dev@redhat.com
