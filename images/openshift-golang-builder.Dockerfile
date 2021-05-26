@@ -5,6 +5,7 @@ ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     container=oci \
     GOFLAGS='-mod=vendor' \
     GOPATH=${GOPATH:-/go} \
+    GOMAXPROCS=8 \
     VERSION="1.16"
 
 LABEL summary="$SUMMARY" \
