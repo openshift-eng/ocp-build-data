@@ -9,6 +9,7 @@ ENV container=oci \
     LD_LIBRARY_PATH=/opt/rh/go-toolset-1.16/root/usr/lib64 \
     PATH=/opt/rh/go-toolset-1.16/root/usr/bin:/opt/rh/go-toolset-1.16/root/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     GOPATH=${GOPATH:-/go} \
+    GOMAXPROCS=8 \
     PKG_CONFIG_PATH=/opt/rh/go-toolset-1.16/root/usr/lib64/pkgconfig
 
 RUN mkdir -p /go/src/
