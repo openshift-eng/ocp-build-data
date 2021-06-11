@@ -146,8 +146,8 @@ popd
 
 if [ "$dry_run" = false ]; then
   # upload latest sources to dist-git lookaside
-  sed -i -e '/yarn-offline/ d' sources
-  rhpkg upload yarn-offline.tar
+  rm sources
+  rhpkg new-sources yarn-offline.tar node-*-headers.tar.gz
   echo "Updated source lookaside:"
   git diff --cached sources
   git add sources
