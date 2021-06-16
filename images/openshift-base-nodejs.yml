@@ -8,10 +8,10 @@ content:
     ci_alignment:
       mirror: true
       transform: rhel-8/base-repos
-      # the console build cares not, but just to keep us/ds same as possible, end with same USER:
-      final_user: 1001
       upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}.art
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}
+# the console build cares not, but just to keep us/ds same as possible, end with same USER:
+final_stage_user: 1001
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
