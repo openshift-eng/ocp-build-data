@@ -50,11 +50,11 @@ rhel-8-golang-ci-build-root:
 # approval to diverge from what kube apiserver uses for a given release.
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  image: openshift/golang-builder:rhel_8_golang_1.12
+  image: openshift/golang-builder:rhel_8_golang_1.15
   mirror: true
   # No transform required as etcd does not yum install any packages.
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.15
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.15
 
 # This image must only be used by -alt images, as this image cannot be built for aarch64.
 rhel-7-golang:
