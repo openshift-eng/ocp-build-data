@@ -1,0 +1,37 @@
+# When it is time to rebuild an RPM to address CVEs or explain to ProdSec what we need it for, it is not always obvious what 
+# the RPM is for if no image is using it, or if the image is actually using a different version or some other special 
+# situation.
+# this is to document known RPM motivations (requests we received or asked about)
+# the names listed are brew package names
+rpms:
+# rhcos dependencies
+- butane
+- clevis
+- console-login-helper-messages
+- coreos-installer
+- ignition
+- nss-altfiles
+- ostree
+- podman
+- redhat-release-coreos
+- rhcos-tools
+- rust-afterburn
+- rust-bootupd
+- skopeo
+- toolbox
+- conmon
+- kata-containers
+# that we build
+- openshift-ansible
+- openshift-clients
+- openshift-enterprise-service-idler
+- openshift-kuryr
+- openshift
+# sometimes we ship these
+# when critical fixes arrive
+# likewise skopeo and podman
+# if rhel has shipped a newer one, we don't need to
+- cri-o
+# these are for rhel7 worker nodes
+- fuse-overlayfs
+- fuse3
