@@ -3,7 +3,31 @@ releases:
     assembly:
       basis: 
         brew_event: 39473862
-  
+      group:
+        dependencies:
+          rpms:
+          - nvr: cri-o-1.21.0-88.rhaos4.8.gitfd485de.el8
+          #- nvr: openshift-kuryr-4.9.0-202105211327.p0.git.be00acd.el8
+      members:
+        rpms:
+        # - distgit_key: "*"
+        #   is:
+        #     nvr: openshift-clients-4.9.0-202106031118.p0.git.714295d.assembly.stream.el8
+        - distgit_key: openshift-clients
+          is:
+            nvr: openshift-clients-4.9.0-202106031118.p0.git.714295d.assembly.stream.el8
+        # - distgit_key: openshift-foo
+        #   is:
+        #     nvr: openshift-bar-4.9.0-202106100628.p0.git.10cec43.foo.stream.el8
+        # - distgit_key: openshift-clients
+        #   is:
+        #     nvr: fake-4.9.0-202106100628.p0.git.10cec43.foo.stream.el8
+        # - distgit_key: openshift-clients
+        #   is:
+        #     nvr: openshift-clients-4.9.0-202106100628.p0.git.10cec43.foo.stream.el8
+        - distgit_key: openshift-kuryr
+          is:
+            nvr: openshift-kuryr-4.9.0-202105211327.p0.git.be00acd.el8
   art2:
     assembly:
       members:
