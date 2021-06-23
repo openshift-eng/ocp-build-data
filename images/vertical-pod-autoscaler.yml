@@ -10,9 +10,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/kubernetes-autoscaler.git
     path: vertical-pod-autoscaler
-# [talessio] disabled until upstream is configured for 4.9
-#dependents:
-#- vertical-pod-autoscaler-operator
+dependents:
+- vertical-pod-autoscaler-operator
 distgit:
   component: ose-vertical-pod-autoscaler-container
 enabled_repos:
