@@ -9,9 +9,8 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/sriov-network-operator.git
-# [talessio] disabled until upstream is configured for 4.9
-#dependents:
-#- sriov-network-operator
+dependents:
+- sriov-network-operator
 for_payload: false
 from:
   builder:
