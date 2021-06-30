@@ -9,6 +9,9 @@ content:
     - action: replace
       match: INSTALL_JENKINS_VIA_RPMS=false
       replacement: INSTALL_JENKINS_VIA_RPMS=true
+    - action: command
+      command:
+      - update-jenkins-label
     path: '2'
 enabled_repos:
 - rhel-8-baseos-rpms

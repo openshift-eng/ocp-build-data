@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+halp() {
+  cat <<-EOHELP
+	$(basename $0): Script to modify Jenkins image installer files to use the current
+	jenkins rpm.
+	
+	This script expects environment variables \$BREW_EVENT and \$BREW_TAG to be set, and will fail if not.
+EOHELP
+}
+
+get_jenkins_version() {
+  local build version
+  version="$(brew call --json-output listTagged "$BREW_TAG" event="$BREW_EVENT" latest=true package=jenkins | jq -r '.[].version')"
+  echo "${version%.*}"
+}
+
+fix_label() {
+  local jenkins_version
+  jenkins_version="$1"
+  sed -i "s/io.jenkins.version=\"[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\"/io.jenkins.version=\"${jenkins_version}\"/" Dockerfile
+}
+
+fix_install_script() {
+  local jenkins_version
+  jenkins_version="$1"
+  sed -i "s/jenkins-2\.\*/jenkins-${jenkins_version}/" contrib/jenkins/install-jenkins-core-plugins.sh
+}
+
+main() {
+  if [[ $# > 1 || -z "$BREW_TAG" || -z "$BREW_EVENT" ]]; then
+    halp
+    exit 1
+  fi
+
+  echo "$(basename $0): BREW_EVENT=$BREW_EVENT, BREW_TAG=$BREW_TAG" >/dev/stderr
+
+  jenkins_version="$(get_jenkins_version)"
+
+  echo "$(basename $0): Setting jenkins version $jenkins_version" >/dev/stderr
+
+  fix_label "${jenkins_version}"
+  fix_install_script "${jenkins_version}"
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  main "$@"
+fi
