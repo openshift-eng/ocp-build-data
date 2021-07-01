@@ -13,6 +13,8 @@ EOHELP
 
 get_jenkins_version() {
   local build version
+  # FIXME: This is slighty incorrect, as it does not consider the possibility of a pinned rpm in
+  # [releases.yml](https://github.com/openshift/ocp-build-data/blob/f78b55f9151c2a0e925ddb1e1932e5eb8b227ed6/releases.yml#L14)
   version="$(brew call --json-output listTagged "$BREW_TAG" event="$BREW_EVENT" latest=true package=jenkins | jq -r '.[].version')"
   echo "${version%.*}"
 }
