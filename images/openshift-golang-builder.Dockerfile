@@ -1,4 +1,4 @@
-FROM openshift/ose-base:rhel8.2.els.rhel
+FROM registry-proxy.engineering.redhat.com/rh-osbs/rhel-els:8.2-18
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
