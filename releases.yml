@@ -1,5 +1,6 @@
 releases:
   art1:
+    type: custom
     assembly:
       basis:
         brew_event: 39473862
@@ -7,6 +8,16 @@ releases:
         dependencies:
           rpms:
           - el8: cri-o-1.21.0-88.rhaos4.8.gitfd485de.el8
+      rhcos:
+        machine-os-content:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0c8b524ed7dd8e2b2908343d4dac5a5b1ae1744898dda480bf4fad23ebc32df5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cf5f21445e2d6c43ab424f99db7844bfe5463af7e429842bd679deba5926e7e2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cbb5ff0ef87cf99ec4873720bc350e09c699e5a533a8bef95a7805042da5254e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:939546226ecd0b12d6cd1d2fba4bad5de871a0970992ab3516047930acb56baa
+        dependencies:
+          rpms:
+          - el8: bash-4.4.20-1.el8_4
       members:
         rpms:
         - distgit_key: openshift-clients
@@ -23,24 +34,4 @@ releases:
             dependencies:
               rpms:
               - el8: bash-4.4.20-1.el8_4
-      rhcos:
-        machine-os-content:
-          images: {}
-        dependencies:
-          rpms:
-          - el8: bash-4.4.20-1.el8_4
-  art2:
-    assembly:
-      members:
-        images:
-        - distgit_key: kuryr-controller
-          metadata:
-            content:
-              source:
-                git:
-                  url: git@github.com:jupierce/kuryr-kubernetes.git
-                  branch:
-                    target: master
-      group:
-        arches:
-        - x86_64
+
