@@ -1,4 +1,3 @@
-mode: wip
 container_yaml:
   go:
     modules:
@@ -8,10 +7,8 @@ content:
     dockerfile: Dockerfile.openshift
     git:
       branch:
-        #target: release-{MAJOR}.{MINOR}
-        target: main
-      #url: git@github.com:openshift-priv/external-dns-operator.git
-      url: git@github.com:openshift/external-dns-operator.git
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/external-dns-operator.git
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
