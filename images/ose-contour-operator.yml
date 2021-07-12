@@ -1,0 +1,27 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/contour-operator
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/contour-operator.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-contour-rhel8-operator
+owners:
+- aos-network-edge-staff@redhat.com
+#update-csv:
+#  bundle-dir: '??'
+#  manifests-dir: '??'
+#  registry: image-registry.openshift-image-registry.svc:5000
