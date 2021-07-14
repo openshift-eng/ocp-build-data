@@ -6,6 +6,11 @@ content:
   source:
     alias: ose
     dockerfile: images/tests/Dockerfile.rhel
+    modifications:
+    - action: replace
+      match: "RUN make"
+      replacement: "RUN GOFLAGS='-mod=vendor -p=8' make"
+
 distgit:
   namespace: containers
 enabled_repos:
