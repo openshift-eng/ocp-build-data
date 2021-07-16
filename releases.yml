@@ -1,6 +1,7 @@
 releases:
   "4.7.20":
     assembly:
+      type: standard
       basis:
         brew_event: 39813014
       group:
@@ -15,3 +16,19 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:86e507b501ebe6c24295da7ba7e4e740e8801a23420018742ba3fa05ae5768f4
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:89366915ae8a4254939d53855d3ccaaedc9c136245bda6fb659051edad74d5dc
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0ba774058d14fdb5b2818fc70db8299fdbec4e42f8eeeccd95cea5b928017d44
+  "art3091":
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.7.20"
+      members:
+        images:
+        - distgit_key: openshift-enterprise-pod
+          why: "This is a test of the rebuild job; check if we can build a custom git commit"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:jupierce/kubernetes.git
+                  branch:
+                    target: d0b1ad449a08b3259dd2db346ff4339890962782
