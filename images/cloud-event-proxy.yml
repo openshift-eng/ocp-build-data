@@ -1,0 +1,24 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/redhat-cne/cloud-event-proxy
+content:
+  source:
+    git:
+      branch:
+        target: main
+      url: git@github.com:redhat-cne/cloud-event-proxy.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/cloud-event-proxy-rhel8
+owners:
+- nparekh@redhat.com
+- aputtur@redhat.com
+- ijolliff@redhat.com
