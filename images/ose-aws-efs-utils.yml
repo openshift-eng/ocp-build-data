@@ -1,0 +1,23 @@
+mode: wip
+base_only: true
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/aws-efs-utils
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/aws-efs-utils.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  member: openshift-enterprise-base
+name: openshift/ose-aws-efs-utils-base
+owners:
+- aos-storage-staff@redhat.com
