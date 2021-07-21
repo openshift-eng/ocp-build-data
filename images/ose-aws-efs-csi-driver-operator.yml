@@ -1,0 +1,27 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/aws-efs-csi-driver-operator
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/aws-efs-csi-driver-operator.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-aws-efs-csi-driver-rhel8-operator
+owners:
+- aos-storage-staff@redhat.com
+update-csv:
+  bundle-dir: '{MAJOR}.{MINOR}/'
+  manifests-dir: manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
