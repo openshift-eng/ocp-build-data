@@ -19,11 +19,6 @@ content:
     - action: replace
       match: "ARG RT_KERNEL_VERSION=''"
       replacement: "ARG RT_KERNEL_VERSION='4.18.0-193.60.2.rt13.112.el8_2'"
-
-    # Workaround to get same perl-* version across different arches
-    - action: replace
-      match: "RUN yum -y install \\"
-      replacement: "RUN yum -y install perl-macros-5.26.3-418.el8_2.1 perl-Errno-1.28-418.el8_2.1 perl-libs-5.26.3-418.el8_2.1 perl-interpreter-5.26.3-418.el8_2.1 perl-IO-1.38-418.el8_2.1 \\"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
