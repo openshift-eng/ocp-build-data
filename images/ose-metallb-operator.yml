@@ -17,4 +17,7 @@ container_yaml:
   go:
     modules:
     - module: github.com/openshift/metallb-operator
-
+update-csv:
+  bundle-dir: '{MAJOR}.{MINOR}/'
+  manifests-dir: manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
