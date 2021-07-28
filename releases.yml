@@ -1,4 +1,17 @@
 releases:
+  art3171:
+    assembly:
+      type: custom
+      members:
+        images:
+        - distgit_key: '*'
+          why: test cachito integration for all images
+          metadata:
+            container_yaml!: {}
+            content:
+              source:
+                pkg_managers!:
+                - gomod
   art1:
     assembly:
       type: custom
@@ -43,4 +56,3 @@ releases:
               - el8: bash-4.4.20-1.el8_4
                 why: some reason
                 non_gc_tag: some_tag
-
