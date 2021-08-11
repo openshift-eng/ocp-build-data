@@ -11,8 +11,8 @@ content:
       url: git@github.com:openshift-priv/kubernetes.git
     modifications:
     - action: replace
-      match: "make WHAT"
-      replacement: "GOFLAGS='-mod=vendor -p=8' make WHAT"
+      match: "make WHAT="
+      replacement: "make GOFLAGS='-mod=vendor -p=8' WHAT="
 distgit:
   namespace: containers
 enabled_repos:
