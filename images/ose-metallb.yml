@@ -9,8 +9,9 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/metallb.git
-dependents:
-- ose-metallb-operator
+# disabled until upstream is configured for 4.10
+# dependents:
+# - ose-metallb-operator
 for_payload: false
 from:
   builder:
