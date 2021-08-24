@@ -14,7 +14,12 @@ releases:
           extras: 80549
           metadata: 80550
       members:
-        images: []
+        images:
+        - distgit_key: openshift-enterprise-cli
+          why: "The basis event doesn't include this build."
+          metadata:
+            is:
+              nvr: openshift-enterprise-cli-container-v4.7.0-202108160002.p0.git.d1ffb3c.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
