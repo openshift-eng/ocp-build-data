@@ -14,7 +14,12 @@ releases:
           extras: 80549
           metadata: 80550
       members:
-        images: []
+        images:
+        - distgit_key: openshift-kubernetes-nmstate-operator
+          why: "operator bundle doesn't match"
+          metadata:
+            is:
+              nvr: ose-kubernetes-nmstate-operator-container-v4.7.0-202108240448.p0.git.a1f8569.assembly.4.7.26
         rpms: []
       rhcos:
         machine-os-content:
