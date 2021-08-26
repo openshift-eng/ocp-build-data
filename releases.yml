@@ -10,6 +10,9 @@ releases:
           rpm: 80547
           extras: 80549
           metadata: 80550
+      issues:
+        include:
+        - id: 1998112
       members:
         images:
         - distgit_key: openshift-kubernetes-nmstate-operator
@@ -20,7 +23,8 @@ releases:
         - distgit_key: ose-machine-config-operator
           why: Blocker BZ1998112 addressed
           metadata:
-            is: ose-machine-config-operator-container-v4.7.0-202108261938.p0.git.bd4378e.assembly.stream
+            is: 
+              nvr: ose-machine-config-operator-container-v4.7.0-202108261938.p0.git.bd4378e.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
