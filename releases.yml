@@ -1,4 +1,34 @@
 releases:
+  4.7.27:
+    assembly:
+      basis:
+        brew_event: 40637832
+        reference_releases: {}
+      group:
+        advisories:
+          image: 80548
+          rpm: 80547
+          extras: 80549
+          metadata: 80550
+      members:
+        images:
+        - distgit_key: openshift-kubernetes-nmstate-operator
+          why: "operator bundle doesn't match"
+          metadata:
+            is:
+              nvr: ose-kubernetes-nmstate-operator-container-v4.7.0-202108240448.p0.git.a1f8569.assembly.4.7.26
+        - distgit_key: ose-machine-config-operator
+          why: Blocker BZ1990663 addressed
+          metadata:
+            is: ose-machine-config-operator-container-v4.7.0-202108261938.p0.git.bd4378e.assembly.stream
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c2fce891bb69403d7beb787fdd72c29d022f3cc6728b12f515b3f9c5caeb7181
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:644459b647adb8b10a5d4f9ba8e616cffe215858ceb4d79abf7af780e07508cd
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e8f6ab2e31c789c92aa6cb8ca1bad72c7eab7ef9e53fdd6126b02a1b8abe9b13
+      type: standard
   4.7.26:
     assembly:
       basis:
