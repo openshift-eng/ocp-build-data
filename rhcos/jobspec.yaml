@@ -45,7 +45,7 @@ recipe:
       # In the case of any of these locations being unavailable, it should be possible
       # to switch out the `/8/` to the latest RHEL version (i.e. `/8.1/` or `/8.2/`).
       #
-      # RHCOS 4.8 will track RHEL 8.4, but we can use `8` until 8.4 reaches EUS
+      # RHCOS 4.9 will track RHEL 8.4, but we can use `8` until 8.4 reaches EUS
       [rhel-8-baseos]
       baseurl=http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/$basearch/baseos/os/
       enabled=1
@@ -70,33 +70,42 @@ publish_oscontainer:
     secret_type: cluster
     secret: upload-registry.ci.openshift.org.dockercfg
   - url: registry.ci.openshift.org/rhcos/machine-os-content:test
-    # should be :4.y
+    # should be :4.y when this is working
     secret_type: cluster
     secret: upload-registry.ci.openshift.org.dockercfg
 
 stages:
 - id: Build and test QEMU
+  execution_order: 1
   description: Create the base build and test it
   build_artifacts: [base]
   post_commands:
     - cosa kola run --basic-qemu-scenarios
-  execution_order: 1
+
 - id: Upload to brew
+  execution_order: 2
   description: Create brew build record and upload artifacts
   require_artifacts: [qemu]
   commands:
-    - cosa ... ?
+    - coreos-assembler koji-upload upload --reserve-id --keytab /srv/.keytab/keytab --buildroot builds --owner rhcos-build/jenkins-redhat-coreos.cloud.paas.upshift.redhat.com@REDHAT.COM --profile brew --tag rhaos-4.9-rhel-8-build
       # secret is rhcos-keytab
       # can this retry on failure?
-  execution_order: 2
+
+- id: Build Prep
+  execution_order: 3
+  description: ' Check previous build'
+  require_artifacts: [qemu]
+  post_commands:
+    #- coreos-assembler buildprep s3://art-rhcos-ci/releases/rhcos-4.9
+    - coreos-assembler buildprep s3://art-rhcos-ci/testing/gangplank
+
 - id: Upload to S3
+  execution_order: 4
   description: Insert into S3 (but not in standard stream location)
   require_artifacts: [qemu]
   commands:
     - cosa buildupload s3 --acl=private art-rhcos-ci/testing/gangplank
       # secret is coreos-assembler-aws-secret
-  execution_order: 2
-    # might as well run this in parallel w/ brew upload
 
 delay_meta_merge: false
 
