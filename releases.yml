@@ -14,8 +14,24 @@ releases:
           extras: 80829
           metadata: 80830
         release_jira: OCPPLAN-7144
+        dependencies:
+          rpms:
+          - el8: cri-o-1.20.4-14.rhaos4.7.gitbce257b.el8
+            el7: cri-o-1.20.4-14.rhaos4.7.gitbce257b.el7
+            why: https://bugzilla.redhat.com/show_bug.cgi?id=2000092
+            non_gc_tag: rhaos-4.7-rhel-8-hotfix
       members:
-        images: []
+        images:
+        - distgit_key: sriov-network-webhook
+          why: "Previous build failed."
+          metadata:
+            is:
+              nvr: sriov-network-webhook-container-v4.7.0-202109020705.p0.git.950d7a4.assembly.4.7.29
+        - distgit_key: sriov-network-operator
+          why: "Operator bundle check error."
+          metadata:
+            is:
+              nvr: sriov-network-operator-container-v4.7.0-202109020705.p0.git.950d7a4.assembly.4.7.29
         rpms: []
       rhcos:
         machine-os-content:
