@@ -9,6 +9,10 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ocp-release-operator-sdk.git
+    modifications:
+    - action: replace
+      match: "GOFLAGS=-mod=vendor"
+      replacement: "GOFLAGS='-mod=vendor -p=8'"
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
