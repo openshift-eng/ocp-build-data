@@ -1,7 +1,12 @@
 releases:
   stream:
     assembly:
+      type: stream
       permits:
+      # why: "Always build shippable" does not yet apply to 4.10
       - code: MISMATCHED_SIBLINGS
         component: '*'
-        # why: "Always build shippable" does not yet apply to 4.10
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: '*'
