@@ -3,10 +3,10 @@ releases:
     assembly:
       basis:
         brew_event: 40916409
-        reference_releases:
-          ppc64le: 4.7.0-0.nightly-ppc64le-2021-09-03-234222
-          s390x: 4.7.0-0.nightly-s390x-2021-09-03-234220
-          x86_64: 4.7.0-0.nightly-2021-09-06-042858
+        reference_releases: {}
+          # initially ppc64le: 4.7.0-0.nightly-ppc64le-2021-09-03-234222
+          # initially s390x: 4.7.0-0.nightly-s390x-2021-09-03-234220
+          # initially x86_64: 4.7.0-0.nightly-2021-09-06-042858
       group:
         advisories:
           image: 81149
@@ -14,6 +14,14 @@ releases:
           extras: 81151
           metadata: 81152
         release_jira: OCPPLAN-7196
+        dependencies:
+          rpms:
+          - el8: kernel-4.18.0-305.19.1.el8_4
+            why: fix for cephfs kernel bug
+            non_gc_tag: RHSA-2021:81122-pending
+          - el8: kernel-rt-4.18.0-305.19.1.rt7.91.el8_4
+            why: fix for cephfs kernel bug
+            non_gc_tag: rhel-8.4.0-z-gate
       members:
         images: []
         rpms: []
