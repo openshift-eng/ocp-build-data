@@ -50,6 +50,12 @@ urls:
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
   cgit: http://pkgs.devel.redhat.com/cgit
+  # temporarily point at 4.9 until 4.10 RHCOS gets rolling
+  rhcos_release_base:
+    x86_64: https://releases-rhcos-art.cloud.privileged.psi.redhat.com/storage/releases/rhcos-4.9
+    s390x: https://releases-rhcos-art.cloud.privileged.psi.redhat.com/storage/releases/rhcos-4.9-s390x
+    ppc64le: https://releases-rhcos-art.cloud.privileged.psi.redhat.com/storage/releases/rhcos-4.9-ppc64le
+    aarch64: https://releases-rhcos-art.cloud.privileged.psi.redhat.com/storage/releases/rhcos-4.9-aarch64
 dist_git_ignore:
   - gating.yaml
 
