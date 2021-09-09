@@ -23,14 +23,19 @@ releases:
             why: fix for cephfs kernel bug
             non_gc_tag: rhel-8.4.0-z-gate
       members:
-        images: []
+        images:
+        - distgit_key: driver-toolkit
+          why: fix for cephfs kernel bug
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.7.0-202109082235.p0.git.bcd11a1.assembly.4.7.30
         rpms: []
       rhcos:
         machine-os-content:
           images:
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:03bb695843a534b3df031049d6b97ec7b37c38f79cb3f76db0e0497a771431e4
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a0c4c4e492698bd1ccae91e0264b94d97ae30c07b6127b1cc38c06869fa82e7b
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:50aa1f07a8adc2159ffad5e81083de54335c3a66cbe6d8db016b6cfdeafacca7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c917024624cc1bb089f5d599d57523a6e5b80406d442e9f247ab1d799dd18b51
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:32d6175a9cbd4d437f87923e1a7695cc2b827e4380c5adbb1a82a12c468fc7b6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cb90a29562fd3802ff3a50a5290da9a07358c7a8355d961b24cafb38bc860402
       type: standard
   4.7.29:
     assembly:
