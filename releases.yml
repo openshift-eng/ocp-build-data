@@ -37,6 +37,9 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:32d6175a9cbd4d437f87923e1a7695cc2b827e4380c5adbb1a82a12c468fc7b6
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cb90a29562fd3802ff3a50a5290da9a07358c7a8355d961b24cafb38bc860402
       type: standard
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: '*'
   4.7.29:
     assembly:
       basis:
