@@ -6,6 +6,10 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
     dockerfile: Dockerfile.openshift
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 distgit:
   bundle_component: ose-metallb-operator-bundle-container
 name: openshift/ose-metallb-operator

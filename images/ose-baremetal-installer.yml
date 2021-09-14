@@ -13,6 +13,10 @@ content:
     - action: replace
       match: "hack/build.sh"
       replacement: "GOFLAGS='-mod=vendor -p=8' hack/build.sh"
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms

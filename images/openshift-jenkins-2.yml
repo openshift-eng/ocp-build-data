@@ -10,6 +10,10 @@ content:
       match: INSTALL_JENKINS_VIA_RPMS=false
       replacement: INSTALL_JENKINS_VIA_RPMS=true
     path: '2'
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
