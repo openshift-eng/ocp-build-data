@@ -10,7 +10,10 @@ content:
     - action: replace
       match: "RUN make"
       replacement: "RUN GOFLAGS='-mod=vendor -p=4' make"
-
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 distgit:
   namespace: containers
 enabled_repos:
