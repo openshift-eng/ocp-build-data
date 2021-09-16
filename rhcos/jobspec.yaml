@@ -82,8 +82,13 @@ stages:
   post_commands:
     - cosa kola run --basic-qemu-scenarios
 
-- id: Upload to brew
+- id: Finalize Build
+  description: Return meta.json updated
+  build_artifacts: [finalize]
   execution_order: 2
+
+- id: Upload to brew
+  execution_order: 3
   description: Create brew build record and upload artifacts
   require_artifacts: [qemu]
   commands:
@@ -92,7 +97,7 @@ stages:
       # can this retry on failure?
 
 - id: Build Prep
-  execution_order: 3
+  execution_order: 4
   description: ' Check previous build'
   require_artifacts: [qemu]
   post_commands:
@@ -100,12 +105,12 @@ stages:
     - coreos-assembler buildprep s3://art-rhcos-ci/testing/gangplank
 
 - id: Upload to S3
-  execution_order: 4
+  execution_order: 5
   description: Insert into S3 (but not in standard stream location)
   require_artifacts: [qemu]
   commands:
     - cosa buildupload s3 --acl=private art-rhcos-ci/testing/gangplank
       # secret is coreos-assembler-aws-secret
 
-delay_meta_merge: false
+delay_meta_merge: true
 
