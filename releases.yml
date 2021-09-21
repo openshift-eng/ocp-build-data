@@ -322,3 +322,40 @@ releases:
                   url: git@github.com:jupierce/images.git
                   branch:
                     target: 0549c9ea8fd2c7aa69a68c9c96313c9acc7d3372
+  "4.7.11":
+    assembly:
+      basis:
+        brew_event: 38951630
+        reference_releases: {}
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:35b0316152898d6e5c9f0e632528a79f735e77a4eb1a19355e4f4db93237e3d0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9fa55ffaebf9902211e03840c9006c15f3c9df7ba954530a5c521c19922ba416
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e850d731de8eb871c5ec632e3e750e7e82e03e61c82b056f5c2b8af200e15a4d
+      type: standard
+  "art3334":
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.7.11"
+      members:
+        images:
+        - distgit_key: ose-machine-config-operator
+          why: "Dry run of the hotfix process to pull in BZ1998673; pulling in cherry-pick https://github.com/openshift-cherrypick-robot/machine-config-operator/tree/cherry-pick-2631-to-release-4.7"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/machine-config-operator.git
+                  branch:
+                    target: 77cf8b6dce5b977987057563b1eae3473a1e3a85
