@@ -15,6 +15,7 @@ cdn_repos:
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-x86_64-rpms
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-ppc64le-rpms
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-s390x-rpms
+- rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-aarch64-rpms
 
 synopsis:
   rpm: "OpenShift Container Platform 4.10 bug fix and enhancement update"
@@ -50,6 +51,12 @@ description: |
       (For ppc64le architecture)
 
         $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.10.z-ppc64le
+
+      The image digest is sha256:<SHASUM_HERE>
+
+      (For aarch64 architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.10.z-aarch64
 
       The image digest is sha256:<SHASUM_HERE>
 
@@ -113,6 +120,12 @@ boilerplates:
           (For ppc64le architecture)
 
             $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.10.z-ppc64le
+
+          The image digest is sha256:<SHASUM_HERE>
+
+          (For aarch64 architecture)
+
+            $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.10.z-aarch64
 
           The image digest is sha256:<SHASUM_HERE>
 
