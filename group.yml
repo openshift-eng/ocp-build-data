@@ -107,6 +107,8 @@ repos:
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/x86_64/os
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
+    reposync:
+      latest_only: false      
 
   # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
   rhel-server-ose-rpms:
