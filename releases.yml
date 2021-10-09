@@ -1,4 +1,31 @@
 releases:
+  rc.7:
+    assembly:
+      basis:
+        brew_event: 41432076
+        reference_releases:
+          aarch64: 4.9.0-0.nightly-arm64-2021-10-08-232615
+          ppc64le: 4.9.0-0.nightly-ppc64le-2021-10-08-232626
+          s390x: 4.9.0-0.nightly-s390x-2021-10-08-232627
+          x86_64: 4.9.0-0.nightly-2021-10-08-232649
+      group:
+        advisories:
+          image: 81213
+          rpm: 81212
+          extras: 81214
+          metadata: 81215
+        release_jira: OCPPLAN-7220
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9e689272eb90f01c9a3da1bf1a048844e222b96986a9c33c41b2278aefe5167
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0b17a28848efae034232d0a65a9efad9712c64e6777f488e2fb4faa23f6951d1
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:845581546dcc5876105a80c0982f62463191cccf72c829e1006f305dfe1c3b16
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eaaf9590ed870930313bb0275c6f87c012f64f6a5e784b119921b20369af783d
+      type: candidate
   rc.6:
     assembly:
       basis:
