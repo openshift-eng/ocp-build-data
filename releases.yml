@@ -1,4 +1,19 @@
 releases:
+  rc.8:
+    assembly:
+      type: candidate
+      basis:
+        assembly: rc.7
+      members:
+        images:
+        - distgit_key: openshift-enterprise-console
+          why: https://github.com/openshift/console/pull/10222
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 8c077e4181604af58f7bb9d6db54d6ea312deb39
   rc.7:
     assembly:
       basis:
