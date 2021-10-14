@@ -14,6 +14,10 @@ releases:
           extras: 82699
           metadata: 82701
         release_jira: OCPPLAN-7371
+        dependencies:
+          rpms:
+          - el8: coreos-installer-0.9.0-6.rhaos4.8.el8
+            why: RHCOS uses an older coreos-installer.
       members:
         images: []
         rpms: []
