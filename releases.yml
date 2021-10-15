@@ -14,6 +14,14 @@ releases:
           extras: 82706
           metadata: 82707
         release_jira: OCPPLAN-7395
+        dependencies:
+          rpms:
+          - el8: coreos-installer-0.6.0-3.rhaos4.6.el8
+            why: RHCOS uses an older coreos-installer
+            non_gc_tag: rhaos-4.6-rhel-8
+          - el8: podman-1.9.3-3.rhaos4.6.el8
+            why: RHCOS uses an older podman
+            non_gc_tag: rhaos-4.6-rhel-8
       members:
         images: []
         rpms: []
