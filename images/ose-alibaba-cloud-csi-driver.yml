@@ -1,0 +1,23 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/alibaba-cloud-csi-driver
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/alibaba-cloud-csi-driver.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-alibaba-cloud-csi-driver
+owners:
+- aos-storage-staff@redhat.com
