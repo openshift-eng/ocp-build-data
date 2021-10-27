@@ -1,0 +1,24 @@
+mode: wip
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/alibaba-disk-csi-driver-operator
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/alibaba-disk-csi-driver-operator.git
+#distgit:
+#  component: ose-azure-file-csi-driver-operator-container
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-alibaba-disk-csi-driver-operator
+owners:
+- aos-storage-staff@redhat.com
