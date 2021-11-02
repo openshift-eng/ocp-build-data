@@ -1,5 +1,3 @@
-# [lmeyer] currently blocking rebases due to image-references inconsistency
-mode: disabled
 container_yaml:
   go:
     modules:
@@ -15,9 +13,8 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
-# disabled until upstream is configured for 4.10
-# dependents:
-# - ose-metallb-operator
+dependents:
+- ose-metallb-operator
 for_payload: false
 from:
   builder:
