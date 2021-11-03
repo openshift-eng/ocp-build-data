@@ -14,6 +14,14 @@ releases:
           extras: 83710
           metadata: 83711
         release_jira: OCPPLAN-7532
+        dependencies:
+          rpms:
+          - el8: cri-o-1.21.3-8.rhaos4.8.git7415a53.el8
+            why: CRI-O was taged an older build.
+            non_gc_tag: rhaos-4.8-rhel-8
+          - el7: cri-o-1.21.3-8.rhaos4.8.git7415a53.el7
+            why: CRI-O was taged an older build.
+            non_gc_tag: rhaos-4.8-rhel-7
       members:
         images: []
         rpms: []
