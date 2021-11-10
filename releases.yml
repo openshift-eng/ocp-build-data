@@ -9,6 +9,14 @@ releases:
           image: -1
           metadata: -1
           rpm: -1
+        dependencies:
+          rpms:
+          - el8: openshift-4.9.0-202111020225.p0.git.d8c4430.assembly.stream.el8
+            why: match the selected RHCOS
+            non_gc_tag: rhaos-4.9-rhel-8
+          - el8: openshift-4.9.0-202111020225.p0.git.d8c4430.assembly.stream.el7
+            why: match the selected RHCOS
+            non_gc_tag: rhaos-4.9-rhel-8
       members:
         images: []
         rpms: []
