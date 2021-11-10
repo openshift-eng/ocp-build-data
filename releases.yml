@@ -10,6 +10,17 @@ releases:
           extras: 83965
           metadata: 83966
         release_jira: OCPPLAN-7622
+        dependencies:
+          rpms:
+          - el8: cri-o-1.22.0-78.rhaos4.9.gitd745cab.el8
+            why: to match the selected RHCOS
+            non_gc_tag: rhaos-4.9-rhel-8
+          - el7: cri-o-1.22.0-91.rhaos4.9.gitd745cab.el7
+            why: to match the selected RHCOS
+            non_gc_tag: rhaos-4.9-rhel-8
+          - el8: container-selinux-2.167.0-1.module+el8.4.0+12646+b6fd1bdf
+            why: to match the selected RHCOS
+            non_gc_tag: rhaos-4.9-rhel-8
       members:
         images: []
         rpms:
