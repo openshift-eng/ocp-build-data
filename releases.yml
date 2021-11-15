@@ -495,3 +495,16 @@ releases:
                     target: 77cf8b6dce5b977987057563b1eae3473a1e3a85
             is:
               nvr: ose-machine-config-operator-container-v4.7.0-202109212055.p0.git.77cf8b6.assembly.art3334
+  art3171:
+    assembly:
+      type: custom
+      members:
+        images:
+        - distgit_key: '*'
+          why: test cachito integration for all images
+          metadata:
+            container_yaml!: {}
+            content:
+              source:
+                pkg_managers!:
+                - gomod
