@@ -446,3 +446,16 @@ releases:
             why: "https://bugzilla.redhat.com/show_bug.cgi?id=1992750 addresses this\
               \ issue"
             non_gc_tag: "this is a dry-run and not needed for future builds"
+  art3171:
+    assembly:
+      type: custom
+      members:
+        images:
+        - distgit_key: '*'
+          why: test cachito integration for all images
+          metadata:
+            container_yaml!: {}
+            content:
+              source:
+                pkg_managers!:
+                - gomod
