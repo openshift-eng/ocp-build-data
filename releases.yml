@@ -157,3 +157,16 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2ff99c1e8f22f0938ecc60733131ba7d554a175b28d05864d9cc3c105df5615d
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fb0db3ffa4588abfc2c5befd8318e6015ae01207175a1e3697451668f35acd77
       type: standard
+  art3171:
+    assembly:
+      type: custom
+      members:
+        images:
+        - distgit_key: '*'
+          why: test cachito integration for all images
+          metadata:
+            container_yaml!: {}
+            content:
+              source:
+                pkg_managers!:
+                - gomod
