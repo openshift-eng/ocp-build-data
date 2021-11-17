@@ -13,15 +13,17 @@ releases:
           image: -1
           metadata: -1
           rpm: -1
+        dependencies:
+          rpms:
+          - el8: openshift-4.8.0-202111161121.p0.g6a39d04.assembly.stream.el8
+            why: RHCOS was selected an older build.
+            non_gc_tag: rhaos-4.8-rhel-8
+          - el7: openshift-4.8.0-202111161121.p0.g6a39d04.assembly.stream.el7
+            why: RHCOS was selected an older build.
+            non_gc_tag: rhaos-4.8-rhel-7
       members:
         images: []
-        rpms:
-        - distgit_key: openshift
-          why: to match the selected RHCOS
-          metadata:
-            is:
-              el8: openshift-4.8.0-202111161121.p0.g6a39d04.assembly.stream.el8
-              el7: openshift-4.8.0-202111161121.p0.g6a39d04.assembly.stream.el7
+        rpms: []
       rhcos:
         machine-os-content:
           images:
