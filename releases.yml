@@ -471,14 +471,15 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2733de53d970c1c82ba4b25df4fcf77881b79eb2e107079fe7d0b49cd94c22c9
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e0bf04e3e3a2fdaf121a4260a0c8bd32937c347091d0933fbc7e0bfd4b2c806
       type: standard
-  "art3489":
+  art3489:
     assembly:
       basis:
         assembly: "4.8.15"
       type: custom
       rhcos:
         "machine-os-content":
-          images: {}
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a18a181442683daeea3c62075dcd7122d15cdacb9a793d3c971a7d8148d98ab2
         dependencies:
           rpms:
           - el8: kernel-4.18.0-341.el8
