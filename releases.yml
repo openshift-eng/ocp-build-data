@@ -3,11 +3,12 @@ releases:
     assembly:
       basis:
         brew_event: 42464500
-        reference_releases:
-          aarch64: 4.9.0-0.nightly-arm64-2021-11-18-050319
-          ppc64le: 4.9.0-0.nightly-ppc64le-2021-11-18-050332
-          s390x: 4.9.0-0.nightly-s390x-2021-11-18-050332
-          x86_64: 4.9.0-0.nightly-2021-11-18-050354
+        reference_releases: {}
+          # were
+          # aarch64: 4.9.0-0.nightly-arm64-2021-11-18-050319
+          # ppc64le: 4.9.0-0.nightly-ppc64le-2021-11-18-050332
+          # s390x: 4.9.0-0.nightly-s390x-2021-11-18-050332
+          # x86_64: 4.9.0-0.nightly-2021-11-18-050354
       group:
         advisories:
           image: 84331
@@ -24,16 +25,13 @@ releases:
             is:
               el8: openshift-4.9.0-202111171527.p0.gc8538fc.assembly.stream.el8
               el7: openshift-4.9.0-202111171527.p0.gc8538fc.assembly.stream.el7
-      permits:
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: rhcos
       rhcos:
         machine-os-content:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:36b90218543a22fea588432b7f31d2f261f43a48d28cd858d3edc3e20ae77cf2
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5802a35aba7d4a9ac8c0ed2c770863b73a5b25f1cb4b49e7788e26ccc19da20f
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:569d867318367a14d1e955b4eef2dc6fd7568315850986255e2474eaf9a3fb38
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f332e7676ff25a8c92340ab90413e35b5ebed2b072b42e854eae39122a4540c4
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1af9ecacb4ffffeba0374454643e03ead3b4c0927162211f5438b554d910c8b4
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7451c09adc4dfb8cb47d85b487036ccc5c985120682131f26829b5c3522c4904
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e8254844edda38dc750335c396363ec3200272dbb2d3dee0421aa690b0e0f1ef
       type: standard
   4.9.7:
     assembly:
