@@ -24,6 +24,9 @@ releases:
             is:
               el8: openshift-4.9.0-202111171527.p0.gc8538fc.assembly.stream.el8
               el7: openshift-4.9.0-202111171527.p0.gc8538fc.assembly.stream.el7
+      permits:
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
       rhcos:
         machine-os-content:
           images:
