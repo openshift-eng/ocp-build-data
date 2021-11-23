@@ -1,4 +1,31 @@
 releases:
+  4.7.38.rc:
+  # rc since below x64 nightly is Rejected on RC
+  # if it determined to be test flakes, we'll move forward
+  # if not we'll wait for fix, select new nightlies with new brew event
+    assembly:
+      basis:
+        brew_event: 42536223
+        reference_releases:
+          ppc64le: 4.7.0-0.nightly-ppc64le-2021-11-22-204648
+          s390x: 4.7.0-0.nightly-s390x-2021-11-22-204650
+          x86_64: 4.7.0-0.nightly-2021-11-22-204704
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b0f8f9321d37f3aed7ccdcbe0054b5be0adacb9456d1eb156866391aaa2c888f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a43c74ebd55ff96d2230807a7a2d6d88d861968676a436280f74ca847eb0e5b1
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9fabe9a946ab5b6754606fa13bc56f42137be8afaee1954115af3a99d8b54354
+      type: standard
   4.7.37:
     assembly:
       basis:
