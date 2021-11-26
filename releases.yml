@@ -1,4 +1,23 @@
 releases:
+  4.6.51:
+    assembly:
+      basis:
+        # respin to include a newer jenkins image
+        assembly: "4.6.50"
+        reference_releases!: {}
+      group:
+        dependencies:
+          rpms:
+          - el8: jenkins-2-plugins-4.6.1637602169-1.el8
+            why: to match the selected jenkins image
+            non_gc_tag: rhaos-4.6-rhel-8
+      members:
+        images:
+        - distgit_key: openshift-jenkins-2
+          why: to include a newer jenkins image
+          metadata:
+            is:
+              nvr: openshift-jenkins-2-container-v4.6.0-202111221751.p0.g3c3794f.assembly.stream
   4.6.50:
     assembly:
       basis:
