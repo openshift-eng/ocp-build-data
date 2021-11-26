@@ -12,13 +12,13 @@ content:
 
     # Uncomment the following sections to pin specific kernel versions
 
-    - action: replace
-      match: "ARG KERNEL_VERSION=''"
-      replacement: "ARG KERNEL_VERSION='4.18.0-193.60.2.el8_2'"
+    # - action: replace
+    #   match: "ARG KERNEL_VERSION=''"
+    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
 
-    - action: replace
-      match: "ARG RT_KERNEL_VERSION=''"
-      replacement: "ARG RT_KERNEL_VERSION='4.18.0-193.60.2.rt13.112.el8_2'"
+    # - action: replace
+    #   match: "ARG RT_KERNEL_VERSION=''"
+    #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
