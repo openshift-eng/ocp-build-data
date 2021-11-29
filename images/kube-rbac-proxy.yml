@@ -6,10 +6,7 @@ content:
         fallback: master
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/kube-rbac-proxy.git
-container_yaml:
-  go:
-    modules:
-    - module: github.com/brancz/kube-rbac-proxy
+    pkg_managers: []
 from:
   builder:
   - stream: golang
