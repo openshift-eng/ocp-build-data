@@ -12,6 +12,33 @@
 # valid kerberos ticket (run kinit)
 # sources already initialized on distgit branch (branch cut requires bootstrapping)
 
+# Updating yarn / node
+# This script depends on (and updates) sources from the dist-git lookaside.
+# yarn and node headers come from separate tarballs and the code is hopefully able
+# to agnostically use whatever versions are present.
+# * Updating nodejs itself requires updating the nodejs stream with a shipped
+#   nodejs-14-container image from brew and then rebuilding the
+#   openshift-base-nodejs image that updates it.
+# * Updating the nodejs headers in the sources means extracting the headers
+#   from the nodejs-devel RPM that supplies the same nodejs in the image (search
+#   nodejs in brew, this gives the rhel8 module). `brew rpminfo` can tell you
+#   where you can find that RPM locally mounted on buildvm. Make a subdir and
+#   extract the content like so:
+#     rpm2cpio /mnt/redhat/brewroot/.../x86_64/nodejs-devel-14.17.5-1.module...x86_64.rpm | cpio -idmv
+#   Then reconstruct the same directory structure as the existing headers
+#   tarball (which you downloaded using `rhpkg sources`)
+#     mkdir node-vX.Y.Z
+#     mv usr/include/ node-vX.Y.Z
+#     tar zfc node-vX.Y.Z.tar.gz  node-vX.Y.Z
+# * Updating yarn requires unpacking the yarn-offline.tar (which you downloaded
+#   using `rhpkg sources`) and updating the yarn source. Last time when
+#   downloaded from https://github.com/yarnpkg/yarn/releases this installed but
+#   didn't work. That seems like the best location to find it but perhaps it
+#   was expected in a different format. `sources` looked like this on that attempt:
+# SHA512 (yarn-offline.tar) = eb20ab6d0429dffeb47380940514094e3f57b6881a7333fbca2a3deb947d11e2b55e7c2480bb8c9d1f4719824d86e3fdef7ee053bb97b5d3310cabb00dc8c190
+# SHA512 (node-v14.17.5-headers.tar.gz) = 5a1f66fdfe0735cf100daa2e65582de4759ced2bd4c2af29a769e962b26c3547dedf719726d75f263ffa97b643a1d34b76153b066d600e1675db4506de9c5bfa
+
+
 set -euxo pipefail
 
 usage(){
@@ -46,7 +73,9 @@ dg_repo="${DISTGIT_REPO:-${PWD}}"
 dry_run="${DRY_RUN:-false}"
 #
 # NodeJS builder image to use
-builder_img="${BUILDER_IMAGE:-registry-proxy.engineering.redhat.com/rh-osbs/openshift-ose-base:ubi8.nodejs.14}"
+builder_img="${BUILDER_IMAGE:-registry-proxy.engineering.redhat.com/rh-osbs/openshift-base-nodejs:v4.10}"
+# NOTE: ^^^ above is release-specific (the base image used during the actual builds).
+# it would be a really good idea to pass this script an env var so it can determine its own version.
 
 longopts=help,dg-repo:,dg-branch:,dry-run,builder-img:
 options=hr:t:di:
@@ -124,7 +153,7 @@ docker cp . $container:/opt/app-root/src/
 run="docker exec $container bash -c"
 $run "yum install -y python3"
 $run "tar fx yarn-offline.tar"
-$run "npm install ./yarn-1.9.4.tgz"
+$run "npm install ./yarn-*.tgz"
 $run "rm -rf npm-packages-offline-cache/"
 $run "CHROMEDRIVER_SKIP_DOWNLOAD=true GECKODRIVER_SKIP_DOWNLOAD=true CYPRESS_INSTALL_BINARY=0 ./build-frontend.sh"
 
