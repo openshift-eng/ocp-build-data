@@ -8,8 +8,6 @@ brew_tag_product_version_mapping:
 
 cdn_repos:
 - rhel-7-server-ose-{MAJOR}_DOT_{MINOR}-rpms__x86_64
-- rhel-7-for-power-le-ose-{MAJOR}_DOT_{MINOR}-rpms__ppc64le
-- rhel-7-for-power-9-ose-{MAJOR}_DOT_{MINOR}-rpms__ppc64le 
 
 release: "RHOSE ASYNC"
 
@@ -22,7 +20,9 @@ solution: |
 
   For OpenShift Container Platform 3.11 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-  https://docs.openshift.com/container-platform/3.11/release_notes/ocp_3_11_release_notes.html
+    https://docs.openshift.com/container-platform/3.11/release_notes/ocp_3_11_release_notes.html
+
+  Details on how to access this content are available at https://docs.openshift.com/container-platform/3.11/upgrading/index.html
 
   This update is available via the Red Hat Network. Details on how to use the Red Hat Network to apply this update are available at https://access.redhat.com/articles/11258."""
 
@@ -62,9 +62,11 @@ boilerplates:
     solution: &common_solution |
       Before applying this update, ensure all previously released errata relevant to your system is applied.
 
-      See the following documentation, which will be updated shortly for release 3.11.z, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
+      For OpenShift Container Platform 3.11 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
       https://docs.openshift.com/container-platform/3.11/release_notes/ocp_3_11_release_notes.html
+
+      Details on how to access this content are available at https://docs.openshift.com/container-platform/3.11/upgrading/index.html
 
       This update is available via the Red Hat Network. Details on how to use the Red Hat Network to apply this update are available at https://access.redhat.com/articles/11258.
   image:
