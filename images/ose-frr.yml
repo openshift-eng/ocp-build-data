@@ -14,8 +14,11 @@ enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms-embargoed
 for_payload: false
+dependents:
+- ose-metallb-operator
 from:
   member: openshift-base-rhel8
-name: openshift/ose-frr
+name: openshift/frr-rhel8
+name_in_bundle: metallb-frr-rhel8
 owners:
 - metallb-dev@redhat.com
