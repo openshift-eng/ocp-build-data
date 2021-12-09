@@ -1,0 +1,14 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile.control-plane
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/hypershift.git
+for_payload: false
+name: openshift/ose-hypershift
+owners:
+- hypershift-team@redhat.com
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
