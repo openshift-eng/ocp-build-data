@@ -1,4 +1,11 @@
 releases:
+  stream:
+    assembly:
+      type: stream
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: 'rhcos'
+        # why: During year-end freeze we will not ship releases and RHCOS build pipeline will be disabled
   4.9.11:
     assembly:
       basis:
