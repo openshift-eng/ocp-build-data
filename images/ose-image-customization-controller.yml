@@ -1,4 +1,3 @@
-mode: wip
 arches:
 - x86_64
 - aarch64
@@ -10,9 +9,7 @@ content:
   source:
     git:
       branch:
-        # openshift-priv repo missing release branch
-        # target: release-{MAJOR}.{MINOR}
-        target: main
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/image-customization-controller.git
     ci_alignment:
       streams_prs:
