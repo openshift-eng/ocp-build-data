@@ -1,0 +1,29 @@
+arches:
+- x86_64
+- aarch64
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/machine-os-images
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/machine-os-images.git
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-server-ose-rpms-embargoed
+for_payload: true
+from:
+  builder:
+  - member: ose-installer
+  member: openshift-enterprise-base
+name: openshift/ose-machine-os-images
+owners:
+- metal-platform@redhat.com

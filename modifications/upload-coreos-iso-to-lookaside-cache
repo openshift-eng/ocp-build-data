@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euxo pipefail
+
+get_iso_location() {
+	local arch="${1:-$(uname -p)}"
+	jq -r ".architectures.${arch}.artifacts.metal.formats.iso.disk.location" \
+		data/data/coreos/rhcos.json
+}
+
+for arch in x86_64 aarch64; do wget -q "$(get_iso_location $arch)"; done
+
+rm -f sources
+rhpkg new-sources *.iso
+echo "Updated source lookaside:"
+git diff --cached sources
+git add sources
