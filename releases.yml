@@ -1,4 +1,22 @@
 releases:
+  art3599:
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.8.24"
+        reference_releases!: {}
+      members:
+        images:
+        - distgit_key: hive
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: hive-container-v4.8.0-202112132154.p0.g57dd03a.assembly.stream
+        - distgit_key: ose-metering-ansible-operator
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.8.0-202112132154.p0.g0d7ecfb.assembly.stream
   4.8.24:
     assembly:
       basis:
