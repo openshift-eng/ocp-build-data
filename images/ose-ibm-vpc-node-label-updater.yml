@@ -1,0 +1,22 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/ibm-vpc-node-label-updater
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ibm-vpc-node-label-updater.git
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-ibm-vpc-node-label-updater
+owners:
+- aos-storage-staff@redhat.com
