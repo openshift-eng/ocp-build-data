@@ -1,4 +1,29 @@
 releases:
+  art3594:
+    basis:
+      assembly: "4.6.52"
+      reference_releases!: {}
+    assembly:
+      type: custom
+      members:
+        images:
+        - distgit_key: hive
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: hive-container-v4.6.0-202112140546.p0.g8b9da97.assembly.stream
+        - distgit_key: ose-metering-ansible-operator
+          why: fix a CVE
+        - distgit_key: logging-elasticsearch6
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: logging-elasticsearch6-container-v4.6.0-202112132021.p0.g2a13a81.assembly.stream
+        - distgit_key: elasticsearch-operator
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: elasticsearch-operator-container-v4.6.0-202112132021.p0.gd421c69.assembly.stream
   4.6.52:
     assembly:
       basis:
