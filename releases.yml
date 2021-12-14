@@ -15,7 +15,17 @@ releases:
           metadata: 85779
         release_jira: OCPPLAN-8058
       members:
-        images: []
+        images:
+        - distgit_key: hive
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: hive-container-v4.7.0-202112140553.p0.g091bb99.assembly.stream
+        - distgit_key: ose-metering-ansible-operator
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.7.0-202112140553.p0.g3959be4.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
