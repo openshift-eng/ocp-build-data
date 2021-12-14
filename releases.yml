@@ -99,8 +99,17 @@ releases:
           metadata: 85492
         release_jira: OCPPLAN-8010
       members:
-        images: []
-        rpms: []
+        images:
+        - distgit_key: ose-metering-ansible-operator
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.6.0-202112140831.p0.gd74112d.assembly.art3594
+        - distgit_key: elasticsearch-operator
+          why: fix a CVE
+          metadata:
+            is:
+              nvr: elasticsearch-operator-container-v4.6.0-202112140939.p0.gd421c69.assembly.art3594
       rhcos:
         machine-os-content:
           images:
