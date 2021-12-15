@@ -12,11 +12,6 @@ releases:
           metadata:
             is:
               nvr: hive-container-v4.8.0-202112132154.p0.g57dd03a.assembly.stream
-        - distgit_key: ose-metering-ansible-operator
-          why: fix a CVE
-          # metadata:
-          #   is:
-          #     nvr: ose-metering-ansible-operator-container-v4.8.0-202112132154.p0.g0d7ecfb.assembly.stream
         - distgit_key: presto
           why: fix a CVE
           metadata:
@@ -25,6 +20,8 @@ releases:
                 git:
                   branch:
                     target: 4b934aed2e53e94a6db2caef81ed9fe6b6dc1e84
+            is:
+              nvr: presto-container-v4.8.0-202112150431.p0.g4b934ae.assembly.art3599
         - distgit_key: hadoop
           why: fix a CVE
           metadata:
@@ -33,11 +30,13 @@ releases:
                 git:
                   branch:
                     target: ebd9cb4b0478dee425a8c2ab8d266370d1557a50
+            is:
+              nvr: hadoop-container-v4.8.0-202112150431.p0.gebd9cb4.assembly.art3599
         - distgit_key: ose-metering-ansible-operator
           why: fix a CVE
-        #   metadata:
-        #     is:
-        #       nvr: ose-metering-ansible-operator-container-v4.6.0-202112140831.p0.gd74112d.assembly.art3594
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.8.0-202112150431.p0.g0d7ecfb.assembly.art3599
   4.8.24:
     assembly:
       basis:
