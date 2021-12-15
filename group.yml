@@ -311,6 +311,4 @@ scan_freshness:
 csv_namespace: openshift
 # whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
 # "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
-check_golang_versions: "no"
-# [lmeyer 2021-11-05] we can introduce the 1.17 compiler for rhel8.
-# rhel7 we expect to go away imminently, so we don't need this validation
+check_golang_versions: "exact"
