@@ -59,7 +59,7 @@ etcd_golang:
 
 # This image must only be used by -alt images, as this image cannot be built for aarch64.
 rhel-7-golang:
-  image: openshift/golang-builder:rhel_7_golang_1.17
+  image: registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:rhel_7_golang_1.17
   mirror: true
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.17-openshift-{MAJOR}.{MINOR}.art
   # dptp will layer yum repos / extra packages on top of ART's image to create the
