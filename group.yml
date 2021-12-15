@@ -1,4 +1,4 @@
-name: golang-1.16
+name: golang-1.17
 
 arches:
 - x86_64
@@ -7,7 +7,7 @@ arches:
 
 vars:
   MAJOR: 4
-  MINOR: 8
+  MINOR: 10
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -17,7 +17,6 @@ urls:
 
 insecure_source: true
 
-# default branch because RPMs can't override (yet)
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 
 # This should point to the buildroot compose for a maintained/current release of OpenShift.
