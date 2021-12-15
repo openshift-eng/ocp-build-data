@@ -3,30 +3,28 @@ releases:
     assembly:
       type: custom
       basis:
-        assembly: "4.6.51"
+        assembly: art3594
         reference_releases!: {}
       members:
         images:
-        - distgit_key: hive
+        - distgit_key: presto
           why: fix a CVE
           metadata:
-            is:
-              nvr: hive-container-v4.6.0-202112140546.p0.g8b9da97.assembly.stream
-        - distgit_key: ose-metering-ansible-operator
+            content:
+              source:
+                git:
+                  branch:
+                    target: 654dc46c98154cde969651524db7c24ba9756f76
+        - distgit_key: hadoop
           why: fix a CVE
           metadata:
-            is:
-              nvr: ose-metering-ansible-operator-container-v4.6.0-202112140831.p0.gd74112d.assembly.art3594
-        - distgit_key: logging-elasticsearch6
-          why: fix a CVE
-          metadata:
-            is:
-              nvr: logging-elasticsearch6-container-v4.6.0-202112132021.p0.g2a13a81.assembly.stream
+            content:
+              source:
+                git:
+                  branch:
+                    target: e669e1a3be8be925e22334f651e64e370569677d
         - distgit_key: elasticsearch-operator
           why: fix a CVE
-          metadata:
-            is:
-              nvr: elasticsearch-operator-container-v4.6.0-202112140939.p0.gd421c69.assembly.art3594
   art3594:
     assembly:
       type: custom
