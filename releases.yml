@@ -1,4 +1,22 @@
 releases:
+  art3601:
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.7.40"
+        reference_releases!: {}
+      members:
+        images:
+        - distgit_key: hive
+          why: Fix log4j cve
+          metadata:
+            is:
+              nvr: hive-container-v4.7.0-202112160422.p0.g6a2b6aa.assembly.4.7.40
+        - distgit_key: ose-metering-ansible-operator
+          why: Fix log4j cve
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.7.0-202112160422.p0.g3959be4.assembly.4.7.40
   4.7.40:
     assembly:
       basis:
