@@ -1,0 +1,26 @@
+container_yaml:
+  go:
+    modules:
+    - module: github.com/openshift/hypershift
+content:
+  source:
+    dockerfile: Dockerfile.control-plane
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift/hypershift.git
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-hypershift
+owners:
+- hypershift-team@redhat.com
