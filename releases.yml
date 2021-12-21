@@ -16,7 +16,12 @@ releases:
         upgrades: 4.7.21,4.7.22,4.7.23,4.7.24,4.7.25,4.7.26,4.7.28,4.7.29,4.7.30,4.7.31,4.7.32,4.7.33,4.7.34,4.7.35,4.7.36,4.7.37,4.7.38,4.7.39,4.7.40,4.8.2,4.8.3,4.8.4,4.8.5,4.8.6,4.8.7,4.8.9,4.8.10,4.8.11,4.8.12,4.8.13,4.8.14,4.8.15,4.8.16,4.8.17,4.8.18,4.8.19,4.8.20,4.8.21,4.8.22,4.8.23,4.8.24
         release_jira: OCPPLAN-8080
       members:
-        images: []
+        images:
+        - distgit_key: ose-metering-ansible-operator
+          why: "rebuilt - CVP will not pass on previous build"
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.8.0-202112211907.p0.g0d7ecfb.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
