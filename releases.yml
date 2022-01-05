@@ -24,7 +24,12 @@ releases:
           metadata: 86263
         release_jira: OCPPLAN-8124
       members:
-        images: []
+        images:
+        - distgit_key: ose-metering-ansible-operator
+          metadata:
+            is:
+              nvr: ose-metering-ansible-operator-container-v4.6.0-202201051015.p0.gd74112d.assembly.stream
+          why: elliott is sweeping a metering-ansible-operator build that has the wrong tags
         rpms: []
       rhcos:
         machine-os-content:
