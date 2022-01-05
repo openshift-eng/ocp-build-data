@@ -1,13 +1,4 @@
 releases:
-  stream:
-    assembly:
-      type: stream
-      permits:
-      # why: No releases during break and RHCOS build pipelines may be disabled/erratic
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: 'rhcos'
-      - code: INCONSISTENT_RHCOS_RPMS
-        component: 'rhcos'
   4.8.26:
     assembly:
       basis:
