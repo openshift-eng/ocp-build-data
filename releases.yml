@@ -8,6 +8,30 @@ releases:
         component: 'rhcos'
       - code: INCONSISTENT_RHCOS_RPMS
         component: 'rhcos'
+  4.6.53:
+    assembly:
+      basis:
+        brew_event: 43085408
+        reference_releases:
+          ppc64le: 4.6.0-0.nightly-ppc64le-2021-12-23-160643
+          s390x: 4.6.0-0.nightly-s390x-2021-12-23-160645
+          x86_64: 4.6.0-0.nightly-2021-12-23-160657
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c85a02f15bb5044af8aec368d891187a20ff3762d42939ad8baccbad99560420
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:852e0d9a53f45b78d0e91272b8f17815e39b877326325d110009ba758a21b6b3
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d99a4b9b2010e1cbb6282718667576c0e8012d838655039a2937f17b419bef38
+      type: standard
   art3595:
     assembly:
       type: custom
