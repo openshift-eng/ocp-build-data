@@ -44,14 +44,21 @@ releases:
                   branch:
                     target: 20a057a9efa371335b9bf0f9bcdda15f6c9a8acc
                   url: git@github.com:damemi/kubernetes.git
+            is:
+              el7: openshift-4.10.0-202201101957.p0.g20a057a.assembly.fc.0.el7
+              el8: openshift-4.10.0-202201101957.p0.g20a057a.assembly.fc.0.el8
       rhcos:
+        dependencies:
+          rpms:
+          - el8: openshift-4.10.0-202201101957.p0.g20a057a.assembly.fc.0.el8
+            why: "to provide a build for https://github.com/openshift/kubernetes/pull/1087"
+            non_gc_tag: rhaos-4.10-rhel-8
         machine-os-content:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a83468081814a679b002b89ad41b7d6aaf202807a2a596cd0306993eba064041
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9df38215649a10d04dc66c309fad09a964b768e5482a66ee4b6d782f56bbe47d
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bdf9122874398684e6db19b47943f3833ce1fcb4d079d23d97d050a718d5ced2
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8c20d440fb4d78615b2d30bf6d18bcd9d9e6b8956c02191155197b7d1dcfcd05
-      type: candidate
+            aarch64: ''
+            ppc64le: ''
+            s390x: ''
+            x86_64: ''
   art3171:
     assembly:
       type: custom
