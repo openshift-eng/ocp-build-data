@@ -3,11 +3,11 @@ releases:
     assembly:
       basis:
         brew_event: 43284243
-        reference_releases:
-          aarch64: 4.10.0-0.nightly-arm64-2022-01-10-101353
-          ppc64le: 4.10.0-0.nightly-ppc64le-2022-01-10-101402
-          s390x: 4.10.0-0.nightly-s390x-2022-01-10-101401
-          x86_64: 4.10.0-0.nightly-2022-01-10-101431
+        reference_releases: {}
+          # aarch64: 4.10.0-0.nightly-arm64-2022-01-10-101353
+          # ppc64le: 4.10.0-0.nightly-ppc64le-2022-01-10-101402
+          # s390x: 4.10.0-0.nightly-s390x-2022-01-10-101401
+          # x86_64: 4.10.0-0.nightly-2022-01-10-101431
       group:
         advisories:
           extras: -1
@@ -15,8 +15,35 @@ releases:
           metadata: -1
           rpm: -1
       members:
-        images: []
-        rpms: []
+        images:
+        - distgit_key: openshift-enterprise-hyperkube
+          why: "Sneak preview of kube 1.23 rebase"
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 7bb0ec5e3b0b01ecdcaf608c05bfbc2dce476540
+                  url: git@github.com:openshift/kubernetes.git
+        - distgit_key: openshift-enterprise-pod
+          why: "Sneak preview of kube 1.23 rebase"
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 7bb0ec5e3b0b01ecdcaf608c05bfbc2dce476540
+                  url: git@github.com:openshift/kubernetes.git
+        rpms:
+        - distgit_key: openshift
+          why: "Sneak preview of kube 1.23 rebase"
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 7bb0ec5e3b0b01ecdcaf608c05bfbc2dce476540
+                  url: git@github.com:openshift/kubernetes.git
       rhcos:
         machine-os-content:
           images:
