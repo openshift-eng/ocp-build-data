@@ -1,0 +1,116 @@
+diff --git a/src/net/ip.go b/src/net/ip.go
+index 007f3f7..bb46aa8 100644
+--- a/src/net/ip.go
++++ b/src/net/ip.go
+@@ -534,36 +534,6 @@ func (n *IPNet) String() string {
+ 	return nn.String() + "/" + uitoa(uint(l))
+ }
+ 
+-// Parse IPv4 address (d.d.d.d).
+-func parseIPv4(s string) IP {
+-	var p [IPv4len]byte
+-	for i := 0; i < IPv4len; i++ {
+-		if len(s) == 0 {
+-			// Missing octets.
+-			return nil
+-		}
+-		if i > 0 {
+-			if s[0] != '.' {
+-				return nil
+-			}
+-			s = s[1:]
+-		}
+-		n, c, ok := dtoi(s)
+-		if !ok || n > 0xFF {
+-			return nil
+-		}
+-		if c > 1 && s[0] == '0' {
+-			// Reject non-zero components with leading zeroes.
+-			return nil
+-		}
+-		s = s[c:]
+-		p[i] = byte(n)
+-	}
+-	if len(s) != 0 {
+-		return nil
+-	}
+-	return IPv4(p[0], p[1], p[2], p[3])
+-}
+ 
+ // parseIPv6Zone parses s as a literal IPv6 address and its associated zone
+ // identifier which is described in RFC 4007.
+diff --git a/src/net/ipv4.go b/src/net/ipv4.go
+new file mode 100644
+index 0000000..399ff75
+--- /dev/null
++++ b/src/net/ipv4.go
+@@ -0,0 +1,34 @@
++//+build !unsupportedGolang115OnlyUseDeprecatedParseIPv4
++
++package net
++
++// Parse IPv4 address (d.d.d.d).
++func parseIPv4(s string) IP {
++	var p [IPv4len]byte
++	for i := 0; i < IPv4len; i++ {
++		if len(s) == 0 {
++			// Missing octets.
++			return nil
++		}
++		if i > 0 {
++			if s[0] != '.' {
++				return nil
++			}
++			s = s[1:]
++		}
++		n, c, ok := dtoi(s)
++		if !ok || n > 0xFF {
++			return nil
++		}
++		if c > 1 && s[0] == '0' {
++			// Reject non-zero components with leading zeroes.
++			return nil
++		}
++		s = s[c:]
++		p[i] = byte(n)
++	}
++	if len(s) != 0 {
++		return nil
++	}
++	return IPv4(p[0], p[1], p[2], p[3])
++}
+diff --git a/src/net/ipv4_deprecated.go b/src/net/ipv4_deprecated.go
+new file mode 100644
+index 0000000..367547a
+--- /dev/null
++++ b/src/net/ipv4_deprecated.go
+@@ -0,0 +1,29 @@
++//+build unsupportedGolang115OnlyUseDeprecatedParseIPv4
++
++package net
++
++func parseIPv4(s string) IP {
++	var p [IPv4len]byte
++	for i := 0; i < IPv4len; i++ {
++		if len(s) == 0 {
++			// Missing octets.
++			return nil
++		}
++		if i > 0 {
++			if s[0] != '.' {
++				return nil
++			}
++			s = s[1:]
++		}
++		n, c, ok := dtoi(s)
++		if !ok || n > 0xFF {
++			return nil
++		}
++		s = s[c:]
++		p[i] = byte(n)
++	}
++	if len(s) != 0 {
++		return nil
++	}
++	return IPv4(p[0], p[1], p[2], p[3])
++}
