@@ -1,4 +1,34 @@
 releases:
+  fc.1:
+    assembly:
+      type: candidate
+      basis:
+        brew_event: 43339390
+        reference_releases:
+          ppc64le: 4.10.0-0.nightly-ppc64le-2022-01-13-022003
+          s390x: 4.10.0-0.nightly-s390x-2022-01-13-022003
+          x86_64: 4.10.0-0.nightly-2022-01-13-061145
+      group:
+        advisories:
+          image: 86559
+          rpm: 86558
+          extras: 86560
+          metadata: 86561
+        release_jira: OCPPLAN-8159
+      members:
+        images: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: 'to be consistent with rpm that is present in machine-os-content'
+          metadata:
+            is: openshift-clients-4.10.0-202201121331.p0.g30d3c7e.assembly.stream.el8
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3d4d37b28799d9ab659136c70110814e85d0c5b16f433316c0e5bc9e5bcbb456
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:11d762a6638c00ef45feeccec1345958d84b65842c9927c6910574d1540bf702
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:270a21940ae19be35d6d354a557342c196955e2523c6d2fdd828309796968e00
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:85885563303a7a08698978946bdcf0318a065038251e5be683018ec29f50a532
   fc.0:
     assembly:
       type: candidate
