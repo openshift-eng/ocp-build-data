@@ -9,6 +9,11 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/oauth-apiserver.git
+    modifications:
+    - action: replace
+      match: "make build"
+      why: https://issues.redhat.com/browse/ART-3664
+      replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' build"
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms

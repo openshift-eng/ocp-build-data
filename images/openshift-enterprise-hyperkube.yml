@@ -12,7 +12,8 @@ content:
     modifications:
     - action: replace
       match: "make WHAT="
-      replacement: "make GOFLAGS='-mod=vendor -p=4' WHAT="
+      why: p=4 for resource-limited ARM builds, tags for https://issues.redhat.com/browse/ART-3664
+      replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
 distgit:
   namespace: containers
 enabled_repos:
