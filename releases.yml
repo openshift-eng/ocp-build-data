@@ -1,4 +1,43 @@
 releases:
+  art3664 :
+    assembly:
+      type: custom
+      members:
+        images:
+        - distgit_key: ose-oauth-apiserver
+          why: use custom builder and build flags
+          metadata:
+            content:
+              source:
+                modifications:
+                - action: replace
+                  match: "make build"
+                  why: https://issues.redhat.com/browse/ART-3664
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
+        - distgit_key: ose-openshift-apiserver
+          why: use custom builder and build flags
+          metadata:
+            content:
+              source:
+                modifications:
+                - action: replace
+                  match: "make build"
+                  why: https://issues.redhat.com/browse/ART-3664
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
+        - distgit_key: openshift-enterprise-hyperkube
+          why: use custom builder and build flags
+          metadata:
+            content:
+              source:
+                modifications:
+                - action: replace
+                  match: "make WHAT="
+                  why: p=4 for resource-limited ARM builds, tags for https://issues.redhat.com/browse/ART-3664
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
+      streams:
+        golang:
+          image: openshift/golang-builder:v1.16.12-1.xxx.art3664
+          upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.16-openshift-art3664
   4.9.15:
     assembly:
       basis:
