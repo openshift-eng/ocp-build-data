@@ -13,7 +13,7 @@ releases:
                 - action: replace
                   match: "make build"
                   why: https://issues.redhat.com/browse/ART-3664
-                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' build"
         - distgit_key: ose-openshift-apiserver
           why: use custom builder and build flags
           metadata:
@@ -23,13 +23,13 @@ releases:
                 - action: replace
                   match: "make build"
                   why: https://issues.redhat.com/browse/ART-3664
-                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' build"
         - distgit_key: openshift-enterprise-hyperkube
           why: use custom builder and build flags
           metadata:
             content:
               source:
-                modifications:
+                "modifications!":
                 - action: replace
                   match: "make WHAT="
                   why: p=4 for resource-limited ARM builds, tags for https://issues.redhat.com/browse/ART-3664
