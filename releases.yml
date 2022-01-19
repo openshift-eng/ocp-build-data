@@ -10,11 +10,12 @@ releases:
           x86_64: 4.9.0-0.nightly-2022-01-19-045232
       group:
         advisories:
-          extras: -1
-          image: -1
-          metadata: -1
-          rpm: -1
+          image: 87097
+          rpm: 87096
+          extras: 87098
+          metadata: 87099
         upgrades: 4.9.15,4.9.13,4.9.12,4.9.11,4.9.10,4.9.9,4.9.8,4.9.7,4.9.6,4.9.5,4.9.4,4.9.1,4.9.0,4.8.27,4.8.26,4.8.25,4.8.24,4.8.23,4.8.22,4.8.21,4.8.20,4.8.19,4.8.18,4.8.17,4.8.16,4.8.15,4.8.14
+        release_jira: OCPPLAN-8257
       members:
         images: []
         rpms: []
@@ -26,7 +27,7 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a0b3a6936cbbdad3c6b877846ccb3c4718090ca642290fd4e9076563ecfbcee
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d4ff6bb5494c55c24f9a322b1a5faffb8a92ea0f572f1078db55f3f1abaa588
       type: standard
-  art3664 :
+  art3664:
     assembly:
       type: custom
       members:
@@ -40,7 +41,8 @@ releases:
                 - action: replace
                   match: "make build"
                   why: https://issues.redhat.com/browse/ART-3664
-                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' build"
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4'\
+                    \ build"
         - distgit_key: ose-openshift-apiserver
           why: use custom builder and build flags
           metadata:
@@ -50,7 +52,8 @@ releases:
                 - action: replace
                   match: "make build"
                   why: https://issues.redhat.com/browse/ART-3664
-                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' build"
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4'\
+                    \ build"
         - distgit_key: openshift-enterprise-hyperkube
           why: use custom builder and build flags
           metadata:
@@ -60,7 +63,8 @@ releases:
                 - action: replace
                   match: "make WHAT="
                   why: p=4 for resource-limited ARM builds, tags for https://issues.redhat.com/browse/ART-3664
-                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4' WHAT="
+                  replacement: "make GOFLAGS='-mod=vendor -p=4 -tags=unsupportedGolang116OnlyUseDeprecatedParseIPv4'\
+                    \ WHAT="
       streams:
         golang:
           image: openshift/golang-builder:v1.16.12-1.xxx.art3664
