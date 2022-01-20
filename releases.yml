@@ -728,3 +728,20 @@ releases:
               source:
                 pkg_managers!:
                 - gomod
+  art3696:
+    assembly:
+      basis:
+        brew_event: 43439503
+        reference_releases:
+          x86_64: 4.8.0-0.nightly-2022-01-19-175453
+      group:
+        arches!:
+        - x86_64
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a79bf10aaf54cc0e3e6898729481a1c704637020626eacb7a9005a50fad5d0ac
+      type: custom
