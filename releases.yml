@@ -18,6 +18,11 @@ releases:
         release_jira: OCPPLAN-8159
       members:
         rpms: []
+        images:
+          - distgit_key: ose-must-gather
+            why: 'eligible brew build failed without getting tagged correctly. this is a rebuild'
+            metadata:
+              is: ose-must-gather-container-v4.10.0-202201311811.p0.ga42fad8.assembly.stream
       rhcos:
         machine-os-content:
           images:
