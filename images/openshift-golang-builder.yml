@@ -9,9 +9,10 @@ content:
       url: git@github.com:openshift/ocp-build-data.git
 enabled_repos:
 - rhel-8-server-ose-build-rpms
-- rhel-8-golang117-rpms
 # for clang
 - rhel-8-appstream-rpms
+# for newer golang
+- rhel-8-newer-golang-rpms
 
 from:
   stream: rhel8
@@ -29,5 +30,6 @@ owners:
 additional_tags:
 - 'rhel_8_golang_1.17'
 - 'rhel_8_1.17'
+
 maintainer:
   component: Release
