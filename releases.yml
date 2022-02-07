@@ -873,3 +873,44 @@ releases:
               - el8: bash-4.4.20-1.el8_4
                 why: some reason
                 non_gc_tag: some_tag
+  art3768:
+    assembly:
+      basis:
+        assembly: "4.9.18"
+        "reference_releases!": {}
+      type: custom
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        arches:
+        - x86_64
+      members:
+        images:
+        - distgit_key: openshift-enterprise-pod
+          why: "https://issues.redhat.com/browse/SUPPORTEX-7810"
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: fdba4644edf8cd125e7a7e3029d408036f88299a
+        - distgit_key: openshift-enterprise-hyperkube
+          why: "https://issues.redhat.com/browse/SUPPORTEX-7810"
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: fdba4644edf8cd125e7a7e3029d408036f88299a
+        rpms:
+        - distgit_key: openshift
+          why: "https://issues.redhat.com/browse/SUPPORTEX-7810"
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: fdba4644edf8cd125e7a7e3029d408036f88299a
