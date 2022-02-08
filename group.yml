@@ -69,6 +69,8 @@ repos:
     content_set:
       default: rhel-7-server-ansible-2.8-rpms
       ppc64le: rhel-7-server-ansible-2.8-for-power-le-rpms
+    reposync:
+      enabled: false
   rhel-7-server-ansible-2.9-rpms:
     conf:
       baseurl:
@@ -77,6 +79,8 @@ repos:
     content_set:
       default: rhel-7-server-ansible-2.9-rpms
       ppc64le: rhel-7-server-ansible-2.9-for-power-le-rpms
+    reposync:
+      enabled: false
   rhel-7-server-rhceph-3-tools-rpms:
     conf:
       baseurl:
@@ -86,6 +90,8 @@ repos:
       default: rhel-7-server-rhceph-3-tools-els-rpms
       optional: true
       ppc64le: rhel-7-server-rhceph-3-for-power-le-tools-els-rpms
+    reposync:
+      enabled: false
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
@@ -94,6 +100,8 @@ repos:
     content_set:
       default: rhel-7-fast-datapath-rpms
       ppc64le: rhel-7-for-power-le-fast-datapath-rpms
+    reposync:
+      enabled: false
   rhel-openstack-rpms:
     conf:
       baseurl:
@@ -103,6 +111,8 @@ repos:
       default: rhel-7-server-openstack-14-rpms
       optional: true
       ppc64le: rhel-7-server-openstack-14-for-power-le-rpms
+    reposync:
+      enabled: false
   rhel-server-extras-rpms:
     conf:
       baseurl:
@@ -111,6 +121,8 @@ repos:
     content_set:
       default: rhel-7-server-extras-rpms
       ppc64le: rhel-7-for-power-le-extras-rpms
+    reposync:
+      enabled: false
   rhel-server-optional-rpms:
     conf:
       baseurl:
@@ -120,6 +132,8 @@ repos:
     content_set:
       default: rhel-7-server-optional-rpms
       ppc64le: rhel-7-for-power-le-optional-rpms
+    reposync:
+      enabled: false
   rhel-server-ose-rpms:
     conf:
       baseurl:
@@ -129,6 +143,8 @@ repos:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
       ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
+    reposync:
+      enabled: false
   rhel-server-ose-rpms-embargoed:
     conf:
       baseurl:
@@ -138,6 +154,8 @@ repos:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
       ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
+    reposync:
+      enabled: false
   rhel-server-rhscl-rpms:
     conf:
       baseurl:
@@ -146,6 +164,8 @@ repos:
     content_set:
       default: rhel-server-rhscl-7-rpms
       ppc64le: rhel-7-server-for-power-le-rhscl-rpms
+    reposync:
+      enabled: false
   rhel-server-rpms:
     conf:
       baseurl:
@@ -155,6 +175,19 @@ repos:
     content_set:
       default: rhel-7-server-rpms
       ppc64le: rhel-7-for-power-le-rpms
+    reposync:
+      enabled: false
+  rhel-server-ose-rpms-released:
+    conf:
+      baseurl:
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ose/3.11/os/
+      extra_options:
+        module_hotfixes: 1
+    content_set:
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      optional: true
+    reposync:
+      latest_only: true
 vars:
   MAJOR: 3
   MINOR: 11
