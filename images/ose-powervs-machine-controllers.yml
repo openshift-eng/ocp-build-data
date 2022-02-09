@@ -4,14 +4,14 @@ arches:
 container_yaml:
   go:
     modules:
-    - module: github.com/openshift/cluster-api-provider-powervs
+    - module: github.com/openshift/machine-api-provider-powervs
 content:
   source:
     dockerfile: Dockerfile.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/cluster-api-provider-powervs.git
+      url: git@github.com:openshift-priv/machine-api-provider-powervs.git
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
