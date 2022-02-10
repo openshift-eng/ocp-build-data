@@ -850,6 +850,26 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:044bd53af62d053a126a02428c0fa24e2f9f27667e38849a4e9aca3aaa27cac1
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff729c6ca7ed0390a529344a770cc6cde5767101c38a4b191799d2658b3a04c3
       type: candidate
+  art3786:
+    assembly:
+      basis:
+        assembly: "4.9.18"
+        "reference_releases!": {}
+      type: custom
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        arches:
+        - x86_64
+      rhcos:
+        dependencies:
+          rpms:
+          - el8: kernel-4.18.0-305.37.1.el8_4
+            why: "https://issues.redhat.com/browse/SUPPORTEX-7821 and https://bugzilla.redhat.com/show_bug.cgi?id=2049291"
+            non_gc_tag: "This kernel is shipping and ON_QA at present"
   art3171:
     assembly:
       type: custom
