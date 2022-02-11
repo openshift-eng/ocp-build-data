@@ -865,12 +865,9 @@ releases:
         "arches!":
         - x86_64
       rhcos:
-        machine-os-content:
-          images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6b999f2f8c7f63c1942d88bb79325c69ee881bc6071c2a770d5b1ff8365432c2
         dependencies:
           rpms:
-          - el8: kernel-4.18.0-305.36.1.el8_4
+          - el8: kernel-4.18.0-305.37.1.el8_4
             why: "https://issues.redhat.com/browse/SUPPORTEX-7821 and https://bugzilla.redhat.com/show_bug.cgi?id=2049291"
             non_gc_tag: "This kernel is shipping and ON_QA at present"
   art3171:
