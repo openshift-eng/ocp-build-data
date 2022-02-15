@@ -860,6 +860,17 @@ releases:
         "advisories!": {}
         "arches!":
         - x86_64
+      members:
+        images:
+        - distgit_key: openshift-enterprise-cli
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053175 needs https://github.com/openshift/oc/pull/1065"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/oc.git
+                  branch:
+                    target: e2d68ec7b39361a4ec4bf3855b15b0078e398cc5
       rhcos:
         machine-os-content:
           images:
