@@ -915,12 +915,9 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5e3b10a4fb58baa18f916171341b200d17d9f410f33efc4a94f7eb0614e7b46c
         dependencies:
           rpms:
-          - el8: kernel-4.18.0-305.38.1.el8_4
-            why: "https://issues.redhat.com/browse/SUPPORTEX-7821 and https://bugzilla.redhat.com/show_bug.cgi?id=2049291"
-            non_gc_tag: "This kernel is shipping and ON_QA at present"
-          - el8: kernel-rt-4.18.0-305.38.1.rt7.110.el8_4
-            why: "https://issues.redhat.com/browse/SUPPORTEX-7821 and https://bugzilla.redhat.com/show_bug.cgi?id=2049291"
-            non_gc_tag: "Urgency demands it"
+          - el8: kernel-4.18.0-305.39.1.el8_4
+            why: "https://issues.redhat.com/browse/SUPPORTEX-7877"
+            non_gc_tag: "No assurance at present"
   art3171:
     assembly:
       type: custom
