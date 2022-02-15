@@ -861,6 +861,16 @@ releases:
         "arches!":
         - x86_64
       members:
+        rpms:
+        - distgit_key: openshift-clients
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/oc.git
+                  branch:
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a                      
         images:
         - distgit_key: openshift-enterprise-cli
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
@@ -871,6 +881,26 @@ releases:
                   url: git@github.com:openshift-cherrypick-robot/oc.git
                   branch:
                     target: e1bfb408ac5421021cd2f8c676ca398c9430674a
+            is:
+              nvr: openshift-enterprise-cli-container-v4.9.0-202202151823.p0.ge1bfb40.assembly.art3786                    
+        - distgit_key: ose-cli-artifacts
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/oc.git
+                  branch:
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a              
+        - distgit_key: ose-tools
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/oc.git
+                  branch:
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a              
       rhcos:
         machine-os-content:
           images:
