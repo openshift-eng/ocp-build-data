@@ -1,9 +1,36 @@
 releases:
+  4.9.22:
+    assembly:
+      basis:
+        brew_event: 43861862
+        reference_releases:
+          aarch64: 4.9.0-0.nightly-arm64-2022-02-16-004559
+          ppc64le: 4.9.0-0.nightly-ppc64le-2022-02-16-004327
+          s390x: 4.9.0-0.nightly-s390x-2022-02-16-004441
+          x86_64: 4.9.0-0.nightly-2022-02-16-004217
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        upgrades: 4.8.14,4.8.15,4.8.16,4.8.17,4.8.18,4.8.19,4.8.20,4.8.21,4.8.22,4.8.23,4.8.24,4.8.25,4.8.26,4.8.27,4.8.28,4.8.29,4.8.30,4.8.31,4.8.32,4.9.0,4.9.1,4.9.4,4.9.5,4.9.6,4.9.7,4.9.8,4.9.9,4.9.10,4.9.11,4.9.12,4.9.13,4.9.15,4.9.17,4.9.18,4.9.19,4.9.21
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7a5a662c603981859267aac752ca1ca8980afff93df7b89ab8537af59b34bf8b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d5e072a29de137212ac7df13c71d2627c1de4260fd4c90f4f26ed0ad75798e43
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:95b6f677f55f52d0ef4e17419a04d93359d805de75b276ee13b3422ad2b30d0b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:07666daf9bb9249e666e66b117f2b7ad7ed0cd68c1f9265124c244e80e685482
+      type: standard
   4.9.21:
     assembly:
       basis:
         assembly: "4.9.20"
-      group:       
+      group:
         upgrades: 4.8.31,4.8.30,4.9.20,4.9.19,4.9.18,4.9.17,4.9.15,4.9.13,4.9.12,4.9.11,4.9.10,4.9.9,4.9.8,4.9.7,4.9.6,4.9.5,4.9.4,4.9.1,4.9.0,4.8.29,4.8.28,4.8.27,4.8.26,4.8.25,4.8.24,4.8.23,4.8.22,4.8.21,4.8.20,4.8.19,4.8.18,4.8.17,4.8.16,4.8.15,4.8.14
   4.9.20:
     assembly:
@@ -871,10 +898,10 @@ releases:
                 git:
                   url: git@github.com:openshift-cherrypick-robot/oc.git
                   branch:
-                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a     
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a
             is:
               el7: openshift-clients-4.9.0-202202151909.p0.ge1bfb40.assembly.art3786.el7
-              el8: openshift-clients-4.9.0-202202151909.p0.ge1bfb40.assembly.art3786.el8                    
+              el8: openshift-clients-4.9.0-202202151909.p0.ge1bfb40.assembly.art3786.el8
         images:
         - distgit_key: openshift-enterprise-cli
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
@@ -886,7 +913,7 @@ releases:
                   branch:
                     target: e1bfb408ac5421021cd2f8c676ca398c9430674a
             is:
-              nvr: openshift-enterprise-cli-container-v4.9.0-202202151823.p0.ge1bfb40.assembly.art3786                    
+              nvr: openshift-enterprise-cli-container-v4.9.0-202202151823.p0.ge1bfb40.assembly.art3786
         - distgit_key: ose-cli-artifacts
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
           metadata:
@@ -895,9 +922,9 @@ releases:
                 git:
                   url: git@github.com:openshift-cherrypick-robot/oc.git
                   branch:
-                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a              
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a
             is:
-              nvr: ose-cli-artifacts-container-v4.9.0-202202151938.p0.ge1bfb40.assembly.art3786                    
+              nvr: ose-cli-artifacts-container-v4.9.0-202202151938.p0.ge1bfb40.assembly.art3786
         - distgit_key: ose-tools
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
           metadata:
@@ -906,9 +933,9 @@ releases:
                 git:
                   url: git@github.com:openshift-cherrypick-robot/oc.git
                   branch:
-                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a              
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a
             is:
-              nvr: ose-tools-container-v4.9.0-202202152027.p0.ge1bfb40.assembly.art3786                    
+              nvr: ose-tools-container-v4.9.0-202202152027.p0.ge1bfb40.assembly.art3786
       rhcos:
         machine-os-content:
           images:
