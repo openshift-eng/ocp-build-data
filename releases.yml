@@ -2,7 +2,7 @@ releases:
   4.9.22:
     assembly:
       basis:
-        brew_event: 43873328
+        brew_event: 43861862
         reference_releases: {}
       group:
         advisories:
@@ -12,16 +12,17 @@ releases:
           metadata: 88586
         upgrades: 4.8.14,4.8.15,4.8.16,4.8.17,4.8.18,4.8.19,4.8.20,4.8.21,4.8.22,4.8.23,4.8.24,4.8.25,4.8.26,4.8.27,4.8.28,4.8.29,4.8.30,4.8.31,4.8.32,4.9.0,4.9.1,4.9.4,4.9.5,4.9.6,4.9.7,4.9.8,4.9.9,4.9.10,4.9.11,4.9.12,4.9.13,4.9.15,4.9.17,4.9.18,4.9.19,4.9.21
         release_jira: OCPPLAN-8402
+      issues:
+        include:
+        - id: 2053222
       members:
-        images: []
-        rpms:
-        - distgit_key: openshift-clients
-          why: Match the pinned rhcos
-          non_gc_tag: rhaos-4.9-rhel-8-hotfix
+        images:
+        - distgit_key: ose-openshift-apiserver
+          why: "To include fixes for https://bugzilla.redhat.com/show_bug.cgi?id=2053222"
           metadata:
             is:
-              el8: openshift-clients-4.9.0-202202140924.p0.g340e212.assembly.stream.el8
-              el7: openshift-clients-4.9.0-202202140924.p0.g340e212.assembly.stream.el7
+              nvr: ose-openshift-apiserver-container-v4.9.0-202202161322.p0.gfe6dc77.assembly.stream
+        rpms: []
       rhcos:
         machine-os-content:
           images:
