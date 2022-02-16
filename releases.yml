@@ -907,6 +907,24 @@ releases:
               el7: openshift-clients-4.9.0-202202151909.p0.ge1bfb40.assembly.art3786.el7
               el8: openshift-clients-4.9.0-202202151909.p0.ge1bfb40.assembly.art3786.el8
         images:
+        - distgit_key: openshift-enterprise-cli-alt
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/oc.git
+                  branch:
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a
+        - distgit_key: ose-cli-artifacts-alt
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-cherrypick-robot/oc.git
+                  branch:
+                    target: e1bfb408ac5421021cd2f8c676ca398c9430674a
         - distgit_key: openshift-enterprise-cli
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2053149 needs https://github.com/openshift/oc/pull/1064"
           metadata:
