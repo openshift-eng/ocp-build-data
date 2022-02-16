@@ -20,6 +20,7 @@ releases:
       issues:
         include:
         - id: 2053222
+        - id: 2055272
       members:
         images:
         - distgit_key: ose-openshift-apiserver
@@ -27,6 +28,16 @@ releases:
           metadata:
             is:
               nvr: ose-openshift-apiserver-container-v4.9.0-202202161322.p0.gfe6dc77.assembly.stream
+        - distgit_key: ose-ptp-operator
+          why: "To include fixes for https://bugzilla.redhat.com/show_bug.cgi?id=2055272"
+          metadata:
+            is:
+              nvr: ose-ptp-operator-container-v4.9.0-202202161901.p0.g15d1504.assembly.stream
+        - distgit_key: ptp-operator-must-gather
+          why: "To include fixes for https://bugzilla.redhat.com/show_bug.cgi?id=2055272"
+          metadata:
+            is:
+              nvr: ptp-operator-must-gather-container-v4.9.0-202202161901.p0.g15d1504.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
