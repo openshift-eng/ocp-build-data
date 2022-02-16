@@ -307,3 +307,26 @@ releases:
               source:
                 pkg_managers!:
                 - gomod
+  art3803:
+    assembly:
+      basis:
+        assembly: "rc.2"
+        "reference_releases!": {}
+      type: custom
+      group:
+        check_golang_versions: no
+        "advisories!": {}
+        "arches!":
+        - x86_64
+      members:
+        images:
+        - distgit_key: openshift-enterprise-cli-alt
+          why: "Hacking oc for heterogeneous release payload creation until https://issues.redhat.com/browse/WRKLDS-370 is available"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:jupierce/oc.git
+                  branch:
+                    target: a8ce8c1217286630a5fe40b03a6ebad52411f02d
+
