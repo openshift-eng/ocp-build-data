@@ -1,4 +1,35 @@
 releases:
+  rc.3:
+    assembly:
+      basis:
+        brew_event: 43874551
+        reference_releases:
+          aarch64: 4.10.0-0.nightly-arm64-2022-02-16-155351
+          ppc64le: 4.10.0-0.nightly-ppc64le-2022-02-16-155115
+          s390x: 4.10.0-0.nightly-s390x-2022-02-16-155238
+          x86_64: 4.10.0-0.nightly-2022-02-16-171622
+      group:
+        advisories:
+          image: 86559
+          rpm: 86558
+          extras: 86560
+          metadata: 86561
+        upgrades: 4.9.19,4.9.21,4.9.22,4.10.0-fc.0,4.10.0-fc.1,4.10.0-fc.2,4.10.0-fc.3,4.10.0-fc.4,4.10.0-rc.0,4.10.0-rc.1,4.10.0-rc.2
+        release_jira: OCPPLAN-8159
+      members:
+        images: []
+        rpms: []
+      promotion_permits:
+      - code: CVE_FLAWS
+        why: 'Deliberately ignoring CVE flaw validation for RC'
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:289629585ded638ca7590b486b9717f34f791cb70003b47d7594bd2d94b41559
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e480b2c238fc667ae82a3e28d91351c863fb09540e1b05d55ca4aa95221acb1a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:35cf890ef3b9d5d6b08833cf0dad4609863a89a6ef18422aac6f2147d34fed7e
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3767b10bab9365df92216b15754ea80f84ba7aa0cafc802bf2bc1fda61793e13
+      type: candidate
   rc.2:
     assembly:
       basis:
