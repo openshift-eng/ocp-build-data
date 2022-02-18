@@ -1,12 +1,8 @@
-container_yaml:
-  go:                          
-    modules:
-    - module: github.com/openshift/eventrouter
 content:
   source:
     dockerfile: Dockerfile.rhel8
     git:
-      branch: 
+      branch:
         target: release-{MAJOR}.{MINOR}
       # update to openshift-priv once that exists
       url: git@github.com:openshift/eventrouter.git

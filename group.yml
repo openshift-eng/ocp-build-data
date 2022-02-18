@@ -14,16 +14,12 @@ arches:
 operator_image_ref_mode: manifest-list
 operator_channel_stable: extra
 
-advisories:
-  image: 80337
-  rpm: 80336
-  extras: 80338
-  metadata: 80339
-  # security:
-
 signing_advisory: 60054
 
 assemblies:
+  enabled: true
+
+cachito:
   enabled: true
 
 build_profiles:
@@ -109,7 +105,7 @@ repos:
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
     reposync:
-      latest_only: false      
+      latest_only: false
 
   # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
   rhel-server-ose-rpms:
