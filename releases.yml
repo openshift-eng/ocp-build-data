@@ -926,6 +926,32 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:044bd53af62d053a126a02428c0fa24e2f9f27667e38849a4e9aca3aaa27cac1
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff729c6ca7ed0390a529344a770cc6cde5767101c38a4b191799d2658b3a04c3
       type: candidate
+  art3819:
+    assembly:
+      basis:
+        assembly: "art3786"
+      type: custom
+      members:
+        images:
+        - distgit_key: openshift-enterprise-hyperkube
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2045972 requires https://github.com/openshift/kubernetes/pull/1144 and SUPPORTEX-7967 wants it atop 4.9.17"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:jupierce/kubernetes.git
+                  branch:
+                    target: 6b15b0fbbd7aed7119205c0dd3bcd319ecdcb201
+        rpms:
+        - distgit_key: openshift
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2045972 requires https://github.com/openshift/kubernetes/pull/1144 and SUPPORTEX-7967 wants it atop 4.9.17"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:jupierce/kubernetes.git
+                  branch:
+                    target: 6b15b0fbbd7aed7119205c0dd3bcd319ecdcb201
   art3786:
     assembly:
       basis:
