@@ -933,6 +933,16 @@ releases:
       type: custom
       members:
         images:
+        - distgit_key: openshift-enterprise-pod
+          why: "https://bugzilla.redhat.com/show_bug.cgi?id=2045972 requires https://github.com/openshift/kubernetes/pull/1144\
+            \ and SUPPORTEX-7967 wants it atop 4.9.17"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:jupierce/kubernetes.git
+                  branch:
+                    target: 6b15b0fbbd7aed7119205c0dd3bcd319ecdcb201
         - distgit_key: openshift-enterprise-hyperkube
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2045972 requires https://github.com/openshift/kubernetes/pull/1144\
             \ and SUPPORTEX-7967 wants it atop 4.9.17"
