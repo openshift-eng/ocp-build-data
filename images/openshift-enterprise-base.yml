@@ -6,6 +6,8 @@ content:
       match: COPY *.repo /etc/yum.repos.d/
       replacement: ''
     path: images/base
+cachito:
+  enabled: false  # FIXME: Fail to build with Cachito. Disable for now.
 from:
   member: openshift-base-rhel7
 labels:
