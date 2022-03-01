@@ -6,6 +6,8 @@ content:
         target: openshift-base-nodejs
       url: git@github.com:openshift/ocp-build-data.git
     ci_alignment:
+      streams_prs:
+        enabled: false    
       mirror: true
       transform: rhel-8/base-repos
       upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}.art
