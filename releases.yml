@@ -1,4 +1,20 @@
 releases:
+  rc.7:
+    assembly:
+      basis:
+        assembly: rc.6
+        "reference_releases!": {}
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d6b6b46403e473a09971deb9fd49b3e3bb0025f2cd42ab237b43974e94ce0517
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:176b543317ec73351305d4d6df387bbe26825850a42d1610a2f90d0cef7c2bae
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:25492955d857dd73cb194daa149561b0f1fe967e34838c607b6fadba3c20f8ab
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ecb05331404a88c40518d223a8dfd8cbd3b147e4f68b23836e360ad65dab9e85
+      promotion_permits:
+      - code: CVE_FLAWS
+        why: 'Deliberately ignoring CVE flaw validation for RC'
+      type: candidate
   rc.6:
     assembly:
       basis:
