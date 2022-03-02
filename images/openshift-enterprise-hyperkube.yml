@@ -11,6 +11,9 @@ content:
       url: git@github.com:openshift-priv/kubernetes.git
     modifications:
     - action: replace
+      match: "COPY . ."
+      replacement: "COPY . .\nRUN rm -rf unpacked_remote_sources"  # FIXME: Workaround for CLOUDBLD-8974
+    - action: replace
       match: "make WHAT="
       replacement: "make GOFLAGS='-mod=vendor -p=4' WHAT="
     ci_alignment:

@@ -17,12 +17,11 @@ releases:
   art3171:
     assembly:
       type: custom
-      group:
-        cachito:
-          enabled: true
       members:
         images:
         - distgit_key: '*'
           why: test cachito integration for all images
           metadata:
             container_yaml!: {}
+            cachito:
+              enabled: true
