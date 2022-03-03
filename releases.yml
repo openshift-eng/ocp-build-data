@@ -944,7 +944,7 @@ releases:
                   branch:
                     target: 6b15b0fbbd7aed7119205c0dd3bcd319ecdcb201
             is:
-              nvr: openshift-enterprise-pod-container-v4.9.0-202202240149.p0.g6b15b0f.assembly.art3819                    
+              nvr: openshift-enterprise-pod-container-v4.9.0-202202240149.p0.g6b15b0f.assembly.art3819
         - distgit_key: openshift-enterprise-hyperkube
           why: "https://bugzilla.redhat.com/show_bug.cgi?id=2045972 requires https://github.com/openshift/kubernetes/pull/1144\
             \ and SUPPORTEX-7967 wants it atop 4.9.17"
@@ -971,7 +971,7 @@ releases:
             is:
               el7: openshift-4.9.0-202202232055.p0.g6b15b0f.assembly.art3819.el7
               el8: openshift-4.9.0-202202232055.p0.g6b15b0f.assembly.art3819.el8
-      rhcos:              
+      rhcos:
         machine-os-content:
           images:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9b7f87d9dd2be04cbd4422b4e0c37f1b59b7029c2c8cba9155642c022f5c4487
@@ -1074,10 +1074,8 @@ releases:
           why: test cachito integration for all images
           metadata:
             container_yaml!: {}
-            content:
-              source:
-                pkg_managers!:
-                - gomod
+            cachito:
+              enabled: true
   art1:
     assembly:
       type: custom
