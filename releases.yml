@@ -1,4 +1,32 @@
 releases:
+  4.10.1:
+    assembly:
+      basis:
+        assembly: 4.10.0
+        "reference_releases!": {}
+      group:
+        upgrades: 4.9.19,4.9.21,4.9.22,4.9.23,4.10.0-fc.0,4.10.0-fc.1,4.10.0-fc.2,4.10.0-fc.3,4.10.0-fc.4,4.10.0-rc.0,4.10.0-rc.1,4.10.0-rc.2,4.10.0-rc.3,4.10.0-rc.4,4.10.0-rc.5,4.10.0-rc.6,4.10.0-rc.7,4.10.0-rc.8,4.10.0
+      members:
+        rpms: []
+        images:
+        - distgit_key: openshift-enterprise-registry
+          why: 'Fix for https://bugzilla.redhat.com/show_bug.cgi?id=2060610'
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 9fb745125fafe759d08b01c18adf3a5734fb829b
+                  url: git@github.com:openshift/image-registry.git
+            is:
+              nvr: openshift-enterprise-registry-container-<>
+      issues:
+        include:
+        - id: 2060610
+      promotion_permits:
+      - code: CVE_FLAWS
+        why: 'Do not fail promotion if cve flaw validation fails'
+      type: standard
   4.10.0:
     assembly:
       basis:
