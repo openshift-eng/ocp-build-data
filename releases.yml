@@ -1,4 +1,39 @@
 releases:
+  4.10.2:
+    assembly:
+      basis:
+        assembly: 4.10.1
+        "reference_releases!": {}
+      group:
+        upgrades: 4.9.19,4.9.21,4.9.22,4.9.23,4.10.0-fc.0,4.10.0-fc.1,4.10.0-fc.2,4.10.0-fc.3,4.10.0-fc.4,4.10.0-rc.0,4.10.0-rc.1,4.10.0-rc.2,4.10.0-rc.3,4.10.0-rc.4,4.10.0-rc.5,4.10.0-rc.6,4.10.0-rc.7,4.10.0-rc.8,4.10.0,4.10.1
+      members:
+        rpms: []
+        images:
+        - distgit_key: ose-sdn
+          why: 'Fix for https://bugzilla.redhat.com/show_bug.cgi?id=2060956'
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 9d0cd6e5e7235a1d32f5ccff611ef9b1da76c4b9
+                  url: git@github.com:openshift-priv/sdn.git
+        - distgit_key: kube-proxy
+          why: 'Fix for https://bugzilla.redhat.com/show_bug.cgi?id=2060956'
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 9d0cd6e5e7235a1d32f5ccff611ef9b1da76c4b9
+                  url: git@github.com:openshift-priv/sdn.git
+      issues:
+        include:
+        - id: 2060956
+      promotion_permits:
+      - code: CVE_FLAWS
+        why: 'Do not fail promotion if cve flaw validation fails'
+      type: standard
   4.10.1:
     assembly:
       basis:
