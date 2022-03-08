@@ -1,4 +1,45 @@
 releases:
+  4.10.3:
+    assembly:
+      basis:
+        assembly: 4.10.2
+        "reference_releases!": {}
+      group:
+        upgrades: 4.9.19,4.9.21,4.9.22,4.9.23,4.10.0-fc.0,4.10.0-fc.1,4.10.0-fc.2,4.10.0-fc.3,4.10.0-fc.4,4.10.0-rc.0,4.10.0-rc.1,4.10.0-rc.2,4.10.0-rc.3,4.10.0-rc.4,4.10.0-rc.5,4.10.0-rc.6,4.10.0-rc.7,4.10.0-rc.8,4.10.0,4.10.1,4.10.2
+      members:
+        rpms: []
+        images:
+        - distgit_key: ose-sdn
+          why: 'Fix for https://bugzilla.redhat.com/show_bug.cgi?id=2060956'
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 62d09f934bc6a22495ee3d29eb453534e7773101
+                  url: git@github.com:openshift-priv/sdn.git
+            is:
+              nvr: ose-node-container-v4.10.0-202203080140.p0.g62d09f9.assembly.stream
+        - distgit_key: kube-proxy
+          why: 'Fix for https://bugzilla.redhat.com/show_bug.cgi?id=2060956'
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 62d09f934bc6a22495ee3d29eb453534e7773101
+                  url: git@github.com:openshift-priv/sdn.git
+            is:
+              nvr: kube-proxy-container-v4.10.0-202203080140.p0.g62d09f9.assembly.stream
+      issues:
+        include:
+        - id: 2060956
+      promotion_permits:
+      - code: BLOCKER_BUGS
+        why: 'Blocker Bug(2060956) fix is included in payload'
+      - code: CVE_FLAWS
+        why: 'Do not fail promotion if cve flaw validation fails'
+      type: standard
   4.10.2:
     assembly:
       basis:
