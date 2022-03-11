@@ -9,6 +9,12 @@ content:
     - action: replace
       match: "COPY . ."
       replacement: "COPY . .\nRUN rm -rf unpacked_remote_sources"  # FIXME: Workaround for CLOUDBLD-8974
+container_yaml:
+  go:
+    modules:
+    - module: k8s.io/kubernetes
+cachito:
+  enabled: false  # FIXME: Temporarily disable Cachito integration until CLOUDBLD-8966 is solved.
 distgit:
   namespace: containers
 enabled_repos:
