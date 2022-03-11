@@ -20,8 +20,51 @@ releases:
         why: Skipped BLOCKER_BUGS check. See https://coreos.slack.com/archives/CJARLA942/p1646805878004899
       - code: ATTACHED_BUGS
         why: Skipped ATTACHED_BUGS check. See https://coreos.slack.com/archives/CJARLA942/p1646805878004899
+      issues:
+        include:
+        - id: 2061165
       members:
-        images: []
+        images:
+        - distgit_key: ib-sriov-cni
+          why: late bug fix
+          metadata:
+            is:
+              nvr: ib-sriov-cni-container-v4.8.0-202203102349.p0.g1b0724a.assembly.stream
+        - distgit_key: sriov-cni
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-cni-container-v4.8.0-202203102349.p0.ga866f8e.assembly.stream
+        - distgit_key: sriov-dp-admission-controller
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-dp-admission-controller-container-v4.8.0-202203102349.p0.gd34636e.assembly.stream
+        - distgit_key: sriov-network-config-daemon
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-network-config-daemon-container-v4.8.0-202203102349.p0.gc48e01f.assembly.stream
+        - distgit_key: sriov-network-device-plugin
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-network-device-plugin-container-v4.8.0-202203102349.p0.g3fcc977.assembly.stream
+        - distgit_key: sriov-network-must-gather
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-network-must-gather-container-v4.8.0-202203102349.p0.gc48e01f.assembly.stream
+        - distgit_key: sriov-network-operator
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-network-operator-container-v4.8.0-202203102349.p0.gc48e01f.assembly.stream
+        - distgit_key: sriov-network-webhook
+          why: late bug fix
+          metadata:
+            is:
+              nvr: sriov-network-webhook-container-v4.8.0-202203102349.p0.gc48e01f.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
