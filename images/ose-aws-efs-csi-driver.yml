@@ -5,6 +5,8 @@ container_yaml:
   go:
     modules:
     - module: github.com/openshift/aws-efs-csi-driver
+cachito:
+  enabled: false  # FIXME: Disable Cachito until bug 2063115 is solved.
 content:
   source:
     dockerfile: Dockerfile.openshift
