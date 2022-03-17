@@ -1,6 +1,3 @@
-# Disabling until upstream updates channels for 4.11
-# ...or updates bundle dir to stable/
-mode: disabled
 content:
   source:
     dockerfile: Dockerfile.rhel7
@@ -24,6 +21,6 @@ name: openshift/ose-sriov-network-operator
 owners:
 - multus-dev@redhat.com
 update-csv:
-  bundle-dir: '{MAJOR}.{MINOR}/'
+  bundle-dir: 'stable/'
   manifests-dir: manifests
   registry: image-registry.openshift-image-registry.svc:5000
