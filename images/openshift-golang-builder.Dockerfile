@@ -22,7 +22,7 @@ RUN yum update -y && \
         file \
         findutils \
         git \
-        "go-toolset-$VERSION.*" \
+        "golang-*$VERSION*" \
         goversioninfo \
         gpgme \
         gpgme-devel \
