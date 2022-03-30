@@ -2,9 +2,6 @@ name: rhel-8-golang-1.18
 
 arches:
 - x86_64
-- ppc64le
-- s390x
-- aarch64
 
 vars:
   MAJOR: 4
@@ -26,8 +23,7 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-      baseurl:
-        x86_64: http://file.rdu.redhat.com/sidsharm/golang118repo/x86_64/
+      baseurl: http://file.rdu.redhat.com/sidsharm/golang118repo/x86_64/
 
     # These content sets are not used, so just putting something here
     content_set:
