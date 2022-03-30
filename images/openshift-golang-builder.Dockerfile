@@ -3,20 +3,20 @@ FROM ubi7:7-released
 ARG GOPATH
 # This feels a little ugly but it seems to be the simplest way to enable the SCL automatically for docker exec:
 ENV container=oci \
-    MANPATH=/opt/rh/go-toolset-1.17/root/usr/share/man: \
-    X_SCLS=go-toolset-1.17  \
+    MANPATH=/opt/rh/go-toolset-1.18/root/usr/share/man: \
+    X_SCLS=go-toolset-1.18  \
     GOFLAGS='-mod=vendor' \
-    LD_LIBRARY_PATH=/opt/rh/go-toolset-1.17/root/usr/lib64 \
-    PATH=/opt/rh/go-toolset-1.17/root/usr/bin:/opt/rh/go-toolset-1.17/root/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+    LD_LIBRARY_PATH=/opt/rh/go-toolset-1.18/root/usr/lib64 \
+    PATH=/opt/rh/go-toolset-1.18/root/usr/bin:/opt/rh/go-toolset-1.18/root/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     GOPATH=${GOPATH:-/go} \
     GOMAXPROCS=8 \
-    PKG_CONFIG_PATH=/opt/rh/go-toolset-1.17/root/usr/lib64/pkgconfig
+    PKG_CONFIG_PATH=/opt/rh/go-toolset-1.18/root/usr/lib64/pkgconfig
 
 RUN mkdir -p /go/src/
 
 RUN yum install -y --setopt=skip_missing_names_on_install=False \
     bc file findutils gpgme git hostname lsof make socat tar tree util-linux wget which zip \
-    'go-toolset-1.17*' goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel
+    'go-toolset-1.18*' goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel
 RUN yum clean all
 
 LABEL \

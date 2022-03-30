@@ -5,7 +5,7 @@ content:
     dockerfile: openshift-golang-builder.Dockerfile
     git:
       branch:
-        target: golang-1.17
+        target: golang-1.18
       url: git@github.com:openshift/ocp-build-data.git
 enabled_repos:
 - rhel-7-server-rpms
@@ -20,9 +20,9 @@ owners:
 
 # Tag in osbs for consumption by various streams.yml
 additional_tags:
-- '1.17'
-- 'rhel-7-1.17'
-- 'rhel_7_golang_1.17'
-- 'rhel_7_1.17'
+- '1.18'
+- 'rhel-7-1.18'
+- 'rhel_7_golang_1.18'
+- 'rhel_7_1.18'
 maintainer:
   component: Release
