@@ -2,6 +2,9 @@ name: rhel-8-golang-1.18
 
 arches:
 - x86_64
+- ppc64le
+- s390x
+- aarch64
 
 vars:
   MAJOR: 4
@@ -23,8 +26,11 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-      baseurl: http://file.rdu.redhat.com/sidsharm/golang118repo/x86_64/
-
+      baseurl:
+        aarch64: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.18+nofips.git.4aa1efed4853ea067d665a952eee77c52faac774/2.el8/aarch64/
+        ppc64le: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.18+nofips.git.4aa1efed4853ea067d665a952eee77c52faac774/2.el8/ppc64le/
+        s390x: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.18+nofips.git.4aa1efed4853ea067d665a952eee77c52faac774/2.el8/s390x/
+        x86_64: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.18+nofips.git.4aa1efed4853ea067d665a952eee77c52faac774/2.el8/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
