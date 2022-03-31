@@ -92,6 +92,13 @@ rhel8:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
+rhel9:
+  # strictly for CI to experiment at this time. much setup to do before ART can actually
+  # build anything on this
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9:9.0.0
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+
 nodejs:
   # the most recent release with precise nodejs 14 version we need.
   image: ubi8/nodejs-14:1-35.1626836507
