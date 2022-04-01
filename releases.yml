@@ -4,10 +4,10 @@ releases:
       basis:
         brew_event: 44550501
         reference_releases: {}
-          # aarch64: 4.9.0-0.nightly-arm64-2022-03-31-220424 use older RHCOS
+          # aarch64: 4.9.0-0.nightly-arm64-2022-03-31-220424 -> older RHCOS
           # ppc64le: 4.9.0-0.nightly-ppc64le-2022-03-31-220042 has older RHCOS
-          # s390x: 4.9.0-0.nightly-s390x-2022-03-31-220227 use older RHCOS
-          # x86_64: 4.9.0-0.nightly-2022-03-31-220352 use older RHCOS
+          # s390x: 4.9.0-0.nightly-s390x-2022-03-31-220227 -> older RHCOS
+          # x86_64: 4.9.0-0.nightly-2022-03-31-220352 -> older RHCOS
       group:
         advisories:
           image: 92681
@@ -30,6 +30,9 @@ releases:
             is:
               el8: openshift-4.9.0-202203012249.p0.g5c84e52.assembly.stream.el8
               el7: openshift-4.9.0-202203012249.p0.g5c84e52.assembly.stream.el7
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: chained bugs are both ON_QA and QE has not had the opportunity to verify them
       rhcos:
         machine-os-content:
           images:
