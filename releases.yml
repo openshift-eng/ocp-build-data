@@ -10,11 +10,12 @@ releases:
           x86_64: 4.9.0-0.nightly-2022-04-04-160205
       group:
         advisories:
-          extras: -1
-          image: -1
-          metadata: -1
-          rpm: -1
+          image: 92915
+          rpm: 92914
+          extras: 92916
+          metadata: 92917
         upgrades: 4.8.14,4.8.15,4.8.16,4.8.17,4.8.18,4.8.19,4.8.20,4.8.21,4.8.22,4.8.23,4.8.24,4.8.25,4.8.26,4.8.27,4.8.28,4.8.29,4.8.30,4.8.31,4.8.32,4.8.33,4.8.34,4.8.35,4.8.36,4.9.0,4.9.1,4.9.4,4.9.5,4.9.6,4.9.7,4.9.8,4.9.9,4.9.10,4.9.11,4.9.12,4.9.13,4.9.15,4.9.17,4.9.18,4.9.19,4.9.21,4.9.22,4.9.23,4.9.24,4.9.25,4.9.26,4.9.27
+        release_jira: OCPPLAN-8792
       members:
         images: []
         rpms: []
@@ -46,7 +47,8 @@ releases:
       members:
         images:
         - distgit_key: special-resource-operator-container
-          why: Should have been v4.9.0-202203250906 but that referenced missing operand -- rebuilt
+          why: Should have been v4.9.0-202203250906 but that referenced missing operand
+            -- rebuilt
           metadata:
             is:
               nvr: special-resource-operator-container-v4.9.0-202203250906.1.p0.gf6ed01a.assembly.stream
@@ -59,7 +61,8 @@ releases:
               el7: openshift-4.9.0-202203012249.p0.g5c84e52.assembly.stream.el7
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: chained bugs are both ON_QA and QE has not had the opportunity to verify them
+        why: chained bugs are both ON_QA and QE has not had the opportunity to verify
+          them
       rhcos:
         machine-os-content:
           images:
