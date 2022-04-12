@@ -18,6 +18,10 @@ enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms-embargoed
+# FIXME these two -ga- repos allow pinning a GA version of libvirt to match what
+# users are most likely testing with - should be deleted once RHEL 8.6 is GA
+- rhel-8-ga-baseos-rpms
+- rhel-8-ga-appstream-rpms
 for_payload: true
 from:
   builder:
