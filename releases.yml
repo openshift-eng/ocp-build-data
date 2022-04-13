@@ -24,6 +24,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3ce48de6af21a771e2092b7db9500dcb8a0f25472833fb759075121a21152bf6
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1e7ed2d391885ff9c0ea2d0bf38d60f4463a1a4e2a28af1cf859301f3eb9aa10
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:52988bb906c3705f5594e3336eed6eebd85fcccf1c20b81e3b576c85a2261c28
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: Unblock promotion, need to manually verify elliott verify-attached-bugs
       type: standard
   4.8.36:
     assembly:
