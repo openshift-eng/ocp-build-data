@@ -21,6 +21,8 @@ assemblies:
 
 cachito:
   enabled: true
+  flags:
+  - remove-unsafe-symlinks  # The flag forces Cachito to remove all symlinks that points to some location outside of a cloned repository.
 
 build_profiles:
   image:
