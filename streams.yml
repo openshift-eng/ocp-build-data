@@ -40,8 +40,8 @@ golang:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}
 
 golang-1.18:
-  # openshift-golang-builder-container-v1.18.1-1.scratch.nofips.g04fb1ce - an experimental build, YMMV
-  image: openshift/golang-builder@sha256:0f4c69877fe9e6b87ab0d6f70085d16f1fb1d523bf0aaa17cf3f84a7849fcc82
+  # openshift-golang-builder-container-v1.18.0-202204191948.sha1patch.el8.g4d4caca - 1.18.0 with sha1 patch
+  image: openshift/golang-builder@sha256:8e1cfc7198db25b97ce6f42e147b5c07d9725015ea971d04c91fe1249b565c80
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
