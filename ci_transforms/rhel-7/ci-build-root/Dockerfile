@@ -18,14 +18,13 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
 
 # Install common go tools upstream devs are expecting in CI.
 # Pure cargo culting from https://github.com/openshift/release/blob/51d92eb6a6d730e932a5daf68829ca7936739904/projects/origin-release/golang-1.13/Dockerfile#L41
-RUN go get golang.org/x/tools/cmd/cover \
-        golang.org/x/tools/cmd/goimports \
-        github.com/tools/godep \
-        golang.org/x/lint/golint \
-        gotest.tools/gotestsum \
-        github.com/openshift/release/tools/gotest2junit \
-        github.com/openshift/imagebuilder/cmd/imagebuilder && \
-    GO111MODULE=on go get gotest.tools/gotestsum@v0.5.2 && \
+RUN GOFLAGS='' go install golang.org/x/tools/cmd/cover@latest && \
+    GOFLAGS='' go install golang.org/x/tools/cmd/goimports@latest && \
+    GOFLAGS='' go install github.com/tools/godep@latest && \
+    GOFLAGS='' go install golang.org/x/lint/golint@latest && \
+    GOFLAGS='' go install gotest.tools/gotestsum@latest && \
+    GOFLAGS='' go install github.com/openshift/release/tools/gotest2junit@latest && \
+    GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
