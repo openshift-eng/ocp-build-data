@@ -7,6 +7,11 @@ content:
       url: git@github.com:openshift-priv/route-override-cni.git
       web: https://github.com/openshift/route-override-cni
     ci_alignment:
+      streams_prs:
+        # Label so that this PR automatically merges if tests pass.
+        auto_label:
+        - approved
+        - lgtm
       enabled: false
 for_payload: true
 from:
