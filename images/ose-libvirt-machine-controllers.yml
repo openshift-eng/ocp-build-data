@@ -8,6 +8,12 @@ content:
       web: https://github.com/openshift/cluster-api-provider-libvirt
     ci_alignment:
       streams_prs:
+        auto_label:  # Enable PR merging as quickly as possible by pre-approving it.
+        - lgtm
+        - approved
+        - backport-risk-assessed
+        - bugzilla/valid-bug
+        - cherry-pick-approved
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
 enabled_repos:
