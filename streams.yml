@@ -28,7 +28,14 @@ rhel-7-ci-build-root:
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 golang:
-  # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
+  # openshift-golang-builder-container-v1.18.0-202204191948.sha1patch.el8.g4d4caca - 1.18.0 with sha1 patch
+  image: openshift/golang-builder@sha256:8e1cfc7198db25b97ce6f42e147b5c07d9725015ea971d04c91fe1249b565c80
+  mirror: true
+  transform: rhel-8/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
+
+golang-1.17:
   # openshift-golang-builder-container-v1.17.5-202202101345.el8.gb1a57e0
   image: openshift/golang-builder@sha256:4820580c3368f320581eb9e32cf97aeec179a86c5749753a14ed76410a293d83
   mirror: true
@@ -39,28 +46,18 @@ golang:
   # tests that don't happen downstream.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}
 
-golang-1.18:
-  # openshift-golang-builder-container-v1.18.0-202204191948.sha1patch.el8.g4d4caca - 1.18.0 with sha1 patch
-  image: openshift/golang-builder@sha256:8e1cfc7198db25b97ce6f42e147b5c07d9725015ea971d04c91fe1249b565c80
-  mirror: true
-  transform: rhel-8/golang
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
-
-rhel-8-golang-1.18-ci-build-root:
+rhel-8-golang-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.18-openshift-{MAJOR}.{MINOR}
 
-# This is image is not used by ART. It is an artifact required in upstream CI to build unit tests.
-# Our transform is designed to create a buildconfig atop a specific golang version, layering on
-# packages that upstream has traditionally had present in its build_roots.
-rhel-8-golang-ci-build-root:
+rhel-8-golang-1.17-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.17-openshift-{MAJOR}.{MINOR}
+
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
