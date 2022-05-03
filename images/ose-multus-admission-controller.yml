@@ -8,6 +8,10 @@ content:
       web: https://github.com/openshift/multus-admission-controller
     ci_alignment:
       streams_prs:
+        # Label so that this PR automatically merges if tests pass.
+        auto_label:
+        - approved
+        - lgtm
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
 enabled_repos:
