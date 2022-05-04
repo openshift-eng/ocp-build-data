@@ -17,7 +17,27 @@ releases:
         upgrades: 4.9.19,4.9.21,4.9.22,4.9.23,4.9.24,4.9.25,4.9.26,4.9.27,4.9.28,4.9.29,4.9.30,4.9.31,4.9.32,4.10.3,4.10.4,4.10.5,4.10.6,4.10.7,4.10.8,4.10.9,4.10.10,4.10.11,4.10.12
         release_jira: OCPPLAN-9016
       members:
-        images: []
+        images:
+        - distgit_key: kube-rbac-proxy
+          why: The latest build at the moment of basis event fails.
+          metadata:
+            is:
+              nvr: kube-rbac-proxy-container-v4.10.0-202204211828.p0.g4f198b2.assembly.stream
+        - distgit_key: dpu-network-operator
+          why: Rebuild to reference the pinned version of kube-rbac-proxy.
+          metadata:
+            is:
+              nvr: dpu-network-operator-container-v4.10.0-202205041316.p0.g340e753.assembly.4.10.13
+        - distgit_key: ose-metallb-operator
+          why: Rebuild to reference the pinned version of kube-rbac-proxy.
+          metadata:
+            is:
+              nvr: ose-metallb-operator-container-v4.10.0-202205041316.p0.g10fc7bd.assembly.4.10.13
+        - distgit_key: local-storage-operator
+          why: Rebuild to reference the pinned version of kube-rbac-proxy.
+          metadata:
+            is:
+              nvr: local-storage-operator-container-v4.10.0-202205041316.p0.g80e0c4f.assembly.4.10.13
         rpms: []
       rhcos:
         machine-os-content:
