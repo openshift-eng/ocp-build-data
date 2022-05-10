@@ -1456,6 +1456,9 @@ releases:
         "arches!":
         - x86_64
       rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a681f94fa8ed8ea86a44fc2da0f95b4caf7032432420d0c4729571b640cec0d0
         dependencies:
           rpms:
           - el8: kernel-4.18.0-305.48.1.el8_4
