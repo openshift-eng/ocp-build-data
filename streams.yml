@@ -28,6 +28,7 @@ rhel-7-ci-build-root:
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 golang:
+  # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # openshift-golang-builder-container-v1.18.0-202204191948.sha1patch.el8.g4d4caca - 1.18.0 with sha1 patch
   image: openshift/golang-builder@sha256:8e1cfc7198db25b97ce6f42e147b5c07d9725015ea971d04c91fe1249b565c80
   mirror: true
