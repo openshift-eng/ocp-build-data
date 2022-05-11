@@ -23,8 +23,22 @@ releases:
           why: 'to be consistent with rpm that is present in machine-os-content'
           metadata:
             is:
-              el8: openshift-clients-4.10.0-202204291519.p0.g09f825e.assembly.stream.el8
-              el7: openshift-clients-4.10.0-202204291519.p0.g09f825e.assembly.stream.el7
+              nvr: openshift-clients-4.10.0-202204291519.p0.g09f825e.assembly.stream
+        - distgit_key: local-storage-operator
+          why: updated build
+          metadata:
+            is:
+              nvr: local-storage-operator-container-v4.10.0-202205111015.p0.g80e0c4f.assembly.stream
+        - distgit_key: ose-metallb-operator
+          why: updated build
+          metadata:
+            is:
+              nvr: ose-metallb-operator-container-v4.10.0-202205111015.p0.g10fc7bd.assembly.stream
+        - distgit_key: dpu-network-operator
+          why: updated build
+          metadata:
+            is:
+              nvr: dpu-network-operator-container-v4.10.0-202205111015.p0.g340e753.assembly.stream
       rhcos:
         machine-os-content:
           images:
