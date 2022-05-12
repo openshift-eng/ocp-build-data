@@ -7,7 +7,9 @@ content:
       url: git@github.com:openshift-priv/oc.git
       web: https://github.com/openshift/oc
     ci_alignment:
-      enabled: false
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 distgit:
   namespace: containers
 enabled_repos:
