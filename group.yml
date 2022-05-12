@@ -22,6 +22,26 @@ insecure_source: true
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 
 repos:
+  rhel-8-golang117-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+        # this repo provides complete RHEL 8 build env; we just want the go-toolset content
+        includepkgs: module-build-macros delve golang* go-toolset*
+      baseurl:
+        # golang-1.17.7-1.module+el8.6.0+14297+32a15e19
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8060020220221035359-76a129d7-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8060020220221035359-76a129d7-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8060020220221035359-76a129d7-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8060020220221035359-76a129d7-build/latest/x86_64/
+    # These content sets are not used, so just putting something here
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+      optional: true
+
   rhel-8-server-ose-build-rpms:
     conf:
       extra_options:
