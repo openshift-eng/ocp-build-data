@@ -72,8 +72,8 @@ rhel-7-golang:
 rhel8:
   # the most recent 8.4.z release at present (we must not build from unreleased builds so this cannot be a floating tag).
   # ref ART-3854 for why we need the ELS image rather than just updating an old UBI8 image.
-  # rhel-els-container-8.4-141.1645698807
-  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:9aed89552a06a424b01c12f96d8878cdf02e056259955fbfc30f26b8acf99f20
+  # rhel-els-container-8.4-145.1651562184
+  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:3e49bfe4cc602b29dbcaecc4f636ee40522cadd2b579335129d7b0dc57749ad8
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
