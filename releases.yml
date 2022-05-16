@@ -24,6 +24,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6a7087f2ec7ae61c43b3ca84a2c2b3724c8b461860674401f08a1dc63d69e91f
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ecd8a9f08b90878ee42e3c8b76522a059a75f365ad6b0f062a69359b94a89715
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d1ee927bea0280cbd8d0817bd6cf444aa92361bcbc47e710b3d5c4181d227708
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: Verification is lagging a bit behind, proceeding with promotion
       type: standard
   4.8.39:
     assembly:
