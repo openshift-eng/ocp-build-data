@@ -19,14 +19,6 @@
 #
 ####################################################################################################
 
-# Used only to support hadoop-builder upstream builder image. Common tools used
-# exclusively for testing are bundled on top of the golang builder image.
-rhel-7-ci-build-root:
-  image: not_applicable
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.17-openshift-{MAJOR}.{MINOR}
-  transform: rhel-7/ci-build-root
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
-
 golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # openshift-golang-builder-container-v1.18.0-202204191948.sha1patch.el8.g4d4caca - 1.18.0 with sha1 patch
@@ -73,18 +65,6 @@ etcd_golang:
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
-
-# This image must only be used by -alt images, as this image cannot be built for aarch64.
-rhel-7-golang:
-  # openshift-golang-builder-container-v1.17.5-202202101345.el7.gf14244d
-  image: openshift/golang-builder@sha256:aaf215825b2ac2e2bd80095c13bae1997ff78bd5488f0ead904d2105d9538300
-  mirror: true
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.17-openshift-{MAJOR}.{MINOR}.art
-  # dptp will layer yum repos / extra packages on top of ART's image to create the
-  # actual upstream_image. This is to allow upstream some extra helpers to build
-  # tests that don't happen downstream.
-  transform: rhel-7/golang
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.17-openshift-{MAJOR}.{MINOR}
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
