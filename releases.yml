@@ -1,4 +1,26 @@
 releases:
+  4.8.41:
+    assembly:
+      basis:
+        assembly: "4.8.40"
+        "reference_releases!": {}
+      members:
+        images:
+        - distgit_key: ironic
+          why: Regression was introduced, moving to before regression 2088196
+          metadata:
+            is:
+              nvr: ironic-container-v4.8.0-202205121606.p0.gfa8525e.assembly.stream
+            dependencies:
+              rpms:
+              - el8: python-sushy-3.7.4-0.20211119091058.2cc60dc.el8
+                why: Revert to before regression 2088196
+                non_gc_tag: rhaos-4.8-rhel-8
+      promotion_permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        why: Taking older rpm to avoid shipping 2088196
+      - code: BLOCKER_BUGS
+        why: Avoiding to ship 2088196
   4.8.40:
     assembly:
       basis:
