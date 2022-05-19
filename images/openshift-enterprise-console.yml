@@ -7,10 +7,26 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift/console.git
       web: https://github.com/openshift/console
-    modifications:
-    - action: command
-      command:
-      - update-console-sources
+    pkg_managers:
+    - gomod  # gomod is not actually used; it is just to notice Cachito to create source for the root directory
+    - yarn
+    artifacts:
+      from_urls:
+      - target: yarn-v1.22.19.tar.gz
+        url: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/artifacts/build-deps/yarn-v1.22.19.tar.gz
+        sha256: 732620bac8b1690d507274f025f3c6cfdc3627a84d9642e38a07452cc00e0f2e
+        source-url: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/artifacts/build-deps/yarn-source-v1.22.19.tar.gz
+        source-sha256: 50af0025d2ef942bf3e6cdd0587dc9c4dd8d6e6e69501b84935d09f2b2b5de8b
+      - target: node-v8.9.4-headers.tar.gz
+        url: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/artifacts/build-deps/node-v8.9.4-headers.tar.gz
+        sha256: ef7248e81706daeeec946c19808a50b60ac250e648365d78fda6e40f1f9b23a5
+        source-url: http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/artifacts/build-deps/node-v8.9.4.tar.gz
+        source-sha256: 729b44b32b2f82ecd5befac4f7518de0c4e3add34e8fe878f745740a66cbbc01
+cachito:
+  enabled: true
+  packages:
+    yarn:
+    - path: frontend
 from:
   builder:
   - stream: golang
