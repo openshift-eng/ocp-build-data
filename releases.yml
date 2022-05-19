@@ -1,4 +1,28 @@
 releases:
+  4.9.35:
+    assembly:
+      basis:
+        assembly: "4.9.34"
+        "reference_releases!": {}
+      group:
+        upgrades: 4.8.41,4.8.14,4.8.15,4.8.16,4.8.17,4.8.18,4.8.19,4.8.20,4.8.21,4.8.22,4.8.23,4.8.24,4.8.25,4.8.26,4.8.27,4.8.28,4.8.29,4.8.30,4.8.31,4.8.32,4.8.33,4.8.34,4.8.35,4.8.36,4.8.37,4.8.38,4.8.39,4.8.40,4.9.0,4.9.1,4.9.4,4.9.5,4.9.6,4.9.7,4.9.8,4.9.9,4.9.10,4.9.11,4.9.12,4.9.13,4.9.15,4.9.17,4.9.18,4.9.19,4.9.21,4.9.22,4.9.23,4.9.24,4.9.25,4.9.26,4.9.27,4.9.28,4.9.29,4.9.30,4.9.31,4.9.32,4.9.33
+      members:
+        images:
+        - distgit_key: ironic
+          why: Regression was introduced, moving to before regression 2088319
+          metadata:
+            is:
+              nvr: ironic-container-v4.9.0-202205121628.p0.ge188116.assembly.stream
+            dependencies:
+              rpms:
+              - el8: python-sushy-3.12.1-0.20211122142104.806622c.el8
+                why: Revert to before regression 2088319
+                non_gc_tag: rhaos-4.9-rhel-8
+      promotion_permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        why: Taking older rpm to avoid shipping 2088319
+      - code: BLOCKER_BUGS
+        why: Avoiding to ship 2088319
   4.9.34:
     assembly:
       basis:
