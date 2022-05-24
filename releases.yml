@@ -1071,6 +1071,28 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2733de53d970c1c82ba4b25df4fcf77881b79eb2e107079fe7d0b49cd94c22c9
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e0bf04e3e3a2fdaf121a4260a0c8bd32937c347091d0933fbc7e0bfd4b2c806
       type: standard
+  art4080:
+    assembly:
+      type: custom
+      basis:
+        assembly: "art4078"
+      members:
+        images:
+        - distgit_key: ironic
+          why: bug 2088196
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 9bba1014e5fac9b08b9ac2a5062e21f7602a330c
+            dependencies:
+              rpms:
+              - el8: python-sushy-3.7.5-0.20220520231118.041c8ee.el8
+                why: bug 2088196
+                non_gc_tag: rhaos-4.8-rhel-8-hotfix
+            is:
+              nvr: ironic-container-v4.8.0-202205240955.p0.g9bba101.assembly.art4080
   art4078:
     assembly:
       type: custom
