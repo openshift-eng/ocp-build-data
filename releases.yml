@@ -1071,6 +1071,31 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2733de53d970c1c82ba4b25df4fcf77881b79eb2e107079fe7d0b49cd94c22c9
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e0bf04e3e3a2fdaf121a4260a0c8bd32937c347091d0933fbc7e0bfd4b2c806
       type: standard
+  art4078:
+    assembly:
+      basis:
+        assembly: "art3875"
+      members:
+        images:
+        - distgit_key: ironic-ipa-downloader
+          why: Expedite fix for 2070519
+          metadata:
+            content:
+              source:
+                modifications:
+                - action: replace
+                  match: "IPA_IMAGE_VER=2021.1-20210614.1.el8"
+                  replacement: "IPA_IMAGE_VER=2021.1-20220523.1.el8"
+            dependencies:
+              rpms:
+              - el8: ironic-images-2021.1-20220523.1.el8
+                why: Expedite fix for 2070519
+                non_gc_tag: rhaos-4.8-rhel-8-hotfix
+              - el8: ironic-images-ipa-x86_64-2021.1-20220523.1.el8
+                why: Expedite fix for 2070519
+                non_gc_tag: rhaos-4.8-rhel-8-hotfix
+            is:
+              nvr: ironic-ipa-downloader-container-v4.8.0-202205240043.p0.gba87832.assembly.art4078
   art3875:
     assembly:
       basis:
