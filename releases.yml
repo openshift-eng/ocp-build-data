@@ -27,6 +27,9 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:783573a0128cbeb165ca10f69a4fe9058abdd3a40087faad9e6f4f214bd96a22
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f8487aca4343fb1b7085ba9880ad6cc81a42614c4c86d63ce77fc5a904d20426
       type: standard
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: ignore ATTACHED_BUGS error to proceed with promotion
   4.9.35:
     assembly:
       basis:
