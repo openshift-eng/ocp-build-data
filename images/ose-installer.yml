@@ -10,12 +10,6 @@ content:
     - action: replace
       match: "hack/build.sh"
       replacement: "GOFLAGS='-mod=vendor -p=8' hack/build.sh"
-    - action: replace
-      match: 'ENTRYPOINT'
-      replacement: "COPY sources /usr/share/coreos-sources\nENTRYPOINT"
-    - action: command
-      command:
-      - upload-coreos-iso-to-lookaside-cache
     ci_alignment:
       streams_prs:
         ci_build_root:
