@@ -1100,6 +1100,46 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2733de53d970c1c82ba4b25df4fcf77881b79eb2e107079fe7d0b49cd94c22c9
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e0bf04e3e3a2fdaf121a4260a0c8bd32937c347091d0933fbc7e0bfd4b2c806
       type: standard
+  art4103:
+    assembly:
+      basis:
+        assembly: "4.8.42"
+        "reference_releases!": {}
+      type: custom
+      group:
+        cachito:
+          enabled: false
+        "advisories!": {}
+        build_profiles:
+          image:
+            signed:
+              gpgcheck: false
+        "arches!":
+        - x86_64
+      rhcos:
+        "machine-os-content":
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f1beb6dcc4fbdb70efcc3c39658968311ea325345b8f69af7ab8721b54bb72c9
+      members:
+        images:
+        - distgit_key: ironic
+          why: https://bugzilla.redhat.com/show_bug.cgi?id=2059718
+          metadata:
+            dependencies:
+              rpms:
+              - el8: grub2-2.02-99.el8.2
+                why: https://bugzilla.redhat.com/show_bug.cgi?id=2059718
+                non_gc_tag: Tagged as rhel hotfix
+            is:
+              nvr: <>
+        - distgit_key: ironic-inspector
+          why: https://bugzilla.redhat.com/show_bug.cgi?id=2070519
+          metadata:
+            dependencies:
+              rpms:
+              - el8: openstack-ironic-inspector-<>
+                why: https://bugzilla.redhat.com/show_bug.cgi?id=2070519
+                non_gc_tag: <>
   art4080:
     assembly:
       type: custom
@@ -1176,46 +1216,6 @@ releases:
                 non_gc_tag: Tagged as rhel hotfix
             is:
               nvr: ironic-container-v4.8.0-202203102305.p0.gfa8525e.assembly.art3875
-  art4103:
-    assembly:
-      basis:
-        assembly: "4.8.42"
-        "reference_releases!": {}
-      type: custom
-      group:
-        cachito:
-          enabled: false
-        "advisories!": {}
-        build_profiles:
-          image:
-            signed:
-              gpgcheck: false
-        "arches!":
-        - x86_64
-      rhcos:
-        "machine-os-content":
-          images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f1beb6dcc4fbdb70efcc3c39658968311ea325345b8f69af7ab8721b54bb72c9
-      members:
-        images:
-        - distgit_key: ironic
-          why: https://bugzilla.redhat.com/show_bug.cgi?id=2059718
-          metadata:
-            dependencies:
-              rpms:
-              - el8: grub2-2.02-99.el8.2
-                why: https://bugzilla.redhat.com/show_bug.cgi?id=2059718
-                non_gc_tag: Tagged as rhel hotfix
-            is:
-              nvr: <>
-        - distgit_key: ironic-inspector
-          why: https://bugzilla.redhat.com/show_bug.cgi?id=2070519
-          metadata:
-            dependencies:
-              rpms:
-              - el8: openstack-ironic-inspector-<>
-                why: https://bugzilla.redhat.com/show_bug.cgi?id=2070519
-                non_gc_tag: <>
   art3489:
     assembly:
       basis:
