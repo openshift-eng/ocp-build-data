@@ -1,0 +1,27 @@
+---
+
+jira_config:
+  server: "https://issues.redhat.com"
+  project: "OCPBUGS"
+
+bugzilla_config:
+  server: "bugzilla.redhat.com"
+  classification: "Red Hat"
+  product: "OpenShift Container Platform"
+
+target_release:
+  - "3.11.z"
+
+version:
+  - "3.11.0"
+
+filters:
+  default:
+    - "RFE"
+    - "Documentation"
+    - "Security"
+    - "CNF Platform Validation"
+  security:
+    - "RFE"
+    - "Documentation"
+    - "CNF Platform Validation"
