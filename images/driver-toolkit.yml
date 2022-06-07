@@ -4,7 +4,7 @@ content:
     modifications:
     - action: replace
       match: "ARG RHEL_VERSION=''"
-      replacement: "ARG RHEL_VERSION='8.5'"
+      replacement: "ARG RHEL_VERSION='8.6'"
 
     # Uncomment the following sections to pin specific kernel versions
 
@@ -21,9 +21,9 @@ content:
       url: git@github.com:openshift-priv/driver-toolkit.git
       web: https://github.com/openshift/driver-toolkit
 enabled_repos:
-- rhel-85-baseos-rpms
+- rhel-8-baseos-rpms
 - rhel-8-rt-rpms
-- rhel-85-appstream-rpms
+- rhel-8-appstream-rpms
 for_payload: true
 from:
   member: openshift-enterprise-base
