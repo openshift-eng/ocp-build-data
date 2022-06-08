@@ -23,6 +23,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:895b05a9a992d027850b41dd7ea909ec061d7f9feac16b2ac6beb0cb3b3fdeef
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:103faa9d594b6c7db5ee74c19699bd55f27fc916c2612ace14a77b626dd998e5
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fedf46061ae5b3c7915b6ce5d1b7f4c0f0f5be761d467a95edc6b6e150d3b727
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: backport bug parent open by ART, related to enabling source containers
       type: standard
   4.6.58:
     assembly:
