@@ -23,6 +23,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c98333e6866037f4571b410ab8af4cb0afbf384adfa8a0a40183c005ba5226dd
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:963e0e6b0244b7cbd062f4a4ec9d8983d0ed78fbe00a939db1bf5d21996e533c
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7f87b302762dabcddc556a480f8dec9d69cb91700a3717742c30103b8a913a0a
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: backport bugs and their parents are ON_QA, proceeding with promotion
       type: standard
   4.8.42:
     assembly:
