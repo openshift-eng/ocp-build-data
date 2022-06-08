@@ -1,0 +1,36 @@
+mode: wip
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:redhat-cne/hw-event-proxy-operator.git
+      web: https://github.com/redhat-cne/hw-event-proxy-operator
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
+distgit:
+  bundle_component: baremetal-hardware-event-proxy-operator-bundle-container
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: telco-5g-ran4/baremetal-hardware-event-proxy-rhel8-operator
+owners:
+- dpenney@redhat.com
+- nparekh@redhat.com
+- jacding@redhat.com
+update-csv:
+  bundle-dir: stable/
+  manifests-dir: manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
+  csv_namespace: telco-5g-ran4
+  image-map:
+    baremetal-hardware-event-proxy: baremetal-hardware-event-proxy-rhel8
+    baremetal-hardware-event-proxy-operator: baremetal-hardware-event-proxy-rhel8-operator
