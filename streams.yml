@@ -51,15 +51,16 @@ etcd_golang:
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
-  # it is important that we not build from unreleased builds and release them.
+  # it is important that we not build from unreleased builds and publish them.
   image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8:8.6-754
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
 rhel9:
-  # strictly for CI to experiment at this time. much setup to do before ART can actually
-  # build anything on this
-  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9:9.0.0
+  # the most recent release at present. since we yum update this, it does not need to float.
+  # it is important that we not build from unreleased builds and publish them.
+  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:c00fe5ad75658431c97b3a225db5625a97c8f3a28253af7ec3aa622db235ff64
+  # ^^ rhel-els-container-9.0.0-974
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
