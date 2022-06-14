@@ -4,10 +4,10 @@ releases:
       basis:
         brew_event: 45894319
         reference_releases:
-          aarch64: 4.11.0-0.nightly-arm64-2022-06-11-060908
-          ppc64le: 4.11.0-0.nightly-ppc64le-2022-06-11-053838
-          s390x: 4.11.0-0.nightly-s390x-2022-06-11-053921
-          x86_64: 4.11.0-0.nightly-2022-06-11-054027
+          # aarch64: 4.11.0-0.nightly-arm64-2022-06-11-060908
+          # ppc64le: 4.11.0-0.nightly-ppc64le-2022-06-11-053838
+          # s390x: 4.11.0-0.nightly-s390x-2022-06-11-053921
+          # x86_64: 4.11.0-0.nightly-2022-06-11-054027
       group:
         advisories:
           extras: -1
@@ -16,7 +16,22 @@ releases:
           rpm: -1
         upgrades: 4.10.15,4.10.16,4.10.17,4.10.18,4.11.0-fc.0
       members:
-        images: []
+        images:
+        - distgit_key: ose-installer-artifacts
+          why: pin same commits for siblings
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.11.0-202206110537.p0.g190547f.assembly.stream
+        - distgit_key: ose-installer
+          why: pin same commits for siblings
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.11.0-202206110537.p0.g190547f.assembly.stream
+        - distgit_key: ose-baremetal-installer
+          why: pin same commits for siblings
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.11.0-202206110537.p0.g190547f.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
