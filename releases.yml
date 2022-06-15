@@ -1,4 +1,35 @@
 releases:
+  4.10.19:
+    assembly:
+      basis:
+        brew_event: 45945006
+        reference_releases:
+          aarch64: 4.10.0-0.nightly-arm64-2022-06-15-115530
+          ppc64le: 4.10.0-0.nightly-ppc64le-2022-06-15-115354
+          s390x: 4.10.0-0.nightly-s390x-2022-06-15-115441
+          x86_64: 4.10.0-0.nightly-2022-06-15-091435
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+      members:
+        images:
+        - distgit_key: cluster-etcd-operator
+          metadata:
+            is:
+              nvr: cluster-etcd-operator-container-v4.10.0-202206022147.p0.g3d58129.assembly.stream
+          why: "pinning what the x64 nightly has, to be consistent"
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c4386011e24995e9cb602a6bc4e04912538509749a6048d880fefd4d5f8db819
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:61410567d0b1b80cafad31173fac22144c6b14aa4e6851ba9c806009c0368c64
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9e58b506d5798ac8b175b318c9534776148326dde0ad15018d1bd59558e6863
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d067383f9da00cc9df26f70144e73e724b31d2e667dca1e85cb71cf2ac2fcfff
+      type: standard
   4.10.18:
     assembly:
       basis:
