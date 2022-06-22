@@ -2,7 +2,7 @@ freeze_automation: false
 
 vars:
   MAJOR: 4
-  MINOR: 11
+  MINOR: 12
   IMPACT: Low
   CVES: None
 
@@ -224,18 +224,18 @@ repos:
   rhel-8-rt-rpms:
     conf:
       baseurl:
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.5/x86_64/rt/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
         # other arches don't exist, pointing at something that exists
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.5/x86_64/rt/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.5/x86_64/rt/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.5/x86_64/rt/os/
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
       ci_alignment:
         profiles:
         - el8
         localdev:
           enabled: true
     content_set:
-      default: rhel-8-for-x86_64-rt-rpms__8_DOT_5
+      default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
       # don't have content set for other arches
       optional: true
 
