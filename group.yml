@@ -147,6 +147,28 @@ repos:
     reposync:
       latest_only: false
 
+  rhel-8-server-ironic-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1  # play nicely with modules
+      baseurl:
+        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8-ironic/{runtime_assembly}/building/aarch64/os
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8-ironic/{runtime_assembly}/building/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8-ironic/{runtime_assembly}/building/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8-ironic/{runtime_assembly}/building/x86_64/os
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:  # TODO: replace with correct ironic content sets
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+    reposync:
+      latest_only: false
+
   # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
   rhel-server-ose-rpms:
     conf:
