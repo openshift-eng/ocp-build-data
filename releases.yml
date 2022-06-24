@@ -17,7 +17,12 @@ releases:
         upgrades: 4.10.16,4.10.17,4.10.18,4.10.20,4.11.0-fc.0,4.11.0-fc.3
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift-ansible
+          why: 'builds had been dropped, last one is newer than brew event'
+          metadata:
+            is:
+              el8: openshift-ansible-4.11.0-202206240216.p0.g9de1722.assembly.stream.el8
       rhcos:
         machine-os-content:
           images:
