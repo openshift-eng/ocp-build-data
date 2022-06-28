@@ -153,19 +153,6 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c16ea4693ab631f2c1ef1db19563a218060e81125fd46db6db7b5cda7680622b
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3a6e70ae5c1d2da57f286ac9cdd0df38c45dff500c46d553187344a9d338bbd0
       type: candidate
-  stream:
-    assembly:
-      type: stream
-      permits:
-      # why: "Always build shippable" does not apply while we're setting up 4.11
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: '*'
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: 'rhcos'
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: 'rhcos'
-      - code: INCONSISTENT_RHCOS_RPMS
-        component: 'rhcos'
   art3171:
     assembly:
       type: custom
