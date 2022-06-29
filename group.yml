@@ -335,6 +335,48 @@ repos:
     reposync:
       enabled: false
 
+  rhel-9-server-ose-rpms-embargoed:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/{runtime_assembly}/building-embargoed/aarch64/os
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/{runtime_assembly}/building-embargoed/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/{runtime_assembly}/building-embargoed/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/{runtime_assembly}/building-embargoed/x86_64/os
+      # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
+      optional: true
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-9-server-ose-rpms:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/building/aarch64/os
+        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/building/ppc64le/os
+        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/building/s390x/os
+        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el9/building/x86_64/os
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
+    reposync:
+      latest_only: false
+
   rhel-9-server-ironic-rpms:
     conf:
       extra_options:
