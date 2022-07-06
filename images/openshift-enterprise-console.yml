@@ -22,6 +22,10 @@ content:
         sha256: ef7248e81706daeeec946c19808a50b60ac250e648365d78fda6e40f1f9b23a5
         source-url: http://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/node-v8.9.4.tar.gz
         source-sha256: 729b44b32b2f82ecd5befac4f7518de0c4e3add34e8fe878f745740a66cbbc01
+    modifications:
+    - action: remove
+      glob: sources
+      why: Distgit lookaside cache is no longer used. Make sure sources file is removed from distgit.
 cachito:
   enabled: true
   packages:
