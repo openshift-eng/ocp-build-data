@@ -10,10 +10,12 @@ owners:
 - rteague@redhat.com
 - sdodson@redhat.com
 distgit:
-  # this is needed for RHEL 7 worker node support
+  # this started building and shipping for RHEL 7 first
   branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 targets:
-- rhaos-{MAJOR}.{MINOR}-rhel-7-candidate  # this is needed for RHEL 7 worker node support
+- rhaos-{MAJOR}.{MINOR}-rhel-7-candidate  # kept for compatibility since we already shipped for RHEL 7
+- rhaos-{MAJOR}.{MINOR}-rhel-8-candidate  # this is needed for RHEL 8 worker node support
 hotfix_targets:
-- rhaos-{MAJOR}.{MINOR}-rhel-7-hotfix  # this is needed for RHEL 7 worker node support
+- rhaos-{MAJOR}.{MINOR}-rhel-7-hotfix  # kept for compatibility since we already shipped for RHEL 7
+- rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix  # this is needed for RHEL 8 worker node support
 
