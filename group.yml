@@ -1,0 +1,52 @@
+name: rhel-9-golang-1.18
+
+arches:
+- x86_64
+- ppc64le
+- s390x
+- aarch64
+
+vars:
+  MAJOR: 4
+  MINOR: 12
+
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
+  cgit: http://pkgs.devel.redhat.com/cgit
+
+insecure_source: true
+
+branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+
+repos:
+  rhel-9-server-ose-build-rpms:
+    # brew repo for our buildroot
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
+    content_set:
+      # These content sets are not used, so just putting something here
+      default: bogus
+      optional: true
+
+  rhel-9-appstream-rpms:
+    # need for mingw64
+    conf:
+      baseurl:
+        # NOTE: re-peg to 9.0 when 9.1 GA is pending
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/aarch64/appstream/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/ppc64le/appstream/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/s390x/appstream/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/appstream/os/
+    content_set:
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
