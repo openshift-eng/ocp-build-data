@@ -4,15 +4,18 @@ FROM replaced-by-buildconfig
 # (e.g. compiling test cases) that simply don't occur downstream.
 # Used as a template for 'images:streams gen-buildconfigs'
 
-# Install protobuf-3.0.0 (used by upstream k8s) for CI only testing
-# Context: https://coreos.slack.com/archives/CB95J6R4N/p1600340218406400
+# Install, matching upstream k8s, protobuf-3.x, see
+# https://github.com/kubernetes/test-infra/blob/master/hack/make-rules/update/proto.sh
+# and etcd, see:
+# https://github.com/kubernetes/kubernetes/blob/master/hack/lib/etcd.sh
+# for CI only testing.
 ENV PATH=/opt/google/protobuf/bin:$PATH
 RUN set -euxo pipefail && \
     f=$( mktemp ) && \
-    curl --fail -L http://mirror.openshift.com/pub/openshift-static-ci-deps/protobuf-3.0.0/protoc-3.0.0-linux-x86_64.zip > "${f}" && \
+    curl --fail -L https://github.com/protocolbuffers/protobuf/releases/download/v3.15.5/protoc-3.15.5-linux-x86_64.zip > "${f}" && \
     mkdir -p /opt/google/protobuf && \
     unzip "${f}" -d /opt/google/protobuf && \
-    curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.1/etcd-v3.5.1-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.1-linux-amd64/etcd
+    curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.4/etcd-v3.5.4-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.1-linux-amd64/etcd
 
 # Install common CI tools and epel for packages like tito.
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
@@ -50,8 +53,8 @@ RUN mkdir -p $GOPATH && \
 
 # Assert packages in separate RUN block so we are sure env variables are set up correctly
 RUN set -euxo pipefail && \
-    command -v protoc && protoc --version && [ "$( protoc --version )" = "libprotoc 3.0.0" ] && \
-    command -v etcd && etcd --version && [ "$( etcd --version | head -n1 )" = "etcd Version: 3.5.1" ]
+    command -v protoc && protoc --version && [ "$( protoc --version )" = "libprotoc 3.15.5" ] && \
+    command -v etcd && etcd --version && [ "$( etcd --version | head -n1 )" = "etcd Version: 3.5.4" ]
 
 # Some image building tools don't create a missing WORKDIR
 RUN mkdir -p /go/src/github.com/openshift/origin
