@@ -8,15 +8,21 @@ release: "RHOSE ASYNC"
 brew_tag_product_version_mapping:
   rhaos-{MAJOR}.{MINOR}-rhel-8-candidate: OSE-{MAJOR}.{MINOR}-RHEL-8
   rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix: OSE-{MAJOR}.{MINOR}-RHEL-8
-  rhaos-{MAJOR}.{MINOR}-ironic-rhel-8-candidate: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-8
+  rhaos-{MAJOR}.{MINOR}-rhel-9-candidate: OSE-{MAJOR}.{MINOR}-RHEL-9
+  rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix: OSE-{MAJOR}.{MINOR}-RHEL-9
+  rhaos-{MAJOR}.{MINOR}-ironic-rhel-9-candidate: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-9
   # There is no hotfix tag
-  # rhaos-{MAJOR}.{MINOR}-ironic-rhel-8-hotfix: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-8
+  # rhaos-{MAJOR}.{MINOR}-ironic-rhel-9-hotfix: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-9
 
 cdn_repos:
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-x86_64-rpms
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-ppc64le-rpms
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-s390x-rpms
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-8-aarch64-rpms
+- rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-9-x86_64-rpms
+- rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-9-ppc64le-rpms
+- rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-9-s390x-rpms
+- rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-9-aarch64-rpms
 
 synopsis:
   rpm: "OpenShift Container Platform {MAJOR}.{MINOR} bug fix and enhancement update"
