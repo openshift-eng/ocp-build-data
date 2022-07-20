@@ -15,7 +15,7 @@ RUN set -euxo pipefail && \
     curl --fail -L https://github.com/protocolbuffers/protobuf/releases/download/v3.15.5/protoc-3.15.5-linux-x86_64.zip > "${f}" && \
     mkdir -p /opt/google/protobuf && \
     unzip "${f}" -d /opt/google/protobuf && \
-    curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.4/etcd-v3.5.4-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.1-linux-amd64/etcd
+    curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.4/etcd-v3.5.4-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.4-linux-amd64/etcd
 
 # Install common CI tools and epel for packages like tito.
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
