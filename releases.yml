@@ -14,6 +14,9 @@ releases:
         component: 'rhcos'
       - code: INCONSISTENT_RHCOS_RPMS
         component: 'rhcos'
+      - code: MISSING_RHCOS_CONTAINER
+        component: 'rhel-coreos-8'
+        # why: for now this has not rolled out to non-x86
       members:
         images:
         - distgit_key: ironic
