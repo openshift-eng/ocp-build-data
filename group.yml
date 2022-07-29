@@ -18,7 +18,6 @@ urls:
 
 insecure_source: true
 
-# default branch because RPMs can't override (yet)
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 
 repos:
@@ -29,11 +28,11 @@ repos:
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros delve golang* go-toolset*
       baseurl:
-        # golang-1.18.0-2.module+el8.7.0+14880+f5e30240
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220419133936-347cc21f-build/latest/aarch64/
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220419133936-347cc21f-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220419133936-347cc21f-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220419133936-347cc21f-build/latest/x86_64/
+        # go-toolset-1.18.4-1.module+el8.7.0+16015+724888d8
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
