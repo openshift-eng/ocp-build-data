@@ -35,3 +35,23 @@ repos:
       ppc64le: rhocp-4.3-for-rhel-8-ppc64le-rpms
       s390x: rhocp-4.3-for-rhel-8-s390x-rpms
       optional: true
+
+  rhel-8-newer-golang-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+        # this repo provides complete RHEL 8 build env; we just want the go-toolset content
+        includepkgs: module-build-macros delve golang* go-toolset*
+      baseurl:
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8010020220725181925-0ed30617-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8010020220725181925-0ed30617-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8010020220725181925-0ed30617-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8010020220725181925-0ed30617-build/latest/x86_64/
+
+    # These content sets are also not used, so just putting something here
+    content_set:
+      default: rhocp-4.3-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-4.3-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-4.3-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-4.3-for-rhel-8-s390x-rpms
+      optional: true
