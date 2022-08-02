@@ -28,8 +28,8 @@ rhel-7-ci-build-root:
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 golang:
-  # openshift-golang-builder-container-v1.15.14-202202032054.el8.gdcaf135
-  image: openshift/golang-builder@sha256:5f9f8c8905900d8ce9f636163aed178694e1d31ccef5ac3bcd42fb29225de608
+  # openshift-golang-builder-container-v1.15.14-202208020023.el8.g2fcbeac
+  image: openshift/golang-builder@sha256:77e7532e902440aeebd3ca3e8ee478a7eb972439fb1ca3d476d1f65cfe101236
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.15-openshift-{MAJOR}.{MINOR}.art
@@ -60,16 +60,16 @@ rhel-8-golang-1.15-ci-build-root:
 # approval to diverge from what kube apiserver uses for a given release.
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  # openshift-golang-builder-container-v1.12.0-7
-  image: openshift/golang-builder@sha256:0f1184d59eacdf086b2d53f0f87ca1dbb5ab16daf601b406e3ef30596d1372a5
+  # openshift-golang-builder-container-v1.12.12-202208020245.el8.ge190075
+  image: openshift/golang-builder@sha256:4b073c102097014a6a3a9c4a51637eb5c52508ee0d0d35c78a5a4736d3862e4f
   mirror: true
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.12
 
 rhel-7-golang:
-  # openshift-golang-builder-container-v1.15.14-202111041714.el7.git.897eb48
-  image: openshift/golang-builder@sha256:a777e42f935d9f822f37601fe674c0a9dc4e54234ffc3f02a70b7fc5e0d6c88f
+  # openshift-golang-builder-container-v1.15.14-202208020019.el7.g897eb48
+  image: openshift/golang-builder@sha256:afc1d8646c13d150b7bcb7c6e9681f2c99f750a0282013af4759d6c7c8b076b4
   mirror: true
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.15-openshift-{MAJOR}.{MINOR}.art
   # dptp will layer yum repos / extra packages on top of ART's image to create the
