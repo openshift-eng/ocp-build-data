@@ -23,22 +23,6 @@ name: openshift/golang-builder
 owners:
 - aos-team-art@redhat.com
 
-# Pushing this image to quay with this tag will cause dominoes to fall. The
-# builder-base imagestream will detect the update, triggering buildconfigs
-# on api.ci to create & expose new goloang images.
-# Relevant PRs:
-# - https://github.com/openshift/release/pull/5529
-# - https://github.com/openshift/release/pull/5542
-# - https://github.com/openshift/release/pull/5609
-push:
-  also:
-  - registry.svc.ci.openshift.org/ocp/builder
-  additional_tags:
-  - 'rhel-8-golang-1.12'
-  - 'rhel_8_golang_1.12'
-  - 'rhel-8-golang-openshift-4.2'
-  - 'rhel-8-golang-openshift-4.3'
-
 additional_tags:
 - 'rhel_8_golang_1.12'
 - 'rhel_8_1.12'
