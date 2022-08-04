@@ -1,0 +1,33 @@
+---
+
+jira_config:
+  server: "https://issues.redhat.com"
+  project: "OCPBUGS"
+
+bugzilla_config:
+  server: "bugzilla.redhat.com"
+  classification: "Red Hat"
+  product: "OpenShift Container Platform"
+
+target_release:
+  - "4.5.0"
+  - "4.5.z"
+
+version:
+  - "4.5"
+  - "4.5.z"
+
+# List of OCP components for which advisories are not maintained by ART
+# to be ignored when looking for bugs to be attached to OCP advisories
+filters:
+  default:
+    - "RFE"
+    - "Documentation"
+    - "Security"
+    - "Migration Tooling"
+    - "CNF Platform Validation"
+  security:
+    - "RFE"
+    - "Documentation"
+    - "Migration Tooling"
+    - "CNF Platform Validation"
