@@ -38,15 +38,3 @@ releases:
       - code: MISSING_RHCOS_CONTAINER
         component: 'rhel-coreos-8'
         # why: for now this has not rolled out to non-x86
-      members:
-        images:
-        - distgit_key: ironic
-          metadata:
-            is:
-              nvr: ironic-container-v4.11.0-202207070244.p0.gb1863f8.assembly.stream
-          why: "builds will fail until RHEL 9 content is ready"
-        - distgit_key: ironic-agent
-          metadata:
-            is:
-              nvr: ironic-agent-container-v4.11.0-202207070244.p0.gd84c963.assembly.stream
-          why: "builds will fail until RHEL 9 content is ready"
