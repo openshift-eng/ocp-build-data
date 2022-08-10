@@ -1,4 +1,20 @@
 releases:
+  art-4424:
+    assembly:
+      basis:
+        assembly: 4.10.27
+        "reference_releases!": {}
+      group:
+        "advisories!": {}
+        "arches!":
+        - x86_64
+      rhcos:
+        dependencies:
+          rpms:
+            - el8: kernel-4.18.0-305.61.1.el8_4
+              why: "https://bugzilla.redhat.com/show_bug.cgi?id=2113957"
+              non_gc_tag: "Tagged as rhel hotfix"
+      type: custom
   4.10.27:
     assembly:
       basis:
