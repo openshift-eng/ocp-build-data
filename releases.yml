@@ -20,6 +20,23 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6facf016aae505214100da445da5a475631c30dd6962496f45cd595423ce494f
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:04c8872934d89221965ace53e360378d2966d7cd2ad3855d5a696d0c2632ce57
       type: preview
+  ec.1:
+    assembly:
+      basis:
+        #  4.12.0-0.nightly-2022-08-08-094324 was used as reference for the brew event based on TRT request
+        brew_event: 46695656
+      group: {}
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:36c05e44b6b4edab69177a0f821d5a94b84c26895f7dde514d41405d718d416c
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:569ecace6cd243d407b8dcea4dd4394a13c28bcbcab0b75da8251ed270692176
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:249b2d423e40b316c9214c85860f633bd9a039e454eb7725e2b6911a3b7eac05
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adddf493fd169fb8b99738487a69e673199533840594ab1a79b7178b82343598
+      type: preview
   stream:
     assembly:
       type: stream
