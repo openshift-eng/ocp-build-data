@@ -26,6 +26,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3c6effddcfec7aa2d467b8d75bc1ad8b6b8ac03c2dc07d81e7a8f11f7e43e7e4
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3bdcfa4665a6c55c56e0554871903e2dc3539180d2e1ee0d1daea1bc6de6f8e2
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6e95a59953c6c29b74cc3a9ecf941259ee80a6a3e2950101e438b3f531419eab
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: Permit ATTACHED_BUGS error on bug 2112996
       type: standard
   4.9.45:
     assembly:
