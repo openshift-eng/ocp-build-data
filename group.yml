@@ -101,6 +101,10 @@ repos:
         s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/{runtime_assembly}/building-embargoed/s390x/os
         x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/{runtime_assembly}/building-embargoed/x86_64/os
       # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
       optional: true
@@ -122,6 +126,10 @@ repos:
         - el8
         localdev:
           enabled: true
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
     reposync:
