@@ -31,6 +31,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6e56b048bbc013a27d2289b8fb5e94d4af05e4608cfdef99f4c5df81bcc9bae3
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7ac4f487075698ce16f337dae38020004652776d7329d81b930fb0d665b16b1e
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:822737b305b28aa4890f7bf847ebebc896cd7b549318195fc8c953ae3008cc44
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: Permit ATTACHED_BUGS to override Elliott misbehavior on Jenkins
       type: standard
   art4424:
     assembly:
