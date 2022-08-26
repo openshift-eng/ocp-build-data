@@ -1,4 +1,43 @@
 releases:
+  ec.2:
+    assembly:
+      basis:
+        brew_event: 46859840
+        reference_releases:
+          aarch64: 4.12.0-0.nightly-arm64-2022-08-24-034137
+          ppc64le: 4.12.0-0.nightly-ppc64le-2022-08-24-033937
+          s390x: 4.12.0-0.nightly-s390x-2022-08-24-034122
+          x86_64: 4.12.0-0.nightly-2022-08-24-053339
+      group: {}
+      permits:
+        - code: MISMATCHED_SIBLINGS
+          component: '*'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: '*'
+      members:
+        images:
+        - distgit_key: ose-ibmcloud-machine-controllers
+          why: url changed after brew event
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/cluster-api-provider-ibmcloud.git
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9e219621c27463a430696162e1205efdec8e10df02b6cdf9f3b5bfda29ce2a9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d6028d18530df9bf056f8d00a0c50a2e742ba4934ccfb5503f41f483403c022f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ce301be2b711336684a1596128fe8e867eb2b46767ea406914799eacc108ae3f
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:824955c49b3f4778682df94c85d9b44c17810542ac3132a85a49016ae0851b69
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:15aa3c7c678611df0d72eb9b4fa3a94c9f5e5c3664c029b126c4e98a5aaf533f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b47da0fa4451d11cb3d259a06f9651eac49ffeceb1787892dcf886bc276552c5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0a2be279d5fb687296d7901069063ce696bf9709b785216ca576a1b4cea4399f
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7d39d0f5fe33754167376915ef74c0bd2e8fef6b4584515b3bb91aead8c78904
+      type: preview
   ec.0:
     assembly:
       basis:
