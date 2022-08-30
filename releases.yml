@@ -80,17 +80,8 @@ releases:
     assembly:
       type: stream
       permits:
-      # why: "Always build shippable" does not apply while we're setting up 4.12
-      - code: MISMATCHED_SIBLINGS
-        component: '*'
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: '*'
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: 'rhcos'
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: 'rhcos'
+        component: 'ironic'
+        # why: https://issues.redhat.com/browse/ART-4558
       - code: INCONSISTENT_RHCOS_RPMS
         component: 'rhcos'
-      - code: MISSING_RHCOS_CONTAINER
-        component: 'rhel-coreos-8'
-        # why: for now this has not rolled out to non-x86
