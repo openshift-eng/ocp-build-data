@@ -14,6 +14,11 @@ releases:
           image: 101170
           metadata: 101172
           rpm: 101169
+        dependencies:
+          rpms:
+          - el8: cri-o-1.24.2-6.rhaos4.11.gitb67c16f.el8
+            why: match what is in the selected RHCOS instead of what is being added from -hotfix
+            non_gc_tag: will go to rhaos-4.11-rhel-8 when shipped
         release_jira: ART-4646
         upgrades: 4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.11.0,4.11.1,4.11.2
       members:
