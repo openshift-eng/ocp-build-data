@@ -7,9 +7,10 @@ release: "RHOSE ASYNC"
 
 brew_tag_product_version_mapping:
   rhaos-{MAJOR}.{MINOR}-rhel-8-candidate: OSE-{MAJOR}.{MINOR}-RHEL-8
-  rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix: OSE-{MAJOR}.{MINOR}-RHEL-8
   rhaos-{MAJOR}.{MINOR}-rhel-9-candidate: OSE-{MAJOR}.{MINOR}-RHEL-9
-  rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix: OSE-{MAJOR}.{MINOR}-RHEL-9
+  # No need to sweep builds in -hotfix tags
+  # rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix: OSE-{MAJOR}.{MINOR}-RHEL-8
+  # rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix: OSE-{MAJOR}.{MINOR}-RHEL-9
   rhaos-{MAJOR}.{MINOR}-ironic-rhel-9-candidate: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-9
   # There is no hotfix tag
   # rhaos-{MAJOR}.{MINOR}-ironic-rhel-9-hotfix: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-9
