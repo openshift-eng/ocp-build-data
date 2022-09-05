@@ -202,6 +202,26 @@ repos:
     reposync:
       enabled: false
 
+  rhel-9-codeready-builder-rpms:
+    conf:
+      baseurl:
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.0/aarch64/codeready-builder/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.0/ppc64le/codeready-builder/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.0/s390x/codeready-builder/os/
+        x96_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.0/x86_64/codeready-builder/os/
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: codeready-builder-for-rhel-9-x86_64-rpms__9_DOT_0
+      s390x: codeready-builder-for-rhel-9-s390x-rpms__9_DOT_0
+      ppc64le: codeready-builder-for-rhel-9-ppc64le-rpms__9_DOT_0
+      aarch64: codeready-builder-for-rhel-9-aarch64-rpms__9_DOT_0
+    reposync:
+      enabled: false
+
   rhel-8-rt-rpms:
     conf:
       baseurl:
