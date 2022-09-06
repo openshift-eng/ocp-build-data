@@ -1,6 +1,6 @@
 # Disabling until upstream updates channels for 4.12
 # ...or updates bundle dir to stable/
-mode: disabled
+#mode: disabled
 content:
   source:
     dockerfile: build/Dockerfile.operator.openshift
@@ -33,7 +33,7 @@ owners:
 - phoracek@redhat.com
 - yboaron@redhat.com
 update-csv:
-  bundle-dir: '{MAJOR}.{MINOR}/'
+  bundle-dir: '{MAJOR}.{MINOR}/manifests'
   manifests-dir: manifests/
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
