@@ -23,3 +23,8 @@ from:
 name: openshift/ingress-node-firewall
 owners:
 - mmahmoud@redhat.com
+update-csv:
+  bundle-dir: stable/
+  manifests-dir: manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
