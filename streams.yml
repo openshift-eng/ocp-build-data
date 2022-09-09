@@ -28,6 +28,16 @@ golang:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
 
+golang-1.19:
+  # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
+  # [lmeyer 2022-09-09] ONLY for CI testing at this point, this is from a scratch build
+  # openshift-golang-builder-container-v1.19.1-1.nofips.testonly.el8.g984aa58
+  image: openshift/golang-builder@sha256:f6140992aa5b6ff53baeacc8fb7f68095d9177989b37b93ebd96f4f079dfce88
+  mirror: true
+  transform: rhel-8/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+
 rhel-9-golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # openshift-golang-builder-container-v1.18.4-202209012340.el9.g8148c61
