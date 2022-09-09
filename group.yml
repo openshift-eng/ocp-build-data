@@ -1,4 +1,4 @@
-name: rhel-8-golang-1.18
+name: rhel-8-golang-1.19
 
 arches:
 - x86_64
@@ -8,7 +8,7 @@ arches:
 
 vars:
   MAJOR: 4
-  MINOR: 11
+  MINOR: 12
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -21,18 +21,18 @@ insecure_source: true
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 
 repos:
-  rhel-8-golang118-rpms:
+  rhel-8-golang119-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros delve golang* go-toolset*
       baseurl:
-        # go-toolset-1.18.4-1.module+el8.7.0+16015+724888d8
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/aarch64/
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8070020220720230209-347cc21f-build/latest/x86_64/
+        # scratch build go-toolset-1.19.1-1.nofips.testonly.el8-scratch
+        aarch64: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1.nofips.testonly.el8/aarch64/
+        ppc64le: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1.nofips.testonly.el8/ppc64le/
+        s390x: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1.nofips.testonly.el8/s390x/
+        x86_64: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1.nofips.testonly.el8/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
