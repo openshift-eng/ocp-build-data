@@ -88,3 +88,10 @@ releases:
         # why: https://issues.redhat.com/browse/ART-4558
       - code: INCONSISTENT_RHCOS_RPMS
         component: 'rhcos'
+      # why: get nightlies while p8 rhcos is failing
+      # https://coreos.slack.com/archives/GDBRP5YJH/p1662978182625979
+      # to be removed when issue is resolved
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: 'rhcos'
