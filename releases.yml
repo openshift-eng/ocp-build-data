@@ -17,6 +17,11 @@ releases:
             distgit:
               component: ose-ingress-node-firewall-container
               bundle_component: ose-ingress-node-firewall-operator-bundle-container
+        - distgit_key: ingress-node-firewall-daemon
+          why: component name changed after brew event
+          metadata:
+            distgit:
+              component: ose-ingress-node-firewall-container
         rpms: []
       rhcos:
         machine-os-content:
