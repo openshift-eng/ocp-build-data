@@ -48,9 +48,9 @@ rhel-8-golang-ci-build-root:
 
 golang-1.19:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # [lmeyer 2022-09-09] ONLY for CI testing at this point, this is from a scratch build
-  # openshift-golang-builder-container-v1.19.1-1.nofips.testonly.el8.g984aa58
-  image: openshift/golang-builder@sha256:f6140992aa5b6ff53baeacc8fb7f68095d9177989b37b93ebd96f4f079dfce88
+  # [lmeyer 2022-09-15] this is from a scratch build but includes FIPS so could be used for pre-RC builds
+  # openshift-golang-builder-container-v1.19.1-2.beta.scratch.el8.g9480073
+  image: openshift/golang-builder@sha256:95e9d84f48190f79d369bde3dc842ccde029bd3ccd01a5c5a2f1dcdb79616bd8
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
