@@ -10,7 +10,13 @@ releases:
           x86_64: 4.12.0-0.nightly-2022-09-14-101116
       group: {}
       members:
-        images: []
+        images:
+        - distgit_key: ingress-node-firewall
+          why: component name changed after brew event
+          metadata:
+            distgit:
+              component: ose-ingress-node-firewall-container
+              bundle_component: ose-ingress-node-firewall-operator-bundle-container
         rpms: []
       rhcos:
         machine-os-content:
