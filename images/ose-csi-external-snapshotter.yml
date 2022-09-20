@@ -16,11 +16,14 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+dependents:
+- ose-gcp-filestore-csi-driver-operator
 for_payload: true
 from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-csi-external-snapshotter
+name_in_bundle: csi-external-snapshotter
 owners:
 - aos-storage-staff@redhat.com
