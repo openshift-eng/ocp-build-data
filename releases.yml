@@ -19,6 +19,9 @@ releases:
       members:
         images: []
         rpms: []
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: jenkins 4.10 bug OCPBUGS-724 is backport of 4.11 bug that is CPaaS-managed, tooling does not yet deal with this edge case gracefully
       rhcos:
         machine-os-content:
           images:
