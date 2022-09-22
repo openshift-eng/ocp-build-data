@@ -6,10 +6,6 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/installer.git
       web: https://github.com/openshift/installer
-    modifications:
-    - action: replace
-      match: "hack/build.sh"
-      replacement: "GOFLAGS='-mod=vendor -p=8' hack/build.sh"
     ci_alignment:
       streams_prs:
         ci_build_root:
