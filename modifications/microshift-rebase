@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+fail() {
+    msg=$1
+    >&2 echo "$msg"
+    exit 1
+}
+[ -z "$RELEASE_NAME" ] && fail "Environment variable RELEASE_NAME is not set. Note currently rebasing against assembly stream is not supported."
+
+RELEASE_REPO=quay.io/openshift-release-dev/ocp-release
+
+# FIXME: rebase.sh requires Go yq (https://github.com/mikefarah/yq) instead of Python yq (https://github.com/kislyuk/yq),
+# which is used in the rest of the pipeline.
+# We install Go yq to /opt/yq-go/bin/ on buildvm to avoid conflict.
+# In the future we might have to run rebase.sh inside of a container to use specific versions of dependencies (including golang).
+export PATH=/opt/yq-go/bin/:$PATH
+./scripts/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64
