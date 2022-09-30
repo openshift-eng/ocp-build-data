@@ -19,6 +19,7 @@ RUN yum update -y && \
     yum install -y --setopt=tsflags=nodocs \
         bc \
         diffutils \
+        dos2unix \
         file \
         findutils \
         git \
