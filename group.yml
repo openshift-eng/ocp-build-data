@@ -434,3 +434,7 @@ csv_namespace: openshift
 check_golang_versions: "no"
 # [2022-09-30 lmeyer] we don't yet have a golang-1.19 for rhel9 so we'll just let it quietly fail
 # for now.
+
+# [2022-09-30] until feature freeze, attempt to use the golang builder that the upstream CI build is
+# using instead of what ART has configured, to encourage them to test before transitioning.
+canonical_builders_from_upstream: true
