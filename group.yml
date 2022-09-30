@@ -28,11 +28,11 @@ repos:
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros delve golang* go-toolset*
       baseurl:
-        # scratch build golang-1.19.1-1beta.el8 (https://brewweb.engineering.redhat.com/brew/taskinfo?taskID=47773674)
-        aarch64: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1beta.el8/aarch64/
-        ppc64le: http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1beta.el8/ppc64le/
-        s390x:   http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1beta.el8/s390x/
-        x86_64:  http://brew-task-repos.usersys.redhat.com/repos/scratch/dbenoit/golang/1.19.1/1beta.el8/x86_64/
+        # golang-1.19.1-2.module+el8.8.0+16778+5fbb74f5
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/ppc64le/
+        s390x:   http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/s390x/
+        x86_64:  http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
