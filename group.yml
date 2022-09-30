@@ -428,9 +428,9 @@ scan_freshness:
   release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
   threshold_hours: 6
 csv_namespace: openshift
+
 # whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
 # "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
-check_golang_versions: "x.y"
-# [2022-07-29 lmeyer] https://issues.redhat.com/browse/CLOUDBLD-10675 requests
-# el8 buildroot updates for 4.10-4.12 all at once for consistency and efficiency.
-# However there's no corresponding build for el9 yet so allow minor shear.
+check_golang_versions: "no"
+# [2022-09-30 lmeyer] we don't yet have a golang-1.19 for rhel9 so we'll just let it quietly fail
+# for now.
