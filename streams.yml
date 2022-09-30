@@ -21,12 +21,13 @@
 
 golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # openshift-golang-builder-container-v1.18.4-202207291631.el8.g2ee6935
-  image: openshift/golang-builder@sha256:66bd53b5f180fb080e164fd97c7aac173ac1a15e7582321f6c0934b39fb50225
+  # [lmeyer 2022-09-15] this is from a scratch build but includes FIPS so could be used for pre-RC builds
+  # openshift-golang-builder-container-v1.19.1-2.beta.scratch.el8.g9480073
+  image: openshift/golang-builder@sha256:95e9d84f48190f79d369bde3dc842ccde029bd3ccd01a5c5a2f1dcdb79616bd8
   mirror: true
   transform: rhel-8/golang
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
@@ -41,22 +42,6 @@ rhel-9-golang:
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
 rhel-8-golang-ci-build-root:
-  image: not_applicable
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
-  transform: rhel-8/ci-build-root
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.18-openshift-{MAJOR}.{MINOR}
-
-golang-1.19:
-  # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # [lmeyer 2022-09-15] this is from a scratch build but includes FIPS so could be used for pre-RC builds
-  # openshift-golang-builder-container-v1.19.1-2.beta.scratch.el8.g9480073
-  image: openshift/golang-builder@sha256:95e9d84f48190f79d369bde3dc842ccde029bd3ccd01a5c5a2f1dcdb79616bd8
-  mirror: true
-  transform: rhel-8/golang
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
-
-rhel-8-golang-1.19-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
