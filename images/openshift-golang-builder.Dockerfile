@@ -46,8 +46,7 @@ RUN yum update -y && \
         which \
         xz \
         zip && \
-    mkdir -p /go/src && \
-    yum clean all -y
+    mkdir -p /go/src
 
 # provide a cross-compiler for windows/mac binaries (amd64 only)
 COPY cross.tar.gz .
@@ -69,8 +68,7 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
     echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
     /sbin/ldconfig && \
-    rm -rf cross && \
-    yum clean all -y)
+    rm -rf cross)
 
 # above is conditional; clean up unconditionally
-RUN rm -f cross.tar.gz
+RUN rm -f cross.tar.gz && yum clean all -y

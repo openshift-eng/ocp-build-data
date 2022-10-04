@@ -21,7 +21,7 @@ insecure_source: true
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 
 repos:
-  rhel-8-golang119-rpms:
+  rhel-8-golang-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
@@ -45,6 +45,11 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
+        # this repo is for our own buildroot, which also inherits a complete RHEL 8 build env;
+        # restrict to specific necessary content, because RHEL 8 build dev content may include
+        # pending unreleased content that can cause conflicts for later CI installs lacking access
+        # to that content.
+        includepkgs: goversioninfo gpgme-devel libassuan-devel mingw*
       baseurl:
         aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
         ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
@@ -58,6 +63,21 @@ repos:
       ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
       s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
       optional: true
+
+  rhel-8-baseos-rpms:
+    conf:
+      baseurl:
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/baseos/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/baseos/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/baseos/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/baseos/os/
+    content_set:
+      default: rhel-8-for-x86_64-baseos-eus-rpms__8_DOT_6
+      aarch64: rhel-8-for-aarch64-baseos-eus-rpms__8_DOT_6
+      ppc64le: rhel-8-for-ppc64le-baseos-eus-rpms__8_DOT_6
+      s390x: rhel-8-for-s390x-baseos-eus-rpms__8_DOT_6
+    reposync:
+      enabled: false
 
   rhel-8-appstream-rpms:
     conf:
