@@ -199,12 +199,12 @@ releases:
   stream:
     assembly:
       type: stream
-      permits:
-      - code: INCONSISTENT_RHCOS_RPMS
-        component: 'rhcos'
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: 'rhcos'
-        # why: ARM builds are failing and we want more nightlies
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: 'rhcos'
-        # why: ARM builds are failing and we want more nightlies
+      # permits:
+      # - code: INCONSISTENT_RHCOS_RPMS
+      #   component: 'rhcos'
+      # - code: OUTDATED_RPMS_IN_STREAM_BUILD
+      #   component: 'rhcos'
+      #   # why: ARM builds are failing and we want more nightlies
+      # - code: CONFLICTING_GROUP_RPM_INSTALLED
+      #   component: 'rhcos'
+      #   # why: ARM builds are failing and we want more nightlies
