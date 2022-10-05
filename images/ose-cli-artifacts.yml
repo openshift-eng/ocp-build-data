@@ -6,10 +6,6 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/oc.git
       web: https://github.com/openshift/oc
-    modifications:
-    - action: replace
-      match: "make cross-build"
-      replacement: "GOFLAGS='-mod=vendor -p=4' make cross-build"
     ci_alignment:
       enabled: false
 distgit:

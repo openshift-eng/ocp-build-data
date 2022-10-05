@@ -38,6 +38,7 @@ assemblies:
 cachito:
   enabled: true
 
+default_image_build_method: osbs2
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
 
@@ -270,7 +271,6 @@ repos:
       # don't have content set for aarch64 or s390x
       optional: true
 
-default_image_build_method: imagebuilder
 image_build_log_scanner:
   matches:
     # yum failed to install a package (but may not give an error result)
