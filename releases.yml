@@ -1,4 +1,32 @@
 releases:
+  ec.4:
+    assembly:
+      basis:
+        brew_event: 47412419
+      group: {}
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2065ffadcd62bc8a06028fdee7e7dd5138659a098ac5343d36c9e5c2108aca0e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fc12818661795c327559a97dd0f705ed02dc53ad47206b18f9b40d8096b83e20
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7adbdf459d46766d09bf6142f968acb170da3e1d1b5ddf2b16d16e1bc1b5fcb4
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d212057e7f8dd43f5d4c65603643e3bb042d93a7b8303c30927320566dc64bee
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e2d0f8a2b08b19bf63de0441da4fa5c81dea0cc2d05c20508b5da542301e6e94
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:64f089e40470f5d6b5c4d4ddf3b1cac9b3ea372322bd1a1343767e30985f90b2
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1aed25c6bc54076be653de1aac7e1d3ec273d9e3361c6843cbbe2ed32e4ac08c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0daf5c4a35424410e88dde102022fc3581302bc8a98e09e2e4748502c59b3661
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dcb6a08c46b06eb373ae2b48359b08b8ceb4c89a0f74df299cc464695c209660
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:47f393fb3299050cd47b3a2d520ab422da5c388434a6f22fb96083a774dd765c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e2c4a03c25fa9d1eb47185b8810420ca7a44eff0a1a9a63ce9e73baeb98f3320
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4b21f9e835148f3387a1ea784be9272befe814a213726453687b6682df273023
+      type: preview
   ec.3:
     assembly:
       basis:
