@@ -1,0 +1,19 @@
+content:
+  source:
+    git:
+      url: git@github.com:openshift/cloud-provider-nutanix.git
+      web: https://github.com/openshift/cloud-provider-nutanix.git
+      branch:
+        target: release-{MAJOR}.{MINOR}
+    dockerfile: openshift/Dockerfile.openshift
+name: openshift/ose-nutanix-cloud-controller-manager
+for_payload: true
+owners:
+- mfedosin@redhat.com
+- jspeed@redhat.com
+- elmiko@redhat.com
+- dmoiseev@redhat.com
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
