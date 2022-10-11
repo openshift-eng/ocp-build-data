@@ -10,8 +10,8 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
-# dependents:
-# - clusterresourceoverride-operator # Disabled to wait for updated bundle dirs
+dependents:
+- clusterresourceoverride-operator
 distgit:
   component: ose-clusterresourceoverride-container
 enabled_repos:
