@@ -1,4 +1,4 @@
-name: rhel-8-golang-1.19
+name: rhel-9-golang-1.19
 
 arches:
 - x86_64
@@ -18,10 +18,10 @@ urls:
 
 insecure_source: true
 
-branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 
 repos:
-  rhel-8-golang-rpms:
+  rhel-9-golang-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
@@ -29,19 +29,16 @@ repos:
         includepkgs: module-build-macros delve golang* go-toolset*
       baseurl:
         # golang-1.19.1-2.module+el8.8.0+16778+5fbb74f5
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/aarch64/
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/ppc64le/
-        s390x:   http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/s390x/
-        x86_64:  http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020220930130611-17f3f959-build/latest/x86_64/
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/aarch64
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
-      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
-      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
-      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
-      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+      default: bogus
       optional: true
 
-  rhel-8-server-ose-build-rpms:
+  rhel-9-server-ose-build-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
@@ -49,47 +46,44 @@ repos:
         # restrict to specific necessary content, because RHEL 8 build dev content may include
         # pending unreleased content that can cause conflicts for later CI installs lacking access
         # to that content.
-        includepkgs: goversioninfo gpgme-devel libassuan-devel mingw*
+        includepkgs: goversioninfo gpgme-devel libassuan-devel mingw* delve golang* go-toolset*
       baseurl:
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
 
     # These content sets are not used, so just putting something here
     content_set:
-      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
-      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
-      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
-      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+      default: bogus
       optional: true
 
-  rhel-8-baseos-rpms:
+  rhel-9-baseos-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/baseos/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/baseos/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/baseos/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/baseos/os/
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/baseos/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/baseos/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/baseos/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/baseos/os/
     content_set:
-      default: rhel-8-for-x86_64-baseos-eus-rpms__8_DOT_6
-      aarch64: rhel-8-for-aarch64-baseos-eus-rpms__8_DOT_6
-      ppc64le: rhel-8-for-ppc64le-baseos-eus-rpms__8_DOT_6
-      s390x: rhel-8-for-s390x-baseos-eus-rpms__8_DOT_6
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
     reposync:
       enabled: false
 
-  rhel-8-appstream-rpms:
+  rhel-9-appstream-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/appstream/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/appstream/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/appstream/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/appstream/os/
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/appstream/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/appstream/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/appstream/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/appstream/os/
     content_set:
-      default: rhel-8-for-x86_64-appstream-eus-rpms__8_DOT_6
-      aarch64: rhel-8-for-aarch64-appstream-eus-rpms__8_DOT_6
-      ppc64le: rhel-8-for-ppc64le-appstream-eus-rpms__8_DOT_6
-      s390x: rhel-8-for-s390x-appstream-eus-rpms__8_DOT_6
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
     reposync:
       enabled: false
