@@ -1,7 +1,7 @@
-FROM registry.redhat.io/ubi8:latest
+FROM registry.redhat.io/ubi9:latest
 
 ARG GOPATH
-ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
+ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
     container=oci \
     GOFLAGS='-mod=vendor' \
     GOPATH=${GOPATH:-/go} \
