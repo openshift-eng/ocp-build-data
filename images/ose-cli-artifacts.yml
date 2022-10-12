@@ -10,6 +10,10 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+    modifications:
+    - action: replace
+      match: "make cross-build"
+      replacement: "GOFLAGS='-mod=vendor -p=4' make cross-build"
 distgit:
   namespace: containers
 enabled_repos:

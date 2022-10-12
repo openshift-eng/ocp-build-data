@@ -10,6 +10,9 @@ content:
     - action: replace
       match: "COPY . ."
       replacement: "COPY . .\nRUN rm -rf unpacked_remote_sources"  # FIXME: Workaround for CLOUDBLD-8974
+    - action: replace
+      match: "make WHAT="
+      replacement: "make GOFLAGS='-mod=vendor -p=4' WHAT="
     ci_alignment:
       streams_prs:
         ci_build_root:

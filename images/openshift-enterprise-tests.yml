@@ -2,6 +2,10 @@ content:
   source:
     alias: ose
     dockerfile: images/tests/Dockerfile.rhel
+    modifications:
+    - action: replace
+      match: "RUN make"
+      replacement: "RUN GOFLAGS='-mod=vendor -p=4' make"
     ci_alignment:
       streams_prs:
         ci_build_root:
