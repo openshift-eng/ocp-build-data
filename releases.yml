@@ -26,6 +26,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c0456b939ab01d0965d1b3b547ec7f8b797d35211e1f4de85f6a883f90ff1fe4
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:608d3e0b19c835406467d042de51b8bebf623337a52734994f84f3348b5820f0
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b0dfc75614f87319a5160844582404dbe3eea1b5ffb6cae1d67a343df4347709
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "4.12 is in pre-release state: skipping regression checks for 4.11"
       type: standard
   4.11.8:
     assembly:
