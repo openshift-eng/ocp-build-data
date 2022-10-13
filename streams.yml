@@ -30,12 +30,12 @@ golang:
 
 rhel-9-golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # openshift-golang-builder-container-v1.18.4-202209012340.el9.g8148c61
-  image: openshift/golang-builder@sha256:7b839efdca01cba7c9c3e7bc86cd5ef5160a3933d6f5402630d031af6a97ea3f
+  # openshift-golang-builder-container-v1.19.1-202210131743.el9.g3104aa6
+  image: openshift/golang-builder@sha256:38a4dcf1dfa656e5a3c7784cfc922379add704a5415d0eb742f5fd4ae98dcfeb
   mirror: true
   transform: rhel-9/golang
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.18-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.18-openshift-{MAJOR}.{MINOR}
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
