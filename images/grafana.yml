@@ -14,7 +14,8 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-for_payload: true
+# [lmeyer 2022-10-13] per ART-4280 this is deadwood, only being updated to prevent questions about grades dropping
+for_payload: false
 from:
   builder:
   - stream: golang
