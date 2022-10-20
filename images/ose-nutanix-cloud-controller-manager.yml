@@ -8,14 +8,17 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
     dockerfile: openshift/Dockerfile.openshift
-name: openshift/ose-nutanix-cloud-controller-manager
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
 for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-nutanix-cloud-controller-manager
 owners:
 - mfedosin@redhat.com
 - jspeed@redhat.com
 - elmiko@redhat.com
 - dmoiseev@redhat.com
-from:
-  builder:
-  - stream: golang
-  member: openshift-enterprise-base
