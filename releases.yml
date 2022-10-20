@@ -731,3 +731,15 @@ releases:
             container_yaml!: {}
             cachito:
               enabled: true
+  stream:
+    assembly:
+      type: stream
+      permits:
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: rhcos
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: 'rhcos'
+        # why: Pipeline sadness
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+        # why: Pipeline sadness
