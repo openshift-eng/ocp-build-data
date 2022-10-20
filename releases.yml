@@ -18,10 +18,35 @@ releases:
       members:
         images:
           - distgit_key: ose-metering-ansible-operator
-            why: Operator Build failed to qualify brew event
+            why: Consistent Operator Builds regardless of brew event
             metadata:
               is:
                 nvr: ose-metering-ansible-operator-container-v4.8.0-202210181048.p0.g0d7ecfb.assembly.stream
+          - distgit_key: ose-metering-reporting-operator
+            why: Consistent Operator Builds regardless of brew event
+            metadata:
+              is:
+                nvr: ose-metering-reporting-operator-container-v4.8.0-202210181048.p0.g0d7ecfb.assembly.stream
+          - distgit_key: presto
+            why: Consistent Operator Builds regardless of brew event
+            metadata:
+              is:
+                nvr: presto-container-v4.8.0-202210180818.p0.gf38293a.assembly.stream
+          - distgit_key: hive
+            why: Consistent Operator Builds regardless of brew event
+            metadata:
+              is:
+                nvr: hive-container-v4.8.0-202210180818.p0.g654b477.assembly.stream
+          - distgit_key: hadoop
+            why: Consistent Operator Builds regardless of brew event
+            metadata:
+              is:
+                nvr: hadoop-container-v4.8.0-202210180818.p0.g7c46554.assembly.stream
+          - distgit_key: ghostunnel
+            why: Consistent Operator Builds regardless of brew event
+            metadata:
+              is:
+                nvr: ghostunnel-container-v4.8.0-202210181048.p0.g3f61070.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
