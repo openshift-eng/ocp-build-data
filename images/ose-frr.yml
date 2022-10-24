@@ -11,8 +11,9 @@ enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-server-ose-rpms-embargoed
 for_payload: false
-dependents:
-- ose-metallb-operator
+## [dpaolell] disabled until upstream is configured for 4.13
+#dependents:
+#- ose-metallb-operator
 from:
   member: openshift-base-rhel8
 name: openshift/frr-rhel8
