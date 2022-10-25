@@ -1,4 +1,19 @@
 releases:
+
+  stream:
+    assembly:
+      type: stream
+      rhcos:
+        machine-os-content:
+          images:
+            # match the s390x build that is behind
+            # 410.84.202210211916-0
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5639fdebf38076a0f8097e62442203e64aec2e79ba1373916d1c9e4729a6129b
+            # 410.84.202210220011-0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:914ee10b8103cf780945ac33c742d0d3bc45cd40992dba993bfe934a87a49ca8
+            # 410.84.202210211026-0
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:231f7d75b3e0f1dbb5c32b26254359de9e664f44d259a7e9a26acacad52a1b5b
+
   4.10.38:
     assembly:
       basis:
