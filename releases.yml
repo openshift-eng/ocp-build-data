@@ -1,4 +1,19 @@
 releases:
+
+  stream:
+    assembly:
+      type: stream
+      rhcos:
+        machine-os-content:
+          images:
+            # match the x86 and s390x builds that are behind
+            # 49.84.202210210253-0
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3f1f713942e433c8c2c5f351f1ec39072d4bfdf3d58d168cbe32a50c9a82faf3
+            # 49.84.202210211935-0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c1c4640fac10ea907838e9782351d3168a79ac084297d435fc036f4a11946f12
+            # 49.84.202210201521-0
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:20c5e7faca973fe4efe23afbdf7b3ba2f0830d1fc20afe704686375857d4efac
+
   4.9.50:
     assembly:
       basis:
