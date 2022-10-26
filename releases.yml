@@ -1,4 +1,33 @@
 releases:
+  4.11.11:
+    assembly:
+      basis:
+        brew_event: 47663523
+        reference_releases:
+          aarch64: 4.11.0-0.nightly-arm64-2022-10-24-183049
+          ppc64le: 4.11.0-0.nightly-ppc64le-2022-10-24-182941
+          s390x: 4.11.0-0.nightly-s390x-2022-10-24-183014
+          x86_64: 4.11.0-0.nightly-2022-10-24-182851
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.10.32,4.10.33,4.10.34,4.10.35,4.10.36,4.10.37,4.10.38,4.10.39,4.11.0,4.11.1,4.11.2,4.11.3,4.11.4,4.11.5,4.11.6,4.11.7,4.11.8,4.11.9,4.11.10
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0c418f16d24cb370243d0a3c5f5a11b3cdbdfba15b7ec35a53695f7a8a1140e0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:72c6c1a506ceb54d8871446bc6a0b0099e6be319da5ab627936d52ba23fa7bb6
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d11f9284cf1c02572c06ddb24f989824d4af109cf70fffef232889f13ac796d7
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b4aa84832c687c5f6bd9e448227cc03b3dacfea2e1cc44c9d2a87a6827ae6787
+      type: standard
+
   4.11.10:
     assembly:
       basis:
@@ -28,7 +57,7 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:88dfa1f895f9dc0032fd5703e4d7f1ece4e3606773a74f45009a44beb1dd180e
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "4.12 is in pre-release state: skipping regression checks for 4.11"
+        why: '4.12 is in pre-release state: skipping regression checks for 4.11'
       type: standard
   4.11.9:
     assembly:
@@ -59,7 +88,7 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b0dfc75614f87319a5160844582404dbe3eea1b5ffb6cae1d67a343df4347709
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "4.12 is in pre-release state: skipping regression checks for 4.11"
+        why: '4.12 is in pre-release state: skipping regression checks for 4.11'
       type: standard
   4.11.8:
     assembly:
@@ -587,7 +616,7 @@ releases:
         images: []
         rpms:
         - distgit_key: openshift-ansible
-          why: 'builds had been dropped, last one is newer than brew event'
+          why: builds had been dropped, last one is newer than brew event
           metadata:
             is:
               el8: openshift-ansible-4.11.0-202206240216.p0.g9de1722.assembly.stream.el8
@@ -738,8 +767,8 @@ releases:
       - code: INCONSISTENT_RHCOS_RPMS
         component: rhcos
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: 'rhcos'
+        component: rhcos
         # why: Pipeline sadness
       - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: 'rhcos'
+        component: rhcos
         # why: Pipeline sadness
