@@ -14,16 +14,16 @@ releases:
           image: 104131
           metadata: 104133
           rpm: 104130
-        dependencies:
-          rpms:
-          - el8: openshift-clients-4.11.0-202209201358.p0.g262ac9c.assembly.stream.el8
-            why: newer build not picked up in the older pinned RHCOS
-            non_gc_tag: will go to rhaos-4.11-rhel-8 when shipped
         release_jira: ART-5089
         upgrades: 4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.10.32,4.10.33,4.10.34,4.10.35,4.10.36,4.10.37,4.10.38,4.10.39,4.11.0,4.11.1,4.11.2,4.11.3,4.11.4,4.11.5,4.11.6,4.11.7,4.11.8,4.11.9,4.11.10,4.11.11
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: newer build not picked up in the older pinned RHCOS
+          metadata:
+            is:
+              el8: openshift-clients-4.11.0-202209201358.p0.g262ac9c.assembly.stream.el8
       rhcos:
         machine-os-content:
           images:
