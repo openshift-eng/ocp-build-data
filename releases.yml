@@ -10,7 +10,15 @@ releases:
           x86_64: 4.12.0-0.nightly-2022-10-25-210451
       group: {}
       members:
-        images: []
+        images:
+        - distgit_key: ose-ibmcloud-cluster-api-controllers
+          why: This image was multi-arch at the moment of the basis event.
+          metadata:
+            arches!:
+            - x86_64
+            - s390x
+            - ppc64le
+            - aarch64
         rpms: []
       rhcos:
         machine-os-content:
