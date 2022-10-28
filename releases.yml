@@ -1,4 +1,45 @@
 releases:
+  ec.5:
+    assembly:
+      basis:
+        brew_event: 47692089
+        reference_releases:
+          aarch64: 4.12.0-0.nightly-arm64-2022-10-26-041720
+          ppc64le: 4.12.0-0.nightly-ppc64le-2022-10-25-185850
+          s390x: 4.12.0-0.nightly-s390x-2022-10-25-185917
+          x86_64: 4.12.0-0.nightly-2022-10-25-210451
+      group: {}
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3e9be64212403387f393f46e6c24b868dca8662757e2a093cc8db368d71d6382
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a16445bc67b14c540a103f471d9216b3f82f78248684dddafeb701f009de0ca
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aea93282ea25f019d16abf4e27b157d3b602bebf7ac129c349bca382ef9edaab
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:befabfa6f675c920de88f18edce9eef358f189f39c62b91a0eeadedd88e9f658
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dc60b8a659a89fc329245a6ed3f5c44e0e0548550997809ffcd1dfb5c461bea9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6df414d1c1456cd5ffe5be0eb7c86072396e34d21a39386cf5e89d78d31e3b2e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6811deb6735cae8d074ed55ff2f4b30370d2eaf7f456e989554bf07fd5c36d64
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d16e3e31dd727f8481bf468dbc0064804b33b3d5ae5dd932040a9f3e9bf37329
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:413b5d0cb3c4c2a0b7d170b4a081da9e5929cde353cb4b6e459d8b1242601cb3
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:39c8081aa0bf632dddf70060b11d7e85cbab3829c2332408b667fbb7ed6f44a2
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bd868ab75ac0c6472131f0027ab54664f803fc9e6a503b96fc91992b3b9de789
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e7a193ce4ca7b490251713b293c2a4ad2794626d58de71507b1a46304ad94e7a
+      permits:
+      # why: we don't have consistent RHCOS builds due to failures
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: '*'
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: '*'
+      type: preview
   ec.4:
     assembly:
       basis:
