@@ -2,7 +2,7 @@ freeze_automation: false
 
 vars:
   MAJOR: 4
-  MINOR: 12
+  MINOR: 13
   IMPACT: Low
   CVES: None
 
@@ -137,24 +137,6 @@ repos:
       ci_alignment:
         profiles:
         - el8
-        localdev:
-          enabled: true
-    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
-      optional: true
-    reposync:
-      latest_only: false
-
-  # The installer team working with rhel-7 worker nodes needs rhel-7 rpms reposync'd.
-  rhel-server-ose-rpms:
-    conf:
-      baseurl:
-        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/aarch64/os
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
-      ci_alignment:
-        profiles:
-        - el7
         localdev:
           enabled: true
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check

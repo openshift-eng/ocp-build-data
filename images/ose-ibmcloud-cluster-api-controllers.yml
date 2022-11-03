@@ -1,3 +1,6 @@
+arches:
+- x86_64
+- ppc64le
 content:
   source:
     dockerfile: openshift/Dockerfile.openshift
@@ -18,7 +21,7 @@ from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift4/ose-ibmcloud-cluster-api-controllers
+name: openshift/ose-ibmcloud-cluster-api-controllers
 owners:
 - mkumatag@redhat.com
 - kabhat@redhat.com

@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# To rebase against nightlies, define MICROSHIFT_PAYLOAD_X86_64 and MICROSHIFT_PAYLOAD_AARCH64
+#   as the pullspecs of x86_64 and aarch64 release payloads.
+# To rebase against a named release, define RELEASE_NAME.
+# To not rebase at all, define MICROSHIFT_NO_REBASE=1
+
 set -e
 
 RELEASE_REPO="${RELEASE_REPO:-quay.io/openshift-release-dev/ocp-release}"
@@ -9,11 +15,28 @@ fail() {
     exit 1
 }
 
-[ -z "$RELEASE_NAME" ] && fail "Environment variable RELEASE_NAME is not set. Note currently rebasing against assembly stream is not supported."
+if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
+    echo "MICROSHIFT_NO_REBASE is defined. Rebase will not be run."
+    exit 0
+fi
 
 # FIXME: rebase.sh requires Go yq (https://github.com/mikefarah/yq) instead of Python yq (https://github.com/kislyuk/yq),
 # which is used in the rest of the pipeline.
 # We install Go yq to /opt/yq-go/bin/ on buildvm to avoid conflict.
+# Use Go 1.18.7 as the version installed on buildvm (1.17) is no longer supported.
 # In the future we might have to run rebase.sh inside of a container to use specific versions of dependencies (including golang).
-export PATH=/opt/yq-go/bin/:$PATH
-./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64
+export PATH=/opt/go-1.18.7/bin:/opt/yq-go/bin:$PATH
+
+if [ -n "$RELEASE_NAME" ]; then
+    # rebase against a named release
+    ./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64
+    exit 0
+fi
+
+if [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ]; then
+    # rebase against specified release payloads
+    ./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64"
+    exit 0
+fi
+
+fail "Environment variable RELEASE_NAME is not set. Note currently rebasing against a custom assembly is not supported."
