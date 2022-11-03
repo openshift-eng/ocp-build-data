@@ -8,7 +8,13 @@ releases:
           ppc64le: 4.12.0-0.nightly-ppc64le-2022-10-25-185850
           s390x: 4.12.0-0.nightly-s390x-2022-10-25-185917
           x86_64: 4.12.0-0.nightly-2022-10-25-210451
-      group: {}
+      group:
+        advisories:
+          rpm: 104600
+          image: 104601
+          extras: 104602
+          metadata: 104603
+        release_jira: ART-5203
       members:
         images:
         - distgit_key: ose-ibmcloud-cluster-api-controllers
