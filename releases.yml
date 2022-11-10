@@ -860,3 +860,16 @@ releases:
             container_yaml!: {}
             cachito:
               enabled: true
+  stream:
+    assembly:
+      type: stream
+      permits:
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: 'rhcos'
+        # why: p8 builds are failing and we want more nightlies
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
+        # why: default permit
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+        # why: default permit
