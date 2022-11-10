@@ -10,11 +10,11 @@ releases:
           x86_64: 4.12.0-0.nightly-2022-11-10-033725
       group:
         advisories:
-          extras: -1
-          image: -1
-          metadata: -1
-          rpm: -1
-        release_jira: ART-0
+          rpm: 104600
+          image: 104601
+          extras: 104602
+          metadata: 104603
+        release_jira: ART-5203
         upgrades: 4.11.9,4.11.10,4.11.11,4.11.12,4.11.13,4.11.14
       members:
         images: []
@@ -38,6 +38,13 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:824b3cfe3da7d9de4c40c2f1b8936eb89300611e17366703752b22e7c30f04b5
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dda95a55ac38922da007f53a7e4b812994161fd6395fb67118ca7b87af6f8279
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3d166c022f88edc3e57d74b0286cb3dda7e8d102d35a441ca437df0aadd98cda
+      permits:
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: 'rhcos'
+      # why: p8 rhcos is inconsistent but we want to produce a rc.0
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+      # why: p8 rhcos is inconsistent but we want to produce a rc.0
       type: candidate
 
   ec.5:
