@@ -5,14 +5,10 @@ releases:
       permits:
       - code: INCONSISTENT_RHCOS_RPMS
         component: 'rhcos'
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: 'rhcos'
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: ose-ovn-kubernetes
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: ovn-kubernetes-microshift
+        component: '*'
       members:
         images:
         - distgit_key: openshift-enterprise-console
