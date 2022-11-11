@@ -16,6 +16,11 @@ releases:
           metadata: 104603
         release_jira: ART-5203
         upgrades: 4.11.9,4.11.10,4.11.11,4.11.12,4.11.13,4.11.14
+      issues:
+        exclude:
+        - id: 2115450
+        # why: https://bugzilla.redhat.com/show_bug.cgi?id=2115450 is a runc tracker bug
+        # with no eligible builds. fix isn't in rhcos yet (as of 2022-11-11)
       members:
         images: []
         rpms:
