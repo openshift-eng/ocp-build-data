@@ -1815,3 +1815,16 @@ releases:
                     target: a8ce8c1217286630a5fe40b03a6ebad52411f02d
             is:
               nvr: ose-cli-artifacts-alt-container-v4.10.0-202202170030.p0.ga8ce8c1.assembly.art3803
+  stream:
+    assembly:
+      type: stream
+      permits:
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: 'rhcos'
+            # why: p8 builds are failing and we want more nightlies
+        - code: OUTDATED_RPMS_IN_STREAM_BUILD
+          component: '*'
+            # why: default permit
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: 'rhcos'
+            # why: default permit
