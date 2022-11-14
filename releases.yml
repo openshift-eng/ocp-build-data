@@ -1155,3 +1155,13 @@ releases:
             container_yaml!: {}
             cachito:
               enabled: true
+  stream:
+    assembly:
+      type: stream
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
+      # why: default permit
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+      # why: default permit
