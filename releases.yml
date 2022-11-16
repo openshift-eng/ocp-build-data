@@ -10,7 +10,24 @@ releases:
           image: 105243
           metadata: 105245
           rpm: 105242
+        dependencies:
+          rpms:
+          - el8: kernel-rt-4.18.0-372.32.1.rt7.189.el8_6
+            why: match what is in the selected RHCOS as EUS repos do not include latest
+            non_gc_tag: RHSA-2022:7134-released
         release_jira: ART-5261
+      issues:
+        exclude:
+        # This bug is for a component ART does not manage
+        - id: 2068230
+      members:
+        images:
+        - distgit_key: driver-toolkit
+          why: newer build to match RHCOS kernel-rt
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.11.0-202211162253.p0.g4e799c0.assembly.4.11.16
+        rpms: []
   4.11.15:
     assembly:
       basis:
