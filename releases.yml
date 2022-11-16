@@ -5,10 +5,14 @@ releases:
         brew_event: 47945863
         reference_releases:
           aarch64: 4.11.0-0.nightly-arm64-2022-11-15-180238
-          ppc64le: 4.11.0-0.nightly-ppc64le-2022-11-15-163306
+          # ppc64le: 4.11.0-0.nightly-ppc64le-2022-11-15-163306
           s390x: 4.11.0-0.nightly-s390x-2022-11-15-163339
           x86_64: 4.11.0-0.nightly-2022-11-15-184013
       group:
+        arches!:
+        - x86_64
+        - s390x
+        - aarch64
         advisories:
           extras: -1
           image: -1
