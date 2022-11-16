@@ -1,4 +1,33 @@
 releases:
+  4.11.15:
+    assembly:
+      basis:
+        brew_event: 47945863
+        reference_releases:
+          aarch64: 4.11.0-0.nightly-arm64-2022-11-15-180238
+          ppc64le: 4.11.0-0.nightly-ppc64le-2022-11-15-163306
+          s390x: 4.11.0-0.nightly-s390x-2022-11-15-163339
+          x86_64: 4.11.0-0.nightly-2022-11-15-184013
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.10.32,4.10.33,4.10.34,4.10.35,4.10.36,4.10.37,4.10.38,4.10.39,4.10.40,4.10.41,4.10.42,4.11.0,4.11.1,4.11.2,4.11.3,4.11.4,4.11.5,4.11.6,4.11.7,4.11.8,4.11.9,4.11.10,4.11.11,4.11.12,4.11.13,4.11.14
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8c5e7c57c9701f3fe31793d7951577760fd213bc8379359e332fd356fbb1d9c6
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:314b205d0bdc9cdf1a5fa93da2e7e6eeb2b599812b6555bbea38f3dee7ce575e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b2d4b71641216b8c2ee2690205e1584ae7863650c97be6a369a70d7a76b52179
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:355fd01f4dbaf4c47df7c293ccdec347bc4f4c5689f9564858c672c4473e6fc6
+      type: standard
+
   4.11.14:
     assembly:
       basis:
