@@ -2,15 +2,15 @@ releases:
   4.11.16:
     assembly:
       basis:
-        assembly: 4.11.15  # respin to change image advisory to RHSA
+        assembly: 4.11.14  # respin to include viable content
         reference_releases!: {}
       type: standard
       group:
         advisories:
-          extras: 105244
-          image: 105243
-          metadata: 105245
-          rpm: 105242
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
         dependencies:
           rpms:
           - el8: kernel-rt-4.18.0-372.32.1.rt7.189.el8_6
@@ -27,7 +27,7 @@ releases:
           why: newer build to match RHCOS kernel-rt
           metadata:
             is:
-              nvr: driver-toolkit-container-v4.11.0-202211162253.p0.g4e799c0.assembly.4.11.16
+              nvr: driver-toolkit-container-v4.11.0-202211170444.p0.g13ccef8.assembly.stream
         rpms: []
   4.11.15:
     assembly:
