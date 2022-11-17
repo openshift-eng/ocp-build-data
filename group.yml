@@ -91,10 +91,10 @@ repos:
   rhel-8-server-ose-rpms-embargoed:
     conf:
       baseurl:
-        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/{runtime_assembly}/building-embargoed/aarch64/os
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/{runtime_assembly}/building-embargoed/ppc64le/os
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/{runtime_assembly}/building-embargoed/s390x/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/{runtime_assembly}/building-embargoed/x86_64/os
+        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/ppc64le/os
+        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/s390x/os
+        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/x86_64/os
       # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
@@ -108,10 +108,10 @@ repos:
   rhel-8-server-ose-rpms:
     conf:
       baseurl:
-        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/aarch64/os
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/ppc64le/os
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/s390x/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}-el8/building/x86_64/os
+        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/ppc64le/os
+        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/s390x/os
+        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/x86_64/os
       ci_alignment:
         profiles:
         - el8
@@ -126,10 +126,10 @@ repos:
   rhel-server-ose-rpms:
     conf:
       baseurl:
-        aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/aarch64/os
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
-        s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/s390x/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
+        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/ppc64le/os
+        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/s390x/os
+        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/x86_64/os
       ci_alignment:
         profiles:
         - el7
