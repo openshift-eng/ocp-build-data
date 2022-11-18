@@ -43,6 +43,13 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d12e334084a69797d06364037c7aa81ac0657df77ffada1092bb90524d8ff910
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9303402498d1398f6f7a096e051cea93db3c61b362ce15456edbc090f30e1011
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9e8e38a43fb67632fc429e6bedc73ff64dcbc8e98889a5ba3e5b52228b89828
+      permits:
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: 'rhcos'
+      # why: p8 rhcos is inconsistent but we want to produce a rc.0
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+      # why: p8 rhcos is inconsistent but we want to produce a rc.0
       type: candidate
 
   rc.0:
