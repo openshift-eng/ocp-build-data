@@ -12,6 +12,11 @@ releases:
       members:
         images: []
         rpms: []
+      permits:  # RHCOS builds didn't quite match up
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: 'rhcos'
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
       rhcos:
         machine-os-content:
           images:
