@@ -24,7 +24,12 @@ releases:
         - id: OCPBUGS-638
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.0~rc.1-202211211836.p0.g7a3c06f.assembly.rc.1.el8
       rhcos:
         machine-os-content:
           images:
@@ -343,10 +348,10 @@ releases:
             el8: rt-setup-2.1-4.el8
       members:
         images:
-          - distgit_key: driver-toolkit
-            why: Use kernel-rt from plashet
-            metadata:
-              enabled_repos!:
-              - rhel-8-baseos-rpms
-              - rhel-8-server-ose-rpms-embargoed
-              - rhel-8-appstream-rpms
+        - distgit_key: driver-toolkit
+          why: Use kernel-rt from plashet
+          metadata:
+            enabled_repos!:
+            - rhel-8-baseos-rpms
+            - rhel-8-server-ose-rpms-embargoed
+            - rhel-8-appstream-rpms
