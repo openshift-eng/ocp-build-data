@@ -1,4 +1,57 @@
 releases:
+  rc.1:
+    assembly:
+      basis:
+        brew_event: 47964519
+        reference_releases:
+          aarch64: 4.12.0-0.nightly-arm64-2022-11-16-220715
+          ppc64le: 4.12.0-0.nightly-ppc64le-2022-11-16-233925
+          s390x: 4.12.0-0.nightly-s390x-2022-11-16-220639
+          x86_64: 4.12.0-0.nightly-2022-11-16-220533
+      group:
+        advisories:
+          rpm: 104600
+          image: 104601
+          extras: 104602
+          metadata: 104603
+        release_jira: ART-5203
+        upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.12.0-rc.0
+      issues:
+        exclude:
+        - id: 2115450
+        # why: https://bugzilla.redhat.com/show_bug.cgi?id=2115450 is a runc tracker bug
+        # with no eligible builds. fix isn't in rhcos yet (as of 2022-11-18)
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0067743f2953d369e3f755bfbfa8d1395ef5b325bffb91dd6927a51dc5cb45fd
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5a7adb0bde47c642fe056e3a62c02783300c28093c9357794c2420b3a9f3414f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8f6d7a19af4f5668a1ec7af9e8d8c5e102df8645595dd0aea9173f8cd5773067
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d1f2fd1e7b6ba47d56acc30087cbdc223aa91b3d20fe0682a2ce4d29de2610c8
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a09963fad0381df0a63f29d739013a7f223e5201abd02fa3183ab65cba60b517
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7f743c518e49219be3e339ec30e06afcd8384830e23d33a6bab2b83c9cbab4c5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dbe107a1fa3bdea53a2c96105489c5a13621bcc35c295427016de4f06a5a886e
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ffa3568233298408421ff7da60e5c594fb63b2551c6ab53843eb51c8cf6838ba
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a56741e31873070e81498a56e94f3bbb4d57f2e7ed35b7010c21f608c164b8e2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d12e334084a69797d06364037c7aa81ac0657df77ffada1092bb90524d8ff910
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9303402498d1398f6f7a096e051cea93db3c61b362ce15456edbc090f30e1011
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9e8e38a43fb67632fc429e6bedc73ff64dcbc8e98889a5ba3e5b52228b89828
+      permits:
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: 'rhcos'
+      # why: p8 rhcos is inconsistent but we want to produce a rc.1
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+      # why: p8 rhcos is inconsistent but we want to produce a rc.1
+      type: candidate
+
   rc.0:
     assembly:
       basis:
