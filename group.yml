@@ -113,10 +113,10 @@ repos:
   rhel-server-ose-rpms:
     conf:
       baseurl:
-        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/building/aarch64/os
-        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
-        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/building/s390x/os
-        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/building/x86_64/os
+        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/ppc64le/os
+        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/s390x/os
+        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el7/latest/x86_64/os
     content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
       optional: true
 
