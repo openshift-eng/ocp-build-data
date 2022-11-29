@@ -24,7 +24,12 @@ releases:
         - id: OCPBUGS-638
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.0~rc.2-202211291947.p0.gbd97f31.assembly.rc.2.el8
       rhcos:
         machine-os-content:
           images:
