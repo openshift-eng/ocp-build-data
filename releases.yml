@@ -103,6 +103,9 @@ releases:
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
       # why: p8 rhcos is inconsistent but we want to produce a rc.1
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "skipping attached bug checks on promotion job to avoid Errata API error"
       type: candidate
 
   rc.0:
