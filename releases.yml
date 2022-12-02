@@ -1,4 +1,35 @@
 releases:
+  art5476:
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.7.55"
+        reference_releases!: {}
+      group:
+        "advisories!": {}
+        "arches!":
+        - x86_64
+      members:
+        images:
+        - distgit_key: coredns
+          why: hotfix dry-run
+          metadata:
+            is:
+              nvr: coredns-container-v4.7.0-202208021424.p0.gd4a3ba3.assembly.stream
+  art5475:
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.7.55"
+        reference_releases!: {}
+      group:
+        "advisories!": {}
+        "arches!":
+        - x86_64
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b3e8a34995b2f0dababd9c2549fde6f4b6b400722b3817e9a705a9a7a457530b
   4.7.60:
     assembly:
       basis:
