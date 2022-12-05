@@ -315,6 +315,27 @@ repos:
     reposync:
       enabled: false
 
+  rhel-9-fast-datapath-rpms:
+    conf:
+      baseurl:
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/fast-datapath/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/ppc64le/fast-datapath/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/s390x/fast-datapath/os/
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/aarch64/fast-datapath/os/
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: fast-datapath-for-rhel-9-x86_64-rpms
+      aarch64: fast-datapath-for-rhel-9-aarch64-rpms
+      ppc64le: fast-datapath-for-rhel-9-ppc64le-rpms
+      s390x: fast-datapath-for-rhel-9-s390x-rpms
+      optional: true
+    reposync:
+      enabled: false
+
   rhel-9-server-ose-rpms-embargoed:
     conf:
       extra_options:
