@@ -1629,3 +1629,9 @@ releases:
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
       # why: default permit
+      group:
+        dependencies:
+          rpms:
+          - why: CLOUDBLD-12620 ironic needs an updated RPM but not updated repos
+            non_gc_tag: rhos-16.1-rhel-8
+            el8: python-twisted-16.4.1-20.el8ost
