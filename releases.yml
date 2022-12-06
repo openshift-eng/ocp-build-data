@@ -3,11 +3,7 @@ releases:
     assembly:
       basis:
         brew_event: 48436378
-        reference_releases:
-          aarch64: 4.12.0-0.nightly-arm64-2022-12-01-175454
-          ppc64le: 4.12.0-0.nightly-ppc64le-2022-12-01-175346
-          s390x: 4.12.0-0.nightly-s390x-2022-12-01-175418
-          x86_64: 4.12.0-0.nightly-2022-12-01-184212
+        reference_releases: {}
       group:
         advisories:
           rpm: 104600
@@ -16,12 +12,6 @@ releases:
           metadata: 104603
         release_jira: ART-5203
         upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.12.0-rc.0,4.12.0-rc.1,4.12.0-rc.2
-      issues:
-        exclude:
-        - id: 2115450
-        # why: https://bugzilla.redhat.com/show_bug.cgi?id=2115450 is a runc tracker bug
-        # with no eligible builds. fix isn't in rhcos yet (as of 2022-12-02)
-        - id: OCPBUGS-638
       members:
         images:
         - distgit_key: ose-aws-efs-csi-driver-operator
@@ -31,6 +21,9 @@ releases:
             is:
               nvr: ose-aws-efs-csi-driver-operator-container-v4.12.0-202212021550.p0.gcc89dfb.assembly.stream
         rpms: []
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "Interaction with Errata is failing while verifying attached bugs. Filed as ART-5478. Ignoring the result of the check for now."
       rhcos:
         machine-os-content:
           images:
