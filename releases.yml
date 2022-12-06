@@ -20,10 +20,16 @@ releases:
           metadata:
             is:
               nvr: ose-aws-efs-csi-driver-operator-container-v4.12.0-202212021550.p0.gcc89dfb.assembly.stream
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.0~rc.3-202212061817.p0.gcb7f9bb.assembly.rc.3.el8
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "Interaction with Errata is failing while verifying attached bugs. Filed as ART-5478. Ignoring the result of the check for now."
+        why: "Interaction with Errata is failing while verifying attached bugs. Filed\
+          \ as ART-5478. Ignoring the result of the check for now."
       rhcos:
         machine-os-content:
           images:
