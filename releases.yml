@@ -1,4 +1,39 @@
 releases:
+  ec.1:
+    assembly:
+      basis:
+        brew_event: 48464399
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2022-12-05-151453
+          ppc64le: 4.13.0-0.nightly-ppc64le-2022-12-05-151344
+          s390x: 4.13.0-0.nightly-s390x-2022-12-05-151416
+          x86_64: 4.13.0-0.nightly-2022-12-05-155739
+      group:
+        upgrades: 4.12.0-rc.0,4.12.0-rc.1,4.12.0-rc.2,4.12.0-rc.3
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8ad582067855b5bba3d28e1e9e892365917d217c6409781eed7a55afad7bdabe
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fc028b61d24c0f442cc97d7b06048911618b7b1cc5cc408ce02964b08849a19a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9c240408bd4c8c8730973903c5b9bcb9bcbc2b68dacd8bc5411874d8e5573764
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:56f050fc0d5cb6da1907b178e7460443186cdad418f96e361443f82e67250d39
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1597165f23a5fc8ace5edf1ac60937bf64cf666ec059b484eb914a5c9a90dd55
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0935bca7c54c18be90158f524ffddcd4f13ad437a54e5ddd5793ea995a303a28
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:355abb957be67333ccf2c1d0967e06e67085814db8971d88f68f8b579cb4b291
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e66ee224d26fdf79d110c6ab779ba3e2423a9dac7b29ee35a67c8ba08cf052f5
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80dd75bb0f7a95d4b276c192f258e1f3b9bbc9e991464521e3d9215ebbf1baea
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ab6a68c40e892a9104daab895657990d2832ccfcdceae0322e9d9ece4cad7dd4
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:37e39e3c0b0743bbff99c4acfc1a23e7ace1f1009af4a588fb9714722a466581
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:67bcb255102cd5dd07217e6474b70b13de42809e988c2aa029d2621a1d1fc91d
+      type: preview
+
   ec.0:
     assembly:
       basis:
@@ -56,10 +91,10 @@ releases:
             el8: rt-setup-2.1-4.el8
       members:
         images:
-          - distgit_key: driver-toolkit
-            why: Use kernel-rt from plashet
-            metadata:
-              enabled_repos!:
-              - rhel-8-baseos-rpms
-              - rhel-8-server-ose-rpms-embargoed
-              - rhel-8-appstream-rpms
+        - distgit_key: driver-toolkit
+          why: Use kernel-rt from plashet
+          metadata:
+            enabled_repos!:
+            - rhel-8-baseos-rpms
+            - rhel-8-server-ose-rpms-embargoed
+            - rhel-8-appstream-rpms
