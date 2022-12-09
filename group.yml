@@ -43,6 +43,12 @@ assemblies:
 cachito:
   enabled: true
 
+rhcos:
+  require_consistency:
+    driver-toolkit:
+    - kernel
+    - kernel-rt
+
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
 
