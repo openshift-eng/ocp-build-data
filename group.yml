@@ -51,6 +51,12 @@ urls:
 dist_git_ignore:
   - gating.yaml
 
+  rhcos:
+  require_consistency:
+    driver-toolkit:
+    - kernel
+    - kernel-rt
+
 push:
   registries: []
     # - quay.io/openshift-qe-optional-operators
