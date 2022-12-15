@@ -30,14 +30,12 @@ export PATH=/opt/go-1.18.7/bin:/opt/yq-go/bin:$PATH
 if [ -n "$RELEASE_NAME" ]; then
     # rebase against a named release
     ./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64
-    rm -rf ./_output
     exit 0
 fi
 
 if [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ]; then
     # rebase against specified release payloads
     ./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64"
-    rm -rf ./_output
     exit 0
 fi
 
