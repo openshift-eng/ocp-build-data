@@ -485,15 +485,26 @@ releases:
     assembly:
       type: stream
       permits:
-      - code: INCONSISTENT_RHCOS_RPMS
-        component: 'rhcos'
-      # why: p8 builds are failing and we want more nightlies
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
       # why: default permit
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
       # why: default permit
+      ##
+      # the following all install kernel and don't enable our plashet, so they aren't getting the
+      # one we specify. they don't really need the new kernel until it's GA, and it's risky to mess
+      # with repos, so just ignore
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: 'cluster-node-tuning-operator'
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: 'openshift-enterprise-operator-sdk'
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: 'openshift-enterprise-tests'
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: 'ose-network-tools'
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: 'ose-tools'
       group:
         dependencies:
           rpms:
