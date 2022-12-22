@@ -22,7 +22,12 @@ releases:
           # why: we're not building grafana container. Exclude for now.
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.0~rc.6-202212221247.p0.gf82854f.assembly.rc.6.el8
       rhcos:
         machine-os-content:
           images:
