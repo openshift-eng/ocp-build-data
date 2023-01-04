@@ -603,15 +603,15 @@ releases:
       group:
         dependencies:
           rpms:
-          - why: Bugfix, not shipping until the new year
+          - why: Bugfix, not shipping just yet
             non_gc_tag: rhel-8.6.0-z
-            el8: kernel-4.18.0-372.39.1.el8_6
+            el8: kernel-4.18.0-372.40.1.el8_6
+          - why: See RHELWF-8001 and RHELDST-14877 -- kernel-rt 8.6 (we ship)
+            non_gc_tag: rhaos-4.12-rhel-8
+            el8: kernel-rt-4.18.0-372.40.1.rt7.197.el8_6
           - why: See RHELWF-8001 and RHELDST-14877 -- kernel-rt dep from 8.7
             non_gc_tag: rhel-8.6.0-z
             el8: rt-setup-2.1-4.el8
-          - why: See RHELWF-8001 and RHELDST-14877 -- kernel-rt 8.6 (we ship)
-            non_gc_tag: rhaos-4.12-rhel-8
-            el8: kernel-rt-4.18.0-372.39.1.rt7.196.el8_6
       members:
         images:
         - distgit_key: driver-toolkit
