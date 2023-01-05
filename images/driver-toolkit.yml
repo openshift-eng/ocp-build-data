@@ -22,7 +22,11 @@ content:
       web: https://github.com/openshift/driver-toolkit
 enabled_repos:
 - rhel-8-baseos-rpms
-- rhel-8-rt-rpms
+# - rhel-8-rt-rpms -- for the lifetime of 8.6 EUS this will no longer be updated
+# and instead kernel-rt updates are in ART's plashet. re-evaluate this at the point
+# where we move to rhel9 with rhcos; at that point, this setup may still be necessary
+# if we are regularly shipping kernels early.
+- rhel-8-server-ose-rpms-embargoed
 - rhel-8-appstream-rpms
 for_payload: true
 from:
