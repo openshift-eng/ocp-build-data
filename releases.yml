@@ -10,12 +10,17 @@ releases:
           x86_64: 4.12.0-0.nightly-2023-01-09-095104
       group:
         advisories:
-          extras: -1
-          image: -1
-          metadata: -1
-          rpm: -1
-        release_jira: ART-0
+          rpm: 104600
+          image: 104601
+          extras: 104602
+          metadata: 104603
+          microshift: 107772
+        release_jira: ART-5203
         upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.12.0-rc.0,4.12.0-rc.1,4.12.0-rc.2,4.12.0-rc.3,4.12.0-rc.4,4.12.0-rc.5,4.12.0-rc.6,4.12.0-rc.7
+      issues:
+        exclude:
+        - id: OCPBUGS-4262
+          # why: we're not building grafana container. Exclude for now.
       members:
         images: []
         rpms: []
