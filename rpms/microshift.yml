@@ -5,10 +5,7 @@ content:
     git:
       branch:
         target: main
-        # [lmeyer 2022-07-10] main branch is indeed for 4.10 right now and that is where development is occurring.
-        # We will want this to be release-4.y branches managed by Test Platform once work is beginning on
-        # other releases but that would just get in the way of dev for the current state of affairs.
-      url: git@github.com:openshift/microshift.git
+      url: git@github.com:openshift-priv/microshift.git
     specfile: packaging/rpm/microshift.spec
     modifications:
     - action: command
