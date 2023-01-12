@@ -12,10 +12,9 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
 - rhel-9-server-ose-rpms-embargoed
-- rhel-9-server-ironic-rpms
 for_payload: true
 from:
   builder:
@@ -24,3 +23,5 @@ from:
 name: openshift/ose-ironic-machine-os-downloader
 owners:
 - ironic-osp-owners@redhat.com
+non_shipping_repos:
+- rhel-9-server-ose-rpms-embargoed
