@@ -16,6 +16,13 @@ releases:
       promotion_permits:
       - code: BLOCKER_BUGS
         why: "OCPBUGS-4600 & OCPBUGS-4478 are not considered blockers for promotion"
+      members:
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.0-202301130029.p0.gc0fbb36.assembly.4.12.0.el8
   rc.8:
     assembly:
       basis:
