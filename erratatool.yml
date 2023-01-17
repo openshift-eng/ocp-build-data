@@ -36,37 +36,11 @@ description: |
 
   This advisory contains the RPM packages / container images for Red Hat OpenShift Container Platform 4.12.z. See the following advisory for the container images / RPM packages for this release:
 
-  <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
+  <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2023:1234
 
   Space precludes documenting all of the bug fixes and enhancements in this advisory, as well as all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
   https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html
-
-  You may download the oc tool and use it to inspect release image metadata as follows:
-
-      (For x86_64 architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-x86_64
-
-      The image digest is sha256:<SHASUM_HERE>
-
-      (For s390x architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-s390x
-
-      The image digest is sha256:<SHASUM_HERE>
-
-      (For ppc64le architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-ppc64le
-
-      The image digest is sha256:<SHASUM_HERE>
-
-      (For aarch64 architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-aarch64
-
-      The image digest is sha256:<SHASUM_HERE>
 
   All OpenShift Container Platform 4.12 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.12/updating/updating-cluster-cli.html
 
@@ -88,7 +62,7 @@ boilerplates:
 
       This advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.12.z. See the following advisory for the container images for this release:
 
-      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
+      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2023:1234
 
       All OpenShift Container Platform 4.12 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.12/updating/updating-cluster-cli.html
     solution: &common_solution |
@@ -105,7 +79,7 @@ boilerplates:
 
       This advisory contains the container images for Red Hat OpenShift Container Platform 4.12.z. See the following advisory for the RPM packages for this release:
 
-      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
+      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2023:1234
 
       Space precludes documenting all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
@@ -138,7 +112,38 @@ boilerplates:
           The image digest is sha256:<SHASUM_HERE>
 
       All OpenShift Container Platform 4.12 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.12/updating/updating-cluster-cli.html
-    solution: *common_solution
+    solution: *common_image_solution |
+      Space precludes documenting all of the bug fixes and enhancements in this advisory, as well as all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
+
+      https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html
+
+      You may download the oc tool and use it to inspect release image metadata as follows:
+
+      (For x86_64 architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-x86_64
+
+      The image digest is sha256:<SHASUM_HERE>
+
+      (For s390x architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-s390x
+
+      The image digest is sha256:<SHASUM_HERE>
+
+      (For ppc64le architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-ppc64le
+
+      The image digest is sha256:<SHASUM_HERE>
+
+      (For aarch64 architecture)
+
+        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-aarch64
+
+      The image digest is sha256:<SHASUM_HERE>
+
+  All OpenShift Container Platform 4.12 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.12/updating/updating-cluster-cli.html
   extras:
     synopsis: OpenShift Container Platform 4.12.z extras update
     topic: *common_topic
@@ -173,5 +178,5 @@ boilerplates:
       For more details about the security issue(s), including the impact, a CVSS
       score, acknowledgments, and other related information, refer to the CVE page(s)
       listed in the References section.
-    solution: *common_solution
+    solution: *common_image_solution
     security_reviewer: sfowler@redhat.com
