@@ -49,7 +49,7 @@ solution: |
 
   https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html
 
-  You may download the oc tool and use it to inspect release image metadata for x86_64, s390x, ppc64le, and aarch64 architectures. The image digests may be found at https://quay.io/repository/openshift-release-dev/ocp-release?tab=tags
+  You can download the oc tool and use it to inspect release image metadata for x86_64, s390x, ppc64le, and aarch64 architectures. The image digests can be found at https://quay.io/repository/openshift-release-dev/ocp-release?tab=tags
 
   The sha values for the release are:
 
@@ -104,34 +104,24 @@ boilerplates:
       https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html
 
     solution: &common_image_solution |
-       See the following release notes for complete documentation of all bug fixes and enhancements in this advisory. The release notes will be updated shortly for this release.
+       For OpenShift Container Platform 4.12 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
       https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html
 
-      You may download the oc tool and use it to inspect release image metadata for x86_64, s390x, ppc64le, and aarch64 architectures. The image digests may be found at https://quay.io/repository/openshift-release-dev/ocp-release?tab=tags
+      You can download the oc tool and use it to inspect release image metadata for x86_64, s390x, ppc64le, and aarch64 architectures. The image digests can be found at https://quay.io/repository/openshift-release-dev/ocp-release?tab=tags.
+
+      The sha values for the release are:
 
       (For x86_64 architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-x86_64
-
       The image digest is sha256:<SHASUM_HERE>
 
       (For s390x architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-s390x
-
       The image digest is sha256:<SHASUM_HERE>
 
       (For ppc64le architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-ppc64le
-
       The image digest is sha256:<SHASUM_HERE>
 
       (For aarch64 architecture)
-
-        $ oc adm release info quay.io/openshift-release-dev/ocp-release:4.12.z-aarch64
-
       The image digest is sha256:<SHASUM_HERE>
 
       All OpenShift Container Platform 4.12 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.12/updating/updating-cluster-cli.html
