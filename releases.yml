@@ -753,39 +753,3 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:249b2d423e40b316c9214c85860f633bd9a039e454eb7725e2b6911a3b7eac05
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adddf493fd169fb8b99738487a69e673199533840594ab1a79b7178b82343598
       type: preview
-  stream:
-    assembly:
-      type: stream
-      permits:
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: '*'
-      # why: default permit
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: 'rhcos'
-      # why: default permit
-      ##
-      # the following all install kernel and don't enable our plashet, so they aren't getting the
-      # one we specify. they don't really need the new kernel until it's GA, and it's risky to mess
-      # with repos, so just ignore
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: 'cluster-node-tuning-operator'
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: 'openshift-enterprise-operator-sdk'
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: 'openshift-enterprise-tests'
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: 'ose-network-tools'
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: 'ose-tools'
-      group:
-        dependencies:
-          rpms:
-          - why: Bugfix, not shipping just yet
-            non_gc_tag: rhel-8.6.0-z
-            el8: kernel-4.18.0-372.40.1.el8_6
-          - why: See RHELWF-8001 and RHELDST-14877 -- kernel-rt 8.6 (we ship)
-            non_gc_tag: rhaos-4.12-rhel-8
-            el8: kernel-rt-4.18.0-372.40.1.rt7.197.el8_6
-          - why: See RHELWF-8001 and RHELDST-14877 -- kernel-rt dep from 8.7
-            non_gc_tag: rhel-8.6.0-z
-            el8: rt-setup-2.1-4.el8
