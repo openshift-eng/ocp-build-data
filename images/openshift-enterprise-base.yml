@@ -14,7 +14,7 @@ content:
         auto_label:
         - approved
         - lgtm
-        merge_first: true    
+        merge_first: true
 
       # The OpenShift 4.x:base image used by numerous images in CI.
       # The problem is that the actual image is built upstream very infrequently
@@ -38,7 +38,7 @@ content:
       transform: rhel-8/base-repos
       # After the transform, promote directly to the location that CI promotes to. This is
       # a little sketchy, but I believe the reward is a significant improvement in CI
-      # signal fidelity. 
+      # signal fidelity.
       upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base
 
 enabled_repos:
@@ -52,9 +52,9 @@ labels:
   License: GPLv2+
   io.k8s.description: This is the base image from which all OpenShift Container Platform
     images inherit.
-  io.k8s.display-name: OpenShift Container Platform RHEL 7 Base
+  io.k8s.display-name: OpenShift Container Platform RHEL 8 Base
   io.openshift.tags: openshift,base
   vendor: Red Hat
 name: openshift/ose-base
 owners:
-- ccoleman@redhat.com
+- lmeyer@redhat.com
