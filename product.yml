@@ -1,0 +1,751 @@
+bug_mapping:
+  default_issue_project: OCPBUGS
+  components:
+    ansible-asb-modules:
+      issue_component: Service Broker
+    ansible-kubernetes-modules:
+      issue_component: Installer / openshift-ansible
+    ansible-runner:
+      issue_component: Installer / openshift-ansible
+    ansible-runner-http:
+      issue_component: Installer / openshift-ansible
+    apb:
+      issue_component: Service Broker
+    apb-base-scripts:
+      issue_component: Service Broker
+    assisted-installer-container:
+      issue_component: Installer / Assisted installer
+    atomic-enterprise-service-catalog:
+      issue_component: Service Catalog
+    atomic-openshift-cluster-autoscaler-container:
+      issue_component: Cloud Compute / Cluster Autoscaler
+    atomic-openshift-descheduler-container:
+      issue_component: kube-scheduler
+    atomic-openshift-node-problem-detector-container:
+      issue_component: Node
+    atomic-openshift-service-idler:
+      issue_component: Networking / openshift-sdn
+    bare-metal-event-relay-operator-bundle-container:
+      issue_component: Cloud Native Events / Hardware Event Proxy Operator
+    bare-metal-event-relay-operator-container:
+      issue_component: Cloud Native Events / Hardware Event Proxy Operator
+    baremetal-hardware-event-proxy-container:
+      issue_component: Cloud Native Events / Hardware Event Proxy
+    baremetal-machine-controller-container:
+      issue_component: Bare Metal Hardware Provisioning / cluster-api-provider
+    baremetal-runtimecfg-container:
+      issue_component: Installer / openshift-installer
+    buildah:
+      issue_component: Build
+    butane:
+      issue_component: RHCOS
+    cincinnati-operator-container:
+      issue_component: OpenShift Update Service / operator
+    cloud-event-proxy-container:
+      issue_component: Cloud Native Events / Cloud Event Proxy
+    cluster-etcd-operator-container:
+      issue_component: Etcd
+    cluster-logging-operator-container:
+      issue_component: Logging
+    cluster-logging-operator-metadata-container:
+      issue_component: Logging
+    cluster-monitoring-operator-container:
+      issue_component: Monitoring
+    cluster-network-operator-container:
+      issue_component: Networking / openshift-sdn
+    cluster-nfd-operator-container:
+      issue_component: Node Feature Discovery Operator
+    cluster-nfd-operator-metadata-container:
+      issue_component: Node Feature Discovery Operator
+    cluster-node-tuning-operator-container:
+      issue_component: Node Tuning Operator
+    cluster-policy-controller-container:
+      issue_component: kube-apiserver
+    cluster-storage-operator-container:
+      issue_component: Storage
+    cluster-version-operator-container:
+      issue_component: Cluster Version Operator
+    cnf-tests-container:
+      issue_component: Networking
+    compliance-content-container:
+      issue_component: Compliance Operator
+    configmap-reload-container:
+      issue_component: Monitoring
+    conmon:
+      issue_component: Containers
+    console-login-helper-messages:
+      issue_component: Management Console
+    containernetworking-plugins:
+      issue_component: Networking / openshift-sdn
+    coredns-container:
+      issue_component: Networking / DNS
+    coreos-installer:
+      issue_component: RHCOS
+    cri-o:
+      issue_component: Node / CRI-O
+    cri-tools:
+      issue_component: Node / CRI-O
+    csi-attacher-container:
+      issue_component: Storage
+    csi-driver-manila-container:
+      issue_component: Installer / OpenShift on OpenStack
+    csi-driver-manila-operator-container:
+      issue_component: Installer / OpenShift on OpenStack
+    csi-driver-nfs-container:
+      issue_component: Installer / OpenShift on OpenStack
+    csi-livenessprobe-container:
+      issue_component: Storage
+    csi-node-driver-registrar-container:
+      issue_component: Storage
+    csi-provisioner-container:
+      issue_component: Storage
+    dpu-network-operator-bundle-container:
+      issue_component: Networking / SR-IOV
+    dpu-network-operator-container:
+      issue_component: Networking / SR-IOV
+    driver-toolkit-container:
+      issue_component: Driver Toolkit
+    dumb-init:
+      issue_component: Containers
+    efs-provisioner-container:
+      issue_component: Storage
+    elasticsearch-operator-container:
+      issue_component: Logging
+    elasticsearch-operator-metadata-container:
+      issue_component: Logging
+    federation-v2-container:
+      issue_component: Federation
+    ghostunnel-container:
+      issue_component: Metering Operator
+    golang-github-openshift-oauth-proxy-container:
+      issue_component: Release
+    golang-github-prometheus-alertmanager-container:
+      issue_component: Monitoring
+    golang-github-prometheus-node_exporter-container:
+      issue_component: Monitoring
+    golang-github-prometheus-prometheus-container:
+      issue_component: Monitoring
+    golang-github-prometheus-promu:
+      issue_component: Monitoring
+    grafana-container:
+      issue_component: Monitoring
+    hadoop-container:
+      issue_component: Metering Operator
+    haproxy:
+      issue_component: Networking / router
+    hive-container:
+      issue_component: Metering Operator
+    ib-sriov-cni-container:
+      issue_component: Networking / SR-IOV
+    ibm-vpc-node-label-updater-container:
+      issue_component: Storage / Kubernetes External Components
+    ignition:
+      issue_component: RHCOS
+    ingress-node-firewall-container:
+      issue_component: Networking / ingress-node-firewall
+    ingress-node-firewall-daemon-container:
+      issue_component: Networking / ingress-node-firewall
+    ironic-agent-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    ironic-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    ironic-hardware-inventory-recorder-image-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    ironic-inspector-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    ironic-ipa-downloader-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    ironic-rhcos-downloader-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    ironic-static-ip-manager-container:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    jenkins:
+      issue_component: Jenkins
+    jenkins-2-plugins:
+      issue_component: Jenkins
+    jenkins-agent-maven-35-rhel7-container:
+      issue_component: Jenkins
+    jenkins-agent-nodejs-8-rhel7-container:
+      issue_component: Jenkins
+    jenkins-slave-base-rhel7-container:
+      issue_component: Jenkins
+    kata-containers:
+      issue_component: sandboxed-containers
+    kibana:
+      issue_component: Logging
+    kube-proxy-container:
+      issue_component: Networking / openshift-sdn
+    kube-rbac-proxy-container:
+      issue_component: Monitoring
+    kube-state-metrics-container:
+      issue_component: Monitoring
+    kubefed-container:
+      issue_component: Federation
+    kuryr-cni-container:
+      issue_component: Networking / kuryr
+    kuryr-controller-container:
+      issue_component: Networking / kuryr
+    local-storage-diskmaker-container:
+      issue_component: Storage / Local Storage Operator
+    local-storage-operator-container:
+      issue_component: Storage / Local Storage Operator
+    local-storage-operator-metadata-container:
+      issue_component: Storage / Local Storage Operator
+    local-storage-static-provisioner-container:
+      issue_component: Storage
+    logging-curator5-container:
+      issue_component: Logging
+    logging-elasticsearch5-container:
+      issue_component: Logging
+    logging-elasticsearch6-container:
+      issue_component: Logging
+    logging-eventrouter-container:
+      issue_component: Logging
+    logging-fluentd-container:
+      issue_component: Logging
+    logging-kibana5-container:
+      issue_component: Logging
+    logging-kibana6-container:
+      issue_component: Logging
+    logging-rsyslog-container:
+      issue_component: Logging
+    machine-config-daemon:
+      issue_component: Machine Config Operator
+    mariadb-apb-role:
+      issue_component: Service Broker
+    marketplace-operator-container:
+      issue_component: OLM
+    mediawiki:
+      issue_component: Service Broker
+    mediawiki-apb-role:
+      issue_component: Service Broker
+    mediawiki-container-scripts:
+      issue_component: Service Broker
+    microshift:
+      issue_component: MicroShift
+    multus-cni-container:
+      issue_component: Networking / multus
+    mysql-apb-role:
+      issue_component: Service Broker
+    node-feature-discovery-container:
+      issue_component: Node Feature Discovery Operator
+    node-problem-detector-operator-container:
+      issue_component: Node
+    noderesourcetopology-scheduler-container:
+      issue_component: Node Resource Topology aware Scheduler
+    numaresources-operator-bundle-container:
+      issue_component: NUMA Resources Operator
+    numaresources-operator-container:
+      issue_component: NUMA Resources Operator
+    oauth-server-container:
+      issue_component: apiserver-auth
+    oc-compliance-container:
+      issue_component: OC Compliance
+    oc-mirror-plugin-container:
+      issue_component: oc / oc-mirror
+    oniguruma:
+      issue_component: Metering Operator
+    openshift:
+      issue_component: kube-apiserver
+    openshift-ansible:
+      issue_component: Installer / openshift-ansible
+    openshift-clients:
+      issue_component: oc
+    openshift-compliance-content-container:
+      issue_component: Compliance Operator
+    openshift-compliance-openscap-container:
+      issue_component: Compliance Operator
+    openshift-compliance-operator-container:
+      issue_component: Compliance Operator
+    openshift-enterprise-ansible-operator-container:
+      issue_component: Operator SDK
+    openshift-enterprise-ansible-service-broker-operator-container:
+      issue_component: Service Broker
+    openshift-enterprise-apb-base-container:
+      issue_component: Service Broker
+    openshift-enterprise-apb-container:
+      issue_component: Service Broker
+    openshift-enterprise-asb-container:
+      issue_component: Service Broker
+    openshift-enterprise-builder-container:
+      issue_component: Build
+    openshift-enterprise-cli-alt-container:
+      issue_component: oc
+    openshift-enterprise-cli-container:
+      issue_component: oc
+    openshift-enterprise-cluster-capacity-container:
+      issue_component: kube-scheduler
+    openshift-enterprise-console-container:
+      issue_component: Management Console
+    openshift-enterprise-console-operator-container:
+      issue_component: Management Console
+    openshift-enterprise-deployer-container:
+      issue_component: oc
+    openshift-enterprise-egress-dns-proxy-container:
+      issue_component: Release
+    openshift-enterprise-egress-router-container:
+      issue_component: Release
+    openshift-enterprise-haproxy-router-container:
+      issue_component: Networking / router
+    openshift-enterprise-helm-operator-container:
+      issue_component: Operator SDK
+    openshift-enterprise-hyperkube-container:
+      issue_component: Release
+    openshift-enterprise-keepalived-ipfailover-container:
+      issue_component: Release
+    openshift-enterprise-mariadb-container:
+      issue_component: Service Broker
+    openshift-enterprise-mediawiki.apb-container:
+      issue_component: Service Broker
+    openshift-enterprise-mediawiki.container-container:
+      issue_component: Service Broker
+    openshift-enterprise-mysql-container:
+      issue_component: Service Broker
+    openshift-enterprise-operator-sdk-container:
+      issue_component: Operator SDK
+    openshift-enterprise-pod-container:
+      issue_component: Node
+    openshift-enterprise-postgresql-container:
+      issue_component: Service Broker
+    openshift-enterprise-recycler-container:
+      issue_component: Storage
+    openshift-enterprise-registry-container:
+      issue_component: Image Registry
+    openshift-enterprise-service-catalog-container:
+      issue_component: Service Catalog
+    openshift-enterprise-service-idler-container:
+      issue_component: Release
+    openshift-enterprise-template-service-broker-operator-container:
+      issue_component: Service Broker
+    openshift-enterprise-tests-container:
+      issue_component: Test Framework
+    openshift-external-storage:
+      issue_component: Storage
+    openshift-file-integrity-operator-container:
+      issue_component: File Integrity Operator
+    openshift-golang-builder-container:
+      issue_component: Release
+    openshift-jenkins-2-container:
+      issue_component: Jenkins
+    openshift-kubernetes-nmstate-handler-rhel-8-container:
+      issue_component: Networking / kubernetes-nmstate-operator
+    openshift-kuryr:
+      issue_component: Networking / kuryr
+    openshift-local-storage-container:
+      issue_component: Storage
+    openshift-proxy-pull-test-container:
+      issue_component: Machine Config Operator
+    openshift-state-metrics-container:
+      issue_component: Monitoring
+    openvswitch2.13:
+      issue_component: Networking / openshift-sdn
+    openvswitch2.15:
+      issue_component: Networking / openshift-sdn
+    openvswitch2.16:
+      issue_component: Networking / openshift-sdn
+    openvswitch2.17:
+      issue_component: Networking / openshift-sdn
+    operator-lifecycle-manager-container:
+      issue_component: OLM
+    operator-registry-container:
+      issue_component: OLM
+    ose-alibaba-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-alibaba-cloud-csi-driver-container:
+      issue_component: Storage / Kubernetes External Components
+    ose-alibaba-disk-csi-driver-operator-container:
+      issue_component: Storage / Operators
+    ose-alibaba-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-aws-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-aws-ebs-csi-driver-container:
+      issue_component: Storage
+    ose-aws-ebs-csi-driver-operator-container:
+      issue_component: Storage
+    ose-aws-efs-csi-driver-container:
+      issue_component: Storage
+    ose-aws-efs-csi-driver-operator-bundle-container:
+      issue_component: Storage
+    ose-aws-efs-csi-driver-operator-container:
+      issue_component: Storage
+    ose-aws-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-aws-pod-identity-webhook-container:
+      issue_component: Cloud Credential Operator
+    ose-azure-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-azure-cloud-node-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-azure-disk-csi-driver-container:
+      issue_component: Storage / Kubernetes External Components
+    ose-azure-disk-csi-driver-operator-container:
+      issue_component: Storage / Operators
+    ose-azure-file-csi-driver-container:
+      issue_component: Storage / Kubernetes External Components
+    ose-azure-file-csi-driver-operator-container:
+      issue_component: Storage / Operators
+    ose-azure-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-baremetal-installer-container:
+      issue_component: Installer / openshift-installer
+    ose-baremetal-operator-container:
+      issue_component: Bare Metal Hardware Provisioning / baremetal-operator
+    ose-baremetal-runtimecfg-container:
+      issue_component: Networking / runtime-cfg
+    ose-cli-artifacts-alt-container:
+      issue_component: oc
+    ose-cli-artifacts-container:
+      issue_component: oc
+    ose-cloud-credential-operator-container:
+      issue_component: Cloud Credential Operator
+    ose-cloud-network-config-controller-container:
+      issue_component: Networking / ovn-kubernetes
+    ose-cluster-api-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-cluster-authentication-operator-container:
+      issue_component: apiserver-auth
+    ose-cluster-autoscaler-operator-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-cluster-baremetal-operator-container:
+      issue_component: Bare Metal Hardware Provisioning / cluster-baremetal-operator
+    ose-cluster-bootstrap-container:
+      issue_component: kube-apiserver
+    ose-cluster-capi-operator-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-cluster-cloud-controller-manager-operator-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-cluster-config-operator-container:
+      issue_component: config-operator
+    ose-cluster-csi-snapshot-controller-operator-container:
+      issue_component: Storage / Operators
+    ose-cluster-dns-operator-container:
+      issue_component: Networking / DNS
+    ose-cluster-image-registry-operator-container:
+      issue_component: Image Registry
+    ose-cluster-ingress-operator-container:
+      issue_component: Networking / router
+    ose-cluster-kube-apiserver-operator-container:
+      issue_component: kube-apiserver
+    ose-cluster-kube-controller-manager-operator-container:
+      issue_component: kube-controller-manager
+    ose-cluster-kube-descheduler-operator-container:
+      issue_component: kube-scheduler
+    ose-cluster-kube-descheduler-operator-metadata-container:
+      issue_component: kube-scheduler
+    ose-cluster-kube-scheduler-operator-container:
+      issue_component: kube-scheduler
+    ose-cluster-kube-storage-version-migrator-operator-container:
+      issue_component: kube-storage-version-migrator
+    ose-cluster-machine-approver-container:
+      issue_component: Release
+    ose-cluster-openshift-apiserver-operator-container:
+      issue_component: openshift-apiserver
+    ose-cluster-openshift-controller-manager-operator-container:
+      issue_component: openshift-controller-manager / controller-manager
+    ose-cluster-ovirt-csi-operator-container:
+      issue_component: Storage / oVirt CSI Driver
+    ose-cluster-policy-controller-container:
+      issue_component: kube-controller-manager
+    ose-cluster-samples-operator-container:
+      issue_component: Samples
+    ose-cluster-storage-operator-container:
+      issue_component: Storage
+    ose-cluster-svcat-apiserver-operator-container:
+      issue_component: Service Catalog
+    ose-cluster-update-keys-container:
+      issue_component: Release
+    ose-clusterresourceoverride-container:
+      issue_component: Node
+    ose-clusterresourceoverride-operator-container:
+      issue_component: Node
+    ose-clusterresourceoverride-operator-metadata-container:
+      issue_component: Node
+    ose-compliance-openscap-container:
+      issue_component: Compliance Operator
+    ose-compliance-operator-container:
+      issue_component: Compliance Operator
+    ose-containernetworking-plugins-container:
+      issue_component: Networking / multus
+    ose-csi-driver-shared-resource-container:
+      issue_component: Storage / Shared Resource CSI Driver
+    ose-csi-driver-shared-resource-operator-container:
+      issue_component: Storage / Shared Resource CSI Driver
+    ose-csi-external-resizer-container:
+      issue_component: Storage
+    ose-csi-external-snapshotter-container:
+      issue_component: Storage
+    ose-csi-snapshot-controller-container:
+      issue_component: Storage
+    ose-csi-snapshot-validation-webhook-container:
+      issue_component: Storage
+    ose-egress-http-proxy-container:
+      issue_component: Release
+    ose-egress-router-cni-container:
+      issue_component: Networking / router
+    ose-elasticsearch-proxy-container:
+      issue_component: Logging
+    ose-etcd-container:
+      issue_component: Etcd
+    ose-file-integrity-operator-container:
+      issue_component: File Integrity Operator
+    ose-frr-container:
+      issue_component: Networking / frr
+    ose-gcp-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-gcp-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-gcp-pd-csi-driver-container:
+      issue_component: Storage / Kubernetes External Components
+    ose-gcp-pd-csi-driver-operator-container:
+      issue_component: Storage / Operators
+    ose-haproxy-router-base-container:
+      issue_component: Networking / router
+    ose-hello-openshift-container:
+      issue_component: Networking / router
+    ose-hypershift-container:
+      issue_component: HyperShift
+    ose-ibm-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-ibm-vpc-block-csi-driver-container:
+      issue_component: Storage / Kubernetes External Components
+    ose-ibm-vpc-block-csi-driver-operator-container:
+      issue_component: Storage / Operators
+    ose-ibmcloud-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-image-customization-controller-container:
+      issue_component: Bare Metal Hardware Provisioning / OS Image Provider
+    ose-insights-operator-container:
+      issue_component: Insights operator
+    ose-installer-artifacts-container:
+      issue_component: Installer / openshift-installer
+    ose-installer-container:
+      issue_component: Installer / openshift-installer
+    ose-jenkins-agent-base-container:
+      issue_component: Jenkins
+    ose-jenkins-agent-maven-container:
+      issue_component: Jenkins
+    ose-jenkins-agent-nodejs-10-container:
+      issue_component: Jenkins
+    ose-jenkins-agent-nodejs-12-container:
+      issue_component: Jenkins
+    ose-kube-etcd-signer-server-container:
+      issue_component: Etcd
+    ose-kube-storage-version-migrator-container:
+      issue_component: kube-storage-version-migrator
+    ose-kubernetes-nmstate-operator-bundle-container:
+      issue_component: Networking / kubernetes-nmstate-operator
+    ose-kubernetes-nmstate-operator-container:
+      issue_component: Networking / kubernetes-nmstate-operator
+    ose-kubevirt-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-leader-elector-container:
+      issue_component: Networking / kuryr
+    ose-libvirt-machine-controllers-container:
+      issue_component: Release
+    ose-linuxptp-daemon-container:
+      issue_component: Networking / ptp
+    ose-local-storage-mustgather-container:
+      issue_component: Storage / Local Storage Operator
+    ose-machine-api-operator-container:
+      issue_component: Cloud Compute
+    ose-machine-api-provider-aws-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-machine-api-provider-azure-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-machine-api-provider-gcp-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-machine-api-provider-openstack-container:
+      issue_component: Cloud Compute / OpenStack Provider
+    ose-machine-config-operator-container:
+      issue_component: Machine Config Operator
+    ose-machine-os-images-container:
+      issue_component: Bare Metal Hardware Provisioning / OS Image Provider
+    ose-mdns-publisher-container:
+      issue_component: Networking / mDNS
+    ose-metallb-container:
+      issue_component: Networking / Metal LB
+    ose-metallb-operator-bundle-container:
+      issue_component: Networking / Metal LB
+    ose-metallb-operator-container:
+      issue_component: Networking / Metal LB
+    ose-metering-ansible-operator-container:
+      issue_component: Metering Operator
+    ose-metering-ansible-operator-metadata-container:
+      issue_component: Metering Operator
+    ose-metering-helm-container:
+      issue_component: Metering Operator
+    ose-metering-reporting-operator-container:
+      issue_component: Metering Operator
+    ose-multus-admission-controller-container:
+      issue_component: Networking / multus
+    ose-multus-networkpolicy-container:
+      issue_component: Networking / multus
+    ose-multus-route-override-cni-container:
+      issue_component: Networking / multus
+    ose-multus-whereabouts-ipam-cni-container:
+      issue_component: Networking / multus
+    ose-must-gather-container:
+      issue_component: oc
+    ose-network-interface-bond-cni-container:
+      issue_component: Networking / multus
+    ose-network-metrics-daemon-container:
+      issue_component: Networking / multus
+    ose-network-tools-container:
+      issue_component: Networking / openshift-sdn
+    ose-node-container:
+      issue_component: Networking / openshift-sdn
+    ose-oauth-apiserver-container:
+      issue_component: oauth-apiserver
+    ose-openshift-apiserver-container:
+      issue_component: openshift-apiserver
+    ose-openshift-controller-manager-container:
+      issue_component: openshift-controller-manager / controller-manager
+    ose-openstack-cinder-csi-driver-container:
+      issue_component: Installer / OpenShift on OpenStack
+    ose-openstack-cinder-csi-driver-operator-container:
+      issue_component: Storage
+    ose-openstack-cloud-controller-manager-container:
+      issue_component: Installer / OpenShift on OpenStack
+    ose-openstack-machine-controllers-container:
+      issue_component: Cloud Compute / OpenStack Provider
+    ose-ovirt-csi-driver-container:
+      issue_component: Storage / oVirt CSI Driver
+    ose-ovirt-machine-controllers-container:
+      issue_component: Cloud Compute / oVirt Provider
+    ose-ovn-kubernetes-container:
+      issue_component: Networking / ovn-kubernetes
+    ose-powervs-block-csi-driver-container:
+      issue_component: Multi-Arch / IBM P and Z
+    ose-powervs-block-csi-driver-operator-container:
+      issue_component: Multi-Arch / IBM P and Z
+    ose-powervs-cloud-controller-manager-container:
+      issue_component: Multi-Arch / IBM P and Z
+    ose-powervs-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
+    ose-prometheus-adapter-container:
+      issue_component: Monitoring
+    ose-ptp-operator-container:
+      issue_component: Networking / ptp
+    ose-ptp-operator-metadata-container:
+      issue_component: Networking / ptp
+    ose-route-controller-manager-container:
+      issue_component: route-controller-manager
+    ose-sdn-container:
+      issue_component: Networking / openshift-sdn
+    ose-service-ca-operator-container:
+      issue_component: service-ca
+    ose-thanos-container:
+      issue_component: Monitoring
+    ose-tools-container:
+      issue_component: oc
+    ose-vertical-pod-autoscaler-container:
+      issue_component: Node / Cluster Autoscaler
+    ose-vertical-pod-autoscaler-operator-container:
+      issue_component: Node
+    ose-vertical-pod-autoscaler-operator-metadata-container:
+      issue_component: Node
+    ose-vmware-vsphere-csi-driver-container:
+      issue_component: Storage / Kubernetes External Components
+    ose-vmware-vsphere-csi-driver-operator-container:
+      issue_component: Storage / Operators
+    ose-vsphere-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Cloud Controller Manager
+    ose-vsphere-problem-detector-container:
+      issue_component: Storage / Operators
+    ostree:
+      issue_component: RHCOS
+    ovn-kubernetes-microshift-container:
+      issue_component: MicroShift / Networking
+    performance-addon-operator-bundle-registry-container:
+      issue_component: Performance Addon Operator
+    performance-addon-operator-container:
+      issue_component: Performance Addon Operator
+    performance-addon-operator-must-gather-rhel8-container:
+      issue_component: Performance Addon Operator
+    pivot:
+      issue_component: RHCOS
+    podman:
+      issue_component: Containers
+    poison-pill-must-gather-container:
+      issue_component: oc
+    postgresql-apb-role:
+      issue_component: Service Broker
+    presto-container:
+      issue_component: Metering Operator
+    prom-label-proxy-container:
+      issue_component: Monitoring
+    prometheus-config-reloader-container:
+      issue_component: Monitoring
+    prometheus-operator-container:
+      issue_component: Monitoring
+    promtail-container:
+      issue_component: Monitoring
+    ptp-operator-must-gather-container:
+      issue_component: Networking / ptp
+    python-kubernetes:
+      issue_component: Operator SDK
+    python-openshift:
+      issue_component: Operator SDK
+    redhat-release-coreos:
+      issue_component: RHCOS
+    rhcos-tools:
+      issue_component: RHCOS
+    rpm-ostree:
+      issue_component: RHCOS
+    runc:
+      issue_component: Containers
+    rust-afterburn:
+      issue_component: RHCOS
+    skopeo:
+      issue_component: Containers
+    snapshot-controller-container:
+      issue_component: Storage
+    snapshot-provisioner-container:
+      issue_component: Storage
+    special-resource-operator-bundle-container:
+      issue_component: Special Resource Operator
+    special-resource-operator-container:
+      issue_component: Special Resource Operator
+    sriov-cni-container:
+      issue_component: Networking / SR-IOV
+    sriov-dp-admission-controller-container:
+      issue_component: Networking / SR-IOV
+    sriov-network-config-daemon-container:
+      issue_component: Networking / SR-IOV
+    sriov-network-device-plugin-container:
+      issue_component: Networking / SR-IOV
+    sriov-network-must-gather-container:
+      issue_component: Networking / SR-IOV
+    sriov-network-operator-container:
+      issue_component: Networking / SR-IOV
+    sriov-network-operator-metadata-container:
+      issue_component: Networking / SR-IOV
+    sriov-network-webhook-container:
+      issue_component: Networking / SR-IOV
+    telemeter-container:
+      issue_component: Monitoring
+    template-service-broker-container:
+      issue_component: Service Broker
+    thanos-container:
+      issue_component: Monitoring
+    tini:
+      issue_component: Containers
+    toolbox:
+      issue_component: RHCOS
+    topology-aware-lifecycle-manager-operator-bundle-container:
+      issue_component: Telco Edge / TALO
+    topology-aware-lifecycle-manager-operator-container:
+      issue_component: Telco Edge / TALO
+    topology-aware-lifecycle-operator-precache-container:
+      issue_component: Telco Edge / TALO
+    tuned-container:
+      issue_component: Node Tuning Operator
+    vertical-pod-autoscaler-container:
+      issue_component: Node
+    vertical-pod-autoscaler-operator-container:
+      issue_component: Node
+    vmware-vsphere-syncer-container:
+      issue_component: Storage / Kubernetes External Components
+    windows-machine-config-operator-container:
+      issue_component: Windows Containers
