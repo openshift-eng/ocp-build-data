@@ -758,3 +758,9 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:249b2d423e40b316c9214c85860f633bd9a039e454eb7725e2b6911a3b7eac05
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adddf493fd169fb8b99738487a69e673199533840594ab1a79b7178b82343598
       type: preview
+  stream:
+    assembly:
+      type: stream
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: 'ose-ovn-kubernetes'
