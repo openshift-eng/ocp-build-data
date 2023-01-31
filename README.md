@@ -1,10 +1,13 @@
 # ocp-build-data
 
 Welcome to the OpenShift ocp-build-data repo, managed by ART.  This
-repository is the source of truth for all images built for any
-OpenShift Container Platform release.  However, you will not find any
-data in the `master` branch as all data lives in branches specific to
-each version of OCP. For example, OCP 4.10 data lives in the
+repository is the source of truth for all RPMs and images built for any
+OpenShift Container Platform release.  
+
+You can find the mapping of product component to Jira in [product.yml](product.yml).
+
+You can find release specific build metadata in the `openshif-4.x` branches
+of this repository. For example, OCP 4.10 data lives in the
 [`openshift-4.10`](https://github.com/openshift/ocp-build-data/tree/openshift-4.10)
 branch. (EOL branches are eventually converted to tags of the same name.)
 
