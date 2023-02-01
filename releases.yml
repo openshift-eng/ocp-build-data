@@ -21,7 +21,12 @@ releases:
         - id: OCPBUGS-2541 # no jenkins build attached
         - id: OCPBUGS-1205
       members:
-        images: []
+        images:
+        - distgit_key: ose-aws-efs-csi-driver-operator
+          why: Update cvp valid-subscription-label
+          metadata:
+            is:
+              nvr: ose-aws-efs-csi-driver-operator-container-v4.10.0-202302010855.p0.gdb7e452.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
