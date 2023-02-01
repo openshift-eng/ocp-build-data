@@ -18,7 +18,28 @@ releases:
         upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.12.0,4.12.1
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: openshift-clients-4.12.0-202301311516.p0.gb05f7d4.assembly.stream.el8
+              el9: openshift-clients-4.12.0-202301311516.p0.gb05f7d4.assembly.stream.el9
+        - distgit_key: openshift-kuryr
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: openshift-kuryr-4.12.0-202210261235.p0.g92b9be2.assembly.stream.el8
+        - distgit_key: openshift-ansible
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: openshift-ansible-4.12.0-202211071957.p0.g3a9d20e.assembly.stream.el8
+        - distgit_key: openshift-enterprise-service-idler
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: atomic-openshift-service-idler-4.12.0-202210141624.p0.ga0f9090.assembly.stream.el8
       rhcos:
         machine-os-content:
           images:
