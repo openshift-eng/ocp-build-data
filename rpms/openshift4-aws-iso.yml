@@ -1,0 +1,15 @@
+content:
+  source:
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift/c2s-install.git
+    specfile: rpm.spec
+name: openshift4-aws-iso
+owners:
+- jupierce@redhat.com
+- danclark@redhat.com
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+hotfix_targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
