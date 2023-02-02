@@ -839,3 +839,9 @@ releases:
       permits:
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: 'ose-ovn-kubernetes'
+      group:
+        dependencies:
+          rpms:
+          - el8: kernel-rt-4.18.0-372.43.1.rt7.200.el8_6  # FIXME: Remove this pin after CWFCONF-3374 is processed
+            why: The package hasn't been tagged into rhaos
+            non_gc_tag: rhaos-4.12-rhel-8
