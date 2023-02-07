@@ -29,8 +29,8 @@ rhel-7-ci-build-root:
 
 golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # openshift-golang-builder-container-v1.17.12-202207291741.el8.g01211db
-  image: openshift/golang-builder@sha256:0d04cf6e79508cadb9820891dc426832389930974079fa62d4347d8d14611178
+  # openshift-golang-builder-container-v1.17.12-202302072033.el8.g3272bd5
+  image: openshift/golang-builder@sha256:711da08fc114a385e39a55192c3abc4193804f098957c1cdbda23fe9dc3e9a52
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}.art
@@ -61,8 +61,8 @@ etcd_golang:
 
 # This image must only be used by -alt images, as this image cannot be built for aarch64.
 rhel-7-golang:
-  # openshift-golang-builder-container-v1.17.12-202210242139.el7.gf14244d
-  image: openshift/golang-builder@sha256:71e9e13402bc5662d77dfcadea73fb4dbc4d2f2de51f49332422baaeca240852
+  # openshift-golang-builder-container-v1.17.12-202302072029.el7.gf14244d
+  image: openshift/golang-builder@sha256:b1199a5bf0db41dbd203a9b055b331bd5b01356f056c76fd997773e70fcf2b62
   mirror: true
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.17-openshift-{MAJOR}.{MINOR}.art
   # dptp will layer yum repos / extra packages on top of ART's image to create the
