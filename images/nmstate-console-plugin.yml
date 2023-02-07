@@ -1,0 +1,24 @@
+content:
+  source:
+    git:
+      branch:
+        target: main # XXX
+      url: git@github.com:openshift/nmstate-console-plugin.git # XXX
+      web: https://github.com/openshift/nmstate-console-plugin
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
+#dependents:
+#- openshift-kubernetes-nmstate-operator # XXX
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - member: openshift-base-nodejs
+  member: openshift-enterprise-base
+name: openshift/nmstate-console-plugin-rhel8
+owners:
+- jdelft@redhat.com # XXX
