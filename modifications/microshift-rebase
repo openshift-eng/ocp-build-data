@@ -27,16 +27,16 @@ fi
 # In the future we might have to run rebase.sh inside of a container to use specific versions of dependencies (including golang).
 export PATH=/opt/go-1.18.7/bin:/opt/yq-go/bin:$PATH
 
-if [ -n "$RELEASE_NAME" ]; then
+if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
     # rebase against a named release
-    ./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64
+    ./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64 "$LVMS_OPERATOR_BUNDLE"
     exit 0
 fi
 
-if [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ]; then
+if [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
     # rebase against specified release payloads
-    ./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64"
+    ./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64" "$LVMS_OPERATOR_BUNDLE"
     exit 0
 fi
 
-fail "Environment variable RELEASE_NAME is not set."
+fail "Environment variable RELEASE_NAME or LVMS_OPERATOR_BUNDLE is not set."
