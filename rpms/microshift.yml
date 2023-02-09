@@ -4,7 +4,7 @@ content:
   source:
     git:
       branch:
-        target: main
+        target: release-4.13
       url: git@github.com:openshift-priv/microshift.git
     specfile: packaging/rpm/microshift.spec
     modifications:
@@ -12,6 +12,10 @@ content:
       command: microshift-rebase
       env:
         RELEASE_NAME: "{release_name}"
+        # Since there's no lvms for 4.13 yet and microshift doesn't require a specific version
+        # of lvms-operator-bundle, hardcode v4.12 for now.
+        # # https://github.com/openshift/microshift/blob/main/docs/rebase.md#getting-release-image-build-references
+        LVMS_OPERATOR_BUNDLE: registry.access.redhat.com/lvms4/lvms-operator-bundle:v4.12
 
 name: microshift
 targets: []
