@@ -20,6 +20,10 @@ releases:
       members:
         images: []
         rpms: []
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "backported bugs OCPBUGS-5063, OCPBUGS-2290, OCPBUGS-4909 and OCPBUGS-5957 are on QA \
+              and should not block promotion"
       rhcos:
         machine-os-content:
           images:
