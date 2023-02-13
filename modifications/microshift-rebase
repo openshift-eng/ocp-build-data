@@ -23,9 +23,9 @@ fi
 # FIXME: rebase.sh requires Go yq (https://github.com/mikefarah/yq) instead of Python yq (https://github.com/kislyuk/yq),
 # which is used in the rest of the pipeline.
 # We install Go yq to /opt/yq-go/bin/ on buildvm to avoid conflict.
-# Use Go 1.18.7 as the version installed on buildvm (1.17) is no longer supported.
+# Use Go 1.19.5 as the version installed on buildvm (1.17) is no longer supported.
 # In the future we might have to run rebase.sh inside of a container to use specific versions of dependencies (including golang).
-export PATH=/opt/go-1.18.7/bin:/opt/yq-go/bin:$PATH
+export PATH=/opt/go-1.19.5/bin:/opt/yq-go/bin:$PATH
 
 if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
     # rebase against a named release
