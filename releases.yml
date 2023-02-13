@@ -19,11 +19,16 @@ releases:
         upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.12.0,4.12.1,4.12.2
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.3-202302112006.p0.g932074d.assembly.4.12.3.el8
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "backported bugs OCPBUGS-5063, OCPBUGS-2290, OCPBUGS-4909 and OCPBUGS-5957 are on QA \
-              and should not block promotion"
+        why: "backported bugs OCPBUGS-5063, OCPBUGS-2290, OCPBUGS-4909 and OCPBUGS-5957\
+          \ are on QA and should not block promotion"
       rhcos:
         machine-os-content:
           images:
