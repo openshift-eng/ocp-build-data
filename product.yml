@@ -22,7 +22,7 @@ bug_mapping:
     atomic-openshift-descheduler-container:
       issue_component: kube-scheduler
     atomic-openshift-node-problem-detector-container:
-      issue_component: Node
+      issue_component: Node / Node Problem Detector
     atomic-openshift-service-idler:
       issue_component: Networking / openshift-sdn
     bare-metal-event-relay-operator-bundle-container:
@@ -144,6 +144,10 @@ bug_mapping:
     ingress-node-firewall-container:
       issue_component: Networking / ingress-node-firewall
     ingress-node-firewall-daemon-container:
+      issue_component: Networking / ingress-node-firewall
+    ingress-node-firewall-operator-bundle-container:
+      issue_component: Networking / ingress-node-firewall
+    ingress-node-firewall-operator-container:
       issue_component: Networking / ingress-node-firewall
     ironic-agent-container:
       issue_component: Bare Metal Hardware Provisioning / ironic
@@ -304,7 +308,7 @@ bug_mapping:
     openshift-enterprise-operator-sdk-container:
       issue_component: Operator SDK
     openshift-enterprise-pod-container:
-      issue_component: Node
+      issue_component: CRI-O
     openshift-enterprise-postgresql-container:
       issue_component: Service Broker
     openshift-enterprise-recycler-container:
@@ -349,6 +353,14 @@ bug_mapping:
       issue_component: OLM
     operator-registry-container:
       issue_component: OLM
+    ose-agent-installer-api-server-container:
+      issue_component: Installer / Agent based installation
+    ose-agent-installer-csr-approver-container:
+      issue_component: Installer / Agent based installation
+    ose-agent-installer-node-agent-container:
+      issue_component: Unknown
+    ose-agent-installer-orchestrator-container:
+      issue_component: Installer / Agent based installation
     ose-alibaba-cloud-controller-manager-container:
       issue_component: Cloud Compute / Cloud Controller Manager
     ose-alibaba-cloud-csi-driver-container:
@@ -445,6 +457,8 @@ bug_mapping:
       issue_component: openshift-controller-manager / controller-manager
     ose-cluster-ovirt-csi-operator-container:
       issue_component: Storage / oVirt CSI Driver
+    ose-cluster-platform-operators-manager-container:
+      issue_component: OLM
     ose-cluster-policy-controller-container:
       issue_component: kube-controller-manager
     ose-cluster-samples-operator-container:
@@ -456,11 +470,11 @@ bug_mapping:
     ose-cluster-update-keys-container:
       issue_component: Release
     ose-clusterresourceoverride-container:
-      issue_component: Node
+      issue_component: Node / Cluster Resource Override Admission Operator
     ose-clusterresourceoverride-operator-container:
-      issue_component: Node
+      issue_component: Node / Cluster Resource Override Admission Operator
     ose-clusterresourceoverride-operator-metadata-container:
-      issue_component: Node
+      issue_component: Node / Cluster Resource Override Admission Operator
     ose-compliance-openscap-container:
       issue_component: Compliance Operator
     ose-compliance-operator-container:
@@ -469,7 +483,11 @@ bug_mapping:
       issue_component: Networking / multus
     ose-csi-driver-shared-resource-container:
       issue_component: Storage / Shared Resource CSI Driver
+    ose-csi-driver-shared-resource-mustgather-container:
+      issue_component: Storage / Shared Resource CSI Driver
     ose-csi-driver-shared-resource-operator-container:
+      issue_component: Storage / Shared Resource CSI Driver
+    ose-csi-driver-shared-resource-webhook-container:
       issue_component: Storage / Shared Resource CSI Driver
     ose-csi-external-resizer-container:
       issue_component: Storage
@@ -493,6 +511,12 @@ bug_mapping:
       issue_component: Networking / frr
     ose-gcp-cloud-controller-manager-container:
       issue_component: Cloud Compute / Cloud Controller Manager
+    ose-gcp-filestore-csi-driver-container:
+      issue_component: Storage
+    ose-gcp-filestore-csi-driver-operator-bundle-container:
+      issue_component: Storage / Operators
+    ose-gcp-filestore-csi-driver-operator-container:
+      issue_component: Storage / Operators
     ose-gcp-machine-controllers-container:
       issue_component: Cloud Compute / Other Provider
     ose-gcp-pd-csi-driver-container:
@@ -548,7 +572,7 @@ bug_mapping:
     ose-local-storage-mustgather-container:
       issue_component: Storage / Local Storage Operator
     ose-machine-api-operator-container:
-      issue_component: Cloud Compute
+      issue_component: Cloud Compute / Cloud Controller Manager
     ose-machine-api-provider-aws-container:
       issue_component: Cloud Compute / Other Provider
     ose-machine-api-provider-azure-container:
@@ -595,8 +619,14 @@ bug_mapping:
       issue_component: Networking / openshift-sdn
     ose-node-container:
       issue_component: Networking / openshift-sdn
+    ose-nutanix-cloud-controller-manager-container:
+      issue_component: Cloud Compute / Nutanix Provider
+    ose-nutanix-machine-controllers-container:
+      issue_component: Cloud Compute / Nutanix Provider
     ose-oauth-apiserver-container:
       issue_component: oauth-apiserver
+    ose-olm-rukpak-container:
+      issue_component: OLM
     ose-openshift-apiserver-container:
       issue_component: openshift-apiserver
     ose-openshift-controller-manager-container:
@@ -640,11 +670,11 @@ bug_mapping:
     ose-tools-container:
       issue_component: oc
     ose-vertical-pod-autoscaler-container:
-      issue_component: Node / Cluster Autoscaler
+      issue_component: Node / Autoscaler (HPA, VPA)
     ose-vertical-pod-autoscaler-operator-container:
-      issue_component: Node
+      issue_component: Node / Autoscaler (HPA, VPA)
     ose-vertical-pod-autoscaler-operator-metadata-container:
-      issue_component: Node
+      issue_component: Node / Autoscaler (HPA, VPA)
     ose-vmware-vsphere-csi-driver-container:
       issue_component: Storage / Kubernetes External Components
     ose-vmware-vsphere-csi-driver-operator-container:
@@ -676,6 +706,8 @@ bug_mapping:
     prom-label-proxy-container:
       issue_component: Monitoring
     prometheus-config-reloader-container:
+      issue_component: Monitoring
+    prometheus-operator-admission-webhook-container:
       issue_component: Monitoring
     prometheus-operator-container:
       issue_component: Monitoring
