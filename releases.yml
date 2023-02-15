@@ -40,6 +40,9 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:36c3628e6949e7ad9d4c1e1b7d93b6990fcb8003c6bccb517f6a9d78b46c7e0f
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:296b61f3af32dad27b20692467909f57080f56c76ae45b4eff6195baa0cbed6b
       type: standard
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: Blocking bug check errors for OCPBUGS-7208 and OCPBUGS-6637 are permitted because 4.13 is not released.
 
   4.12.3:
     assembly:
