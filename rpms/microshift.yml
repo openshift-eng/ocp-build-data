@@ -18,6 +18,11 @@ content:
         LVMS_OPERATOR_BUNDLE: registry.access.redhat.com/lvms4/lvms-operator-bundle:v4.12
 
 name: microshift
-targets: []
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+- rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+hotfix_targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
+- rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
 owners:
 - microshift-devel@redhat.com
