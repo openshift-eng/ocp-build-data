@@ -1,7 +1,7 @@
 base_only: true
 content:
   source:
-    dockerfile: Dockerfile.rhel
+    dockerfile: Dockerfile.rhel9
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -32,29 +32,31 @@ content:
       # The output of this buildconfig is upstream_image.
       # This buildconfig layers on files necessary for the resulting upstream_image CI image
       # to pull RPM dependencies from the CDN & reposync repositories.
-      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-enterprise-base-{MAJOR}.{MINOR}.art
+      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-enterprise-base-{MAJOR}.{MINOR}.art
       # Note that it must be qualified by {MAJOR}.{MINOR} so that it installs non-CDN
       # rpms for the appropriate release.
-      transform: rhel-8/base-repos
+      transform: rhel-9/base-repos
       # After the transform, promote directly to the location that CI promotes to. This is
       # a little sketchy, but I believe the reward is a significant improvement in CI
       # signal fidelity.
-      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
 
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 for_release: false
 from:
-  member: openshift-base-rhel8
+  member: openshift-base-rhel9
 labels:
   License: GPLv2+
   io.k8s.description: This is the base image from which all OpenShift Container Platform
     images inherit.
-  io.k8s.display-name: OpenShift Container Platform RHEL 8 Base
+  io.k8s.display-name: OpenShift Container Platform RHEL 9 Base
   io.openshift.tags: openshift,base
   vendor: Red Hat
-name: openshift/ose-base
+name: openshift/openshift-enterprise-base-rhel9
 owners:
 - lmeyer@redhat.com
