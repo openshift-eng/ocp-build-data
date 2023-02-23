@@ -9,7 +9,7 @@ FROM replaced-by-buildconfig
 ENV PATH=/opt/google/protobuf/bin:$PATH
 RUN set -euxo pipefail && \
     f=$( mktemp ) && \
-    curl --fail -L http://mirror.openshift.com/pub/openshift-static-ci-deps/protobuf-3.0.0/protoc-3.0.0-linux-x86_64.zip > "${f}" && \
+    curl --fail -L https://mirror.openshift.com/pub/openshift-static-ci-deps/protobuf-3.0.0/protoc-3.0.0-linux-x86_64.zip > "${f}" && \
     mkdir -p /opt/google/protobuf && \
     unzip "${f}" -d /opt/google/protobuf && \
     curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.1/etcd-v3.5.1-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.1-linux-amd64/etcd
