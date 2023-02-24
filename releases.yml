@@ -168,3 +168,10 @@ releases:
         component: 'rhcos'
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
+      members:
+        images:
+        - distgit_key: cluster-network-operator
+          why: Image references broke in recent commit, pinning to last good build
+          metadata:
+            is:
+              nvr: cluster-network-operator-container-v4.13.0-202302231816.p0.g4d5a093.assembly.stream
