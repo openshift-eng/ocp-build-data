@@ -50,7 +50,7 @@ urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
-  cgit: http://pkgs.devel.redhat.com/cgit
+  cgit: https://pkgs.devel.redhat.com/cgit
 non_release:
   images:
   - openshift-enterprise-base
@@ -69,24 +69,24 @@ repos:
   rhel-7-server-ansible-2.8-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.8/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.8/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.8/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.8/os/
     content_set:
       default: rhel-7-server-ansible-2.8-rpms
       ppc64le: rhel-7-server-ansible-2.8-for-power-le-rpms
   rhel-7-server-ansible-2.9-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.9/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.9/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/ansible/2.9/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/ansible/2.9/os/
     content_set:
       default: rhel-7-server-ansible-2.9-rpms
       ppc64le: rhel-7-server-ansible-2.9-for-power-le-rpms
   rhel-7-server-rhceph-3-tools-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/els/rhel/power-le/7/7Server/ppc64le/rhceph-tools/3/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/els/rhel/server/7/7Server/x86_64/rhceph-tools/3/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/els/rhel/power-le/7/7Server/ppc64le/rhceph-tools/3/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/els/rhel/server/7/7Server/x86_64/rhceph-tools/3/os/
     content_set:
       default: rhel-7-server-rhceph-3-tools-els-rpms
       optional: true
@@ -94,16 +94,16 @@ repos:
   rhel-fast-datapath-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/fast-datapath/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/fast-datapath/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
     content_set:
       default: rhel-7-fast-datapath-rpms
       ppc64le: rhel-7-for-power-le-fast-datapath-rpms
   rhel-openstack-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/openstack/14/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/openstack/14/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/openstack/14/os/
     content_set:
       default: rhel-7-server-openstack-14-rpms
       optional: true
@@ -111,16 +111,16 @@ repos:
   rhel-server-extras-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/extras/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/extras/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
     content_set:
       default: rhel-7-server-extras-rpms
       ppc64le: rhel-7-for-power-le-extras-rpms
   rhel-server-optional-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/optional/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/optional/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/optional/os/
       enabled: 1
     content_set:
       default: rhel-7-server-optional-rpms
@@ -128,8 +128,8 @@ repos:
   rhel-server-ose-rpms:
     conf:
       baseurl:
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
+        ppc64le: https://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/ppc64le/os
+        x86_64: https://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building/x86_64/os
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
@@ -137,8 +137,8 @@ repos:
   rhel-server-ose-rpms-embargoed:
     conf:
       baseurl:
-        ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building-embargoed/ppc64le/os
-        x86_64: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building-embargoed/x86_64/os
+        ppc64le: https://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building-embargoed/ppc64le/os
+        x86_64: https://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/{MAJOR}.{MINOR}/building-embargoed/x86_64/os
     content_set:
       default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
       optional: true
@@ -146,16 +146,16 @@ repos:
   rhel-server-rhscl-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/rhscl/1/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/rhscl/1/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
     content_set:
       default: rhel-server-rhscl-7-rpms
       ppc64le: rhel-7-server-for-power-le-rhscl-rpms
   rhel-server-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/power-le/7/7Server/ppc64le/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
       enabled: 1
     content_set:
       default: rhel-7-server-rpms
