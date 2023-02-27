@@ -66,7 +66,7 @@ urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
-  cgit: http://pkgs.devel.redhat.com/cgit
+  cgit: https://pkgs.devel.redhat.com/cgit
   rhcos_release_base:
     multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/{MAJOR}.{MINOR}/builds
 dist_git_ignore:
@@ -91,10 +91,10 @@ repos:
   rhel-8-server-ansible-2.9-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/ansible/2.9/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/ansible/2.9/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/ansible/2.9/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/ansible/2.9/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/ansible/2.9/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/ansible/2.9/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/ansible/2.9/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/ansible/2.9/os/
       ci_alignment:
         profiles:
         - el8
@@ -153,10 +153,10 @@ repos:
   rhel-8-baseos-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/baseos/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/baseos/os/
-        s390x:   http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/baseos/os/
-        x86_64:  http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/baseos/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/baseos/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/baseos/os/
       ci_alignment:
         profiles:
         - el8
@@ -173,10 +173,10 @@ repos:
   rhel-8-codeready-builder-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/codeready-builder/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/codeready-builder/os/
-        s390x:   http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/codeready-builder/os/
-        x86_64:  http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/codeready-builder/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/codeready-builder/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/codeready-builder/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/codeready-builder/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/codeready-builder/os/
       ci_alignment:
         profiles:
         - el8
@@ -193,11 +193,11 @@ repos:
   rhel-8-rt-rpms:
     conf:
       baseurl:
-        x86_64:  http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
         # other arches don't exist, pointing at something that exists
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
-        s390x:   http://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
       ci_alignment:
         profiles:
         - el8
@@ -211,10 +211,10 @@ repos:
   rhel-8-appstream-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/appstream/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/appstream/os/
-        s390x:   http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/appstream/os/
-        x86_64:  http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/appstream/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/appstream/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/appstream/os/
       ci_alignment:
         profiles:
         - el8
@@ -233,15 +233,15 @@ repos:
   rhel-8-fast-datapath-rpms:
     conf:
       baseurl:
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/fast-datapath/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/fast-datapath/os/
         # [lmeyer] multi-arch releases might lag behind x86_64, which may require pointing at pre-release MA composes.
         # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
-        # ppc64le: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
-        # s390x: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/s390x/os/
-        # aarch64: http://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/aarch64/os/
+        # ppc64le: https://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
+        # s390x: https://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/s390x/os/
+        # aarch64: https://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/aarch64/os/
       ci_alignment:
         profiles:
         - el8
@@ -259,11 +259,11 @@ repos:
   openstack-16-for-rhel-8-rpms:
     conf:
       baseurl:
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16.2/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16.2/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16.2/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16.2/os/
         # XXX: aarch64 and s390x RHOS don't exist, use puddles for now in order to build Ironic
-        s390x: http://download-node-02.eng.bos.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/s390x/os/
-        aarch64: http://download-node-02.eng.bos.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/aarch64/os/
+        s390x: https://download-node-02.eng.bos.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/s390x/os/
+        aarch64: https://download-node-02.eng.bos.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/aarch64/os/
       ci_alignment:
         profiles:
         - el8
@@ -280,10 +280,10 @@ repos:
   rhel-9-baseos-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/baseos/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/baseos/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/baseos/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/baseos/os/
       ci_alignment:
         profiles:
         - el9
@@ -300,10 +300,10 @@ repos:
   rhel-9-appstream-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/appstream/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/appstream/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/appstream/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/appstream/os/
       ci_alignment:
         profiles:
         - el9
