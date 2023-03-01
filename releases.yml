@@ -168,3 +168,10 @@ releases:
         component: 'rhcos'
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
+      members:
+        images:
+        - distgit_key: machine-config-operator
+          why: coordinate MCO changing RHCOS reference
+          metadata:
+            is:
+              nvr: ose-machine-config-operator-container-v4.13.0-...  # fill in latest NVR
