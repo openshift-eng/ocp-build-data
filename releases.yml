@@ -1,4 +1,57 @@
 releases:
+  ec.4:
+    assembly:
+      basis:
+        brew_event: 50070317
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2023-02-27-101547
+          ppc64le: 4.13.0-0.nightly-ppc64le-2023-02-27-101544
+          s390x: 4.13.0-0.nightly-s390x-2023-02-27-101543
+          x86_64: 4.13.0-0.nightly-2023-02-27-101545
+      group:
+        upgrades: 4.12.5,4.12.6,4.13.0-ec.1,4.13.0-ec.2,4.13.0-ec.3
+      members:
+        images:
+        - distgit_key: cluster-network-operator
+          metadata:
+            is:
+              nvr: cluster-network-operator-container-v4.13.0-202302231816.p0.g4d5a093.assembly.stream
+          why: Query from assembly basis event failed to replicate referenced nightly
+            content exactly. Pinning to replicate.
+        rpms:
+        - distgit_key: openshift
+          why: Pin openshift version used by RHCOS
+          metadata:
+            is:
+              el8: openshift-4.13.0-202302211028.p0.g518f3ed.assembly.stream.el8
+              el9: openshift-4.13.0-202302211028.p0.g518f3ed.assembly.stream.el9
+        - distgit_key: openshift-clients
+          why: Pin openshift-clients version used by RHCOS
+          metadata:
+            is:
+              el8: openshift-clients-4.13.0-202302230515.p0.ga04d9dc.assembly.stream.el8
+              el9: openshift-clients-4.13.0-202302230515.p0.ga04d9dc.assembly.stream.el9
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f226256d22406c0d07c3a1350c66182c7385d1f2d5e63894bf8d0bbc493a894a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dd8bef37f6735d11f306f91e17664681cb2d6281dd049286cc92c955138f8c26
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ee433c482e24add05d1c4cf00fb56396fafe844b1b5543a4a49963f1576956e4
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cc8c35a05cdb5f6012dcbfdbbbf02371f55dd5dc2147adfef2eeac9f42987ad0
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fd49f26d2159ebfcf0becb8e9c2612035b0da4ea8e156aa305c9917512abe086
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9da7443949e659234fa01c1e3e833873284542dcca2db13325dcc0c03659be3
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6027f776efba01198ed05297adb96dd55cf23ef31a7370a103fadfd80e766288
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4f28fbcd049025bab9719379492420f9eaab0426cdbbba43b395eb8421f10a17
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e8c14568878f563147a2c486fe0acb62535126cb40fb1a0d10885e2fa633fd9b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:24e0da39cdf555c6acd3c440fd530b5316326f86462a7be65bae2017171dfb60
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:66c175cb427f1ecd74cabdfb682dc44d959f52ba984b2ca99f9b97496aeac328
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:600d32e1e333305f5b29a9eaaf59cb2e43d8512ff1dff9398bf0adda1102e9d3
+      type: preview
+
   ec.3:
     assembly:
       basis:
