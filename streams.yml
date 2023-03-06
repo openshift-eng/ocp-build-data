@@ -37,7 +37,7 @@ rhel-9-golang:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
-# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# The *-ci-build-root images are not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
 rhel-8-golang-ci-build-root:
@@ -45,6 +45,11 @@ rhel-8-golang-ci-build-root:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.19-openshift-{MAJOR}.{MINOR}
+rhel-9-golang-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+  transform: rhel-9/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
