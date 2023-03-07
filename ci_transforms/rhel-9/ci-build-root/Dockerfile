@@ -14,11 +14,10 @@ RUN set -euxo pipefail && \
     unzip "${f}" -d /opt/google/protobuf && \
     curl --fail -L https://github.com/coreos/etcd/releases/download/v3.4.13/etcd-v3.4.13-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.4.13-linux-amd64/etcd
 
-# Install common CI tools and epel for packages like tito.
-RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-    INSTALL_PKGS="bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl rsync socat systemd-devel tar tito tree wget which xfsprogs zip goversioninfo gettext python3 iproute" && \
+# Install common CI tools and epel for other devel packages
+RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
+    INSTALL_PKGS="bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make mercurial nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute" && \
     yum install -y $INSTALL_PKGS && \
-    alternatives --set python /usr/bin/python3 && \
     yum clean all && \
     touch /os-build-image && \
     git config --system user.name origin-release-container && \
@@ -27,7 +26,7 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.n
 # Install common go tools upstream devs are expecting in CI.
 # Pure cargo culting from https://github.com/openshift/release/blob/51d92eb6a6d730e932a5daf68829ca7936739904/projects/origin-release/golang-1.13/Dockerfile#L41
 # Clear GOFLAGS temporarily for 1.12  bug:https://github.com/golang/go/issues/32502
-RUN GOFLAGS='' go get golang.org/x/tools/cmd/cover \
+RUN GOFLAGS='' go install golang.org/x/tools/cmd/cover \
         github.com/Masterminds/glide \
         golang.org/x/tools/cmd/goimports \
         github.com/tools/godep \
