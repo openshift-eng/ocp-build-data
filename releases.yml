@@ -25,7 +25,12 @@ releases:
         - id: OCPBUGS-142  # ignition - shipped in 4.12.0
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.7-202303082246.p0.g5be591c.assembly.4.12.7.el8
       promotion_permits:
       - code: ATTACHED_BUGS
         why: "backported bug OCPBUGS-5465 is on QA and should not block promotion"
