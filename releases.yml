@@ -17,6 +17,12 @@ releases:
           microshift: 110880
         release_jira: ART-6271
         upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6
+      issues:
+        exclude:
+        - id: OCPBUGS-151  # ignition - shipped in 4.12.0
+        - id: OCPBUGS-5850 # microshift - shipped in 4.12.6
+        - id: OCPBUGS-138  # butane - shipped in 4.12.0
+        - id: OCPBUGS-142  # ignition - shipped in 4.12.0
       members:
         images: []
         rpms: []
