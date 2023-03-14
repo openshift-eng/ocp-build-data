@@ -25,10 +25,10 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-        # this repo provides complete RHEL 8 build env; we just want the go-toolset content
+        # this repo provides complete RHEL 9 build env
         includepkgs: module-build-macros golang*
       baseurl:
-        # golang-1.19.1-2.module+el8.8.0+16778+5fbb74f5
+        # golang-1.19.6-1.el9_2
         aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/aarch64
         ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/ppc64le/
         s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/s390x/
@@ -43,7 +43,7 @@ repos:
       extra_options:
         module_hotfixes: 1
         # this repo is for our own buildroot, which also inherits a complete RHEL 8 build env;
-        # restrict to specific necessary content, because RHEL 8 build dev content may include
+        # restrict to specific necessary content, because RHEL 9 build dev content may include
         # pending unreleased content that can cause conflicts for later CI installs lacking access
         # to that content.
         includepkgs: goversioninfo gpgme-devel libassuan-devel mingw* golang*
