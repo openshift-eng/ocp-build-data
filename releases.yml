@@ -13,3 +13,105 @@ releases:
         component: 'driver-toolkit'
       - code: FAILED_CROSS_RPM_VERSIONS_REQUIREMENT
         component: 'rhcos'
+
+  # ./doozer --arches x86_64 --assembly art6195 --working-dir art6195 --data-path https://github.com/jupierce/ocp-build-data --group openshift-4.14 --latest-parent-version -i driver-toolkit images:rebase --version v4.14.0 --release '9999.p?' --message 'test rhel 9 build' --push
+  #
+  art6195:
+    assembly:
+      basis:
+        assembly: stream
+        patch_version: "{MAJOR}.{MINOR}.0"
+      type: custom
+      members:
+        images:
+        - distgit_key: driver-toolkit
+          metadata:
+            content:
+              source:
+                "modifications!":
+                - action: replace
+                  match: "ARG RHEL_VERSION=''"
+                  replacement: "ARG RHEL_VERSION='9.2'"
+                git:
+                  url: git@github.com:jupierce/driver-toolkit.git
+                  web: https://github.com/jupierce/driver-toolkit
+            arches:
+            # There is no kernel-rt for non-x86 arch for rhel 9.2 or centos-9 stream.
+            - x86_64
+            dependencies:
+              rpms:
+                el9: kernel-5.14.0-282.el9
+                why: Provide DTK for Centos 9.2 kernel
+                non_gc_tag: not applicable
+            distgit:
+              branch: rhaos-4.14-rhel-9
+            "enabled_repos!":
+            - rhel-92-baseos-rpms
+            - rhel-92-appstream-rpms
+            - rhel-9-appstream-rpms
+            - rhel-9-baseos-rpms
+            - rhel-9-server-ironic-rpms
+            - rhel-92-rt-rpms
+            from:
+              member: openshift-enterprise-base-rhel9
+      group:
+        repos:
+          rhel-92-baseos-rpms:
+            conf:
+              extra_options:
+                module_hotfixes: 1
+                includepkgs: "kernel*"
+              baseurl:
+#                aarch64: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/BaseOS/aarch64/os/
+#                ppc64le: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/BaseOS/ppc64le/os/
+#                s390x: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/BaseOS/s390x/os/
+#                x86_64: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/BaseOS/x86_64/os/
+#                aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/BaseOS/aarch64/os/
+#                ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/BaseOS/ppc64le/os/
+#                s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/BaseOS/s390x/os/
+                x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/
+            content_set:
+              default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
+              aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
+              ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
+              s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
+            reposync:
+              enabled: false
+          rhel-92-appstream-rpms:
+            conf:
+              extra_options:
+                module_hotfixes: 1
+                includepkgs: "kernel*"
+              baseurl:
+#                aarch64: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/AppStream/aarch64/os/
+#                ppc64le: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/AppStream/ppc64le/os/
+#                s390x: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/AppStream/s390x/os/
+#                x86_64: https://download-node-02.eng.bos.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2.0/compose/AppStream/x86_64/os/
+#                aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/AppStream/aarch64/os/
+#                ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/
+#                s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/AppStream/s390x/os/
+                x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/AppStream/x86_64/os/
+            content_set:
+              default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
+              aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
+              ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
+              s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+            reposync:
+              enabled: false
+          rhel-92-rt-rpms:
+            conf:
+              extra_options:
+                module_hotfixes: 1
+                includepkgs: "kernel*"
+              baseurl:
+#                aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/RT/aarch64/os/
+#                ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/RT/ppc64le/os/
+#                s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/RT/s390x/os/
+                x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/RT/x86_64/os/
+            content_set:
+              default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
+              aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
+              ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
+              s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+            reposync:
+              enabled: false
