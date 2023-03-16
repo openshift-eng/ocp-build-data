@@ -21,8 +21,9 @@
 
 golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # openshift-golang-builder-container-v1.19.4-202301042245.el8.g1832cfe
-  image: openshift/golang-builder@sha256:d027750cda93ab497afbde0e09ef3d12e0aac10e9c89ed6da866b15188c9969c
+  # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2414523
+  # openshift-golang-builder-container-v1.19.6-202303140941.el8.g6a2861c
+  image: openshift/golang-builder@sha256:f38f31aef24699bb3dac4f22dcd5692778e612d5ea69633e937756136c8f0176
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
@@ -30,8 +31,9 @@ golang:
 
 rhel-9-golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # openshift-golang-builder-container-v1.19.2-202210260124.el9.g6fef344
-  image: openshift/golang-builder@sha256:a3b8e1a34479c98c3f063524a14ad0259e567367cc7c34e64323773ece63205f
+  # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2419283
+  # openshift-golang-builder-container-v1.19.6-202303161513.el9.gf0a0406
+  image: openshift/golang-builder@sha256:6222d29a88fa3826ed5107592bbff1bde1c57586d1b0f3456c19b570c0c8b933
   mirror: true
   transform: rhel-9/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
