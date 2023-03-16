@@ -8,7 +8,7 @@ arches:
 
 vars:
   MAJOR: 4
-  MINOR: 12
+  MINOR: 13
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -21,23 +21,6 @@ insecure_source: true
 branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 
 repos:
-  rhel-9-golang-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-        # this repo provides complete RHEL 8 build env; we just want the go-toolset content
-        includepkgs: module-build-macros golang*
-      baseurl:
-        # golang-1.19.1-2.module+el8.8.0+16778+5fbb74f5
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/aarch64
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhel-9.2.0-build/latest/x86_64/
-    # These content sets are not used, so just putting something here
-    content_set:
-      default: bogus
-      optional: true
-
   rhel-9-server-ose-build-rpms:
     conf:
       extra_options:
