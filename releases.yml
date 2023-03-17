@@ -15,7 +15,7 @@ releases:
         component: 'rhcos'
 
   # ./doozer --arches x86_64 --assembly art6195 --working-dir art6195 --data-path https://github.com/jupierce/ocp-build-data --group openshift-4.14 --latest-parent-version -i driver-toolkit images:rebase --version v4.14.0 --release '9999.p?' --message 'test rhel 9 build' --push
-  #
+  # ./doozer --assembly art6195 --working-dir art6195 --data-path https://github.com/jupierce/ocp-build-data --group openshift-4.14 --latest-parent-version -i driver-toolkit images:build
   art6195:
     assembly:
       basis:
@@ -38,23 +38,26 @@ releases:
             arches:
             # There is no kernel-rt for non-x86 arch for rhel 9.2 or centos-9 stream.
             - x86_64
-            dependencies:
-              rpms:
-                el9: kernel-5.14.0-282.el9
-                why: Provide DTK for Centos 9.2 kernel
-                non_gc_tag: not applicable
             distgit:
               branch: rhaos-4.14-rhel-9
             "enabled_repos!":
-            - rhel-92-baseos-rpms
-            - rhel-92-appstream-rpms
+            #- rhel-92-baseos-rpms
+            #- rhel-92-appstream-rpms
             - rhel-9-appstream-rpms
             - rhel-9-baseos-rpms
-            - rhel-9-server-ironic-rpms
-            - rhel-92-rt-rpms
+            - rhel-9-server-ose-rpms
+            #- rhel-92-rt-rpms
             from:
               member: openshift-enterprise-base-rhel9
       group:
+        dependencies:
+          rpms:
+          - el9: kernel-5.14.0-285.el9
+            why: Provide DTK for Centos 9.2 kernel
+            non_gc_tag: not applicable
+          - el9: kernel-rt-5.14.0-285.el9
+            why: Provide DTK for Centos 9.2 kernel
+            non_gc_tag: not applicable
         repos:
           rhel-92-baseos-rpms:
             conf:
