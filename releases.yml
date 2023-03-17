@@ -35,9 +35,6 @@ releases:
                 git:
                   url: git@github.com:jupierce/driver-toolkit.git
                   web: https://github.com/jupierce/driver-toolkit
-            arches:
-            # There is no kernel-rt for non-x86 arch for rhel 9.2 or centos-9 stream.
-            - x86_64
             distgit:
               branch: rhaos-4.14-rhel-9
             "enabled_repos!":
@@ -50,6 +47,9 @@ releases:
             from:
               member: openshift-enterprise-base-rhel9
       group:
+        arches:
+        # There is currently no kernel-rt for non-x86 arch for rhel 9.2 or centos-9 stream.
+        - x86_64
         dependencies:
           rpms:
           - el9: kernel-5.14.0-285.el9
