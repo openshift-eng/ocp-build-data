@@ -231,3 +231,10 @@ releases:
         component: 'driver-toolkit'
       - code: FAILED_CROSS_RPM_VERSIONS_REQUIREMENT
         component: 'rhcos'
+      members:
+        images:
+        - distgit_key: driver-toolkit
+          why: "Until rhel 9.2 GA's, we must build with scos. It requires a special build of the DTK to match the kernel version in scos."
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.14.0-9999.1.p0.g6d67ca0.assembly.art6195
