@@ -19,7 +19,19 @@ releases:
         upgrades: 4.12.8,4.13.0-ec.1,4.13.0-ec.2,4.13.0-ec.3,4.13.0-ec.4
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift
+          why: use the build included in RHCOS
+          metadata:
+            is:
+              el9: openshift-4.13.0-202303131054.p0.g06e8c46.assembly.stream.el9
+              el8: openshift-4.13.0-202303131054.p0.g06e8c46.assembly.stream.el8
+        - distgit_key: openshift-clients
+          why: use the build included in RHCOS
+          metadata:
+            is:
+              el9: openshift-clients-4.13.0-202303012141.p0.g0236210.assembly.stream.el9
+              el8: openshift-clients-4.13.0-202303012141.p0.g0236210.assembly.stream.el8
       rhcos:
         machine-os-content:
           images:
@@ -40,6 +52,10 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec2abf554faaa531110aa6958d2953038739219c65c13219b13d0d9ac8b3382d
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f8802d01336608db23df4b93fac6c08012a7434ef1914069744f6cb2897cf685
       type: candidate
+      permits:
+        - code: FAILED_CONSISTENCY_REQUIREMENT
+          component: driver-toolkit
+          # why: driver-toolkit is known to have the diverged kernel build
 
   ec.4:
     assembly:
