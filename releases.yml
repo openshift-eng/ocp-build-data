@@ -44,6 +44,9 @@ releases:
       - code: FAILED_CONSISTENCY_REQUIREMENT
         component: driver-toolkit
           # why: driver-toolkit is known to have the diverged kernel build
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: Not all bugs need to have perfect state just yet
       issues:
         exclude:
         - id: 2067907  # why: component was removed
