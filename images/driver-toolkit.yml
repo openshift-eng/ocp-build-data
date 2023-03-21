@@ -4,7 +4,7 @@ content:
     modifications:
     - action: replace
       match: "ARG RHEL_VERSION=''"
-      replacement: "ARG RHEL_VERSION='8.6'"
+      replacement: "ARG RHEL_VERSION='9.2'"
 
     # Uncomment the following sections to pin specific kernel versions
 
@@ -16,21 +16,27 @@ content:
     #   match: "ARG RT_KERNEL_VERSION=''"
     #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
     git:
+#      branch:
+#        target: release-{MAJOR}.{MINOR}
+#      url: git@github.com:openshift-priv/driver-toolkit.git
+#      web: https://github.com/openshift/driver-toolkit
+
+      # Fork disables installation of abi since it not in the CentOS Stream 9 RPMs.
       branch:
-        target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/driver-toolkit.git
-      web: https://github.com/openshift/driver-toolkit
+        target: release-4.13-no-abi
+      url: git@github.com:jupierce/driver-toolkit.git
+      web: https://github.com/jupierce/driver-toolkit
+
 enabled_repos:
-- rhel-8-baseos-rpms
-# - rhel-8-rt-rpms -- for the lifetime of 8.6 EUS this will no longer be updated
-# and instead kernel-rt updates are in ART's plashet. re-evaluate this at the point
-# where we move to rhel9 with rhcos; at that point, this setup may still be necessary
-# if we are regularly shipping kernels early.
-- rhel-8-server-ose-rpms-embargoed
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-server-ose-rpms-embargoed
+- rhel-9-appstream-rpms
+- centos-92-baseos-rpms
+- centos-92-appstream-rpms
+- centos-92-rt-rpms
 for_payload: true
 from:
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-driver-toolkit
 owners:
 - edge-sro@redhat.com
