@@ -408,6 +408,7 @@ repos:
       extra_options:
         module_hotfixes: 1
         includepkgs: "kernel*"
+        gpgcheck: "0"   # centos gpg key would otherwise fail verification.
       baseurl:
         aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/BaseOS/aarch64/os/
         ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/BaseOS/ppc64le/os/
@@ -426,6 +427,7 @@ repos:
       extra_options:
         module_hotfixes: 1
         includepkgs: "kernel*"
+        gpgcheck: "0"   # centos gpg key would otherwise fail verification.
       baseurl:
         aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/AppStream/aarch64/os/
         ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/CentOS/mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/
@@ -444,6 +446,7 @@ repos:
       extra_options:
         module_hotfixes: 1
         includepkgs: "kernel-rt*"
+        gpgcheck: "0"   # centos gpg key would otherwise fail verification.
       baseurl:
         # Kernel RT is x86 only, so fake repos for other arches. The driver-toolkit Dockerfile only installs the kernel-rt
         # for x86_64.
