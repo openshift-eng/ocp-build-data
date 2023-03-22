@@ -410,10 +410,11 @@ repos:
         s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/s390x/os/
         x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/x86_64/os/
     content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_2
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_2
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_2
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_2
+      # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.   
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
     reposync:
       enabled: false
   rhel-92-appstream-rpms:
@@ -427,10 +428,11 @@ repos:
         s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/AppStream/s390x/os/
         x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/AppStream/x86_64/os/
     content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_2
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_2
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_2
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_2
+      # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
     reposync:
       enabled: false
   rhel-92-rt-rpms:
@@ -447,10 +449,11 @@ repos:
 
         x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/RT/x86_64/os/
     content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_2
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_2
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_2
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_2
+      # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
     reposync:
       enabled: false
 
