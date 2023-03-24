@@ -10,9 +10,8 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
-## [dpaolell] disabled until upstream is configured for 4.14
-#dependents:
-#- openshift-kubernetes-nmstate-operator # Disabled to wait for updated bundle dirs
+dependents:
+- openshift-kubernetes-nmstate-operator # Disabled to wait for updated bundle dirs
 distgit:
   component: openshift-kubernetes-nmstate-handler-rhel-8-container
 enabled_repos:
