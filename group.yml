@@ -5,6 +5,7 @@ vars:
   MINOR: 13
   IMPACT: Low
   CVES: None
+  RHEL_92_COMPOSE: "https://download.devel.redhat.com/rhel-9/composes/RHEL-9/RHEL-9.2.0-20230324.16/compose"
 
 arches:
 - x86_64
@@ -405,10 +406,10 @@ repos:
         module_hotfixes: 1
         includepkgs: "kernel*"
       baseurl:
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/aarch64/os/
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/ppc64le/os/
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/s390x/os/
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/x86_64/os/
+        aarch64: {RHEL_92_COMPOSE}/BaseOS/aarch64/os/
+        ppc64le: {RHEL_92_COMPOSE}/BaseOS/ppc64le/os/
+        s390x: {RHEL_92_COMPOSE}/BaseOS/s390x/os/
+        x86_64: {RHEL_92_COMPOSE}/BaseOS/x86_64/os/
     content_set:
       # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.   
       default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
@@ -423,10 +424,10 @@ repos:
         module_hotfixes: 1
         includepkgs: "kernel*"
       baseurl:
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/AppStream/aarch64/os/
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/AppStream/ppc64le/os/
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/AppStream/s390x/os/
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/AppStream/x86_64/os/
+        aarch64: {RHEL_92_COMPOSE}/AppStream/aarch64/os/
+        ppc64le: {RHEL_92_COMPOSE}/AppStream/ppc64le/os/
+        s390x: {RHEL_92_COMPOSE}/AppStream/s390x/os/
+        x86_64: {RHEL_92_COMPOSE}/AppStream/x86_64/os/
     content_set:
       # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
       default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
@@ -443,11 +444,11 @@ repos:
       baseurl:
         # Kernel RT is x86 only, so fake repos for other arches. The driver-toolkit Dockerfile only installs the kernel-rt
         # for x86_64.
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/aarch64/os/
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/ppc64le/os/
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/BaseOS/s390x/os/
+        aarch64: {RHEL_92_COMPOSE}/BaseOS/aarch64/os/
+        ppc64le: {RHEL_92_COMPOSE}/BaseOS/ppc64le/os/
+        s390x: {RHEL_92_COMPOSE}/BaseOS/s390x/os/
 
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.2/compose/RT/x86_64/os/
+        x86_64: {RHEL_92_COMPOSE}/RT/x86_64/os/
     content_set:
       # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
       default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
