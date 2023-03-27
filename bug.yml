@@ -19,6 +19,8 @@ version:
 
 # List of OCP components for which advisories are not maintained by ART
 # to be ignored when looking for bugs to be attached to OCP advisories
+# Note: Operators that use OCPBUGS project but are not managed by ART, can be found here 
+# https://source.redhat.com/groups/public/gss-openshift/cee_openshift_wiki/openshift_bugs_and_rfe_workflow#routing-table
 filters:
   default:
     - "Quay"
@@ -41,6 +43,11 @@ filters:
     - "Telco Edge"
     - "Jenkins"
     - "Console Kubevirt Plugin"
+    - "Security Profiles Operator"
+    - "kmm"
+    - "secondary-scheduler-operator"
+    - "cert-manager"
+    - "run-once-duration-override"
   security:
     - "Quay"
     - "Test Framework"
@@ -61,3 +68,8 @@ filters:
     - "Telco Edge"
     - "Jenkins"
     - "Console Kubevirt Plugin"
+    - "Security Profiles Operator"
+    - "kmm"
+    - "secondary-scheduler-operator"
+    - "cert-manager"
+    - "run-once-duration-override"
