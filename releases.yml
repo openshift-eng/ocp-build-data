@@ -4,7 +4,7 @@ releases:
       basis:
         brew_event: 50572525
         reference_releases:
-          aarch64: 4.13.0-0.nightly-arm64-2023-03-27-214926
+          # aarch64: 4.13.0-0.nightly-arm64-2023-03-27-214926
           ppc64le: 4.13.0-0.nightly-ppc64le-2023-03-28-013512
           s390x: 4.13.0-0.nightly-s390x-2023-03-28-005348
           x86_64: 4.13.0-0.nightly-2023-03-28-014156
@@ -19,7 +19,12 @@ releases:
         upgrades: 4.12.9,4.12.8,4.13.0-ec.1,4.13.0-ec.2,4.13.0-ec.3,4.13.0-ec.4,4.13.0-rc.0
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: Pin openshift-client build present in RHCOS
+          metadata:
+            is:
+              el9: openshift-clients-4.13.0-202303172327.p0.geed1430.assembly.stream.el9
       rhcos:
         machine-os-content:
           images:
