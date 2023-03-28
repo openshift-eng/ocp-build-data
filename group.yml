@@ -57,8 +57,8 @@ rhcos:
     driver-toolkit:
     - kernel
     - kernel-rt
-  # allow CentOS content, can remove once RHCOS is using 9.2 beta content.
-  allow_missing_brew_rpms: true
+  # Set to true to allow CentOS content in RHCOS
+  allow_missing_brew_rpms: false
 
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
