@@ -22,7 +22,12 @@ releases:
         - id: OCPBUGS-7566  # python-werkzeug - shipped in 4.12.10
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.11-202304051320.p0.gf15eaa1.assembly.4.12.11.el8
       rhcos:
         machine-os-content:
           images:
