@@ -6,7 +6,8 @@ releases:
       members:
         images:
         - distgit_key: ose-baremetal-installer
-          why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce
+            risk.
           metadata:
             content:
               source:
@@ -14,7 +15,8 @@ releases:
                   branch:
                     target: 84dcd4dad2ff22d4689da0b84cd210aa4c1e8172
         - distgit_key: ose-installer
-          why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce
+            risk.
           metadata:
             content:
               source:
@@ -22,13 +24,21 @@ releases:
                   branch:
                     target: 84dcd4dad2ff22d4689da0b84cd210aa4c1e8172
         - distgit_key: ose-installer-artifacts
-          why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce
+            risk.
           metadata:
             content:
               source:
                 git:
                   branch:
                     target: 84dcd4dad2ff22d4689da0b84cd210aa4c1e8172
+      group:
+        advisories:
+          extras: 112060
+          image: 112059
+          metadata: 112061
+          rpm: 112058
+        release_jira: ART-6427
   4.11.35:
     assembly:
       basis:
