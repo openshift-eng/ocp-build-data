@@ -1,8 +1,10 @@
 releases:
   4.12.12:
     assembly:
+      type: standard
       basis:
         assembly: "4.12.10"
+        reference_releases!: {}
       members:
         images:
         - distgit_key: ose-baremetal-installer
@@ -13,6 +15,8 @@ releases:
                 git:
                   branch:
                     target: 370d30cbcd9e22b2b882f99df11fea2321489f14
+            is:
+              nvr: ose-baremetal-installer-container-v4.12.0-202304111811.p0.g370d30c.assembly.4.12.12
         - distgit_key: ose-installer
           why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
           metadata:
@@ -21,6 +25,8 @@ releases:
                 git:
                   branch:
                     target: 370d30cbcd9e22b2b882f99df11fea2321489f14
+            is:
+              nvr: ose-installer-container-v4.12.0-202304120137.p0.g370d30c.assembly.4.12.12
         - distgit_key: ose-installer-artifacts
           why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
           metadata:
@@ -29,6 +35,8 @@ releases:
                 git:
                   branch:
                     target: 370d30cbcd9e22b2b882f99df11fea2321489f14
+            is:
+              nvr: ose-installer-artifacts-container-v4.12.0-202304120137.p0.g370d30c.assembly.4.12.12
       group:
         advisories:
           image: 112672
