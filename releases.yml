@@ -14,6 +14,8 @@ releases:
                 git:
                   branch:
                     target: 84dcd4dad2ff22d4689da0b84cd210aa4c1e8172
+            is:
+              nvr: ose-baremetal-installer-container-v4.11.0-202304111823.p0.g84dcd4d.assembly.4.11.36
         - distgit_key: ose-installer
           why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce
             risk.
@@ -23,6 +25,8 @@ releases:
                 git:
                   branch:
                     target: 84dcd4dad2ff22d4689da0b84cd210aa4c1e8172
+            is:
+              nvr: ose-installer-container-v4.11.0-202304111823.p0.g84dcd4d.assembly.4.11.36
         - distgit_key: ose-installer-artifacts
           why: AWS change to s3 permissions. Minimal change atop 4.11.34 to reduce
             risk.
@@ -32,6 +36,8 @@ releases:
                 git:
                   branch:
                     target: 84dcd4dad2ff22d4689da0b84cd210aa4c1e8172
+            is:
+              nvr: ose-installer-artifacts-container-v4.11.0-202304111823.p0.g84dcd4d.assembly.4.11.36
       group:
         advisories:
           image: 112670
@@ -40,6 +46,7 @@ releases:
       issues:
         include:
         - id: OCPBUGS-11663
+      type: standard
   4.11.35:
     assembly:
       basis:
