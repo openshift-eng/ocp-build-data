@@ -1,4 +1,45 @@
 releases:
+  4.12.13:
+    assembly:
+      basis:
+        brew_event: 50853878
+        reference_releases:
+          aarch64: 4.12.0-0.nightly-arm64-2023-04-12-074958
+          ppc64le: 4.12.0-0.nightly-ppc64le-2023-04-12-074956
+          s390x: 4.12.0-0.nightly-s390x-2023-04-12-074956
+          x86_64: 4.12.0-0.nightly-2023-04-12-075001
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.37,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6,4.12.7,4.12.8,4.12.9,4.12.10,4.12.11
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:54c7aad78815bf28725dcd04b9f0f416e9ad3531e57bacc44321792a75ee8898
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e39871d0ffc3abf594335f51eb6223be559a326f874a4acf2cf368a8dcb2f36d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ecc9b66307b4be62104aee5272879d4c07b5dba66375c6bee686f107aecd28b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a1660c8086ff85e569e10b3bc9db344e1e1f7530581d742ad98b670a81477b1b
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:acd467bb7f77d4ac397802f564c77133f26cc9f13c90acfee29c6392d16ae162
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b5b3dafcb167f84ebeb608d685d75c711ae5a5e00bf567eda8b3a2bcf0fdd4c9
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:91239af03ed607a8536c36a8e11d48a74eae9c5fc9e0209e0632371b15bf006b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:125febb0cfa607bb8c145d0b628ef624d722a43e73c117a4ff3075c1e3cd92c9
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9d4633d8cbe7528c7d5aee322ac8c4c08794ff8dd2fb6f6391e34a8e9edb25d5
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f418f244276065ffd4d6644f22f33f16727013ce2857607ab41f483e53a5f642
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e0dae335fd91a15b267312e2bb0e3a54394bf741219e7ab0c6eb8e74980f2d6a
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:51d69e472d4bfacd96d40cb0049e6b8ad64583571aad773e98a4a8d3145265e4
+      type: standard
+
   4.12.12:
     assembly:
       type: standard
@@ -8,7 +49,8 @@ releases:
       members:
         images:
         - distgit_key: ose-baremetal-installer
-          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce
+            risk.
           metadata:
             content:
               source:
@@ -18,7 +60,8 @@ releases:
             is:
               nvr: ose-baremetal-installer-container-v4.12.0-202304111811.p0.g370d30c.assembly.4.12.12
         - distgit_key: ose-installer
-          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce
+            risk.
           metadata:
             content:
               source:
@@ -28,7 +71,8 @@ releases:
             is:
               nvr: ose-installer-container-v4.12.0-202304120137.p0.g370d30c.assembly.4.12.12
         - distgit_key: ose-installer-artifacts
-          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce
+            risk.
           metadata:
             content:
               source:
