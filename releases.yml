@@ -19,7 +19,13 @@ releases:
         upgrades: 4.12.9,4.12.10,4.12.11,4.12.12,4.13.0-ec.1,4.13.0-ec.2,4.13.0-ec.3,4.13.0-ec.4,4.13.0-rc.0,4.13.0-rc.2
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.13.0~rc.3-202304120711.p0.g3274576.assembly.rc.3.el8
+              el9: microshift-4.13.0~rc.3-202304120711.p0.g3274576.assembly.rc.3.el9
       rhcos:
         machine-os-content:
           images:
@@ -41,8 +47,8 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ead518145df221f3c828f9e1ebe5c17dc9e05323ff086b22e3794b5a10c629b6
       type: candidate
       promotion_permits:
-        - code: ATTACHED_BUGS
-          why: We don't have to correct all ATTACHED_BUGS issues for an RC.
+      - code: ATTACHED_BUGS
+        why: We don't have to correct all ATTACHED_BUGS issues for an RC.
   rc.2:
     assembly:
       basis:
