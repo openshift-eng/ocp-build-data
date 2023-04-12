@@ -40,7 +40,9 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ba55e3698cc400e139fe0e4f7269048af0d001cc78a94012478005c3bc6df9ec
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ead518145df221f3c828f9e1ebe5c17dc9e05323ff086b22e3794b5a10c629b6
       type: candidate
-
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: We don't have to correct all ATTACHED_BUGS issues for an RC.
   rc.2:
     assembly:
       basis:
