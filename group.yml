@@ -404,7 +404,7 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-        includepkgs: "kernel*"
+        includepkgs: "kernel*,libgcc*,libgomp*"
       baseurl:
         aarch64: "{RHEL_92_COMPOSE}/BaseOS/aarch64/os/"
         ppc64le: "{RHEL_92_COMPOSE}/BaseOS/ppc64le/os/"
@@ -422,7 +422,7 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-        includepkgs: "kernel*"
+        includepkgs: "kernel*,gcc*,cpp*"
       baseurl:
         aarch64: "{RHEL_92_COMPOSE}/AppStream/aarch64/os/"
         ppc64le: "{RHEL_92_COMPOSE}/AppStream/ppc64le/os/"
