@@ -3,11 +3,12 @@ releases:
     assembly:
       basis:
         brew_event: 50884913
-        reference_releases:
-          aarch64: 4.13.0-0.nightly-arm64-2023-04-14-033108
-          ppc64le: 4.13.0-0.nightly-ppc64le-2023-04-14-025503
-          s390x: 4.13.0-0.nightly-s390x-2023-04-14-034907
-          x86_64: 4.13.0-0.nightly-2023-04-14-033024
+        reference_releases: {}
+        # comment out to pick newer rhcos
+        # aarch64: 4.13.0-0.nightly-arm64-2023-04-14-033108
+        # ppc64le: 4.13.0-0.nightly-ppc64le-2023-04-14-025503
+        # s390x: 4.13.0-0.nightly-s390x-2023-04-14-034907
+        # x86_64: 4.13.0-0.nightly-2023-04-14-033024
       group:
         advisories:
           extras: -1
@@ -19,7 +20,7 @@ releases:
       members:
         images: []
         rpms: []
-      "rhcos!":
+      rhcos:
         # Override nightly rhcos with
         # Build 413.92.202304140330-0 to pick assembly selected openshift rpm
         machine-os-content:
