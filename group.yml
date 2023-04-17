@@ -495,8 +495,7 @@ csv_namespace: openshift
 
 # whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
 # "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
-check_golang_versions: "x.y"
-# [2023-01-04 lmeyer] golang-1.19 is a bit behind for rhel9
+check_golang_versions: "exact"
 
 # until feature freeze, prefer to use the golang builder that the upstream CI build is using
 # if different from what ART has configured, encouraging deliberate transitioning.
