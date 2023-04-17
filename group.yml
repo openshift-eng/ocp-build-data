@@ -28,11 +28,10 @@ repos:
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros golang*
       baseurl:
-        # golang-1.20.1-1.testonly.nofips.el9 (for CI testing only)
-        aarch64: http://brew-task-repos.engineering.redhat.com/repos/scratch/dbenoit/golang/1.20.1/1.testonly.nofips.el9/aarch64/
-        ppc64le: http://brew-task-repos.engineering.redhat.com/repos/scratch/dbenoit/golang/1.20.1/1.testonly.nofips.el9/ppc64le/
-        s390x: http://brew-task-repos.engineering.redhat.com/repos/scratch/dbenoit/golang/1.20.1/1.testonly.nofips.el9/s390x/
-        x86_64: http://brew-task-repos.engineering.redhat.com/repos/scratch/dbenoit/golang/1.20.1/1.testonly.nofips.el9/x86_64/
+        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
+        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
+        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
+        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: bogus
