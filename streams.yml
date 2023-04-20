@@ -19,7 +19,7 @@
 #
 ####################################################################################################
 
-golang:
+golang-1.19:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2414523
   # openshift-golang-builder-container-v1.19.6-202303140941.el8.g6a2861c
@@ -29,7 +29,7 @@ golang:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
-golang-1.20:
+golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2468004
   # openshift-golang-builder-container-v1.20.3-202304171839.el8.g3464689
@@ -39,7 +39,7 @@ golang-1.20:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
-rhel-9-golang:
+rhel-9-golang-1.19:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2456490
   # openshift-golang-builder-container-v1.19.6-202304071357.el9.gf0a0406
@@ -49,7 +49,7 @@ rhel-9-golang:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
-rhel-9-golang-1.20:
+rhel-9-golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
   # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2467997
   # openshift-golang-builder-container-v1.20.3-202304171838.el9.g169fa12
@@ -62,7 +62,7 @@ rhel-9-golang-1.20:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-8-golang-ci-build-root:
+rhel-8-golang-1.19-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
@@ -71,7 +71,7 @@ rhel-8-golang-ci-build-root:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-8-golang-1.20-ci-build-root:
+rhel-8-golang-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
@@ -80,7 +80,7 @@ rhel-8-golang-1.20-ci-build-root:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-9-golang-ci-build-root:
+rhel-9-golang-1.19-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
   transform: rhel-9/ci-build-root
@@ -89,7 +89,7 @@ rhel-9-golang-ci-build-root:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-9-golang-1.20-ci-build-root:
+rhel-9-golang-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
   transform: rhel-9/ci-build-root
