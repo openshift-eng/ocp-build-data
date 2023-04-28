@@ -416,3 +416,12 @@ csv_namespace: openshift
 check_golang_versions: "exact"
 
 canonical_builders_from_upstream: no
+
+# rpm_deliveries is mainly to support for "Weekly" kernel delivery through OCP (ART-6100)
+rpm_deliveries:
+  - packages:
+      - kernel
+      - kernel-rt
+    integration_tag: early-kernel-integration-8.6
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
