@@ -53,6 +53,12 @@ rhcos:
       build_metadata_key: base-oscontainer
     - name: rhel-coreos-extensions
       build_metadata_key: extensions-container
+  enabled_repos:
+  - rhel-92-baseos-rpms
+  - rhel-92-appstream-rpms
+  - rhel-92-rt-rpms
+  - rhel-9-fast-datapath-rpms
+  - rhel-9-server-ose-rpms
   require_consistency:
     driver-toolkit:
     - kernel
