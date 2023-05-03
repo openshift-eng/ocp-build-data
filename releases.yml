@@ -1610,4 +1610,8 @@ releases:
       type: stream
       permits:
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: ose-ovn-kubernetes
+        component: '*'
+      # why: default permit
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
+      # why: default permit
