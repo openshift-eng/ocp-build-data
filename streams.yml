@@ -124,10 +124,10 @@ rhel8:
   mirror: true
 
 rhel9:
-  # the most recent release at present. since we yum update this, it does not need to float.
+  # the most recent release rhel-9.2 at present. since we yum update this, it does not need to float.
   # it is important that we not build from unreleased builds and publish them.
-  # rhel-els-container-9.0.0-1228
-  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:47aa1b5572e41f79537afce517c7edbad6ae592f7ab819b1ce9e7d22293ef0ff
+  # rhel-els-container-9.2-483
+  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:cf1bc434a99f7fc6993ad728cbceb72528f031d0c93ea3d183f55728710c6c76
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 

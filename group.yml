@@ -282,40 +282,63 @@ repos:
   rhel-9-baseos-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/baseos/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/baseos/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/baseos/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/x86_64/baseos/os/
       ci_alignment:
         profiles:
         - el9
         localdev:
           enabled: true
     content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_2
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_2
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_2
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_2
     reposync:
       enabled: false
 
   rhel-9-appstream-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/appstream/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/appstream/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/appstream/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/x86_64/appstream/os/
       ci_alignment:
         profiles:
         - el9
         localdev:
           enabled: true
     content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_2
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_2
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_2
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_2
+    reposync:
+      enabled: false
+
+  rhel-9-rt-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+        includepkgs: "kernel-rt*"
+      baseurl:
+        # Kernel RT is x86 only, so fake repos for other arches. The driver-toolkit Dockerfile only installs the kernel-rt
+        # for x86_64.
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/ # nonsense, pointing to something that exists
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/ # nonsense, pointing to something that exists
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/ # nonsense, pointing to something that exists
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-9-for-x86_64-rt-rpms__9
+      optional: true
     reposync:
       enabled: false
 
@@ -404,60 +427,6 @@ repos:
       optional: true
     reposync:
       enabled: true
-
-  rhel-92-baseos-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-        includepkgs: "kernel*,libgcc*,libgomp*,glibc*"
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/aarch64/baseos/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/ppc64le/baseos/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/baseos/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/x86_64/baseos/os/
-    content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_2
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_2
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_2
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_2
-    reposync:
-      enabled: false
-  rhel-92-appstream-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-        includepkgs: "kernel*,gcc*,cpp*,glibc*"
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/aarch64/appstream/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/ppc64le/appstream/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/appstream/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/x86_64/appstream/os/
-    content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_2
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_2
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_2
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_2
-    reposync:
-      enabled: false
-  rhel-92-rt-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-        includepkgs: "kernel-rt*"
-      baseurl:
-        # Kernel RT is x86 only, so fake repos for other arches. The driver-toolkit Dockerfile only installs the kernel-rt
-        # for x86_64.
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/ # nonsense
-        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/ # nonsense
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/rt/os/ # nonsense
-    content_set:
-      default: rhel-9-for-x86_64-rt-rpms__9
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_2
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_2
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_2
-    reposync:
-      enabled: false
 
 default_image_build_method: osbs2
 image_build_log_scanner:
