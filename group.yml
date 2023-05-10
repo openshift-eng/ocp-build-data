@@ -29,10 +29,10 @@ repos:
         includepkgs: module-build-macros delve golang* go-toolset*
       baseurl:
         # golang-1.19.6-1.module+el8.8.0+18289+edd6c8b6
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/aarch64/
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/ppc64le/
-        s390x:   http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/s390x/
-        x86_64:  http://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/x86_64/
+        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/aarch64/
+        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/ppc64le/
+        s390x:   https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/s390x/
+        x86_64:  https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8080020230301172414-17f3f959-build/latest/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
@@ -51,10 +51,10 @@ repos:
         # to that content.
         includepkgs: goversioninfo gpgme-devel libassuan-devel mingw*
       baseurl:
-        aarch64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
-        ppc64le: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
-        s390x: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
-        x86_64: http://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
+        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
+        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
+        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
+        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
 
     # These content sets are not used, so just putting something here
     content_set:
@@ -67,10 +67,10 @@ repos:
   rhel-8-baseos-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/baseos/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/baseos/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/baseos/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/baseos/os/
     content_set:
       default: rhel-8-for-x86_64-baseos-eus-rpms__8_DOT_6
       aarch64: rhel-8-for-aarch64-baseos-eus-rpms__8_DOT_6
@@ -82,10 +82,10 @@ repos:
   rhel-8-appstream-rpms:
     conf:
       baseurl:
-        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/appstream/os/
-        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/appstream/os/
-        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/appstream/os/
-        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.6/x86_64/appstream/os/
     content_set:
       default: rhel-8-for-x86_64-appstream-eus-rpms__8_DOT_6
       aarch64: rhel-8-for-aarch64-appstream-eus-rpms__8_DOT_6

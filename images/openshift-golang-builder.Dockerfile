@@ -15,15 +15,14 @@ LABEL summary="$SUMMARY" \
       com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
       version="$VERSION"
 
-RUN yum update -y && \
-    yum install -y --setopt=tsflags=nodocs \
+RUN dnf update -y && \
+    dnf install -y --nodocs \
         bc \
         diffutils \
         dos2unix \
         file \
         findutils \
         git \
-        "golang-*$VERSION*" \
         goversioninfo \
         gpgme \
         gpgme-devel \
@@ -46,8 +45,8 @@ RUN yum update -y && \
         which \
         xz \
         zip && \
+    dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
-
 # provide a cross-compiler for windows/mac binaries (amd64 only)
 COPY cross.tar.gz .
 RUN [ $(go env GOARCH) != "amd64" ] || (\
