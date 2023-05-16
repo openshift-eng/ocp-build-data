@@ -1,4 +1,22 @@
 releases:
+  4.13.0:
+    assembly:
+      type: standard
+      basis:
+        assembly: rc.8
+      group:
+        advisories:
+          extras: 111421
+          image: 111420
+          metadata: 114004
+          microshift: 111423
+          rpm: 111419
+          # silentops: 111422
+        release_jira: ART-6339
+        upgrades!: 4.12.16,4.13.0-rc.3,4.13.0-rc.4,4.13.0-rc.5,4.13.0-rc.6,4.13.0-rc.7,4.13.0-rc.8,4.12.17
+      members:
+        images: []
+        rpms: []
   rc.8:
     assembly:
       basis:
