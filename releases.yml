@@ -16,7 +16,12 @@ releases:
         upgrades!: 4.12.16,4.13.0-rc.3,4.13.0-rc.4,4.13.0-rc.5,4.13.0-rc.6,4.13.0-rc.7,4.13.0-rc.8,4.12.17
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.13.0-202305161335.p0.g17cae44.assembly.4.13.0.el9
   rc.8:
     assembly:
       basis:
