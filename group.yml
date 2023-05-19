@@ -416,11 +416,10 @@ repos:
         s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/baseos/os/"
         x86_64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/x86_64/baseos/os/"
     content_set:
-      # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_2
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_2
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_2
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_2
     reposync:
       enabled: false
   rhel-92-appstream-rpms:
@@ -434,11 +433,10 @@ repos:
         s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/appstream/os/"
         x86_64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/x86_64/appstream/os/"
     content_set:
-      # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_2
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_2
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_2
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_2
     reposync:
       enabled: false
   rhel-92-rt-rpms:
@@ -447,20 +445,18 @@ repos:
         module_hotfixes: 1
         includepkgs: "kernel-rt*"
       baseurl:
-        # Kernel RT is x86 only, so fake repos for other arches. The driver-toolkit Dockerfile only installs the kernel-rt
-        # for x86_64.
-        aarch64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/aarch64/baseos/os/"
-        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/ppc64le/baseos/os/"
-        s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.2/s390x/baseos/os/"
-
         # RT doesn't do EUS, and TUS isn't around yet. get from dist
         x86_64: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
+        # Kernel RT is x86 only, so use same repo as a dummy for other arches.
+        # The driver-toolkit Dockerfile only installs the kernel-rt for x86_64.
+        aarch64: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
+        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
+        s390x: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
+
     content_set:
-      # 9_DOT_2 don't exist yet. Satisfying doozer requirement with wrong content sets.
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-rt-rpms__9_DOT_2
+      # don't have content set for other arches since they don't exist
+      optional: true
     reposync:
       enabled: false
 
