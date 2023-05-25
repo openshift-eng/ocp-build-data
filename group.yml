@@ -192,24 +192,6 @@ repos:
     reposync:
       enabled: false
 
-  rhel-8-rt-rpms:
-    conf:
-      baseurl:
-        x86_64:  https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
-        # other arches don't exist, pointing at something that exists
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
-        s390x:   https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.6/x86_64/rt/os/
-      ci_alignment:
-        profiles:
-        - el8
-        localdev:
-          enabled: true
-    content_set:
-      default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
-      # don't have content set for other arches
-      optional: true
-
   rhel-8-appstream-rpms:
     conf:
       baseurl:
