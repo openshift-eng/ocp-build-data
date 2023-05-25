@@ -56,6 +56,11 @@ releases:
           # silentops: 111422
         release_jira: ART-6339
         upgrades!: 4.12.16,4.13.0-rc.3,4.13.0-rc.4,4.13.0-rc.5,4.13.0-rc.6,4.13.0-rc.7,4.13.0-rc.8,4.12.17
+      issues:
+        exclude:
+          - id: OCPBUGS-13421 # fixed in 4.13.0
+          - id: OCPBUGS-13380 # fixed in 4.13.0
+          - id: OCPBUGS-10461 # doesn't seem to be fixed
       members:
         images: []
         rpms:
