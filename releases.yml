@@ -33,6 +33,14 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e99ddf8d98dc4ec255f671a875308c2572394de44d85e707f1e226da14203901
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f237232e6acc8bfaf0a80a9c866eec23d25daf76fc817718f93c85f847422876
       type: preview
+  art6883:
+    assembly:
+      type: stream
+      streams:
+        golang:
+          image: openshift/golang-builder@sha256:089823e38d7153ae871f96f325eef01b30c065791691966d52f16d49ee12684b
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
   stream:
     assembly:
       type: stream
