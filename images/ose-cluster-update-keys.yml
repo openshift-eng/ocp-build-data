@@ -14,12 +14,14 @@ content:
         - backport-risk-assessed
         - bugzilla/valid-bug
         - cherry-pick-approved
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: true
 from:
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-cluster-update-keys
 owners:
 - aos-team-art@redhat.com

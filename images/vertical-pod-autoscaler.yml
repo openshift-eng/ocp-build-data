@@ -11,19 +11,20 @@ content:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 dependents:
 - vertical-pod-autoscaler-operator
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-vertical-pod-autoscaler-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
 maintainer:
   component: Node
 name: openshift/ose-vertical-pod-autoscaler-rhel8

@@ -6,12 +6,14 @@ content:
       url: git@github.com:openshift-priv/images.git
       web: https://github.com/openshift/images
     path: egress/http-proxy
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 from:
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 labels:
   License: GPLv2+
   io.k8s.description: This is a component of OpenShift Container Platform and contains

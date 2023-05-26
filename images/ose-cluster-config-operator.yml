@@ -6,14 +6,16 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-config-operator.git
       web: https://github.com/openshift/cluster-config-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: true
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-cluster-config-operator
 owners:
 - aos-master@redhat.com

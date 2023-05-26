@@ -6,9 +6,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/machine-config-operator.git
       web: https://github.com/openshift/machine-config-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 for_payload: false
 from:
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-openshift-proxy-pull-test
 owners:
 - qiwan@redhat.com
