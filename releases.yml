@@ -24,7 +24,12 @@ releases:
         - id: OCPBUGS-10461   # doesn't seem to be fixed
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.13.1-202305250827.p0.g4105d3b.assembly.4.13.1.el9
       promotion_permits:
       - code: ATTACHED_BUGS
         why: Blocking bugs target 4.14.0
