@@ -362,6 +362,29 @@ repos:
     reposync:
       latest_only: false
 
+  rhel-9-server-ose-build-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+        # this repo is for our own buildroot, which also inherits a complete RHEL 8 build env;
+        # restrict to specific necessary content, because RHEL 8 build dev content may include
+        # pending unreleased content that can cause conflicts for later CI installs lacking access
+        # to that content.
+        includepkgs: goversioninfo gpgme-devel libassuan-devel mingw* golang*
+      baseurl:
+        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
+        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
+        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
+        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
+
+    # These content sets are not used, so just putting something here
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
+      optional: true
+
   rhel-9-server-ironic-rpms:
     conf:
       extra_options:
