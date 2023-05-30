@@ -72,6 +72,10 @@ releases:
     assembly:
       type: stream
       streams:
+        "rhel-9-golang-1.19":
+          image: openshift/golang-builder@sha256:29a4332afc84214c8288e807bf50a33fea7494796ce8b7e2d87332d6f0a85e0c
+          upstream_image: do_not.org/push/to:ci
+          mirror: false                
         "rhel-9-golang":
           image: openshift/golang-builder@sha256:b7517689c23ac7a10619dded686579494cab660d5b6f565b446cb32583f83e85
           upstream_image: do_not.org/push/to:ci
