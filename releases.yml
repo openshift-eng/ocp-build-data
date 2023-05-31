@@ -27,7 +27,19 @@ releases:
         - id: OCPBUGS-13474
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: openshift-clients-4.13.0-202305291355.p0.g1024efc.assembly.stream.el8
+              el9: openshift-clients-4.13.0-202305291355.p0.g1024efc.assembly.stream.el9
+        - distgit_key: openshift
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: openshift-4.13.0-202305301919.p0.g0001a21.assembly.stream.el8
+              el9: openshift-4.13.0-202305301919.p0.g0001a21.assembly.stream.el9
       rhcos:
         # Build 413.92.202305302312-0 to include latest rpms for CVE-2023-24540
         machine-os-content:
