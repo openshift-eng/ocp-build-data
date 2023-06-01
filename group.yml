@@ -5,6 +5,8 @@ vars:
   MINOR: 12
   IMPACT: Low
   CVES: None
+  RHCOS_EL_MAJOR: 8
+  RHCOS_EL_MINOR: 6
 
 arches:
 - x86_64
@@ -65,6 +67,16 @@ rhcos:
 
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
+
+# rpm_deliveries is mainly to support for "Weekly" kernel delivery through OCP (ART-6100)
+rpm_deliveries:
+  - packages:
+      - kernel
+      - kernel-rt
+    integration_tag: early-kernel-integration-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
+    target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 name: openshift-{MAJOR}.{MINOR}
@@ -422,15 +434,6 @@ csv_namespace: openshift
 check_golang_versions: "exact"
 
 canonical_builders_from_upstream: no
-
-# rpm_deliveries is mainly to support for "Weekly" kernel delivery through OCP (ART-6100)
-rpm_deliveries:
-  - packages:
-      - kernel
-      - kernel-rt
-    integration_tag: early-kernel-integration-8.6
-    stop_ship_tag: early-kernel-stop-ship
-    ship_ok_tag: early-kernel-ship-ok
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # If it will ship via errata (state=release), we want to build signed.
