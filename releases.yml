@@ -4,13 +4,21 @@ releases:
       type: stream
       streams:
         "golang":
-          image: openshift/golang-builder:v1.18.10-1003.jupierce.el8.g169fa12.g132e8bf
+          image: openshift/golang-builder:v1.18.10-1003.jupierce.el8.g169fa12.g118e74e
           upstream_image: do_not.org/push/to:ci
           mirror: false                
         "etcd_golang":
           image: openshift/golang-builder:v1.16.12-1001.jupierce.el8.g169fa12.g88065ea
           upstream_image: do_not.org/push/to:ci
-          mirror: false        
+          mirror: false   
+      group:
+        "advisories!": {}
+        "arches!":
+        - x86_64
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4418a69af46b109689aeec37b8f903633b5766f4e599b82213ead700b4eb974f  
   4.11.42:
     assembly:
       basis:
