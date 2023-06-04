@@ -2,19 +2,19 @@ FROM rhel7:7-released
 
 # This feels a little ugly but it seems to be the simplest way to enable the SCL automatically for docker exec:
 ENV container=oci \
-    MANPATH=/opt/rh/go-toolset-1.12/root/usr/share/man: \
-    X_SCLS=go-toolset-1.12  \
-    LD_LIBRARY_PATH=/opt/rh/go-toolset-1.12/root/usr/lib64 \
-    PATH=/opt/rh/go-toolset-1.12/root/usr/bin:/opt/rh/go-toolset-1.12/root/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+    MANPATH=/opt/rh/go-toolset-1.10/root/usr/share/man: \
+    X_SCLS=go-toolset-1.10  \
+    LD_LIBRARY_PATH=/opt/rh/go-toolset-1.10/root/usr/lib64 \
+    PATH=/opt/rh/go-toolset-1.10/root/usr/bin:/opt/rh/go-toolset-1.10/root/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     GOPATH=/go \
-    PKG_CONFIG_PATH=/opt/rh/go-toolset-1.12/root/usr/lib64/pkgconfig
+    PKG_CONFIG_PATH=/opt/rh/go-toolset-1.10/root/usr/lib64/pkgconfig
 
 
 RUN mkdir -p /go/src/
 
 RUN yum install -y --setopt=skip_missing_names_on_install=False \
     bc file findutils gpgme git hostname lsof make socat tar tree util-linux wget which zip \
-    go-toolset-1.12 goversioninfo openssl openssl-devel systemd-devel gpgme-devel libassuan-devel
+    go-toolset-1.10 goversioninfo openssl openssl-devel systemd-devel
 RUN yum clean all
 
 LABEL \
