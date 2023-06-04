@@ -1,10 +1,11 @@
 content:
+  set_build_variables: false
   source:
+    dockerfile: images/openshift-golang-builder.Dockerfile
     git:
       branch:
-        target: 1.10
-      url: git@gitlab.cee.redhat.com:openshift-art/builders/golang-builder.git
-
+        target: rhel-8-golang-1.10
+      url: git@github.com:openshift/ocp-build-data.git
     modifications:
       - action: replace
         match: 'go-toolset-1.10'
