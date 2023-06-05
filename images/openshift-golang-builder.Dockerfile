@@ -1,4 +1,4 @@
-FROM ubi7:7-released
+FROM rhel7:7.9-1062
 
 ARG GOPATH 
 # This feels a little ugly but it seems to be the simplest way to enable the SCL automatically for docker exec:
