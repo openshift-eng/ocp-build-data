@@ -1,4 +1,5 @@
-FROM registry.redhat.io/ubi8:8.4
+# RHEL 8.2
+FROM ubi8@sha256:c3108dba27c8ae895313cdb5ea92edb58433d9e7b6817c7c874d8a9c80da11a1
 
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     container=oci \
