@@ -12,7 +12,15 @@ releases:
         upgrades: 4.13.0-rc.3,4.13.0-rc.4,4.13.0-rc.5,4.13.0-rc.6,4.13.0-rc.7,4.13.0-rc.8,4.13.0,4.13.1,4.14.0-ec.0
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Use specified commit
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 33a80c968cc3e14550719fa5c207c97be7f0fb62
       rhcos:
         machine-os-content:
           images:
@@ -75,11 +83,11 @@ releases:
         "rhel-9-golang-1.19":
           image: openshift/golang-builder@sha256:29a4332afc84214c8288e807bf50a33fea7494796ce8b7e2d87332d6f0a85e0c
           upstream_image: do_not.org/push/to:ci
-          mirror: false                
+          mirror: false
         "rhel-9-golang":
           image: openshift/golang-builder@sha256:b7517689c23ac7a10619dded686579494cab660d5b6f565b446cb32583f83e85
           upstream_image: do_not.org/push/to:ci
-          mirror: false        
+          mirror: false
         golang:
           image: openshift/golang-builder@sha256:089823e38d7153ae871f96f325eef01b30c065791691966d52f16d49ee12684b
           upstream_image: do_not.org/push/to:ci
