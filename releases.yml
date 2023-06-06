@@ -2,6 +2,17 @@ releases:
   art6883:
     assembly:
       type: stream
+      members:
+        images:
+        - distgit_key: thanos
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:simonpasquier/thanos.git
+                  branch:
+                    target: 7b7679da8b00d7543de8889204cec8f3eac92f99
+      
       streams:
         "golang":
           image: openshift/golang-builder:v1.18.10-202306052055.el8.g16505ed
