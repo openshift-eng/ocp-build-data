@@ -68,18 +68,6 @@ releases:
   art6883:
     assembly:
       type: stream
-      members:
-        images:
-        - distgit_key: thanos
-          why: "hotfix"
-          metadata:
-            content:
-              source:
-                git:
-                  url: git@github.com:simonpasquier/thanos.git
-                  branch:
-                    target: 7b7679da8b00d7543de8889204cec8f3eac92f99
-
       streams:
         "golang":
           image: openshift/golang-builder:v1.18.10-202306072003.el8.ga2ac761
@@ -96,7 +84,7 @@ releases:
       rhcos:
         machine-os-content:
           images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4418a69af46b109689aeec37b8f903633b5766f4e599b82213ead700b4eb974f
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:66a99149fe788610d00bb94aeec75e348657e44145f5c95205d4c7c1f94c15f2
   4.11.42:
     assembly:
       basis:
