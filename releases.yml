@@ -1,4 +1,38 @@
 releases:
+  art7038:
+    assembly:
+      basis:
+        assembly: "4.11.20"
+        "reference_releases!": {}
+      type: custom
+      group:
+        "advisories!": {}
+        "arches!":
+        - x86_64
+      members:
+        images:
+        - distgit_key: ose-cluster-ingress-operator
+          why: "OCPBUGS-6661 and OCPBUGS-9464"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/cluster-ingress-operator.git
+                  branch:
+                    target: 681e8de3d7b14aa45e469db5d0101fb15d783897
+            is:
+              nvr: ose-cluster-ingress-operator-container-v4.11.0-202306081609.p0.g681e8de.assembly.stream
+        - distgit_key: openshift-enterprise-haproxy-router
+          why: "OCPBUGS-6661 and OCPBUGS-9464; note ose-haproxy-router-base also built but is not in payload"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/router.git
+                  branch:
+                    target: 2cf11b1c3b54d946c7270b9b34b90dc484ba2b7b
+            is:
+              nvr: openshift-enterprise-haproxy-router-container-v4.11.0-202306080804.p0.g2cf11b1.assembly.stream
   4.11.43:
     assembly:
       basis:
@@ -37,6 +71,7 @@ releases:
       members:
         images:
         - distgit_key: thanos
+          why: "hotfix"
           metadata:
             content:
               source:
