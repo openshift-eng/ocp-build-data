@@ -395,3 +395,14 @@ csv_namespace: openshift
 # whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
 # "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
 check_golang_versions: "exact"
+
+# To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
+# If it will ship via errata (state=release), we want to build signed.
+# For early access without an errata (state=pre-release), that is not required
+release_state:
+  release:
+  - x86_64
+  - ppc64le
+  - s390x
+  - aarch64
+  pre_release: []
