@@ -17,6 +17,23 @@ version:
   - "4.9"
   - "4.9.z"
 
+# Configure how elliott find-bugs:kernel[-clones] finds and clones kernel bugs (ART-6964)
+kernel_bug_sweep:
+  tracker_jira:
+    project: KMAINT
+    labels:
+    - early-kernel-track
+  bugzilla:
+    target_releases:
+    - "{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0"
+  target_jira:
+    project: OCPBUGS
+    component: RHCOS
+    version: "{MAJOR}.{MINOR}"
+    target_release: "{MAJOR}.{MINOR}.z"
+    candidate_brew_tag: "rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate"
+    prod_brew_tag: "rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}"
+
 # List of OCP components for which advisories are not maintained by ART
 # to be ignored when looking for bugs to be attached to OCP advisories
 filters:
