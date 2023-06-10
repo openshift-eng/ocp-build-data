@@ -1,0 +1,32 @@
+arches:
+- x86_64
+- ppc64le
+- s390x
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/multus-cni.git
+      web: https://github.com/openshift/multus-cni
+    ci_alignment:
+      enabled: false
+enabled_repos:
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  - stream: rhel-7-golang
+  member: openshift-enterprise-base
+labels:
+  io.k8s.description: This is a component of OpenShift Container Platform and provides
+    a meta CNI plugin.
+  io.k8s.display-name: Multus CNI
+  io.openshift.tags: openshift
+  vendor: Red Hat
+name: openshift/ose-multus-cni
+owners:
+- multus-dev@redhat.com
