@@ -21,8 +21,8 @@
 
 golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # openshift-golang-builder-container-v1.18.10-202304070931.el8.g1aea229
-  image: openshift/golang-builder@sha256:dc49275e9bfee88ec316f263a5bb791e9b5126a9a36dd65e146d308651bf9c66
+  # openshift-golang-builder-container-v1.18.10-202306080157.el8.g5b73d9e
+  image: openshift/golang-builder@sha256:7c435cd2a9801705b5eb152733fe72f11eb67c4b4139ea5d07932cbbc010d816
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
@@ -42,8 +42,8 @@ rhel-8-golang-ci-build-root:
 # approval to diverge from what kube apiserver uses for a given release.
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  # openshift-golang-builder-container-v1.16.12-202208011952.el8.g58dffad
-  image: openshift/golang-builder@sha256:ca32011a8331e8369f2150e56c39e851dd3e2536a04772eb2577553e6ab380f0
+  # openshift-golang-builder-container-v1.16.12-202306080005.el8.g9742aa7
+  image: openshift/golang-builder@sha256:799f689556da4361f746bcd27a07d72e46032e4bf6f6d66efa8baaee3b68f1a5
   mirror: true
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
