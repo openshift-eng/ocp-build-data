@@ -81,6 +81,12 @@ releases:
         "advisories!": {}
         "arches!":
         - x86_64
+        urls:
+          rhcos_release_base:
+            multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/4.11-hotfix-art6883/builds
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
       rhcos:
         machine-os-content:
           images:
