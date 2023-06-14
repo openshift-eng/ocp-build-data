@@ -1,4 +1,26 @@
 releases:
+  art6883:
+    assembly:
+      type: stream
+      streams:
+        "golang":
+          image: openshift/golang-builder:v1.17.12-202306131659.el8.g2ba39f6
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
+        "etcd_golang":
+          image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
+      group:
+        "advisories!": {}
+        "arches!":
+        - x86_64
+        urls:
+          rhcos_release_base:
+            multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/4.10-hotfix-art6883/builds
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
   4.10.61:
     assembly:
       basis:
