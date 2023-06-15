@@ -2,6 +2,17 @@ releases:
   art6883:
     assembly:
       type: stream
+      members:
+        images:
+        - distgit_key: ose-machine-config-operator
+          why: "hotfix"
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:jupierce/machine-config-operator.git
+                  branch:
+                    target: 1ab9fe52404a76737afff01a1ab2545f3d591d7c
       streams:
         "golang":
           image: openshift/golang-builder:v1.17.12-202306131659.el8.g2ba39f6
