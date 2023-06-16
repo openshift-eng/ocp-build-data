@@ -1,4 +1,35 @@
 releases:
+  art6883:
+    assembly:
+      type: stream
+      streams:
+        "golang-1.19":
+          image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
+        "golang":
+          image: openshift/golang-builder:v1.20.5-202306161544.el8.gd009067
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
+        "rhel-9-golang-1.19":
+          image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
+        "rhel-9-golang":
+          image: openshift/golang-builder:v1.20.5-202306161553.el9.gb538314
+          upstream_image: do_not.org/push/to:ci
+          mirror: false
+      group:
+        "canonical_builders_from_upstream": off
+        "advisories!": {}
+        "arches!":
+        - x86_64
+        urls:
+          rhcos_release_base:
+            multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/4.14-hotfix-4_14_art6883/builds
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
   ec.2:
     assembly:
       basis:
