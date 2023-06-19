@@ -27,6 +27,9 @@ distgit:
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
+  # sometimes we ship RHEL content ahead of RHEL (usually for RHCOS).
+  # update with that content too so we avoid out-of-date assembly issues:
+- rhel-9-server-ose-rpms-embargoed
 for_payload: false
 for_release: false
 from:
