@@ -67,7 +67,10 @@ releases:
 
   art6883:
     assembly:
-      type: stream
+      type: custom
+      basis:
+        brew_event: 46632344
+        reference_releases: {}      
       streams:
         "golang":
           image: openshift/golang-builder:v1.18.10-202306152030.el8.g95d222f
