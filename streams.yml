@@ -20,24 +20,20 @@
 ####################################################################################################
 
 golang:
-  # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2523537
-  # openshift-golang-builder-container-v1.19.9-202305261518.el8.g38dfb83
-  image: openshift/golang-builder@sha256:79340095ddc8ba7fd8f2ed698d21b7f19511e89b08a2d28f2ba6293ca4bf29b1
-  mirror: true
-  transform: rhel-8/golang
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  # Disabling mirroring / transforms until art6883 is complete.
+  mirror: false
+  # transform: rhel-8/golang
+  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2527283
-  # openshift-golang-builder-container-v1.19.9-202305291556.el9.g3460409
-  image: openshift/golang-builder@sha256:fc909f550c48f092d8b8a5fb3f9797de25d9fb4d04abf70abc971f84fbbffdf3
-  mirror: true
-  transform: rhel-9/golang
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+  image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
+  # Disabling mirroring / transforms until art6883 is complete.
+  mirror: false
+  # transform: rhel-9/golang
+  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 # The *-ci-build-root images are not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
@@ -59,11 +55,12 @@ rhel-9-golang-ci-build-root:
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
   # openshift-golang-builder-container-v1.16.12-202301042328.el8.g1dbd0ed
-  image: openshift/golang-builder@sha256:94ffaf9717b065f631c9ac84677b81841fcd3cfc5b2988ffec8aa2884fe14fd1
-  mirror: true
+  image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+  # Disabling mirroring / transforms until art6883 is complete.
+  mirror: false
   # No transform required as etcd does not yum install any packages.
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
