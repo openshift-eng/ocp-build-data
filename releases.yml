@@ -1,4 +1,24 @@
 releases:
+  4.11.44:
+    assembly:
+      basis:
+        assembly: 4.11.43
+        reference_releases!: {}
+      group:
+        advisories!:
+          extras: -1
+      members:
+        images:
+        - distgit_key: ose-metallb-operator-container
+          why: Fix for OCPBUGS-14277 ended up mistakenly in 4.11.43
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: 0f69a1e422e66a28b370390547373603f4d4052d
+            is:
+              nvr: ose-metallb-operator-container-v4.11.0-202306081337.p0.g0f69a1e.assembly.stream
   art7038:
     assembly:
       basis:
