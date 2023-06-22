@@ -24,32 +24,36 @@ golang-1.19:
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-8/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 golang:
   image: openshift/golang-builder:v1.20.5-202306161544.el8.gd009067
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-8/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.19:
   image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-9/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
   image: openshift/golang-builder:v1.20.5-202306161553.el9.gb538314
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-9/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
@@ -94,8 +98,9 @@ etcd_golang:
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # No transform required as etcd does not yum install any packages.
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
@@ -104,8 +109,9 @@ etcd_golang-1.19:
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # No transform required as etcd does not yum install any packages.
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
