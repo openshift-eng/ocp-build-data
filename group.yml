@@ -31,6 +31,11 @@ repos:
         ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.16-golang/1.16.12/6.el7_9.0.0.1.hotfix.2.bz2213646/ppc64le/
         s390x:   https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.16-golang/1.16.12/6.el7_9.0.0.1.hotfix.2.bz2213646/s390x/
         x86_64:  https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.16-golang/1.16.12/6.el7_9.0.0.1.hotfix.2.bz2213646/x86_64/  
+    content_set:
+      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
+      ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
+      s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
+      optional: true
   
   # this needs to be named alphabetically first to pick up signed RPMs
   rhel-7-server-rpms:
