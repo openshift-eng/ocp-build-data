@@ -24,6 +24,14 @@ branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 # When the buildroot is bumped for a new version of go, the RPM should land in this repository
 # and the image will need to be rebuilt.
 repos:
+  
+  rhel-7-newer-golang-rpms:
+    conf:
+      baseurl:
+        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.16-golang/1.16.12/6.el7_9.0.0.1.hotfix.2.bz2213646/ppc64le/
+        s390x:   https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.16-golang/1.16.12/6.el7_9.0.0.1.hotfix.2.bz2213646/s390x/
+        x86_64:  https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.16-golang/1.16.12/6.el7_9.0.0.1.hotfix.2.bz2213646/x86_64/  
+  
   # this needs to be named alphabetically first to pick up signed RPMs
   rhel-7-server-rpms:
     conf:
@@ -35,6 +43,7 @@ repos:
       default: rhel-7-server-rpms
       ppc64le: rhel-7-for-power-le-rpms
       s390x: rhel-7-for-system-z-rpms
+  
   rhel-server-ose-build-rpms:
     conf:
       baseurl:
