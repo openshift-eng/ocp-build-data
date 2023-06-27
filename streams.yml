@@ -20,7 +20,7 @@
 ####################################################################################################
 
 golang:
-  image: openshift/golang-builder:v1.18.10-202306121556.el8.gb8d0dbd
+  image: openshift/golang-builder:v1.18.10-202306261728.el8.g598816d
   # Disabling mirroring / transforms until art6883 is complete.
   mirror: false
   # transform: rhel-8/golang
@@ -41,7 +41,7 @@ rhel-8-golang-ci-build-root:
 # approval to diverge from what kube apiserver uses for a given release.
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+  image: openshift/golang-builder:v1.16.12-202306261730.el8.g0b206eb
   # Disabling mirroring / transforms until art6883 is complete.
   mirror: false
   # No transform required as etcd does not yum install any packages.
