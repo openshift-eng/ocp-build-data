@@ -1,0 +1,23 @@
+content:
+  source:
+    dockerfile: openshift/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/operator-framework-catalogd.git
+      web: https://github.com/openshift/operator-framework-catalogd
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-1.19-ci-build-root
+for_payload: true
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+from:
+  builder:
+  - stream: golang-1.19
+  member: openshift-enterprise-base
+name: openshift/ose-olm-catalogd-rhel8
+owners:
+- aos-odin@redhat.com
