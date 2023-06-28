@@ -9,14 +9,14 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-1.19-ci-build-root
+          stream: rhel-8-golang-ci-build-root
 for_payload: true
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 from:
   builder:
-  - stream: golang-1.19
+  - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-olm-catalogd-rhel8
 owners:
