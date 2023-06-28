@@ -1,4 +1,33 @@
 releases:
+  4.11.44:
+    assembly:
+      basis:
+        brew_event: 52225868
+        reference_releases:
+          aarch64: 4.11.0-0.nightly-arm64-2023-06-27-080638
+          ppc64le: 4.11.0-0.nightly-ppc64le-2023-06-28-095401
+          s390x: 4.11.0-0.nightly-s390x-2023-06-27-080627
+          x86_64: 4.11.0-0.nightly-2023-06-28-095402
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.10.32,4.10.33,4.10.34,4.10.35,4.10.36,4.10.37,4.10.38,4.10.39,4.10.40,4.10.41,4.10.42,4.10.43,4.10.44,4.10.45,4.10.46,4.10.47,4.10.48,4.10.50,4.10.51,4.10.52,4.10.53,4.10.54,4.10.55,4.10.56,4.10.57,4.10.58,4.10.59,4.10.60,4.10.61,4.10.62,4.10.63,4.11.0,4.11.1,4.11.2,4.11.3,4.11.4,4.11.5,4.11.6,4.11.7,4.11.8,4.11.9,4.11.10,4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.36,4.11.37,4.11.38,4.11.39,4.11.40,4.11.41,4.11.42,4.11.43
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:641eeff888f0c8df59e1b8b8dd5057b6b57f4213372d86c17924214179d2da23
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b3561f262ce1735975bffe0a88137e6eac07833b5b1f1cfeeb3913e28c606b8f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dcfc52a6f6a69eb5675729672c416553f4d7509e9026201b0aa9471bc74bc60d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a8af19691c2be1126b7fb1185259b61f72d88d019503bc8902067e4f80b5cc92
+      type: standard
+
   art7038:
     assembly:
       basis:
@@ -23,7 +52,8 @@ releases:
             is:
               nvr: ose-cluster-ingress-operator-container-v4.11.0-202306081609.p0.g681e8de.assembly.stream
         - distgit_key: openshift-enterprise-haproxy-router
-          why: "OCPBUGS-6661 and OCPBUGS-9464; note ose-haproxy-router-base also built but is not in payload"
+          why: "OCPBUGS-6661 and OCPBUGS-9464; note ose-haproxy-router-base also built\
+            \ but is not in payload"
           metadata:
             content:
               source:
@@ -70,7 +100,7 @@ releases:
       type: custom
       basis:
         brew_event: 46632344
-        reference_releases: {}      
+        reference_releases: {}
         patch_version: 0
       streams:
         "golang":
