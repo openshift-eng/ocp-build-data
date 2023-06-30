@@ -14,14 +14,18 @@ enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
   - stream: golang
+  - member: openshift-enterprise-base-rhel9
   member: openshift-enterprise-base
 name: openshift/ose-machine-config-operator
 owners:
-- acrawfor@redhat.com
-- imcleod@redhat.com
-- runcom@redhat.com
-- smilner@redhat.com
+- jerzhang@redhat.com
+- jkyros@redhat.com
+- skumari@redhat.com
+- zzlotnik@redhat.com
