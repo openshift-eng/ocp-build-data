@@ -20,7 +20,7 @@
 ####################################################################################################
 
 golang-1.19:
-  image: openshift/golang-builder@sha256:f38f31aef24699bb3dac4f22dcd5692778e612d5ea69633e937756136c8f0176
+  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-8/golang
@@ -29,7 +29,7 @@ golang-1.19:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 golang:
-  image: openshift/golang-builder@sha256:2ea0030fbc9bc9e65c5d20d0a447e51e7facbec3300456e7338b724d01e0f99e
+  image: openshift/golang-builder:v1.20.5-202306161544.el8.gd009067
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-8/golang
@@ -38,7 +38,7 @@ golang:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.19:
-  image: openshift/golang-builder@sha256:54204c4bacaec28330112f9401b290b67e95449ccb5c03676f01a5e315441112
+  image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-9/golang
@@ -47,7 +47,7 @@ rhel-9-golang-1.19:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder@sha256:5ea8ea58e2c5bb9ecc6f3e10469fb884495f145b447362ac25de69a0f7f04075
+  image: openshift/golang-builder:v1.20.5-202306161553.el9.gb538314
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # transform: rhel-9/golang
@@ -94,7 +94,7 @@ rhel-9-golang-ci-build-root:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang:
-  image: openshift/golang-builder@sha256:94ffaf9717b065f631c9ac84677b81841fcd3cfc5b2988ffec8aa2884fe14fd1
+  image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # No transform required as etcd does not yum install any packages.
@@ -105,7 +105,7 @@ etcd_golang:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang-1.19:
-  image: openshift/golang-builder@sha256:f38f31aef24699bb3dac4f22dcd5692778e612d5ea69633e937756136c8f0176
+  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # No transform required as etcd does not yum install any packages.
