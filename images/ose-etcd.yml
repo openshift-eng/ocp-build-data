@@ -1,3 +1,18 @@
+cachito:
+  packages:
+    gomod:
+    - path: .
+    - path: api
+    - path: client/pkg
+    - path: client/v2
+    - path: client/v3
+    - path: etcdctl
+    - path: etcdutl
+    - path: pkg
+    - path: raft
+    - path: server
+    - path: tests
+    - path: tools/mod
 content:
   source:
     dockerfile: Dockerfile.art
@@ -20,8 +35,7 @@ from:
   builder:
   # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
   # approval to diverge from what kube apiserver uses for a given release.
-  # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
-  - stream: etcd_golang
+  - stream: etcd_golang-1.19
   member: openshift-enterprise-base
 labels:
   License: Apache 2.0
@@ -31,7 +45,9 @@ labels:
   io.openshift.tags: etcd
 name: openshift/ose-etcd
 owners:
-- sbatsche@redhat.com
-- spahl@redhat.com
+- alray@redhat.com
+- tjungblu@redhat.com
+- htariq@redhat.com
+- melbeher@redhat.com
 maintainer:
   component: "Etcd"
