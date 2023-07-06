@@ -21,19 +21,17 @@
 
 golang:
   image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
-  # Disabling mirroring / transforms until art6883 is complete.
-  mirror: false
-  # transform: rhel-8/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+  mirror: true
+  transform: rhel-8/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
   image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
-  # Disabling mirroring / transforms until art6883 is complete.
-  mirror: false
-  # transform: rhel-9/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+  mirror: true
+  transform: rhel-9/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 # The *-ci-build-root images are not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
@@ -56,11 +54,10 @@ rhel-9-golang-ci-build-root:
 etcd_golang:
   # openshift-golang-builder-container-v1.16.12-202301042328.el8.g1dbd0ed
   image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
-  # Disabling mirroring / transforms until art6883 is complete.
-  mirror: false
+  mirror: true
   # No transform required as etcd does not yum install any packages.
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
