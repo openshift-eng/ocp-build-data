@@ -21,11 +21,10 @@
 
 golang:
   image: openshift/golang-builder:v1.18.10-202306261728.el8.g598816d
-  # Disabling mirroring / transforms until art6883 is complete.
-  mirror: false
-  # transform: rhel-8/golang
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
+  mirror: true
+  transform: rhel-8/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.18-openshift-{MAJOR}.{MINOR}
 
 # This is image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
@@ -42,11 +41,10 @@ rhel-8-golang-ci-build-root:
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
   image: openshift/golang-builder:v1.16.12-202306261730.el8.g0b206eb
-  # Disabling mirroring / transforms until art6883 is complete.
-  mirror: false
+  mirror: true
   # No transform required as etcd does not yum install any packages.
-  # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
-  # upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
