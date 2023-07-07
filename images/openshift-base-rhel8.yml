@@ -8,7 +8,7 @@ content:
       web: https://github.com/openshift/ocp-build-data
     ci_alignment:
       streams_prs:
-        enabled: false    
+        enabled: false
       mirror: true
       # The upstream_image_base serves as a starting point for the upstream_image.
       # ART will mirror the brew build out to upstream_image_base.
@@ -25,6 +25,9 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+  # sometimes we ship RHEL content ahead of RHEL (usually for RHCOS).
+  # update with that content too so we avoid out-of-date assembly issues:
+- rhel-8-server-ose-rpms-embargoed
 for_payload: false
 for_release: false
 from:
