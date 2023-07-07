@@ -55,3 +55,18 @@ repos:
       ppc64le: rhocp-4.3-for-rhel-8-ppc64le-rpms
       s390x: rhocp-4.3-for-rhel-8-s390x-rpms
       optional: true
+      
+  rhel-8-appstream-rpms:
+    conf:
+      baseurl:
+        aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.2/aarch64/appstream/os/
+        ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.2/ppc64le/appstream/os/
+        s390x: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.2/s390x/appstream/os/
+        x86_64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.2/x86_64/appstream/os/
+    content_set:
+      default: rhel-8-for-x86_64-appstream-eus-rpms
+      aarch64: rhel-8-for-aarch64-appstream-eus-rpms
+      ppc64le: rhel-8-for-ppc64le-appstream-eus-rpms
+      s390x: rhel-8-for-s390x-appstream-eus-rpms
+    reposync:
+      enabled: false
