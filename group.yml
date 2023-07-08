@@ -58,6 +58,9 @@ repos:
       
   rhel-8-appstream-rpms:
     conf:
+      extra_options:
+        module_hotfixes: 1
+        exclude: module-build-macros delve golang* go-toolset*
       baseurl:
         aarch64: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.2/aarch64/appstream/os/
         ppc64le: http://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.2/ppc64le/appstream/os/
