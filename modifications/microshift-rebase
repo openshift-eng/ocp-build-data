@@ -23,8 +23,8 @@ fi
 
 
 PODMAN_BUILD_CMD="podman build -t microshift-rebase ."
-echo $DOCKER_BUILD_CMD
-eval $DOCKER_BUILD_CMD
+echo $PODMAN_BUILD_CMD
+eval $PODMAN_BUILD_CMD
 
 # Run the podman container
 PODMAN_RUN_CMD="podman run --rm \
@@ -33,5 +33,5 @@ PODMAN_RUN_CMD="podman run --rm \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
 microshift-rebase"
-echo $DOCKER_RUN_CMD
-eval $DOCKER_RUN_CMD
+echo $PODMAN_BUILD_CMD
+eval $PODMAN_BUILD_CMD
