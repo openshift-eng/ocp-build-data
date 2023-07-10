@@ -14,6 +14,8 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
 for_payload: true
+# Once this moves to rhel9, pyartcd.pipelines.promote.PromotePipeline.publish_baremetal_installer_binary
+# needs to bump to account for the new tarball suffix
 from:
   builder:
   - stream: golang
