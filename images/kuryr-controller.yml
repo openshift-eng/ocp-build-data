@@ -15,6 +15,17 @@ enabled_repos:
 - rhel-8-fast-datapath-rpms
 - rhel-8-server-ose-rpms-embargoed
 - openstack-16-for-rhel-8-rpms
+
+# Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
+# However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
+# detect they were used.
+scan_sources:
+  # The openstack-16-for-rhel-8-rpms repo provides some python3-* packages newer than those from rhel-8-baseos-rpms.
+  # For some reason this image doesn't consume those newer versions.
+  exempted_packages:
+  - python3-six
+  - python3-dateutil
+
 for_payload: true
 from:
   member: openshift-base-rhel8
