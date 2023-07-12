@@ -14,6 +14,21 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-fast-datapath-rpms
 - rhel-8-server-ose-rpms-embargoed
+
+# Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
+# However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
+# detect they were used.
+scan_sources:
+  # ovn-kubernetes uses pins in the Dockerfile.
+  # We should configure exemptions for those known pins to avoid meaningless rebuild.
+  # https://github.com/openshift/ovn-kubernetes/blob/e236fea83d62de8b60b9456770a3e0b525830051/Dockerfile.base#L22
+  exempted_packages:
+  - openvswitch2.17
+  - ovn22.12
+  - ovn22.12-central
+  - python3-openvswitch2.17
+  - ovn22.12-host
+
 for_payload: true
 from:
   builder:
