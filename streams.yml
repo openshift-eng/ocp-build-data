@@ -20,7 +20,8 @@
 ####################################################################################################
 
 golang-1.19:
-  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  # fips_image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  image: openshift/golang-builder:v1.19.6-202303140941.el8.g6a2861c # no_fips
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -28,7 +29,8 @@ golang-1.19:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 golang:
-  image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
+  # fips_image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
+  image: openshift/golang-builder:v1.20.3-202304171839.el8.g3464689 # no_fips
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -36,7 +38,8 @@ golang:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.19:
-  image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
+  # fips_image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
+  image: openshift/golang-builder:v1.19.6-202304071357.el9.gf0a0406 # no_fips
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -44,7 +47,8 @@ rhel-9-golang-1.19:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
+  # fips_image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
+  image: openshift/golang-builder:v1.20.3-202304171838.el9.g169fa12 # no_fips
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -90,7 +94,8 @@ rhel-9-golang-ci-build-root:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang:
-  image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+  # fips_image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+  image: openshift/golang-builder:v1.16.12-202301042328.el8.g1dbd0ed # no_fips
   mirror: true
   # No transform required as etcd does not yum install any packages.
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -100,7 +105,8 @@ etcd_golang:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang-1.19:
-  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  # fips_image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  image: openshift/golang-builder:v1.19.6-202303140941.el8.g6a2861c # no_fips
   mirror: true
   # No transform required as etcd does not yum install any packages.
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
