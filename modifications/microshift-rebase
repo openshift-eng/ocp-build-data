@@ -21,8 +21,8 @@ if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
     exit 0
 fi
 
-
-PODMAN_BUILD_CMD="podman build -t microshift-rebase ."
+DIR=$(dirname $(readlink -f $0))
+PODMAN_BUILD_CMD="podman build -t microshift-rebase-$BREW_TAG $DIR"
 echo $PODMAN_BUILD_CMD
 eval $PODMAN_BUILD_CMD
 
@@ -32,6 +32,7 @@ PODMAN_RUN_CMD="podman run --rm \
 -e LVMS_OPERATOR_BUNDLE \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
-microshift-rebase"
-echo $PODMAN_BUILD_CMD
-eval $PODMAN_BUILD_CMD
+-v $PWD:/workdir/microshift \
+microshift-rebase-$BREW_TAG"
+echo $PODMAN_RUN_CMD
+eval $PODMAN_RUN_CMD

@@ -10,10 +10,6 @@ RUN go env -w GOPRIVATE=*
 RUN go env -w GOPROXY=file:///go/mod
 RUN export GOPROXY=direct
 
-# Set environment variables for Go
-ENV GOPATH /go
-ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
-
 RUN yum -y install python3 && \
     python3 -m ensurepip && \
     pip3 install --upgrade pip && \
@@ -45,19 +41,3 @@ RUN wget ${OC_URL} -O openshift-client-linux.tar.gz && \
 RUN yum -y install epel-release && \
     yum -y install git && \
     yum clean all
-
-ARG BRANCH_NAME=release-4.13
-# Clone the microshift repository and set user information
-WORKDIR /workdir
-RUN git clone -b $BRANCH_NAME https://github.com/openshift/microshift.git && \
-    cd microshift && \
-    git config user.email "nobody@nowhere.com" && \
-    git config user.name "Docker"
-WORKDIR /workdir/microshift
-
-# Run the rebase script
-CMD if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then \
-            ./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64 "$LVMS_OPERATOR_BUNDLE"; \
-        elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then \
-            ./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64" "$LVMS_OPERATOR_BUNDLE"; \
-    fi \
