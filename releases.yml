@@ -14,10 +14,13 @@ releases:
         images: []
         rpms:
         - distgit_key: microshift
-          why: Pin microshift to assembly
+          why: to build from specified commit
           metadata:
-            is:
-              el9: microshift-4.14.0~ec.3-202307062134.p0.g0ba2d5c.assembly.ec.3.el9
+            content:
+              source:
+                git:
+                  branch:
+                    target: cdfc80e04b642b7e5b55ddd896aeb969e281e300
       rhcos:
         machine-os-content:
           images:
