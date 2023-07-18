@@ -20,7 +20,7 @@
 ####################################################################################################
 
 golang-1.19:
-  # fips_image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  # fips_image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
   image: openshift/golang-builder:v1.19.6-202303140941.el8.g6a2861c # no_fips
   mirror: true
   transform: rhel-8/golang
@@ -38,7 +38,7 @@ golang:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.19:
-  # fips_image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
+  # fips_image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
   image: openshift/golang-builder:v1.19.6-202304071357.el9.gf0a0406 # no_fips
   mirror: true
   transform: rhel-9/golang
