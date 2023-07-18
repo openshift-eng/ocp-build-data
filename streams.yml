@@ -20,14 +20,14 @@
 ####################################################################################################
 
 golang:
-  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.19.10-202306161424.el9.g372eaca
+  image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
   mirror: true
   transform: rhel-9/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
