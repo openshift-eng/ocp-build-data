@@ -26,6 +26,13 @@ PODMAN_BUILD_CMD="podman build -t microshift-rebase-$BREW_TAG $DIR"
 echo $PODMAN_BUILD_CMD
 eval $PODMAN_BUILD_CMD
 
+# Determine which rebase command to run
+if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64 "$LVMS_OPERATOR_BUNDLE""
+elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64" "$LVMS_OPERATOR_BUNDLE""
+fi
+
 # Run the podman container
 PODMAN_RUN_CMD="podman run --rm \
 -e RELEASE_NAME \
@@ -33,6 +40,7 @@ PODMAN_RUN_CMD="podman run --rm \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
 -v $PWD:/workdir/microshift \
-microshift-rebase-$BREW_TAG"
+microshift-rebase-$BREW_TAG \
+$REBASE_CMD"
 echo $PODMAN_RUN_CMD
 eval $PODMAN_RUN_CMD
