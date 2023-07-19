@@ -13,7 +13,8 @@ content:
 dependents:
 - openshift-kubernetes-nmstate-operator
 distgit:
-  component: openshift-kubernetes-nmstate-handler-rhel-8-container
+  component: openshift-kubernetes-nmstate-handler-rhel-9-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -22,7 +23,7 @@ for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-kubernetes-nmstate-handler-rhel9
 name_in_bundle: kubernetes-nmstate-handler
 owners:
@@ -33,4 +34,4 @@ owners:
 - phoracek@redhat.com
 - yboaron@redhat.com
 non_shipping_repos:
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-server-ose-rpms-embargoed
