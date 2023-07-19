@@ -1,4 +1,21 @@
 releases:
+  art7277:
+    assembly:
+      basis:
+        brew_event: 52515439
+        reference_releases:
+          x86_64: 4.6.0-0.nightly-2023-07-15-050316
+      group:
+        arches!:
+        - x86_64
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:18e91a54677d2ed768988557fe7850c60d8227a01817d874ce80f1c8ff535001
+      type: custom
   4.6.62:
     assembly:
       basis:
