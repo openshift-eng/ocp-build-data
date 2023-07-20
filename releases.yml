@@ -8,13 +8,16 @@ releases:
         "advisories!": {}
         "arches!":
         - x86_64
-      images:
-      - distgit_key: driver-toolkit
-        metadata:
-          dependencies:
-            rpms:
-            - el8: kernel-4.18.0-305.99.1.el8_4
-              why: "keep driver-toolkit consistent with rhcos"
+      members:
+        images:
+        - distgit_key: driver-toolkit
+          metadata:
+            dependencies:
+              rpms:
+              - el8: kernel-4.18.0-305.99.1.el8_4
+                why: "keep driver-toolkit consistent with rhcos"
+            is:
+              nvr: driver-toolkit-container-v4.7.0-202307202038.p0.gbcd11a1.assembly.art7274
       rhcos:
         machine-os-content:
           images:
