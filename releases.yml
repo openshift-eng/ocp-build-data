@@ -8,10 +8,13 @@ releases:
         "advisories!": {}
         "arches!":
         - x86_64
-      permits:
-      - code: FAILED_CONSISTENCY_REQUIREMENT
-        component: driver-toolkit
-        # why: we don't need driver-toolkit / kernel-rt consistency here
+      images:
+      - distgit_key: driver-toolkit
+        metadata:
+          dependencies:
+            rpms:
+            - el8: kernel-4.18.0-305.99.1.el8_4
+              why: "keep driver-toolkit consistent with rhcos"
       rhcos:
         machine-os-content:
           images:
