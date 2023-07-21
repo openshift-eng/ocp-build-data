@@ -18,6 +18,20 @@ final_stage_user: 1001
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+
+# Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
+# However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
+# detect they were used.
+scan_sources:
+  # This image excludes some package updates in Dockerfile.
+  # We should configure exemptions for those known pins to avoid meaningless rebuild.
+  # https://github.com/openshift-eng/ocp-build-data/blob/0fb79a4bfdfad72416f37f6a10e672d05b52ba9e/Dockerfile#L17
+  exempted_packages:
+  - nodejs
+  - nodejs-docs
+  - nodejs-full-i18n
+  - npm
+
 for_payload: false
 for_release: false
 from:
