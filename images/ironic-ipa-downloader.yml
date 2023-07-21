@@ -14,6 +14,13 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms-embargoed
 - openstack-16-for-rhel-8-rpms
+# Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
+# However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
+# detect they were used.
+scan_sources:
+  exempted_packages:
+  - python3-dateutil
+  - python3-six
 for_payload: true
 from:
   builder:
