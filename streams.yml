@@ -51,13 +51,12 @@ rhel-9-golang-ci-build-root:
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
-# https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
   mirror: false
   # No transform required as etcd does not yum install any packages.
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
