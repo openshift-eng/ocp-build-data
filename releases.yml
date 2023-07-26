@@ -2329,3 +2329,13 @@ releases:
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
       # why: default permit
+
+      # Temporary - force the use of an RHCOS that has 
+      # proper tags.
+      group:
+        arches!:
+        - x86_64
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:806c0e8450aa9fdd55b227cd60de769e8dae5320f5b1dd962a5d8d17b684649c      
