@@ -264,6 +264,23 @@ repos:
     reposync:
       enabled: true
 
+  rhel-8-rt-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.4/x86_64/rt/os/
+        # Kernel RT is x86 only, so use same repo as a dummy for other arches.
+        # The driver-toolkit Dockerfile only installs the kernel-rt for x86_64.
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.4/x86_64/rt/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.4/x86_64/rt/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/tus/rhel8/8.4/x86_64/rt/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-8-for-x86_64-rt-tus-rpms__8_DOT_4
+
   openstack-16-for-rhel-8-rpms:
     conf:
       baseurl:
