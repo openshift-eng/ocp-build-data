@@ -320,10 +320,5 @@ check_golang_versions: "exact"
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # If it will ship via errata (state=release), we want to build signed.
 # For early access without an errata (state=pre-release), that is not required
-release_state:
-  release:
-  - x86_64
-  - ppc64le
-  - s390x
-  - aarch64
-  pre_release: []
+software_lifecycle:
+  phase: release
