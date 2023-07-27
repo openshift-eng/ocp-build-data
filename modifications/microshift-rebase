@@ -21,17 +21,21 @@ if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
     exit 0
 fi
 
-DIR=$(dirname $(readlink -f $0))
-PODMAN_BUILD_CMD="podman build -t microshift-rebase-$BREW_TAG $DIR"
-echo $PODMAN_BUILD_CMD
-eval $PODMAN_BUILD_CMD
-
 # Determine which rebase command to run
 if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
-    REBASE_CMD="./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64 "$LVMS_OPERATOR_BUNDLE""
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64 $LVMS_OPERATOR_BUNDLE"
 elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
-    REBASE_CMD="./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64" "$LVMS_OPERATOR_BUNDLE""
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $MICROSHIFT_PAYLOAD_X86_64 $MICROSHIFT_PAYLOAD_AARCH64 $LVMS_OPERATOR_BUNDLE"
+else
+    fail "Environment variable RELEASE_NAME or LVMS_OPERATOR_BUNDLE is not set."
 fi
+
+# Build the podman image
+DIR=$(dirname $(readlink -f $0))
+PODMAN_BUILD_CMD="podman build  -t microshift-rebase:$BREW_TAG $DIR"
+echo $PODMAN_BUILD_CMD
+eval $PODMAN_BUILD_CMD
+podman image prune -f  # clean up unused images
 
 # Run the podman container
 PODMAN_RUN_CMD="podman run --rm \
@@ -39,8 +43,9 @@ PODMAN_RUN_CMD="podman run --rm \
 -e LVMS_OPERATOR_BUNDLE \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
--v $PWD:/workdir/microshift \
-microshift-rebase-$BREW_TAG \
-$REBASE_CMD"
+-v $PWD:/workdir/microshift:z \
+-w /workdir/microshift \
+microshift-rebase:$BREW_TAG \
+bash -c 'git config user.email noreply@redhat.com && $REBASE_CMD'"
 echo $PODMAN_RUN_CMD
 eval $PODMAN_RUN_CMD
