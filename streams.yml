@@ -27,6 +27,12 @@ golang-1.19:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
+ibm-rhel-8-golang-1.19:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
+  mirror: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+
 golang:
   image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
   mirror: true
@@ -34,6 +40,12 @@ golang:
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-8-golang-1.20:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
+  mirror: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.19:
   image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
@@ -43,6 +55,12 @@ rhel-9-golang-1.19:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
+ibm-rhel-9-golang-1.19:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
+  mirror: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+
 rhel-9-golang:
   image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
   mirror: true
@@ -50,6 +68,12 @@ rhel-9-golang:
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-9-golang-1.20:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
+  mirror: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
