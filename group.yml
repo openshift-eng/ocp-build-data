@@ -14,10 +14,9 @@ compliance:
 
 arches:
 - x86_64
-# Temporarily disable other arches due to missing RHCOS label: https://redhat-internal.slack.com/archives/C05AVT3GYN7/p1690392221885019?thread_ts=1690391834.198929&cid=C05AVT3GYN7
-# - ppc64le
-# - s390x
-# - aarch64
+- ppc64le
+- s390x
+- aarch64
 
 operator_image_ref_mode: manifest-list
 operator_channel_stable: default
@@ -182,20 +181,20 @@ repos:
   rhel-8-baseos-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/aarch64/baseos/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/ppc64le/baseos/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/s390x/baseos/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/x86_64/baseos/os/
       ci_alignment:
         profiles:
         - el8
         localdev:
           enabled: true
     content_set:
-      default: rhel-8-for-x86_64-baseos-eus-rpms__8_DOT_4
-      aarch64: rhel-8-for-aarch64-baseos-eus-rpms__8_DOT_4
-      ppc64le: rhel-8-for-ppc64le-baseos-eus-rpms__8_DOT_4
-      s390x: rhel-8-for-s390x-baseos-eus-rpms__8_DOT_4
+      default: rhel-8-for-x86_64-baseos-e4s-rpms__8_DOT_4
+      aarch64: rhel-8-for-aarch64-baseos-e4s-rpms__8_DOT_4
+      ppc64le: rhel-8-for-ppc64le-baseos-e4s-rpms__8_DOT_4
+      s390x: rhel-8-for-s390x-baseos-e4s-rpms__8_DOT_4
     reposync:
       enabled: false
 
@@ -240,20 +239,20 @@ repos:
   rhel-8-appstream-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/aarch64/appstream/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/ppc64le/appstream/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/s390x/appstream/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.4/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/x86_64/appstream/os/
       ci_alignment:
         profiles:
         - el8
         localdev:
           enabled: true
     content_set:
-      default: rhel-8-for-x86_64-appstream-eus-rpms__8_DOT_4
-      aarch64: rhel-8-for-aarch64-appstream-eus-rpms__8_DOT_4
-      ppc64le: rhel-8-for-ppc64le-appstream-eus-rpms__8_DOT_4
-      s390x: rhel-8-for-s390x-appstream-eus-rpms__8_DOT_4
+      default: rhel-8-for-x86_64-appstream-e4s-rpms__8_DOT_4
+      aarch64: rhel-8-for-aarch64-appstream-e4s-rpms__8_DOT_4
+      ppc64le: rhel-8-for-ppc64le-appstream-e4s-rpms__8_DOT_4
+      s390x: rhel-8-for-s390x-appstream-e4s-rpms__8_DOT_4
     reposync:
       enabled: false
 
@@ -302,45 +301,6 @@ repos:
       # don't have content set for aarch64 or s390x
       optional: true
 
-  rhel-8-e4s-baseos-rpms:
-    conf:
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/aarch64/baseos/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/ppc64le/baseos/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/s390x/baseos/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/x86_64/baseos/os/
-      ci_alignment:
-        profiles:
-        - el8
-        localdev:
-          enabled: true
-    content_set:
-      default: rhel-8-for-x86_64-baseos-e4s-rpms__8_DOT_4
-      aarch64: rhel-8-for-aarch64-baseos-e4s-rpms__8_DOT_4
-      ppc64le: rhel-8-for-ppc64le-baseos-e4s-rpms__8_DOT_4
-      s390x: rhel-8-for-s390x-baseos-e4s-rpms__8_DOT_4
-    reposync:
-      enabled: false
-
-  rhel-8-e4s-appstream-rpms:
-    conf:
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/aarch64/appstream/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/ppc64le/appstream/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/s390x/appstream/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.4/x86_64/appstream/os/
-      ci_alignment:
-        profiles:
-        - el8
-        localdev:
-          enabled: true
-    content_set:
-      default: rhel-8-for-x86_64-appstream-e4s-rpms__8_DOT_4
-      aarch64: rhel-8-for-aarch64-appstream-e4s-rpms__8_DOT_4
-      ppc64le: rhel-8-for-ppc64le-appstream-e4s-rpms__8_DOT_4
-      s390x: rhel-8-for-s390x-appstream-e4s-rpms__8_DOT_4
-    reposync:
-      enabled: false
 image_build_log_scanner:
   matches:
     # yum failed to install a package (but may not give an error result)
