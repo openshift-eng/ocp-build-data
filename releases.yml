@@ -12,7 +12,13 @@ releases:
         upgrades: 4.13.6,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: To match builds installed in RHCOS
+          metadata:
+            is:
+              el8: openshift-clients-4.14.0-202307250635.p0.g919a2f3.assembly.stream.el8
+              el9: openshift-clients-4.14.0-202307250635.p0.g919a2f3.assembly.stream.el9
       rhcos:
         machine-os-content:
           images:
