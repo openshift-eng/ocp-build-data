@@ -71,6 +71,10 @@ dist_git_ignore:
   - gating.yaml
 
 rhcos:
+  payload_tags:
+    - name: machine-os-content
+      build_metadata_key: oscontainer
+      primary: true
   enabled_repos:
   - rhel-8-baseos-rpms
   - rhel-8-appstream-rpms
