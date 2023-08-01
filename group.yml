@@ -40,6 +40,7 @@ default_rpm_build_profile: default
 
 arches:
 - x86_64
+
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 default_image_build_method: osbs2
 name: openshift-{MAJOR}.{MINOR}
@@ -182,14 +183,3 @@ image_build_log_scanner:
   - ppc64le.log
   - task_failed.log
   - orchestrator.log
-
-# To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
-# If it will ship via errata (state=release), we want to build signed.
-# For early access without an errata (state=pre-release), that is not required
-release_state:
-  release:
-  - x86_64
-  pre_release:
-  - ppc64le
-  - s390x
-  - aarch64
