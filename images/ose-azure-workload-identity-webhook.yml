@@ -1,0 +1,22 @@
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    git:
+      web: https://github.com/openshift/azure-workload-identity
+      url: git@github.com:openshift-priv/azure-workload-identity.git
+      branch:
+        target: release-{MAJOR}.{MINOR}
+    dockerfile: Dockerfile.rhel7
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: golang
+  member: openshift-enterprise-base
+name: openshift/ose-azure-workload-identity-webhook-rhel8
+owners:
+- aos-hive@redhat.com
