@@ -1,7 +1,8 @@
 name: Run ocp-build-data-validator
 
-on: [ pull_request ]
-    #branches: [ 'openshift-**' ]
+on: 
+  pull_request:
+    branches: [ 'openshift-**' ]
     #paths: [ '**.yml', '**.yaml' ]
     #paths-ignore: [ 'erratatool.yml' ]
 
@@ -20,6 +21,6 @@ jobs:
       - name: Install packages
         run: dnf install -y gcc krb5-devel
       - name: Install validator
-        run: pip3 install --user -I https://github.com/openshift/ocp-build-data-validator/archive/refs/heads/master.zip
+        run: pip3 install https://github.com/openshift-eng/ocp-build-data-validator/archive/master.zip
       - name: Run validator
         run: validate-ocp-build-data releases.yml
