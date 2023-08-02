@@ -9,7 +9,6 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    container: fedora:37
     steps:
       - uses: actions/checkout@v3
         with:
@@ -21,6 +20,6 @@ jobs:
       - name: Install packages
         run: dnf install -y gcc krb5-devel
       - name: Install validator
-        run: pip install https://github.com/openshift-eng/ocp-build-data-validator/archive/master.zip
+        run: pip3 install https://github.com/openshift-eng/ocp-build-data-validator/archive/master.zip
       - name: Run validator
         run: validate-ocp-build-data releases.yml
