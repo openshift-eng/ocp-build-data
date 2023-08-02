@@ -1,0 +1,43 @@
+name: Run ocp-build-data-validator
+
+on: 
+  pull_request:
+    branches:
+      - 'openshift-**'
+    paths:
+      - '**.yml'
+      - 'rpms/**.yml'
+      - 'images/**.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install validator
+        run: pip3 install https://github.com/openshift-eng/ocp-build-data-validator/archive/master.zip
+
+      - name: Get all relevant files that have changed
+        id: changed-files
+        uses: tj-actions/changed-files@v37
+        with:
+          files_yaml: |
+            config:
+              - 'streams.yml'
+              - 'group.yml'
+              - 'releases.yml'
+              - 'bug.yml'
+              - 'rpms/**.yml'
+              - 'images/**.yml'
+
+      - name: Run validator
+        if: steps.changed-files.outputs.config_any_changed == 'true'  
+        run: validate-ocp-build-data ${{ steps.changed-files.outputs.config_all_changed_files }}
