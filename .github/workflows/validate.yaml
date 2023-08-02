@@ -17,8 +17,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.8'
-      - name: Install packages
-        run: dnf install -y gcc krb5-devel
       - name: Install validator
         run: pip3 install https://github.com/openshift-eng/ocp-build-data-validator/archive/master.zip
       - name: Run validator
