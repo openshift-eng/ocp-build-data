@@ -40,4 +40,4 @@ jobs:
 
       - name: Run validator
         if: steps.changed-files.outputs.config_any_changed == 'true'  
-        run: validate-ocp-build-data ${{ steps.changed-files.outputs.config_all_changed_files }}
+        run: validate-ocp-build-data --exclude-vpn ${{ steps.changed-files.outputs.config_all_changed_files }}
