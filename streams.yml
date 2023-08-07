@@ -26,6 +26,8 @@ golang-1.19:
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror: registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 ibm-rhel-8-golang-1.19:
   # Mirror non-embargoed golang builders for IBM
@@ -41,6 +43,8 @@ golang:
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror: registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 ibm-rhel-8-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
@@ -56,6 +60,8 @@ rhel-9-golang-1.19:
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror: registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 ibm-rhel-9-golang-1.19:
   # Mirror non-embargoed golang builders for IBM
@@ -71,6 +77,8 @@ rhel-9-golang:
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror: registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 ibm-rhel-9-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
