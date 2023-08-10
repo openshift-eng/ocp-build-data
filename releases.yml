@@ -19,7 +19,12 @@ releases:
         upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.13.9-202308101230.p0.g7dc6a00.assembly.4.13.9.el9
       rhcos:
         machine-os-content:
           images:
@@ -939,8 +944,7 @@ releases:
           metadata:
             is:
               nvr: cluster-network-operator-container-v4.13.0-202302231816.p0.g4d5a093.assembly.stream
-          why: Query from assembly basis event failed to replicate referenced nightly
-            content exactly. Pinning to replicate.
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms:
         - distgit_key: openshift
           why: Pin openshift version used by RHCOS
