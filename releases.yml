@@ -19,7 +19,12 @@ releases:
         upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.36,4.11.37,4.11.38,4.11.39,4.11.40,4.11.41,4.11.42,4.11.43,4.11.44,4.11.45,4.11.46,4.11.47,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6,4.12.7,4.12.8,4.12.9,4.12.10,4.12.11,4.12.12,4.12.13,4.12.14,4.12.15,4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el8: microshift-4.12.29-202308101315.p0.gd43e897.assembly.4.12.29.el8
       rhcos:
         machine-os-content:
           images:
@@ -811,8 +816,7 @@ releases:
       members:
         images:
         - distgit_key: ose-baremetal-installer
-          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce
-            risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
           metadata:
             content:
               source:
@@ -822,8 +826,7 @@ releases:
             is:
               nvr: ose-baremetal-installer-container-v4.12.0-202304111811.p0.g370d30c.assembly.4.12.12
         - distgit_key: ose-installer
-          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce
-            risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
           metadata:
             content:
               source:
@@ -833,8 +836,7 @@ releases:
             is:
               nvr: ose-installer-container-v4.12.0-202304120137.p0.g370d30c.assembly.4.12.12
         - distgit_key: ose-installer-artifacts
-          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce
-            risk.
+          why: AWS change to s3 permissions. Minimal change atop 4.12.10 to reduce risk.
           metadata:
             content:
               source:
@@ -1243,8 +1245,7 @@ releases:
       type: standard
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: Blocking bug check errors for OCPBUGS-7208 and OCPBUGS-6637 are permitted
-          because 4.13 is not released.
+        why: Blocking bug check errors for OCPBUGS-7208 and OCPBUGS-6637 are permitted because 4.13 is not released.
 
   4.12.3:
     assembly:
@@ -1274,8 +1275,7 @@ releases:
               el8: microshift-4.12.3-202302112006.p0.g932074d.assembly.4.12.3.el8
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "backported bugs OCPBUGS-5063, OCPBUGS-2290, OCPBUGS-4909 and OCPBUGS-5957\
-          \ are on QA and should not block promotion"
+        why: "backported bugs OCPBUGS-5063, OCPBUGS-2290, OCPBUGS-4909 and OCPBUGS-5957 are on QA and should not block promotion"
       rhcos:
         machine-os-content:
           images:
@@ -1349,8 +1349,7 @@ releases:
               el8: microshift-4.12.2-202302020655.p0.g3db9e81.assembly.4.12.2.el8
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "OCPBUGS-3095, OCPBUGS-6309 and OCPBUGS-5021 are not considered blockers\
-          \ for promotion"
+        why: "OCPBUGS-3095, OCPBUGS-6309 and OCPBUGS-5021 are not considered blockers for promotion"
       rhcos:
         machine-os-content:
           images:
@@ -1715,8 +1714,7 @@ releases:
       members:
         images:
         - distgit_key: ose-aws-efs-csi-driver-operator
-          why: Pin ose-aws-efs-csi-driver-operator update build with correct image
-            references
+          why: Pin ose-aws-efs-csi-driver-operator update build with correct image references
           metadata:
             is:
               nvr: ose-aws-efs-csi-driver-operator-container-v4.12.0-202212021550.p0.gcc89dfb.assembly.stream
@@ -1728,8 +1726,7 @@ releases:
               el8: microshift-4.12.0~rc.3-202212061817.p0.gcb7f9bb.assembly.rc.3.el8
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "Interaction with Errata is failing while verifying attached bugs. Filed\
-          \ as ART-5478. Ignoring the result of the check for now."
+        why: "Interaction with Errata is failing while verifying attached bugs. Filed as ART-5478. Ignoring the result of the check for now."
       rhcos:
         machine-os-content:
           images:
