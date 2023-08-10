@@ -43,6 +43,7 @@ PODMAN_RUN_CMD="podman run --rm \
 -e LVMS_OPERATOR_BUNDLE \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
+-v $HOME/.docker/config.json:/root/.docker/config.json:ro,z \
 -v $PWD:/workdir/microshift:z \
 -w /workdir/microshift \
 microshift-rebase:$BREW_TAG \
