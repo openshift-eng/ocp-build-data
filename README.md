@@ -21,7 +21,7 @@ which is referred to by an ART service that mirrors images once a day to
 
 All changes to this repo must be submitted as pull requests against
 the appropriate branch for the version of OCP targeted by your
-change. If you are unsure, please slack @release-artists in #aos-art.
+change. If you are unsure, please slack @release-artists in #forum-ocp-art.
 
 # Documentation
 
