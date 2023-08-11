@@ -75,16 +75,16 @@ bug_mapping:
       issue_component: Containers
     conmon-rs:
       issue_component: Containers
-    containers-common:
-      issue_component: Containers
-    container-selinux:
-      issue_component: Containers
     console-dashboards-plugin-container:
       issue_component: Observability UI
     console-login-helper-messages:
       issue_component: Management Console
+    container-selinux:
+      issue_component: Containers
     containernetworking-plugins:
       issue_component: Networking / openshift-sdn
+    containers-common:
+      issue_component: Containers
     coredns-container:
       issue_component: Networking / DNS
     coreos-installer:
@@ -93,6 +93,8 @@ bug_mapping:
       issue_component: Node / CRI-O
     cri-tools:
       issue_component: Node / CRI-O
+    crudini:
+      issue_component: Bare Metal Hardware Provisioning / ironic
     crun:
       issue_component: Containers
     crun-wasm:
@@ -146,10 +148,10 @@ bug_mapping:
       issue_component: Monitoring
     golang-github-prometheus-prometheus-container:
       issue_component: Monitoring
-    google-benchmark:
-      issue_component: Node / CRI-O
     golang-github-prometheus-promu:
       issue_component: Monitoring
+    google-benchmark:
+      issue_component: Node / CRI-O
     grafana-container:
       issue_component: Monitoring
     grpc:
@@ -260,6 +262,8 @@ bug_mapping:
       issue_component: Networking / multus
     mysql-apb-role:
       issue_component: Service Broker
+    nmstate-console-plugin:
+      issue_component: Networking / nmstate-console-plugin
     node-feature-discovery-container:
       issue_component: Node Feature Discovery Operator
     node-problem-detector-operator-container:
@@ -378,6 +382,12 @@ bug_mapping:
       issue_component: Security Profiles Operator
     openshift-state-metrics-container:
       issue_component: Monitoring
+    openstack-ironic:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    openstack-ironic-inspector:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    openstack-ironic-python-agent:
+      issue_component: Bare Metal Hardware Provisioning / ironic
     openvswitch2.13:
       issue_component: Networking / openshift-sdn
     openvswitch2.15:
@@ -412,6 +422,8 @@ bug_mapping:
       issue_component: Storage / Operators
     ose-alibaba-machine-controllers-container:
       issue_component: Cloud Compute / Other Provider
+    ose-apiserver-network-proxy-container:
+      issue_component: openshift-apiserver
     ose-aws-cloud-controller-manager-container:
       issue_component: Cloud Compute / Cloud Controller Manager
     ose-aws-cluster-api-controllers-container:
@@ -534,6 +546,8 @@ bug_mapping:
       issue_component: Compliance Operator
     ose-containernetworking-plugins-container:
       issue_component: Networking / multus
+    ose-contour-container:
+      issue_component: Networking / ovn-kubernetes
     ose-csi-driver-shared-resource-container:
       issue_component: Storage / Shared Resource CSI Driver
     ose-csi-driver-shared-resource-mustgather-container:
@@ -564,6 +578,8 @@ bug_mapping:
       issue_component: Networking / Metal LB
     ose-gcp-cloud-controller-manager-container:
       issue_component: Cloud Compute / Cloud Controller Manager
+    ose-gcp-cluster-api-controllers:
+      issue_component: Cloud Compute / Other Provider
     ose-gcp-filestore-csi-driver-container:
       issue_component: Storage
     ose-gcp-filestore-csi-driver-operator-bundle-container:
@@ -588,10 +604,10 @@ bug_mapping:
       issue_component: Storage / Kubernetes External Components
     ose-ibm-vpc-block-csi-driver-operator-container:
       issue_component: Storage / Operators
-    ose-ibmcloud-machine-controllers-container:
-      issue_component: Cloud Compute / Other Provider
     ose-ibmcloud-cluster-api-controllers-container:
       issue_component: Cloud Compute / IBM Provider
+    ose-ibmcloud-machine-controllers-container:
+      issue_component: Cloud Compute / Other Provider
     ose-image-customization-controller-container:
       issue_component: Bare Metal Hardware Provisioning / OS Image Provider
     ose-insights-operator-container:
@@ -706,9 +722,9 @@ bug_mapping:
       issue_component: Storage / oVirt CSI Driver
     ose-ovirt-machine-controllers-container:
       issue_component: Cloud Compute / oVirt Provider
-    ose-ovn-kubernetes-container:
-      issue_component: Networking / ovn-kubernetes
     ose-ovn-kubernetes-base-container:
+      issue_component: Networking / ovn-kubernetes
+    ose-ovn-kubernetes-container:
       issue_component: Networking / ovn-kubernetes
     ose-powervs-block-csi-driver-container:
       issue_component: Multi-Arch / IBM P and Z
@@ -760,13 +776,15 @@ bug_mapping:
       issue_component: RHCOS
     ovn-2021:
       issue_component: Networking / ovn-kubernetes
-    ovn21.09:
-      issue_component: Networking / ovn-kubernetes
-    ovn21.12:
-      issue_component: Networking / ovn-kubernetes
+    ovn-kubernetes-microshift-container:
+      issue_component: MicroShift / Networking
     ovn2.12:
       issue_component: Networking / ovn-kubernetes
     ovn2.13:
+      issue_component: Networking / ovn-kubernetes
+    ovn21.09:
+      issue_component: Networking / ovn-kubernetes
+    ovn21.12:
       issue_component: Networking / ovn-kubernetes
     ovn22.03:
       issue_component: Networking / ovn-kubernetes
@@ -792,8 +810,6 @@ bug_mapping:
       issue_component: Networking / ovn-kubernetes
     ovn24.12:
       issue_component: Networking / ovn-kubernetes
-    ovn-kubernetes-microshift-container:
-      issue_component: MicroShift / Networking
     performance-addon-operator-bundle-registry-container:
       issue_component: Performance Addon Operator
     performance-addon-operator-container:
@@ -822,10 +838,274 @@ bug_mapping:
       issue_component: Monitoring
     ptp-operator-must-gather-container:
       issue_component: Networking / ptp
+    pyOpenSSL:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    pysnmp:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-SecretStorage:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-alembic:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-amqp:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-automaton:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-autopage:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-bcrypt:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-beautifulsoup4:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-binary-memcached:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-cachetools:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-cinderclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-click:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-cliff:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-cmd2:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-colorama:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-construct:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-contextlib2:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-debtcollector:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-decorator:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-defusedxml:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-dogpile-cache:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-dracclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-editor:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-eventlet:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-fasteners:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-fixtures:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-flask:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-funcsigs:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-futurist:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-gevent:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-glanceclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-greenlet:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-gunicorn:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-hardware:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-html5lib:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-ifaddr:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-importlib-metadata:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-ironic-lib:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-ironic-prometheus-exporter:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-ironicclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-iso8601:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-itsdangerous:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-jinja2:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-jsonpath-rw:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-kazoo:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-keyring:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-keystoneauth1:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-keystoneclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-keystonemiddleware:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-kombu:
+      issue_component: Bare Metal Hardware Provisioning / ironic
     python-kubernetes:
       issue_component: Operator SDK
+    python-logutils:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-markupsafe:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-memcached:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-migrate:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-msgpack:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-munch:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-neutronclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
     python-openshift:
       issue_component: Operator SDK
+    python-openstacksdk:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-os-client-config:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-os-service-types:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-os-traits:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-osc-lib:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-cache:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-concurrency:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-config:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-context:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-db:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-i18n:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-log:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-messaging:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-metrics:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-middleware:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-policy:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-reports:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-rootwrap:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-serialization:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-service:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-upgradecheck:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-utils:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-oslo-versionedobjects:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-osprofiler:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-paste:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-paste-deploy:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-pbr:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-pecan:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-pexpect:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-pint:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-proliantutils:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-prometheus_client:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-pycadf:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-pyperclip:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-redis:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-repoze-lru:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-requests-unixsocket:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-requestsexceptions:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-retrying:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-rfc3986:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-routes:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-scciclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-simplegeneric:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-simplejson:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-singledispatch:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-smi:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-soupsieve:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-sqlalchemy:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-sqlparse:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-statsd:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-stevedore:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-sushy:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-sushy-oem-idrac:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-swiftclient:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-tempita:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-tenacity:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-tooz:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-uhashring:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-vine:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-voluptuous:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-waitress:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-warlock:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-wcwidth:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-webencodings:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-webob:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-webtest:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-werkzeug:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-wrapt:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-yappi:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-zake:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-zeroconf:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-zipp:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-zope-event:
+      issue_component: Bare Metal Hardware Provisioning / ironic
+    python-zope-interface:
+      issue_component: Bare Metal Hardware Provisioning / ironic
     redhat-release-coreos:
       issue_component: RHCOS
     rhcos:
@@ -834,9 +1114,9 @@ bug_mapping:
       issue_component: RHCOS
     rhcos-ppc64le:
       issue_component: RHCOS
-    rhcos-tools:
-      issue_component: RHCOS
     rhcos-s390x:
+      issue_component: RHCOS
+    rhcos-tools:
       issue_component: RHCOS
     rhcos-x86_64:
       issue_component: RHCOS
@@ -854,12 +1134,12 @@ bug_mapping:
       issue_component: Storage
     snapshot-provisioner-container:
       issue_component: Storage
+    spdlog:
+      issue_component: Containers
     special-resource-operator-bundle-container:
       issue_component: Special Resource Operator
     special-resource-operator-container:
       issue_component: Special Resource Operator
-    spdlog:
-      issue_component: Containers
     sriov-cni-container:
       issue_component: Networking / SR-IOV
     sriov-dp-admission-controller-container:
@@ -904,11 +1184,5 @@ bug_mapping:
       issue_component: Containers
     windows-machine-config-operator-container:
       issue_component: Windows Containers
-    ose-apiserver-network-proxy-container:
-      issue_component: openshift-apiserver
-    ose-gcp-cluster-api-controllers-container:
-      issue_component: Cloud Compute / Other Provider
-    ose-contour-container:
-      issue_component: Networking / ovn-kubernetes
     ztp-site-generate-container:
       issue_component: Telco Edge / ZTP
