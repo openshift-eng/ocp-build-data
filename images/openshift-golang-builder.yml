@@ -7,6 +7,11 @@ content:
       branch:
         target: rhel-9-golang-1.20
       url: git@github.com:openshift/ocp-build-data.git
+    modifications:
+    - action: add
+      doozer_source: golang_builder_FIPS_wrapper.sh
+      path: images/go_wrapper.sh
+      overwriting: true
 enabled_repos:
 - rhel-9-server-ose-build-rpms
 - rhel-9-baseos-rpms
@@ -25,8 +30,9 @@ name: openshift/golang-builder
 owners:
 - aos-team-art@redhat.com
 
-additional_tags:
-- 'rhel_9_golang_1.20'
-- 'rhel_9_1.20'
+# Don't add floating tag to FoD builder for now, until we confident CPASS can use it
+# additional_tags:
+# - 'rhel_9_golang_1.20'
+# - 'rhel_9_1.20'
 maintainer:
   component: Release
