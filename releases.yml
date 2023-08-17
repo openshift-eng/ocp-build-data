@@ -1,4 +1,33 @@
 releases:
+  4.10.66:
+    assembly:
+      basis:
+        brew_event: 53052104
+        reference_releases:
+          aarch64: 4.10.0-0.nightly-arm64-2023-08-15-183549
+          ppc64le: 4.10.0-0.nightly-ppc64le-2023-08-15-183551
+          s390x: 4.10.0-0.nightly-s390x-2023-08-15-183549
+          x86_64: 4.10.0-0.nightly-2023-08-15-183548
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.9.19,4.9.21,4.9.22,4.9.23,4.9.24,4.9.25,4.9.26,4.9.27,4.9.28,4.9.29,4.9.30,4.9.31,4.9.32,4.9.33,4.9.34,4.9.35,4.9.36,4.9.37,4.9.38,4.9.39,4.9.40,4.9.41,4.9.42,4.9.43,4.9.44,4.9.45,4.9.46,4.9.47,4.9.48,4.9.49,4.9.50,4.9.51,4.9.52,4.9.53,4.9.54,4.9.55,4.9.56,4.9.57,4.9.58,4.9.59,4.10.3,4.10.4,4.10.5,4.10.6,4.10.7,4.10.8,4.10.9,4.10.10,4.10.11,4.10.12,4.10.13,4.10.14,4.10.15,4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.10.32,4.10.33,4.10.34,4.10.35,4.10.36,4.10.37,4.10.38,4.10.39,4.10.40,4.10.41,4.10.42,4.10.43,4.10.44,4.10.45,4.10.46,4.10.47,4.10.48,4.10.50,4.10.51,4.10.52,4.10.53,4.10.54,4.10.55,4.10.56,4.10.57,4.10.58,4.10.59,4.10.60,4.10.61,4.10.62,4.10.63,4.10.64,4.10.65
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:847a07d97cd817d5cf871c3af4a065cdfb89f61ff7f41ad93ab5c5b56678d837
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ca437c4e2f1375f6bfad02ec46bfca0030fe39796693d9ed1a84b54df1ef4db5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ba3abe1d6fd97a102e0d622e05bb6463ea72180e5f0250c51fcb6c2374ee50a5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9773d4c26a722f920a5faed9f019871cd5be6470937214bd462694638cd5e97c
+      type: standard
+
   4.10.65:
     assembly:
       basis:
@@ -878,8 +907,7 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b7b605cba1863511641a7970985f46f86626de095b752f3a9eac2cece567506a
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: "skipping regression checks for bug 2101326 as pr merged and the build\
-          \ is success"
+        why: "skipping regression checks for bug 2101326 as pr merged and the build is success"
       type: standard
   4.10.37:
     assembly:
@@ -900,8 +928,7 @@ releases:
         upgrades: 4.9.19,4.9.21,4.9.22,4.9.23,4.9.24,4.9.25,4.9.26,4.9.27,4.9.28,4.9.29,4.9.30,4.9.31,4.9.32,4.9.33,4.9.34,4.9.35,4.9.36,4.9.37,4.9.38,4.9.39,4.9.40,4.9.41,4.9.42,4.9.43,4.9.44,4.9.45,4.9.46,4.9.47,4.9.48,4.9.49,4.9.50,4.10.3,4.10.4,4.10.5,4.10.6,4.10.7,4.10.8,4.10.9,4.10.10,4.10.11,4.10.12,4.10.13,4.10.14,4.10.15,4.10.16,4.10.17,4.10.18,4.10.20,4.10.21,4.10.22,4.10.23,4.10.24,4.10.25,4.10.26,4.10.27,4.10.28,4.10.29,4.10.30,4.10.31,4.10.32,4.10.33,4.10.34,4.10.35,4.10.36
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: Permit ATTACHED_BUGS failure on OCPBUGS-1936, which is RHCOS boot image
-          bump.
+        why: Permit ATTACHED_BUGS failure on OCPBUGS-1936, which is RHCOS boot image bump.
       members:
         images: []
         rpms: []
@@ -991,8 +1018,7 @@ releases:
         rpms: []
       promotion_permits:
       - code: ATTACHED_BUGS
-        why: jenkins 4.10 bug OCPBUGS-724 is backport of 4.11 bug that is CPaaS-managed,
-          tooling does not yet deal with this edge case gracefully
+        why: jenkins 4.10 bug OCPBUGS-724 is backport of 4.11 bug that is CPaaS-managed, tooling does not yet deal with this edge case gracefully
       rhcos:
         machine-os-content:
           images:
@@ -2307,8 +2333,7 @@ releases:
         rpms: []
         images:
         - distgit_key: ose-must-gather
-          why: 'eligible brew build failed without getting tagged correctly. this
-            is a rebuild'
+          why: 'eligible brew build failed without getting tagged correctly. this is a rebuild'
           metadata:
             is:
               nvr: ose-must-gather-container-v4.10.0-202201311811.p0.ga42fad8.assembly.stream
@@ -2544,8 +2569,7 @@ releases:
       members:
         images:
         - distgit_key: openshift-enterprise-cli-alt
-          why: "Hacking oc for heterogeneous release payload creation until https://issues.redhat.com/browse/WRKLDS-370\
-            \ is available"
+          why: "Hacking oc for heterogeneous release payload creation until https://issues.redhat.com/browse/WRKLDS-370 is available"
           metadata:
             content:
               source:
@@ -2556,8 +2580,7 @@ releases:
             is:
               nvr: openshift-enterprise-cli-alt-container-v4.10.0-202202162131.p0.ga8ce8c1.assembly.art3803
         - distgit_key: ose-cli-artifacts-alt
-          why: "Hacking oc for heterogeneous release payload creation until https://issues.redhat.com/browse/WRKLDS-370\
-            \ is available"
+          why: "Hacking oc for heterogeneous release payload creation until https://issues.redhat.com/browse/WRKLDS-370 is available"
           metadata:
             content:
               source:
