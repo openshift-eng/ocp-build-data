@@ -20,6 +20,9 @@ releases:
       members:
         images: []
         rpms: []
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "backported bug OCPBUGS-16772 is on QA and should not block promotion"
       rhcos:
         machine-os-content:
           images:
