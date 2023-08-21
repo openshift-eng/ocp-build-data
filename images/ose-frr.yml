@@ -13,8 +13,9 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: false
-dependents:
-- ose-metallb-operator
+# [asdas] Disabling until upstream adds 4.15 configs to stable dir
+#dependents:
+#- ose-metallb-operator
 from:
   member: openshift-base-rhel9
 name: openshift/frr-rhel9

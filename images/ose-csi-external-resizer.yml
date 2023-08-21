@@ -16,8 +16,9 @@ content:
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-dependents:
-- ose-gcp-filestore-csi-driver-operator
+# [asdas] Disabling until upstream adds 4.15 configs to stable dir
+#dependents:
+#- ose-gcp-filestore-csi-driver-operator
 for_payload: true
 from:
   builder:
