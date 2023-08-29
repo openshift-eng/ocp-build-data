@@ -1,3 +1,8 @@
+# freeze_automation controls when scheduled/manual builds are permitted. Possible values are:
+#   - yes|true: never allow builds
+#   - scheduled: only allow manual builds
+#   - weekdays: always allow manual builds; forbid scheduled builds from Monday to Friday
+#   - no|false: always allow builds
 freeze_automation: true
 
 vars:
