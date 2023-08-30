@@ -247,3 +247,10 @@ releases:
         component: '*'
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: rhcos
+      members:
+        images:
+        - distgit_key: driver-toolkit
+          why: use older consistent driver-toolkit image to unblock 4.14 nightlies
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.14.0-202308230726.p0.gcafed17.assembly.stream
