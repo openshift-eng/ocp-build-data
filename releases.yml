@@ -1197,3 +1197,10 @@ releases:
       permits:
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
+      members:
+        images:
+          - distgit_key: driver-toolkit
+            why: use older consistent driver-toolkit image to unblock 4.13 nightlies
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.13.0-202308231126.p0.gd719bdc.assembly.stream
