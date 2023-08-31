@@ -2,7 +2,12 @@ releases:
   4.13.11:
     assembly:
       basis:
-        brew_event: 53308098
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2023-08-29-102252
+          ppc64le: 4.13.0-0.nightly-ppc64le-2023-08-29-102246
+          s390x: 4.13.0-0.nightly-s390x-2023-08-29-102246
+          x86_64: 4.13.0-0.nightly-2023-08-29-102305
+        brew_event: 53283472
       group:
         advisories:
           extras: 119854
@@ -13,12 +18,7 @@ releases:
         release_jira: ART-7655
         upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10
       members:
-        images:
-        - distgit_key: driver-toolkit
-          why: use older consistent driver-toolkit image
-          metadata:
-            is:
-              nvr: driver-toolkit-container-v4.13.0-202308231126.p0.gd719bdc.assembly.stream
+        images: []
         rpms: []
       rhcos:
         machine-os-content:
