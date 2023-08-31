@@ -18,7 +18,12 @@ releases:
         release_jira: ART-0
         upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10
       members:
-        images: []
+        images:
+        - distgit_key: driver-toolkit
+          why: use older consistent driver-toolkit image
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.13.0-202308231126.p0.gd719bdc.assembly.stream
         rpms: []
       rhcos:
         machine-os-content:
