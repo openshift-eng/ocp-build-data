@@ -1,4 +1,46 @@
 releases:
+  4.13.11:
+    assembly:
+      basis:
+        brew_event: 53308098
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2023-08-31-043332
+          ppc64le: 4.13.0-0.nightly-ppc64le-2023-08-31-043329
+          s390x: 4.13.0-0.nightly-s390x-2023-08-31-043326
+          x86_64: 4.13.0-0.nightly-2023-08-31-043330
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:795ba024d857341d76ea874515d4a97479027509fa03e63f9d6dea14b4529e00
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b1a9812c9adb9ce7c625b088f04e474c61152290cb0173bdafefdc51a00c16dd
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:590485db421a03a3cfd1bb11562584e218263075b7f5651406a357557a420aaa
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:af0adec7aa2b4574e28ca1153695da428a580f252d4cb2807db6bf51988e911b
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f2ff2f73b469f3475d2ac3e00ad809708d7bd0ab6ec0c2e8292e015a1d931a44
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:824d40b5968de15f952bf014908890b8440978a8becb55d25673ee15751c737e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a3733f672c7b063ea014bb14ea713211248c3866fe255531e3fa8835db61f91f
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b97e5afdb73043727f78f09f6a6f369d07125d0306e9cc42eae519e4cb826736
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec6356c03a356b1380c2d9dafb9614039abeb74d04f8dd451092664b7baac398
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c2e419b6fdc7f3e6c0089da15e44de66df7b7609d83ed1f19acc7912c37a7a2f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4fd17ad24992b13a852555c018aeafc24c144e9278309f86d5153bf5164fd08c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5d8d582ff84ab3e4ae8e79fa5b61506beb1fbeaa4d88ea67d4e5cc40146df099
+      type: standard
+
   4.13.10:
     assembly:
       basis:
@@ -1199,8 +1241,8 @@ releases:
         component: '*'
       members:
         images:
-          - distgit_key: driver-toolkit
-            why: use older consistent driver-toolkit image to unblock 4.13 nightlies
-            metadata:
-              is:
-                nvr: driver-toolkit-container-v4.13.0-202308231126.p0.gd719bdc.assembly.stream
+        - distgit_key: driver-toolkit
+          why: use older consistent driver-toolkit image to unblock 4.13 nightlies
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.13.0-202308231126.p0.gd719bdc.assembly.stream
