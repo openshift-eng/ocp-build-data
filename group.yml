@@ -3,7 +3,7 @@
 #   - scheduled: only allow manual builds
 #   - weekdays: always allow manual builds; forbid scheduled builds from Monday to Friday
 #   - no|false: always allow builds
-freeze_automation: true
+freeze_automation: false
 
 vars:
   MAJOR: 4
@@ -27,6 +27,7 @@ multi_arch:
   enabled: true
 
 operator_image_ref_mode: manifest-list
+operator_index_mode: pre-release
 
 signing_advisory: 97866
 
