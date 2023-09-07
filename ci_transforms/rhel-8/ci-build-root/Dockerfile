@@ -12,10 +12,10 @@ FROM replaced-by-buildconfig
 ENV PATH=/opt/google/protobuf/bin:$PATH
 RUN set -euxo pipefail && \
     f=$( mktemp ) && \
-    curl --fail -L https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/protoc-3.19.4-linux-x86_64.zip > "${f}" && \
+    curl --fail -L https://github.com/protocolbuffers/protobuf/releases/download/v23.4/protoc-23.4-linux-x86_64.zip > "${f}" && \
     mkdir -p /opt/google/protobuf && \
     unzip "${f}" -d /opt/google/protobuf && \
-    curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.7/etcd-v3.5.7-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.7-linux-amd64/etcd
+    curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.9/etcd-v3.5.9-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.9-linux-amd64/etcd
 
 # Install common CI tools and epel for packages like tito.
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
@@ -53,8 +53,8 @@ RUN mkdir -p $GOPATH && \
 
 # Assert packages in separate RUN block so we are sure env variables are set up correctly
 RUN set -euxo pipefail && \
-    command -v protoc && protoc --version && [ "$( protoc --version )" = "libprotoc 3.19.4" ] && \
-    command -v etcd && etcd --version && [ "$( etcd --version | head -n1 )" = "etcd Version: 3.5.7" ]
+    command -v protoc && protoc --version && [ "$( protoc --version )" = "libprotoc 23.4" ] && \
+    command -v etcd && etcd --version && [ "$( etcd --version | head -n1 )" = "etcd Version: 3.5.9" ]
 
 # Some image building tools don't create a missing WORKDIR
 RUN mkdir -p /go/src/github.com/openshift/origin
