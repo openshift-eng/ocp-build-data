@@ -18,13 +18,14 @@ dependents:
 - ptp-operator
 distgit:
   component: ose-linuxptp-daemon-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 for_payload: false
 from:
   builder:
-  - stream: golang
+  - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-ptp
 owners:
