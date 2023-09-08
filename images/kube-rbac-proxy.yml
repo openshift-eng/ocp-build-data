@@ -10,16 +10,15 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
-## [dpaolell] disabled until upstream is configured for 4.13
 dependents:
-#- ptp-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
-#- cluster-nfd-operator # Disabled to wait for updated bundle dirs
-#- dpu-network-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
-#- ose-aws-efs-csi-driver-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
-#- ose-metallb-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
-#- local-storage-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
-#- ingress-node-firewall-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
-#- ose-gcp-filestore-csi-driver-operator # [asdas] Disabling until upstream adds 4.15 configs to stable dir
+- ptp-operator
+- cluster-nfd-operator
+- dpu-network-operator
+- ose-aws-efs-csi-driver-operator
+- ose-metallb-operator
+- local-storage-operator
+- ingress-node-firewall-operator
+- ose-gcp-filestore-csi-driver-operator
 - ose-cluster-olm-operator
 enabled_repos:
 - rhel-8-baseos-rpms
