@@ -438,6 +438,22 @@ repos:
     reposync:
       enabled: false
 
+  rhel-8-rt-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+    content_set:
+      default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
+      # don't have content set for other arches since they don't exist
+      optional: true
+    reposync:
+      enabled: false
+
 default_image_build_method: osbs2
 image_build_log_scanner:
   matches:
