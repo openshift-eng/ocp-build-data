@@ -1,3 +1,18 @@
+cachito:
+  packages:
+    gomod:
+    - path: .
+    - path: api
+    - path: client/pkg
+    - path: client/v2
+    - path: client/v3
+    - path: etcdctl
+    - path: etcdutl
+    - path: pkg
+    - path: raft
+    - path: server
+    - path: tests
+    - path: tools/mod
 content:
   source:
     dockerfile: Dockerfile.art
@@ -31,7 +46,9 @@ labels:
   io.openshift.tags: etcd
 name: openshift/ose-etcd
 owners:
-- sbatsche@redhat.com
-- spahl@redhat.com
+- alray@redhat.com
+- tjungblu@redhat.com
+- htariq@redhat.com
+- melbeher@redhat.com
 maintainer:
   component: "Etcd"
