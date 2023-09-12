@@ -18,7 +18,11 @@ releases:
         release_jira: ART-7691
         upgrades: 4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4
       members:
-        images: []
+        images:
+        - distgit_key: cluster-nfd-operator
+          why: Since there are no eligible builds at the time of rc.0 cutoff, pin the closest build so prepare-release doesn't complain
+          metadata:
+            is: cluster-nfd-operator-container-v4.14.0-202309081425.p0.g283741a.assembly.stream
         rpms:
         - distgit_key: microshift
           why: Pin microshift to assembly
