@@ -22,9 +22,9 @@ multi_arch:
   enabled: true
 
 operator_image_ref_mode: manifest-list
-
-# wip see: issues.redhat.com/browse/ART-3107
 operator_channel_stable: default
+# see: https://issues.redhat.com/browse/ART-5526 - REMOVE before 4.14 is GA
+operator_index_mode: ga-plus
 
 signing_advisory: 97866
 
