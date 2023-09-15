@@ -37,7 +37,12 @@ releases:
           metadata:
             is:
               nvr: ose-secrets-store-csi-mustgather-container-v4.14.0-202309151627.p0.gb25492f.assembly.stream
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.0~rc.1-202309151758.p0.g477fe0e.assembly.rc.1.el9
       rhcos:
         machine-os-content:
           images:
