@@ -21,16 +21,15 @@
 
 golang:
   image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
-  mirror: false
-  # transform: rhel-8/golang
+  mirror: true
+  transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
   image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
-  # image: openshift/golang-builder:v1.19.10-202307131626.el9.g446ea7c # no_fips
-  mirror: false
-  # transform: rhel-9/golang
+  mirror: true
+  transform: rhel-9/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
