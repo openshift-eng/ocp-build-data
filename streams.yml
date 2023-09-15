@@ -37,6 +37,9 @@ golang:
   # actual upstream_image. This is to allow upstream some extra helpers to build
   # tests that don't happen downstream.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}
 
 # This is image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
@@ -56,6 +59,9 @@ etcd_golang:
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-etcd-golang-1.16
 
 # This image must only be used by -alt images, as this image cannot be built for aarch64.
 rhel-7-golang:
