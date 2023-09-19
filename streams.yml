@@ -21,8 +21,8 @@
 
 golang-1.19:
   image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
-  mirror: false
-  # transform: rhel-8/golang
+  mirror: true
+  transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
@@ -32,8 +32,8 @@ golang-1.19:
 
 golang:
   image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
-  mirror: false
-  # transform: rhel-8/golang
+  mirror: true
+  transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
@@ -43,8 +43,8 @@ golang:
 
 rhel-9-golang-1.19:
   image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
-  mirror: false
-  # transform: rhel-9/golang
+  mirror: true
+  transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
@@ -54,8 +54,8 @@ rhel-9-golang-1.19:
 
 rhel-9-golang:
   image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
-  mirror: false
-  # transform: rhel-9/golang
+  mirror: true
+  transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}.art
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
