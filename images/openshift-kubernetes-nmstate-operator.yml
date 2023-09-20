@@ -9,24 +9,26 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
   component: ose-kubernetes-nmstate-operator-container
   bundle_component: ose-kubernetes-nmstate-operator-bundle-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
-name: openshift/kubernetes-nmstate-rhel8-operator
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/kubernetes-nmstate-rhel9-operator
 name_in_bundle: kubernetes-nmstate-operator
 owners:
 - asegurap@redhat.com
 - bnemec@redhat.com
 - ellorent@redhat.com
+- mko@redhat.com
 - phoracek@redhat.com
 - yboaron@redhat.com
 update-csv:
