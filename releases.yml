@@ -19,13 +19,9 @@ releases:
         upgrades: 4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1
       issues:
         exclude:
-        - id: OCPBUGS-14709 # ship: pscomponent should be ovn23.09
-        - id: OCPBUGS-12610 # ship: bug/pscomponent is for base image which we don't ship
         - id: OCPBUGS-12516 # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-13699 # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
         - id: OCPBUGS-15089 # don't ship: we do not build / there is no such thing as kubernetes-container
         - id: OCPBUGS-17316 # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
         - id: OCPBUGS-12596 # don't ship: we do not build ose-contour-container since 4.13
       members:
         images: []
