@@ -1,4 +1,18 @@
 releases:
+  test:
+    assembly:
+      members:
+        images:
+        - distgit_key: openshift-enterprise-hyperkube
+          why: test build for PR
+          metadata:
+            content:
+              source:
+                git:
+                  branch:
+                    target: rhel9-images
+                  url: git@github.com:bertinatto/kubernetes.git
+
   stream:
     assembly:
       type: stream
