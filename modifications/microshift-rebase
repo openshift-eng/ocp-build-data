@@ -15,28 +15,38 @@ fail() {
     exit 1
 }
 
+# If MICROSHIFT_NO_REBASE is set and non-zero, stop execution here
 if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
     echo "MICROSHIFT_NO_REBASE is defined. Rebase will not be run."
     exit 0
 fi
 
-# FIXME: rebase.sh requires Go yq (https://github.com/mikefarah/yq) instead of Python yq (https://github.com/kislyuk/yq),
-# which is used in the rest of the pipeline.
-# We install Go yq to /opt/yq-go/bin/ on buildvm to avoid conflict.
-# Use Go 1.20.3 as the version installed on buildvm (1.17) is no longer supported.
-# In the future we might have to run rebase.sh inside of a container to use specific versions of dependencies (including golang).
-export PATH=/opt/go-1.20.3/bin:/opt/yq-go/bin:$PATH
-
+# Determine which rebase command to run
 if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
-    # rebase against a named release
-    ./scripts/auto-rebase/rebase.sh to "$RELEASE_REPO":"$RELEASE_NAME"-x86_64 "$RELEASE_REPO":"$RELEASE_NAME"-aarch64 "$LVMS_OPERATOR_BUNDLE"
-    exit 0
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64 $LVMS_OPERATOR_BUNDLE"
+elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $MICROSHIFT_PAYLOAD_X86_64 $MICROSHIFT_PAYLOAD_AARCH64 $LVMS_OPERATOR_BUNDLE"
+else
+    fail "Environment variable RELEASE_NAME or LVMS_OPERATOR_BUNDLE is not set."
 fi
 
-if [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
-    # rebase against specified release payloads
-    ./scripts/auto-rebase/rebase.sh to "$MICROSHIFT_PAYLOAD_X86_64" "$MICROSHIFT_PAYLOAD_AARCH64" "$LVMS_OPERATOR_BUNDLE"
-    exit 0
-fi
+# Build the podman image
+DIR=$(dirname $(readlink -f $0))
+PODMAN_BUILD_CMD="podman build  -t microshift-rebase:$BREW_TAG $DIR"
+echo $PODMAN_BUILD_CMD
+eval $PODMAN_BUILD_CMD
+podman image prune -f  # clean up unused images
 
-fail "Environment variable RELEASE_NAME or LVMS_OPERATOR_BUNDLE is not set."
+# Run the podman container
+PODMAN_RUN_CMD="podman run --rm \
+-e RELEASE_NAME \
+-e LVMS_OPERATOR_BUNDLE \
+-e MICROSHIFT_PAYLOAD_X86_64 \
+-e MICROSHIFT_PAYLOAD_AARCH64 \
+-v $HOME/.docker/config.json:/root/.docker/config.json:ro,z \
+-v $PWD:/workdir/microshift:z \
+-w /workdir/microshift \
+microshift-rebase:$BREW_TAG \
+bash -c 'git config user.email noreply@redhat.com && $REBASE_CMD'"
+echo $PODMAN_RUN_CMD
+eval $PODMAN_RUN_CMD
