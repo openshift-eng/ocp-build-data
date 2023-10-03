@@ -1,4 +1,4 @@
-FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:v1.19.10-202307181602.el8.g71f6585
+FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:v1.20.5-202307110617.el8.gdffc5fc
 USER root
 
 RUN yum -y install python3 jq gettext python3-pyyaml && \
