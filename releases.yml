@@ -29,7 +29,12 @@ releases:
         - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.0~rc.4-202310031506.p0.g6a73516.assembly.rc.4.el9
       rhcos:
         machine-os-content:
           images:
