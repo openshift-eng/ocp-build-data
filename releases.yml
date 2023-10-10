@@ -1,4 +1,56 @@
 releases:
+  rc.5:
+    assembly:
+      basis:
+        brew_event: 54124042
+        reference_releases:
+          aarch64: 4.14.0-0.nightly-arm64-2023-10-10-104138
+          ppc64le: 4.14.0-0.nightly-ppc64le-2023-10-10-083410
+          s390x: 4.14.0-0.nightly-s390x-2023-10-10-085347
+          x86_64: 4.14.0-0.nightly-2023-10-10-084534
+      group:
+        advisories:
+          extras: 120130
+          image: 120131
+          metadata: 120132
+          microshift: 120133
+          rpm: 120134
+        release_jira: ART-7691
+        upgrades: 4.13.14,4.13.15,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4
+      issues:
+        exclude:
+          - id: OCPBUGS-12516 # don't ship: we do not build local-storage-static-provisioner-container
+          - id: OCPBUGS-15089 # don't ship: we do not build / there is no such thing as kubernetes-container
+          - id: OCPBUGS-17316 # don't ship: we removed this image from 4.14
+          - id: OCPBUGS-12596 # don't ship: we do not build ose-contour-container since 4.13
+        include:
+          - id: OCPBUGS-12610 # ship: bug/pscomponent is for base image which we don't ship
+          - id: OCPBUGS-13699 # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+          - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:91789dfc5e764d990f7c770d567f3f45f2dedfe4804020020c0fb8af19e542c6
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:899f193cb719fb967125124a8ff11d0d1dec9e9bc6fba405a214bd52cdcf97c5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:62e4f2de0cb9feaa8fa5c54679259bac1bf453907a8b37aa40aef6226c8ad0ae
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:57400a6ccec9fdd99304cf66e2faf833c5b5ad93417acde60bfc5199661454dd
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b1c1a0237569c531eb8fb47f7ec313d0b0a3190aee2158965e59314b04743737
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:86ffb7aa114bdd22910a20e9143d34652c8da2536f3dfd85026034ecb5c6d3f5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1cf4e6a325614e092ccba7ff2f0b244b6a793a4dcd9c03136f0200677014f748
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aaf738cead80cd0c2eacc66c9d10849c435ef6b54ad73a7094d2839c27670e49
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9871045c2fa94d64d3bdd09c364461f0b6fabe113d09fb204e6d00024fb6f744
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8822481ead2a256a1e0d2696174c6155c0d5a3d41d1007c4d925b47ca11d9c30
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a9bba6ae780e793139b281b1ebfe5ab2a5bb2c0a44795e78c865334b3ac756ca
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:209bbb0b9151741159d7d25ee20f5c378fa02a40e98779090b128995274dc6a6
+      type: candidate
+
   rc.4:
     assembly:
       basis:
