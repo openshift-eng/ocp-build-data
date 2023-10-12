@@ -1,4 +1,45 @@
 releases:
+  4.12.38:
+    assembly:
+      basis:
+        brew_event: 54151160
+        reference_releases:
+          aarch64: 4.12.0-0.nightly-arm64-2023-10-12-030017
+          ppc64le: 4.12.0-0.nightly-ppc64le-2023-10-11-154530
+          s390x: 4.12.0-0.nightly-s390x-2023-10-11-154513
+          x86_64: 4.12.0-0.nightly-2023-10-12-030017
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.36,4.11.37,4.11.38,4.11.39,4.11.40,4.11.41,4.11.42,4.11.43,4.11.44,4.11.45,4.11.46,4.11.47,4.11.48,4.11.49,4.11.50,4.11.51,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6,4.12.7,4.12.8,4.12.9,4.12.10,4.12.11,4.12.12,4.12.13,4.12.14,4.12.15,4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1d9d54e961f82ddf896bbf1c0ceae76dfb6185fca47a668eeadf7c703fefb48b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:73a182c4c6bcaac4c7da340339e0d4b158e8b37a329c1dfe30a3fd76ecacca10
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8fc0a63f8a89da574510493a80e88ab347c7e2a9054c319bc1f2dc073bc0dbe6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3b6aff894b40c0ee6d89640cefdfc53a7300c778c57926a80d055c5912852364
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1254398fcae24c96fe816f3023cb8b70aa02bcef20f7b2fbe738a4ace0bd47d2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cde155cc5237967ce6edf52fb28c2d2e90700d6735e2375814a88e5727798f61
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f7d5c793afc656fd40d3958e129f52bff4512cbf4cf4d4b7521427694e1c2036
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:939352bd39a00212c04f180c4e6cce041bacbf4a4bbb32fd62dbac0932154f28
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dbb864ed49382d9143d75e6c7ea0fb669da77b71de4a58564e1c23546eb5c23a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:74a928defb2ba16cf0bd0f96b8bedb4c194a9c09cda88d2c7ce159b0f07c1a55
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9090adcd3e552c72a745d803271bba979b37f86f8e8b152e2dbd8cb34b77695b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2548828e7832995f6eb5060d0e55176c4dbce8531e6aa355af0c4f2b7d44f3f7
+      type: standard
+
   4.12.37:
     assembly:
       basis:
