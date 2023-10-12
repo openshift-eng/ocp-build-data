@@ -1,7 +1,11 @@
 content:
   source:
-    alias: ose
     dockerfile: images/hello-openshift/Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/origin.git
+      web: https://github.com/openshift/origin
 distgit:
   namespace: containers
 enabled_repos:
