@@ -3,12 +3,12 @@ arches:
 - aarch64
 content:
   source:
-    dockerfile: Dockerfile.rhel7
+    dockerfile: Dockerfile.aws-ebs
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/aws-ebs-csi-driver-operator.git
-      web: https://github.com/openshift/aws-ebs-csi-driver-operator
+      url: git@github.com:openshift-priv/csi-operator.git
+      web: https://github.com/openshift/csi-operator
     ci_alignment:
       streams_prs:
         ci_build_root:
