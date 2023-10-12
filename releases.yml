@@ -1,4 +1,22 @@
 releases:
+  art7927:
+    assembly:
+      basis:
+        assembly: 4.12.37  # minimize change from latest GA
+      type: custom
+      members:
+        images:
+          - distgit_key: ose-frr
+            metadata:
+              dependencies:
+                rpms:
+                  - el8: frr-7.5-11.el8_6.3
+                    why: address OCPBUGS-17704 before this pkg is released
+                    non_gc_tag: "RHBA-2023:121737-pending; will either be released or replaced soon, either way that concludes this hotfix"
+          - distgit_key: ose-metallb-operator
+            metadata:
+              labels:
+                "com.redhat.hotfix": OCPBUGS-17704
   4.12.38:
     assembly:
       basis:
