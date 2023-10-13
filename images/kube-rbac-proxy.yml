@@ -10,11 +10,10 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
-## [dpaolell] disabled until upstream is configured for 4.13
 dependents:
 - ptp-operator
 - cluster-nfd-operator
-- dpu-network-operator
+# - dpu-network-operator [asdas] Disabling until OCPBUGS-18967 is resolved
 - ose-aws-efs-csi-driver-operator
 - ose-metallb-operator
 - local-storage-operator
