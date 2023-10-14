@@ -4,6 +4,12 @@ FROM replaced-by-buildconfig
 # (e.g. compiling test cases) that simply don't occur downstream.
 # Used as a template for 'images:streams gen-buildconfigs'
 
+# Turn off FIPSorDie. This was inspired by 4.13. o/kubernetes which compiles the hyperkube binary using
+# a rhel8 ci-build-root and layers that on top of the rhel9 rhcos. This causes
+# a FIPSorDie kubelet binary to fail to start on the bootstrap node. FIPSorDie is more
+# trouble than it is worth and should not be need to catch actual FIPS issues.
+ENV GO_COMPLIANCE_POLICY=exempt_all
+
 # Install, matching upstream k8s, protobuf-3.x, see:
 # https://github.com/kubernetes/kubernetes/blob/master/hack/lib/protoc.sh
 # and etcd, see:
