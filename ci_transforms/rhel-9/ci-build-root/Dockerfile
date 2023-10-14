@@ -4,6 +4,11 @@ FROM replaced-by-buildconfig
 # (e.g. compiling test cases) that simply don't occur downstream.
 # Used as a template for 'images:streams gen-buildconfigs'
 
+# Turn off FIPSorDie for 4.13. o/kubernetes compiles the hyperkube binary using
+# the ci-build-root and layers that on top of the rhel9 rhcos. This causes
+# a FIPSorDie kubelet binary to fail to start on the bootstrap node.
+ENV GO_COMPLIANCE_POLICY=exempt_all
+
 # Install protobuf-3.0.0 (used by upstream k8s) for CI only testing
 # Context: https://coreos.slack.com/archives/CB95J6R4N/p1600340218406400
 ENV PATH=/opt/google/protobuf/bin:$PATH
