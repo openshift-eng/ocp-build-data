@@ -21,6 +21,16 @@ insecure_source: true
 branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 default_image_build_method: osbs2
 
+# To prevent from being garbage collected, builds should be tagged with a -hotfix tag.
+default_image_build_profile: unsigned
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+      targets:
+        - rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
+
 repos:
   rhel-9-golang-rpms:
     conf:
@@ -29,10 +39,10 @@ repos:
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros golang*
       baseurl:
-        aarch64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.20.5/1.el9.0.0.1.hotfix.2.bz2213646/aarch64/
-        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.20.5/1.el9.0.0.1.hotfix.2.bz2213646/ppc64le/
-        s390x: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.20.5/1.el9.0.0.1.hotfix.2.bz2213646/s390x/
-        x86_64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.20.5/1.el9.0.0.1.hotfix.2.bz2213646/x86_64/
+        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
+        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
+        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
+        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
