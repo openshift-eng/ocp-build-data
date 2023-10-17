@@ -20,7 +20,7 @@
 ####################################################################################################
 
 golang-1.19:
-  image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
+  image: openshift/golang-builder:v1.19.13-202310161907.el8.g0d095f7
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -32,13 +32,13 @@ golang-1.19:
 
 ibm-rhel-8-golang-1.19:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.19.10-202307181602.el8.g71f6585
+  image: openshift/golang-builder:v1.19.13-202310161907.el8.g0d095f7
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 golang:
-  image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
+  image: openshift/golang-builder:v1.20.10-202310161945.el8.gdc4b478
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -50,13 +50,13 @@ golang:
 
 ibm-rhel-8-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.20.5-202307110617.el8.gdffc5fc
+  image: openshift/golang-builder:v1.20.10-202310161945.el8.gdc4b478
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.19:
-  image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
+  image: openshift/golang-builder:v1.19.13-202310161903.el9.g0f9bb4c
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -68,13 +68,13 @@ rhel-9-golang-1.19:
 
 ibm-rhel-9-golang-1.19:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
+  image: openshift/golang-builder:v1.19.13-202310161903.el9.g0f9bb4c
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
+  image: openshift/golang-builder:v1.20.10-202310161945.el9.gbbb66ea
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -86,7 +86,7 @@ rhel-9-golang:
 
 ibm-rhel-9-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.20.5-202307110553.el9.g7ec82b2
+  image: openshift/golang-builder:v1.20.10-202310161945.el9.gbbb66ea
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
@@ -143,7 +143,7 @@ etcd_golang-1.16:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang:
-  image: openshift/golang-builder:v1.19.10-202306161322.el8.g42c8e14
+  image: openshift/golang-builder:v1.19.13-202310161907.el8.g0d095f7
   mirror: true
   # No transform required as etcd does not yum install any packages.
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -154,7 +154,7 @@ etcd_golang:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-etcd-golang-1.19
 
 etcd_rhel9_golang:
-  image: openshift/golang-builder:v1.19.10-202307181602.el9.g305872d
+  image: openshift/golang-builder:v1.19.13-202310161903.el9.g0f9bb4c
   mirror: true
   # No transform required as etcd does not yum install
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
