@@ -9,16 +9,16 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
   - stream: golang
-  member: openshift-base-rhel8
+  member: openshift-base-rhel9
 labels:
   License: ASL 2.0
   io.k8s.description: This is the Prometheus Alert Manager image.
@@ -27,6 +27,6 @@ labels:
   vendor: Red Hat
 name: openshift/ose-prometheus-alertmanager
 non_shipping_repos:
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-server-ose-rpms-embargoed
 owners:
 - team-monitoring@redhat.com
