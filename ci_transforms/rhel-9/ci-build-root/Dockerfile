@@ -4,6 +4,11 @@ FROM replaced-by-buildconfig
 # (e.g. compiling test cases) that simply don't occur downstream.
 # Used as a template for 'images:streams gen-buildconfigs'
 
+# Turn off information for CI environment. This is usually just noise for upstream
+# engineers and can complicate debug. When issues arise, have repos export
+# GO_COMPLIANCE_INFO=1 or GO_COMPLIANCE_DEBUG=1 before running go.
+ENV GO_COMPLIANCE_INFO=0
+
 # Turn off FIPSorDie for 4.13. o/kubernetes compiles the hyperkube binary using
 # the ci-build-root and layers that on top of the rhel9 rhcos. This causes
 # a FIPSorDie kubelet binary to fail to start on the bootstrap node.
