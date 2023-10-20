@@ -8,7 +8,7 @@ arches:
 
 vars:
   MAJOR: 4
-  MINOR: 9
+  MINOR: 10
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -20,6 +20,17 @@ insecure_source: true
 
 # default branch because RPMs can't override (yet)
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+default_image_build_method: osbs2
+
+# To prevent from being garbage collected, builds should be tagged with a -hotfix tag.
+default_image_build_profile: unsigned
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+      targets:
+        - rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
 
 repos:
   rhel-8-server-ose-build-rpms:
@@ -47,11 +58,11 @@ repos:
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros delve golang* go-toolset*
       baseurl:
-        # golang-1.16.12-5.module+el8.5.0+18872+f1ac3806
-        aarch64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.16.12/6.el8_5.0.0.1.hotfix.2.bz2213646/aarch64/
-        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.16.12/6.el8_5.0.0.1.hotfix.2.bz2213646/ppc64le/
-        s390x:   https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.16.12/6.el8_5.0.0.1.hotfix.2.bz2213646/s390x/
-        x86_64:  https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.16.12/6.el8_5.0.0.1.hotfix.2.bz2213646/x86_64/
+        # golang-1.16.12-7.module+el8.5.0+20381+2213edb0
+        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8050020231013005502-70889296-build/latest/aarch64/
+        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8050020231013005502-70889296-build/latest/ppc64le/
+        s390x:   https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8050020231013005502-70889296-build/latest/s390x/
+        x86_64:  https://download-node-02.eng.bos.redhat.com/brewroot/repos/module-go-toolset-rhel8-8050020231013005502-70889296-build/latest/x86_64/
 
     # These content sets are also not used, so just putting something here
     content_set:
