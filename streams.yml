@@ -29,7 +29,7 @@ rhel-7-ci-build-root:
 
 golang:
   # can be pulled from registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder@...
-  image: openshift/golang-builder:v1.17.12-202306151102.el8.gfc6479a
+  image: openshift/golang-builder:v1.17.12-202310200755.el8.g1ac8da3
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.17-openshift-{MAJOR}.{MINOR}.art
@@ -54,7 +54,7 @@ rhel-8-golang-ci-build-root:
 # approval to diverge from what kube apiserver uses for a given release.
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  image: openshift/golang-builder:v1.16.12-202306121749.el8.g74bd633
+  image: openshift/golang-builder:v1.16.12-202310201409.el8.g1370b35
   mirror: true
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
@@ -65,7 +65,7 @@ etcd_golang:
 
 # This image must only be used by -alt images, as this image cannot be built for aarch64.
 rhel-7-golang:
-  image: openshift/golang-builder:v1.17.12-202306141502.el7.g62d6661
+  image: openshift/golang-builder:v1.17.12-202310201412.el7.g53b4bc4
   # Disabling mirroring until art6883 patch is permitted upstream.
   mirror: false
   # upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.17-openshift-{MAJOR}.{MINOR}.art
