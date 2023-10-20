@@ -9,9 +9,22 @@ releases:
           s390x: 4.15.0-0.nightly-s390x-2023-10-17-024055
           x86_64: 4.15.0-0.nightly-2023-10-17-065657
       group:
+        advisories:
+          prerelease: 121241
         upgrades: 4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4,4.14.0-rc.5,4.14.0-rc.6,4.15.0-ec.0
+        operator_index_mode: pre-release
       members:
-        images: []
+        images:
+        - distgit_key: ingress-node-firewall-operator
+          why: adjust to updated ingress-node-firewall-rhel9 CDN repo
+          metadata:
+            is:
+              nvr: ingress-node-firewall-operator-container-v4.15.0-202310200429.p0.ged5294c.assembly.stream
+        - distgit_key: ingress-node-firewall-daemon
+          why: adjust to updated ingress-node-firewall-rhel9 CDN repo
+          metadata:
+            is:
+              nvr: ingress-node-firewall-daemon-container-v4.15.0-202310200429.p0.ged5294c.assembly.stream
         rpms:
         - distgit_key: microshift
           why: Pin microshift to assembly
