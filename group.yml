@@ -19,23 +19,31 @@ insecure_source: true
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 
+default_image_build_profile: unsigned
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+      targets:
+        - rhaos-{MAJOR}.{MINOR}-rhel-7-hotfix
+
 # This should point to the buildroot compose for a maintained/current release of OpenShift.
 # When the buildroot is bumped for a new version of go, the RPM should land in this repository
 # and the image will need to be rebuilt.
 repos:
-
   rhel-7-newer-golang-rpms:
     conf:
       baseurl:
-        aarch64: https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/6.el7_9.0.0.1.hotfix.2.bz2213646/aarch64/
-        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/6.el7_9.0.0.1.hotfix.2.bz2213646/ppc64le/
-        s390x:   https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/6.el7_9.0.0.1.hotfix.2.bz2213646/s390x/
-        x86_64:  https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/6.el7_9.0.0.1.hotfix.2.bz2213646/x86_64/
+        #aarch64: https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/7.el7_9/aarch64/
+        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/7.el7_9/ppc64le/
+        s390x:   https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/7.el7_9/s390x/
+        x86_64:  https://brew-task-repos.engineering.redhat.com/repos/official/go-toolset-1.17-golang/1.17.12/7.el7_9/x86_64/
 
     # These content sets are also not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-7-x86_64-rpms
-      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-7-aarch64-rpms
+      #aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-7-aarch64-rpms
       ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-7-ppc64le-rpms
       s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-7-s390x-rpms
       optional: true
