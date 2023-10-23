@@ -1,5 +1,9 @@
 # Disable automated build because it is intended to be built after a release is promoted.
 mode: disabled
+# This field won't restrict building arches; it will only determine what arches will be published on mirror
+arches:
+- x86_64
+- aarch64
 content:
   source:
     git:
