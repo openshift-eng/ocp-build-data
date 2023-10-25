@@ -2652,3 +2652,11 @@ releases:
       permits:
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
+      members:
+        images:
+        - distgit_key: '*'
+          why: Exclude tzdata updates
+          metadata:
+            scan_sources:
+              exempted_packages:
+              - tzdata
