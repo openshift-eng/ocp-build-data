@@ -1,0 +1,22 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhel8
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/api.git
+      web: https://github.com/openshift/api
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-cluster-config-api-rhel9
+owners:
+- jspeed@redhat.com
+- deads@redhat.com
