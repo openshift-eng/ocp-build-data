@@ -651,3 +651,11 @@ releases:
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
       # why: default permit
+      members:
+        images:
+        - distgit_key: '*'
+          why: Exclude tzdata updates
+          metadata:
+            scan_sources:
+              exempted_packages:
+              - tzdata
