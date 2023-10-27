@@ -1,4 +1,71 @@
 releases:
+  4.14.1:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.14.0
+      issues:
+        include:
+          - id: OCPBUGS-20492
+      group:
+        advisories!:  # only the rpm advisory is needed
+          rpm: -1
+          image: -1
+        release_jira: ART-0
+        upgrades!: 4.13.19,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4,4.14.0-rc.5,4.14.0-rc.6,4.14.0-rc.7,4.14.0
+        dependencies:
+          rpms:
+            - why: OCPBUGS-20492
+              non_gc_tag: rhaos-4.14-rhel9
+              el9: cri-o-1.27.1-11.1.rhaos4.14.git9b9c375.el9
+              el8: cri-o-1.27.1-11.1.rhaos4.14.git9b9c375.el8
+            - why: OCPBUGS-20492
+              non_gc_tag: rhaos-4.14-rhel9
+              el9: crun-1.11-1.rhaos4.14.el9
+              el8: crun-1.11-1.rhaos4.14.el8
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:43d081f9851e0ace304e64bbb1195a596bb20c6c2ba016fadcfe91e75b36b9c2
+            s390x:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0076b8bba30fdb880b33a2db3bc0342984a362b7f35161616935349c38dfb3a1
+            ppc64le:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b4c976938d5f70e80fc4bf0fc786927ca3909f184c0d81d416eb029a1f8a3438
+            aarch64:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e44c97e6a221d6d3f53280c39e6c7248c7e6513968942cb13c43ea6c7ccba336
+        rhel-coreos:
+          images:
+            x86_64:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f4ad0c56ede0a79651cf618601ab0bb93d64a8a15d3d6f82ccb944d6aded7735
+            s390x:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:caa0fd5648aa270b91e28c8c18d560fe691e4fcf6c343fe31b34b47803f88c80
+            ppc64le:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6cf1cfa3e9970a0c1c57d8990390771742e5bc783b7a571772c6d4129c3f9ad4
+            aarch64:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bd4856e0c11d75beaf930e4265a28f0e16d41f37ecf77101fcc9be73d5a3ea4e
+        rhel-coreos-extensions:
+          images:
+            x86_64:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71b3e4b4771cc86da3f213ec4bb62a2d98443c8ec0a0c42353163d0c27e3cda9
+            s390x:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:554bd1dc1a91b4d663e65991277bf749e97ed12f624366fbd0fcb66820c1902e
+            ppc64le:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4b128e70dcaadbaaedc933d2d9e2712f8c1542cc000d941f838bf771faab3ef3
+            aarch64:
+              quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:928f15a0bfeb82aa43f430d9c2e9b6832225daf7d7505c1f74a77a306fccce6c
+      members:
+        images:
+          - distgit_key: ose-agent-installer-node-agent
+            why: OCPBUGS-20492
+            metadata:
+              is:
+                nvr: ose-agent-installer-node-agent-container-v4.14.0-202310262127.p0.ge438a5e.assembly.stream
+          - distgit_key: ose-frr
+            why: OCPBUGS-20492
+            metadata:
+              is:
+                nvr: ose-frr-container-v4.14.0-202310262127.p0.g0414ca3.assembly.stream
   4.14.0:
     assembly:
       type: standard
