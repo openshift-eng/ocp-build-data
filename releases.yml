@@ -7,10 +7,10 @@ releases:
         reference_releases!: {}
       issues:
         include!:
-          - id: OCPBUGS-20492
+        - id: OCPBUGS-20492
         exclude:
-          - id: OCPBUGS-21264
-          - id: OCPBUGS-20821
+        - id: OCPBUGS-21264
+        - id: OCPBUGS-20821
       group:
         advisories!:  # only the rpm advisory is needed
           rpm: 123024
@@ -27,6 +27,9 @@ releases:
             non_gc_tag: rhaos-4.14-rhel9
             el9: crun-1.11-1.rhaos4.14.el9
             el8: crun-1.11-1.rhaos4.14.el8
+        advisories:
+          rpm: 123024
+          image: 123025
       rhcos:
         machine-os-content:
           images:
