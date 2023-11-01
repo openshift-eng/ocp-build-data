@@ -28,7 +28,7 @@ rhel-7-ci-build-root:
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-7-release-openshift-{MAJOR}.{MINOR}
 
 golang:
-  image: openshift/golang-builder:v1.16.12-202306231227.el8.g7bb6f69
+  image: openshift/golang-builder:v1.16.12-202310201409.el8.g1370b35
   mirror: false
   # transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.16-openshift-{MAJOR}.{MINOR}.art
@@ -50,14 +50,14 @@ rhel-8-golang-ci-build-root:
 # approval to diverge from what kube apiserver uses for a given release.
 # https://coreos.slack.com/archives/CB95J6R4N/p1598453188186800?thread_ts=1598449075.172000&cid=CB95J6R4N
 etcd_golang:
-  image: openshift/golang-builder:v1.16.12-202306231227.el8.g7bb6f69
+  image: openshift/golang-builder:v1.16.12-202310201409.el8.g1370b35
   mirror: false
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.16
 
 rhel-7-golang:
-  image: openshift/golang-builder:v1.16.12-202306231323.el7.g3708627
+  image: openshift/golang-builder:v1.16.12-202310311649.el7.g5db8891
   mirror: false
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.16-openshift-{MAJOR}.{MINOR}.art
   # dptp will layer yum repos / extra packages on top of ART's image to create the
