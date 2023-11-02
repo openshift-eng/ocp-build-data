@@ -28,7 +28,12 @@ releases:
         why: Advisory is blocked on missing cdn mapping https://issues.redhat.com/browse/CWFCONF-7922, but it is not a promotion blocker
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.13.20-202311021521.p0.gd134dd0.assembly.4.13.20.el9
       rhcos:
         machine-os-content:
           images:
