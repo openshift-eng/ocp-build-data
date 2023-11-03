@@ -1,4 +1,9 @@
 releases:
+  4.13.21:
+    assembly:
+      basis:
+        assembly: 4.13.20
+      type: standard
   4.13.20:
     assembly:
       basis:
@@ -23,9 +28,6 @@ releases:
         - id: OCPBUGS-22102    # image owner claims 4.13 is not affected
         - id: OCPBUGS-18792    # fixed in 4.13.14 advisory 121015
         - id: OCPBUGS-21460    # PR is not merged
-      promotion_permits:
-      - code: INVALID_ERRATA_STATUS
-        why: Advisory is blocked on missing cdn mapping https://issues.redhat.com/browse/CWFCONF-7922, but it is not a promotion blocker
       members:
         images: []
         rpms:
