@@ -4,6 +4,11 @@ FROM replaced-by-buildconfig
 # (e.g. compiling test cases) that simply don't occur downstream.
 # Used as a template for 'images:streams gen-buildconfigs'
 
+# Turn off information for CI environment. This is usually just noise for upstream
+# engineers and can complicate debug. When issues arise, have repos export
+# GO_COMPLIANCE_INFO=1 or GO_COMPLIANCE_DEBUG=1 before running go.
+ENV GO_COMPLIANCE_INFO=0
+
 # Install protobuf-3.0.0 (used by upstream k8s) for CI only testing
 # Context: https://coreos.slack.com/archives/CB95J6R4N/p1600340218406400
 ENV PATH=/opt/google/protobuf/bin:$PATH
