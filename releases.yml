@@ -30,6 +30,9 @@ releases:
       members:
         images: []
         rpms: []
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: OCPBUGS-21073 is a backport of bug OCPBUGS-22203, new build triggered for latter, but do not want to break promotion
       rhcos:
         machine-os-content:
           images:
