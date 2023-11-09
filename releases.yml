@@ -29,7 +29,12 @@ releases:
         - id: OCPBUGS-15089 # shipped with 4.14.0
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.2-202311091609.p0.gd80d6de.assembly.4.14.2.el9
       promotion_permits:
       - code: ATTACHED_BUGS
         why: OCPBUGS-21073 is a backport of bug OCPBUGS-22203, new build triggered for latter, but do not want to break promotion
