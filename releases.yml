@@ -17,6 +17,16 @@ releases:
           rpm: 123699
         release_jira: ART-8193
         upgrades: 4.13.19,4.13.21,4.13.22,4.14.0,4.14.1
+      issues:
+        exclude:
+        - id: OCPBUGS-15334 # we don't build this image
+        - id: OCPBUGS-17316 # we stopped build this image in 4.14
+        - id: OCPBUGS-16127 # we stopped build this image in 4.14
+        - id: OCPBUGS-12516 # we stopped build this image in 4.14
+        - id: OCPBUGS-8379 # shipped with 4.14.0
+        - id: OCPBUGS-13699 # shipped with 4.14.0
+        - id: OCPBUGS-12610 # shipped with 4.14.0
+        - id: OCPBUGS-15089 # shipped with 4.14.0
       members:
         images: []
         rpms: []
