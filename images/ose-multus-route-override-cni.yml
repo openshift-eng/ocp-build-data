@@ -13,6 +13,8 @@ content:
         - approved
         - lgtm
       enabled: false
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 for_payload: true
 from:
   builder:
@@ -20,5 +22,6 @@ from:
   - stream: golang
   member: openshift-base-rhel8
 name: openshift/ose-multus-route-override-cni
+payload_name: multus-route-override-cni
 owners:
 - multus-dev@redhat.com

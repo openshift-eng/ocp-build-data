@@ -16,6 +16,8 @@ content:
         auto_label:
         - approved
         - lgtm
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
@@ -25,5 +27,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-csi-driver-nfs
+payload_name: csi-driver-nfs
 owners:
 - shiftstack-team@redhat.com

@@ -9,6 +9,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/machine-os-images.git
       web: https://github.com/openshift/machine-os-images
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -19,6 +21,7 @@ from:
   - member: ose-installer
   member: openshift-enterprise-base
 name: openshift/ose-machine-os-images
+payload_name: machine-os-images
 owners:
 - metal-platform@redhat.com
 non_shipping_repos:

@@ -5,6 +5,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/csi-driver-shared-resource.git
       web: https://github.com/openshift/csi-driver-shared-resource
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -14,5 +16,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-csi-driver-shared-resource
+payload_name: csi-driver-shared-resource
 owners:
 - openshift-build-jenkins-team@redhat.com

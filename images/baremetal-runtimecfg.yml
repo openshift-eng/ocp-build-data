@@ -13,6 +13,7 @@ content:
     pkg_managers:
     - gomod
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-baremetal-runtimecfg-container
 enabled_repos:
 - rhel-8-baseos-rpms
@@ -23,5 +24,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-baremetal-runtimecfg
+payload_name: baremetal-runtimecfg
 owners:
 - asegurap@redhat.com

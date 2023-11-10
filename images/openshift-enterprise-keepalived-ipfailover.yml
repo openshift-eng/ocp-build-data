@@ -6,6 +6,8 @@ content:
       url: git@github.com:openshift-priv/images.git
       web: https://github.com/openshift/images
     path: ipfailover/keepalived
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -21,5 +23,6 @@ labels:
   io.openshift.tags: openshift,ha,ip,failover
   vendor: Red Hat
 name: openshift/ose-keepalived-ipfailover
+payload_name: keepalived-ipfailover
 owners:
 - aos-network-edge@redhat.com

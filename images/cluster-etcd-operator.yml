@@ -12,6 +12,8 @@ content:
           stream: rhel-8-golang-ci-build-root
     pkg_managers:
     - gomod
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -21,5 +23,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-cluster-etcd-operator
+payload_name: cluster-etcd-operator
 owners:
 - sbatsche@redhat.com

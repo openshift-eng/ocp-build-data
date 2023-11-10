@@ -11,6 +11,7 @@ content:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-thanos-container
 enabled_repos:
 - rhel-8-baseos-rpms
@@ -22,6 +23,7 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-thanos
+payload_name: thanos
 non_shipping_repos:
 - rhel-8-server-ose-rpms-embargoed
 owners:

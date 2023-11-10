@@ -11,6 +11,7 @@ content:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-node-container
 enabled_repos:
 - rhel-8-appstream-rpms
@@ -24,5 +25,6 @@ from:
   - member: openshift-enterprise-cli
   member: openshift-enterprise-base
 name: openshift/ose-sdn
+payload_name: sdn
 owners:
 - aos-networking-staff@redhat.com

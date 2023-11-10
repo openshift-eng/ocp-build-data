@@ -17,6 +17,8 @@ content:
 dependents:
 - ose-aws-efs-csi-driver-operator
 - ose-gcp-filestore-csi-driver-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
@@ -32,6 +34,7 @@ labels:
   io.openshift.tags: csi,storage,provisioner
   vendor: Red Hat
 name: openshift/ose-csi-external-provisioner
+payload_name: csi-external-provisioner
 name_in_bundle: csi-external-provisioner
 owners:
 - aos-storage-staff@redhat.com

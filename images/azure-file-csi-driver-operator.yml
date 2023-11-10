@@ -17,6 +17,7 @@ content:
         - approved
         - lgtm
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-azure-file-csi-driver-operator-container
 enabled_repos:
 - rhel-8-baseos-rpms
@@ -27,5 +28,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-azure-file-csi-driver-operator
+payload_name: azure-file-csi-driver-operator
 owners:
 - aos-storage-staff@redhat.com

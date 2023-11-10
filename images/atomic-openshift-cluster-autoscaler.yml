@@ -13,6 +13,7 @@ content:
           stream: rhel-8-golang-ci-build-root
 distgit:
   namespace: containers
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
@@ -28,5 +29,6 @@ labels:
   io.openshift.tags: openshift,autoscaler
   vendor: Red Hat
 name: openshift/ose-cluster-autoscaler
+payload_name: cluster-autoscaler
 owners:
 - avagarwa@redhat.com

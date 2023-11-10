@@ -6,6 +6,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-capi-operator.git
       web: https://github.com/openshift/cluster-capi-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -15,5 +17,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-cluster-capi-operator
+payload_name: cluster-capi-operator
 owners:
 - aos-cloud@redhat.com

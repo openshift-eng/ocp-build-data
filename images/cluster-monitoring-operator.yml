@@ -11,6 +11,8 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -27,5 +29,6 @@ labels:
   io.openshift.tags: openshift
   vendor: Red Hat
 name: openshift/ose-cluster-monitoring-operator
+payload_name: cluster-monitoring-operator
 owners:
 - team-monitoring@redhat.com

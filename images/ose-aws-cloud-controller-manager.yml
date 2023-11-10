@@ -14,6 +14,8 @@ content:
         commit_prefix: "UPSTREAM: <carry>: "
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -30,6 +32,7 @@ labels:
   io.openshift.tags: openshift,cloud-controller-manager,aws
   vendor: Red Hat
 name: openshift/ose-aws-cloud-controller-manager
+payload_name: aws-cloud-controller-manager
 owners:
 - mfedosin@redhat.com
 - dgrigore@redhat.com

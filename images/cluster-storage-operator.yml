@@ -13,6 +13,7 @@ content:
         - approved
         - lgtm
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-cluster-storage-operator-container
 enabled_repos:
 - rhel-8-baseos-rpms
@@ -23,5 +24,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-cluster-storage-operator
+payload_name: cluster-storage-operator
 owners:
 - aos-storage-staff@redhat.com

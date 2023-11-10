@@ -14,6 +14,8 @@ content:
         commit_prefix: "UPSTREAM: <carry>: "
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -30,6 +32,7 @@ labels:
   io.openshift.tags: openshift,cloud-node-manager,azure
   vendor: Red Hat
 name: openshift/ose-azure-cloud-node-manager
+payload_name: azure-cloud-node-manager
 owners:
 - mfedosin@redhat.com
 - dgrigore@redhat.com

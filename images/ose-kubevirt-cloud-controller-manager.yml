@@ -14,6 +14,8 @@ content:
         auto_label:
         - approved
         - lgtm
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -23,6 +25,7 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-kubevirt-cloud-controller-manager
+payload_name: kubevirt-cloud-controller-manager
 owners:
 - dvossel@redhat.com
 - nargaman@redhat.com

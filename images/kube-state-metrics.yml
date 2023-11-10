@@ -11,6 +11,8 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -26,5 +28,6 @@ labels:
   io.openshift.tags: kubernetes
   vendor: Red Hat
 name: openshift/ose-kube-state-metrics
+payload_name: kube-state-metrics
 owners:
 - team-monitoring@redhat.com

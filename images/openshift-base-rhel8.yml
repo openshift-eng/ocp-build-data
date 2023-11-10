@@ -22,6 +22,8 @@ content:
       # rpms for the appropriate release.
       transform: rhel-8/base-repos
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-base-openshift-{MAJOR}.{MINOR}
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms

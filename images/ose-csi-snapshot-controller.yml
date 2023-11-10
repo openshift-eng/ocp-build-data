@@ -14,6 +14,8 @@ content:
         auto_label:
         - approved
         - lgtm
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -23,5 +25,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-csi-snapshot-controller
+payload_name: csi-snapshot-controller
 owners:
 - aos-storage-staff@redhat.com

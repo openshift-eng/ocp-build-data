@@ -14,6 +14,8 @@ content:
         - lgtm
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -23,5 +25,6 @@ from:
   - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-multus-admission-controller
+payload_name: multus-admission-controller
 owners:
 - multus-dev@redhat.com

@@ -10,6 +10,7 @@ content:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
 distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-cluster-platform-operators-manager-container
 for_payload: true
 from:
@@ -25,5 +26,6 @@ labels:
     of platform operators.
   License: Apache 2.0
 name: openshift/ose-cluster-platform-operators-manager
+payload_name: cluster-platform-operators-manager
 owners:
 - aos-odin@redhat.com
