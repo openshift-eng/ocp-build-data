@@ -13,6 +13,8 @@ content:
       transform: rhel-8/base-repos
       upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}.art
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-base-nodejs-openshift-{MAJOR}.{MINOR}
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 # the console build cares not, but just to keep us/ds same as possible, end with same USER:
 final_stage_user: 1001
 enabled_repos:

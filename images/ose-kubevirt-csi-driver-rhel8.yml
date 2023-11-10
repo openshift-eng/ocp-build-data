@@ -12,12 +12,13 @@ content:
           stream: rhel-8-golang-ci-build-root
     pkg_managers:
     - gomod
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-kubevirt-csi-driver-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 for_payload: true
-distgit:
-  component: ose-kubevirt-csi-driver-container
 from:
   builder:
   - stream: golang

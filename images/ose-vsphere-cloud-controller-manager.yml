@@ -13,8 +13,10 @@ content:
         commit_prefix: "UPSTREAM: <carry>: "
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
-name: openshift/ose-vsphere-cloud-controller-manager
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 for_payload: true
+name: openshift/ose-vsphere-cloud-controller-manager
 owners:
 - mfedosin@redhat.com
 - jspeed@redhat.com
