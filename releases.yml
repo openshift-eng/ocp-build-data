@@ -9,6 +9,11 @@ releases:
           s390x: 4.15.0-0.nightly-s390x-2023-11-08-010126
           x86_64: 4.15.0-0.nightly-2023-11-08-062604
       group:
+        rhcos:
+          payload_tags:
+          # this tag was included at the time these nightlies formed, removed after:
+          - name: machine-os-content
+            build_metadata_key: oscontainer
         upgrades: 4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4,4.14.0-rc.5,4.14.0-rc.6,4.14.0-rc.7,4.14.0,4.14.1,4.14.2,4.15.0-ec.0,4.15.0-ec.1
       members:
         images: []
