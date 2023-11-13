@@ -19,14 +19,22 @@ releases:
         upgrades: 4.13.19,4.13.21,4.13.22,4.14.0,4.14.1
       issues:
         exclude:
-        - id: OCPBUGS-15334 # we don't build this image
-        - id: OCPBUGS-17316 # we stopped build this image in 4.14
-        - id: OCPBUGS-16127 # we stopped build this image in 4.14
-        - id: OCPBUGS-12516 # we stopped build this image in 4.14
-        - id: OCPBUGS-8379 # shipped with 4.14.0
-        - id: OCPBUGS-13699 # shipped with 4.14.0
-        - id: OCPBUGS-12610 # shipped with 4.14.0
-        - id: OCPBUGS-15089 # shipped with 4.14.0
+        - id: OCPBUGS-15334
+          why: we don't build this image
+        - id: OCPBUGS-17316
+          why: we stopped build this image in 4.14
+        - id: OCPBUGS-16127
+          why: we stopped build this image in 4.14
+        - id: OCPBUGS-12516
+          why: we stopped build this image in 4.14
+        - id: OCPBUGS-8379
+          why: shipped with 4.14.0
+        - id: OCPBUGS-13699
+          why: shipped with 4.14.0
+        - id: OCPBUGS-12610
+          why: shipped with 4.14.0
+        - id: OCPBUGS-15089
+          why: shipped with 4.14.0
       members:
         images: []
         rpms:
@@ -72,10 +80,14 @@ releases:
         exclude:
         - id: OCPBUGS-21264
         - id: OCPBUGS-20821
-        - id: OCPBUGS-8379  # shipped with 4.14.0
-        - id: OCPBUGS-13699 # shipped with 4.14.0
-        - id: OCPBUGS-12610 # shipped with 4.14.0
-        - id: OCPBUGS-21831 # sriov operator is disabled
+        - id: OCPBUGS-8379 
+          why: shipped with 4.14.0
+        - id: OCPBUGS-13699
+          why: shipped with 4.14.0
+        - id: OCPBUGS-12610
+          why: shipped with 4.14.0
+        - id: OCPBUGS-21831
+          why: sriov operator is disabled
       group:
         advisories!:
           rpm: 123024
@@ -172,16 +184,25 @@ releases:
         upgrades: 4.13.17,4.13.18,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4,4.14.0-rc.5,4.14.0-rc.6
       issues:
         exclude:
-        - id: OCPBUGS-12516   # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-15089   # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316   # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-12596   # don't ship: we do not build ose-contour-container since 4.13
-        - id: OCPBUGS-16127   # don't ship: dpu-network-operator-container builds have a blocker
-        - id: OCPBUGS-20717   # don't ship: all fixes did not merge in time
+        - id: OCPBUGS-12516  
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-15089  
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316  
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-12596  
+          why: don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-16127  
+          why: don't ship: dpu-network-operator-container builds have a blocker
+        - id: OCPBUGS-20717  
+          why: don't ship: all fixes did not merge in time
         include:
-        - id: OCPBUGS-12610   # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-13699   # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-8379    # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12610  
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-13699  
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-8379   
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
         rpms:
@@ -231,14 +252,21 @@ releases:
         upgrades: 4.13.14,4.13.15,4.13.16,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4,4.14.0-rc.5
       issues:
         exclude:
-        - id: OCPBUGS-12516   # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-15089   # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316   # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-12596   # don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-12516  
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-15089  
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316  
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-12596  
+          why: don't ship: we do not build ose-contour-container since 4.13
         include:
-        - id: OCPBUGS-12610   # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-13699   # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-8379    # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12610  
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-13699  
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-8379   
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
         rpms:
@@ -293,14 +321,21 @@ releases:
         upgrades: 4.13.14,4.13.15,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3,4.14.0-rc.4
       issues:
         exclude:
-        - id: OCPBUGS-12516   # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-15089   # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316   # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-12596   # don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-12516  
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-15089  
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316  
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-12596  
+          why: don't ship: we do not build ose-contour-container since 4.13
         include:
-        - id: OCPBUGS-12610   # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-13699   # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-8379    # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12610  
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-13699  
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-8379
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
         rpms:
@@ -356,14 +391,21 @@ releases:
         upgrades: 4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2,4.14.0-rc.3
       issues:
         exclude:
-        - id: OCPBUGS-12516 # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-15089 # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316 # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-12596 # don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-12516
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-15089
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-12596
+          why: don't ship: we do not build ose-contour-container since 4.13
         include:
-        - id: OCPBUGS-12610 # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-13699 # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12610
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-13699
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-8379
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
         rpms:
@@ -410,14 +452,21 @@ releases:
         upgrades: 4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1,4.14.0-rc.2
       issues:
         exclude:
-        - id: OCPBUGS-12516 # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-15089 # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316 # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-12596 # don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-12516
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-15089
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-12596
+          why: don't ship: we do not build ose-contour-container since 4.13
         include:
-        - id: OCPBUGS-12610 # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-13699 # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12610
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-13699
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-8379
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
         rpms: []
@@ -462,14 +511,21 @@ releases:
         upgrades: 4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.14.0-ec.0,4.14.0-ec.1,4.14.0-ec.2,4.14.0-ec.3,4.14.0-ec.4,4.14.0-rc.0,4.14.0-rc.1
       issues:
         exclude:
-        - id: OCPBUGS-12516 # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-15089 # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316 # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-12596 # don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-12516
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-15089
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-12596
+          why: don't ship: we do not build ose-contour-container since 4.13
         include:
-        - id: OCPBUGS-12610 # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-13699 # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12610
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-13699
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-8379
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
       members:
         images: []
         rpms:
@@ -522,14 +578,22 @@ releases:
         # investigate why they are missing component builds in advisories
         # No builds found for CVE (bug, package): [(OCPBUGS-14709, ovn23.03), (OCPBUGS-12610, ose-haproxy-router-base-container), (OCPBUGS-12516, local-storage-static-provisioner-container), (OCPBUGS-13699, python-flask), (OCPBUGS-15089, kubernetes), (OCPBUGS-17316, atomic-openshift-service-idler), (OCPBUGS-8379, python-werkzeug), (OCPBUGS-12596, ose-contour-container)]
         exclude:
-        - id: OCPBUGS-14709 # ship: pscomponent should be ovn23.09
-        - id: OCPBUGS-12610 # ship: bug/pscomponent is for base image which we don't ship
-        - id: OCPBUGS-12516 # don't ship: we do not build local-storage-static-provisioner-container
-        - id: OCPBUGS-13699 # ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
-        - id: OCPBUGS-15089 # don't ship: we do not build / there is no such thing as kubernetes-container
-        - id: OCPBUGS-17316 # don't ship: we removed this image from 4.14
-        - id: OCPBUGS-8379  # ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
-        - id: OCPBUGS-12596 # don't ship: we do not build ose-contour-container since 4.13
+        - id: OCPBUGS-14709
+          why: ship: pscomponent should be ovn23.09
+        - id: OCPBUGS-12610
+          why: ship: bug/pscomponent is for base image which we don't ship
+        - id: OCPBUGS-12516
+          why: don't ship: we do not build local-storage-static-provisioner-container
+        - id: OCPBUGS-13699
+          why: ship: bug is for ironic-container but pscomponent is for python-flask which did not get rebuilt
+        - id: OCPBUGS-15089
+          why: don't ship: we do not build / there is no such thing as kubernetes-container
+        - id: OCPBUGS-17316
+          why: don't ship: we removed this image from 4.14
+        - id: OCPBUGS-8379
+          why: ship: bug is for ironic-agent-container but pscomponent is for python-werkzeug which did not get rebuilt
+        - id: OCPBUGS-12596
+          why: don't ship: we do not build ose-contour-container since 4.13
       members:
         images:
         - distgit_key: ose-secrets-store-csi-mustgather
@@ -588,11 +652,17 @@ releases:
         # No builds found for CVE (bug, package): [('OCPBUGS-15089', 'kubernetes'), ('OCPBUGS-12610', 'ose-haproxy-router-base-container'), ('OCPBUGS-8379', 'python-werkzeug'), ('OCPBUGS-12516', 'local-storage-static-provisioner-container'), ('OCPBUGS-17316', 'atomic-openshift-service-idler'), ('OCPBUGS-13699', 'python-flask')]
         exclude:
         - id: OCPBUGS-15089
+          why: backfilll whys
         - id: OCPBUGS-12610
+          why: backfilll whys
         - id: OCPBUGS-8379
+          why: backfilll whys
         - id: OCPBUGS-12516
+          why: backfilll whys
         - id: OCPBUGS-17316
+          why: backfilll whys
         - id: OCPBUGS-13699
+          why: backfilll whys
       members:
         images:
         - distgit_key: cluster-nfd-operator
