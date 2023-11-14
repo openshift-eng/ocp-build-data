@@ -33,7 +33,12 @@ releases:
                   url: git@github.com:openshift-priv/aws-ebs-csi-driver-operator.git
             is:
               nvr: ose-aws-ebs-csi-driver-operator-container-v4.15.0-202311031046.p0.gc301e73.assembly.stream
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.0~ec.2-202311141514.p0.g428c95d.assembly.ec.2.el9
       rhcos:
         machine-os-content:
           images:
