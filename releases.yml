@@ -17,6 +17,15 @@ releases:
           rpm: 124103
         release_jira: ART-8278
         upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.14.0,4.14.1,4.14.2
+      issues:
+        exclude:
+        - id: OCPBUGS-23152 # only relevant for OCP < 4.14
+        - id: OCPBUGS-16483 # fix merged in 4.15 but not in 4.14
+        - id: OCPBUGS-20918 # not applicable to 4.14
+        - id: OCPBUGS-12610 # shipped with 4.14.0
+        - id: OCPBUGS-15089 # shipped with 4.14.0
+        - id: OCPBUGS-8379  # shipped with 4.14.0
+        - id: OCPBUGS-13699 # shipped with 4.14.0
       members:
         images: []
         rpms: []
