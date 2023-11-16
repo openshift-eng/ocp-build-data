@@ -28,7 +28,12 @@ releases:
         - id: OCPBUGS-13699 # shipped with 4.14.0
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.3-202311161358.p0.g4524a36.assembly.4.14.3.el9
       rhcos:
         machine-os-content:
           images:
