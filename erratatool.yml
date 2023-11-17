@@ -26,31 +26,31 @@ cdn_repos:
 - rhocp-{MAJOR}_DOT_{MINOR}-for-rhel-9-aarch64-rpms
 
 synopsis:
-  rpm: "OpenShift Container Platform 4.15.z bug fix and enhancement update"
-  bootimage: "OpenShift Container Platform 4.15.z bug fix and enhancement update"
-  image: "OpenShift Container Platform 4.15.z images update"
-  extras: "OpenShift Container Platform 4.15.z extras update"
-  metadata: "OpenShift Container Platform 4.15.z OLM Operators metadata update"
-  microshift: "Red Hat build of MicroShift 4.15.z bug fix and enhancement update"
-  prerelease: "OpenShift Container Platform 4.15 OLM Operators pre-release"
-  advance: "OpenShift Container Platform 4.15 OLM Operators advance release"
+  rpm: "OpenShift Container Platform 4.16.z bug fix and enhancement update"
+  bootimage: "OpenShift Container Platform 4.16.z bug fix and enhancement update"
+  image: "OpenShift Container Platform 4.16.z images update"
+  extras: "OpenShift Container Platform 4.16.z extras update"
+  metadata: "OpenShift Container Platform 4.16.z OLM Operators metadata update"
+  microshift: "Red Hat build of MicroShift 4.16.z bug fix and enhancement update"
+  prerelease: "OpenShift Container Platform 4.16 OLM Operators pre-release"
+  advance: "OpenShift Container Platform 4.16 OLM Operators advance release"
 
 description: |
   Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-  This advisory contains the RPM packages / container images for Red Hat OpenShift Container Platform 4.15.z. See the following advisory for the container images / RPM packages for this release:
+  This advisory contains the RPM packages / container images for Red Hat OpenShift Container Platform 4.16.z. See the following advisory for the container images / RPM packages for this release:
 
   <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
 
   Space precludes documenting all of the bug fixes and enhancements in this advisory, as well as all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
-  https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html
+  https://docs.openshift.com/container-platform/4.16/release_notes/ocp-4-16-release-notes.html
 
 
 solution: |
-  For OpenShift Container Platform 4.15 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
+  For OpenShift Container Platform 4.16 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-  https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html
+  https://docs.openshift.com/container-platform/4.16/release_notes/ocp-4-16-release-notes.html
 
   You may download the oc tool and use it to inspect release image metadata for x86_64, s390x, ppc64le, and aarch64 architectures. The image digests may be found at https://quay.io/repository/openshift-release-dev/ocp-release?tab=tags
 
@@ -68,37 +68,37 @@ solution: |
   (For aarch64 architecture)
   The image digest is sha256:<SHASUM_HERE>
 
-  All OpenShift Container Platform 4.15 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+  All OpenShift Container Platform 4.16 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
 
-topic: "Red Hat OpenShift Container Platform release 4.15.z is now available with updates to packages and images that fix several bugs and add enhancements."
+topic: "Red Hat OpenShift Container Platform release 4.16.z is now available with updates to packages and images that fix several bugs and add enhancements."
 
 quality_responsibility_name: "OpenShift QE"
 
 boilerplates:
   rpm:
-    synopsis: "OpenShift Container Platform 4.15.z packages update"
-    topic: &common_topic "Red Hat OpenShift Container Platform release 4.15.z is now available with updates to packages and images that fix several bugs."
+    synopsis: "OpenShift Container Platform 4.16.z packages update"
+    topic: &common_topic "Red Hat OpenShift Container Platform release 4.16.z is now available with updates to packages and images that fix several bugs."
     description: &common_description |
       Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-      This advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.15.z. See the following advisory for the container images for this release:
+      This advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.16.z. See the following advisory for the container images for this release:
 
       <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
 
-      All OpenShift Container Platform 4.15 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+      All OpenShift Container Platform 4.16 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
     solution: &common_solution |
       See the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-      https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html
+      https://docs.openshift.com/container-platform/4.16/release_notes/ocp-4-16-release-notes.html
 
-      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
   bootimage:
-    synopsis: "OpenShift Container Platform 4.15.z packages update"
+    synopsis: "OpenShift Container Platform 4.16.z packages update"
     topic: *common_topic
     description: |
       Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-      This advisory contains extra RPM packages used in building the initial Red Hat OpenShift Container Platform 4.15 RHCOS boot-images. See the following advisory for the container images for this release:
+      This advisory contains extra RPM packages used in building the initial Red Hat OpenShift Container Platform 4.16 RHCOS boot-images. See the following advisory for the container images for this release:
 
       <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
 
@@ -107,28 +107,28 @@ boilerplates:
     solution: |
       See the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-      https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html
+      https://docs.openshift.com/container-platform/4.16/release_notes/ocp-4-16-release-notes.html
 
-      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+      Details on how to access this content are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
 
   image:
-    synopsis: "OpenShift Container Platform 4.15.z bug fix update"
+    synopsis: "OpenShift Container Platform 4.16.z bug fix update"
     topic: *common_topic
     description: |
       Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
 
-      This advisory contains the container images for Red Hat OpenShift Container Platform 4.15.z. See the following advisory for the RPM packages for this release:
+      This advisory contains the container images for Red Hat OpenShift Container Platform 4.16.z. See the following advisory for the RPM packages for this release:
 
       <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2022:1234
 
       Space precludes documenting all of the container images in this advisory. See the following Release Notes documentation, which will be updated shortly for this release, for details about these changes:
 
-      https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html
+      https://docs.openshift.com/container-platform/4.16/release_notes/ocp-4-16-release-notes.html
 
     solution: &common_image_solution |
-      For OpenShift Container Platform 4.15 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
+      For OpenShift Container Platform 4.16 see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
-      https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html
+      https://docs.openshift.com/container-platform/4.16/release_notes/ocp-4-16-release-notes.html
 
       You may download the oc tool and use it to inspect release image metadata for x86_64, s390x, ppc64le, and aarch64 architectures. The image digests may be found at https://quay.io/repository/openshift-release-dev/ocp-release?tab=tags
 
@@ -146,16 +146,16 @@ boilerplates:
       (For aarch64 architecture)
       The image digest is sha256:<SHASUM_HERE>
 
-      All OpenShift Container Platform 4.15 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+      All OpenShift Container Platform 4.16 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
   extras:
-    synopsis: OpenShift Container Platform 4.15.z extras update
+    synopsis: OpenShift Container Platform 4.16.z extras update
     topic: *common_topic
     description: *common_description
     solution: *common_solution
   metadata:
-    synopsis: OpenShift Container Platform 4.15.z OLM Operators metadata update
+    synopsis: OpenShift Container Platform 4.16.z OLM Operators metadata update
     topic: |
-      Red Hat OpenShift Container Platform release 4.15.z is now available with updates to packages and images that fix several bugs.
+      Red Hat OpenShift Container Platform release 4.16.z is now available with updates to packages and images that fix several bugs.
 
       This advisory will be used to release the corresponding Operator manifests via new Operator metadata containers.
 
@@ -164,25 +164,25 @@ boilerplates:
 
       This advisory will be used to release the corresponding Operator manifests via new Operator metadata containers.
 
-      All OpenShift Container Platform 4.15 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+      All OpenShift Container Platform 4.16 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
     solution: *common_solution
   microshift:
-    synopsis: "Red Hat build of MicroShift 4.15.z bug fix and enhancement update"
+    synopsis: "Red Hat build of MicroShift 4.16.z bug fix and enhancement update"
     topic: |
-      Red Hat build of MicroShift release 4.15.z is now available with updates to packages and images that fix several bugs.
+      Red Hat build of MicroShift release 4.16.z is now available with updates to packages and images that fix several bugs.
     description: |
       Red Hat build of MicroShift is Red Hat's light-weight Kubernetes orchestration solution designed for edge device deployments and is built from the edge capabilities of Red Hat OpenShift. MicroShift is an application that is deployed on top of Red Hat Enterprise Linux devices at the edge, providing an efficient way to operate single-node clusters in these low-resource environments.
 
-      This advisory contains the RPM packages for Red Hat build of MicroShift 4.15.z. Read the following advisory for the container images for this release:
+      This advisory contains the RPM packages for Red Hat build of MicroShift 4.16.z. Read the following advisory for the container images for this release:
 
       <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHSA-2023:1234
 
       All of the bug fixes may not be documented in this advisory. Read the following release notes documentation for details about these changes:
 
-      https://access.redhat.com/documentation/en-us/microshift/4.15/html/release_notes/index
+      https://access.redhat.com/documentation/en-us/microshift/4.16/html/release_notes/index
 
 
-      All Red Hat build of MicroShift 4.15 users are advised to use these updated packages and images when they are available in the RPM repository.
+      All Red Hat build of MicroShift 4.16 users are advised to use these updated packages and images when they are available in the RPM repository.
     solution: |
       MicroShift 4.[y].[z] - RPMs
 
@@ -190,22 +190,22 @@ boilerplates:
 
       https://access.redhat.com/documentation/en-us/red_hat_build_of_microshift/4.[y]/html/release_notes/index
   prerelease:
-    synopsis: OpenShift Container Platform 4.15 OLM Operators pre-release
+    synopsis: OpenShift Container Platform 4.16 OLM Operators pre-release
     topic: |
-      This advisory will be used to pre-release OCP 4.15 operator bundles and the
+      This advisory will be used to pre-release OCP 4.16 operator bundles and the
       container image builds on which they depend.
     description: |
       Although named OCP product builds are made public for testing prior to release,
       optional operators cannot be provided in the same way, which is a gap for
       partners and customers following the latest developments.
     solution: |
-      This advisory will be used to pre-release OCP 4.15 operator bundles and the
+      This advisory will be used to pre-release OCP 4.16 operator bundles and the
       container image builds on which they depend.
 
   advance:
-    synopsis: OpenShift Container Platform 4.15 OLM Operators advance release
+    synopsis: OpenShift Container Platform 4.16 OLM Operators advance release
     topic: |
-      Red Hat OpenShift Container Platform release 4.15.0 is now available with updates to packages and images.
+      Red Hat OpenShift Container Platform release 4.16.0 is now available with updates to packages and images.
 
       This advisory will be used to release Operator manifests via new Operator metadata containers, as well as container images that are dependencies for the Operators.
 
@@ -214,13 +214,13 @@ boilerplates:
 
       This advisory will be used to release Operator manifests via new Operator metadata containers, as well as container images that are dependencies for the Operators.
 
-      All OpenShift Container Platform 4.15 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.15/updating/updating-cluster-cli.html
+      All OpenShift Container Platform 4.16 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.16/updating/updating-cluster-cli.html
     solution: *common_solution
 
   cve:
-    synopsis: OpenShift Container Platform 4.15.z security update
+    synopsis: OpenShift Container Platform 4.16.z security update
     topic: |
-      Red Hat OpenShift Container Platform release 4.15.z is now available with updates to packages and images that fix several bugs and add enhancements.
+      Red Hat OpenShift Container Platform release 4.16.z is now available with updates to packages and images that fix several bugs and add enhancements.
 
       Red Hat Product Security has rated this update as having a security impact of {IMPACT}. A Common Vulnerability Scoring System (CVSS) base score, which gives a detailed severity rating, is available for each vulnerability from the CVE link(s) in the References section.
     description: |
