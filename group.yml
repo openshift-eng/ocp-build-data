@@ -510,3 +510,8 @@ canonical_builders_from_upstream: "auto"
 # For early access without an errata (state=pre-release), that is not required
 software_lifecycle:
   phase: pre-release
+
+# Enable feature to raise OCPBUGS Jira tickets if SAST scan issues are found
+scanning:
+  jira_integration:
+    enabled: true
