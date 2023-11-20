@@ -18,6 +18,7 @@ dependents:
 - sriov-network-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: sriov-network-device-plugin-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -26,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-sriov-network-device-plugin
+name: openshift/ose-sriov-network-device-plugin-rhel9
 name_in_bundle: sriov-network-device-plugin
 owners:
 - zshi@redhat.com

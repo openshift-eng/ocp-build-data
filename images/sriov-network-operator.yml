@@ -16,6 +16,8 @@ content:
           stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  bundle_component: sriov-network-operator-metadata-container
+  component: sriov-network-operator-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -24,7 +26,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-sriov-network-operator
+name: openshift/ose-sriov-network-rhel9-operator
 name_in_bundle: sriov-network-operator
 owners:
 - multus-dev@redhat.com
