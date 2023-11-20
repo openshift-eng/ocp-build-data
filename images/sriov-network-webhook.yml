@@ -18,6 +18,7 @@ dependents:
 - sriov-network-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: sriov-network-webhook-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -26,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-sriov-network-webhook
+name: openshift/ose-sriov-network-webhook-rhel9
 name_in_bundle: sriov-network-webhook
 owners:
 - multus-dev@redhat.com
