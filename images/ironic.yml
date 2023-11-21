@@ -9,6 +9,15 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ironic-image.git
       web: https://github.com/openshift/ironic-image
+    pkg_managers:
+      - pip
+cachito:
+  packages:
+    pip:
+      - path: .
+        requirements_files:
+          - requirements.cachito
+          - requirements-build.cachito
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ironic-container
