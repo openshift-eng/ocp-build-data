@@ -6,9 +6,18 @@ content:
     dockerfile: Dockerfile.ocp
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/ironic-image.git
+        target: requirements-placeholders
+      url: git@github.com:openshift/ironic-image.git
       web: https://github.com/openshift/ironic-image
+    pkg_managers:
+      - pip
+cachito:
+  packages:
+    pip:
+      - path: .
+        requirements_files:
+          - requirements.cachito
+          - requirements-build.cachito
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ironic-container
@@ -26,6 +35,7 @@ name: openshift/ose-ironic-rhel9
 payload_name: ironic
 owners:
 - ironic-osp-owners@redhat.com
+- rpittau@redhat.com
 non_shipping_repos:
 - rhel-9-server-ironic-rpms
 - rhel-9-server-ose-rpms-embargoed
