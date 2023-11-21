@@ -5,7 +5,7 @@ content:
     dockerfile: openshift-golang-builder.Dockerfile
     git:
       branch:
-        target: rhel-9-golang-1.20
+        target: rhel-9-golang-1.21
       url: git@github.com:openshift-eng/ocp-build-data.git
     modifications:
     - action: add
@@ -30,9 +30,9 @@ name: openshift/golang-builder
 owners:
 - aos-team-art@redhat.com
 
-# Don't add floating tag to FoD builder for now, until we confident CPASS can use it
+# for CPaaS
 additional_tags:
-- 'rhel_9_golang_1.20'
-- 'rhel_9_1.20'
+- 'rhel_9_golang_1.21'
+- 'rhel_9_1.21'
 maintainer:
   component: Release

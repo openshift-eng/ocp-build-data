@@ -6,7 +6,7 @@ ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
     GOFLAGS='-mod=vendor' \
     GOPATH=${GOPATH:-/go} \
     GOMAXPROCS=8 \
-    VERSION="1.20"
+    VERSION="1.21"
 
 LABEL summary="$SUMMARY" \
       description="$SUMMARY" \
