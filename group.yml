@@ -1,4 +1,4 @@
-name: rhel-8-golang-1.20
+name: rhel-8-golang-1.21
 
 arches:
 - x86_64
@@ -8,7 +8,7 @@ arches:
 
 vars:
   MAJOR: 4
-  MINOR: 14
+  MINOR: 16
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -37,11 +37,13 @@ repos:
         module_hotfixes: 1
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros delve golang* go-toolset*
+      # golang-1.21.3-4.el8_9
+      # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2770478
       baseurl:
-        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
-        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
-        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
-        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
+        aarch64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.21.3/4.el8_9/aarch64/
+        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.21.3/4.el8_9/ppc64le/
+        s390x: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.21.3/4.el8_9/s390x/
+        x86_64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.21.3/4.el8_9/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
@@ -64,7 +66,6 @@ repos:
         ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
         s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
         x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
-
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
