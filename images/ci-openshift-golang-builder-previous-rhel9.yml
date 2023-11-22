@@ -11,18 +11,19 @@ content:
       enabled: false
       mirror: true
       mirror_manifest_list: true
-      upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-latest-openshift-{MAJOR}.{MINOR}
+      upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-previous-openshift-{MAJOR}.{MINOR}
 
 from:
-  stream: rhel-9-golang
+  stream: rhel-9-golang-1.19
 
 labels:
   io.k8s.description: golang builder image for Red Hat CI
 
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ci-openshift-golang-builder-previous-container
 
-name: openshift/ci-golang-builder-latest
+name: openshift/ci-golang-builder-previous
 for_payload: false
 for_release: false
 
