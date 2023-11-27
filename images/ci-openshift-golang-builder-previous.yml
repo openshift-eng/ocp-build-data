@@ -1,3 +1,4 @@
+mode: disabled
 content:
   set_build_variables: false
   source:
@@ -14,7 +15,7 @@ content:
       upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-previous-openshift-{MAJOR}.{MINOR}
 
 from:
-  stream: rhel-9-golang-1.19
+  stream: rhel-9-golang # was 1.19, but we removed it from stream
 
 labels:
   io.k8s.description: golang builder image for Red Hat CI
