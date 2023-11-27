@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
     pkg_managers:
     - yarn
     artifacts:
@@ -20,17 +20,17 @@ content:
         source-url: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-source-v1.22.19.tar.gz
         source-sha256: 50af0025d2ef942bf3e6cdd0587dc9c4dd8d6e6e69501b84935d09f2b2b5de8b
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: monitoring-plugin-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
 for_payload: true
 from:
   builder:
   - stream: nodejs
-  member: openshift-enterprise-base
-name: openshift/ose-monitoring-plugin-rhel8
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-monitoring-plugin-rhel9
 payload_name: monitoring-plugin
 owners:
 - team-observability-ui@redhat.com

@@ -8,15 +8,15 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-platform-operators-manager-container
 for_payload: true
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
 labels:
   io.k8s.display-name: OpenShift Platform Operator Manager
   io.k8s.description: This is a component of OpenShift Container Platform and manages
@@ -25,7 +25,7 @@ labels:
   summary: This is a component of OpenShift Container Platform and manages the lifecycle
     of platform operators.
   License: Apache 2.0
-name: openshift/ose-cluster-platform-operators-manager
+name: openshift/ose-cluster-platform-operators-manager-rhel9
 payload_name: cluster-platform-operators-manager
 owners:
 - aos-odin@redhat.com

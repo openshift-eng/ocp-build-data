@@ -8,25 +8,25 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: golang-github-openshift-oauth-proxy-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
 for_payload: true
 from:
   builder:
-  - stream: golang
-  member: openshift-base-rhel8
+  - stream: rhel-9-golang
+  member: openshift-base-rhel9
 labels:
   License: GPLv2+
   io.k8s.description: OpenShift OAuth Proxy.
   io.k8s.display-name: OpenShift OAuth Proxy
   io.openshift.tags: oauth
   vendor: Red Hat
-name: openshift/ose-oauth-proxy
+name: openshift/ose-oauth-proxy-rhel9
 payload_name: oauth-proxy
 owners:
 - aos-apiserver@redhat.com

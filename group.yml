@@ -503,7 +503,7 @@ check_golang_versions: "exact"
 
 # until feature freeze, prefer to use the golang builder that the upstream CI build is using
 # if different from what ART has configured, encouraging deliberate transitioning.
-canonical_builders_from_upstream: "auto"
+canonical_builders_from_upstream: False
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # If it will ship via errata (state=release), we want to build signed.
