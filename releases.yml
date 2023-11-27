@@ -23,7 +23,12 @@ releases:
         - id: OCPBUGS-18730  # Got fixed with GA
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.4-202311271434.p0.gb36526e.assembly.4.14.4.el9
       rhcos:
         machine-os-content:
           images:
