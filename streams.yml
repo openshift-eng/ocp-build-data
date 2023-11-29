@@ -59,6 +59,13 @@ rhel8:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
+rhel-7-golang:
+  image: openshift/golang-builder:v1.18
+  mirror: true
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.18-openshift-{MAJOR}.{MINOR}.art
+  transform: rhel-7/golang
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-7-golang-1.18-openshift-{MAJOR}.{MINOR}
+
 rhel9:
   # the most recent release at present. since we yum update this, it does not need to float.
   # it is important that we not build from unreleased builds and publish them.
