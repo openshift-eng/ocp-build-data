@@ -8,6 +8,7 @@ content:
       web: https://github.com/openshift/api
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-cluster-config-api-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -17,6 +18,7 @@ from:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-cluster-config-api-rhel9
+payload_name: cluster-config-api
 owners:
 - jspeed@redhat.com
 - deads@redhat.com
