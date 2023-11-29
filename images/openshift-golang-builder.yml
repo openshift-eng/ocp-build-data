@@ -7,6 +7,11 @@ content:
       branch:
         target: golang-1.18
       url: git@github.com:openshift-eng/ocp-build-data.git
+    modifications:
+    - action: add
+      doozer_source: golang_builder_FIPS_wrapper.sh
+      path: go_wrapper.sh
+      overwriting: true
 enabled_repos:
 - rhel-7-server-rpms
 - rhel-server-ose-build-rpms

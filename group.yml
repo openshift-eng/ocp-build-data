@@ -19,6 +19,15 @@ insecure_source: true
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-7
 
+default_image_build_profile: unsigned
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+      targets:
+        - rhaos-{MAJOR}.{MINOR}-rhel-7-hotfix
+
 # This should point to the buildroot compose for a maintained/current release of OpenShift.
 # When the buildroot is bumped for a new version of go, the RPM should land in this repository
 # and the image will need to be rebuilt.
