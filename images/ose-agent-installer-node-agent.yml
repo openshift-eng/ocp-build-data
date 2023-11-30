@@ -12,6 +12,7 @@ content:
           stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-agent-installer-node-agent-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -24,9 +25,13 @@ from:
 maintainer:
   component: Installer
   subcomponent: Agent based installation
-name: openshift/ose-agent-installer-node-agent
+name: openshift/ose-agent-installer-node-agent-rhel9
 payload_name: agent-installer-node-agent
 owners:
 - ocp-agent-team@redhat.com
 non_shipping_repos:
 - rhel-9-server-ose-rpms-embargoed
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

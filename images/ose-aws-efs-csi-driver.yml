@@ -21,6 +21,7 @@ dependents:
 - ose-aws-efs-csi-driver-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-aws-efs-csi-driver-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -33,3 +34,7 @@ name: openshift/ose-aws-efs-csi-driver-container-rhel8
 name_in_bundle: aws-efs-csi-driver-container-rhel8
 owners:
 - aos-storage-staff@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

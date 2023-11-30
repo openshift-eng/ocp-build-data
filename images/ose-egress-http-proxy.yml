@@ -8,6 +8,7 @@ content:
     path: egress/http-proxy
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-egress-http-proxy-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -24,3 +25,7 @@ labels:
 name: openshift/ose-egress-http-proxy
 owners:
 - aos-network-edge@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

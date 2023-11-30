@@ -13,6 +13,7 @@ content:
 distgit:
   bundle_component: ose-metallb-operator-bundle-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-metallb-operator-container
 name: openshift/metallb-rhel9-operator
 name_in_bundle: metallb-rhel9-operator # matches exactly the name in image-references
 for_payload: false
@@ -28,3 +29,7 @@ update-csv:
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container
     Platform", "OpenShift Platform Plus"]'
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

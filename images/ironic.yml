@@ -11,6 +11,7 @@ content:
       web: https://github.com/openshift/ironic-image
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ironic-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -21,10 +22,14 @@ from:
   builder:
   - member: openshift-base-rhel9
   member: openshift-base-rhel9
-name: openshift/ose-ironic
+name: openshift/ose-ironic-rhel9
 payload_name: ironic
 owners:
 - ironic-osp-owners@redhat.com
 non_shipping_repos:
 - rhel-9-server-ironic-rpms
 - rhel-9-server-ose-rpms-embargoed
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

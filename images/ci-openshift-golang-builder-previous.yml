@@ -1,0 +1,35 @@
+mode: disabled # to be enabled when we start using a golang stream that is not in latest/extra
+content:
+  set_build_variables: false
+  source:
+    dockerfile: ci_images/rhel-9/ci-openshift-golang-builder-latest/Dockerfile
+    git:
+      branch:
+        target: openshift-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-eng/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
+    ci_alignment:
+      enabled: false
+      mirror: true
+      mirror_manifest_list: true
+      upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-previous-openshift-{MAJOR}.{MINOR}
+
+from:
+  stream: rhel-9-golang # was 1.19, but we removed it from stream
+
+labels:
+  io.k8s.description: golang builder image for Red Hat CI
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ci-openshift-golang-builder-previous-container
+
+name: openshift/ci-golang-builder-previous
+for_payload: false
+for_release: false
+
+owners:
+- aos-team-art@redhat.com
+
+maintainer:
+  component: Release

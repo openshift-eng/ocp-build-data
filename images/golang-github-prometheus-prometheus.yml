@@ -12,6 +12,7 @@ content:
           stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: golang-github-prometheus-prometheus-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -33,3 +34,7 @@ non_shipping_repos:
 - rhel-8-server-ose-rpms-embargoed
 owners:
 - team-monitoring@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

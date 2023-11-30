@@ -8,9 +8,14 @@ content:
       web: https://github.com/openshift/machine-config-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: openshift-proxy-pull-test-container
 for_payload: false
 from:
   member: openshift-enterprise-base
 name: openshift/ose-openshift-proxy-pull-test
 owners:
 - qiwan@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

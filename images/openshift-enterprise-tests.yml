@@ -12,6 +12,7 @@ content:
           stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: openshift-enterprise-tests-container
   namespace: containers
 enabled_repos:
 - openstack-16-for-rhel-8-rpms
@@ -45,3 +46,7 @@ payload_name: tests
 owners:
 - aos-master@redhat.com
 - openshift-technical-release-staff@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

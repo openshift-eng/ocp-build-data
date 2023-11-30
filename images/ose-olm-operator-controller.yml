@@ -15,6 +15,7 @@ dependents:
 - ose-cluster-olm-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-olm-operator-controller-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -32,3 +33,7 @@ name: openshift/ose-olm-operator-controller-rhel8
 payload_name: olm-operator-controller
 owners:
 - aos-odin@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

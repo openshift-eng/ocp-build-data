@@ -11,13 +11,18 @@ content:
       web: https://github.com/openshift/ironic-static-ip-manager
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ironic-static-ip-manager-container
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 for_payload: true
 from:
   member: openshift-base-rhel9
-name: openshift/ose-ironic-static-ip-manager
+name: openshift/ose-ironic-static-ip-manager-rhel9
 payload_name: ironic-static-ip-manager
 owners:
 - ironic-osp-owners@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

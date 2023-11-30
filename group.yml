@@ -503,10 +503,18 @@ check_golang_versions: "exact"
 
 # until feature freeze, prefer to use the golang builder that the upstream CI build is using
 # if different from what ART has configured, encouraging deliberate transitioning.
-canonical_builders_from_upstream: "auto"
+canonical_builders_from_upstream: False
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # If it will ship via errata (state=release), we want to build signed.
 # For early access without an errata (state=pre-release), that is not required
 software_lifecycle:
   phase: pre-release
+
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      # Enable feature to raise OCPBUGS Jira tickets if SAST scan issues are found
+      # This flag enables for this OCP version, but it also has to be enabled specifically in the image config
+      # as well
+      enabled: true

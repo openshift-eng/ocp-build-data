@@ -24,6 +24,7 @@ content:
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-base-openshift-{MAJOR}.{MINOR}
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: openshift-base-rhel8-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -34,3 +35,7 @@ from:
 name: openshift/base-rhel8
 owners:
 - aos-team-art@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

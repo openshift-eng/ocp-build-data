@@ -8,6 +8,7 @@ content:
       web: https://github.com/openshift/bond-cni
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-network-interface-bond-cni-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -22,3 +23,7 @@ name: openshift/ose-network-interface-bond-cni
 payload_name: network-interface-bond-cni
 owners:
 - carlosg@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

@@ -7,6 +7,7 @@ content:
       web: https://github.com/openshift/csi-driver-shared-resource-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-csi-driver-shared-resource-operator-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -19,3 +20,7 @@ name: openshift/ose-csi-driver-shared-resource-operator
 payload_name: csi-driver-shared-resource-operator
 owners:
 - openshift-build-jenkins-team@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

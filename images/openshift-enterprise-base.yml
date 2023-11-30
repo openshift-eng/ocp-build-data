@@ -43,6 +43,7 @@ content:
 
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: openshift-enterprise-base-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -60,3 +61,7 @@ labels:
 name: openshift/ose-base
 owners:
 - lmeyer@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

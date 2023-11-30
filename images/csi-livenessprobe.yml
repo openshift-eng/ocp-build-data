@@ -20,6 +20,7 @@ dependents:
 - ose-secrets-store-csi-driver-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: csi-livenessprobe-container
 enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
@@ -39,3 +40,7 @@ name_in_bundle: csi-livenessprobe
 payload_name: csi-livenessprobe
 owners:
 - aos-storage-staff@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

@@ -8,6 +8,7 @@ content:
       web: https://github.com/openshift/frr
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-frr-container
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -23,3 +24,7 @@ owners:
 - metallb-dev@redhat.com
 non_shipping_repos:
 - rhel-9-server-ose-rpms-embargoed
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

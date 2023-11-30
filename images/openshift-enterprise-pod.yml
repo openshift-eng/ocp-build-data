@@ -13,6 +13,7 @@ content:
           stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-pod-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -31,9 +32,13 @@ labels:
   io.k8s.display-name: OpenShift Container Platform Pod Infrastructure
   io.openshift.tags: openshift,pod
   vendor: Red Hat
-name: openshift/ose-pod
+name: openshift/ose-pod-rhel9
 payload_name: pod
 non_shipping_repos:
 - rhel-9-codeready-builder-rpms
 owners:
 - aos-pod@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

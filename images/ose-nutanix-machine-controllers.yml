@@ -8,16 +8,17 @@ content:
       url: git@github.com:openshift-priv/machine-api-provider-nutanix.git
       web: https://github.com/openshift/machine-api-provider-nutanix
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-nutanix-machine-controllers-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: true
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
-name: openshift/ose-nutanix-machine-controllers
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-nutanix-machine-controllers-rhel9
 payload_name: nutanix-machine-controllers
 owners:
 - mimccune@redhat.com
@@ -25,3 +26,7 @@ owners:
 - mfedosin@redhat.com
 - dmoiseev@redhat.com
 - ademicev@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

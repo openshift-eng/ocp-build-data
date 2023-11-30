@@ -16,6 +16,7 @@ content:
           stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: sriov-cni-container
 dependents:
 - sriov-network-operator
 enabled_repos:
@@ -30,3 +31,7 @@ name: openshift/sriov-cni-rhel9
 name_in_bundle: sriov-cni
 owners:
 - zshi@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

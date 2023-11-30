@@ -13,6 +13,7 @@ content:
           stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-haproxy-router-base-container
 enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
@@ -32,3 +33,7 @@ labels:
 name: openshift/ose-haproxy-router-base
 owners:
 - aos-network-edge@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

@@ -11,10 +11,11 @@ content:
       web: https://github.com/openshift/ironic-agent-image
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ironic-agent-container
 for_payload: true
 from:
   member: openshift-base-rhel9
-name: openshift/ose-ironic-agent
+name: openshift/ose-ironic-agent-rhel9
 payload_name: ironic-agent
 owners:
 - ironic-osp-owners@redhat.com
@@ -24,3 +25,7 @@ enabled_repos:
 - rhel-9-server-ironic-rpms
 non_shipping_repos:
 - rhel-9-server-ironic-rpms
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

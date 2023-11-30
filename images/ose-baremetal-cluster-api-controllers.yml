@@ -12,6 +12,7 @@ content:
           stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-baremetal-cluster-api-controllers-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -21,5 +22,10 @@ from:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-baremetal-cluster-api-controllers-rhel9
+payload_name: baremetal-cluster-api-controllers
 owners:
 - metal-platform@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

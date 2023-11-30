@@ -18,6 +18,7 @@ content:
         - lgtm
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-aws-efs-csi-driver-operator-container
   bundle_component: ose-aws-efs-csi-driver-operator-bundle-container
 enabled_repos:
 - rhel-8-baseos-rpms
@@ -36,3 +37,7 @@ update-csv:
   manifests-dir: config/manifests
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

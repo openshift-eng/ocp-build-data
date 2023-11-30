@@ -8,18 +8,23 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-insights-operator-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: true
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
-name: openshift/ose-insights-operator
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-insights-rhel9-operator
 payload_name: insights-operator
 owners:
 - ccoleman@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

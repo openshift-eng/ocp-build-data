@@ -21,6 +21,7 @@ content:
         source-sha256: 50af0025d2ef942bf3e6cdd0587dc9c4dd8d6e6e69501b84935d09f2b2b5de8b
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: monitoring-plugin-container
 enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
@@ -33,3 +34,7 @@ name: openshift/ose-monitoring-plugin-rhel8
 payload_name: monitoring-plugin
 owners:
 - team-observability-ui@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

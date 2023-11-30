@@ -11,6 +11,7 @@ content:
       web: https://github.com/openshift/ironic-rhcos-downloader
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ironic-rhcos-downloader-container
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -20,9 +21,13 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-base-rhel9
-name: openshift/ose-ironic-machine-os-downloader
+name: openshift/ose-ironic-machine-os-downloader-rhel9
 payload_name: ironic-machine-os-downloader
 owners:
 - ironic-osp-owners@redhat.com
 non_shipping_repos:
 - rhel-9-server-ose-rpms-embargoed
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

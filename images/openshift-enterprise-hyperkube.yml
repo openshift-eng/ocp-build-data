@@ -17,6 +17,7 @@ content:
 distgit:
   namespace: containers
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-hyperkube-container
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -32,7 +33,11 @@ labels:
   io.k8s.display-name: OpenShift Kubernetes Server Commands
   io.openshift.tags: openshift,hyperkube
   vendor: Red Hat
-name: openshift/ose-hyperkube
+name: openshift/ose-hyperkube-rhel9
 payload_name: hyperkube
 owners:
 - aos-master@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

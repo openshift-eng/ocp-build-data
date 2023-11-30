@@ -12,6 +12,7 @@ content:
           stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-ovn-kubernetes-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -39,7 +40,7 @@ for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  - stream: golang-1.19
+  - stream: golang
   member: ovn-kubernetes-base
 labels:
   License: GPLv2+
@@ -54,3 +55,7 @@ owners:
 - aos-networking-staff@redhat.com
 non_shipping_repos:
 - rhel-9-server-ose-rpms-embargoed
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

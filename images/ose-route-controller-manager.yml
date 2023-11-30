@@ -12,6 +12,7 @@ content:
           stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-route-controller-manager-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -29,3 +30,7 @@ payload_name: route-controller-manager
 owners:
 - jchaloup@redhat.com
 - fkrepins@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true

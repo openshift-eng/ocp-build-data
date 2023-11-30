@@ -9,6 +9,7 @@ content:
     path: images/deployer
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: openshift-enterprise-deployer-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -27,3 +28,7 @@ name: openshift/ose-deployer
 payload_name: deployer
 owners:
 - aos-master@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true
