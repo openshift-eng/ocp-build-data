@@ -160,10 +160,11 @@ releases:
       members:
         images:
         - distgit_key: '*'
-          why: Exclude tzdata updates
+          why: Exclude package updates that should not cause mass rebuilds
           metadata:
             scan_sources:
               exempted_packages:
+              - redhat-release  # documents rhel release notes and concerns
               - tzdata
         - distgit_key: driver-toolkit
           why: pin to latest rhcos with matching kernel version
