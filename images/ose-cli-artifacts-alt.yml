@@ -1,3 +1,8 @@
+# These arches require compatibility with RHEL 7
+arches:
+- x86_64
+- ppc64le
+- s390x
 content:
   source:
     dockerfile: images/cli-artifacts/Dockerfile.rhel
@@ -19,8 +24,9 @@ for_payload: true
 from:
   builder:
   - stream: golang
-  - stream: golang
+  - stream: rhel-7-golang
   member: openshift-enterprise-cli
-name: openshift/ose-cli-artifacts
+name: openshift/ose-cli-artifacts-alt
+payload_name: cli-artifacts
 owners:
 - aos-master@redhat.com
