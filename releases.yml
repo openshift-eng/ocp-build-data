@@ -7,6 +7,10 @@ releases:
           x86_64: 4.15.0-0.nightly-2023-11-28-101923
       group:
         upgrades: 4.14.4,4.14.5,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2
+      permits:
+      # for ECs and RCs this should not block us
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: 'rhcos'
       members:
         images:
         - distgit_key: ose-machine-os-images
