@@ -1,7 +1,9 @@
 # These arches require compatibility with RHEL 7
 arches:
 - x86_64
-- ppc64le
+# Disabling ppc64le since this arch alone is segfaulting during build and customer issue
+# requiring RHEL7 support is x86_64.
+# - ppc64le
 - s390x
 content:
   source:
