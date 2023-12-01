@@ -20,7 +20,12 @@ releases:
             - aarch64
             - ppc64le
           why: s390x build did not exist at assembly time https://github.com/openshift-eng/ocp-build-data/pull/3974/files
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.0~ec.3-202312011637.p0.g15d4469.assembly.ec.3.el9
       rhcos:
         machine-os-content:
           images:
