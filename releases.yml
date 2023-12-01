@@ -8,7 +8,14 @@ releases:
       group:
         upgrades: 4.14.4,4.14.5,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2
       members:
-        images: []
+        images:
+        - distgit_key: ose-machine-os-images
+          metadata:
+            arches:
+            - x86_64
+            - aarch64
+            - ppc64le
+          why: s390x build did not exist at assembly time https://github.com/openshift-eng/ocp-build-data/pull/3974/files
         rpms: []
       rhcos:
         machine-os-content:
