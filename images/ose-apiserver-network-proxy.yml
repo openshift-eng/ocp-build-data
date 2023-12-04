@@ -19,7 +19,7 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: golang
+  - stream: etcd_golang  # this image needs a more recent golang, since it consumes from a 4.14 branch
   member: openshift-enterprise-base
 name: openshift/ose-apiserver-network-proxy
 owners:
