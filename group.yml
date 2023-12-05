@@ -518,3 +518,19 @@ external_scanners:
       # This flag enables for this OCP version, but it also has to be enabled specifically in the image config
       # as well
       enabled: false  # Until 4.16.0 target version exists
+
+      exclude_components:
+      # Built by CPAAS
+      - cnf-tests-container
+      - bare-metal-event-relay-operator-container
+      - lifecycle-agent-operator-container
+      - numaresources-must-gather-container
+      - topology-aware-lifecycle-manager-recovery-container
+      - noderesourcetopology-scheduler-container
+      - windows-machine-config-operator-container
+      - ztp-site-generate-container
+      - dpdk-base-container
+      - topology-aware-lifecycle-manager-precache-container
+      - numaresources-operator-container
+      - topology-aware-lifecycle-manager-operator-container
+      - baremetal-hardware-event-proxy-container
