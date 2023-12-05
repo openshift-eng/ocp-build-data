@@ -1,6 +1,7 @@
+base_only: true
 content:
   source:
-    dockerfile: images/installer-artifacts/Dockerfile.rhel
+    dockerfile: images/infrastructure-providers/Dockerfile
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -12,22 +13,20 @@ content:
           stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  component: ose-installer-artifacts-container
+  component: ose-installer-container
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
-for_payload: true
+for_payload: false
 from:
   builder:
-  - member: installer-terraform-providers
   - stream: golang
   - stream: golang
   - stream: golang
   - stream: golang
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-installer-artifacts
-payload_name: installer-artifacts
+name: openshift/installer-terraform-providers
 owners:
 - aos-install@redhat.com
 external_scanners:
