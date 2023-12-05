@@ -5,13 +5,10 @@ content:
     - action: replace
       match: "ARG RHEL_VERSION=''"
       replacement: "ARG RHEL_VERSION='9.2'"
-
     # Uncomment the following sections to pin specific kernel versions
-
     # - action: replace
     #   match: "ARG KERNEL_VERSION=''"
     #   replacement: "ARG KERNEL_VERSION='1.2.3'"
-
     # - action: replace
     #   match: "ARG RT_KERNEL_VERSION=''"
     #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
@@ -35,7 +32,3 @@ name: openshift/ose-driver-toolkit-rhel9
 payload_name: driver-toolkit
 owners:
 - edge-sro@redhat.com
-external_scanners:
-  sast_scanning:
-    jira_integration:
-      enabled: true
