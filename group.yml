@@ -484,3 +484,27 @@ canonical_builders_from_upstream: "off"
 # For early access without an errata (state=pre-release), that is not required
 software_lifecycle:
   phase: release
+
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      # Enable feature to raise OCPBUGS Jira tickets if SAST scan issues are found
+      # This flag enables for this OCP version, but it also has to be enabled specifically in the image config
+      # as well
+      enabled: true
+
+      exclude_components:
+      # Built by CPAAS
+      - cnf-tests-container
+      - bare-metal-event-relay-operator-container
+      - lifecycle-agent-operator-container
+      - numaresources-must-gather-container
+      - topology-aware-lifecycle-manager-recovery-container
+      - noderesourcetopology-scheduler-container
+      - windows-machine-config-operator-container
+      - ztp-site-generate-container
+      - dpdk-base-container
+      - topology-aware-lifecycle-manager-precache-container
+      - numaresources-operator-container
+      - topology-aware-lifecycle-manager-operator-container
+      - baremetal-hardware-event-proxy-container
