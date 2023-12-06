@@ -19,7 +19,6 @@ enabled_repos:
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
 - rhel-8-rt-rpms
-
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
@@ -28,7 +27,6 @@ scan_sources:
   # For some reason this image doesn't consume those newer versions.
   exempted_packages:
   - python3-dateutil
-
 for_payload: true
 from:
   builder:
@@ -46,7 +44,3 @@ payload_name: tests
 owners:
 - aos-master@redhat.com
 - openshift-technical-release-staff@redhat.com
-external_scanners:
-  sast_scanning:
-    jira_integration:
-      enabled: true
