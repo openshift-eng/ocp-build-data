@@ -18,7 +18,6 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-ose-rpms-embargoed
-
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
@@ -35,7 +34,6 @@ scan_sources:
   - ovn23.09-host
   - ovn23.09-vtep
   - python3-openvswitch3.1
-
 for_payload: true
 from:
   builder:
@@ -54,7 +52,3 @@ owners:
 - aos-networking-staff@redhat.com
 non_shipping_repos:
 - rhel-9-server-ose-rpms-embargoed
-external_scanners:
-  sast_scanning:
-    jira_integration:
-      enabled: true
