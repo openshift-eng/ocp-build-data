@@ -15,7 +15,6 @@ content:
         - approved
         - lgtm
         merge_first: true
-
       # The OpenShift 4.x:base image used by numerous images in CI.
       # The problem is that the actual image is built upstream very infrequently
       # (very few changes are made to the openshift/images repo).
@@ -40,7 +39,6 @@ content:
       # a little sketchy, but I believe the reward is a significant improvement in CI
       # signal fidelity.
       upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base
-
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-enterprise-base-container
@@ -61,7 +59,3 @@ labels:
 name: openshift/ose-base
 owners:
 - lmeyer@redhat.com
-external_scanners:
-  sast_scanning:
-    jira_integration:
-      enabled: true
