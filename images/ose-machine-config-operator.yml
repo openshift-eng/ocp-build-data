@@ -24,7 +24,7 @@ scan_sources:
   # ovn-kubernetes uses pins in the Dockerfile.
   # We should configure exemptions for those known pins to avoid meaningless rebuild.
   # https://github.com/openshift/machine-config-operator/blob/2069e55cdb39419f9a127c5fed3673c560b4cc4e/Dockerfile.rhel7#L26
-  exempted_packages:
+  exempt_rpms:
   - nmstate
 for_payload: true
 from:
