@@ -216,9 +216,9 @@ releases:
       members:
         images:
         - distgit_key: '*'
-          why: Exclude package updates that should not cause mass rebuilds
+          why: Exclude rpm updates that should not cause mass rebuilds
           metadata:
             scan_sources:
-              exempted_packages:
+              exempt_rpms:
               - redhat-release  # documents rhel release notes and concerns
               - tzdata
