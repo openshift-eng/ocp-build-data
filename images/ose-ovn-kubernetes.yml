@@ -22,15 +22,10 @@ scan_sources:
   # ovn-kubernetes uses pins in the Dockerfile.
   # We should configure exemptions for those known pins to avoid meaningless rebuild.
   # https://github.com/openshift/ovn-kubernetes/blob/e236fea83d62de8b60b9456770a3e0b525830051/Dockerfile.base#L22
-  exempted_packages:
-  - openvswitch2.17
-  - openvswitch2.17-devel
-  - ovn22.12
-  - ovn22.12-host
-  - python3-openvswitch2.17
-  - openvswitch2.17-ipsec
-  - ovn22.12-central
-  - ovn22.12-vtep
+  exempt_rpms:
+  - openvswitch*
+  - ovn*
+  - python3-openvswitch*
 
 for_payload: true
 from:
