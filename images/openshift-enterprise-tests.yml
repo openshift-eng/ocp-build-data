@@ -24,7 +24,7 @@ enabled_repos:
 scan_sources:
   # The openstack-16-for-rhel-8-rpms repo provides some python3-* packages newer than those from rhel-8-baseos-rpms.
   # For some reason this image doesn't consume those newer versions.
-  exempted_packages:
+  exempt_rpms:
   - python3-dateutil
 
 for_payload: true
