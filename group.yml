@@ -70,6 +70,29 @@ rhcos:
   # To allow CentOS content, set to true
   allow_missing_brew_rpms: false
 
+check_external_packages:
+  - name: cri-o
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: cri-tools
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: conmon
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: skopeo
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: runc
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: containernetworking-plugins
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: NetworkManager
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: greater_equal
+
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
 
