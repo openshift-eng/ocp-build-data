@@ -22,6 +22,8 @@ ADD inject-art-repos.sh /
 RUN chmod +x /inject-art-repos.sh
 RUN rm -f /etc/yum.repos.d/*
 # todo: ADD localdev.repo /etc/yum.repos.d
+ONBUILD ARG MAJOR=''
+ONBUILD ARG MINOR=''
 ONBUILD RUN /inject-art-repos.sh
 
 # Some image building tools don't create a missing WORKDIR

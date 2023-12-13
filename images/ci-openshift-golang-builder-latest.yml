@@ -20,6 +20,12 @@ content:
       doozer_source: inject-art-repos.sh
       path: inject-art-repos.sh
       overwriting: true
+    - action: replace
+      match: "ARG MAJOR=''"
+      replacement: "ARG MAJOR='{MAJOR}'"
+    - action: replace
+      match: "ARG MINOR=''"
+      replacement: "ARG MINOR='{MINOR}'"
 from:
   stream: rhel-9-golang
 labels:
