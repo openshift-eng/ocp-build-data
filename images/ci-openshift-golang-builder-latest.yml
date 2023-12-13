@@ -15,6 +15,11 @@ content:
       mirror: true
       mirror_manifest_list: true
       upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-latest-openshift-{MAJOR}.{MINOR}
+    modifications:
+    - action: add
+      doozer_source: inject-art-repos.sh
+      path: inject-art-repos.sh
+      overwriting: true
 from:
   stream: rhel-9-golang
 labels:
