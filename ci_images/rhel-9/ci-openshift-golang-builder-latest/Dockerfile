@@ -18,11 +18,11 @@ RUN mkdir -p $GOPATH && \
     chmod g+xw -R $GOPATH && \
     chmod g+xw -R $(go env GOROOT)
 
-ADD inject-art-repos.sh
+ADD inject-art-repos.sh /
 RUN chmod +x /inject-art-repos.sh
 RUN rm -f /etc/yum.repos.d/*
 ADD localdev.repo /etc/yum.repos.d
-ONBUILD RUN inject-art-repos.sh
+ONBUILD RUN /inject-art-repos.sh
 
 # Some image building tools don't create a missing WORKDIR
 RUN mkdir -p /go/src/github.com/openshift/origin
