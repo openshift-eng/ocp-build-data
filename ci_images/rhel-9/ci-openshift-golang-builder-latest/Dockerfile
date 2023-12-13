@@ -21,7 +21,7 @@ RUN mkdir -p $GOPATH && \
 ADD inject-art-repos.sh /
 RUN chmod +x /inject-art-repos.sh
 RUN rm -f /etc/yum.repos.d/*
-ADD localdev.repo /etc/yum.repos.d
+# todo: ADD localdev.repo /etc/yum.repos.d
 ONBUILD RUN /inject-art-repos.sh
 
 # Some image building tools don't create a missing WORKDIR
