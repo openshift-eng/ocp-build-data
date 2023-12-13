@@ -3,28 +3,29 @@ content:
     dockerfile: Dockerfile.mustgather
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/local-storage-operator.git
+        target: mustgather-4.16-rhel9
+      url: git@github.com:joepvd/local-storage-operator.git
       web: https://github.com/openshift/local-storage-operator
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
         auto_label:
         - approved
         - lgtm
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-local-storage-mustgather-container
 dependents:
 - local-storage-operator
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 for_payload: false
 from:
-  member: openshift-enterprise-cli
-name: openshift/ose-local-storage-mustgather-rhel8
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-local-storage-mustgather-rhel9
 name_in_bundle: local-storage-mustgather
 owners:
 - aos-storage-staff@redhat.com
