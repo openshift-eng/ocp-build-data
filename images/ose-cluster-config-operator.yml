@@ -15,10 +15,11 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.20
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-cluster-config-rhel9-operator
 payload_name: cluster-config-operator
 owners:
 - aos-master@redhat.com
 - tnozicka@redhat.com
+canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now

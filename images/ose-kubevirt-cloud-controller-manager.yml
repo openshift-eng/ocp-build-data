@@ -23,10 +23,11 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.20
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-kubevirt-cloud-controller-manager-rhel9
 payload_name: kubevirt-cloud-controller-manager
 owners:
 - dvossel@redhat.com
 - nargaman@redhat.com
+canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now

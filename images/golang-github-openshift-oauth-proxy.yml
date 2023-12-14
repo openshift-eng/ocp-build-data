@@ -18,7 +18,7 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.20
   member: openshift-base-rhel9
 labels:
   License: GPLv2+
@@ -30,3 +30,4 @@ name: openshift/ose-oauth-proxy-rhel9
 payload_name: oauth-proxy
 owners:
 - aos-apiserver@redhat.com
+canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now
