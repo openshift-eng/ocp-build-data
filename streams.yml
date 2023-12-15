@@ -19,7 +19,7 @@
 #
 ####################################################################################################
 
-golang-1.21:
+golang:
   image: openshift/golang-builder:v1.21.3-202311221709.el8.gf79bf9c 
   mirror: true
   transform: rhel-8/golang
@@ -30,7 +30,7 @@ golang-1.21:
   upstream_image_mirror:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
 
-rhel-9-golang-1.21:
+rhel-9-golang:
   image: openshift/golang-builder:v1.21.3-202311211941.el9.g7b42730
   mirror: true
   transform: rhel-9/golang
@@ -55,7 +55,7 @@ ibm-rhel-8-golang-1.21:
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
 
-golang:
+golang-1.20:
   image: openshift/golang-builder:v1.20.10-202310161945.el8.gdc4b478
   mirror: true
   transform: rhel-8/golang
@@ -73,7 +73,7 @@ ibm-rhel-8-golang-1.20:
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
-rhel-9-golang:
+rhel-9-golang-1.20:
   image: openshift/golang-builder:v1.20.10-202310161945.el9.gbbb66ea
   mirror: true
   transform: rhel-9/golang
@@ -94,7 +94,7 @@ ibm-rhel-9-golang-1.20:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-8-golang-ci-build-root:
+rhel-8-golang-1.20-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
@@ -103,7 +103,7 @@ rhel-8-golang-ci-build-root:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-8-golang-1.21-ci-build-root:
+rhel-8-golang-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
@@ -112,7 +112,7 @@ rhel-8-golang-1.21-ci-build-root:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-9-golang-1.21-ci-build-root:
+rhel-9-golang-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
   transform: rhel-9/ci-build-root
@@ -121,7 +121,7 @@ rhel-9-golang-1.21-ci-build-root:
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
-rhel-9-golang-ci-build-root:
+rhel-9-golang-1.20-ci-build-root:
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
   transform: rhel-9/ci-build-root

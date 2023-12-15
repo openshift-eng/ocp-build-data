@@ -21,7 +21,7 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.20
   member: openshift-base-rhel9
 labels:
   License: ASL 2.0
@@ -33,3 +33,4 @@ name: openshift/ose-cluster-autoscaler-rhel9
 payload_name: cluster-autoscaler
 owners:
 - avagarwa@redhat.com
+canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now
