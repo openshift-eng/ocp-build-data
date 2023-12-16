@@ -1,5 +1,4 @@
 releases:
-
   stream:
     assembly:
       type: stream
@@ -19,3 +18,23 @@ releases:
               exempt_rpms:
               - redhat-release  # documents rhel release notes and concerns
               - tzdata
+        - distgit_key: ose-installer-artifacts
+          why: pin to last working brew build
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.16.0-202312150333.p0.g31504ce.assembly.stream
+        - distgit_key: ose-baremetal-installer
+          why: pin to last working brew build
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.16.0-202312150333.p0.g31504ce.assembly.stream
+        - distgit_key: ose-installer-altinfra
+          why: pin to last working brew build
+          metadata:
+            is:
+              nvr: ose-installer-altinfra-container-v4.16.0-202312150333.p0.g31504ce.assembly.stream
+        - distgit_key: ose-installer
+          why: pin to last working brew build
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.16.0-202312150333.p0.g31504ce.assembly.stream
