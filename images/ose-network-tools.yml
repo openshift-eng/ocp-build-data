@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-8-golang-1.20-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-network-tools-container
@@ -19,10 +19,11 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: golang
+  - stream: golang-1.20
   - member: ose-ovn-kubernetes
   member: ose-tools
 name: openshift/ose-network-tools
 payload_name: network-tools
 owners:
 - aos-networking-staff@redhat.com
+canonical_builders_from_upstream: False # member image does not get resolved well
