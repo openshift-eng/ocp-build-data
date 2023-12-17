@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-8-golang-1.20-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-agent-installer-csr-approver-container
@@ -20,7 +20,7 @@ for_payload: true
 from:
   builder:
   - member: openshift-enterprise-cli
-  - stream: golang
+  - stream: golang-1.20
   member: openshift-enterprise-base
 maintainer:
   component: Installer
@@ -29,3 +29,4 @@ name: openshift/ose-agent-installer-csr-approver
 payload_name: agent-installer-csr-approver
 owners:
 - ocp-agent-team@redhat.com
+canonical_builders_from_upstream: False # member image does not get resolved well

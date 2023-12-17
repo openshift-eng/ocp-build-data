@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-8-golang-1.20-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-enterprise-tests-container
@@ -30,7 +30,7 @@ scan_sources:
 for_payload: true
 from:
   builder:
-  - stream: golang
+  - stream: golang-1.20
   member: ose-tools
 labels:
   License: GPLv2+
@@ -44,3 +44,4 @@ payload_name: tests
 owners:
 - aos-master@redhat.com
 - openshift-technical-release-staff@redhat.com
+canonical_builders_from_upstream: False # member image does not get resolved well

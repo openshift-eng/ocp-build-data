@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-8-golang-1.20-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-agent-installer-api-server-container
@@ -20,7 +20,7 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: golang
+  - stream: golang-1.20
   - member: openshift-enterprise-cli
   member: openshift-enterprise-base
 maintainer:
@@ -32,3 +32,4 @@ owners:
 - ocp-agent-team@redhat.com
 non_shipping_repos:
 - rhel-8-server-ose-rpms-embargoed
+canonical_builders_from_upstream: False # member image does not get resolved well

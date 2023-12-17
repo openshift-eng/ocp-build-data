@@ -14,7 +14,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-8-golang-1.20-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ptp-operator-must-gather-container
@@ -24,8 +24,9 @@ enabled_repos:
 for_payload: false
 from:
   builder:
-  - stream: golang
+  - stream: golang-1.20
   member: ose-must-gather
 name: openshift/ose-ptp-operator-must-gather
 owners:
 - multus-dev@redhat.com
+canonical_builders_from_upstream: False # member image does not get resolved well
