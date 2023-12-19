@@ -509,7 +509,7 @@ canonical_builders_from_upstream: False
 # If it will ship via errata (state=release), we want to build signed.
 # For early access without an errata (state=pre-release), that is not required
 software_lifecycle:
-  phase: pre-release
+  phase: release
   signing_mode: signed
 
 external_scanners:
@@ -535,3 +535,30 @@ external_scanners:
       - numaresources-operator-container
       - topology-aware-lifecycle-manager-operator-container
       - baremetal-hardware-event-proxy-container
+      # Requested ART to exclude
+      - kernel
+      - kernel-rt
+      - systemd
+      - openvswitch2.13
+      - openvswitch2.15
+      - openvswitch2.16
+      - openvswitch2.17
+      - openvswitch3.0
+      - openvswitch3.1
+      - ovn-2021
+      - ovn2.12
+      - ovn2.13
+      - ovn21.09
+      - ovn21.12
+      - ovn22.03
+      - ovn22.06
+      - ovn22.09
+      - ovn22.12
+      - ovn23.03
+      - ovn23.06
+      - ovn23.09
+      - ovn23.12
+      - ovn24.03
+      - ovn24.06
+      - ovn24.09
+      - ovn24.12

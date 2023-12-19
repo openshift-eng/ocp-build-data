@@ -25,7 +25,6 @@ enabled_repos:
 - rhel-9-server-ironic-rpms
 non_shipping_repos:
 - rhel-9-server-ironic-rpms
-external_scanners:
-  sast_scanning:
-    jira_integration:
-      enabled: true
+scan_sources:
+  exempt_rpms:
+  - "*ironic-python-agent"
