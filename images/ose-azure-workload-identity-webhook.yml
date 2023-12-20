@@ -9,6 +9,10 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
     dockerfile: Dockerfile.rhel7
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-azure-workload-identity-webhook-container

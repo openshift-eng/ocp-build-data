@@ -5,6 +5,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/csi-driver-shared-resource.git
       web: https://github.com/openshift/csi-driver-shared-resource
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-csi-driver-shared-resource-container
