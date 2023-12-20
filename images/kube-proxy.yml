@@ -19,10 +19,9 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang-1.20
+  - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-kube-proxy-rhel9
 payload_name: kube-proxy
 owners:
 - aos-networking-staff@redhat.com
-canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now
