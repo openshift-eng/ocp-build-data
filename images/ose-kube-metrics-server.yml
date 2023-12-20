@@ -6,6 +6,10 @@ content:
       web: https://github.com/openshift/kubernetes-metrics-server
       url: git@github.com:openshift-priv/kubernetes-metrics-server.git
     dockerfile: Dockerfile.ocp
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-kube-metrics-server-container
