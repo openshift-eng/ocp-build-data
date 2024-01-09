@@ -10,11 +10,8 @@ content:
     ci_alignment:
       streams_prs:
         enabled: false
-      mirror: true
-      transform: rhel-8/base-repos
-      upstream_image_base: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:installer-terraform-providers.art
-      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:installer-terraform-providers
-
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-installer-terraform-providers-container
