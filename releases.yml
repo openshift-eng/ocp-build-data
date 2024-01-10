@@ -22,7 +22,12 @@ releases:
         release_jira: ART-8573
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~ec.1-202401101824.p0.ga5e5c13.assembly.ec.1.el9
       rhcos:
         machine-os-content:
           images:
