@@ -12,7 +12,7 @@ vars:
   IMPACT: Low
   CVES: None
   RHCOS_EL_MAJOR: 9
-  RHCOS_EL_MINOR: 2
+  RHCOS_EL_MINOR: 4
 
 compliance:
   rpm_shim:
@@ -72,7 +72,7 @@ rhcos:
     - kernel
     - kernel-rt
   # Set to true to allow CentOS content in RHCOS
-  allow_missing_brew_rpms: false
+  allow_missing_brew_rpms: true
 
 check_external_packages:
   - name: cri-o
@@ -118,7 +118,7 @@ urls:
   brew_image_namespace: rh-osbs
   cgit: https://pkgs.devel.redhat.com/cgit
   rhcos_release_base:
-    multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/4.16-9.2/builds
+    multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/4.16-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}/builds
 dist_git_ignore:
   - gating.yaml
 
