@@ -1,4 +1,3 @@
-mode: disabled # to be enabled when we start using a golang stream that is not in latest/extra
 content:
   set_build_variables: false
   source:
@@ -14,7 +13,7 @@ content:
       mirror_manifest_list: true
       upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-previous-openshift-{MAJOR}.{MINOR}
 from:
-  stream: rhel-9-golang # was 1.19, but we removed it from stream
+  stream: rhel-9-golang-1.20
 labels:
   io.k8s.description: golang builder image for Red Hat CI
 distgit:
@@ -27,3 +26,6 @@ owners:
 - aos-team-art@redhat.com
 maintainer:
   component: Release
+scan_sources:
+  exempt_rpms:
+  - '*'
