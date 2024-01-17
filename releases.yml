@@ -1,4 +1,31 @@
 releases:
+  art8712:
+    assembly:
+      type: custom
+      basis:
+        assembly: "4.12.46"
+        "reference_releases!": {}
+      group:
+        "arches!":
+          - x86_64
+        "advisories!": {}
+      permits:
+      - code: MISMATCHED_SIBLINGS
+        component: ose-baremetal-installer
+        # why: this commit is not relevant to other installer images
+      members:
+        images:
+        - distgit_key: ose-baremetal-installer
+          why: ART-8712
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:dtantsur/installer.git
+                  branch:
+                    target: 3f1b29de6c21b3621c34fcd3c308f579e988389e # OCPBUGS-25996-12
+            is:
+              nvr: ose-baremetal-installer-container-v4.12.0-202401171701.p0.g3f1b29d.assembly.art8712
   4.12.47:
     assembly:
       basis:
