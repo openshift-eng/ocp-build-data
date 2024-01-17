@@ -1,0 +1,45 @@
+base_only: true
+content:
+  source:
+    dockerfile: images/infrastructure-providers/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/installer.git
+      web: https://github.com/openshift/installer
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: true
+      transform: rhel-8/base-repos
+      upstream_image_base: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:installer-terraform-providers.art
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:installer-terraform-providers
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: ose-installer-terraform-providers-container
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  builder:
+  - stream: golang
+  - stream: golang
+  - stream: golang
+  - stream: golang
+  member: openshift-enterprise-base
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the base image from which all OCP installer images inherit.
+  io.k8s.display-name: OpenShift Container Platform RHEL 8 Installer Base
+  io.openshift.tags: openshift,base
+  vendor: Red Hat
+name: openshift/installer-terraform-providers
+owners:
+- aos-install@redhat.com
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true
