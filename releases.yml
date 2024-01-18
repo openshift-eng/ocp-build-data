@@ -22,10 +22,10 @@ releases:
       rhcos:
         machine-os-content:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1f5f7e5e5ddbaf46d2dbbe90aa8adcef427f0250737e61808b558882e5cfaf21
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aad2d02ee559c04b11d4dfaf0f34a0df1efc0582f145e157140cdf08915307b7
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7f1a70f039e6c0f73bb140ed83acd53658720b145bd8164dcb84c83510cfbf10
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:74d9cdffa62031cbb67411e3d14d27376fb601c28b9c505849cc3400085a067d
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:572767ad927ba20a50783bb797e8c60d3c04f5db4fa1601c077c0af7d8f2535d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8fa0c74290aa2b156132ef378838f7412dabc644de6fabf164954289916ae1d6
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1454d075dd85d820517f96b32ba96cd2ab20b1f62b316f7da2a3b5094e307bd0
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c0f51f227cbadcca64a456bbea156865a913c4161613e129d7cd1eded47a6014
       type: standard
 
   4.11.56:
@@ -48,9 +48,6 @@ releases:
       members:
         images: []
         rpms: []
-        permits:
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: 'ose-agent-installer-node-agent'
       rhcos:
         machine-os-content:
           images:
