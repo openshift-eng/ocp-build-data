@@ -3,11 +3,12 @@ releases:
     assembly:
       basis:
         brew_event: 55657196
-        reference_releases:
-          aarch64: 4.11.0-0.nightly-arm64-2024-01-15-022953
-          ppc64le: 4.11.0-0.nightly-ppc64le-2024-01-15-022950
-          s390x: 4.11.0-0.nightly-s390x-2024-01-15-022950
-          x86_64: 4.11.0-0.nightly-2024-01-15-022949
+        reference_releases: {}
+          # why: using newer rhcos 411.86.202401151601-0
+          # aarch64: 4.11.0-0.nightly-arm64-2024-01-15-022953
+          # ppc64le: 4.11.0-0.nightly-ppc64le-2024-01-15-022950
+          # s390x: 4.11.0-0.nightly-s390x-2024-01-15-022950
+          # x86_64: 4.11.0-0.nightly-2024-01-15-022949
       group:
         advisories:
           extras: -1
@@ -20,6 +21,7 @@ releases:
         images: []
         rpms: []
       rhcos:
+        # Use a newer rhcos 411.86.202401151601-0
         machine-os-content:
           images:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:572767ad927ba20a50783bb797e8c60d3c04f5db4fa1601c077c0af7d8f2535d
