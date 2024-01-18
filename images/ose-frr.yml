@@ -17,6 +17,8 @@ for_payload: false
 dependents:
 - ose-metallb-operator
 from:
+  builder:
+  - stream: rhel-9-golang
   member: openshift-base-rhel9
 name: openshift/frr-rhel9
 name_in_bundle: metallb-frr-rhel9
