@@ -1,4 +1,4 @@
-FROM replaced-by-golang-stream
+FROM registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-openshift-4.16
 # See images/ci-openshift-golang-builder-latest.yml
 
 # Turn off information for CI environment. This is usually just noise for upstream
