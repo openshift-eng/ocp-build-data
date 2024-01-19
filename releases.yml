@@ -100,6 +100,14 @@ releases:
         component: rhcos
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: openshift-clients
+      - code: FAILED_CROSS_RPM_VERSIONS_REQUIREMENT
+        # While using centos as the RHCOS base, kernel and kernel-rt
+        # may not match.
+        component: '*'
+      - code: FAILED_CONSISTENCY_REQUIREMENT
+        # While using centos as the RHCOS base, don't fail to assemble
+        # if DTK doesn't match a centos kernel.
+        component: '*'
       members:
         images:
         - distgit_key: '*'
