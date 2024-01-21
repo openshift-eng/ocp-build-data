@@ -6,6 +6,7 @@ ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
     GOFLAGS='-mod=vendor' \
     GOPATH=${GOPATH:-/go} \
     GOMAXPROCS=8 \
+    GOTOOLCHAIN=local \
     VERSION="1.21"
 
 LABEL summary="$SUMMARY" \
@@ -74,4 +75,7 @@ RUN rm -f cross.tar.gz && yum clean all -y
 
 # FOD wrapper modification
 COPY go_wrapper.sh /tmp/go_wrapper.sh
-RUN GO_BIN_PATH=$(which go) && mv $GO_BIN_PATH $GO_BIN_PATH.real && mv /tmp/go_wrapper.sh $GO_BIN_PATH && chmod +x $GO_BIN_PATH
+RUN GO_BIN_PATH=$(which go) \
+    && mv $GO_BIN_PATH $GO_BIN_PATH.real \
+    && mv /tmp/go_wrapper.sh $GO_BIN_PATH \
+    && chmod +x $GO_BIN_PATH
