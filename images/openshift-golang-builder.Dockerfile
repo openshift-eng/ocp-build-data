@@ -27,6 +27,7 @@ RUN dnf update -y && \
         gpgme \
         gpgme-devel \
         hostname \
+        krb5-devel \
         libassuan-devel \
         libtool \
         lsof \
