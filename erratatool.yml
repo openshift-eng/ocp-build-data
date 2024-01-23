@@ -103,13 +103,13 @@ boilerplates:
   microshift:
     synopsis: "Red Hat build of MicroShift 4.14.z bug fix and enhancement update"
     topic: |
-      Red Hat build of MicroShift release 4.14.z is now available with updates to packages and images that fix several bugs.
+      Red Hat build of MicroShift release 4.14.z is now available with updates to packages and images that fix several bugs and add enhancements.
     description: |
       Red Hat build of MicroShift is Red Hat's light-weight Kubernetes orchestration solution designed for edge device deployments and is built from the edge capabilities of Red Hat OpenShift. MicroShift is an application that is deployed on top of Red Hat Enterprise Linux devices at the edge, providing an efficient way to operate single-node clusters in these low-resource environments.
 
       This advisory contains the RPM packages for Red Hat build of MicroShift 4.14.z. Read the following advisory for the container images for this release:
 
-      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHSA-2023:1234
+      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHBA-2024:1234
 
       All of the bug fixes may not be documented in this advisory. Read the following release notes documentation for details about these changes:
 
@@ -122,21 +122,30 @@ boilerplates:
 
       https://access.redhat.com/documentation/en-us/red_hat_build_of_microshift/4.14/html/release_notes/index
   cve:
-    synopsis: OpenShift Container Platform 4.14.z security update
+    synopsis: "Red Hat build of MicroShift 4.14.z bug fix and security update"
     topic: |
-      Red Hat OpenShift Container Platform release 4.14.z is now available with updates to packages and images that fix several bugs and add enhancements.
+      Red Hat build of MicroShift release 4.14.z is now available with updates to packages and images that fix several bugs.
 
-      This release includes a security update for Red Hat OpenShift Container Platform 4.14.
+      This release includes a security update for Red Hat build of MicroShift 4.14.
 
       Red Hat Product Security has rated this update as having a security impact of {IMPACT}. A Common Vulnerability Scoring System (CVSS) base score, which gives a detailed severity rating, is available for each vulnerability from the CVE link(s) in the References section.
     description: |
-      Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.
+      Red Hat build of MicroShift is Red Hat's light-weight Kubernetes orchestration solution designed for edge device deployments and is built from the edge capabilities of Red Hat OpenShift. MicroShift is an application that is deployed on top of Red Hat Enterprise Linux devices at the edge, providing an efficient way to operate single-node clusters in these low-resource environments.
+
+      This advisory contains the RPM packages for Red Hat build of MicroShift 4.14.z. Read the following advisory for the container images for this release:
+
+      <ADVISORY_URL> e.g. https://access.redhat.com/errata/RHSA-2024:1234
+
+      All of the bug fixes may not be documented in this advisory. Read the following release notes documentation for details about these changes:
+
+      https://access.redhat.com/documentation/en-us/red_hat_build_of_microshift/4.14/html/release_notes/index
+
+      All Red Hat build of MicroShift 4.14 users are advised to use these updated packages and images when they are available in the RPM repository.
+
       Security Fix(es):
 
       {CVES}
 
-      For more details about the security issue(s), including the impact, a CVSS
-      score, acknowledgments, and other related information, refer to the CVE page(s)
-      listed in the References section.
+      For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.
     solution: *common_image_solution
     security_reviewer: sfowler@redhat.com
