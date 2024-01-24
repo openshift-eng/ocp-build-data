@@ -10,7 +10,7 @@ content:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
         ci_build_root:
-          stream: rhel-9-golang-1.20-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
   namespace: containers
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
@@ -21,7 +21,7 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang-1.20
+  - stream: rhel-9-golang
   member: openshift-base-rhel9
 labels:
   License: ASL 2.0
