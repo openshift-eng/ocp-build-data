@@ -27,4 +27,15 @@ name: openshift/ose-baremetal-runtimecfg-rhel9
 payload_name: baremetal-runtimecfg
 owners:
 - asegurap@redhat.com
-canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+    - rhel-8-baseos-rpms
+    - rhel-8-appstream-rpms
+  from:
+    builder:
+    - stream: golang-1.20
+    member: openshift-enterprise-base
+  name: openshift/ose-baremetal-runtimecfg-rhel8
