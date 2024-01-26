@@ -9,22 +9,21 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-node-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
-- rhel-8-fast-datapath-rpms
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-fast-datapath-rpms
+- rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  - stream: golang
-  member: openshift-enterprise-base
-name: openshift/ose-sdn
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-sdn-rhel9
 payload_name: sdn
 owners:
 - aos-networking-staff@redhat.com
