@@ -23,9 +23,16 @@ RUN set -euxo pipefail && \
     unzip "${f}" -d /opt/google/protobuf && \
     curl --fail -L https://github.com/coreos/etcd/releases/download/v3.5.9/etcd-v3.5.9-linux-amd64.tar.gz | tar -f - -xz --no-same-owner -C /usr/local/bin --strip-components=1 etcd-v3.5.9-linux-amd64/etcd
 
-# Install common CI tools and epel for packages like tito.
+# Install common CI tools used for unit testing.
+# Note that CI_PINNED_GIT_VERSION restricts the version of git
+# used. This is because RHEL released a new version of git (https://access.redhat.com/errata/RHSA-2024:0407)
+# which disables safe.directory, which is used by our CI
+# to permit non-root users from interacting with git in
+# CI workload pods: https://github.com/openshift/ci-tools/blob/acad25edd747d5a21c839c60d480aaf7902961ec/pkg/steps/pod.go#L241
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-    INSTALL_PKGS="bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl rsync socat systemd-devel tar tito tree wget which xfsprogs zip goversioninfo gettext python3 iproute" && \
+    CI_PINNED_GIT_VERSION="git-2.31.1" && \
+    echo "Uninstalling any pre-existing git to ensure that we install ${CI_PINNED_GIT_VERSION}" && yum remove -y git || true && \
+    INSTALL_PKGS="bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc ${CI_PINNED_GIT_VERSION} glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel libvirt-devel lsof make mercurial nmap-ncat openssl rsync socat systemd-devel tar tito tree wget which xfsprogs zip goversioninfo gettext python3 iproute" && \
     yum install -y $INSTALL_PKGS && \
     alternatives --set python /usr/bin/python3 && \
     yum clean all && \
