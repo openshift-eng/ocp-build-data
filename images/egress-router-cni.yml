@@ -9,18 +9,31 @@ content:
     ci_alignment:
       enabled: false
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-egress-router-cni-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
   - stream: golang
-  member: openshift-enterprise-base
-name: openshift/ose-egress-router-cni
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-egress-router-cni-rhel9
 payload_name: egress-router-cni
 owners:
 - aos-networking-staff@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+    - rhel-8-baseos-rpms
+    - rhel-8-appstream-rpms
+  from:
+    builder:
+    - stream: rhel-9-golang
+    - stream: golang
+    member: openshift-enterprise-base
+  name: openshift/ose-egress-router-cni

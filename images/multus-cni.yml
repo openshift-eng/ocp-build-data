@@ -14,24 +14,37 @@ content:
         - lgtm
       enabled: false
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: multus-cni-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
   - stream: golang
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 labels:
   io.k8s.description: This is a component of OpenShift Container Platform and provides
     a meta CNI plugin.
   io.k8s.display-name: Multus CNI
   io.openshift.tags: openshift
   vendor: Red Hat
-name: openshift/ose-multus-cni
+name: openshift/ose-multus-cni-rhel9
 payload_name: multus-cni
 owners:
 - multus-dev@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+    - rhel-8-baseos-rpms
+    - rhel-8-appstream-rpms
+  from:
+    builder:
+    - stream: rhel-9-golang
+    - stream: golang
+    member: openshift-enterprise-base
+  name: openshift/ose-multus-cni
