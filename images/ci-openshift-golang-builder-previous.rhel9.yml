@@ -1,0 +1,55 @@
+content:
+  # set_build_variables is necessary in order to set CI_RPM_SVC (see .envs below) in the Dockerfile.
+  set_build_variables: true
+  source:
+    dockerfile: ci_images/rhel-9/ci-openshift-golang-builder/Dockerfile
+    git:
+      branch:
+        target: openshift-{MAJOR}-{MINOR}
+      url: git@github.com:openshift-eng/ocp-build-data.git
+      web: https://github.com/openshift/ocp-build-data
+    ci_alignment:
+      enabled: false
+      mirror: true
+      mirror_manifest_list: true
+      upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_PREVIOUS}-builder-multi-openshift-{MAJOR}.{MINOR}
+from:
+  stream: rhel-9-golang-{GO_PREVIOUS}
+labels:
+  io.k8s.description: golang {GO_PREVIOUS} builder image for Red Hat CI
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ci-openshift-golang-builder-previous-container
+
+# Repos enabled in the builder image will be ultimately be injected as repos
+# in the builder image. This means that engineers who download the image and
+# run it connected to the VPN will be able to access the content. This is
+# desirable since it allows Dockerfile builds requiring RPMs to work as long
+# as the host is connected to the VPN.
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms
+- rhel-9-fast-datapath-rpms
+
+name: openshift/ci-openshift-golang-builder-previous-rhel9
+for_payload: false
+for_release: false
+owners:
+- aos-team-art@redhat.com
+maintainer:
+  component: Release
+
+envs:
+  # These services run on the build farms and serve RPMs to CI workloads.
+  # This environment variable is used by dnf_wrapper.sh to know which service
+  # to acquire repo information from.
+  CI_RPM_SVC: "base-{MAJOR}-{MINOR}-rhel-9.svc"
+
+# The from: stanza is exactly what we want to use. So ignore anything in
+# the Dockerfile.
+canonical_builders_from_upstream: false
+
+scan_sources:
+  exempt_rpms:
+  - '*'

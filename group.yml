@@ -14,6 +14,20 @@ vars:
   RHCOS_EL_MAJOR: 9
   RHCOS_EL_MINOR: 4
 
+  # The go versions used by the various CI builder images.
+  # WARNING: When updating GO_* vars, update streams.yml so that streams referencing
+  #          the corresponding {GO_*} vars to point to an image that actually provides
+  #          the level of go specified by the variable.
+  #          For example, if GO_LATEST=1.21, `image:` must point to a 1.21 golang.
+  #             rhel-9-golang:
+  #               aliases:
+  #               - rhel-9-golang-{GO_LATEST}
+  #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
+  GO_LATEST: "1.21"
+  GO_PREVIOUS: "1.20"
+  GO_EXTRA: "1.21"  # There is no extra version at this time, so just duplicate latest.
+
+
 compliance:
   rpm_shim:
     enabled: true
