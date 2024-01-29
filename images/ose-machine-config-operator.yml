@@ -9,14 +9,14 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-machine-config-operator-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
@@ -31,11 +31,31 @@ from:
   builder:
   - stream: golang
   - stream: rhel-9-golang
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-machine-config-operator
-payload_name: machine-config-operator
+payload_name: machine-config-operator-rhel9
 owners:
 - jerzhang@redhat.com
 - jkyros@redhat.com
 - skumari@redhat.com
 - zzlotnik@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  - rhel-8-server-ose-rpms-embargoed
+  from:
+    builder:
+    - stream: golang
+    - stream: rhel-9-golang
+    member: openshift-enterprise-base
+  name: openshift/ose-machine-config-operator
+  content:
+    source:
+      ci_alignment:
+        streams_prs:
+          ci_build_root:
+            stream: rhel-8-golang-ci-build-root
