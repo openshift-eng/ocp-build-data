@@ -17,6 +17,7 @@ content:
         auto_label:
         - approved
         - lgtm
+    pkg_managers: [] # disabling cachito processing awaiting STONEBLD-1973
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-gcp-filestore-csi-driver-operator-container
@@ -38,5 +39,3 @@ update-csv:
   manifests-dir: config/manifests/
   registry: image-registry.openshift-imageregistry.svc:5000
   valid-subscription-label: '["OpenShift Container Platform", "OpenShift Platform Plus"]'
-cachito:
-  enabled: false  # disabling cachito processing awaiting STONEBLD-1973

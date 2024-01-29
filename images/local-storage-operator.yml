@@ -13,6 +13,7 @@ content:
         auto_label:
         - approved
         - lgtm
+    pkg_managers: [] # disabling cachito processing awaiting STONEBLD-1973
 distgit:
   bundle_component: local-storage-operator-metadata-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
@@ -35,5 +36,3 @@ update-csv:
   manifests-dir: config/manifests
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
-cachito:
-  enabled: false  # disabling cachito processing awaiting STONEBLD-1973
