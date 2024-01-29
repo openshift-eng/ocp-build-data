@@ -18,10 +18,9 @@ enabled_repos:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang-1.20
+  - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-cluster-ingress-rhel9-operator
 payload_name: cluster-ingress-operator
 owners:
 - aos-network-edge@redhat.com
-canonical_builders_from_upstream: False # rhel version of upstream and us does not seem to match. Excluding for now
