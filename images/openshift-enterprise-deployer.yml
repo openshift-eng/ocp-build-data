@@ -8,11 +8,11 @@ content:
       web: https://github.com/openshift/oc
     path: images/deployer
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-deployer-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: true
 from:
   member: openshift-enterprise-cli
@@ -24,8 +24,17 @@ labels:
   io.k8s.display-name: OpenShift Container Platform Deployer
   io.openshift.tags: openshift,deployer
   vendor: Red Hat
-name: openshift/ose-deployer
+name: openshift/ose-deployer-rhel9
 payload_name: deployer
 owners:
 - aos-master@redhat.com
-canonical_builders_from_upstream: False # member image does not get resolved well
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+    - rhel-8-baseos-rpms
+    - rhel-8-appstream-rpms
+  from:
+    member: openshift-enterprise-cli
+  name: openshift/ose-deployer
