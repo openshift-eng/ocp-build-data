@@ -9,6 +9,7 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+    pkg_managers: [] # disabling cachito processing awaiting STONEBLD-1973
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-csi-driver-shared-resource-operator-container
@@ -24,5 +25,3 @@ name: openshift/ose-csi-driver-shared-resource-operator
 payload_name: csi-driver-shared-resource-operator
 owners:
 - openshift-build-jenkins-team@redhat.com
-cachito:
-  enabled: false  # disabling cachito processing awaiting STONEBLD-1973

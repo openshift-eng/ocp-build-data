@@ -16,6 +16,7 @@ content:
         - cherry-pick-approved
         ci_build_root:
           stream: rhel-9-golang-ci-build-root
+    pkg_managers: [] # disabling cachito processing awaiting STONEBLD-1973
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-libvirt-machine-controllers-container
@@ -32,5 +33,3 @@ name: openshift/ose-libvirt-machine-controllers-rhel9
 payload_name: libvirt-machine-controllers
 owners:
 - pkrupa@redhat.com
-cachito:
-  enabled: false  # disabling cachito processing awaiting STONEBLD-1973
