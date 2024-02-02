@@ -17,7 +17,12 @@ releases:
         upgrades: 4.14.9,4.14.10,4.14.11,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2,4.15.0-ec.3,4.15.0-rc.0,4.15.0-rc.1,4.15.0-rc.2,4.15.0-rc.3,4.15.0-rc.4
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.0~rc.5-202402022103.p0.gc6a3001.assembly.rc.5.el9
       rhcos:
         machine-os-content:
           images:
