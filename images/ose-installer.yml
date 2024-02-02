@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-1.20-ci-build-root
+          stream: rhel-8-golang-ci-build-root
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-installer-container
@@ -20,7 +20,7 @@ for_payload: true
 from:
   builder:
   - member: ose-installer-terraform-providers
-  - stream: golang-1.20
+  - stream: golang
   member: openshift-enterprise-base
 name: openshift/ose-installer
 payload_name: installer

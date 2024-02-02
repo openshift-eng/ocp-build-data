@@ -28,8 +28,20 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-powervs-block-csi-driver-operator
+name: openshift/ose-powervs-block-csi-driver-operator-rhel9
 payload_name: powervs-block-csi-driver-operator
 owners:
 - mchellam@redhat.com
 - mkumatag@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  from:
+    builder:
+    - stream: golang
+    member: openshift-enterprise-base
+  name: openshift/ose-powervs-block-csi-driver-operator
