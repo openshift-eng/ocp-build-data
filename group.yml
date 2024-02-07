@@ -69,8 +69,7 @@ rhcos:
   - rhel-9-server-ose-rpms
   require_consistency:
     driver-toolkit:
-    - kernel
-    - kernel-rt
+    - kernel  # since 9.3, kernel-rt is merged into the kernel package.
   # Set to true to allow CentOS content in RHCOS
   allow_missing_brew_rpms: true
 
