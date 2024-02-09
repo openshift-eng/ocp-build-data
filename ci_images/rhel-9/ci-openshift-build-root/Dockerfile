@@ -1,4 +1,4 @@
-FROM replaced_by_doozer
+FROM registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.20-builder-multi-openshift-4.16
 
 # Used by builds scripts to detect whether they are running in the context
 # of OpenShift CI or elsewhere (e.g. brew).
