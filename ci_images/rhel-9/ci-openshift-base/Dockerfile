@@ -1,4 +1,4 @@
-FROM replaced_by_doozer
+FROM registry.ci.openshift.org/ocp/4.16:base-rhel9
 
 # Used by builds scripts to detect whether they are running in the context
 # of OpenShift CI or elsewhere (e.g. brew).
