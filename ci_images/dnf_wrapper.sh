@@ -44,6 +44,8 @@ if [[ -f "/tmp/tls-ca-bundle.pem" ]]; then
 fi
 
 if [[ "${OPENSHIFT_CI:-}" != "true" ]]; then
+  # All of our Dockerfiles set this. This check is here to ensure that no one just runs this
+  # on their workstation and deletes their yum configuration files.
   SKIP_REPO_INSTALL="1"
   echoerr "OPENSHIFT_CI != true, so not executing in the expected environment - no repos will be changed."
 fi
@@ -56,7 +58,7 @@ if [[ ! -f "${FIRST_RUN_MARKER}" && "${SKIP_REPO_INSTALL}" == "0" ]]; then
   rm -rf /etc/yum.repos.d/*
 
   INSTALL_ART_REPOS="0"
-  if [[ -n "${KUBERNETES_SERVICE_HOST}" ]]; then
+  if [[ -f "/var/run/secrets/kubernetes.io" ]]; then
     # We are running inside of a pod. Assume that this is a build farm
     # and we can find the RPM mirroring services.
     if curl --fail "${CI_RPM_SVC}" > /etc/yum.repos.d/ci-rpm-mirrors.repo; then
