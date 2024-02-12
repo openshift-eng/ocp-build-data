@@ -9,7 +9,8 @@ content:
       url: git@github.com:openshift-eng/ocp-build-data.git
       web: https://github.com/openshift/ocp-build-data
     ci_alignment:
-      enabled: false
+      streams_prs:
+        enabled: false
       mirror: true
       mirror_manifest_list: true
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-enterprise-base-multi-openshift-{MAJOR}.{MINOR}
