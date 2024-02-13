@@ -432,5 +432,6 @@ check_golang_versions: "exact"
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # If it will ship via errata (state=release), we want to build signed.
 # For early access without an errata (state=pre-release), that is not required
+# For EOL releases, we'll still sign artifacts but skip a few checks (blocker bugs, open alignment PRs, poll for failed nightlies)
 software_lifecycle:
-  phase: release
+  phase: eol
