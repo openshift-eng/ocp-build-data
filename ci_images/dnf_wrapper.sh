@@ -58,7 +58,7 @@ if [[ ! -f "${FIRST_RUN_MARKER}" && "${SKIP_REPO_INSTALL}" == "0" ]]; then
   rm -rf /etc/yum.repos.d/*
 
   INSTALL_ART_REPOS="0"
-  if [[ -f "/var/run/secrets/kubernetes.io" ]]; then
+  if [[ -e "/var/run/secrets/kubernetes.io" ]]; then
     # We are running inside of a pod. Assume that this is a build farm
     # and we can find the RPM mirroring services.
     if curl --fail "${CI_RPM_SVC}" > /etc/yum.repos.d/ci-rpm-mirrors.repo; then
