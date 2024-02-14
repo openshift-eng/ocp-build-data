@@ -75,15 +75,17 @@ rhcos:
   allow_missing_brew_rpms: false
 
 check_external_packages:
-  - name: cri-o
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
+  # let cri-o be behind while we prepare 4.15.0-rc.7
+  # - name: cri-o
+  #   tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+  #   condition: match
   - name: cri-tools
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
-  - name: conmon
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
+  # conmon in rhcos isn't being installed via our candidate tags
+  # - name: conmon
+  #   tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+  #   condition: match
   - name: skopeo
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
