@@ -19,19 +19,7 @@ releases:
         release_jira: ART-8258
         upgrades: 4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2,4.15.0-ec.3,4.15.0-rc.0,4.15.0-rc.1,4.15.0-rc.2,4.15.0-rc.3,4.15.0-rc.4,4.15.0-rc.5
       members:
-        images:
-        - distgit_key: ose-agent-installer-node-agent
-          metadata:
-            dependencies:
-              rpms:
-              - el9: conmon-2.1.7-3.1.rhaos4.14.el9
-                why: Pin conmon that's present in image
-        - distgit_key: ose-frr
-          metadata:
-            dependencies:
-              rpms:
-              - el9: conmon-2.1.7-3.1.rhaos4.14.el9
-                why: Pin conmon that's present in image
+        images: []
         rpms: []
       issues:
         include:
@@ -57,12 +45,6 @@ releases:
         - id: OCPBUGS-22425 # fixed in 4.14
         - id: OCPBUGS-24503 # fixed in 4.14
       rhcos:
-        dependencies:
-          rpms:
-          - el9: cri-o-1.28.3-12.rhaos4.15.gitd560f43.el9
-            why: Pin build that's present in rhcos
-          - el9: conmon-2.1.7-1.el9_2
-            why: Pin build that's present in rhcos
         machine-os-content:
           images:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e67de6a325a2a3385a89f4ee2a99efdbc8a390f25a6340b929a9b656bf4ef6c9
