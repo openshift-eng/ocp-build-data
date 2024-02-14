@@ -2,24 +2,36 @@ releases:
   rc.6:
     assembly:
       basis:
-        brew_event: 56190631
+        brew_event: 56337647
         reference_releases:
-          aarch64: 4.15.0-0.nightly-arm64-2024-02-07-031428
-          ppc64le: 4.15.0-0.nightly-ppc64le-2024-02-06-232322
-          s390x: 4.15.0-0.nightly-s390x-2024-02-06-232326
-          x86_64: 4.15.0-0.nightly-2024-02-07-062935
+          aarch64: 4.15.0-0.nightly-arm64-2024-02-14-025455
+          ppc64le: 4.15.0-0.nightly-ppc64le-2024-02-14-022803
+          s390x: 4.15.0-0.nightly-s390x-2024-02-14-030424
+          x86_64: 4.15.0-0.nightly-2024-02-14-052317
       group:
         advisories:
-          advance: 127663
+          # advance: 127663 Since advance advisory is prepared we do not want to modify it further
           extras: 123982
           image: 123983
           metadata: 123984
           microshift: 123985
           rpm: 123986
         release_jira: ART-8258
-        upgrades: 4.14.9,4.14.10,4.14.11,4.14.12,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2,4.15.0-ec.3,4.15.0-rc.0,4.15.0-rc.1,4.15.0-rc.2,4.15.0-rc.3,4.15.0-rc.4,4.15.0-rc.5
+        upgrades: 4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2,4.15.0-ec.3,4.15.0-rc.0,4.15.0-rc.1,4.15.0-rc.2,4.15.0-rc.3,4.15.0-rc.4,4.15.0-rc.5
       members:
-        images: []
+        images:
+        - distgit_key: ose-agent-installer-node-agent
+          metadata:
+            dependencies:
+              rpms:
+              - el9: conmon-2.1.7-3.1.rhaos4.14.el9
+                why: Pin conmon that's present in image
+        - distgit_key: ose-frr
+          metadata:
+            dependencies:
+              rpms:
+              - el9: conmon-2.1.7-3.1.rhaos4.14.el9
+                why: Pin conmon that's present in image
         rpms: []
       issues:
         include:
@@ -45,24 +57,30 @@ releases:
         - id: OCPBUGS-22425 # fixed in 4.14
         - id: OCPBUGS-24503 # fixed in 4.14
       rhcos:
+        dependencies:
+          rpms:
+          - el9: cri-o-1.28.3-12.rhaos4.15.gitd560f43.el9
+            why: Pin build that's present in rhcos
+          - el9: conmon-2.1.7-1.el9_2
+            why: Pin build that's present in rhcos
         machine-os-content:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5276275d66acd524bb33dfd4f67ee6f31fdcd8f5a7486a8f240a8e4cadce65aa
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:482b4d62fc2d51fb4c8e48cfe389f25decfa74b24c0e28f33bf9e58691ddce60
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:895b076cc158ad431c53cae55894b6eeb3f6b3f3a2241b1f6c81aa5c0ec169da
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e348c9b90d95d39c39ba28f5eb84fbb9bac1e17acc87e292a491222e5aa7d540
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e67de6a325a2a3385a89f4ee2a99efdbc8a390f25a6340b929a9b656bf4ef6c9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b32b05576fa844c4ec31569253727b168eff092e7a1f64e610cf2a529979d972
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:29a914edf438a26827557550ca94c5c0dfe20e157d6251c81efb972c4c1d54fb
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6e79482a2fa804213656514c49a78adf826797dc7a0cbb1c6c768ac9163cb86d
         rhel-coreos:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a6470618ad1eb6b134a76b4d45a4715c8907651f056fd44d579a120adf24e9f6
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:38017ed5591a15e022d1b6bee6b313c34bb1102be1621731cf02af5de30f9523
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:05a83335ab67165c91c023b4e618551d1191f2b5ac7567478a7176ef7d994243
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a4954e4f968464e8507110cf663abbbe3477b29de954ea4f94f89c786e3cceed
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3356f64df1279b16a3ce453b4bb2fd2cc43f1ebb32cd8742a959fa120741c573
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dbf428d6fe448e37a0c71e35507b3b157886593ad5d6a5290c70a0e80bc2496a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d1699140d1d7a151c3612a5b7818bc13496075109e59b2d0d3ccde773c400d54
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d120fc580e5c5dad24de0bb8960ce97749771fd58d7c3b01ca4ba759e5f210b6
         rhel-coreos-extensions:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8805a488a46b8d2b664bad2e70a4a1666a4d1c39df9f5827ae93c7085fa8a8c5
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b4a1f590d2e9b2dee3d3ac90dbd019ca33e3f19c5b79a96679b475b21c817be2
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2648d8ea16a842dcb8b8016eaeb7135a975f0028bc2faef201c643daad121c2f
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:774be11bd9630982bca5e4db272067760aa49bd03301ec51bb5dcd56646e2cc2
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2396b4f54dffef88e5fa055f23850969fe0e48fca4d1d3ad3864bba71e0b07ce
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f44d85644f6b5611901c04a726980a05118bbd315131d020fff6a909899b5f14
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:96353197fbfbd9bab4031dd8f2ce4dce4d0d0f587c7575f3e1d5aa415919dfd6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:09f276c2ec06ea6ddfef2a2afd51a4cbaf11af387004c668b4cb0f8ea1af04e4
       type: candidate
 
   rc.5:
