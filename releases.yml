@@ -4,13 +4,13 @@ releases:
       basis:
         brew_event: 56344471
         reference_releases:
-          # aarch64: 4.15.0-0.nightly-arm64-2024-02-14-025455 no exact matching arm nightly
+          # aarch64: <> no exact matching arm nightly
           ppc64le: 4.15.0-0.nightly-ppc64le-2024-02-14-110730
           s390x: 4.15.0-0.nightly-s390x-2024-02-14-110141
           x86_64: 4.15.0-0.nightly-2024-02-14-103043
       group:
         advisories:
-          advance: 127663
+          # advance: 127663 Since advance advisory is prepared we do not want to modify it further
           extras: 123982
           image: 123983
           metadata: 123984
@@ -21,6 +21,29 @@ releases:
       members:
         images: []
         rpms: []
+      issues:
+        include:
+        # These are tracker bugs whose builds ship/shipped in prerelease advisory
+        # but since we don't ship bugs in prerelease advisory, we want to definitely ship these
+        # with GA advisories.
+        - id: OCPBUGS-25231 # csi-node-driver-registrar-container
+        - id: OCPBUGS-25698 # csi-provisioner-container
+        - id: OCPBUGS-26407 # csi-provisioner-container
+        - id: OCPBUGS-25232 # csi-provisioner-container
+        - id: OCPBUGS-26010 # ose-aws-efs-csi-driver-container
+        - id: OCPBUGS-25602 # ose-aws-efs-csi-driver-container
+        - id: OCPBUGS-25235 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-21593 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-22555 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-22142 # ose-ptp-operator-container
+        - id: OCPBUGS-21672 # kube-rbac-proxy-container
+        exclude:
+        - id: OCPBUGS-21651 # not our build
+        - id: OCPBUGS-21919 # not our build
+        - id: OCPBUGS-21667 # not our build
+        - id: OCPBUGS-22163 # not our build
+        - id: OCPBUGS-22425 # fixed in 4.14
+        - id: OCPBUGS-24503 # fixed in 4.14
       rhcos:
         machine-os-content:
           images:
