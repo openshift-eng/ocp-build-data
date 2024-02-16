@@ -7,7 +7,8 @@ content:
       url: git@github.com:openshift-priv/egress-router-cni.git
       web: https://github.com/openshift/egress-router-cni
     ci_alignment:
-      enabled: false
+      streams_prs:
+        enabled: false
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-egress-router-cni-container
