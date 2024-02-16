@@ -11,7 +11,8 @@ content:
       url: git@github.com:openshift-eng/ocp-build-data.git
       web: https://github.com/openshift-eng/ocp-build-data
     ci_alignment:
-      enabled: false
+      streams_prs:
+        enabled: false
       mirror: true
       mirror_manifest_list: true
       upstream_image: registry.ci.openshift.org/ocp-multi/builder:rhel-9-golang-extra-openshift-{MAJOR}.{MINOR}
