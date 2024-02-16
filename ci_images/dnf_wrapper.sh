@@ -58,8 +58,8 @@ if [[ ! -f "${FIRST_RUN_MARKER}" && "${SKIP_REPO_INSTALL}" == "0" ]]; then
   rm -rf /etc/yum.repos.d/*
 
   INSTALL_ART_REPOS="0"
-  if [[ -e "/var/run/secrets/kubernetes.io" ]]; then
-    # We are running inside of a pod. Assume that this is a build farm
+  if [[ -n "${BUILD_LOGLEVEL:-}" ]]; then
+    # BUILD_LOGLEVEL is set by OpenShift builds. If we see it set, assume we are running on a build farm
     # and we can find the RPM mirroring services.
     if curl --fail "${CI_RPM_SVC}" > /etc/yum.repos.d/ci-rpm-mirrors.repo; then
       echoerr "Installed CI repo definitions from ${CI_RPM_SVC}..."
