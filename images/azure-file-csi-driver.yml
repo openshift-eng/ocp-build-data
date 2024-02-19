@@ -1,14 +1,18 @@
 arches:
 - x86_64
 - aarch64
+cachito:
+  packages:
+    gomod:
+    - path: legacy/azure-file-csi-driver-operator
 content:
   source:
-    dockerfile: Dockerfile.openshift
+    dockerfile: Dockerfile.azure-file
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:openshift-priv/azure-file-csi-driver.git
-      web: https://github.com/openshift/azure-file-csi-driver
+      url: git@github.com:openshift-priv/csi-operator.git
+      web: https://github.com/openshift/csi-operator
     ci_alignment:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
@@ -17,7 +21,8 @@ content:
         auto_label:
         - approved
         - lgtm
-    pkg_managers: [] # disabling cachito processing awaiting STONEBLD-1973
+    pkg_managers:
+    - gomod
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-azure-file-csi-driver-container
