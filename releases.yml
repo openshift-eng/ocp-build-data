@@ -20,6 +20,29 @@ releases:
       members:
         images: []
         rpms: []
+      issues:
+        include:
+        # These are tracker bugs whose builds ship/shipped in prerelease advisory
+        # but since we don't ship bugs in prerelease advisory, we want to definitely ship these
+        # with GA advisories.
+        - id: OCPBUGS-25231 # csi-node-driver-registrar-container
+        - id: OCPBUGS-25698 # csi-provisioner-container
+        - id: OCPBUGS-26407 # csi-provisioner-container
+        - id: OCPBUGS-25232 # csi-provisioner-container
+        - id: OCPBUGS-26010 # ose-aws-efs-csi-driver-container
+        - id: OCPBUGS-25602 # ose-aws-efs-csi-driver-container
+        - id: OCPBUGS-25235 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-21593 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-22555 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-22142 # ose-ptp-operator-container
+        - id: OCPBUGS-21672 # kube-rbac-proxy-container
+        exclude:
+        - id: OCPBUGS-21651 # not our build
+        - id: OCPBUGS-21919 # not our build
+        - id: OCPBUGS-21667 # not our build
+        - id: OCPBUGS-22163 # not our build
+        - id: OCPBUGS-22425 # fixed in 4.14
+        - id: OCPBUGS-24503 # fixed in 4.14
       rhcos:
         machine-os-content:
           images:
