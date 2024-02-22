@@ -22,6 +22,16 @@ releases:
       members:
         images: []
         rpms: []
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        # why: skopeo from centos
+        component: rhcos
+      - code: MISSING_SHIP_OK_TAG
+        # why: kernel comes from centos
+        component: driver-toolkit
+      - code: MISSING_SHIP_OK_TAG
+        # why: kernel comes from centos
+        component: rhcos
       rhcos:
         machine-os-content:
           images:
