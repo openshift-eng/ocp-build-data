@@ -21,7 +21,12 @@ releases:
         upgrades: 4.15.0-rc.0,4.15.0-rc.1,4.15.0-rc.2,4.15.0-rc.3,4.15.0-rc.4,4.15.0-rc.5,4.15.0-rc.7,4.15.0-rc.8,4.15.0,4.16.0-ec.0,4.16.0-ec.1,4.16.0-ec.2
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~ec.3-202402222105.p0.ge2e8447.assembly.ec.3.el9
       permits:
       - code: CONFLICTING_INHERITED_DEPENDENCY
         # why: skopeo from centos
