@@ -9,22 +9,37 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-thanos-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms-embargoed # required by the builder
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed # required by the builder
 for_payload: true
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
-name: openshift/ose-thanos
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-thanos-rhel9
 payload_name: thanos
 non_shipping_repos:
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-server-ose-rpms-embargoed
 owners:
 - team-monitoring@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  - rhel-8-server-ose-rpms-embargoed # required by the builder
+  from:
+    builder:
+    - stream: golang
+    member: openshift-enterprise-base
+  name: openshift/ose-thanos
+  non_shipping_repos:
+  - rhel-8-server-ose-rpms-embargoed
