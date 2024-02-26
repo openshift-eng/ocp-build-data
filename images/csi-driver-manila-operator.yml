@@ -31,15 +31,3 @@ name: openshift/ose-csi-driver-manila-operator-rhel9
 payload_name: csi-driver-manila-operator
 owners:
 - shiftstack-team@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-csi-driver-manila-operator

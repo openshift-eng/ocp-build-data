@@ -27,16 +27,3 @@ name: openshift/ose-multus-whereabouts-ipam-cni-rhel9
 payload_name: multus-whereabouts-ipam-cni
 owners:
 - multus-dev@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-    - rhel-8-baseos-rpms
-    - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: rhel-9-golang
-    - stream: golang
-    member: openshift-base-rhel8
-  name: openshift/ose-multus-whereabouts-ipam-cni

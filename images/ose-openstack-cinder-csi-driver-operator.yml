@@ -29,15 +29,3 @@ payload_name: openstack-cinder-csi-driver-operator
 owners:
 - aos-storage-staff@redhat.com
 - mfedosin@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-openstack-cinder-csi-driver-operator
