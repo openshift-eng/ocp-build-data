@@ -1,4 +1,68 @@
 releases:
+  4.15.0:
+    assembly:
+      basis:
+        brew_event: 56548756
+        reference_releases:
+          aarch64: 4.15.0-0.nightly-arm64-2024-02-21-135809
+          ppc64le: 4.15.0-0.nightly-ppc64le-2024-02-21-135806
+          s390x: 4.15.0-0.nightly-s390x-2024-02-21-135809
+          x86_64: 4.15.0-0.nightly-2024-02-21-153906
+      group:
+        advisories:
+          extras: 123982
+          image: 123983
+          metadata: 123984
+          microshift: 123985
+          rpm: 123986
+        release_jira: ART-8258
+        upgrades: 4.14.14,4.15.0-ec.0,4.15.0-ec.1,4.15.0-ec.2,4.15.0-ec.3,4.15.0-rc.0,4.15.0-rc.1,4.15.0-rc.2,4.15.0-rc.3,4.15.0-rc.4,4.15.0-rc.5,4.15.0-rc.7,4.15.0-rc.8
+      members:
+        images: []
+        rpms: []
+      issues:
+        include:
+        # These are tracker bugs whose builds ship/shipped in prerelease advisory
+        # but since we don't ship bugs in prerelease advisory, we want to definitely ship these
+        # with GA advisories.
+        - id: OCPBUGS-25231 # csi-node-driver-registrar-container
+        - id: OCPBUGS-25698 # csi-provisioner-container
+        - id: OCPBUGS-26407 # csi-provisioner-container
+        - id: OCPBUGS-25232 # csi-provisioner-container
+        - id: OCPBUGS-26010 # ose-aws-efs-csi-driver-container
+        - id: OCPBUGS-25602 # ose-aws-efs-csi-driver-container
+        - id: OCPBUGS-25235 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-21593 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-22555 # ose-aws-efs-csi-driver-operator-container
+        - id: OCPBUGS-22142 # ose-ptp-operator-container
+        - id: OCPBUGS-21672 # kube-rbac-proxy-container
+        exclude:
+        - id: OCPBUGS-21651 # not our build
+        - id: OCPBUGS-21919 # not our build
+        - id: OCPBUGS-21667 # not our build
+        - id: OCPBUGS-22163 # not our build
+        - id: OCPBUGS-22425 # fixed in 4.14
+        - id: OCPBUGS-24503 # fixed in 4.14
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:035f5eca836eea513e793e204615859a99c875e3f7e93a0550af4250db9e87b2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d1e79f6ec5745b0e6247ee350e4943b81d0e155e90f39760643df0a0d684b49c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e34993f54c2dc6d84efa9f2b6ae3a4e62a945493d21b2053248918b3d10d366d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c1f26da1dbc62b8f4558560b8e617bfb4bdb4cb9c3bae7ff1a8887e61c1b533a
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:688b8c29d5d743b11bb39e125f3899d52b28ce3d4a72c4d8b2a655e7bb78eb7b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:012b08e95c1bf38ef5c3e45815fd55db4ab23b432cdccd6f89fe0c9e33cf6ad1
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b90682a780b31002aa0c5679d924364a9f9207b9788c7ea211bbc1d8e473ca4b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a0bbd3520a99b3cc5357bbe2ad0ba754768d305f47ea53491941b7e6d427d2e8
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5711366b0a7d2388432484713db304becb222c270b75846d89bda8aa17c0b432
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:45a0c1e0654334c501cc8811f9b40a3a710c90df3936ef7cfe446c981ba8ba0f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a9b3cdca1d3fb10ae028aa7c6e1ccf0a11abacafb35c9cfc8e362b5f22bd670a
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d5c68432047d2d22507490445e4565cee7dad3c08554925e5670c4473897734
+      type: standard
   rc.8:
     assembly:
       basis:
