@@ -482,8 +482,12 @@ csv_namespace: openshift
 # "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
 check_golang_versions: exact
 
-# until feature freeze, prefer to use the golang builder that the upstream CI build is using
+# Until feature freeze, prefer to use the golang builder that the upstream CI build is using
 # if different from what ART has configured, encouraging deliberate transitioning.
+# canonical_builders_from_upstream can be overridden by every single image
+# If set to False, it will use the default art config
+# If set to True, it will honor the image's config
+# If set to auto, it will decide based on feature freeze date
 canonical_builders_from_upstream: auto
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
