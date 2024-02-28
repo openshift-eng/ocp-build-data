@@ -1,10 +1,6 @@
 arches:
 - x86_64
 - aarch64
-cachito:
-  packages:
-    gomod:
-    - path: legacy/azure-file-csi-driver-operator
 content:
   source:
     dockerfile: Dockerfile.azure-file
@@ -20,8 +16,7 @@ content:
         auto_label:
         - approved
         - lgtm
-    pkg_managers:
-      - gomod
+    pkg_managers: []
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-azure-file-csi-driver-operator-container
