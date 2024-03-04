@@ -39,15 +39,3 @@ payload_name: csi-external-provisioner
 name_in_bundle: csi-external-provisioner
 owners:
 - aos-storage-staff@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-appstream-rpms
-  - rhel-8-baseos-rpms
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-csi-external-provisioner
