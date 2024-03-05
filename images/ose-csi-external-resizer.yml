@@ -32,15 +32,3 @@ payload_name: csi-external-resizer
 name_in_bundle: csi-external-resizer
 owners:
 - aos-storage-staff@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-csi-external-resizer
