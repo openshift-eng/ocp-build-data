@@ -17,6 +17,10 @@ releases:
           rpm: 128776
         release_jira: ART-9102
         upgrades: 4.14.14,4.14.15,4.14.16,4.15.0,4.15.1
+      issues:
+        exclude:
+        - id: OCPBUGS-24503 # already fixed in golang version 1.20.0
+        - id: OCPBUGS-22425 # already fixed i 4.15 nightly from 2023-11-17
       members:
         images: []
         rpms: []
