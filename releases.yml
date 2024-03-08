@@ -23,7 +23,12 @@ releases:
         - id: OCPBUGS-22425 # already fixed i 4.15 nightly from 2023-11-17
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.2-202403081057.p0.g597305b.assembly.4.15.2.el9
       rhcos:
         machine-os-content:
           images:
