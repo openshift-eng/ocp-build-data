@@ -28,18 +28,3 @@ non_shipping_repos:
 - rhel-9-server-ose-rpms-embargoed
 owners:
 - team-monitoring@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  - rhel-8-server-ose-rpms-embargoed # required by the builder
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-thanos
-  non_shipping_repos:
-  - rhel-8-server-ose-rpms-embargoed
