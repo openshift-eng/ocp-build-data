@@ -22,6 +22,13 @@ releases:
       members:
         images: []
         rpms: []
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        # why: rpms come from centos
+        component: '*'
+      - code: MISSING_SHIP_OK_TAG
+        # why: kernel in all components comes from centos
+        component: '*'
       rhcos:
         machine-os-content:
           images:
