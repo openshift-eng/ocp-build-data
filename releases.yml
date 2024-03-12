@@ -21,7 +21,12 @@ releases:
         upgrades: 4.15.0,4.15.2,4.15.3,4.16.0-ec.0,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~ec.4-202403122026.p0.g08390bd.assembly.ec.4.el9
       permits:
       - code: CONFLICTING_INHERITED_DEPENDENCY
         # why: rpms come from centos
