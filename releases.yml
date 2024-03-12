@@ -22,7 +22,12 @@ releases:
         - id: OCPBUGS-21060
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.17-202403121039.p0.g835cc45.assembly.4.14.17.el9
       rhcos:
         machine-os-content:
           images:
