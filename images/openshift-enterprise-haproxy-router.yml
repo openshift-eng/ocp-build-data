@@ -7,12 +7,12 @@ content:
       url: git@github.com:openshift-priv/router.git
       web: https://github.com/openshift/router
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-haproxy-router-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   member: ose-haproxy-router-base
@@ -25,9 +25,9 @@ labels:
   io.k8s.display-name: OpenShift Container Platform HAProxy Router
   io.openshift.tags: openshift,router,haproxy
   vendor: Red Hat
-name: openshift/ose-haproxy-router
+name: openshift/ose-haproxy-router-rhel9
 payload_name: haproxy-router
 owners:
 - aos-network-edge@redhat.com
 non_shipping_repos:
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-server-ose-rpms-embargoed
