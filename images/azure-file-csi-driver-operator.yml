@@ -1,3 +1,11 @@
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  name: openshift/ose-azure-file-csi-driver-operator
 arches:
 - x86_64
 - aarch64
