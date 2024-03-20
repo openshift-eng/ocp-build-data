@@ -3,7 +3,7 @@ content:
   source:
     git:
       branch:
-        target: openshift-base-nodejs-rhel9
+        target: openshift-base-nodejs
       url: git@github.com:openshift-eng/ocp-build-data.git
       web: https://github.com/openshift-eng/ocp-build-data
     ci_alignment:
@@ -16,7 +16,6 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-base-nodejs-container
-  name: openshift-base-nodejs
 # the console build cares not, but just to keep us/ds same as possible, end with same USER:
 final_stage_user: 1001
 enabled_repos:
