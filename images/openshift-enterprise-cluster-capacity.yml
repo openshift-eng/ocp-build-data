@@ -9,18 +9,18 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-cluster-capacity-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 from:
   builder:
-  - stream: golang
-  member: openshift-enterprise-base
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
 labels:
   License: GPLv2+
   io.k8s.description: This is a component of OpenShift Container Platform and runs
@@ -30,7 +30,19 @@ labels:
   vendor: Red Hat
   summary: Framework that estimates a number of instances of a specified pod that
     would be scheduled in a cluster
-name: openshift/ose-cluster-capacity
+name: openshift/ose-cluster-capacity-rhel9
 owners:
 - jchaloup@redhat.com
 - aos-workloads@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  from:
+    builder:
+    - stream: golang
+    member: openshift-enterprise-base
+  name: openshift/ose-cluster-capacity
