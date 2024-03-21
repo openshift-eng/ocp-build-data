@@ -17,6 +17,9 @@ releases:
           rpm: 129360
         release_jira: ART-9191
         upgrades: 4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.15.0,4.15.2,4.15.3
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "backported bug OCPBUGS-30963 is ready despite OCPBUGS-30954 not being ready"
       members:
         images: []
         rpms: []
