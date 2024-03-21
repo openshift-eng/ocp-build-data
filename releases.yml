@@ -34,6 +34,9 @@ releases:
       - code: MISSING_SHIP_OK_TAG
         # why: kernel in all components comes from centos
         component: '*'
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "backported bug OCPBUGS-30963 is ready despite OCPBUGS-30954 not being ready"
       rhcos:
         machine-os-content:
           images:
