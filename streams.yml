@@ -59,7 +59,7 @@ rhel-9-golang-1.21:
 #   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
 
 golang:
-  image: openshift/golang-builder:v1.20.12-202401111802.el8.g17c0aac
+  image: openshift/golang-builder:v1.20.12-202403212140.el8.g2983c24.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -71,13 +71,13 @@ golang:
 
 ibm-rhel-8-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.20.12-202401111802.el8.g17c0aac
+  image: openshift/golang-builder:v1.20.12-202403212140.el8.g2983c24.el8
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.20.12-202401111603.el9.g0bebe58
+  image: openshift/golang-builder:v1.20.12-202403212137.el9.g144a3f8.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -89,7 +89,7 @@ rhel-9-golang:
 
 ibm-rhel-9-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.20.12-202401111603.el9.g0bebe58
+  image: openshift/golang-builder:v1.20.12-202403212137.el9.g144a3f8.el9
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
