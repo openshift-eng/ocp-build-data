@@ -1,0 +1,35 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-nodejs-rhel9
+      url: git@github.com:openshift-eng/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: true
+      transform: rhel-9/base-repos
+      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}.art
+      upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-base-nodejs-container
+  name: openshift-base-nodejs
+# the console build cares not, but just to keep us/ds same as possible, end with same USER:
+final_stage_user: 1001
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  stream: nodejs-rhel9
+labels:
+  io.k8s.description: This image is only used in building the console image and not
+    as a base for anything shipped.
+name: openshift/base-nodejs-rhel9
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: False

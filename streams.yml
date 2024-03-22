@@ -192,3 +192,8 @@ nodejs:
   image: ubi8/nodejs-18:1-71.1697671458
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-nodejs-base-{MAJOR}.{MINOR}.art
   mirror: true
+
+nodejs-rhel9:
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9-nodejs-18:1-98
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
+  mirror: true
