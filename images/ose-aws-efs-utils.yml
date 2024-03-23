@@ -12,15 +12,25 @@ content:
       web: https://github.com/openshift/aws-efs-utils
     pkg_managers: [] # FIXME: Don't use pip package manager magic in Cachito
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-aws-efs-utils-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 for_release: false
 from:
-  member: openshift-enterprise-base
-name: openshift/ose-aws-efs-utils-base
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-aws-efs-utils-base-rhel9
 owners:
 - aos-storage-staff@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  from:
+    member: openshift-enterprise-base
+  name: openshift/ose-aws-efs-utils-base
