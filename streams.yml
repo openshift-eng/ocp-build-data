@@ -20,7 +20,7 @@
 ####################################################################################################
 
 golang:
-  image: openshift/golang-builder:v1.19.13-202310161907.el8.g0d095f7
+  image: openshift/golang-builder:v1.19.13-202403221045.el8.gfa00de2.el8
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
@@ -30,7 +30,7 @@ golang:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.19.13-202310161903.el9.g0f9bb4c
+  image: openshift/golang-builder:v1.19.13-202403221142.el9.g3172d57.el9
   mirror: true
   transform: rhel-9/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
@@ -52,7 +52,7 @@ rhel-8-golang-ci-build-root:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang:
-  image: openshift/golang-builder:v1.19.13-202310161907.el8.g0d095f7
+  image: openshift/golang-builder:v1.19.13-202403221045.el8.gfa00de2.el8
   mirror: false
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
