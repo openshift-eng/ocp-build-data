@@ -13,7 +13,7 @@ content:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
         ci_build_root:
-          stream: rhel-9-golang-1.20-ci-build-root
+          stream: rhel-9-golang-1.21-ci-build-root
         auto_label:
         - approved
         - lgtm
@@ -28,21 +28,9 @@ enabled_repos:
 for_payload: false
 from:
   builder:
-  - stream: rhel-9-golang-1.20
+  - stream: rhel-9-golang
   member: ose-aws-efs-utils
 name: openshift/ose-aws-efs-csi-driver-container-rhel9
 name_in_bundle: aws-efs-csi-driver-container-rhel8
 owners:
 - aos-storage-staff@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: golang-1.20
-    member: ose-aws-efs-utils
-  name: openshift/ose-aws-efs-csi-driver-container-rhel8
