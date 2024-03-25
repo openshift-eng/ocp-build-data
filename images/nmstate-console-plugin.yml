@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-ci-build-root
+          stream: rhel-9-golang-ci-build-root
     pkg_managers:
     - yarn
     artifacts:
@@ -22,17 +22,17 @@ content:
 dependents:
 - openshift-kubernetes-nmstate-operator
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: nmstate-console-plugin-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 from:
   builder:
-  - member: openshift-base-nodejs
-  member: openshift-enterprise-base
-name: openshift/nmstate-console-plugin-rhel8
+  - member: openshift-base-nodejs.rhel9
+  member: openshift-enterprise-base-rhel9
+name: openshift/nmstate-console-plugin-rhel9
 name_in_bundle: nmstate-console-plugin-rhel8
 owners:
 - upalatuc@redhat.com
@@ -40,3 +40,15 @@ owners:
 - yzamir@redhat.com
 - phoracek@redhat.com
 - fge@redhat.com
+alternative_upstream:
+- when: el8
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  enabled_repos:
+  - rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  from:
+    builder:
+    - member: openshift-base-nodejs
+    member: openshift-enterprise-base
+  name: openshift/nmstate-console-plugin-rhel8
