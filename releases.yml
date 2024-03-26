@@ -39,6 +39,14 @@ releases:
           s390x: 4.15.0-0.nightly-s390x-2024-03-20-032213
           x86_64: 4.15.0-0.nightly-2024-03-20-032212
       group:
+        dependencies:
+          rpms:
+          - el8: cri-o-1.28.4-5.rhaos4.15.git159b3c8.el8
+            why: "pin what's in rhcos"
+            non_gc_tag: "Build will be shipped via advisory and therefore will not be gc'd"
+          - el9: cri-o-1.28.4-5.rhaos4.15.git159b3c8.el9
+            why: "pin what's in rhcos"
+            non_gc_tag: "Build will be shipped via advisory and therefore will not be gc'd"
         advisories:
           extras: 129356
           image: 129357
