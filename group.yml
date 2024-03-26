@@ -62,15 +62,19 @@ rhcos:
     - kernel-rt
 
 check_external_packages:
-  # - name: cri-o
-  #   tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-  #   condition: match
+  # This config powers the assembly check: CONFLICTING_INHERITED_DEPENDENCY
+  # These are golang rpms for which CVE trackers are often shipped
+  # so we do not want to deviate from what's in candidate tag
+  # found via find-builds and what's in rhcos
+  - name: cri-o
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
   - name: cri-tools
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
-#  - name: conmon
-#    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-#    condition: match
+  - name: conmon
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
   - name: skopeo
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
@@ -83,6 +87,12 @@ check_external_packages:
   - name: NetworkManager
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: greater_equal
+  - name: ignition
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: podman
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
 
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
