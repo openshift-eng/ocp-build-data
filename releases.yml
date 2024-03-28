@@ -22,7 +22,12 @@ releases:
         why: "backported bugs OCPBUGS-31129 and OCPBUGS-31374 are ready despite and OCPBUGS-30190  not being ready in 4.16"
       members:
         images: []
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.6-202403280951.p0.g94b1c2a.assembly.4.15.6.el9
       rhcos:
         machine-os-content:
           images:
