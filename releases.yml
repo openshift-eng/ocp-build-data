@@ -1,4 +1,59 @@
 releases:
+  4.12.54:
+    assembly:
+      basis:
+        brew_event: 57118472
+        reference_releases:
+          aarch64: 4.12.0-0.nightly-arm64-2024-03-26-155945
+          ppc64le: 4.12.0-0.nightly-ppc64le-2024-03-26-155945
+          s390x: 4.12.0-0.nightly-s390x-2024-03-26-005504
+          x86_64: 4.12.0-0.nightly-2024-03-26-165251
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.36,4.11.37,4.11.38,4.11.39,4.11.40,4.11.41,4.11.42,4.11.43,4.11.44,4.11.45,4.11.46,4.11.47,4.11.48,4.11.49,4.11.50,4.11.51,4.11.52,4.11.53,4.11.54,4.11.55,4.11.56,4.11.57,4.11.58,4.11.59,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6,4.12.7,4.12.8,4.12.9,4.12.10,4.12.11,4.12.12,4.12.13,4.12.14,4.12.15,4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53
+        dependencies:
+          rpms:
+            - el8: cri-o-1.25.5-11.1.rhaos4.12.git71d5f06.el8
+              why: "pin what's in rhcos"
+              non_gc_tag: rhaos-4.12-rhel-8
+            - el8: runc-1.1.6-5.1.rhaos4.12.el8
+              why: "pin what's in ose-agent-installer-node-agent"
+              non_gc_tag: rhaos-4.12-rhel-8
+            - el8: containernetworking-plugins-1.4.0-1.rhaos4.12.el8
+              why: "pin what's in ose-agent-installer-node-agent"
+              non_gc_tag: rhaos-4.12-rhel-8
+            - el8: podman-4.4.1-2.rhaos4.12.el8
+              why: "pin what's in ose-agent-installer-node-agent"
+              non_gc_tag: rhaos-4.12-rhel-8
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:be67dca47cef228eabec3bfe5b0ad8f80f669049febb6b74bb31a61a772384a9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7154b31070fe18eff5e17beb02fefdd19aeac5800585ddca406d3389721d45b3
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dc8103b220b11af4c95a184a4ac2e818bdf3ceb327db95dbc0e92d7b6a467310
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4027fa5c6cc1bd248bfee77dbdff4ddeee1d125f09ec82edee3076252a77b4d5
+        rhel-coreos-8:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e1f46e6d9e7e8deeb4a9dbc77c10c6fe7b24bde1fd49b1cdfa8516c9d10f5187
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dff350bcbdc71a2e567f4192173fe150ec58b49379c7b3008bc364a6106bfd8f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:05e385d56218c1279b16f12a6cde8d63cc35c60f672f62bc1782dc52a0260813
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f3ac615b1331cd3891ecf76660577da85873eafd46bf1b26cd7e800c5a0d8c58
+        rhel-coreos-8-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:677452113bc21abda5c4a55203cef07c89f136243f9abe69d1aa68a02fca8677
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9a5e0ab6eb5ec34928c9d628b0839c07f7b0fc3c919c5f992ce4c5e8aa3e9d73
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d35b21f37d12f6cc32e1b9f3cfc3a1e7796e449a89137c62d00c518de23e2d93
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fc33583b513294ee732babbe80fe04a779b218252d181f21ec1d8dffd65fd71c
+      type: standard
+
   4.12.53:
     assembly:
       basis:
