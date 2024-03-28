@@ -80,9 +80,10 @@ check_external_packages:
   - name: cri-tools
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
+  # As of Mar 28, 2024, RHEL has a newer version of conmon
   - name: conmon
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
+    condition: greater_equal
   - name: skopeo
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
