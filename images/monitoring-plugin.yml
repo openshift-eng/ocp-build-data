@@ -34,15 +34,3 @@ name: openshift/ose-monitoring-plugin-rhel9
 payload_name: monitoring-plugin
 owners:
 - team-observability-ui@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-appstream-rpms
-  - rhel-8-baseos-rpms
-  from:
-    builder:
-    - member: openshift-base-nodejs
-    member: openshift-enterprise-base
-  name: openshift/ose-monitoring-plugin-rhel8
