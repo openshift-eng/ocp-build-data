@@ -1,6 +1,6 @@
 # ocp-build-data
 
-Welcome to the OpenShift ocp-build-data repo, managed by ART.  This
+Welcome to the OpenShift ocp-build-data repo, managed by ART. This
 repository is the source of truth for all RPMs and images built for any
 OpenShift Container Platform release.  
 
