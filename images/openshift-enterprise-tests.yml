@@ -9,16 +9,16 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-8-golang-1.20-ci-build-root
+          stream: rhel-9-golang-1.21-ci-build-root
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-tests-container
   namespace: containers
 enabled_repos:
 - openstack-16-for-rhel-8-rpms
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
-- rhel-8-rt-rpms
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-rt-rpms
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
@@ -30,7 +30,7 @@ scan_sources:
 for_payload: true
 from:
   builder:
-  - stream: golang-1.20
+  - stream: rhel-9-golang
   member: ose-tools
 labels:
   License: GPLv2+
@@ -39,9 +39,9 @@ labels:
   io.k8s.display-name: OpenShift End-to-End Tests
   io.openshift.tags: openshift,tests,e2e
   vendor: Red Hat
-name: openshift/ose-tests
+name: openshift/ose-tests-rhel9
 payload_name: tests
 owners:
 - aos-master@redhat.com
 - openshift-technical-release-staff@redhat.com
-canonical_builders_from_upstream: False # member image does not get resolved well
+canonical_builders_from_upstream: False

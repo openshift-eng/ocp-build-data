@@ -7,15 +7,15 @@ content:
       url: git@github.com:openshift-priv/csi-driver-shared-resource.git
       web: https://github.com/openshift/csi-driver-shared-resource
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-csi-driver-shared-resource-mustgather-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 from:
   member: ose-must-gather
-name: openshift/ose-csi-driver-shared-resource-mustgather-rhel8
+name: openshift/ose-csi-driver-shared-resource-mustgather-rhel9
 owners:
 - openshift-build-jenkins-team@redhat.com
-canonical_builders_from_upstream: False # member image does not get resolved well
+canonical_builders_from_upstream: False
