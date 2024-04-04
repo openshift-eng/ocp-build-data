@@ -20,6 +20,12 @@ releases:
           metadata:
             is:
               nvr: openshift-enterprise-pod-container-v4.15.0-202404031521.p1.gc1f5b34.assembly.stream.el9
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.7-202404040028.p0.g94b1c2a.assembly.4.15.7.el9
       group:
         upgrades: 4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6
         advisories:
