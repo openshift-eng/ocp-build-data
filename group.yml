@@ -82,8 +82,7 @@ rhcos:
   require_consistency:
     driver-toolkit:
     - kernel  # since 9.3, kernel-rt is merged into the kernel package.
-  # Set to true to allow CentOS content in RHCOS
-  allow_missing_brew_rpms: true
+  allow_missing_brew_rpms: false
 
 check_external_packages:
   - name: cri-o
@@ -505,43 +504,41 @@ repos:
   # RHEL's 9.4 beta makes it possible to use RHEL 9.4 publicly. CentOS content has been made available
   # by proxying through Nginx configuration on ocp-artifacts. Once 9.4 is ready, we should restore
   # the previous config as defined at https://github.com/openshift-eng/art-config/blob/main/ansible-playbooks/roles/ocp-artifacts-http
-  centos-94-baseos-rpms:
+  rhel-94-baseos-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
         includepkgs: "kernel*"
       baseurl:
-        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/BaseOS/aarch64/os/
-        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/BaseOS/ppc64le/os/
-        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/BaseOS/s390x/os/
-        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/BaseOS/x86_64/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/x86_64/baseos/os/
     content_set:
-      # Not real since these are CentOS, but needed to get beyond data validation.
       default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
       aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
       ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
       s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
     reposync:
       enabled: false
-  centos-94-appstream-rpms:
+  rhel-94-appstream-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
         includepkgs: "kernel*"
       baseurl:
-        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/aarch64/os/
-        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/ppc64le/os/
-        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/s390x/os/
-        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/x86_64/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/x86_64/appstream/os/
     content_set:
-      # Not real since these are CentOS, but needed to get beyond data validation.
       default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
       aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
       ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
       s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
     reposync:
       enabled: false
-  centos-94-rt-rpms:
+  rhel-94-rt-rpms:
     conf:
       extra_options:
         module_hotfixes: 1
@@ -549,10 +546,10 @@ repos:
       baseurl:
         # Kernel RT is x86 only, so fake repos for other arches. The driver-toolkit Dockerfile only installs the kernel-rt
         # for x86_64.
-        aarch64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/aarch64/os/
-        ppc64le: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/ppc64le/os/
-        s390x: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/AppStream/s390x/os/
-        x86_64: https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com/9-stream/RT/x86_64/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/x86_64/rt/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/x86_64/rt/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/x86_64/rt/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/beta/rhel9/9/x86_64/rt/os/
     content_set:
       # Not real since these are CentOS, but needed to get beyond data validation.
       default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
