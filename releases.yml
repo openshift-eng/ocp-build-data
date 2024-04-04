@@ -1,4 +1,32 @@
 releases:
+  4.14.20:
+    assembly:
+      type: standard
+      basis:
+        assembly: "4.14.19"
+        reference_releases!: {}
+      issues:
+        include:
+        - id: OCPBUGS-31714
+      members:
+        images:
+        - distgit_key: openshift-enterprise-hyperkube
+          why: fix for OCPBUGS-31714
+          metadata:
+            is:
+              nvr: openshift-enterprise-hyperkube-container-v4.14.0-202404041112.p0.gec42b99.assembly.stream.el9
+        - distgit_key: openshift-enterprise-pod
+          why: fix for OCPBUGS-31714
+          metadata:
+            is:
+              nvr: openshift-enterprise-pod-container-v4.14.0-202404040933.p1.gec42b99.assembly.stream.el8
+      group:
+        upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19
+        advisories:
+          image: -1
+          microshift: -1
+        release_jira: ART-0
+
   4.14.19:
     assembly:
       basis:
