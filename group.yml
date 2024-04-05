@@ -333,6 +333,26 @@ repos:
     reposync:
       enabled: true
 
+  openstack-17-for-rhel-9-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+        # XXX: non-x86_64 RHOS don't exist, use random links for now.
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: openstack-17.1-for-rhel-9-x86_64-rpms
+      # don't have content set for aarch64 or s390x or ppc64le
+      optional: true
+    reposync:
+      enabled: false
+
   rhel-9-baseos-rpms:
     conf:
       extra_options:
