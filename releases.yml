@@ -1,4 +1,42 @@
 releases:
+  ec.5:
+    assembly:
+      basis:
+        brew_event: 57202495
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2024-04-01-064850
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-04-01-062610
+          s390x: 4.16.0-0.nightly-s390x-2024-04-01-073531
+          x86_64: 4.16.0-0.nightly-2024-04-01-074117
+      group:
+        advisories:
+          extras: 125774
+          image: 125775
+          metadata: 125776
+          microshift: 125777
+          prerelease: -1
+          rpm: 125779
+        operator_index_mode: pre-release
+        release_jira: ART-8573
+        upgrades: 4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:15891c6d059248d0e1f50e477907e00405d3f6dd9d8c452643efff525aef2828
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4dbe5012c111961a2710bcb1fedc17979c09d92621478d9735759ab1135f8bf9
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cf439a2db5413bdd7bec20a74ef431414d3809de97ebacdfed4dd3eeb4514c60
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ab5d794885c8a93c5550d959be95e1ea83abf0d091ffe67b85275f64b86f3206
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3966542a9e5deb6203034e05f95ced963ce68a4bf63a639979d78d81c31963a4
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cf80cb8f7904f9a2981f3b406559cd444ed5b426bf64b055206d8c3b470ca3d5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e16a77cb326e1c4132ec388b6095bd6d81bd96646c655fe5cf92ae84dd8bb70b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dc790b10b78798a98a6d2d3f26ae9c74e079297367dc38992eb4dfe1bc261021
+      type: preview
+
   ec.4:
     assembly:
       basis:
