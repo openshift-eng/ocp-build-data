@@ -25,15 +25,3 @@ name: openshift/kube-metrics-server-rhel9
 payload_name: kube-metrics-server
 owners:
 - team-monitoring-incluster@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/kube-metrics-server-rhel8

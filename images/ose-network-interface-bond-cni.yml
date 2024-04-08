@@ -23,16 +23,3 @@ name: openshift/ose-network-interface-bond-cni-rhel9
 payload_name: network-interface-bond-cni
 owners:
 - carlosg@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-    - rhel-8-baseos-rpms
-    - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: rhel-9-golang
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-network-interface-bond-cni
