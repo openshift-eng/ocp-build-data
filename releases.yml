@@ -23,6 +23,10 @@ releases:
         upgrades: 4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4
       members:
         images:
+        - distgit_key: networking-console-plugin
+          metadata:
+            mode:
+              disabled
         - distgit_key: ose-azure-workload-identity-webhook
           why: Image was on rhel8 at nightly cut-off time
           metadata:
