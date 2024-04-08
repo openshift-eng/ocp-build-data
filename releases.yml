@@ -24,8 +24,10 @@ releases:
       members:
         images:
         - distgit_key: networking-console-plugin
+          why: Image didn't exist at nightly cut-off time
           metadata:
-            mode: disabled
+            is:
+              nvr: networking-console-plugin-container-v4.16.0-202404080642.p0.g50a9e85.assembly.stream.el9
         - distgit_key: ose-azure-workload-identity-webhook
           why: Image was on rhel8 at nightly cut-off time
           metadata:
