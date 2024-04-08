@@ -22,7 +22,22 @@ releases:
             allow_missing_brew_rpms: true
         upgrades: 4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4
       members:
-        images: []
+        images:
+        - distgit_key: ose-azure-workload-identity-webhook
+          why: Image was on rhel8 at nightly cut-off time
+          metadata:
+            is:
+              nvr: ose-azure-workload-identity-webhook-container-v4.16.0-202403211244.p0.g1532005.assembly.stream.el8
+        - distgit_key: ose-kube-metrics-server
+          why: Image was on rhel8 at nightly cut-off time
+          metadata:
+            is:
+              nvr: ose-kube-metrics-server-container-v4.16.0-202403211244.p0.g34ac541.assembly.stream.el8
+        - distgit_key: ose-machine-config-operator
+          why: Image was on rhel8 at nightly cut-off time
+          metadata:
+            is:
+              nvr: ose-machine-config-operator-container-v4.16.0-202403291345.p0.g1d5df20.assembly.stream.el8
         rpms: []
       rhcos:
         rhel-coreos:
