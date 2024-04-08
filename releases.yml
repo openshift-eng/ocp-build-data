@@ -39,6 +39,13 @@ releases:
             is:
               nvr: ose-machine-config-operator-container-v4.16.0-202403291345.p0.g1d5df20.assembly.stream.el8
         rpms: []
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        # why: rpms come from centos
+        component: '*'
+      - code: MISSING_SHIP_OK_TAG
+        # why: kernel in all components comes from centos
+        component: '*'
       rhcos:
         rhel-coreos:
           images:
