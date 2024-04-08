@@ -38,7 +38,12 @@ releases:
           metadata:
             is:
               nvr: ose-machine-config-operator-container-v4.16.0-202403291345.p0.g1d5df20.assembly.stream.el8
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~ec.5-202404081357.p0.gfee4169.assembly.ec.5.el9
       permits:
       - code: CONFLICTING_INHERITED_DEPENDENCY
         # why: rpms come from centos
