@@ -31,12 +31,3 @@ name: openshift/ose-olm-rukpak-rhel9
 payload_name: olm-rukpak
 owners:
 - aos-odin@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-olm-rukpak
