@@ -29,7 +29,12 @@ releases:
           metadata:
             is:
               nvr: openshift-enterprise-pod-container-v4.14.0-202404040933.p1.gec42b99.assembly.stream.el8
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.21-202404102005.p0.ge6c2382.assembly.4.14.21.el9
       rhcos:
         machine-os-content:
           images:
