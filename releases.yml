@@ -3,11 +3,11 @@ releases:
     assembly:
       basis:
         brew_event: 57278478
-        reference_releases:
-          aarch64: 4.14.0-0.nightly-arm64-2024-04-04-113917
-          ppc64le: 4.14.0-0.nightly-ppc64le-2024-04-04-113826
-          s390x: 4.14.0-0.nightly-s390x-2024-04-04-113824
-          x86_64: 4.14.0-0.nightly-2024-04-04-140720
+        reference_releases: {}
+          # aarch64: 4.14.0-0.nightly-arm64-2024-04-04-113917
+          # ppc64le: 4.14.0-0.nightly-ppc64le-2024-04-04-113826
+          # s390x: 4.14.0-0.nightly-s390x-2024-04-04-113824
+          # x86_64: 4.14.0-0.nightly-2024-04-04-140720
       group:
         advisories:
           extras: -1
@@ -18,7 +18,17 @@ releases:
         release_jira: ART-0
         upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20
       members:
-        images: []
+        images:
+        - distgit_key: openshift-enterprise-hyperkube
+          why: fix for OCPBUGS-31714
+          metadata:
+            is:
+              nvr: openshift-enterprise-hyperkube-container-v4.14.0-202404041112.p0.gec42b99.assembly.stream.el9
+        - distgit_key: openshift-enterprise-pod
+          why: OCPBUGS-31714
+          metadata:
+            is:
+              nvr: openshift-enterprise-pod-container-v4.14.0-202404040933.p1.gec42b99.assembly.stream.el8
         rpms: []
       rhcos:
         machine-os-content:
