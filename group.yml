@@ -1,4 +1,4 @@
-name: rhel-9-golang-1.21
+name: rhel-9-golang-1.22
 
 arches:
 - x86_64
@@ -8,7 +8,7 @@ arches:
 
 vars:
   MAJOR: 4
-  MINOR: 16
+  MINOR: 17
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -36,15 +36,14 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-        # this repo provides complete RHEL 8 build env; we just want the go-toolset content
         includepkgs: module-build-macros golang*
+      # To pick up this specific build which isn't available in our plashets yet, we are using brew-task-repos
+      # TODO: update repo back to `download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest`
       baseurl:
-        # golang-1.21.3-5.el9
-        # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2770477
-        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
-        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
-        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
-        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
+        aarch64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.22.1/1.el9/aarch64/
+        ppc64le: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.22.1/1.el9/ppc64le/
+        s390x: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.22.1/1.el9/s390x/
+        x86_64: https://brew-task-repos.engineering.redhat.com/repos/official/golang/1.22.1/1.el9/x86_64/
     # These content sets are not used, so just putting something here
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
@@ -57,8 +56,8 @@ repos:
     conf:
       extra_options:
         module_hotfixes: 1
-        # this repo is for our own buildroot, which also inherits a complete RHEL 8 build env;
-        # restrict to specific necessary content, because RHEL 8 build dev content may include
+        # this repo is for our own buildroot, which also inherits a complete RHEL 9 build env;
+        # restrict to specific necessary content, because RHEL 9 build dev content may include
         # pending unreleased content that can cause conflicts for later CI installs lacking access
         # to that content.
         includepkgs: goversioninfo gpgme-devel libassuan-devel mingw* golang*
