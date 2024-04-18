@@ -17,6 +17,9 @@ releases:
           rpm: 130565
         release_jira: ART-9459
         upgrades: 4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "permit 4.16 bugs that are not attached to advisories since 4.16 is not GA yet"
       members:
         images:
         - distgit_key: ose-cluster-control-plane-machine-set-operator
