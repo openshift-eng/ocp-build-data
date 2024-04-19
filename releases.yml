@@ -34,7 +34,12 @@ releases:
             is:
               nvr: ose-cluster-kube-apiserver-operator-container-v4.14.0-202404171239.p0.g2eab0f9.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.22-202404191415.p0.g1cfe598.assembly.4.14.22.el9
       rhcos:
         machine-os-content:
           images:
