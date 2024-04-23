@@ -10,6 +10,10 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-9-golang-1.21-ci-build-root
+    modifications:
+    - action: replace
+      match: "rt-tests"
+      replacement: "realtime-tests"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-tests-container
