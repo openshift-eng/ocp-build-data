@@ -77,7 +77,7 @@ rhcos:
 check_external_packages:
   # This config powers the assembly check: CONFLICTING_INHERITED_DEPENDENCY
   # These are golang rpms for which CVE trackers are often shipped
-  # so we do not want to deviate from what's in candidate tag 
+  # so we do not want to deviate from what's in candidate tag
   # found via find-builds and what's in rhcos
   - name: cri-o
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
@@ -117,7 +117,6 @@ rpm_deliveries:
       - kernel-rt
     integration_tag: early-kernel-integration-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}
     stop_ship_tag: early-kernel-stop-ship
-    ship_ok_tag: early-kernel-ship-ok
     target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-8
