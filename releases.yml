@@ -79,7 +79,12 @@ releases:
             is:
               nvr: ironic-container-v4.14.0-202404232207.p0.g0e91ffa.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.23-202404251610.p0.g1cfe598.assembly.4.14.23.el9
       promotion_permits:
       - code: ATTACHED_BUGS
         why: Permit 4.14 to promote before 4.15 prepare release
