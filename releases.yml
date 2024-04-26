@@ -20,6 +20,8 @@ releases:
       promotion_permits:
       - code: INVALID_ERRATA_STATUS
         why: "130924 is still on NEW_FILES state due to an Errata Tool issue, but we don't want to be blocked"
+      - code: ATTACHED_BUGS
+        why: "permit 4.16 bugs that are not attached to advisories since 4.16 is not GA yet"
       members:
         images:
         - distgit_key: ose-machine-os-images
