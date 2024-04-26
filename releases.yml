@@ -17,6 +17,9 @@ releases:
           rpm: 130927
         release_jira: ART-9537
         upgrades: 4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.15.10
+      promotion_permits:
+      - code: INVALID_ERRATA_STATUS
+        why: "130924 is still on NEW_FILES state due to an Errata Tool issue, but we don't want to be blocked"
       members:
         images:
         - distgit_key: ose-machine-os-images
