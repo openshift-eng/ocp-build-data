@@ -3,11 +3,11 @@ releases:
     assembly:
       basis:
         brew_event: 57597206
-        reference_releases:
-          aarch64: 4.16.0-0.nightly-arm64-2024-04-23-032726
-          ppc64le: 4.16.0-0.nightly-ppc64le-2024-04-23-032735
-          s390x: 4.16.0-0.nightly-s390x-2024-04-23-032729
-          x86_64: 4.16.0-0.nightly-2024-04-23-032717
+        reference_releases: {}
+          # aarch64: 4.16.0-0.nightly-arm64-2024-04-23-032726
+          # ppc64le: 4.16.0-0.nightly-ppc64le-2024-04-23-032735
+          # s390x: 4.16.0-0.nightly-s390x-2024-04-23-032729
+          # x86_64: 4.16.0-0.nightly-2024-04-23-032717
       group:
         advisories:
           extras: 125774
@@ -26,6 +26,11 @@ releases:
             is:
               nvr: ose-installer-artifacts-container-v4.16.0-202404221110.p0.g906d5d1.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-altinfra
+          metadata:
+            is:
+              nvr: ose-installer-altinfra-container-v4.16.0-202404221110.p0.g906d5d1.assembly.stream.el8
+          why: Target moved to rhel9, pinning sibling to installer-artifacts.
         - distgit_key: ose-must-gather
           metadata:
             is:
@@ -69,7 +74,7 @@ releases:
         - distgit_key: ose-agent-installer-csr-approver
           metadata:
             is:
-              nvr: ose-agent-installer-csr-approver-container-v4.16.0-202404221711.p0.g27e1b0d.assembly.stream.el9
+              nvr: ose-agent-installer-csr-approver-container-v4.16.0-202404221110.p0.g27e1b0d.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: driver-toolkit
           metadata:
@@ -94,12 +99,12 @@ releases:
         - distgit_key: ose-ovn-kubernetes
           metadata:
             is:
-              nvr: ose-ovn-kubernetes-container-v4.16.0-202404221711.p0.ga7f0909.assembly.stream.el9
+              nvr: ose-ovn-kubernetes-container-v4.16.0-202404221110.p0.ga7f0909.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: ose-sdn
           metadata:
             is:
-              nvr: ose-node-container-v4.16.0-202404221711.p0.g0197d0d.assembly.stream.el9
+              nvr: ose-node-container-v4.16.0-202404221110.p0.g0197d0d.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: ose-cluster-openshift-apiserver-operator
           metadata:
@@ -114,13 +119,28 @@ releases:
         - distgit_key: ose-cli-artifacts
           metadata:
             is:
-              nvr: ose-cli-artifacts-container-v4.16.0-202404221711.p0.g057cfc5.assembly.stream.el8
+              nvr: ose-cli-artifacts-container-v4.16.0-202404220616.p0.g744645b.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: ose-tools
           metadata:
             is:
               nvr: ose-tools-container-v4.16.0-202404220344.p0.g744645b.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cli-artifacts-container
+          metadata:
+            is:
+              nvr: ose-cli-artifacts-container-v4.16.0-202404220616.p0.g744645b.assembly.stream.el8
+          why: pinning matching commit to sibling ose-tools
+        - distgit_key: openshift-enterprise-deployer
+          metadata:
+            is:
+              nvr: openshift-enterprise-deployer-container-v4.16.0-202404220616.p0.g744645b.assembly.stream.el8
+          why: pinning matching commit to sibling ose-tools
+        - distgit_key: openshift-enterprise-cli
+          metadata:
+            is:
+              nvr: openshift-enterprise-cli-container-v4.16.0-202404220344.p0.g744645b.assembly.stream.el8
+          why: pinning matching commit to sibling ose-tools
         - distgit_key: ose-network-tools
           metadata:
             is:
@@ -137,6 +157,13 @@ releases:
               nvr: ose-baremetal-runtimecfg-container-v4.16.0-202404221711.p0.g53bcc3a.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
+      permits:
+      - code: FAILED_CONSISTENCY_REQUIREMENT
+        # why: kernel-rt comes from beta
+        component: driver-toolkit
+      - code: MISSING_SHIP_OK_TAG
+        # why: kernel in all components comes from centos
+        component: '*'
       rhcos:
         rhel-coreos:
           images:
