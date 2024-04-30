@@ -21,6 +21,10 @@ releases:
         upgrades: 4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.15.10,4.15.11,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5
       members:
         images:
+        - distgit_key: dpu-operator
+          metadata:
+            for_release: false
+          why: Component did not exist at nightly cut-off
         - distgit_key: ose-smb-csi-driver
           metadata:
             is:
