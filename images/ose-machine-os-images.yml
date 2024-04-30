@@ -6,23 +6,23 @@ content:
       url: git@github.com:openshift-priv/machine-os-images.git
       web: https://github.com/openshift/machine-os-images
 distgit:
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-machine-os-images-container
 enabled_repos:
-- rhel-8-baseos-rpms
-- rhel-8-appstream-rpms
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
   - member: ose-installer
-  member: openshift-enterprise-base
-name: openshift/ose-machine-os-images
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-machine-os-images-rhel9
 payload_name: machine-os-images
 owners:
 - metal-platform@redhat.com
 non_shipping_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
-- rhel-8-server-ose-rpms-embargoed
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-server-ose-rpms-embargoed
 canonical_builders_from_upstream: False # member image does not get resolved well
