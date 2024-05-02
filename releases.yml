@@ -32,7 +32,12 @@ releases:
             is:
               nvr: ose-installer-artifacts-container-v4.14.0-202404301807.p0.gb6dcee1.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.24-202405021453.p0.g6e3abf7.assembly.4.14.24.el9
       promotion_permits:
       - code: ATTACHED_BUGS
         why: Blocker bugs were fixed in previous releases but haven't been assigned to an advisory
