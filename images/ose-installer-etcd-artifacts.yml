@@ -16,11 +16,11 @@ cachito:
     - path: tools/mod
 content:
   source:
-    dockerfile: Dockerfile.installer
+    dockerfile: Dockerfile.installer.art
     git:
       branch:
         target: openshift-{MAJOR}.{MINOR}
-      url: git@github.com:locriandev/etcd.git
+      url: git@github.com:openshift-priv/etcd.git
       web: https://github.com/openshift/etcd
     pkg_managers:
     - gomod
@@ -47,11 +47,11 @@ from:
   - stream: etcd_rhel9_golang
   member: openshift-enterprise-base-rhel9
 labels:
-  License: Apache 2.0
-  io.k8s.description: etcd is distributed key-value store which stores the persistent
-    master state for Kubernetes and OpenShift.
-  io.k8s.display-name: etcd server
-  io.openshift.tags: etcd
+  License: GPLv2+
+  io.k8s.description: This is the etcd base image from which all OCP installer images inherit.
+  io.k8s.display-name: OpenShift Container Platform RHEL 9 Installer Base
+  io.openshift.tags: openshift,base
+  vendor: Red Hat
 name: openshift/installer-etcd-artifacts
 owners:
 - aos-install@redhat.com
