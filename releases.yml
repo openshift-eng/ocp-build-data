@@ -36,6 +36,12 @@ releases:
             is:
               nvr: ose-cli-artifacts-container-v4.16.0-202404302047.p0.g51e5705.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~rc.0-202405062036.p0.g5ffb2c2.assembly.rc.0.el9
       rhcos:
         rhel-coreos:
           images:
