@@ -22,6 +22,8 @@ for_payload: true
 # needs to bump to account for the new tarball suffix
 from:
   builder:
+  - member: ose-etcd
+  - member: openshift-enterprise-hyperkube
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-baremetal-installer-rhel9
