@@ -534,10 +534,10 @@ repos:
         s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/
         x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
     content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
     reposync:
       enabled: false
   rhel-94-appstream-rpms:
@@ -551,10 +551,10 @@ repos:
         s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/
         x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/
     content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_4
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_4
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_4
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
     reposync:
       enabled: false
   rhel-94-rt-rpms:
@@ -571,12 +571,10 @@ repos:
         x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/
     content_set:
       # Not real since these are CentOS, but needed to get beyond data validation.
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_0
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
-    reposync:
-      enabled: false
+      default: rhel-9-for-x86_64-rt-rpms__9_DOT_4
+      aarch64: rhel-9-for-x86_64-rt-rpms__9_DOT_4
+      ppc64le: rhel-9-for-x86_64-rt-rpms__9_DOT_4
+      s390x: rhel-9-for-x86_64-rt-rpms__9_DOT_4
 
 default_image_build_method: osbs2
 image_build_log_scanner:
