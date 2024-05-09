@@ -11,6 +11,12 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-9-golang-ci-build-root
+    okd_alignment:
+      build_args:
+        - name: ovsver
+          value: 3.3-3.3.0-2.el9
+        - name: ovnver
+          value: 24.03-24.03.1-5.el9
     pkg_managers: []
 distgit:
   component: ose-ovn-kubernetes-base-container
