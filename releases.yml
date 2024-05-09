@@ -2,12 +2,12 @@ releases:
   4.14.25:
     assembly:
       basis:
-        brew_event: 57849031
+        brew_event: 57859916
         reference_releases:
-          aarch64: 4.14.0-0.nightly-arm64-2024-05-08-024945
-          ppc64le: 4.14.0-0.nightly-ppc64le-2024-05-08-022256
-          s390x: 4.14.0-0.nightly-s390x-2024-05-08-022258
-          x86_64: 4.14.0-0.nightly-2024-05-08-035346
+          aarch64: 4.14.0-0.nightly-arm64-2024-05-09-000637
+          ppc64le: 4.14.0-0.nightly-ppc64le-2024-05-08-195909
+          s390x: 4.14.0-0.nightly-s390x-2024-05-08-195911
+          x86_64: 4.14.0-0.nightly-2024-05-08-232852
       group:
         advisories:
           extras: -1
@@ -19,10 +19,20 @@ releases:
         upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24
       members:
         images:
-        - distgit_key: hypershift
+        - distgit_key: openshift-enterprise-console
           metadata:
             is:
-              nvr: ose-hypershift-container-v4.14.0-202405080138.p0.g3104716.assembly.stream.el8
+              nvr: openshift-enterprise-console-container-v4.14.0-202405081840.p0.g2741f59.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: azure-file-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-azure-file-csi-driver-operator-container-v4.14.0-202405082212.p0.g4469d80.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: azure-file-csi-driver
+          metadata:
+            is:
+              nvr: ose-azure-file-csi-driver-container-v4.14.0-202405082212.p0.gf28a507.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
       rhcos:
