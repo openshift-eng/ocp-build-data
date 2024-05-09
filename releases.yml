@@ -37,7 +37,12 @@ releases:
             is:
               nvr: ose-azure-file-csi-driver-container-v4.14.0-202405082212.p0.gf28a507.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.25-202405091434.p0.ge013d20.assembly.4.14.25.el9
       rhcos:
         machine-os-content:
           images:
