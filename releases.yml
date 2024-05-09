@@ -32,7 +32,12 @@ releases:
             is:
               nvr: ose-azure-workload-identity-webhook-container-v4.15.0-202405080536.p0.g2333b7f.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.13-202405091441.p0.g4bf5d2a.assembly.4.15.13.el9
       rhcos:
         machine-os-content:
           images:
