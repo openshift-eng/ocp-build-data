@@ -54,6 +54,11 @@ releases:
             is:
               nvr: openshift-enterprise-console-container-v4.16.0-202405062116.p0.gae78a85.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-egress-router
+          metadata:
+            is:
+              nvr: openshift-enterprise-egress-router-container-v4.16.0-202405041048.p0.ga26ca1f.assembly.stream.el8
+          why: No el9 build exists at the time of nightly cutoff
         rpms: []
       rhcos:
         rhel-coreos:
