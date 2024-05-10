@@ -8,10 +8,6 @@ releases:
           s390x: 4.12.0-0.nightly-s390x-2024-05-10-081507
           ppc64le: 4.12.0-0.nightly-ppc64le-2024-05-10-081507
           aarch64: 4.12.0-0.nightly-arm64-2024-05-10-081509
-          # aarch64: 4.12.0-0.nightly-arm64-2024-05-08-124412
-          # ppc64le: 4.12.0-0.nightly-ppc64le-2024-05-08-124413
-          # s390x: 4.12.0-0.nightly-s390x-2024-05-08-124413
-          # x86_64: 4.12.0-0.nightly-2024-05-08-124615
       group:
         advisories:
           extras: 131698
@@ -40,6 +36,11 @@ releases:
             is:
               nvr: ovn-kubernetes-microshift-container-v4.12.0-202405100637.p0.gcc7638a.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ironic-static-ip-manager
+          metadata:
+            is:
+              nvr: ironic-static-ip-manager-container-v4.12.0-202405091406.p0.ga8ade8f.assembly.4.12.57.el9
+          why: Not shippable container version was associated to the advisory. https://issues.redhat.com/browse/CWFHEALTH-3034
         rpms: []
       rhcos:
         machine-os-content:
