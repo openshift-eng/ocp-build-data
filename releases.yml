@@ -59,7 +59,12 @@ releases:
             is:
               nvr: openshift-enterprise-egress-router-container-v4.16.0-202405041048.p0.ga26ca1f.assembly.stream.el8
           why: No el9 build exists at the time of nightly cutoff
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~rc.1-202405101626.p0.g1407777.assembly.rc.1.el9
       rhcos:
         rhel-coreos:
           images:
