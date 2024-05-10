@@ -1,4 +1,75 @@
 releases:
+  rc.1:
+    assembly:
+      basis:
+        brew_event: 57833086
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2024-05-07-025608
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-05-07-025600
+          s390x: 4.16.0-0.nightly-s390x-2024-05-07-025604
+          x86_64: 4.16.0-0.nightly-2024-05-07-025557
+      group:
+        advisories:
+          extras: 125774
+          image: 125775
+          metadata: 125776
+          microshift: 125777
+          rpm: 125779
+        release_jira: ART-8573
+        upgrades: 4.15.11,4.15.12,4.15.13,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0
+      members:
+        images:
+        - distgit_key: ose-installer-altinfra
+          metadata:
+            is:
+              nvr: ose-installer-altinfra-container-v4.16.0-202405062116.p0.g419b435.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-artifacts
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.16.0-202405062116.p0.g419b435.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-tests
+          metadata:
+            is:
+              nvr: openshift-enterprise-tests-container-v4.16.0-202405062116.p0.g15c3521.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-baremetal-installer
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.16.0-202405062116.p0.g419b435.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-machine-os-images
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.16.0-202405062116.p0.g3cc9709.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.16.0-202405062116.p0.g419b435.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.16.0-202405062116.p0.gae78a85.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:42b98a58572e330c3afa377a0a93a0159c481b9fac908fc61644b81b885ef4c0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9c57f43ae16686a92185fb98b02d6d186209a7852c80b94cea749ff28f0fc59d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7818d10f11f098a5d085ab6f9c0cacd266cf9146c3cb4a658b3f1e00214e6dc5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cf6a89bb1d2e33e9d90d191ff0ef82baeb581e4741178fbdd7816cc0fb094d70
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c7e1e56d08fd869e8bf91d12b7beed41683775154f58f85df84bde25542ffd5d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2026e4d8a3a77861be68a0486b461849e080d1a617c78094b62073f2f5674193
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bf82080d7a46e2e9ed0222dbff53332e205f36a626b4418c7d20c418bbeeff67
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d3541b1e3e0e7b5f8e60f66c04512a27b2777923d8703a848ba8463c75e7098f
+      type: candidate
+
   rc.0:
     assembly:
       basis:
