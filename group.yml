@@ -570,11 +570,8 @@ repos:
         s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/
         x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/
     content_set:
-      # Not real since these are CentOS, but needed to get beyond data validation.
+      # Only shipping for x86_64
       default: rhel-9-for-x86_64-rt-rpms__9_DOT_4
-      aarch64: rhel-9-for-x86_64-rt-rpms__9_DOT_4
-      ppc64le: rhel-9-for-x86_64-rt-rpms__9_DOT_4
-      s390x: rhel-9-for-x86_64-rt-rpms__9_DOT_4
 
 default_image_build_method: osbs2
 image_build_log_scanner:
