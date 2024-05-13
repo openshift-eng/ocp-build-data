@@ -28,15 +28,3 @@ name: openshift/ose-agent-installer-orchestrator-rhel9
 payload_name: agent-installer-orchestrator
 owners:
 - ocp-agent-team@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    builder:
-    - stream: golang
-    member: openshift-enterprise-base
-  name: openshift/ose-agent-installer-orchestrator
