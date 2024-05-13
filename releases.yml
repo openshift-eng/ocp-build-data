@@ -19,6 +19,11 @@ releases:
         upgrades: 4.15.11,4.15.12,4.15.13,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0
       members:
         images:
+        - distgit_key: aws-kms-encryption-provider
+          metadata:
+            is:
+              nvr: 	aws-kms-encryption-provider-container-v4.16.0-202405101842.p0.gda90fb7.assembly.stream.el9
+          why: Image wasn't yet built at nightly cut-off
         - distgit_key: azure-kms-encryption-provider
           metadata:
             is:
