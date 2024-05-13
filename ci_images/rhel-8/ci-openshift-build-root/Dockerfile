@@ -28,10 +28,10 @@ RUN set -euxo pipefail && \
     /tmp/install_etcd.sh "3.5.10"
 
 RUN CI_PINNED_GIT_VERSION="git-2.31.1" && \
-    echo "Uninstalling any pre-existing git to ensure that we install ${CI_PINNED_GIT_VERSION}" && yum remove -y git || true && \
+    echo "Uninstalling any pre-existing git to ensure that we install ${CI_PINNED_GIT_VERSION}" && dnf remove --noautoremove -y git || true && \
     INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc ${CI_PINNED_GIT_VERSION} glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build" && \
-    yum install -y $INSTALL_PKGS && \
-    yum clean all && \
+    dnf install -y $INSTALL_PKGS && \
+    dnf clean all && \
     touch /os-build-image && \
     git config --system user.name origin-release-container && \
     git config --system user.email origin-release@redhat.com
