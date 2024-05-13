@@ -25,13 +25,3 @@ labels:
 name: openshift/ose-egress-http-proxy-rhel9
 owners:
 - aos-network-edge@redhat.com
-alternative_upstream:
-- when: el8
-  distgit:
-    branch: rhaos-{MAJOR}.{MINOR}-rhel-8
-  enabled_repos:
-  - rhel-8-baseos-rpms
-  - rhel-8-appstream-rpms
-  from:
-    member: openshift-enterprise-base
-  name: openshift/ose-egress-http-proxy
