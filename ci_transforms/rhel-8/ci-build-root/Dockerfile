@@ -10,6 +10,11 @@ FROM replaced-by-buildconfig
 # trouble than it is worth and should not be need to catch actual FIPS issues.
 ENV GO_COMPLIANCE_POLICY=exempt_all
 
+# Turn off information for CI environment. This is usually just noise for upstream
+# engineers and can complicate debug. When issues arise, have repos export
+# GO_COMPLIANCE_INFO=1 or GO_COMPLIANCE_DEBUG=1 before running go.
+ENV GO_COMPLIANCE_INFO=0
+
 # Install, matching upstream k8s, protobuf-3.x, see:
 # https://github.com/kubernetes/kubernetes/blob/master/hack/lib/protoc.sh
 # and etcd, see:
