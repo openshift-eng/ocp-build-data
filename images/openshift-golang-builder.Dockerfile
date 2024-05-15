@@ -6,7 +6,7 @@ ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     GOFLAGS='-mod=vendor' \
     GOPATH=${GOPATH:-/go} \
     GOMAXPROCS=8 \
-    VERSION="1.21" \
+    VERSION="1.22" \
     GO_VERSION="${__doozer_version:-$VERSION}" \
     GODEBUG="disablethp=1"
 
