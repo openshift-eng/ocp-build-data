@@ -62,6 +62,16 @@ releases:
             is:
               nvr: ose-baremetal-installer-container-v4.15.0-202405141637.p0.g147d242.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-kubernetes-nmstate-operator
+          metadata:
+            is:
+              nvr: ose-kubernetes-nmstate-operator-container-v4.15.0-202405150336.p0.g5101edd.assembly.stream.el9
+          why: Fixes incorrect bundle references issue
+        - distgit_key: ose-metallb-operator
+          metadata:
+            is:
+              nvr: ose-metallb-operator-container-v4.15.0-202405150336.p0.g359620b.assembly.stream.el9
+          why: Fixes incorrect bundle references issue
         rpms:
         - distgit_key: microshift
           why: Pin microshift to assembly
