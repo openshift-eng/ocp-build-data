@@ -67,7 +67,12 @@ releases:
             is:
               nvr: ovn-kubernetes-microshift-container-v4.14.0-202405150508.p0.g4f1ff16.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.26-202405161033.p0.ge2b5809.assembly.4.14.26.el9
       rhcos:
         machine-os-content:
           images:
