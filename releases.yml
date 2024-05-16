@@ -15,6 +15,11 @@ releases:
           metadata: 125776
           microshift: 125777
           rpm: 125779
+        dependencies:
+          rpms:
+          - el9: cri-o-1.29.4-7.rhaos4.16.gitcd4256e.el9
+            why: "pin what's in rhcos"
+            non_gc_tag: "Build will be shipped via advisory and therefore will not be gc'd"
         release_jira: ART-8573
         upgrades: 4.15.11,4.15.12,4.15.13,4.15.14,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1
       members:
