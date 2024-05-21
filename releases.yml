@@ -51,6 +51,36 @@ releases:
             is:
               nvr: ose-baremetal-installer-container-v4.16.0-202405140946.p0.g662d011.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-smb-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-smb-csi-driver-operator-container-v4.16.0-202405161711.p0.ga82a211.assembly.stream.el9
+          why: Fixes verify-attached-operator error
+        - distgit_key: ose-smb-csi-driver
+          metadata:
+            is:
+              nvr: ose-smb-csi-driver-container-v4.16.0-202405161711.p0.gff97707.assembly.stream.el9
+          why: Fixes verify-attached-operator error
+        - distgit_key: kube-rbac-proxy
+          metadata:
+            is:
+              nvr: kube-rbac-proxy-container-v4.16.0-202405161711.p0.g8ea2c99.assembly.stream.el9
+          why: Fixes verify-attached-operator error
+        - distgit_key: csi-node-driver-registrar
+          metadata:
+            is:
+              nvr: csi-node-driver-registrar-container-v4.16.0-202405161711.p0.g8930c36.assembly.stream.el9
+          why: Fixes verify-attached-operator error
+        - distgit_key: csi-livenessprobe
+          metadata:
+            is:
+              nvr: csi-livenessprobe-container-v4.16.0-202405161711.p0.gf5e3ff5.assembly.stream.el9
+          why: Fixes verify-attached-operator error
+        - distgit_key: csi-provisioner
+          metadata:
+            is:
+              nvr: csi-provisioner-container-v4.16.0-202405161711.p0.g9e8af01.assembly.stream.el9
+          why: Fixes verify-attached-operator error
         rpms: []
       rhcos:
         rhel-coreos:
