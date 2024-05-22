@@ -61,6 +61,12 @@ RUN export GOPROXY="https://ocp-artifacts.hosts.prod.psi.rdu2.redhat.com:9443" &
     curl --fail -L -k $GHPROXY_PREFIX/golang/dep/releases/download/v0.5.4/dep-linux-amd64 > /usr/bin/dep && \
     chmod +x /usr/bin/dep
 
+# make go related directories writeable since builds in CI will run as non-root. go install
+# may have created new directories.
+RUN mkdir -p $GOPATH && \
+    chmod g+xw -R $GOPATH && \
+    chmod g+xw -R $(go env GOROOT)
+
 # Some image building tools don't create a missing WORKDIR
 RUN mkdir -p /go/src/github.com/openshift/origin
 WORKDIR /go/src/github.com/openshift/origin
