@@ -8,6 +8,13 @@ content:
       web: https://github.com/openshift/prometheus-operator
     ci_alignment:
       streams_prs:
+        auto_label:
+        - approved
+        - backport-risk-assessed
+        - bugzilla/valid-bug
+        - cherry-pick-approved
+        - lgtm
+        - staff-eng-approved
         ci_build_root:
           stream: rhel-9-golang-ci-build-root
 distgit:
