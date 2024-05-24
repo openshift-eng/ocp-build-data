@@ -20,8 +20,6 @@
 ####################################################################################################
 
 rhel-8-golang-1.21:
-  aliases:
-  - rhel-8-golang-{GO_PREVIOUS}
   image: openshift/golang-builder:v1.21.7-202403061535.el8.g1ac3e39.el8
   mirror: true
   transform: rhel-8/golang
@@ -33,8 +31,6 @@ rhel-8-golang-1.21:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.21:
-  aliases:
-  - rhel-9-golang-{GO_PREVIOUS}
   image: openshift/golang-builder:v1.21.7-202403061534.el9.gab74a9a.el9
   mirror: true
   transform: rhel-9/golang
@@ -84,6 +80,20 @@ ibm-rhel-8-golang-1.21:
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-9-golang-1.22:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.22.1-202404151500.g8dc5a64.el9
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-8-golang-1.22:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.22.2-202405221448.gd58751c.el8
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
 
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
