@@ -29,6 +29,9 @@ releases:
               nvr: openshift-enterprise-console-container-v4.13.0-202405291507.p0.g274d053.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: backported bugs are not yet attached to 4.14.28
       rhcos:
         machine-os-content:
           images:
