@@ -59,6 +59,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:acd030e6cf6dad4d67a6fc26211e1084c776ecfdb275c5560f48a8b4ea6b06c0
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cdb49ee6397ef7acb760fc537a0510632965310ac68c2bdffdfda6e4530346e2
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:de9b49ff3e9d233a910391593b3031d6e85703bf927f1b407cd31603a7e1e22b
+      promotion_permits:
+      - code: BLOCKER_BUGS
+        why: fix for blocker bug OCPBUGS-34076 is in this release
       type: standard
 
   4.14.27:
