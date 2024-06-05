@@ -617,10 +617,11 @@ check_golang_versions: "exact"
 canonical_builders_from_upstream: False
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
-# If it will ship via errata (state=release), we want to build signed.
+# If it will ship via errata (state=signing), we want to build signed.
 # For early access without an errata (state=pre-release), that is not required
+# Setting state=release should be done only after GA, as this will trigger blocker bugs checks.
 software_lifecycle:
-  phase: release
+  phase: signing
 
 external_scanners:
   sast_scanning:
