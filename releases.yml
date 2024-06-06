@@ -680,7 +680,12 @@ releases:
             is:
               nvr: baremetal-machine-controller-container-v4.15.0-202406052127.p0.g73a72cc.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.17-202406061358.p0.gce674dd.assembly.4.15.17.el9
       rhcos:
         machine-os-content:
           images:
