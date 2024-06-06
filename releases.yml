@@ -1,4 +1,66 @@
 releases:
+  4.14.29:
+    assembly:
+      basis:
+        brew_event: 58372826
+        reference_releases:
+          aarch64: 4.14.0-0.nightly-arm64-2024-06-06-030743
+          ppc64le: 4.14.0-0.nightly-ppc64le-2024-06-06-030742
+          s390x: 4.14.0-0.nightly-s390x-2024-06-06-030740
+          x86_64: 4.14.0-0.nightly-2024-06-06-030739
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28
+      members:
+        images:
+        - distgit_key: ose-baremetal-installer
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.14.0-202406052129.p0.g43b6d9d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.14.0-202406052129.p0.g43b6d9d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-artifacts
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.14.0-202406052129.p0.g43b6d9d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-machine-os-images
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.14.0-202406052129.p0.gd3a4a6c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:be5d6f53ff403b12e77056cd983826d1e03bd291a644ef8e8d331865143c04d1
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8b64f8f2cda9e93315dba1b62f447fbff22a322478747fb053d72e652fef1f55
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e552f4c38bc8749f96598fa79a0b73b6c6d774932f3e9892ebf35e270346224
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e77c2b75fa906f8066a61e384720a80cdb11413993b56fe7102312fd63037f13
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:67b0290e664ac5ac4f8de3ed84ddd760d630b2a30acc5b214a466c89bf59dbfb
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a7321f01f9a8074a4dffdaf25047298e0cbd724cfc180df344e4406df8dfc53d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ffebb5c903f8b56be9e3792eb191dbb0844e0a89b050aa917c4945496571568
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:17322272aab465e79d2e1f76240310ce9c7a52e68266dcd93949e58681ff1b50
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:df86cb5bd4e83e790bc3edacb268ba6b8383a1280bc415707ab3f577f3953586
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:be339fe29942946ef9b2f2bdeda752f22f09f876018104406915a7eba9141dfe
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e2d8852dbb99b8dc18571e3a7dd26c1b279b2b568efec4c80943fd4c2b734ed3
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:39fc73b3f0a83bc94183cf8c1c3e42a7daf24197e1bcd45e0faf5cb901f0d1b9
+      type: standard
+
   4.14.28:
     assembly:
       basis:
