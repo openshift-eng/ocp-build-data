@@ -47,7 +47,12 @@ releases:
             is:
               nvr: ose-machine-os-images-container-v4.14.0-202406052129.p0.gd3a4a6c.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.29-202406061921.p0.ga80609b.assembly.4.14.29.el9
       rhcos:
         machine-os-content:
           images:
