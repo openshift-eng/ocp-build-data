@@ -1,5 +1,84 @@
 releases:
 
+  ec.0:
+    assembly:
+      basis:
+        brew_event: 58352304
+        reference_releases:
+          x86_64: 4.17.0-0.nightly-2024-06-05-034505
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          prerelease: -1
+          rpm: -1
+        operator_index_mode: pre-release
+        release_jira: ART-0
+        upgrades: 4.16.0-rc.3
+      members:
+        images:
+        - distgit_key: ose-machine-os-images
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.17.0-202406050012.p0.g9e76dac.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-altinfra
+          metadata:
+            is:
+              nvr: ose-installer-altinfra-container-v4.17.0-202406050012.p0.g7534f9b.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-openstack-cinder-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-openstack-cinder-csi-driver-operator-container-v4.17.0-202406050012.p0.g81e16ff.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.17.0-202406050012.p0.g859518f.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-baremetal-installer
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.17.0-202406050012.p0.g7534f9b.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: hypershift
+          metadata:
+            is:
+              nvr: ose-hypershift-container-v4.17.0-202406050012.p0.gbe9e3f8.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: monitoring-plugin
+          metadata:
+            is:
+              nvr: monitoring-plugin-container-v4.17.0-202406050012.p0.gd731be6.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-artifacts
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.17.0-202406050012.p0.g7534f9b.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.17.0-202406050012.p0.g7534f9b.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.17.0-202406050012.p0.gd705546.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:066b6a106c9d9dbd5f36de330eb4ce60afe5dfd35faf503f1ba58b1eb4508fa4
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:da2ad984b643196b931de91a22410e78202834aa50792dbb948a4b3461392695
+      type: preview
+
   stream:
     assembly:
       type: stream
