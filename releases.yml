@@ -83,7 +83,16 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f3f5a6cd9b5a4741f48d7a981562bddb449ca68e93b5f71b14266fc2f988f945
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6a5abc89ba2539b76cf7f19ab30aeb83907a520a34577a61d1186107da6952f3
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:da2ad984b643196b931de91a22410e78202834aa50792dbb948a4b3461392695
-
+      permits:
+      - code: FAILED_CONSISTENCY_REQUIREMENT
+        component: driver-toolkit
+        # why: this was adjusted after the candidate nightlies were selected, so permit for this release
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: rhcos
+        # why: rpms are not sourced from our candidate tags but rhel 9.4
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+        # why: permit because it is permitted for nightlies
       type: preview
 
   stream:
