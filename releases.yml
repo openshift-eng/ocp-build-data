@@ -91,7 +91,12 @@ releases:
             is:
               nvr: openshift-enterprise-haproxy-router-container-v4.16.0-202406061206.p0.g4d9b8c4.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~rc.4-202406071411.p0.g061ebb0.assembly.rc.4.el9
       rhcos:
         rhel-coreos:
           images:
