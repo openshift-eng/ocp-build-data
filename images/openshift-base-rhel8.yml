@@ -22,6 +22,9 @@ content:
       # rpms for the appropriate release.
       transform: rhel-8/base-repos
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-base-openshift-{MAJOR}.{MINOR}
+    okd_alignment:
+      resolve_as:
+        stream: centos_stream8
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-base-rhel8-container

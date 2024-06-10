@@ -13,6 +13,9 @@ content:
       transform: rhel-9/base-repos
       upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}.art
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}
+    okd_alignment:
+      resolve_as:
+        image: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-base-nodejs-container

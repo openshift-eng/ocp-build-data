@@ -39,6 +39,13 @@ content:
       # a little sketchy, but I believe the reward is a significant improvement in CI
       # signal fidelity.
       upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base
+    okd_alignment:
+      # The tag name in the okd stream to which this image should be promoted
+      tag_name: base-stream8
+      inject_rpm_repositories:
+      - id: rhel-8-server-ose
+        baseurl: http://base-{MAJOR}-{MINOR}-rhel8.ocp.svc/rhel-8-server-ose
+
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-enterprise-base-container
