@@ -114,6 +114,11 @@ releases:
         component: local-storage-mustgather
       members:
         images:
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.17.0-202406101017.p0.g859518f.assembly.stream.el9
+          why: Test to pin the latest verion of driver-toolkit-container. Pinning to replicate.        
         - distgit_key: '*'
           why: Exclude rpm updates that should not cause mass rebuilds
           metadata:
