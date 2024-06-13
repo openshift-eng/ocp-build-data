@@ -1,4 +1,66 @@
 releases:
+  4.15.18:
+    assembly:
+      basis:
+        brew_event: 58491430
+        reference_releases:
+          aarch64: 4.15.0-0.nightly-arm64-2024-06-12-223752
+          ppc64le: 4.15.0-0.nightly-ppc64le-2024-06-12-223749
+          s390x: 4.15.0-0.nightly-s390x-2024-06-12-223750
+          x86_64: 4.15.0-0.nightly-2024-06-12-223752
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.15.10,4.15.11,4.15.12,4.15.13,4.15.14,4.15.15,4.15.16,4.15.17
+      members:
+        images:
+        - distgit_key: ose-machine-os-images
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.15.0-202406121536.p0.g9e9c920.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-artifacts
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.15.0-202406121536.p0.gc7b19d0.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-baremetal-installer
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.15.0-202406121536.p0.gc7b19d0.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.15.0-202406121536.p0.gc7b19d0.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7e661a7441754b0db25d129561063907ccad685738a25b3491b4168a07b6805e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4b3ba91a6d287556b9a905e0b2307a86d20aa76558df515215efc070031b2645
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:efdd108065c6816ea1340cd09578d6afc8a7613bed9df17595859f9d87345b8d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c3b057909b3da994901dd34a2fa6c8ee4ef3a2b8172f8dc36395b6750b83a711
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1d198d8b9df0b55aa02e5e3d5d4882f0096bdf19ae19a20804f8b3e8ea6ceac7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:94d56e8be6598650d43d013cb287532379a7cee51b27f0869df22352dcc5e73a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3fbf5427416df119dd0145c2818c7c45fd676f0232b938be3aaa6b41b3876414
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6e03d18609c240daf247efeaff860962b4f956c0ccbf13af0244c299ac99227f
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9bf65fc78bb5d0272d1302c76d769522d0999dcf6348621ef42e551d69b6c73c
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5c0b541af056e10755a0bdfba472595bc7d98acae100345aee59ab41e5821522
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7b7df7de059a143b6e4be7e1ecee57968fcbc33c1bf96f9ade1e7fca5e4afb3a
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6958e3df55df60a27b6a116f619061e51bc82f384b04642de77cd8894d87af68
+      type: standard
+
   4.15.17:
     assembly:
       basis:
