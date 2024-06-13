@@ -1,4 +1,60 @@
 releases:
+  4.13.44:
+    assembly:
+      basis:
+        brew_event: 58474796
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2024-06-12-032513
+          ppc64le: 4.13.0-0.nightly-ppc64le-2024-06-12-032512
+          s390x: 4.13.0-0.nightly-s390x-2024-06-12-032513
+          x86_64: 4.13.0-0.nightly-2024-06-12-074717
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.13.15,4.13.16,4.13.17,4.13.18,4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43
+      members:
+        images:
+        - distgit_key: cluster-node-tuning-operator
+          metadata:
+            is:
+              nvr: cluster-node-tuning-operator-container-v4.13.0-202406120208.p0.g3ed7876.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: operator-registry
+          metadata:
+            is:
+              nvr: operator-registry-container-v4.13.0-202406112237.p0.g81e34cb.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.13.0-202406112237.p0.gdc7be0c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:19856c198110aa737343f19a2d780f35f81f15cb2083114c1470874c086344d4
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c50837b89f56bbb0826b03436a4a5e08fe2820ecd01a776371378b97447b94bd
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1ce45d7f0f79879907c0e80a7ddf6b8683c7704d2ee310eab19b707d669a3699
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4d1e85f2052eb045083709f3d72b5cd4b6c5d2afdb81f6720c4d848b7a94c651
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1e628d813dc172585c78d1581e0f4dddc5b2d04bc54d2ffef797a683af71b90e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cebac17678d580c28dea631fc83e604a1d72a497e0595a2971719c3962a32647
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:592d5ea04147d44a88855cf6d4ecccbbebe50bb00eec4cb8833410e9d0b7ee3b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d0ce18e674a24ceb5b02a9acc388bb273804a85ffdbb6a8aeb7ba04922a57cb4
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3a91a39aee5dd8df774fe7e8826d061e1adf8639ef7bb3a69f1431fffc5bef53
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d5aa9d8c5f626a4bb70adaf3d4befe8834e9de51549801534e9eda5dd259dd49
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5aaff8e416fa9eabb2b8c20bf519381f7fb7c0ce2b937eff2a55b91eb14220d3
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f615aadacb266c6b7727eec27d068fe7d31253dc229ae64085339587a4f3656c
+      type: standard
+
   4.13.43:
     assembly:
       basis:
