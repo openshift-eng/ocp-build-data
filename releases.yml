@@ -24,7 +24,12 @@ releases:
             is:
               nvr: marketplace-operator-container-v4.14.0-202406121408.p0.g3ca78f1.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.30-202406131125.p0.ge73f6af.assembly.4.14.30.el9
       rhcos:
         machine-os-content:
           images:
