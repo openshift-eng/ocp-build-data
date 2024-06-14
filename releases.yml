@@ -78,6 +78,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0bcdb410f95a614c7b5f6d83daeda8c519b1d52998c0f69e6255b67da21d8e56
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:750e861ea4045456207dd265d1bbf6763c79eef9715ecbef26deb43f32a3e228
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:18029728f15124da250a8ba249643decfd8197dcd5202e207710913ee6bede61
+      permits:
+      - code: MISSING_SHIP_OK_TAG
+        # why: kernel team is not applying ship_ok now see: ART-9556
+        component: '*'
       type: candidate
 
   rc.4:
