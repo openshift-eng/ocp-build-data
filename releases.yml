@@ -20,6 +20,9 @@ releases:
         # operator_index_mode: pre-release
         release_jira: ART-8573
         upgrades: 4.15.17,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3
+      issues:
+        exclude:
+        - id: OCPBUGS-23825 # image is removed from 4.16
       members:
         images:
         - distgit_key: ose-ovn-kubernetes
