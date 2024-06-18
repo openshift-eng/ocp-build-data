@@ -1,4 +1,48 @@
 releases:
+  rc.6:
+    assembly:
+      type: candidate
+      basis:
+        assembly: "rc.5"
+        reference_releases!: {}
+      group:
+        upgrades: 4.15.18,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3,4.16.0-rc.4,4.16.0-rc.5
+      issues:
+        include:
+        - id: OCPBUGS-35706
+      members:
+        images:
+        - distgit_key: ose-installer
+          why: Fix for OCPBUGS-35706
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.16.0-202406180107.p0.g0dc3033.assembly.stream.el9
+        - distgit_key: ose-installer-artifacts
+          why: Fix for OCPBUGS-35706
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.16.0-202406180107.p0.g0dc3033.assembly.stream.el9
+        - distgit_key: ose-installer-altinfra
+          why: Fix for OCPBUGS-35706
+          metadata:
+            is:
+              nvr: ose-installer-altinfra-container-v4.16.0-202406180107.p0.g0dc3033.assembly.stream.el9
+        - distgit_key: ose-baremetal-installer
+          why: Fix for OCPBUGS-35706
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.16.0-202406180107.p0.g0dc3033.assembly.stream.el9
+        - distgit_key: ose-installer-terraform-providers
+          why: Fix for OCPBUGS-35706
+          metadata:
+            is:
+              nvr: ose-installer-terraform-providers-container-v4.16.0-202406180107.p0.g0dc3033.assembly.stream.el9
+        - distgit_key: ose-machine-os-images
+          why: Fix for OCPBUGS-35706, indirect dependency
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.16.0-202406180107.p0.g3cc9709.assembly.stream.el9
+
   rc.5:
     assembly:
       basis:
