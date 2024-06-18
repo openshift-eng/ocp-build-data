@@ -11,6 +11,7 @@ releases:
         include:
         - id: OCPBUGS-35706
         - id: OCPBUGS-35291
+        - id: OCPBUGS-35503
       members:
         images:
         - distgit_key: ose-installer
@@ -58,6 +59,11 @@ releases:
           metadata:
             is:
               nvr: ose-machine-config-operator-container-v4.16.0-202406150005.p0.ge03a9a4.assembly.stream.el9
+        - distgit_key: ose-cluster-baremetal-operator
+          why: Fix for OCPBUGS-35503
+          metadata:
+            is:
+              nvr: ose-cluster-baremetal-operator-container-v4.16.0-202406181505.p0.g9fd6418.assembly.stream.el9
         rpms:
         - distgit_key: openshift
           why: Fix for OCPBUGS-35291
