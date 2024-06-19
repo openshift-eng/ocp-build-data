@@ -113,8 +113,8 @@ etcd_rhel9_golang:
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
   # it is important that we not build from unreleased builds and publish them.
-  # rhel-els-container-8.6-921
-  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:ae88d68c3ba828bfac144a6561f9300af68fc5d6f332785e10e845cc2a48b2a3
+  # ubi8-container-8.10-901.1717584420
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8@sha256:143123d85045df426c5bbafc6863659880ebe276eb02c77ee868b88d08dbd05d
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
