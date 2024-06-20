@@ -1,4 +1,66 @@
 releases:
+  4.14.31:
+    assembly:
+      basis:
+        brew_event: 58583794
+        reference_releases:
+          aarch64: 4.14.0-0.nightly-arm64-2024-06-19-065658
+          ppc64le: 4.14.0-0.nightly-ppc64le-2024-06-19-065656
+          s390x: 4.14.0-0.nightly-s390x-2024-06-19-065656
+          x86_64: 4.14.0-0.nightly-2024-06-19-070718
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30
+      members:
+        images:
+        - distgit_key: hypershift
+          metadata:
+            is:
+              nvr: ose-hypershift-container-v4.14.0-202406190339.p0.g8951024.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.14.0-202406190107.p0.gcafed17.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-control-plane-machine-set-operator
+          metadata:
+            is:
+              nvr: ose-cluster-control-plane-machine-set-operator-container-v4.14.0-202406182355.p0.gffbc628.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ironic-rhcos-downloader
+          metadata:
+            is:
+              nvr: ironic-rhcos-downloader-container-v4.14.0-202406190107.p0.g7b56c30.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cac7d4d554419af865cc97d1a4b025cf968fbc807cf30befaa5ef455dac469d4
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f9a46e898dd6758326216998283239bf6c6422d7dca521d5ba41ddef7dd9f557
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c1c013f23b16efba3505587e7f5a44738b2ff6588d3498d99f0b926f3c96bb4e
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b6a52cb0874af05a2cf878c00297415b0a6e8dc96a7afe8782d9acfc3b2a961c
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:68e9682a0cd4e47669cac353c3010bffe53226be7ee32aa4841ecbfa7c8aa03d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3f209ab936355112c0454596042d9a0063c4ad0e4687c87306b792934068d534
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a179cbfbb28b14880da298e681f2f8e674a498cfb8e2e3460c2f3bf18a075f27
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5e1dbd22e909ac072175936beac9c03531dec7ea2d99cfd5bd0b252d8a212bcc
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d8275c828e4bbf107aa83ab573d0df7a89fb221befe191c6b5525a8a66cfde04
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4a28af2743b215e0d5c91d62bd69293b6afb7c613534e4b50c692a7c9c24038b
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:719227a126494f53255c7e3d942739696fefc8883170526206c178736911bbc4
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:07ffd7328de9eadb7d0be95275ad3ef5a36d3884a2a91e87fa987e317a7103a1
+      type: standard
+
   4.14.30:
     assembly:
       basis:
