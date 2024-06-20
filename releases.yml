@@ -39,7 +39,12 @@ releases:
             is:
               nvr: ironic-rhcos-downloader-container-v4.14.0-202406190107.p0.g7b56c30.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.31-202406200829.p0.gf6744fa.assembly.4.14.31.el9
       rhcos:
         machine-os-content:
           images:
