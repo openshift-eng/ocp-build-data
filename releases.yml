@@ -14,6 +14,11 @@ releases:
           rpm: 125779
         release_jira: ART-8573
         upgrades: 4.15.18,4.15.19,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3,4.16.0-rc.4,4.16.0-rc.5,4.16.0-rc.6
+        dependencies:
+          rpms:
+          - el9: ovn24.03-24.03.2-19.el9fdp
+            why: Pin rpm dependency for OCPBUGS-35835
+            non_gc_tag: rhaos-4.16-rhel-9
       issues:
         include:
         - id: OCPBUGS-35835
