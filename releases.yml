@@ -34,7 +34,12 @@ releases:
           metadata:
             is:
               nvr: ovn-kubernetes-microshift-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0~rc.8-202406211518.p0.gc5a37df.assembly.rc.8.el9
   rc.7:
     assembly:
       type: candidate
