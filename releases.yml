@@ -4,7 +4,7 @@ releases:
       type: candidate
       basis:
         assembly: "rc.6"
-        reference_releases!: { }
+        reference_releases!: {}
       group:
         advisories:
           extras: 125774
@@ -16,14 +16,14 @@ releases:
         upgrades: 4.15.18,4.15.19,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3,4.16.0-rc.4,4.16.0-rc.5,4.16.0-rc.6
       issues:
         include:
-          - id: OCPBUGS-35835
+        - id: OCPBUGS-35835
       members:
         images:
-          - distgit_key: ovn-kubernetes-base
-            why: Fix for OCPBUGS-35835
-            metadata:
-              is:
-                nvr: ose-ovn-kubernetes-base-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
+        - distgit_key: ovn-kubernetes-base
+          why: Fix for OCPBUGS-35835
+          metadata:
+            is:
+              nvr: ose-ovn-kubernetes-base-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
         rpms: []
       rhcos:
         rhel-coreos:
