@@ -1,4 +1,40 @@
 releases:
+  rc.8:
+    assembly:
+      type: candidate
+      basis:
+        assembly: "rc.6"
+        reference_releases!: { }
+      group:
+        advisories:
+          extras: 125774
+          image: 125775
+          metadata: 125776
+          microshift: 125777
+          rpm: 125779
+        release_jira: ART-8573
+        upgrades: 4.15.18,4.15.19,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3,4.16.0-rc.4,4.16.0-rc.5,4.16.0-rc.6
+      issues:
+        include:
+          - id: OCPBUGS-35835
+      members:
+        images:
+          - distgit_key: ovn-kubernetes-base
+            why: Fix for OCPBUGS-35835
+            metadata:
+              is:
+                nvr: ose-ovn-kubernetes-base-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
+          - distgit_key: ose-ovn-kubernetes
+            why: Fix for OCPBUGS-35835
+            metadata:
+              is:
+                nvr: ose-ovn-kubernetes-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
+          - distgit_key: ovn-kubernetes-microshift
+            why: Fix for OCPBUGS-35835
+            metadata:
+              is:
+                nvr: ovn-kubernetes-microshift-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
+        rpms: [ ]
   rc.7:
     assembly:
       type: candidate
