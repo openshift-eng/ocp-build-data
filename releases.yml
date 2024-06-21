@@ -1,4 +1,43 @@
 releases:
+  rc.7:
+    assembly:
+      type: candidate
+      basis:
+        assembly: "rc.6"
+        reference_releases!: { }
+      group:
+        advisories:
+          extras: 125774
+          image: 125775
+          metadata: 125776
+          microshift: 125777
+          rpm: 125779
+        release_jira: ART-8573
+        upgrades: 4.15.18,4.15.19,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3,4.16.0-rc.4,4.16.0-rc.5,4.16.0-rc.6
+      issues:
+        include:
+          - id: OCPBUGS-35835
+      members:
+        images:
+          - distgit_key: ovn-kubernetes-base
+            why: Fix for OCPBUGS-35835
+            metadata:
+              is:
+                nvr: ose-ovn-kubernetes-base-container-v4.16.0-202406211007.p0.g8a97437.assembly.stream.el9
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:55cecc473f55e64803db55f0e8d44f18883696cda237f41bd1db92f2badfae04
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:855710931125b2ea68091809f70c82257e979d0cd04debd262fc5639af5a5b75
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5658d44785ddf53df4cf6a6dde838edc5a52719520c81ed50379b8242d2bd8e7
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eaa7835f2ec7d2513a76e30a41c21ce62ec11313fab2f8f3f46dd4999957a883
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0cde5075669463f0d79a4f07188fc5fa65e95ffb0702583290aaf84b60ab4aa7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f9bdb07da1ce538462ae83e9c739fa29e494eb82711c9d98a18bab56b92267e0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f6927a25acde3baded408e9b21f85b527138ed53401f584b841d5d2a53d5a734
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:187be439d39bbf12201dc98a198b399d0ef819ae472b27808153824d16b6f09c
   rc.6:
     assembly:
       type: candidate
