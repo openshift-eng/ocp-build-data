@@ -4,7 +4,7 @@ releases:
       type: standard
       basis:
         assembly: "rc.9"
-        reference_releases!: { }
+        reference_releases!: {}
       group:
         advisories:
           extras: 125774
@@ -14,6 +14,13 @@ releases:
           rpm: 125779
         release_jira: ART-8573
         upgrades: 4.15.18,4.16.0-ec.1,4.16.0-ec.2,4.16.0-ec.3,4.16.0-ec.4,4.16.0-ec.5,4.16.0-ec.6,4.16.0-rc.0,4.16.0-rc.1,4.16.0-rc.2,4.16.0-rc.3,4.16.0-rc.4,4.16.0-rc.5,4.16.0-rc.6,4.16.0-rc.9
+      members:
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.0-202406260523.p0.gc5a37df.assembly.4.16.0.el9
   rc.9:
     assembly:
       type: candidate
