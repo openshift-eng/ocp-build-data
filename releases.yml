@@ -20,8 +20,18 @@ releases:
         operator_index_mode: pre-release
         release_jira: ART-9847
         upgrades: 4.16.0,4.17.0-ec.0
+      permits:
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: rhcos
       members:
         images:
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.17.0-202406101017.p0.g859518f.assembly.stream.el9
+          why: pin the latest verion of driver-toolkit-container. Pinning to replicate.
         - distgit_key: ose-machine-os-images
           metadata:
             is:
