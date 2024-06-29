@@ -1,10 +1,6 @@
 content:
   source:
     dockerfile: images/installer-altinfra/Dockerfile.ci
-    modifications:
-      - action: replace
-        match: 'ARG OPENSHIFT_INSTALL_CLUSTER_API=""'
-        replacement: 'ARG OPENSHIFT_INSTALL_CLUSTER_API="y"'
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
