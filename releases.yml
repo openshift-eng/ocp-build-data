@@ -2314,10 +2314,13 @@ releases:
       permits:
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
-      # why: default permit
+        # why: default permit
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
-      # why: default permit
+        # why: default permit
+      - code: FAILED_CONSISTENCY_REQUIREMENT
+        component: driver-toolkit
+        # why: Let's not be blocked by this for nightlies
       members:
         images:
         - distgit_key: '*'
