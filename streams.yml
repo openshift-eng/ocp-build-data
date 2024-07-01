@@ -48,7 +48,7 @@ rhel-9-golang-1.21:
 rhel-9-golang:
   aliases:
   - rhel-9-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.22.4-202406271838.g4c8b32d.el9
+  image: openshift/golang-builder:v1.22.4-202407012208.g4c8b32d.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -87,7 +87,7 @@ ibm-rhel-8-golang-1.21:
 
 ibm-rhel-9-golang-1.22:
   # Mirror non-embargoed golang builders for IBM
-  image: openshift/golang-builder:v1.22.4-202406271838.g4c8b32d.el9
+  image: openshift/golang-builder:v1.22.4-202407012208.g4c8b32d.el9
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
