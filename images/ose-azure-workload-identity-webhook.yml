@@ -8,7 +8,8 @@ content:
       url: git@github.com:openshift-priv/azure-workload-identity.git
       branch:
         target: release-{MAJOR}.{MINOR}
-    dockerfile: Dockerfile.rhel7
+    dockerfile: Dockerfile.ocp
+    dockerfile_fallback: Dockerfile.rhel7
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-azure-workload-identity-webhook-container
