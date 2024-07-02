@@ -3,7 +3,8 @@ arches:
 - aarch64
 content:
   source:
-    dockerfile: Dockerfile.rhel7
+    dockerfile: Dockerfile.ocp
+    dockerfile_fallback: Dockerfile.rhel7
     git:
       branch:
         target: release-{MAJOR}.{MINOR}

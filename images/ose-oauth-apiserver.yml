@@ -1,6 +1,7 @@
 content:
   source:
-    dockerfile: images/Dockerfile.rhel7
+    dockerfile: images/Dockerfile.ocp
+    dockerfile_fallback: images/Dockerfile.rhel7
     git:
       branch:
         target: release-{MAJOR}.{MINOR}

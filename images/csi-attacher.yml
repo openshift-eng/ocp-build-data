@@ -1,6 +1,7 @@
 content:
   source:
-    dockerfile: Dockerfile.openshift.rhel7
+    dockerfile: Dockerfile.ocp
+    dockerfile_fallback: Dockerfile.openshift.rhel7
     git:
       branch:
         target: release-{MAJOR}.{MINOR}

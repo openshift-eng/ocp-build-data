@@ -1,6 +1,7 @@
 content:
   source:
-    dockerfile: release/ansible/Dockerfile.rhel8
+    dockerfile: release/ansible/Dockerfile.ocp
+    dockerfile_fallback: release/ansible/Dockerfile.rhel8
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
