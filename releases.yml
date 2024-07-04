@@ -17,6 +17,9 @@ releases:
           rpm: 135561
         release_jira: ART-10055
         upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.16.0,4.16.1
+      promotion_permits:
+      - code: ATTACHED_BUGS
+        why: "Verified bug OCPBUGS-36451 is a backport of bug OCPBUGS-36450, which is for 4.16 GA."
       members:
         images:
         - distgit_key: ose-installer-altinfra
