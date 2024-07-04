@@ -44,7 +44,12 @@ releases:
             is:
               nvr: vmware-vsphere-syncer-container-v4.14.0-202407040439.p0.g0181d4f.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.14.32-202407041722.p0.g4f2c8e8.assembly.4.14.32.el9
       rhcos:
         machine-os-content:
           images:
