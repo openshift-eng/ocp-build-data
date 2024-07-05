@@ -1,11 +1,19 @@
-#!/bin/sh
+#!/bin/bash
+
+# *********************************************************
+# WARNING: issues in this script can break CI for an entire Z stream. When making changes, see "dnf_wrapper_test.Dockerfile" for information on how to test those changes.
+# *********************************************************
 
 ##########################################
-# The purpose of this script is to wrap yum/dnf invocations that are issued by CI workloads.
-# CI workloads needs access to RHEL and ART RPMs when they run, but they do not have direct
-# access to the Red Hat CDN or plashets. Instead, their requests must be proxied through
-# a content-mirroring service run on build-farms. The content mirror serves RPMs sourced
-# from backends like mriror.openshift.com/enterprise and the Red Hat CDN.
+# The purpose of this script is to wrap yum/dnf invocations that are issued by CI workloads or local docker builds of OCP components.
+# Both invocations need access to RHEL and ART RPMs during the build process if they are installing RPMS, but they do not have direct
+# access to the Red Hat CDN or plashets.
+# RPMS are made available in different ways depending on the way the container is being run.
+# 1. If the container is running as a build in OCP Test Platform, RPMs are obtained through the RPM mirroring service avaialble in CI.
+# 2. If the container is being run on an engineer's system with "podman build ...", then RPMs can be obtained from hosts accessible via the Red Hat VPN.
+# This script detects which mode is being used at runtime and installs different repository files in /etc/yum.repos.d depending on the mode.
+# When running as a pod in a CI build, the content RPM mirror serves RPMs sourced
+# from backends like mirror.openshift.com/enterprise and the Red Hat CDN.
 # The backends are configured in configuration files like:
 #    https://github.com/openshift/release/blob/ca8e034ced5fd4931175774f5eb0ba5b53d1c379/core-services/release-controller/_repos/ocp-4.11-rhel8.repo
 # curling the content mirroring service outputs a yum repo file with repositories
@@ -50,35 +58,51 @@ if [[ "${OPENSHIFT_CI:-}" != "true" ]]; then
   echoerr "OPENSHIFT_CI != true, so not executing in the expected environment - no repos will be changed."
 fi
 
-# Container hostnames will change every run, so this helps ensure we try
-# to acquire repo context when ever we start a new instance of the image.
+# Container hostnames will differ every run, so this helps ensure we try
+# to acquire repo context whenever we start a new instance of the image
+# even if /tmp is shared between containers.
 FIRST_RUN_MARKER="/tmp/first-dnf-wrapper-run-$(hostname)"
+
+# If we install repos appropriate for CI builds, they will reside here.
+ART_REPOS_PREFIX="/etc/yum.repos.d/art-rpm"
+CI_RPM_REPO_DEST="${ART_REPOS_PREFIX}-ci-svc-repos.repo"
+VPN_RPM_REPO_DEST="${ART_REPOS_PREFIX}-rh-vpn-repos.repo"
 
 if [[ ! -f "${FIRST_RUN_MARKER}" && "${SKIP_REPO_INSTALL}" == "0" ]]; then
   rm -rf /etc/yum.repos.d/*
 
-  INSTALL_ART_REPOS="0"
-  if [[ -n "${BUILD_LOGLEVEL:-}" ]]; then
-    # BUILD_LOGLEVEL is set by OpenShift builds. If we see it set, assume we are running on a build farm
-    # and we can find the RPM mirroring services.
-    if curl --fail "${CI_RPM_SVC}" > /etc/yum.repos.d/ci-rpm-mirrors.repo; then
-      echoerr "Installed CI repo definitions from ${CI_RPM_SVC}..."
-    else
-      echoerr "WARNING: Running inside kubernetes pod, but unable to query OpenShift Test Platform RPM mirror information from: ${CI_RPM_SVC}"
-      rm -f "/etc/yum.repos.d/ci-rpm-mirrors.repo"
-      INSTALL_ART_REPOS="1"
+  # When not running in CI (e.g. if an engineer is running a local docker build on a Dockerfile)
+  # we can try to use repos available within the Red Hat firewall. They are not meant for
+  # use in a CI pod, but allow engineers to access RHEL content/plashet content if they are connected
+  # to the VPN. INSTALL_ART_RH_VPN_REPOS will remain at "1" if we should install these VPN repos.
+  # If we instead find that the CI_RPM_SVC is available (this should be true only if
+  # we are running as a pod in OCP Test Platform CI, the VPN repos will not be installed.
+  INSTALL_ART_RH_VPN_REPOS="1"
+  echoerr "Checking for CI build pod repo definitions..."
+  for (( i=1; i<=5; i++ )); do
+    if curl --fail "${CI_RPM_SVC}" 2> /dev/null > ${CI_RPM_REPO_DEST}; then
+      echoerr "Installed CI build pod repo definitions from ${CI_RPM_SVC}..."
+      INSTALL_ART_RH_VPN_REPOS="0"
+      break
     fi
-  else
-    echoerr "Did not detect that this script is running in a kubernetes pod. Will not install CI repositories."
-    INSTALL_ART_REPOS="1"
-  fi
+    rm -f "${CI_RPM_REPO_DEST}"
+    sleep 1
+  done
 
-  if [[ "${INSTALL_ART_REPOS}" == "1" ]]; then
-    cp "${DNF_WRAPPER_DIR}/unsigned.repo" /etc/yum.repos.d/art-unsigned.repo
+  if [[ "${INSTALL_ART_RH_VPN_REPOS}" == "1" ]]; then
+    echoerr "Did not detect that this script is running in a CI build pod. Will not install CI repositories."
+    cp "${DNF_WRAPPER_DIR}/unsigned.repo" "${VPN_RPM_REPO_DEST}"
     echoerr "Installed repos that can be used when connected to the VPN."
   fi
 
   touch "${FIRST_RUN_MARKER}"
 fi
 
-$0.real "$@"
+EXTRA_DNF_ARGS=""
+if ls "${ART_REPOS_PREFIX}"* 1> /dev/null 2>&1; then
+  # If any ART repo files were populated, eliminate extraneous warnings by
+  # disabling RH subscription manager plugin.
+  EXTRA_DNF_ARGS="--disableplugin=subscription-manager"
+fi
+
+$0.real "${EXTRA_DNF_ARGS}" "$@"
