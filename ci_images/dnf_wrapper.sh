@@ -9,8 +9,9 @@
 # Both invocations need access to RHEL and ART RPMs during the build process if they are installing RPMS, but they do not have direct
 # access to the Red Hat CDN or plashets.
 # RPMS are made available in different ways depending on the way the container is being run.
-# 1. If the container is running as a build in OCP Test Platform, RPMs are obtained through the RPM mirroring service avaialble in CI.
+# 1. If the container is running as a build in OCP Test Platform, RPMs are obtained through the RPM mirroring service available in CI.
 # 2. If the container is being run on an engineer's system with "podman build ...", then RPMs can be obtained from hosts accessible via the Red Hat VPN.
+# 3. If the script is run with the ART_DNF_WRAPPER_POLICY environment variable set to "skip", then the base image repositories will be used (host must have subscription to access RHEL content).
 # This script detects which mode is being used at runtime and installs different repository files in /etc/yum.repos.d depending on the mode.
 # When running as a pod in a CI build, the content RPM mirror serves RPMs sourced
 # from backends like mirror.openshift.com/enterprise and the Red Hat CDN.
@@ -42,20 +43,32 @@ if [[ -z "${CI_RPM_SVC:-}" ]]; then
   exit 1
 fi
 
-SKIP_REPO_INSTALL="0"
+# External users of this image may have different use cases that diverge
+# from our default repo installation logic. Allow them to override
+# the behavior.
+# "default" - Install RPM service repos if running in pod. Install VPN repos if not.
+# "skip" - Leave base image repositories intact.
+ART_DNF_WRAPPER_POLICY="${ART_DNF_WRAPPER_POLICY:-default}"
 
-if [[ -f "/tmp/tls-ca-bundle.pem" ]]; then
-  # This PEM is copied into place for a brew build. We never want to affect
-  # repos when running a brew build.
+if [[ "${ART_DNF_WRAPPER_POLICY}" == "skip" ]]; then
   SKIP_REPO_INSTALL="1"
-  echoerr "Detected a brew build - no repos will be changed."
-fi
+else
+  SKIP_REPO_INSTALL="0"
 
-if [[ "${OPENSHIFT_CI:-}" != "true" ]]; then
-  # All of our Dockerfiles set this. This check is here to ensure that no one just runs this
-  # on their workstation and deletes their yum configuration files.
-  SKIP_REPO_INSTALL="1"
-  echoerr "OPENSHIFT_CI != true, so not executing in the expected environment - no repos will be changed."
+  if [[ -f "/tmp/tls-ca-bundle.pem" ]]; then
+    # This PEM is copied into place for a brew build. We never want to affect
+    # repos when running a brew build.
+    SKIP_REPO_INSTALL="1"
+    echoerr "Detected a brew build - no repos will be changed."
+  fi
+
+  if [[ "${OPENSHIFT_CI:-}" != "true" ]]; then
+    # All of our Dockerfiles set this. This check is here to ensure that no one just runs this
+    # on their workstation and deletes their yum configuration files.
+    SKIP_REPO_INSTALL="1"
+    echoerr "OPENSHIFT_CI != true, so not executing in the expected environment - no repos will be changed."
+  fi
+
 fi
 
 # Container hostnames will differ every run, so this helps ensure we try
