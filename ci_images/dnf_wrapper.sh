@@ -11,6 +11,7 @@
 # RPMS are made available in different ways depending on the way the container is being run.
 # 1. If the container is running as a build in OCP Test Platform, RPMs are obtained through the RPM mirroring service avaialble in CI.
 # 2. If the container is being run on an engineer's system with "podman build ...", then RPMs can be obtained from hosts accessible via the Red Hat VPN.
+# 3. For special cases, disable the wrapper by setting `SKIP_REPO_INSTALL` to non-`0`.
 # This script detects which mode is being used at runtime and installs different repository files in /etc/yum.repos.d depending on the mode.
 # When running as a pod in a CI build, the content RPM mirror serves RPMs sourced
 # from backends like mirror.openshift.com/enterprise and the Red Hat CDN.
@@ -42,7 +43,7 @@ if [[ -z "${CI_RPM_SVC:-}" ]]; then
   exit 1
 fi
 
-SKIP_REPO_INSTALL="0"
+: "${SKIP_REPO_INSTALL:=0}"
 
 if [[ -f "/tmp/tls-ca-bundle.pem" ]]; then
   # This PEM is copied into place for a brew build. We never want to affect
