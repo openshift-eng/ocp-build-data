@@ -41,7 +41,7 @@ RUN CI_PINNED_GIT_VERSION="git-2.31.1" && \
 # - brew will not be able to connect to https://sum.golang.org/ . GOSUMDB='off' disables this check.
 # - brew temporarily injects a trust store at /tmp/tls-ca-bundle.pem. Setting SSL_CERT_FILE allows go install to use it.
 #   this is important because the system trust store does not trust Red Hat IT certificates.
-RUN export GOPROXY="https://ocp-artifacts-goproxy-art--runtime-int.apps.prod-stable-spoke1-dc-iad2.itup.redhat.com" && \
+RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com" && \
     export GOSUMDB='off' && \
     export GOFLAGS='' && export GO111MODULE=on && \
     export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem && \
