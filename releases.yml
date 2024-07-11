@@ -1,4 +1,66 @@
 releases:
+  4.14.33:
+    assembly:
+      basis:
+        brew_event: 58971484
+        reference_releases:
+          aarch64: 4.14.0-0.nightly-arm64-2024-07-10-205001
+          ppc64le: 4.14.0-0.nightly-ppc64le-2024-07-10-185321
+          s390x: 4.14.0-0.nightly-s390x-2024-07-10-185322
+          x86_64: 4.14.0-0.nightly-2024-07-10-205051
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32
+      members:
+        images:
+        - distgit_key: cluster-network-operator
+          metadata:
+            is:
+              nvr: cluster-network-operator-container-v4.14.0-202407101709.p0.gaf36d54.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-tests
+          metadata:
+            is:
+              nvr: openshift-enterprise-tests-container-v4.14.0-202407101510.p0.ga9a03be.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.14.0-202407101709.p0.geb981dc.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: hypershift
+          metadata:
+            is:
+              nvr: ose-hypershift-container-v4.14.0-202407101709.p0.g06bd216.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0a8e6b81c71eab41ac4a96f4cb085dca50dbe1dba474f50446a4e2c69378918c
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:972144ed9f4bf2e23f9b2e663c9f49a03010eeb62e14ac5de7b5b33bfdc697ba
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2eedaff83a981151001645db430acaa2883dc29acaf3ad36e8486f262eefba6c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ac50e248d8a1e72ea0d8464e7e23428c95f307842b6f79838c6480710e36d9a4
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:093f642190d5f528ab16dd576cdde6dc57f70bf675a808a3e7a971396c5cf4db
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8611e17434b4cba96082e20877ede9c377124968e5814e75e42d0cdbec12c2c2
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:18abff389db3612778bb90e3fc02927a95607c9b54e69dd9515ed46b7c86fe69
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6510798b6092bb00b5fb6b8919e7b2ec626d9326e8c08080487e1570f366cc43
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5cd866b9f86b204de1b015d948428a155dd9192c77dd35c98b783b9a18af3059
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:46fbe855574aca8655eb48d018b90b8a3e77450b8846e7017cfeeda9f85d6750
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:79f7a8fc8b3f292f3aa183b237442fc920cfd1cdb61f27c16bb252746fa07291
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0e243ab39ca96dbfcb95f5396c2cb20f6fd3822afb759f8ec4234383404a53ba
+      type: standard
+
   4.14.32:
     assembly:
       basis:
