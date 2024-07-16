@@ -1,4 +1,27 @@
 releases:
+  art10187:
+    assembly:
+      basis:
+        assembly: 4.14.13
+        "reference_releases!": {}
+      type: custom
+      group:
+        advisories:
+          extras: 127885
+          image: -1
+          metadata: 127887
+          microshift: 127888
+          rpm: 127889
+        release_jira: ART-8940
+      members:
+        images:
+        - distgit_key: ose-cluster-ingress-operator
+          why: address OCPBUGS-36555
+          metadata:
+            labels:
+              "com.redhat.hotfix": OCPBUGS-36555
+            is:
+              nvr: ose-cluster-ingress-operator-container-v4.14.0-202407122009.p0.g992e813.assembly.stream.el8
   4.14.33:
     assembly:
       basis:
