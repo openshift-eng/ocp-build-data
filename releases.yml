@@ -4807,6 +4807,9 @@ releases:
       permits:
       - code: OUTDATED_RPMS_IN_STREAM_BUILD
         component: '*'
+      - code: INCONSISTENT_RHCOS_RPMS
+        component: 'rhcos'
+        # why: 4.12 EOM has been reached and rhcos repos for arm and s390x have stopped receiving updates, so there is a drift between rhcos builds. We need this until 4.12 is building only for x86.
       members:
         images:
         - distgit_key: '*'
