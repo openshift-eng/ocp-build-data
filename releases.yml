@@ -16,6 +16,14 @@ releases:
           rpm: -1
         release_jira: ART-0
         upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.16.0,4.16.1,4.16.2,4.16.3
+        dependencies:
+          rpms:
+          - el9: skopeo-1.14.4-2.rhaos4.16.el9
+            why: "pin what's in rhcos"
+            non_gc_tag: "rhaos-4.16-rhel-9"
+          - el8: skopeo-1.14.4-2.rhaos4.16.el8
+            why: "pin what's in rhcos"
+            non_gc_tag: "rhaos-4.16-rhel-8"     
       members:
         images:
         - distgit_key: monitoring-plugin
@@ -77,14 +85,6 @@ releases:
           rpm: 135924
         release_jira: ART-10116
         upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.16.0,4.16.1,4.16.2
-        dependencies:
-          rpms:
-          - el9: skopeo-1.14.4-2.rhaos4.16.el9
-            why: "pin what's in rhcos"
-            non_gc_tag: "rhaos-4.16-rhel-9"
-          - el8: skopeo-1.14.4-2.rhaos4.16.el8
-            why: "pin what's in rhcos"
-            non_gc_tag: "rhaos-4.16-rhel-8"
       members:
         images:
         - distgit_key: operator-registry
