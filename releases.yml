@@ -2,12 +2,12 @@ releases:
   4.16.4:
     assembly:
       basis:
-        brew_event: 59124123
+        brew_event: 59157673
         reference_releases:
-          aarch64: 4.16.0-0.nightly-arm64-2024-07-18-082809
-          ppc64le: 4.16.0-0.nightly-ppc64le-2024-07-18-083510
-          s390x: 4.16.0-0.nightly-s390x-2024-07-18-063559
-          x86_64: 4.16.0-0.nightly-2024-07-18-080002
+          aarch64: 4.16.0-0.nightly-arm64-2024-07-19-103710
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-07-18-211557
+          s390x: 4.16.0-0.nightly-s390x-2024-07-18-211443
+          x86_64: 4.16.0-0.nightly-2024-07-19-103710
       group:
         advisories:
           extras: 136271
@@ -19,25 +19,35 @@ releases:
         upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.16.0,4.16.1,4.16.2,4.16.3
       members:
         images:
-        - distgit_key: driver-toolkit
+        - distgit_key: hypershift
           metadata:
             is:
-              nvr: driver-toolkit-container-v4.16.0-202407180506.p0.g1d5732f.assembly.stream.el9
+              nvr: ose-hypershift-container-v4.16.0-202407181636.p0.g5a87f94.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: openshift-enterprise-console
           metadata:
             is:
-              nvr: openshift-enterprise-console-container-v4.16.0-202407180506.p0.g54344fb.assembly.stream.el9
-          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        - distgit_key: egress-router-cni
-          metadata:
-            is:
-              nvr: ose-egress-router-cni-container-v4.16.0-202407180206.p0.g7089efe.assembly.stream.el9
+              nvr: openshift-enterprise-console-container-v4.16.0-202407181806.p0.g897c0f7.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: monitoring-plugin
           metadata:
             is:
-              nvr: monitoring-plugin-container-v4.16.0-202407180506.p0.gaa339e4.assembly.stream.el9
+              nvr: monitoring-plugin-container-v4.16.0-202407181806.p0.gaa339e4.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-agent-installer-api-server
+          metadata:
+            is:
+              nvr: ose-agent-installer-api-server-container-v4.16.0-202407181636.p0.g6b26a25.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.16.0-202407181806.p0.g1d5732f.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-agent-installer-utils
+          metadata:
+            is:
+              nvr: ose-agent-installer-utils-container-v4.16.0-202407181636.p0.g6e6bb40.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
       rhcos:
