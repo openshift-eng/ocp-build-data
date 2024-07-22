@@ -29,7 +29,12 @@ releases:
             is:
               nvr: openshift-enterprise-console-container-v4.15.0-202407220806.p0.g11a52c9.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.23-202407221747.p0.g31d01a5.assembly.4.15.23.el9
       rhcos:
         machine-os-content:
           images:
