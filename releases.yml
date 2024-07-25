@@ -34,7 +34,12 @@ releases:
             is:
               nvr: driver-toolkit-container-v4.16.0-202407241006.p0.g1d5732f.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.5-202407250951.p0.g0afcb57.assembly.4.16.5.el9
       rhcos:
         rhel-coreos:
           images:
