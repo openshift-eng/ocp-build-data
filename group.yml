@@ -114,6 +114,7 @@ default_rpm_build_profile: default
 rpm_deliveries:
   - packages:
       - kernel
+      - kernel-rt
     rhel_tag: rhel-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0-z-candidate
     integration_tag: early-kernel-candidate
     stop_ship_tag: early-kernel-stop-ship
