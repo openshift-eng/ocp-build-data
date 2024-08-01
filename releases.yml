@@ -52,7 +52,12 @@ releases:
             is:
               nvr: ose-vsphere-problem-detector-container-v4.16.0-202407311337.p0.g3683c12.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.6-202408010822.p0.gc4ded66.assembly.4.16.6.el9
       rhcos:
         rhel-coreos:
           images:
