@@ -1,4 +1,65 @@
 releases:
+  4.16.6:
+    assembly:
+      basis:
+        brew_event: 59379646
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2024-07-31-161856
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-07-31-144242
+          s390x: 4.16.0-0.nightly-s390x-2024-07-31-144239
+          x86_64: 4.16.0-0.nightly-2024-07-31-182118
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5
+      members:
+        images:
+        - distgit_key: openshift-enterprise-builder
+          metadata:
+            is:
+              nvr: openshift-enterprise-builder-container-v4.16.0-202407311036.p0.g3b7a1b1.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: hypershift
+          metadata:
+            is:
+              nvr: ose-hypershift-container-v4.16.0-202407311337.p0.gc98155a.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-baremetal-operator
+          metadata:
+            is:
+              nvr: ose-baremetal-operator-container-v4.16.0-202407311337.p0.gcf55631.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.16.0-202407311337.p0.g1d5732f.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: vsphere-problem-detector
+          metadata:
+            is:
+              nvr: ose-vsphere-problem-detector-container-v4.16.0-202407311337.p0.g3683c12.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eaf2a9c0a6c4db16bc262279bdec2f4ab96e8a7ec15951ff7186e8234573dd14
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:22e8a847d7d4be9c3fd7487902e8495a5abe977df3f8cd7e7594a2d6e9ab4623
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e518a860afdce8f84d53dddd2d607d4406d1c1df9c08956cbd2ca732f420d852
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d0b8a6779d0de1cdd4fa8497ac1b900c7314fa5288928eb115a5e81c5b80434e
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ecdf9e60e91ab4ef99dfb67f43f3fe44ced43a2f9fb424ffb47adffc92060610
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:08ff3899ad3af1bd811c0288a7a2bb55d1ce6fb2d21eaf86c64a6459349f02ed
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2d5033a44f6006b5eee31f7a617448fe19ac63c911362d61eec338f7fbe58095
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec38b0c2b735998ecc2ec7bcebf2d71c6e5b805d96cefd37fa44945c467d0572
+      type: standard
+
   4.16.5:
     assembly:
       basis:
