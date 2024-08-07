@@ -1,4 +1,3 @@
----
 
 ####################################################################################################
 #  STOP. HOLD. PLEASE WAIT. PLEASE READ. FAILURE TO READ WILL HAVE IMPACTS ACROSS THE ORGANIZATION.
@@ -31,7 +30,7 @@ golang-1.19:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 golang:
-  image: openshift/golang-builder:v1.20.12-202404151507.g92d4921.el8
+  image: openshift/golang-builder:v1.20.12-202408061859.g92d4921.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -53,7 +52,7 @@ rhel-9-golang-1.19:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.20.12-202404151445.g5488123.el9
+  image: openshift/golang-builder:v1.20.12-202408062009.g5488123.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
