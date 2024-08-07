@@ -13,7 +13,7 @@ enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 - rhel-9-server-ose-rpms-embargoed
-for_payload: false
+for_payload: true
 dependents:
 - ose-metallb-operator
 from:
@@ -22,6 +22,7 @@ from:
   member: openshift-base-rhel9
 name: openshift/frr-rhel9
 name_in_bundle: metallb-frr-rhel9
+payload_name: metallb-frr
 owners:
 - metallb-dev@redhat.com
 non_shipping_repos:
