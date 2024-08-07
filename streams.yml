@@ -18,7 +18,7 @@
 ####################################################################################################
 
 golang-1.19:
-  image: openshift/golang-builder:v1.19.13-202404160928.gfa00de2.el8
+  image: openshift/golang-builder:v1.19.13-202408070335.gfa00de2.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -113,7 +113,7 @@ etcd_golang:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang-1.19:
-  image: openshift/golang-builder:v1.19.13-202404160928.gfa00de2.el8
+  image: openshift/golang-builder:v1.19.13-202408070335.gfa00de2.el8
   mirror: false
   # No transform required as etcd does not yum install
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
