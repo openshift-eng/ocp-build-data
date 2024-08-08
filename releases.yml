@@ -111,6 +111,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f86976d6fcb92a5d3acb266f9b4b587fb858a80059fb90e8776a2e85fb604d74
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5dccfd1bb71b1a3ce0612eaef68ca7481df66186ba3beead44ba88d1da1dcf4a
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:05e84d93f1772f5540cb5b7399d6ca7140eb130599f7c1160a55ec2fdecf23c2
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: 'ose-agent-installer-api-server'
       type: standard
 
   4.15.25:
