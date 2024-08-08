@@ -17,6 +17,50 @@ releases:
           rpm: -1
         release_jira: ART-0
         upgrades: 4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32,4.14.33,4.14.34,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.15.10,4.15.11,4.15.12,4.15.13,4.15.14,4.15.15,4.15.16,4.15.17,4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25
+        dependencies:
+          rpms:
+          - el9: cri-o-1.28.9-2.rhaos4.15.git674ed4c.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el8: cri-o-1.28.9-2.rhaos4.15.git674ed4c.el8
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-8"
+          - el9: cri-tools-1.28.0-3.2.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el8: cri-tools-1.28.0-3.2.el8
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-8"
+          - el9: conmon-2.1.7-11.2.rhaos4.15.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el8: conmon-2.1.7-6.rhaos4.15.el8
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-8"
+          - el9: skopeo-1.11.3-0.1.rhaos4.15.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el8: skopeo-1.11.3-0.1.rhaos4.15.el8
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-8"
+          - el9: runc-1.1.13-1.rhaos4.15.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el8: runc-1.1.13-1.rhaos4.15.el8
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-8"
+          - el9: NetworkManager-1.42.2-21.el9_2
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el9: ignition-2.16.2-2.2.rhaos4.15.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el9: podman-4.4.1-26.2.rhaos4.15.el9
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-9"
+          - el8: podman-4.4.1-26.2.rhaos4.15.el8
+            why: "pin what's installed in rhcos and images"
+            non_gc_tag: "rhaos-4.15-rhel-8"
       members:
         images:
         - distgit_key: openshift-enterprise-console
@@ -29,6 +73,16 @@ releases:
             is:
               nvr: ose-agent-installer-utils-container-v4.15.0-202408062039.p0.g33b7d85.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-agent-installer-node-agent
+          metadata:
+            is:
+              nvr: ose-agent-installer-node-agent-container-v4.15.0-202407231006.p0.g1f44c02.assembly.stream.el9
+          why: Pinning the build that contains the same rpms as RHCOS
+        - distgit_key: ose-frr
+          metadata:
+            is:
+              nvr: ose-frr-container-v4.15.0-202407221237.p0.ga8191c0.assembly.stream.el9
+          why: Pinning the build that contains the same rpms as RHCOS
         rpms: []
       rhcos:
         machine-os-content:
