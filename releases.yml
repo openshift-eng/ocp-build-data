@@ -1,4 +1,52 @@
 releases:
+  4.12.62:
+    assembly:
+      basis:
+        brew_event: 59498196
+        reference_releases:
+          s390x: 4.12.0-0.nightly-s390x-2024-08-07-025240
+          x86_64: 4.12.0-0.nightly-2024-08-07-092548
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.36,4.11.37,4.11.38,4.11.39,4.11.40,4.11.41,4.11.42,4.11.43,4.11.44,4.11.45,4.11.46,4.11.47,4.11.48,4.11.49,4.11.50,4.11.51,4.11.52,4.11.53,4.11.54,4.11.55,4.11.56,4.11.57,4.11.58,4.11.59,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6,4.12.7,4.12.8,4.12.9,4.12.10,4.12.11,4.12.12,4.12.13,4.12.14,4.12.15,4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.12.60,4.12.61
+      members:
+        images:
+        - distgit_key: ironic-rhcos-downloader
+          metadata:
+            is:
+              nvr: ironic-rhcos-downloader-container-v4.12.0-202408070031.p0.gc65c1f1.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: marketplace-operator
+          metadata:
+            is:
+              nvr: marketplace-operator-container-v4.12.0-202408070201.p0.g38b9ed8.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-multus-whereabouts-ipam-cni
+          metadata:
+            is:
+              nvr: ose-multus-whereabouts-ipam-cni-container-v4.12.0-202408070031.p0.g5993d02.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dceb45fecd4866bbd7651370ac8365000d6e62feec9c38144a7072db47d012f6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:508296395b1bf5357a9a53eaf76fd6b0ab018787037996d816c73555b39b2913
+        rhel-coreos-8:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5dedc631810a0d1323b63a13aae663446174020c6a3dfcb76beaff7b4a9ef70e
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:829de7368ad9a9a35caf5674f4a2eed8d35ea049b03485866bca23f1dbb8e0ac
+        rhel-coreos-8-extensions:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b506908cb44a19d68a1a5c520a69ea0b7971d9260eea516f7525e972ad735e4d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3416800c1398e8e1de7ae1c2b84c62dd61f34fd84c753759302d915066d642f2
+      type: standard
+
   4.12.61:
     assembly:
       basis:
