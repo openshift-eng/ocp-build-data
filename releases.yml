@@ -91,7 +91,12 @@ releases:
           metadata:
             is:
               nvr: ose-agent-installer-api-server-container-v4.15.0-202408010711.p0.g833fd90.assembly.stream.el8
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.26-202408090910.p0.g885a1ee.assembly.4.15.26.el9
       rhcos:
         machine-os-content:
           images:
