@@ -119,6 +119,7 @@ releases:
       permits:
       - code: CONFLICTING_INHERITED_DEPENDENCY
         component: 'ose-agent-installer-api-server'
+        why: older rpm is in the image, but it is not a blocking issue
       type: standard
 
   4.15.25:
@@ -3608,7 +3609,7 @@ releases:
         component: '*'
       - code: CONFLICTING_GROUP_RPM_INSTALLED
         component: 'rhcos'
-        why: Unblock nightlies due to known issue with rhcos builds, CWFCONF-10301. Remove this when there is a new rhcos build
+        # why: Unblock nightlies due to known issue with rhcos builds, CWFCONF-10301. Remove this when there is a new rhcos build
       members:
         images:
         - distgit_key: '*'
