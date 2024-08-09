@@ -54,7 +54,13 @@ releases:
             is:
               nvr: ose-installer-container-v4.17.0-202408060014.p0.ga49ddeb.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: openshift
+          why: Match the version in RHCOS
+          metadata:
+            is:
+              el9: openshift-4.17.0-202408011546.p0.g1cc018a.assembly.stream.el9
+              el8: openshift-4.17.0-202408011546.p0.g1cc018a.assembly.stream.el8
       rhcos:
         rhel-coreos:
           images:
