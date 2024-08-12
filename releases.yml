@@ -1,4 +1,67 @@
 releases:
+  4.12.63:
+    assembly:
+      basis:
+        brew_event: 59570353
+        reference_releases:
+          s390x: 4.12.0-0.nightly-s390x-2024-08-09-224754
+          x86_64: 4.12.0-0.nightly-2024-08-09-224753
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.11.11,4.11.12,4.11.13,4.11.14,4.11.16,4.11.17,4.11.18,4.11.19,4.11.20,4.11.21,4.11.22,4.11.23,4.11.24,4.11.25,4.11.26,4.11.27,4.11.28,4.11.29,4.11.30,4.11.31,4.11.32,4.11.33,4.11.34,4.11.35,4.11.36,4.11.37,4.11.38,4.11.39,4.11.40,4.11.41,4.11.42,4.11.43,4.11.44,4.11.45,4.11.46,4.11.47,4.11.48,4.11.49,4.11.50,4.11.51,4.11.52,4.11.53,4.11.54,4.11.55,4.11.56,4.11.57,4.11.58,4.11.59,4.12.0,4.12.1,4.12.2,4.12.3,4.12.4,4.12.5,4.12.6,4.12.7,4.12.8,4.12.9,4.12.10,4.12.11,4.12.12,4.12.13,4.12.14,4.12.15,4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.12.60,4.12.61,4.12.62
+      members:
+        images:
+        - distgit_key: ose-tools
+          metadata:
+            is:
+              nvr: ose-tools-container-v4.12.0-202408091932.p0.gd691257.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.12.0-202408091932.p0.g6e5c04c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-network-tools
+          metadata:
+            is:
+              nvr: ose-network-tools-container-v4.12.0-202408091932.p0.gc76613c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-tests
+          metadata:
+            is:
+              nvr: openshift-enterprise-tests-container-v4.12.0-202408091932.p0.g7b7d4ef.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.12.0-202408091932.p0.g4dd47ed.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: cluster-node-tuning-operator
+          metadata:
+            is:
+              nvr: cluster-node-tuning-operator-container-v4.12.0-202408091932.p0.g20966da.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5264d6e08afb03df5318ae97a67bd681c2fb50067fd576648af1bf72bd09dfdf
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:df26e1de8e27e511b5994f43802b01273ffdda6a527ae93578b32b9af4832f79
+        rhel-coreos-8:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0e63e6fb0fafd6671eb297e889acea86d14df9206d2d42bc9a8b51ae59242cd3
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:62115ac12d12cb544288b805a53920f7e5545fb4405f87070cb143f822d2796d
+        rhel-coreos-8-extensions:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:03356c6e9775e63534fc3dbaa493480b36ff5ee9d69f97d53a0fd60d8058656c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0a04c6ddba309c0453efcf0b998906753880b32a7b49b6cf7f6793db1212bd5a
+      type: standard
+
   4.12.62:
     assembly:
       basis:
