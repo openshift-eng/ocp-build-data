@@ -15,10 +15,13 @@ content:
         ci_build_root:
           stream: rhel-9-golang-ci-build-root
 dependents:
-- sriov-network-operator          
+- sriov-network-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-sriov-network-metrics-exporter-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: sriov-network-metrics-exporter
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -29,7 +32,7 @@ from:
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-sriov-network-metrics-exporter-rhel9
 name_in_bundle: sriov-network-metrics-exporter
-owners: 
+owners:
 - bnemeth@redhat.com
 - apanatto@redhat.com
 - wizhao@redhat.com
