@@ -17,11 +17,14 @@ cachito:
     pip:
       - path: .
         requirements_files:
-          - requirements.cachito
-          - requirements-build.cachito
+        - requirements.cachito
+        - requirements-build.cachito
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ironic-agent-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-ironic-agent
 for_payload: true
 from:
   member: openshift-base-rhel9
