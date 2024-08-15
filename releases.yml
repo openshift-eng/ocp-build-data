@@ -49,7 +49,12 @@ releases:
             is:
               nvr: ose-installer-altinfra-container-v4.16.0-202408132009.p0.g4f78aec.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.8-202408150851.p0.gc8a3bb1.assembly.4.16.8.el9
       rhcos:
         rhel-coreos:
           images:
