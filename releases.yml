@@ -9,6 +9,14 @@ releases:
           s390x: 4.13.0-0.nightly-s390x-2024-08-15-013459
           x86_64: 4.13.0-0.nightly-2024-08-15-013500
       group:
+        dependencies:
+          rpms:
+          - el8: cri-o-1.26.5-20.rhaos4.13.git2e90133.el8
+            why: Match what's in rhcos
+            non_gc_tag: rhaos-4.13-rhel-8
+          - el9: cri-o-1.26.5-20.rhaos4.13.git2e90133.el9
+            why: Match what's in rhcos
+            non_gc_tag: rhaos-4.13-rhel-9
         advisories:
           extras: 137484
           image: 137485
