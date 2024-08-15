@@ -4,7 +4,7 @@ content:
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url:  git@github.com:openshift-priv/dpu-operator.git
+      url: git@github.com:openshift-priv/dpu-operator.git
       web: https://github.com/openshift/dpu-operator
     ci_alignment:
       streams_prs:
@@ -15,6 +15,9 @@ dependents:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: dpu-cni-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-dpu-cni
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
