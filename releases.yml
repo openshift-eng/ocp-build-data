@@ -1,5 +1,5 @@
 releases:
-  4.13.47:
+  4.13.48:
     assembly:
       basis:
         brew_event: 59650369
@@ -23,7 +23,7 @@ releases:
           metadata: 137486
           rpm: 137487
         release_jira: ART-10489
-        upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.12.60,4.12.61,4.12.62,4.12.63,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.13.15,4.13.16,4.13.17,4.13.18,4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46
+        upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.12.60,4.12.61,4.12.62,4.12.63,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.13.15,4.13.16,4.13.17,4.13.18,4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46,4.13.47
       issues:
         include:
         - id: OCPBUGS-34898
@@ -60,7 +60,469 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d4bf3372236fb999e578ee79f01531349891fe4e2a38516a9df66309efbd9a6e
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f5046ecde0908f29607ad73c30dbcd43c12ae29352a8626f2fc046bac2436d63
       type: standard
-
+  4.13.47:
+    assembly:
+      basis:
+        brew_event: 59626676
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2024-08-14-020640
+          ppc64le: 4.13.0-0.nightly-ppc64le-2024-08-14-020636
+          s390x: 4.13.0-0.nightly-s390x-2024-08-14-020634
+          x86_64: 4.13.0-0.nightly-2024-08-14-020653
+      group:
+        advisories:
+          extras: 137484
+          image: 137485
+          metadata: 137486
+          rpm: 137487
+        release_jira: ART-10489
+        upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.12.60,4.12.61,4.12.62,4.12.63,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.13.15,4.13.16,4.13.17,4.13.18,4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46
+      issues:
+        include:
+        - id: OCPBUGS-34898
+      members:
+        images:
+        - distgit_key: ose-agent-installer-orchestrator
+          metadata:
+            is:
+              nvr: ose-agent-installer-orchestrator-container-v4.13.0-202408131940.p0.g492b912.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: csi-snapshot-validation-webhook
+          metadata:
+            is:
+              nvr: ose-csi-snapshot-validation-webhook-container-v4.13.0-202408131940.p0.gc8a7a09.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-csi-external-resizer
+          metadata:
+            is:
+              nvr: ose-csi-external-resizer-container-v4.13.0-202408131940.p0.ge8036ca.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: multus-networkpolicy
+          metadata:
+            is:
+              nvr: ose-multus-networkpolicy-container-v4.13.0-202408131940.p0.g7176ab7.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: prometheus-config-reloader
+          metadata:
+            is:
+              nvr: prometheus-config-reloader-container-v4.13.0-202408131940.p0.g30fdccd.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-ingress-operator
+          metadata:
+            is:
+              nvr: ose-cluster-ingress-operator-container-v4.13.0-202408131940.p0.gfbcab4f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: cluster-monitoring-operator
+          metadata:
+            is:
+              nvr: cluster-monitoring-operator-container-v4.13.0-202408131940.p0.g3aa7687.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-powervs-block-csi-driver
+          metadata:
+            is:
+              nvr: ose-powervs-block-csi-driver-container-v4.13.0-202408131940.p0.g16fa555.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-powervs-cloud-controller-manager
+          metadata:
+            is:
+              nvr: ose-powervs-cloud-controller-manager-container-v4.13.0-202408131940.p0.gde68def.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-openstack-cinder-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-openstack-cinder-csi-driver-operator-container-v4.13.0-202408131940.p0.gb50a649.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: csi-driver-nfs
+          metadata:
+            is:
+              nvr: csi-driver-nfs-container-v4.13.0-202408131940.p0.g2b914c2.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-machine-api-provider-gcp
+          metadata:
+            is:
+              nvr: ose-machine-api-provider-gcp-container-v4.13.0-202408131940.p0.ge53a397.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-artifacts
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.13.0-202408131940.p0.g2b96165.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-network-tools
+          metadata:
+            is:
+              nvr: ose-network-tools-container-v4.13.0-202408131940.p0.g073feda.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-baremetal-installer
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.13.0-202408131940.p0.g2b96165.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-alibaba-disk-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-alibaba-disk-csi-driver-operator-container-v4.13.0-202408131940.p0.g7e41597.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cli-artifacts
+          metadata:
+            is:
+              nvr: ose-cli-artifacts-container-v4.13.0-202408131940.p0.gd192e90.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: operator-registry
+          metadata:
+            is:
+              nvr: operator-registry-container-v4.13.0-202408131940.p0.gd8cfe86.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: marketplace-operator
+          metadata:
+            is:
+              nvr: marketplace-operator-container-v4.13.0-202408131940.p0.g7efdbca.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: telemeter
+          metadata:
+            is:
+              nvr: telemeter-container-v4.13.0-202408131940.p0.g0634a6d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-prometheus-adapter
+          metadata:
+            is:
+              nvr: ose-prometheus-adapter-container-v4.13.0-202408131940.p0.g0fce7c7.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-dns-operator
+          metadata:
+            is:
+              nvr: ose-cluster-dns-operator-container-v4.13.0-202408131940.p0.g461047e.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-must-gather
+          metadata:
+            is:
+              nvr: ose-must-gather-container-v4.13.0-202408131940.p0.g288ef2f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-tests
+          metadata:
+            is:
+              nvr: openshift-enterprise-tests-container-v4.13.0-202408131940.p0.gaedd6b8.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: thanos
+          metadata:
+            is:
+              nvr: ose-thanos-container-v4.13.0-202408131940.p0.g70fb57f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-libvirt-machine-controllers
+          metadata:
+            is:
+              nvr: ose-libvirt-machine-controllers-container-v4.13.0-202408131940.p0.gd4b7a8a.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-aws-ebs-csi-driver
+          metadata:
+            is:
+              nvr: ose-aws-ebs-csi-driver-container-v4.13.0-202408131940.p0.g8205d51.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.13.0-202408131940.p0.g2b96165.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: csi-provisioner
+          metadata:
+            is:
+              nvr: csi-provisioner-container-v4.13.0-202408131940.p0.g0bf126b.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: vsphere-problem-detector
+          metadata:
+            is:
+              nvr: ose-vsphere-problem-detector-container-v4.13.0-202408131940.p0.g3ad7408.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-cloud-controller-manager-operator
+          metadata:
+            is:
+              nvr: ose-cluster-cloud-controller-manager-operator-container-v4.13.0-202408131940.p0.g38f638f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-ibm-cloud-controller-manager
+          metadata:
+            is:
+              nvr: ose-ibm-cloud-controller-manager-container-v4.13.0-202408131940.p0.gb5bcaf9.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-cli
+          metadata:
+            is:
+              nvr: openshift-enterprise-cli-container-v4.13.0-202408131940.p0.gd192e90.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-sdn
+          metadata:
+            is:
+              nvr: ose-node-container-v4.13.0-202408131940.p0.g569ea11.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-azure-disk-csi-driver
+          metadata:
+            is:
+              nvr: ose-azure-disk-csi-driver-container-v4.13.0-202408131940.p0.gb6d3fbc.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: coredns
+          metadata:
+            is:
+              nvr: coredns-container-v4.13.0-202408131940.p0.g298d919.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: kube-proxy
+          metadata:
+            is:
+              nvr: kube-proxy-container-v4.13.0-202408131940.p0.g569ea11.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cloud-network-config-controller
+          metadata:
+            is:
+              nvr: ose-cloud-network-config-controller-container-v4.13.0-202408131940.p0.gd377281.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-kube-storage-version-migrator-operator
+          metadata:
+            is:
+              nvr: ose-cluster-kube-storage-version-migrator-operator-container-v4.13.0-202408131940.p0.g721de5d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-tools
+          metadata:
+            is:
+              nvr: ose-tools-container-v4.13.0-202408131940.p0.gd192e90.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-machine-api-operator
+          metadata:
+            is:
+              nvr: ose-machine-api-operator-container-v4.13.0-202408131940.p0.gca4c4a6.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-hyperkube
+          metadata:
+            is:
+              nvr: openshift-enterprise-hyperkube-container-v4.13.0-202408131940.p0.ge0953cc.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-capi-operator
+          metadata:
+            is:
+              nvr: ose-cluster-capi-operator-container-v4.13.0-202408131940.p0.gb247793.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-alibaba-machine-controllers
+          metadata:
+            is:
+              nvr: ose-alibaba-machine-controllers-container-v4.13.0-202408131940.p0.g4c0f96a.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-openstack-cloud-controller-manager
+          metadata:
+            is:
+              nvr: ose-openstack-cloud-controller-manager-container-v4.13.0-202408131940.p0.gc3b7d2f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.13.0-202408131940.p0.g62a2dbc.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: oc-mirror-plugin
+          metadata:
+            is:
+              nvr: oc-mirror-plugin-container-v4.13.0-202408131940.p0.g02367d7.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: baremetal-runtimecfg
+          metadata:
+            is:
+              nvr: ose-baremetal-runtimecfg-container-v4.13.0-202408131940.p0.g1280cf5.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-agent-installer-api-server
+          metadata:
+            is:
+              nvr: ose-agent-installer-api-server-container-v4.13.0-202408131940.p0.g933363b.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-network-interface-bond-cni
+          metadata:
+            is:
+              nvr: ose-network-interface-bond-cni-container-v4.13.0-202408131940.p0.g84bda2a.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cloud-credential-operator
+          metadata:
+            is:
+              nvr: ose-cloud-credential-operator-container-v4.13.0-202408131940.p0.g9c18962.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-kube-apiserver-operator
+          metadata:
+            is:
+              nvr: ose-cluster-kube-apiserver-operator-container-v4.13.0-202408131940.p0.g1448124.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-apiserver-network-proxy
+          metadata:
+            is:
+              nvr: ose-apiserver-network-proxy-container-v4.13.0-202408131940.p0.ga3c0e6b.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-kube-controller-manager-operator
+          metadata:
+            is:
+              nvr: ose-cluster-kube-controller-manager-operator-container-v4.13.0-202408131940.p0.gdac7113.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-csi-snapshot-controller
+          metadata:
+            is:
+              nvr: ose-csi-snapshot-controller-container-v4.13.0-202408131940.p0.gc8a7a09.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-azure-cloud-controller-manager
+          metadata:
+            is:
+              nvr: ose-azure-cloud-controller-manager-container-v4.13.0-202408131940.p0.gbf9bd02.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: kube-rbac-proxy
+          metadata:
+            is:
+              nvr: kube-rbac-proxy-container-v4.13.0-202408131940.p0.gae32bfa.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-deployer
+          metadata:
+            is:
+              nvr: openshift-enterprise-deployer-container-v4.13.0-202408131940.p0.gd192e90.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-haproxy-router
+          metadata:
+            is:
+              nvr: openshift-enterprise-haproxy-router-container-v4.13.0-202408131940.p0.g2012a1d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-kube-scheduler-operator
+          metadata:
+            is:
+              nvr: ose-cluster-kube-scheduler-operator-container-v4.13.0-202408131940.p0.g2e7c269.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-baremetal-operator
+          metadata:
+            is:
+              nvr: ose-cluster-baremetal-operator-container-v4.13.0-202408131940.p0.gb5eb7b6.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-control-plane-machine-set-operator
+          metadata:
+            is:
+              nvr: ose-cluster-control-plane-machine-set-operator-container-v4.13.0-202408131940.p0.gc9d5fa3.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-route-controller-manager
+          metadata:
+            is:
+              nvr: ose-route-controller-manager-container-v4.13.0-202408131940.p0.g6667a6c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-powervs-machine-controllers
+          metadata:
+            is:
+              nvr: ose-powervs-machine-controllers-container-v4.13.0-202408131940.p0.g8df6899.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console-operator
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-operator-container-v4.13.0-202408131940.p0.gcb4657d.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-machine-os-images
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.13.0-202408131940.p0.gb14856f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-nutanix-cloud-controller-manager
+          metadata:
+            is:
+              nvr: ose-nutanix-cloud-controller-manager-container-v4.13.0-202408131940.p0.g4d1c58e.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-containernetworking-plugins
+          metadata:
+            is:
+              nvr: ose-containernetworking-plugins-container-v4.13.0-202408131940.p0.g614ca3c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-kubevirt-csi-driver-rhel8
+          metadata:
+            is:
+              nvr: ose-kubevirt-csi-driver-container-v4.13.0-202408131940.p0.g9d909f7.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-csi-snapshot-controller-operator
+          metadata:
+            is:
+              nvr: ose-cluster-csi-snapshot-controller-operator-container-v4.13.0-202408131940.p0.gc068540.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: azure-file-csi-driver
+          metadata:
+            is:
+              nvr: ose-azure-file-csi-driver-container-v4.13.0-202408131940.p0.g33d52ec.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-agent-installer-csr-approver
+          metadata:
+            is:
+              nvr: ose-agent-installer-csr-approver-container-v4.13.0-202408131940.p0.g492b912.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-vmware-vsphere-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-vmware-vsphere-csi-driver-operator-container-v4.13.0-202408131940.p0.ga9e5036.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-ovirt-csi-driver
+          metadata:
+            is:
+              nvr: ose-ovirt-csi-driver-container-v4.13.0-202408131940.p0.g54958de.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-aws-ebs-csi-driver-operator
+          metadata:
+            is:
+              nvr: ose-aws-ebs-csi-driver-operator-container-v4.13.0-202408131940.p0.g8f05d9c.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: vmware-vsphere-syncer
+          metadata:
+            is:
+              nvr: vmware-vsphere-syncer-container-v4.13.0-202408131940.p0.g4d3036a.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-cluster-api
+          metadata:
+            is:
+              nvr: ose-cluster-api-container-v4.13.0-202408131940.p0.g12f767b.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ibm-vpc-node-label-updater
+          metadata:
+            is:
+              nvr: ibm-vpc-node-label-updater-container-v4.13.0-202408131940.p0.gb819827.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-aws-cloud-controller-manager
+          metadata:
+            is:
+              nvr: ose-aws-cloud-controller-manager-container-v4.13.0-202408131940.p0.g95c03b7.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-csi-driver-shared-resource-operator
+          metadata:
+            is:
+              nvr: ose-csi-driver-shared-resource-operator-container-v4.13.0-202408131940.p0.gbc169d2.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-openstack-cinder-csi-driver
+          metadata:
+            is:
+              nvr: ose-openstack-cinder-csi-driver-container-v4.13.0-202408131940.p0.gc3b7d2f.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: multus-cni
+          metadata:
+            is:
+              nvr: multus-cni-container-v4.13.0-202408131940.p0.g12897bd.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: csi-attacher
+          metadata:
+            is:
+              nvr: csi-attacher-container-v4.13.0-202408131940.p0.gd929084.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: cluster-storage-operator
+          metadata:
+            is:
+              nvr: ose-cluster-storage-operator-container-v4.13.0-202408131940.p0.gb38c26a.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6df090f7b3aa997ec2434419f92341757f33f78a4d87ae12a97e27da5ce553c9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f017c2d1f95eeaa925cec7699fe77a765da91c4565b0d1196719af8ccf74980c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4260171946b19beadab4f9cee8924238cc2a15c5221720874ade2729139cb64f
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db3946cb6229e6f2e9d05d8993ef333f25c621f163e022ecdfb350366001c918
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3527bbb0f4446d4479991ae5872d0ccf49d56f760a0f09f19082bdfd8e702ab7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:59c24b80ba465343110675a6ea90afb580fd77f243e6ba40d3a9d16dd0169eee
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bd9c907f996762084b7b24eb0f69a485be69c65a6e3830c870b43aa4da52625f
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ccb29466ffc122fbe5397c377448c8971e68e3abc53482fbe2926376b67f097c
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6e45d29d0b2380699b499a109c9591341db66c7a9d099fceac16b0c55fc754b8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4b08464a429fe51d153078d29fff22115b79cb366983a3285ebe66ac2c7b772b
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d4bf3372236fb999e578ee79f01531349891fe4e2a38516a9df66309efbd9a6e
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f5046ecde0908f29607ad73c30dbcd43c12ae29352a8626f2fc046bac2436d63
+      type: standard
   4.13.46:
     assembly:
       basis:
