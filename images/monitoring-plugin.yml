@@ -3,6 +3,8 @@ cachito:
   packages:
     yarn:
     - path: web
+    gomod:
+    - path: .
 content:
   source:
     dockerfile: Dockerfile.art
@@ -17,6 +19,7 @@ content:
           stream: rhel-9-golang-ci-build-root
     pkg_managers:
     - yarn
+    - gomod
     artifacts:
       from_urls:
       - target: yarn-v1.22.19.tar.gz
