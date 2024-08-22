@@ -39,7 +39,12 @@ releases:
             is:
               nvr: monitoring-plugin-container-v4.16.0-202408211407.p0.gaa339e4.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.9-202408220842.p0.gefa92a2.assembly.4.16.9.el9
       rhcos:
         rhel-coreos:
           images:
