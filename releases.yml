@@ -34,7 +34,12 @@ releases:
             is:
               nvr: ose-cloud-credential-operator-container-v4.16.0-202408281106.p0.gcba9bdb.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.10-202408291007.p0.g6e4ee4d.assembly.4.16.10.el9
       rhcos:
         rhel-coreos:
           images:
