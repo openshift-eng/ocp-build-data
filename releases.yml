@@ -51,7 +51,13 @@ releases:
             is:
               nvr: ose-installer-artifacts-container-v4.18.0-202408261944.p0.gc57ed9e.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: openshift-clients
+          why: Pin openshift-clients to match RHCOS
+          metadata:
+            is:
+              el9: openshift-clients-4.18.0-202408212212.p0.g08282df.assembly.stream.el9
+              el8: openshift-clients-4.18.0-202408212212.p0.g08282df.assembly.stream.el8
       rhcos:
         rhel-coreos:
           images:
