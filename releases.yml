@@ -58,6 +58,15 @@ releases:
             is:
               el9: openshift-clients-4.18.0-202408212212.p0.g08282df.assembly.stream.el9
               el8: openshift-clients-4.18.0-202408212212.p0.g08282df.assembly.stream.el8
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: ose-agent-installer-api-server
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: rhcos
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: rhcos
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: '*'
       rhcos:
         rhel-coreos:
           images:
