@@ -30,8 +30,15 @@ name_in_bundle: local-storage-operator
 owners:
 - aos-storage-staff@redhat.com
 update-csv:
-  bundle-dir: 'stable/'
+  bundle-dir: stable/
   channel: stable
   manifests-dir: config/manifests
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+  image-references-path: config/manifests/stable/image-references
+image_has_bundle: true
+image_references:
+- local-storage-operator
+- local-storage-diskmaker
+- kube-rbac-proxy
+- local-storage-mustgather

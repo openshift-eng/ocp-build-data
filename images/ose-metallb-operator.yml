@@ -24,8 +24,14 @@ from:
 owners:
 - metallb-dev@redhat.com
 update-csv:
-  bundle-dir: 'stable/'
+  bundle-dir: stable/
   manifests-dir: manifests/
   registry: image-registry.openshift-image-registry.svc:5000
-  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container
-    Platform", "OpenShift Platform Plus"]'
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+  image-references-path: manifests/stable/image-references
+image_has_bundle: true
+image_references:
+- metallb-rhel9-operator
+- metallb-rhel9
+- metallb-frr-rhel9
+- kube-rbac-proxy

@@ -36,5 +36,13 @@ update-csv:
   bundle-dir: stable/
   manifests-dir: config/manifests
   registry: image-registry.openshift-image-registry.svc:5000
-  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container
-    Platform", "OpenShift Platform Plus"]'
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+  image-references-path: config/manifests/stable/image-references
+image_has_bundle: true
+image_references:
+- aws-efs-csi-driver-rhel8-operator
+- aws-efs-csi-driver-container-rhel8
+- csi-external-provisioner
+- csi-node-driver-registrar
+- csi-livenessprobe
+- kube-rbac-proxy

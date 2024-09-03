@@ -34,3 +34,12 @@ update-csv:
   manifests-dir: config/samba/manifests/
   registry: image-registry.openshift-imageregistry.svc:5000
   valid-subscription-label: '["OpenShift Container Platform", "OpenShift Platform Plus"]'
+  image-references-path: config/samba/manifests/preview/image-references
+image_has_bundle: true
+image_references:
+- smb-csi-driver-rhel9-operator
+- smb-csi-driver-container-rhel9
+- csi-external-provisioner
+- csi-node-driver-registrar
+- csi-livenessprobe
+- kube-rbac-proxy

@@ -31,3 +31,9 @@ update-csv:
   manifests-dir: manifests/
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Container Platform", "OpenShift Platform Plus"]'
+  image-references-path: manifests/stable/image-references
+image_has_bundle: true
+image_references:
+- ingress-node-firewall
+- ingress-node-firewall-daemon
+- kube-rbac-proxy
