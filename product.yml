@@ -1,8 +1,33 @@
 bug_mapping:
   default_issue_project: OCPBUGS
+
+  labels:
+    sustaining:
+      name: Sustaining Engineering
+
+  # Version overrides will be processed in order.
+  # The first override to match will set attributes for the Jira
+  # about to be opened.
+  version_overrides:
+  - match:
+      include:
+      # CEL - common expression language allows matching criteria to be expressed succinctly.
+      - 'issue.product == "OCPBUGS" && issue.affects_version.major == 4 && issue.affects_version.minor <= 12'
+      exclude:
+      # A matching exclude overrides any matching include.
+      - 'issue.component == "descheduler"'
+    set:
+      labels:
+      - sustaining
+      # A CEL expression can formulate the assignee as well.
+      assignee: 'has(issue.vars) && has(issue.vars.sustaining_owner) ? issue.vars.sustaining_owner : "sustaining_engineering@redhat.com"'
+
   components:
     ansible-asb-modules:
       issue_component: Service Broker
+      vars:
+        # Assign an individual to a specific component (see issue.vars.sustaining_owner in CEL).
+        sustaining_owner: someone@redhat.com
     ansible-kubernetes-modules:
       issue_component: Installer / openshift-ansible
     ansible-runner:
