@@ -1,0 +1,21 @@
+content:
+  source:
+    dockerfile: packaging/imagemode/Containerfile.repobase
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/microshift.git
+      web: https://github.com/openshift/microshift
+    ci_alignment:
+      streams_prs:
+        enabled: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  stream: bootc
+name: openshift/microshift-bootc
+owners:
+- aos-team-art@redhat.com
