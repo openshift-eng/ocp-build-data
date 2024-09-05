@@ -541,6 +541,7 @@ repos:
   rhel-9-server-microshift-rpms:
     conf:
       extra_options:
+        includepkgs: microshift*
         module_hotfixes: 1  # play nicely with modules
       baseurl:
         aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/aarch64/os
