@@ -1,0 +1,22 @@
+base_only: true
+content:
+  source:
+    branch:
+      target: microshift-bootc-base
+    url: git@github.com:thegreyd/ocp-build-data.git
+    web: https://github.com/openshift-eng/ocp-build-data
+    ci_alignment:
+      streams_prs:
+        enabled: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-fast-datapath-rpms
+- rhel-9-server-microshift-rpms
+for_payload: false
+for_release: false
+from:
+  stream: bootc-rhel9
+name: openshift/microshift-bootc-base
+owners:
+- aos-team-art@redhat.com

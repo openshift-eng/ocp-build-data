@@ -9,15 +9,9 @@ content:
     ci_alignment:
       streams_prs:
         enabled: false
-enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
-- rhel-9-fast-datapath-rpms
-- rhel-9-server-microshift-rpms
 for_payload: false
-for_release: false
 from:
-  stream: bootc
+  member: microshift-bootc-base
 name: openshift/microshift-bootc
 owners:
-- aos-team-art@redhat.com
+- microshift-devel@redhat.com
