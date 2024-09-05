@@ -541,7 +541,7 @@ repos:
   rhel-9-server-microshift-rpms:
     conf:
       extra_options:
-        includepkgs: microshift*
+        includepkgs: microshift* openshift-clients cri-tools cri-o # only pick up these rpms from this repo, microshift and its dependencies
         module_hotfixes: 1  # play nicely with modules
       baseurl:
         aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/aarch64/os
@@ -553,8 +553,12 @@ repos:
         - el9
         localdev:
           enabled: true
-    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
       optional: true
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
     reposync:
       enabled: false
 
