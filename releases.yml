@@ -2,12 +2,12 @@ releases:
   4.14.36:
     assembly:
       basis:
-        brew_event: 60080409
+        brew_event: 60095830
         reference_releases:
-          aarch64: 4.14.0-0.nightly-arm64-2024-09-04-210109
-          ppc64le: 4.14.0-0.nightly-ppc64le-2024-09-04-183201
-          s390x: 4.14.0-0.nightly-s390x-2024-09-04-183200
-          x86_64: 4.14.0-0.nightly-2024-09-05-001913
+          aarch64: 4.14.0-0.nightly-arm64-2024-09-05-135807
+          ppc64le: 4.14.0-0.nightly-ppc64le-2024-09-05-122950
+          s390x: 4.14.0-0.nightly-s390x-2024-09-05-122950
+          x86_64: 4.14.0-0.nightly-2024-09-05-150839
       group:
         advisories:
           extras: 138434
@@ -19,46 +19,31 @@ releases:
         upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46,4.13.48,4.13.49,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32,4.14.33,4.14.34,4.14.35
       members:
         images:
-        - distgit_key: ose-network-tools
-          metadata:
-            is:
-              nvr: ose-network-tools-container-v4.14.0-202409041539.p0.ge79d817.assembly.stream.el8
-          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        - distgit_key: ose-ovn-kubernetes
-          metadata:
-            is:
-              nvr: ose-ovn-kubernetes-container-v4.14.0-202409041539.p0.g7dbdae0.assembly.stream.el9
-          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        - distgit_key: ovn-kubernetes-microshift
-          metadata:
-            is:
-              nvr: ovn-kubernetes-microshift-container-v4.14.0-202409041539.p0.g7dbdae0.assembly.stream.el9
-          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         - distgit_key: openshift-enterprise-console
           metadata:
             is:
-              nvr: openshift-enterprise-console-container-v4.14.0-202409041539.p0.g874421d.assembly.stream.el8
+              nvr: openshift-enterprise-console-container-v4.14.0-202409051039.p0.gbeb6e56.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
       rhcos:
         machine-os-content:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0d0cf9c0e75d1491f99ce837d5bb4dd9244ec55bca10aba095e4f3dc1ad55022
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:96cea363cf41f642cb94d7cee2a4b06f6496f6cb7e6aca361b214d410255345d
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:68fa1332d50db9ef16233c4881c9de670fc387bf71a3c7b17cb5ec7127401c0e
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e8cd305afba443136fb9fe480f12400815013999f679b463cd1fc180d485e808
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:85d90fa6c03b88a23a9931f7da4ffb3c4a6bce7bcb62e4f52bce2b38113444ea
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2fdae47dd2e8e5d87b2b41a8d5e0075cd8ff53bce40d9ae2a36b8dc4ca923c60
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:24b25e4b030aadfa5e5a1b1e0ea75b351648201d62e9e7cefb827b1577dc5984
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:514995f55831d625f19cc5d188eb29419a0a49c98273e301c40e67e74dc33470
         rhel-coreos:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6dc6a6a5b1a090fb49f97628e51d7e483591d59ebbe5fb2a61f430d2e101c3ba
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c1e5a4a77f2a42a4a4a8d8b6cb1e61740253991fa9a4c3ce3b58e6deee74cceb
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:54d97c694c0c9d04e5abdfc4f2b7682e3be093e0bbb0691b6d74e072434a12f2
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3597d5e2f8a07003f8ee929cd402a7e9cecb11e55bb618d9418e62510c8f5767
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1e87d661d2e77523421e723e99c2f90ff60708511a876722b6388c370c921d93
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:43071bf7b15a6492349c6d4c5aba5991734af6817f75fab1f26c750b00af5221
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f75d95d420002606a40e652bbb63456b5d597121b7d1e2413e1f4f0971193dcb
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d8bfae1166e8556d3f4e83fb934fef8b41107afccb66f748cd0b6eab806031f3
         rhel-coreos-extensions:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0d95231390a94a729ac6049760d8cb789af1289760c0945328bbe8765f0bd2ce
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b426a0b8d89c11ddec298eb6c4d2d7ea878cc3355c236b9a21e0bf4aeb4619c7
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:178795e2008c2b7c0ffdcd1acc2a8f62dc87bb4b951637db6bc2d2039a2dec1f
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f3814e03c6e036c633c6561aa124eae110f4513d88b1b3534bc5e3dfca402555
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:60aaae1bba5f440ef6e016a5872e9523ff9f6656498d22827f8483d073e219c8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b8b787ca8a767ea9a82a2557630fb3486b675f3cc2774b1d449815443ba2c5b4
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4717c68c4a6469539313f3da3d4140794dc09e0c9909a22d2cf306cfd8344e0d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1e49b4c76c255f76365b8695cca2f1afca25ca3f3fbd2bf3ed5fad57affaebb7
       type: standard
 
   4.14.35:
