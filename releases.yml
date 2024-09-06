@@ -35,7 +35,13 @@ releases:
             is:
               nvr: monitoring-plugin-container-v4.17.0-202409050606.p0.gccaf40d.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: openshift
+          why: Match the version in RHCOS
+          metadata:
+            is:
+              el9: openshift-4.17.0-202408191741.p0.g88e7cc8.assembly.stream.el9
+              el8: openshift-4.17.0-202408191741.p0.g88e7cc8.assembly.stream.el8
       rhcos:
         rhel-coreos:
           images:
