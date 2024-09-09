@@ -10,8 +10,12 @@ content:
       streams_prs:
         enabled: false
 for_payload: false
-from:
-  member: microshift-bootc-base
+for_release: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-fast-datapath-rpms
+- rhel-9-server-microshift-rpms
 name: openshift/microshift-bootc
 owners:
 - microshift-devel@redhat.com
