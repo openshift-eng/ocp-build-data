@@ -4,6 +4,14 @@ arches:
 content:
   source:
     dockerfile: packaging/imagemode/Containerfile.repobase
+    # temp workaround for RHEL-39796
+    modifications:
+    - action: replace
+      match: 'RUN dnf upgrade -y && \'
+      replacement: 'RUN mv /etc/selinux /etc/selinux.tmp && dnf upgrade -y && \'
+    - action: replace
+      match: 'dnf clean all'
+      replacement: 'dnf clean all && mv /etc/selinux.tmp /etc/selinux'
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
