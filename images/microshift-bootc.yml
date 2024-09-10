@@ -1,3 +1,6 @@
+arches:
+- x86_64
+- aarch64
 content:
   source:
     dockerfile: packaging/imagemode/Containerfile.repobase
@@ -11,6 +14,8 @@ content:
         enabled: false
 for_payload: false
 for_release: false
+from:
+  stream: bootc-rhel9
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
