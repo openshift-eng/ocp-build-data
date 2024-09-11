@@ -1,27 +1,22 @@
+# Disable automated builds, this image is intended to be built manually like microshift rpm
+mode: disabled
 arches:
 - x86_64
 - aarch64
 content:
   source:
     dockerfile: packaging/imagemode/Containerfile.repobase
-    # temp workaround for RHEL-39796
-    modifications:
-    - action: replace
-      match: 'RUN dnf upgrade -y && \'
-      replacement: 'RUN mv /etc/selinux /etc/selinux.tmp && dnf upgrade -y && \'
-    - action: replace
-      match: 'dnf clean all'
-      replacement: 'dnf clean all && mv /etc/selinux.tmp /etc/selinux'
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
-      url: git@github.com:thegreyd/microshift.git
+      url: git@github.com:openshift-priv/microshift.git
       web: https://github.com/openshift/microshift
     ci_alignment:
       streams_prs:
         enabled: false
-for_payload: false
+# This image has its own separate release process, see USHIFT-4024
 for_release: false
+for_payload: false
 from:
   stream: bootc-rhel9
 enabled_repos:
