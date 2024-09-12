@@ -1,4 +1,66 @@
 releases:
+  4.15.32:
+    assembly:
+      basis:
+        brew_event: 60223268
+        reference_releases:
+          aarch64: 4.15.0-0.nightly-arm64-2024-09-11-164805
+          ppc64le: 4.15.0-0.nightly-ppc64le-2024-09-11-160748
+          s390x: 4.15.0-0.nightly-s390x-2024-09-11-160748
+          x86_64: 4.15.0-0.nightly-2024-09-11-181624
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32,4.14.33,4.14.34,4.14.35,4.14.36,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.15.10,4.15.11,4.15.12,4.15.13,4.15.14,4.15.15,4.15.16,4.15.17,4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31
+      members:
+        images:
+        - distgit_key: ose-multus-route-override-cni
+          metadata:
+            is:
+              nvr: ose-multus-route-override-cni-container-v4.15.0-202409111406.p0.g1ccafc3.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-builder
+          metadata:
+            is:
+              nvr: openshift-enterprise-builder-container-v4.15.0-202408260908.p0.gb98fb65.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.15.0-202409111406.p0.g466f3cb.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: multus-networkpolicy
+          metadata:
+            is:
+              nvr: ose-multus-networkpolicy-container-v4.15.0-202409111406.p0.gb377b4b.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4d44364b9d1191d192af094646daf5346ae1a4c99fc307286bfa09a197af54b7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3a97b1e3c1e24d48643f9ec4159c1bf778918ac08393f68e1f06b9efc9e8532b
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:caaf40d4ea318d7e02820493bcf611a32c89ab095507ad0b562505552cff7687
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fbc2bf5f3d3e08146b86253df636876f7e8f181ea41557560bfa2b5ed3cf93a9
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d41b42399272083c87a885f8b660f6b4caed05375453ce31c44a46727d9b26f8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80907d77f89d9241ddc0a060eeeff7f553c74f5dcc12cd2dd70d0d2de2b38556
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c26b1eb0874af61ab8795ac7d774d49503c198898980edefa863491655386920
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:57e7e2bfc9680ed0b90b966975e8960142ef5c90f07ed7b3e961ca178ded90b8
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a515fdbca0d39e607300b1073b51e3404e1ea3e0bf21f2abf21fef6c6d9f0c7b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7cd340be9ae71684cebc785cdb33cea0ba2b3990793fb07dafc6be6d9ffd2b16
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8d9f739078efcd4371efa168db94875e1e47bb887ca3f7c9163ca518092243b5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1a74fa8881ee04bfd8aa09e15e2712fb91a3d7f13a63e2618a77b2ebf7f9bba5
+      type: standard
+
   4.15.31:
     assembly:
       basis:
