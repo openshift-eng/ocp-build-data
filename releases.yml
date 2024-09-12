@@ -42,7 +42,12 @@ releases:
             is:
               nvr: ose-multus-networkpolicy-container-v4.15.0-202409111406.p0.gb377b4b.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.32-202409120846.p0.g0c438ed.assembly.4.15.32.el9
       rhcos:
         machine-os-content:
           images:
