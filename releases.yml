@@ -22,6 +22,12 @@ releases:
           - el9: cri-o-1.29.8-3.rhaos4.16.git7c15a85.el9
             why: Pin what's in RHCOS
             non_gc_tag: rhaos-4.16-rhel-9
+          - el8: cri-o-1.29.8-4.rhaos4.16.git7c340a9.el8
+            why: Match el9
+            non_gc_tag: rhaos-4.16-rhel-8
+      issues:
+        exclude:
+        - id: OCPBUGS-37830
       members:
         images:
         - distgit_key: operator-registry
