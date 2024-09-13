@@ -2,7 +2,7 @@ content:
   # set_build_variables is necessary in order to set CI_RPM_SVC (see .envs below) in the Dockerfile.
   set_build_variables: true
   source:
-    dockerfile: ci_images/rhel-8/ci-openshift-build-root/Dockerfile
+    dockerfile: ci_images/rhel-8/ci-openshift-build-root/Dockerfile.previous
     git:
       branch:
         target: openshift-{MAJOR}.{MINOR}
