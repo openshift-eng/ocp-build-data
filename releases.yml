@@ -22,6 +22,11 @@ releases:
               nvr: ose-openshift-controller-manager-container-v4.12.0-202409131137.p1.g0b1971a.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
+      permits:
+        - component: openshift-enterprise-builder
+          code: EMBARGOED_CONTENT
+        - component: ose-openshift-controller-manager
+          code: EMBARGOED_CONTENT
       rhcos:
         machine-os-content:
           images:
