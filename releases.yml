@@ -50,7 +50,13 @@ releases:
             is:
               nvr: openshift-enterprise-builder-container-v4.17.0-202409090816.p0.g739f527.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: openshift
+          why: Match the version in RHCOS
+          metadata:
+            is:
+              el9: openshift-4.17.0-202409041737.p0.g9da7e18.assembly.stream.el9
+              el8: openshift-4.17.0-202409041737.p0.g9da7e18.assembly.stream.el8
       rhcos:
         rhel-coreos:
           images:
