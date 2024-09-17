@@ -29,6 +29,12 @@ releases:
               nvr: ose-openshift-controller-manager-container-v4.16.0-202409130937.p1.g5dcfc99.assembly.stream.el9
           why: Pin build that fixes cve-2024-45496
         rpms!: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.13-202409171717.p0.g15ea7cd.assembly.4.16.13.el9
       permits:
       - component: openshift-enterprise-builder
         code: EMBARGOED_CONTENT
