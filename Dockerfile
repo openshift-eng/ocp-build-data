@@ -1,5 +1,5 @@
 # This is a base image that most rhel9-based containers should layer on.
-FROM brew.registry.redhat.io/rh-osbs/rhel-els@sha256:0a4a4ab60ce8abac3edab51cacdbed25cd012a3e4169895bce2d18ed74364e08
+FROM brew.registry.redhat.io/rh-osbs/rhel-els@sha256:41db71218a0f9c74e7054b95d20165275a4b9dd41a1f0fa917bcccaa9470c2c1
 
 # Start Konflux-specific steps
 RUN mkdir -p /tmp/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/yum_temp/ || true
