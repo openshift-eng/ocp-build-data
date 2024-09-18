@@ -28,7 +28,7 @@ distgit:
   component: openshift-enterprise-ansible-operator-container
 delivery:
   # Maps to honeybadger repo_name
-  repo_name: ose-ansible-operator
+  repo_name: ose-ansible-rhel9-operator
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -36,10 +36,10 @@ for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base
+  member: openshift-enterprise-base-rhel9
 maintainer:
   component: Operator SDK
-name: openshift/ose-ansible-operator
+name: openshift/ose-ansible-rhel9-operator
 owners:
 - aos-operator-sdk@redhat.com
 - jlanford@redhat.com
