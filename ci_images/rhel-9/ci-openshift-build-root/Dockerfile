@@ -43,7 +43,6 @@ RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
     export GOSUMDB='off' && \
     export GOFLAGS='' && export GO111MODULE=on && \
     export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem && \
-    go install golang.org/x/tools/cmd/cover@latest && \
     go install golang.org/x/tools/cmd/goimports@latest && \
     go install github.com/tools/godep@latest && \
     go install golang.org/x/lint/golint@latest && \
