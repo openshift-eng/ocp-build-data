@@ -1,4 +1,65 @@
 releases:
+  4.16.14:
+    assembly:
+      basis:
+        brew_event: 60356133
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2024-09-18-232317
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-09-18-225048
+          s390x: 4.16.0-0.nightly-s390x-2024-09-18-225048
+          x86_64: 4.16.0-0.nightly-2024-09-18-233707
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5,4.16.6,4.16.7,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13
+      members:
+        images:
+        - distgit_key: ose-installer
+          metadata:
+            is:
+              nvr: ose-installer-container-v4.16.0-202409181705.p0.gdaa3384.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-altinfra
+          metadata:
+            is:
+              nvr: ose-installer-altinfra-container-v4.16.0-202409181705.p0.gdaa3384.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-baremetal-installer
+          metadata:
+            is:
+              nvr: ose-baremetal-installer-container-v4.16.0-202409181705.p0.gdaa3384.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-installer-artifacts
+          metadata:
+            is:
+              nvr: ose-installer-artifacts-container-v4.16.0-202409181705.p0.gdaa3384.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-machine-os-images
+          metadata:
+            is:
+              nvr: ose-machine-os-images-container-v4.16.0-202409181705.p0.g3cc9709.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b96a8b74baa24fcd2328ac03525a5b07cbefc63b2294693476db16508bfc90e8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d297172a9991840153705e96ce4a007e3ee60441e45116a23bc5cd784cce2716
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ef85d79bb0900174118bec28251289f883caf94a3cdc003c9f7a2034584abb6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:37a57ba7f66cd31f65b24f91a44930eb5056d6e3186efc2bad8ac6011d0c3bc5
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7204ebf4d75190a2c4be86e2983b83ee0936203b4adcb5b4a714317cfe185f95
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d67c8cf14df535dba292ba8ba00f6461523d575f0bd26fcd06838ef80b5a5d90
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:18a327ae26e966d8a25e35d153618be7ee39f65abbecc038b7bae82f4fd510d5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fda06d12db2bb108f76399825ebdb186f78331c50b08ee731bfa0020d00251d4
+      type: standard
+
   4.16.13:
     assembly:
       basis:
