@@ -1,4 +1,60 @@
 releases:
+  4.13.51:
+    assembly:
+      basis:
+        brew_event: 60335937
+        reference_releases:
+          aarch64: 4.13.0-0.nightly-arm64-2024-09-18-073012
+          ppc64le: 4.13.0-0.nightly-ppc64le-2024-09-18-045357
+          s390x: 4.13.0-0.nightly-s390x-2024-09-18-045357
+          x86_64: 4.13.0-0.nightly-2024-09-18-085651
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.12.16,4.12.17,4.12.18,4.12.19,4.12.20,4.12.21,4.12.22,4.12.23,4.12.24,4.12.25,4.12.26,4.12.27,4.12.28,4.12.29,4.12.30,4.12.31,4.12.32,4.12.33,4.12.34,4.12.35,4.12.36,4.12.37,4.12.38,4.12.39,4.12.40,4.12.41,4.12.42,4.12.43,4.12.44,4.12.45,4.12.46,4.12.47,4.12.48,4.12.49,4.12.50,4.12.51,4.12.53,4.12.54,4.12.55,4.12.56,4.12.57,4.12.58,4.12.59,4.12.60,4.12.61,4.12.62,4.12.63,4.12.64,4.12.65,4.12.66,4.13.0,4.13.1,4.13.2,4.13.3,4.13.4,4.13.5,4.13.6,4.13.7,4.13.8,4.13.9,4.13.10,4.13.11,4.13.12,4.13.13,4.13.14,4.13.15,4.13.16,4.13.17,4.13.18,4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46,4.13.48,4.13.49,4.13.50
+      members:
+        images:
+        - distgit_key: openshift-enterprise-builder
+          metadata:
+            is:
+              nvr: openshift-enterprise-builder-container-v4.13.0-202409180136.p0.g2ec296b.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-agent-installer-node-agent
+          metadata:
+            is:
+              nvr: ose-agent-installer-node-agent-container-v4.13.0-202409180136.p0.g6ee27bc.assembly.stream.el8
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: cluster-node-tuning-operator
+          metadata:
+            is:
+              nvr: cluster-node-tuning-operator-container-v4.13.0-202409180036.p0.g978a6c5.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        machine-os-content:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5d9b57dab6f22d9829b17dd8ea760f454b2463857d7f3fbdfa98139e95b31f66
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:24cafdbcc8e3a12d6e07f64a76b2ce7a1e6b17c486d3f5006a2a5834417da8d0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b3b985ad049a9e7321a4e6711d8d66106a328cc7aff15163f07db7ca4bd8ff6b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d95e31843ee5eae4ea84f48b8c4e21a6b962885eb5e06922a05ee61351d61bc
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e0faddc9585aa845e9311f7640da1052180b372bceab1982dee63e56ae21e3b9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:88759e7e0233ba3a6ae594425d1c27a2841f159406923d10d4d4411d32945c92
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d2c4e04b2357a64a88be2dc68647f0f1e48471c2272f0a15dca4df2f13a505d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6ff3ee5826ef36cbeb217abb9bc9c1e0b048c4449d247f1e285c93cf71ad9818
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:340d55f363b6488b675ca3ea68caa7b1e0471b3f9d635edb1b2555836e64a5f9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7d9da47c81c6d68544d6cb18be4cc21d0e630c96249bfe4c75f6429da905482f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d2e9f450acf30453702a040f4b5272b26d0401a1836d2e00d61d10d9267b255b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7c8c47089930760f8531ba0504d5c8f115022b2f7ac5a8450d513562ef2860bd
+      type: standard
+
   4.13.50:
     assembly:
       basis:
