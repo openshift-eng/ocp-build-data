@@ -1,5 +1,33 @@
 releases:
-
+  rc.4:
+    assembly:
+      basis:
+        assembly: rc.3
+        reference_releases!: {}
+      group:
+        advisories!:
+          extras: 133187
+          image: 133188
+          metadata: 133189
+          rpm: 133192
+        # rc.3 + previous
+        upgrades: 4.17.0-rc.3,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.17.0-ec.0,4.17.0-ec.1,4.17.0-ec.2,4.17.0-ec.3,4.17.0-rc.0,4.17.0-rc.1,4.17.0-rc.2
+      issues:
+        include:
+        - id: OCPBUGS-41192 # controller-manager cve
+        - id: OCPBUGS-41225 # builder cve
+      members:
+        images:
+          - distgit_key: openshift-enterprise-builder
+            metadata:
+              is:
+                nvr: ose-cluster-openshift-controller-manager-operator-container-v4.17.0-202409182235.p0.g2b962c7.assembly.stream.el9
+            why: Pin build that fixes cve-2024-7387
+          - distgit_key: ose-openshift-controller-manager
+            metadata:
+              is:
+                nvr: ose-openshift-controller-manager-container-v4.17.0-202409182235.p0.g7682a61.assembly.stream.el9
+            why: Pin build that fixes cve-2024-45496
   rc.3:
     assembly:
       basis:
@@ -15,9 +43,9 @@ releases:
           image: 133188
           metadata: 133189
           microshift: 133190
-          prerelease: 138849
+#          prerelease: 138849
           rpm: 133192
-        operator_index_mode: pre-release
+#        operator_index_mode: pre-release
         release_jira: ART-9847
         upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.17.0-ec.0,4.17.0-ec.1,4.17.0-ec.2,4.17.0-ec.3,4.17.0-rc.0,4.17.0-rc.1,4.17.0-rc.2
       members:
