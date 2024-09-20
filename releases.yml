@@ -1,5 +1,4 @@
 releases:
-
   ec.1:
     assembly:
       basis:
@@ -77,6 +76,13 @@ releases:
               nvr: ose-openstack-cinder-csi-driver-operator-container-v4.18.0-202409161210.p0.gdcac15a.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: openshift-enterprise-builder
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: ose-agent-installer-api-server
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: rhcos
       rhcos:
         rhel-coreos:
           images:
