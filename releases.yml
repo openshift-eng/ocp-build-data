@@ -13,6 +13,9 @@ releases:
         # rc.3 + previous
         upgrades: 4.17.0-rc.3,4.17.0-rc.4,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.17.0-ec.0,4.17.0-ec.1,4.17.0-ec.2,4.17.0-ec.3,4.17.0-rc.0,4.17.0-rc.1,4.17.0-rc.2
         release_jira: ART-9847
+      permits:
+      - component: openshift-enterprise-builder
+        code: EMBARGOED_CONTENT
       issues:
         include:
           - id: OCPBUGS-41192 # controller-manager cve
@@ -22,7 +25,7 @@ releases:
         - distgit_key: openshift-enterprise-builder
           metadata:
             is:
-              nvr: openshift-enterprise-builder-container-v4.17.0-202409181234.p0.g5dec103.assembly.stream.el9
+              nvr: openshift-enterprise-builder-container-v4.17.0-202409122005.p1.gcfcf3bd.assembly.stream.el9
           why: Pin build that fixes cve-2024-7387
         - distgit_key: ose-openshift-controller-manager
           metadata:
