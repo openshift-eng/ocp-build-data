@@ -75,7 +75,12 @@ releases:
             is:
               nvr: ose-openstack-cinder-csi-driver-operator-container-v4.18.0-202409161210.p0.gdcac15a.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.18.0~ec.1-202409201459.p0.g2931085.assembly.ec.1.el9
       permits:
       - code: CONFLICTING_INHERITED_DEPENDENCY
         component: openshift-enterprise-builder
