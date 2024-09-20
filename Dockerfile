@@ -7,8 +7,8 @@ RUN mkdir -p /tmp/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/yum_temp/ || true
 COPY .oit/unsigned.repo /etc/yum.repos.d/
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
 # End Konflux-specific steps
-ENV __doozer=update BUILD_RELEASE=202409192045.p0.g0fb79a4.assembly.test.el9 BUILD_VERSION=v4.18.0 OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202409192045.p0.g0fb79a4.assembly.test.el9 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=openshift-base-nodejs.rhel9 __doozer_uuid_tag=base-nodejs-rhel9-v4.18.0-20240919.204535 __doozer_version=v4.18.0 
-ENV __doozer=merge OS_GIT_COMMIT=0fb79a4 OS_GIT_VERSION=4.18.0-202409192045.p0.g0fb79a4.assembly.test.el9-0fb79a4 SOURCE_DATE_EPOCH=1628716494 SOURCE_GIT_COMMIT=0fb79a4bfdfad72416f37f6a10e672d05b52ba9e SOURCE_GIT_TAG=0fb79a4b SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
+ENV __doozer=update BUILD_RELEASE=202409200112.p0.g0fb79a4.assembly.test.el9 BUILD_VERSION=v4.18.0 OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202409200112.p0.g0fb79a4.assembly.test.el9 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=openshift-base-nodejs.rhel9 __doozer_uuid_tag=base-nodejs-rhel9-v4.18.0-20240920.011237 __doozer_version=v4.18.0 
+ENV __doozer=merge OS_GIT_COMMIT=0fb79a4 OS_GIT_VERSION=4.18.0-202409200112.p0.g0fb79a4.assembly.test.el9-0fb79a4 SOURCE_DATE_EPOCH=1628716494 SOURCE_GIT_COMMIT=0fb79a4bfdfad72416f37f6a10e672d05b52ba9e SOURCE_GIT_TAG=0fb79a4b SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
 # rhel-7 based:
 #   rhscl/nodejs-8-rhel7 from rh-nodejs8-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=67373)
 #   rhscl/nodejs-12-rhel7 from rh-nodejs12-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=72290)
@@ -38,7 +38,7 @@ LABEL \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Release" \
         version="v4.18.0" \
-        release="202409192045.p0.g0fb79a4.assembly.test.el9" \
+        release="202409200112.p0.g0fb79a4.assembly.test.el9" \
         io.openshift.build.commit.id="0fb79a4bfdfad72416f37f6a10e672d05b52ba9e" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
         io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/0fb79a4bfdfad72416f37f6a10e672d05b52ba9e"
