@@ -1,4 +1,62 @@
 releases:
+  rc.6:
+    assembly:
+      basis:
+        assembly: rc.3
+        reference_releases!: {}
+      group:
+        advisories!:
+          extras: 133187
+          image: 133188
+          metadata: 133189
+          rpm: 133192
+        upgrades: 4.17.0-rc.3,4.17.0-rc.4,4.17.0-rc.5,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.17.0-ec.0,4.17.0-ec.1,4.17.0-ec.2,4.17.0-ec.3,4.17.0-rc.0,4.17.0-rc.1,4.17.0-rc.2
+        release_jira: ART-9847
+        dependencies:
+          rpms:
+          - el9: NetworkManager-1.46.0-19.el9_4
+            why: Pin what's in RHCOS
+      permits:
+      - component: openshift-enterprise-builder
+        code: EMBARGOED_CONTENT
+      issues:
+        include:
+        - id: OCPBUGS-41192   # controller-manager cve
+        - id: OCPBUGS-41225   # builder cve
+        - id: OCPBUGS-37402   # CVE tracker bumping rpm dependency python-werkzeug in ironic image
+        - id: OCPBUGS-39380   # CVE tracker bumping openstack-ironic dependencies in ironic images
+      members:
+        images:
+        - distgit_key: openshift-enterprise-builder
+          metadata:
+            is:
+              nvr: openshift-enterprise-builder-container-v4.17.0-202409122005.p1.gcfcf3bd.assembly.stream.el9
+          why: Pin build that fixes cve-2024-7387
+        - distgit_key: ose-openshift-controller-manager
+          metadata:
+            is:
+              nvr: ose-openshift-controller-manager-container-v4.17.0-202409182235.p0.g7682a61.assembly.stream.el9
+          why: Pin build that fixes cve-2024-45496
+        rpms:
+        - distgit_key: openshift
+          why: Match the version in RHCOS
+          metadata:
+            is:
+              el9: openshift-4.17.0-202409121706.p0.gd3adea4.assembly.stream.el9
+              el8: openshift-4.17.0-202409121706.p0.gd3adea4.assembly.stream.el8
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:55c23de6230beaef6b5106f29b1deb2dd463710e28dc5038f5cea86bc65fa2de
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:92799bb01532662a1be9f8a5352d1f520ee962a2818ca9b42290f850e8934e89
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84890c9ea4c87112577ba6e43811b26bc1e26c51734f9eb737b3a3df61d14624
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c8ebfbf299fa1e561424cc4be6916527738dd0632b029879f91c910d30096a8c
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aa9e6a8ba2b871cab8346336e6ab59bcc6688fb92083d7b711246bb8a523ce9d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b913d518948e48cecac62605099e5ceca5c808d8086ecb5ec67fcfe11953384d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6013980a4b521b5e9abd89df15cf81fd24a76128c7bfc18c74eab2654e06ce59
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8b9884a7626bc8f4d0548ff1bbfbaeff00cb80abeb80ac80329cc94ab1f511dd
   rc.5:
     assembly:
       basis:
