@@ -20,24 +20,7 @@ releases:
       permits:
       - component: openshift-enterprise-builder
         code: EMBARGOED_CONTENT
-      issues:
-        include:
-        - id: OCPBUGS-41192   # controller-manager cve
-        - id: OCPBUGS-41225   # builder cve
-        - id: OCPBUGS-37402   # CVE tracker bumping rpm dependency python-werkzeug in ironic image
-        - id: OCPBUGS-39380   # CVE tracker bumping openstack-ironic dependencies in ironic images
       members:
-        images:
-        - distgit_key: openshift-enterprise-builder
-          metadata:
-            is:
-              nvr: openshift-enterprise-builder-container-v4.17.0-202409122005.p1.gcfcf3bd.assembly.stream.el9
-          why: Pin build that fixes cve-2024-7387
-        - distgit_key: ose-openshift-controller-manager
-          metadata:
-            is:
-              nvr: ose-openshift-controller-manager-container-v4.17.0-202409182235.p0.g7682a61.assembly.stream.el9
-          why: Pin build that fixes cve-2024-45496
         rpms:
         - distgit_key: openshift
           why: Match the version in RHCOS
