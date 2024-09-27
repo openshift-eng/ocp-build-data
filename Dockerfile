@@ -31,7 +31,7 @@ ADD ci_images/install_etcd.sh /tmp
 
 RUN set -euxo pipefail && \
     chmod +x /tmp/*.sh && \
-    (test -f /tmp/tls-ca-bundle.pem && export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem || export SSL_CERT_FILE=/tmp/Current-IT-Root-CAs.pem) && \
+    export SSL_CERT_FILE=$(test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem) && cat $SSL_CERT_FILE && \
     /tmp/install_protoc.sh "23.4" && \
     /tmp/install_etcd.sh "3.5.10"
 
@@ -50,7 +50,7 @@ RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros libstdc++ l
 RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
     export GOSUMDB='off' && \
     export GOFLAGS='' && export GO111MODULE=on && \
-    (test -f /tmp/tls-ca-bundle.pem && export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem || export SSL_CERT_FILE=/tmp/Current-IT-Root-CAs.pem) && \
+    export SSL_CERT_FILE=$(test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem) && cat $SSL_CERT_FILE && \
     go install golang.org/x/tools/cmd/cover@latest && \
     go install golang.org/x/tools/cmd/goimports@latest && \
     go install github.com/tools/godep@latest && \
