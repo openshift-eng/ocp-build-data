@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# To rebase against nightlies, define MICROSHIFT_PAYLOAD_X86_64 and MICROSHIFT_PAYLOAD_AARCH64
+#   as the pullspecs of x86_64 and aarch64 release payloads.
+# To rebase against a named release, define RELEASE_NAME.
+# To not rebase at all, define MICROSHIFT_NO_REBASE=1
+
+set -e
+
+RELEASE_REPO="${RELEASE_REPO:-quay.io/openshift-release-dev/ocp-release}"
+
+fail() {
+    msg=$1
+    >&2 echo "$msg"
+    exit 1
+}
+
+# If MICROSHIFT_NO_REBASE is set and non-zero, stop execution here
+if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
+    echo "MICROSHIFT_NO_REBASE is defined. Rebase will not be run."
+    exit 0
+fi
+
+# Determine which rebase command to run
+if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64 $LVMS_OPERATOR_BUNDLE"
+elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $MICROSHIFT_PAYLOAD_X86_64 $MICROSHIFT_PAYLOAD_AARCH64 $LVMS_OPERATOR_BUNDLE"
+else
+    fail "Environment variable RELEASE_NAME or LVMS_OPERATOR_BUNDLE is not set."
+fi
+
+# Build the podman image
+DIR=$(dirname $(readlink -f $0))
+PODMAN_BUILD_CMD="podman build  -t microshift-rebase:$BREW_TAG $DIR"
+echo $PODMAN_BUILD_CMD
+eval $PODMAN_BUILD_CMD
+podman image prune -f  # clean up unused images
+
+# Run the podman container
+PODMAN_RUN_CMD="podman run --rm \
+-e RELEASE_NAME \
+-e LVMS_OPERATOR_BUNDLE \
+-e MICROSHIFT_PAYLOAD_X86_64 \
+-e MICROSHIFT_PAYLOAD_AARCH64 \
+-e REGISTRY_AUTH_FILE=/workdir/microshift/auth.json \
+-v ${XDG_RUNTIME_DIR}/containers/auth.json:/workdir/microshift/auth.json:ro,z \
+-v $PWD:/workdir/microshift:z \
+-w /workdir/microshift \
+microshift-rebase:$BREW_TAG \
+bash -c 'git config user.email noreply@redhat.com && $REBASE_CMD'"
+echo $PODMAN_RUN_CMD
+eval $PODMAN_RUN_CMD

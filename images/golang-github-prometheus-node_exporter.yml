@@ -1,0 +1,47 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/node_exporter.git
+      web: https://github.com/openshift/node_exporter
+    ci_alignment:
+      streams_prs:
+        auto_label:
+        - approved
+        - backport-risk-assessed
+        - bugzilla/valid-bug
+        - cherry-pick-approved
+        - lgtm
+        - staff-eng-approved
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: golang-github-prometheus-node_exporter-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-prometheus-node-exporter
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+labels:
+  License: ASL 2.0
+  io.k8s.description: Prometheus exporter for hardware and OS metrics exposed by *NIX
+    kernels, written in Go with pluggable metric collectors
+  io.k8s.display-name: Node Exporter
+  io.openshift.tags: openshift,node
+  vendor: Red Hat
+name: openshift/ose-prometheus-node-exporter-rhel9
+payload_name: prometheus-node-exporter
+non_shipping_repos:
+- rhel-9-server-ose-rpms-embargoed
+owners:
+- team-monitoring@redhat.com

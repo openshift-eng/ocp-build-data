@@ -1,0 +1,32 @@
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/frr.git
+      web: https://github.com/openshift/frr
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-frr-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: frr
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: true
+dependents:
+- ose-metallb-operator
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-base-rhel9
+name: openshift/frr-rhel9
+name_in_bundle: metallb-frr-rhel9
+payload_name: metallb-frr
+owners:
+- metallb-dev@redhat.com
+non_shipping_repos:
+- rhel-9-server-ose-rpms-embargoed
