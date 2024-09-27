@@ -1,0 +1,44 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kube-state-metrics.git
+      web: https://github.com/openshift/kube-state-metrics
+    path: ''
+    ci_alignment:
+      streams_prs:
+        auto_label:
+        - approved
+        - backport-risk-assessed
+        - bugzilla/valid-bug
+        - cherry-pick-approved
+        - lgtm
+        - staff-eng-approved
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: kube-state-metrics-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-kube-state-metrics
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+labels:
+  License: ASL 2.0
+  io.k8s.description: This is a component that exposes metrics about Kubernetes objects.
+  io.k8s.display-name: kube-state-metrics
+  io.openshift.tags: kubernetes
+  vendor: Red Hat
+name: openshift/ose-kube-state-metrics-rhel9
+payload_name: kube-state-metrics
+owners:
+- team-monitoring@redhat.com
