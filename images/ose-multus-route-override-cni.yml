@@ -1,0 +1,31 @@
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/route-override-cni.git
+      web: https://github.com/openshift/route-override-cni
+    ci_alignment:
+      streams_prs:
+        # Label so that this PR automatically merges if tests pass.
+        auto_label:
+        - approved
+        - lgtm
+        enabled: false
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-multus-route-override-cni-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-multus-route-override-cni
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  - stream: rhel-8-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-multus-route-override-cni-rhel9
+payload_name: multus-route-override-cni
+owners:
+- multus-dev@redhat.com
