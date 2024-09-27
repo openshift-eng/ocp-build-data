@@ -1,0 +1,173 @@
+####################################################################################################
+#  STOP. HOLD. PLEASE WAIT. PLEASE READ. FAILURE TO READ WILL HAVE IMPACTS ACROSS THE ORGANIZATION.
+####################################################################################################
+# If you are about to modify this file, please know that the end result may be changing the
+# base images for all upstream CI.
+#
+# ******IF you are about to bump ART's golang version******
+# Please announce to aos-devel/aos-leads before doing so. Tell them when it will occur and
+# hold to that schedule so that new CI issues can be correlated with the event.
+#
+# ******IF you are about to change an upstream_image name******
+# Do so only if discussed with your team lead. This field does not impact ART builds.
+# When this field is changed, it will open upstream PRs for each image using the stream
+# in ART's ocp-build-data. i.e. if you change the upstream_image for golang, you will
+# indirectly be responsible for opening >150 upstream PRs.
+# Details: https://docs.google.com/document/d/1vTf_Ev_9iv_myWu7ClYLlsiN54rEDIblq-90n3sNscs/edit
+#
+####################################################################################################
+
+rhel-8-golang-1.21:
+  aliases:
+  - rhel-8-golang-{GO_PREVIOUS}
+  image: openshift/golang-builder:v1.21.11-202407021847.g1ac3e39.el8
+  mirror: true
+  transform: rhel-8/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+rhel-9-golang-1.21:
+  aliases:
+  - rhel-9-golang-{GO_PREVIOUS}
+  image: openshift/golang-builder:v1.21.11-202407030000.gab74a9a.el9
+  mirror: true
+  transform: rhel-9/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+rhel-9-golang:
+  aliases:
+  - rhel-9-golang-{GO_LATEST}
+  image: openshift/golang-builder:v1.22.5-202407301806.g4c8b32d.el9
+  mirror: true
+  transform: rhel-9/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+rhel-8-golang:
+  aliases:
+  - rhel-8-golang-{GO_LATEST}
+  image: openshift/golang-builder:v1.22.5-202407301728.gd58751c.el8
+  mirror: true
+  transform: rhel-8/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-9-golang-1.21:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.21.11-202407030000.gab74a9a.el9
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-8-golang-1.21:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.21.11-202407021847.g1ac3e39.el8
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-9-golang-1.22:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.22.5-202407301806.g4c8b32d.el9
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+ibm-rhel-8-golang-1.22:
+  # Mirror non-embargoed golang builders for IBM
+  image: openshift/golang-builder:v1.22.5-202407301728.gd58751c.el8
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# Our transform is designed to create a buildconfig atop a specific golang version, layering on
+# packages that upstream has traditionally had present in its build_roots.
+rhel-8-golang-1.21-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
+  transform: rhel-8/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# Our transform is designed to create a buildconfig atop a specific golang version, layering on
+# packages that upstream has traditionally had present in its build_roots.
+rhel-8-golang-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
+  transform: rhel-8/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# Our transform is designed to create a buildconfig atop a specific golang version, layering on
+# packages that upstream has traditionally had present in its build_roots.
+rhel-9-golang-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
+  transform: rhel-9/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.22-openshift-{MAJOR}.{MINOR}
+
+# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# Our transform is designed to create a buildconfig atop a specific golang version, layering on
+# packages that upstream has traditionally had present in its build_roots.
+rhel-9-golang-1.21-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
+  transform: rhel-9/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+rhel8:
+  # the most recent release at present. since we yum update this, it does not need to float.
+  # it is important that we not build from unreleased builds and publish them.
+  # ubi8-container-8.10-901.1717584420
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8@sha256:143123d85045df426c5bbafc6863659880ebe276eb02c77ee868b88d08dbd05d
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+
+rhel9:
+  # the most recent release at present. since we yum update this, it does not need to float.
+  # it is important that we not build from unreleased builds and publish them.
+  # rhel-els-container-9.4-847.1719484506
+  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:0a4a4ab60ce8abac3edab51cacdbed25cd012a3e4169895bce2d18ed74364e08
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+
+nodejs:
+  image: ubi8/nodejs-18:1-71.1697671458
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-nodejs-base-{MAJOR}.{MINOR}.art
+  mirror: true
+
+nodejs-rhel9:
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9-nodejs-18:1-98
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
+  mirror: true
+
+centos_stream8:
+  # Mirror the centos images so that okd_alignment can reference them in app.ci
+  image: quay.io/centos/centos:stream8
+  upstream_image: registry.ci.openshift.org/ocp/builder:stream8
+  mirror: true
+
+centos_stream9:
+  # Mirror the centos images so that okd_alignment can reference them in app.ci
+  image: quay.io/centos/centos:stream9
+  upstream_image: registry.ci.openshift.org/ocp/builder:stream9
+  mirror: true
+

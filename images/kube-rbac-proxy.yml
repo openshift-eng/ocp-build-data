@@ -1,0 +1,49 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kube-rbac-proxy.git
+      web: https://github.com/openshift/kube-rbac-proxy
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+dependents:
+- ptp-operator
+- cluster-nfd-operator
+- ose-aws-efs-csi-driver-operator
+- ose-metallb-operator
+- local-storage-operator
+- ingress-node-firewall-operator
+- ose-gcp-filestore-csi-driver-operator
+- ose-smb-csi-driver-operator
+- dpu-operator
+- openshift-kubernetes-nmstate-operator
+- sriov-network-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: kube-rbac-proxy-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-kube-rbac-proxy
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+labels:
+  License: ASL 2.0
+  io.k8s.description: This is a proxy, that can perform Kubernetes RBAC authorization.
+  io.k8s.display-name: kube-rbac-proxy
+  io.openshift.tags: kubernetes
+  vendor: Red Hat
+name: openshift/ose-kube-rbac-proxy-rhel9
+name_in_bundle: kube-rbac-proxy
+payload_name: kube-rbac-proxy
+owners:
+- aos-apiserver@redhat.com

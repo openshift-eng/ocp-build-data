@@ -1,0 +1,37 @@
+arches:
+- x86_64
+- ppc64le
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ibm-powervs-block-csi-driver.git
+      web: https://github.com/openshift/ibm-powervs-block-csi-driver
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+        auto_label:
+        - approved
+        - lgtm
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-powervs-block-csi-driver-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-powervs-block-csi-driver
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-powervs-block-csi-driver-rhel9
+payload_name: powervs-block-csi-driver
+owners:
+- mchellam@redhat.com
+- mkumatag@redhat.com

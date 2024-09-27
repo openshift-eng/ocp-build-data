@@ -1,0 +1,37 @@
+arches:
+- x86_64
+- aarch64
+- ppc64le
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/linuxptp-daemon.git
+      web: https://github.com/openshift/linuxptp-daemon
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+dependents:
+- ptp-operator
+distgit:
+  component: ose-linuxptp-daemon-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-ptp
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-ptp-rhel9
+name_in_bundle: ptp
+owners:
+- multus-dev@redhat.com
