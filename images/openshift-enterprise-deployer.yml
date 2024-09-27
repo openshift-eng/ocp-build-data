@@ -1,0 +1,33 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/oc.git
+      web: https://github.com/openshift/oc
+    path: images/deployer
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-deployer-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-deployer
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  member: openshift-enterprise-cli
+labels:
+  License: GPLv2+
+  io.k8s.description: This is a component of OpenShift Container Platform and executes
+    the user deployment process to roll out new containers. It may be used as a base
+    image for building your own custom deployer image.
+  io.k8s.display-name: OpenShift Container Platform Deployer
+  io.openshift.tags: openshift,deployer
+  vendor: Red Hat
+name: openshift/ose-deployer-rhel9
+payload_name: deployer
+owners:
+- aos-master@redhat.com

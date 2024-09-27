@@ -1,0 +1,621 @@
+# freeze_automation controls when scheduled/manual builds are permitted. Possible values are:
+#   - yes|true: never allow builds
+#   - scheduled: only allow manual builds
+#   - weekdays: always allow manual builds; forbid scheduled builds from Monday to Friday
+#   - no|false: always allow builds
+# Note that ocp4 builds are always permitted  for non-stream assemblies
+freeze_automation: false
+
+vars:
+  MAJOR: 4
+  MINOR: 18
+  IMPACT: Low
+  CVES: None
+  RHCOS_EL_MAJOR: 9
+  RHCOS_EL_MINOR: 4
+
+  # The go versions used by the various CI builder images.
+  # WARNING: When updating GO_* vars, update streams.yml so that streams referencing
+  #          the corresponding {GO_*} vars to point to an image that actually provides
+  #          the level of go specified by the variable.
+  #          For example, if GO_LATEST=1.21, `image:` must point to a 1.21 golang.
+  #             rhel-9-golang:
+  #               aliases:
+  #               - rhel-9-golang-{GO_LATEST}
+  #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
+  GO_LATEST: "1.22"
+  GO_PREVIOUS: "1.21"
+  GO_EXTRA: "1.22"  # There is no extra version at this time, so just duplicate latest.
+
+
+compliance:
+  rpm_shim:
+    enabled: true
+
+arches:
+- x86_64
+- ppc64le
+- s390x
+- aarch64
+
+multi_arch:
+  enabled: true
+
+operator_image_ref_mode: manifest-list
+
+signing_advisory: 136879
+
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+    signed:
+      signing_intent: release
+      repo_type: signed
+  rpm:
+    default:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+      hotfix_targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
+
+assemblies:
+  enabled: true
+
+cachito:
+  enabled: false # Cachito does not work with go 1.22 https://issues.redhat.com/browse/STONEBLD-2206
+
+rhcos:
+  payload_tags:
+    - name: rhel-coreos
+      build_metadata_key: base-oscontainer
+      primary: true
+    - name: rhel-coreos-extensions
+      build_metadata_key: extensions-container
+  enabled_repos:
+  - rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+  - rhel-9-rt-rpms
+  - rhel-9-fast-datapath-rpms
+  - rhel-9-server-ose-rpms
+  require_consistency:
+    driver-toolkit:
+    - kernel  # since 9.3, kernel-rt is merged into the kernel package.
+  allow_missing_brew_rpms: false
+
+check_external_packages:
+  - name: cri-o
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: cri-tools
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: conmon
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: skopeo
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: runc
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: containernetworking-plugins
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: NetworkManager
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: greater_equal
+
+default_image_build_profile: unsigned
+default_rpm_build_profile: default
+
+# rpm_deliveries is mainly to support for "Weekly" kernel delivery through OCP (ART-6100)
+rpm_deliveries:
+  - packages:
+      - kernel
+    rhel_tag: rhel-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0-z-candidate
+    integration_tag: early-kernel-candidate
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
+    target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+
+branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+name: openshift-{MAJOR}.{MINOR}
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
+  cgit: https://pkgs.devel.redhat.com/cgit
+  rhcos_release_base: # once 4.18 RHCOS exist the newxt line an change to 4.18-
+    multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/prod/streams/4.18-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}/builds
+dist_git_ignore:
+  - gating.yaml
+
+push:
+  registries: []
+    # - quay.io/openshift-qe-optional-operators
+
+public_upstreams:
+- private: "https://github.com/openshift-priv/operator-marketplace"
+  public: "https://github.com/operator-framework/operator-marketplace"
+- private: "https://github.com/openshift-priv"
+  public: "https://github.com/openshift"
+
+repos:
+
+  rhel-8-server-ansible-2.9-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/ansible/2.9/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/ansible/2.9/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/ansible/2.9/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/ansible/2.9/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: ansible-2.9-for-rhel-8-x86_64-rpms
+      aarch64: ansible-2.9-for-rhel-8-aarch64-rpms
+      ppc64le: ansible-2.9-for-rhel-8-ppc64le-rpms
+      s390x: ansible-2.9-for-rhel-8-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-server-ose-rpms-embargoed:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/ppc64le/os
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/s390x/os
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/x86_64/os
+      # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
+      optional: true
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-server-ose-rpms:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/ppc64le/os
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/s390x/os
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/x86_64/os
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
+    reposync:
+      latest_only: false
+
+  rhel-8-baseos-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/baseos/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/baseos/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-8-for-x86_64-baseos-rpms__8
+      aarch64: rhel-8-for-aarch64-baseos-rpms__8
+      ppc64le: rhel-8-for-ppc64le-baseos-rpms__8
+      s390x:   rhel-8-for-s390x-baseos-rpms__8
+    reposync:
+      enabled: false
+
+  rhel-8-codeready-builder-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/codeready-builder/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/codeready-builder/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/codeready-builder/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/codeready-builder/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: codeready-builder-for-rhel-8-x86_64-rpms__8
+      aarch64: codeready-builder-for-rhel-8-aarch64-rpms__8
+      ppc64le: codeready-builder-for-rhel-8-ppc64le-rpms__8
+      s390x:   codeready-builder-for-rhel-8-s390x-rpms__8
+    reposync:
+      enabled: false
+
+  rhel-9-codeready-builder-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/codeready-builder/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/codeready-builder/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/codeready-builder/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/codeready-builder/os/
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: codeready-builder-for-rhel-9-x86_64-eus-rpms__9_DOT_4
+      aarch64: codeready-builder-for-rhel-9-aarch64-eus-rpms__9_DOT_4
+      ppc64le: codeready-builder-for-rhel-9-ppc64le-eus-rpms__9_DOT_4
+      s390x: codeready-builder-for-rhel-9-s390x-eus-rpms__9_DOT_4
+    reposync:
+      enabled: false
+
+  rhel-8-appstream-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/appstream/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/appstream/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/appstream/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+      extra_options:
+        excludepkgs: containernetworking-plugins
+    content_set:
+      default: rhel-8-for-x86_64-appstream-rpms__8
+      aarch64: rhel-8-for-aarch64-appstream-rpms__8
+      ppc64le: rhel-8-for-ppc64le-appstream-rpms__8
+      s390x:   rhel-8-for-s390x-appstream-rpms__8
+    reposync:
+      enabled: false
+
+  rhel-8-fast-datapath-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/fast-datapath/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/fast-datapath/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/fast-datapath/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/fast-datapath/os/
+        # [lmeyer] multi-arch releases might lag behind x86_64, which may require pointing at pre-release MA composes.
+        # however this must be a temporary solution only; will cause mismatches after further releases if left that way.
+        # ppc64le: https://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/ppc64le/os/
+        # s390x: https://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/s390x/os/
+        # aarch64: https://download.lab.bos.redhat.com/rcm-guest/puddles/Multi-Arch/Fast-DataPath/EL8-Production/latest/aarch64/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: fast-datapath-for-rhel-8-x86_64-rpms
+      aarch64: fast-datapath-for-rhel-8-aarch64-rpms
+      ppc64le: fast-datapath-for-rhel-8-ppc64le-rpms
+      s390x: fast-datapath-for-rhel-8-s390x-rpms
+      optional: true
+    reposync:
+      enabled: true
+
+  openstack-16-for-rhel-8-rpms:
+    conf:
+      baseurl:
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16.2/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16.2/os/
+        # XXX: aarch64 and s390x RHOS don't exist, use puddles for now in order to build Ironic
+        s390x: https://download.hosts.prod.upshift.rdu2.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/s390x/os/
+        aarch64: https://download.hosts.prod.upshift.rdu2.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/aarch64/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: openstack-16.2-for-rhel-8-x86_64-rpms
+      ppc64le: openstack-16.2-for-rhel-8-ppc64le-rpms
+      # don't have content set for aarch64 or s390x
+      optional: true
+    reposync:
+      enabled: true
+
+  openstack-17-for-rhel-9-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+        # XXX: non-x86_64 RHOS don't exist, use random links for now.
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: openstack-17.1-for-rhel-9-x86_64-rpms
+      # don't have content set for aarch64 or s390x or ppc64le
+      optional: true
+    reposync:
+      enabled: false
+
+  rhel-9-baseos-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        aarch64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/"
+        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/"
+        s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/"
+        x86_64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/"
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
+    reposync:
+      enabled: false
+
+  rhel-9-appstream-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        aarch64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/"
+        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/"
+        s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/"
+        x86_64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/"
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_4
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_4
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_4
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
+    reposync:
+      enabled: false
+
+  rhel-9-server-ose-rpms-embargoed:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/ppc64le/os
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/s390x/os
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/x86_64/os
+      # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
+    content_set:
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
+      optional: true
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-9-server-ose-rpms:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/ppc64le/os
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/s390x/os
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/x86_64/os
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
+    reposync:
+      latest_only: false
+
+  rhel-9-server-ironic-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1  # play nicely with modules
+      baseurl:
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/ppc64le/os
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/s390x/os
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/x86_64/os
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
+      aarch64: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
+      optional: true  # [lmeyer] have not requested creation yet
+    reposync:
+      latest_only: false
+
+  rhel-9-fast-datapath-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/fast-datapath/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/ppc64le/fast-datapath/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/s390x/fast-datapath/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/aarch64/fast-datapath/os/
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      default: fast-datapath-for-rhel-9-x86_64-rpms
+      aarch64: fast-datapath-for-rhel-9-aarch64-rpms
+      ppc64le: fast-datapath-for-rhel-9-ppc64le-rpms
+      s390x: fast-datapath-for-rhel-9-s390x-rpms
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-9-rt-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        # RT doesn't do EUS, and TUS isn't around yet. get from dist
+        x86_64: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/"
+        # Kernel RT is x86 only, so use same repo as a dummy for other arches.
+        aarch64: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/"
+        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/"
+        s390x: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.4/x86_64/rt/os/"
+
+    content_set:
+      default: rhel-9-for-x86_64-rt-rpms__9_DOT_4
+      # don't have content set for other arches since they don't exist
+      optional: true
+    reposync:
+      enabled: false
+
+  rhel-8-rt-rpms:
+    conf:
+      extra_options:
+        module_hotfixes: 1
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
+    content_set:
+      default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
+      # don't have content set for other arches since they don't exist
+      optional: true
+    reposync:
+      enabled: false
+
+default_image_build_method: osbs2
+image_build_log_scanner:
+  matches:
+    # yum failed to install a package (but may not give an error result)
+  - "No package .* available"
+    # dnf failed to find a package to install:
+  - "Error: Unable to find a match"
+    # on multiarch builds, installed different NVR of pkg for different arches:
+  - "Failed component comparison for components:.*"
+    # docker does not understand multi-stage builds
+  - "is not a valid repository/tag: invalid reference format"
+    # indicative of https://github.com/openshift/imagebuilder/issues/87 or file(s) missing
+  - "plugins.imagebuilder.*lstat.*no such file or directory"
+    # koji sucks at auto-incrementing releases
+  - "bump_release: BuildError.'Unable to increment release value:"
+    # need to add the image component to whitelist building into candidate tag
+  - "not in list for tag rhaos-.*-candidate"
+  files:
+  - x86_64.log
+  - s390x.log
+  - ppc64le.log
+  - aarch64.log
+  - task_failed.log
+  - orchestrator.log
+scan_freshness:
+  release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
+  threshold_hours: 1
+csv_namespace: openshift
+
+# whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
+# "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
+check_golang_versions: "x.y"
+
+# Until feature freeze, prefer to use the golang builder that the upstream CI build is using
+# if different from what ART has configured, encouraging deliberate transitioning.
+# canonical_builders_from_upstream can be overridden by every single image
+# If set to False, it will use the default art config
+# If set to True, it will honor the image's config
+canonical_builders_from_upstream: True
+
+# To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
+# If it will ship via errata (state=release), we want to build signed.
+# For early access without an errata (state=pre-release), that is not required
+software_lifecycle:
+  phase: pre-release
+
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      # Enable feature to raise OCPBUGS Jira tickets if SAST scan issues are found
+      # This flag enables for this OCP version, but it also has to be enabled specifically in the image config
+      # as well
+      enabled: true
+
+      exclude_components:
+      # Built by CPAAS
+      - cnf-tests-container
+      - bare-metal-event-relay-operator-container
+      - lifecycle-agent-operator-container
+      - numaresources-must-gather-container
+      - topology-aware-lifecycle-manager-recovery-container
+      - noderesourcetopology-scheduler-container
+      - windows-machine-config-operator-container
+      - ztp-site-generate-container
+      - dpdk-base-container
+      - topology-aware-lifecycle-manager-precache-container
+      - numaresources-operator-container
+      - topology-aware-lifecycle-manager-operator-container
+      - baremetal-hardware-event-proxy-container
+      # Requested ART to exclude
+      - kernel
+      - kernel-rt
+      - systemd
+      - openvswitch2.13
+      - openvswitch2.15
+      - openvswitch2.16
+      - openvswitch2.17
+      - openvswitch3.0
+      - openvswitch3.1
+      - ovn-2021
+      - ovn2.12
+      - ovn2.13
+      - ovn21.09
+      - ovn21.12
+      - ovn22.03
+      - ovn22.06
+      - ovn22.09
+      - ovn22.12
+      - ovn23.03
+      - ovn23.06
+      - ovn23.09
+      - ovn23.12
+      - ovn24.03
+      - ovn24.06
+      - ovn24.09
+      - ovn24.12
+      # these are pinned in node base image
+      - nodejs*
+      - npm
