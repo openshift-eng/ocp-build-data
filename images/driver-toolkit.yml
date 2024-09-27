@@ -1,0 +1,39 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    modifications:
+    - action: replace
+      match: "ARG RHEL_VERSION=''"
+      replacement: "ARG RHEL_VERSION='9.4'"
+    # Uncomment the following sections to pin specific kernel versions
+    # - action: replace
+    #   match: "ARG KERNEL_VERSION=''"
+    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
+    # - action: replace
+    #   match: "ARG RT_KERNEL_VERSION=''"
+    #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/driver-toolkit.git
+      web: https://github.com/openshift/driver-toolkit
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: driver-toolkit-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: driver-toolkit
+enabled_repos:
+- rhel-9-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-rt-rpms
+for_payload: true
+from:
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-driver-toolkit-rhel9
+payload_name: driver-toolkit
+owners:
+- edge-sro@redhat.com
