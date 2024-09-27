@@ -1,0 +1,44 @@
+content:
+  source:
+    dockerfile: images/tests/Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/origin.git
+      web: https://github.com/openshift/origin
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-tests-container
+  namespace: containers
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-tests
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-rt-rpms
+- openstack-17-for-rhel-9-rpms
+scan_sources:
+  exempt_rpms:
+  - python3-dateutil
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: ose-tools
+labels:
+  License: GPLv2+
+  io.k8s.description: OpenShift is a platform for developing, building, and deploying
+    containerized applications.
+  io.k8s.display-name: OpenShift End-to-End Tests
+  io.openshift.tags: openshift,tests,e2e
+  vendor: Red Hat
+name: openshift/ose-tests-rhel9
+payload_name: tests
+owners:
+- aos-master@redhat.com
+- openshift-technical-release-staff@redhat.com

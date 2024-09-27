@@ -1,0 +1,44 @@
+cachito:
+  enabled: false # there are no dependencies for cachito to manage
+content:
+  source:
+    dockerfile: Dockerfile.Rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kubernetes.git
+      web: https://github.com/openshift/kubernetes
+    path: build/pause
+    okd_alignment:
+      context_dir: build/pause
+      dockerfile: Dockerfile.Rhel
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-pod-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-pod
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-codeready-builder-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+maintainer:
+  component: Node
+labels:
+  License: GPLv2+
+  io.k8s.description: This is a component of OpenShift Container Platform and holds
+    on to the shared Linux namespaces within a Pod.
+  io.k8s.display-name: OpenShift Container Platform Pod Infrastructure
+  io.openshift.tags: openshift,pod
+  vendor: Red Hat
+name: openshift/ose-pod-rhel9
+payload_name: pod
+non_shipping_repos:
+- rhel-9-codeready-builder-rpms
+owners:
+- aos-pod@redhat.com

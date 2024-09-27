@@ -1,0 +1,30 @@
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ovirt-csi-driver.git
+      web: https://github.com/openshift/ovirt-csi-driver
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-ovirt-csi-driver-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ovirt-csi-driver
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ovirt-csi-driver-rhel9
+payload_name: ovirt-csi-driver
+owners:
+- rgolan@redhat.com
