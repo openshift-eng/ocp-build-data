@@ -23,12 +23,12 @@ ADD ci_images/install_etcd.sh /tmp
 
 RUN set -euxo pipefail && \
     chmod +x /tmp/*.sh && \
-    export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem && \
+    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
     /tmp/install_protoc.sh "23.4" && \
     /tmp/install_etcd.sh "3.5.10"
 
 RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build" && \
-    dnf install -y $INSTALL_PKGS && \
+    dnf install -y --nobest $INSTALL_PKGS && \
     dnf clean all && \
     touch /os-build-image && \
     git config --system user.name origin-release-container && \
@@ -42,7 +42,7 @@ RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros libstdc++ l
 RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
     export GOSUMDB='off' && \
     export GOFLAGS='' && export GO111MODULE=on && \
-    export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem && \
+    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
     go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
     go install github.com/tools/godep@latest && \
     go install golang.org/x/lint/golint@latest && \
