@@ -6,7 +6,7 @@ RUN mkdir -p /tmp/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/yum_temp/ || true
 COPY .oit/unsigned.repo /etc/yum.repos.d/
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
 # End Konflux-specific steps
-ENV __doozer=update BUILD_RELEASE=202410011056.p0.gb45ea65.assembly.test.el9 BUILD_VERSION=v4.18.0 OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410011056.p0.gb45ea65.assembly.test.el9 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=openshift-base-rhel9 __doozer_uuid_tag=base-rhel9-v4.18.0-20241001.105632 __doozer_version=v4.18.0 
+ENV __doozer=update BUILD_RELEASE=202410011056.p0.gb45ea65.assembly.test.el9 BUILD_VERSION=v4.18.0 OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410011056.p0.gb45ea65.assembly.test.el9 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=openshift-base-rhel9 __doozer_uuid_tag=base-rhel9-v4.18.0-20241001.105631 __doozer_version=v4.18.0 
 ENV __doozer=merge OS_GIT_COMMIT=b45ea65 OS_GIT_VERSION=4.18.0-202410011056.p0.gb45ea65.assembly.test.el9-b45ea65 SOURCE_DATE_EPOCH=1654869156 SOURCE_GIT_COMMIT=b45ea65bf6606c558b1a18b92ad878f42a411894 SOURCE_GIT_TAG=b45ea65b SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
 # we pin to a RHEL EUS (rhel-els) stream for stability.
 # rhel9-els from rhel-els-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=77439)
@@ -23,10 +23,6 @@ COPY ubi.repo /etc/yum.repos.d/ubi.repo
 # Start Konflux-specific steps
 RUN cp /tmp/yum_temp/* /etc/yum.repos.d/ || true
 # End Konflux-specific steps
-LABEL io.openshift.maintainer.project=OCPBUGS
-LABEL io.openshift.maintainer.component=Release
-LABEL version=v4.18.0
-LABEL release=202410011056.p0.gb45ea65.assembly.test.el9
 
 LABEL \
         name="openshift/base-rhel9" \
