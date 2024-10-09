@@ -538,6 +538,26 @@ repos:
     reposync:
       enabled: false
 
+  rhel-9-server-microshift-rpms:
+    conf:
+      extra_options:
+        includepkgs: microshift* openshift-clients cri-tools cri-o # only pick up these rpms from this repo, microshift and its dependencies
+        module_hotfixes: 1  # play nicely with modules
+      baseurl:
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/aarch64/os
+      ci_alignment:
+        profiles:
+        - el9
+        localdev:
+          enabled: true
+    content_set:
+      optional: true
+      default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
+      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
+    reposync:
+      enabled: false
+
 default_image_build_method: osbs2
 image_build_log_scanner:
   matches:

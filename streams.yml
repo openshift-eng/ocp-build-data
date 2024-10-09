@@ -171,3 +171,7 @@ centos_stream9:
   upstream_image: registry.ci.openshift.org/ocp/builder:stream9
   mirror: true
 
+# Note: This is used similar to a floating stream tag.
+# It's only purpose is to be substituted in image Dockerfile at rebase time
+bootc-rhel9:
+  image: registry.redhat.io/rhel9/rhel-bootc:9.4
