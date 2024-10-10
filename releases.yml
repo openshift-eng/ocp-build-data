@@ -25,6 +25,11 @@ releases:
           - el9: cri-o-1.29.9-2.rhaos4.16.git933bdd2.el9
             why: "pin what's in rhcos"
             non_gc_tag: "Build will be shipped via advisory and therefore will not be gc'd"
+      issues:
+        include:
+        - id: OCPBUGS-42300
+        exclude:
+        - id: OCPBUGS-42624  # not in this release
       members:
         images:
         - distgit_key: openshift-enterprise-console
