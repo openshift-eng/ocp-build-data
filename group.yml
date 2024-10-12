@@ -164,26 +164,6 @@ public_upstreams:
 
 repos:
 
-  rhel-8-server-ansible-2.9-rpms:
-    conf:
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/ansible/2.9/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/ansible/2.9/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/ansible/2.9/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/ansible/2.9/os/
-      ci_alignment:
-        profiles:
-        - el8
-        localdev:
-          enabled: true
-    content_set:
-      default: ansible-2.9-for-rhel-8-x86_64-rpms
-      aarch64: ansible-2.9-for-rhel-8-aarch64-rpms
-      ppc64le: ansible-2.9-for-rhel-8-ppc64le-rpms
-      s390x: ansible-2.9-for-rhel-8-s390x-rpms
-    reposync:
-      enabled: false
-
   rhel-8-server-ose-rpms-embargoed:
     conf:
       extra_options:
@@ -243,26 +223,6 @@ repos:
       aarch64: rhel-8-for-aarch64-baseos-rpms__8
       ppc64le: rhel-8-for-ppc64le-baseos-rpms__8
       s390x:   rhel-8-for-s390x-baseos-rpms__8
-    reposync:
-      enabled: false
-
-  rhel-8-codeready-builder-rpms:
-    conf:
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/codeready-builder/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/codeready-builder/os/
-        s390x:   https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/codeready-builder/os/
-        x86_64:  https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/codeready-builder/os/
-      ci_alignment:
-        profiles:
-        - el8
-        localdev:
-          enabled: true
-    content_set:
-      default: codeready-builder-for-rhel-8-x86_64-rpms__8
-      aarch64: codeready-builder-for-rhel-8-aarch64-rpms__8
-      ppc64le: codeready-builder-for-rhel-8-ppc64le-rpms__8
-      s390x:   codeready-builder-for-rhel-8-s390x-rpms__8
     reposync:
       enabled: false
 
@@ -330,27 +290,6 @@ repos:
       aarch64: fast-datapath-for-rhel-8-aarch64-rpms
       ppc64le: fast-datapath-for-rhel-8-ppc64le-rpms
       s390x: fast-datapath-for-rhel-8-s390x-rpms
-      optional: true
-    reposync:
-      enabled: true
-
-  openstack-16-for-rhel-8-rpms:
-    conf:
-      baseurl:
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/openstack/16.2/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/openstack/16.2/os/
-        # XXX: aarch64 and s390x RHOS don't exist, use puddles for now in order to build Ironic
-        s390x: https://download.hosts.prod.upshift.rdu2.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/s390x/os/
-        aarch64: https://download.hosts.prod.upshift.rdu2.redhat.com/rcm-guest/puddles/Multi-Arch/OpenStack/16.2/latest/OpenStack/aarch64/os/
-      ci_alignment:
-        profiles:
-        - el8
-        localdev:
-          enabled: true
-    content_set:
-      default: openstack-16.2-for-rhel-8-x86_64-rpms
-      ppc64le: openstack-16.2-for-rhel-8-ppc64le-rpms
-      # don't have content set for aarch64 or s390x
       optional: true
     reposync:
       enabled: true
@@ -519,22 +458,6 @@ repos:
 
     content_set:
       default: rhel-9-for-x86_64-rt-rpms__9_DOT_4
-      # don't have content set for other arches since they don't exist
-      optional: true
-    reposync:
-      enabled: false
-
-  rhel-8-rt-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-      baseurl:
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
-    content_set:
-      default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
       # don't have content set for other arches since they don't exist
       optional: true
     reposync:
