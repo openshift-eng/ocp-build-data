@@ -1,17 +1,18 @@
-FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:v1.21.3-202311221709.el8.gf79bf9c
+FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-ci-openshift-golang-builder-latest-rhel9:v4.18
 USER root
 
-RUN yum -y install python3 jq gettext python3-pyyaml && \
-    yum clean all
+RUN dnf -y install python3 jq gettext python3-pyyaml \
+    && dnf clean all
 
 # Install yq using wget and make it executable
-RUN YQ_VER=4.26.1 \
-    && YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VER}/yq_linux_$(go env GOARCH) \
+RUN url="$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/mikefarah/yq/releases/latest)" \
+    && YQ_VER="${url##*/}" \
+    && YQ_URL=https://github.com/mikefarah/yq/releases/download/${YQ_VER}/yq_linux_$(go env GOARCH) \
     && wget -O /usr/bin/yq $YQ_URL \
     && chmod +x /usr/bin/yq
 
 # Manually download and install OpenShift client (oc)
-ENV OC_VERSION=4.13.4
+ENV OC_VERSION=4.17.0
 ENV OC_URL=https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OC_VERSION}/openshift-client-linux.tar.gz
 
 RUN wget ${OC_URL} -O openshift-client-linux.tar.gz && \
