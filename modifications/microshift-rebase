@@ -23,7 +23,7 @@ fi
 
 # Determine which rebase command to run
 if [ -n "$RELEASE_NAME" ]; then
-    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64"
 elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ]; then
     REBASE_CMD="./scripts/auto-rebase/rebase.sh to $MICROSHIFT_PAYLOAD_X86_64 $MICROSHIFT_PAYLOAD_AARCH64"
 else
