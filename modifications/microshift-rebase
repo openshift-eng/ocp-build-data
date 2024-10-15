@@ -22,12 +22,12 @@ if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
 fi
 
 # Determine which rebase command to run
-if [ -n "$RELEASE_NAME" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
-    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64 $LVMS_OPERATOR_BUNDLE"
-elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ] && [ -n "$LVMS_OPERATOR_BUNDLE" ]; then
-    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $MICROSHIFT_PAYLOAD_X86_64 $MICROSHIFT_PAYLOAD_AARCH64 $LVMS_OPERATOR_BUNDLE"
+if [ -n "$RELEASE_NAME" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $RELEASE_REPO:$RELEASE_NAME-x86_64 $RELEASE_REPO:$RELEASE_NAME-aarch64"
+elif [ -n "$MICROSHIFT_PAYLOAD_X86_64" ] && [ -n "$MICROSHIFT_PAYLOAD_AARCH64" ]; then
+    REBASE_CMD="./scripts/auto-rebase/rebase.sh to $MICROSHIFT_PAYLOAD_X86_64 $MICROSHIFT_PAYLOAD_AARCH64"
 else
-    fail "Environment variable RELEASE_NAME or LVMS_OPERATOR_BUNDLE is not set."
+    fail "Environment variable RELEASE_NAME is not set."
 fi
 
 # Build the podman image
@@ -40,7 +40,6 @@ podman image prune -f  # clean up unused images
 # Run the podman container
 PODMAN_RUN_CMD="podman run --rm \
 -e RELEASE_NAME \
--e LVMS_OPERATOR_BUNDLE \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
 -e REGISTRY_AUTH_FILE=/workdir/microshift/auth.json \
