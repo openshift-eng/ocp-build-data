@@ -5,8 +5,8 @@ RUN mkdir -p /tmp/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/yum_temp/ || true
 COPY .oit/unsigned.repo /etc/yum.repos.d/
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
 # End Konflux-specific steps
-ENV __doozer=update BUILD_RELEASE=202410141917.p0.gcfe6cbe.assembly.test.el8 BUILD_VERSION=v4.18.0 CI_RPM_SVC=base-4-18-rhel8.ocp.svc OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410141917.p0.gcfe6cbe.assembly.test.el8 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=ci-openshift-golang-builder-latest.rhel8 __doozer_uuid_tag=ci-openshift-golang-builder-latest-rhel8-v4.18.0-20241014.191751 __doozer_version=v4.18.0 
-ENV __doozer=merge OS_GIT_COMMIT=cfe6cbe OS_GIT_VERSION=4.18.0-202410141917.p0.gcfe6cbe.assembly.test.el8-cfe6cbe SOURCE_DATE_EPOCH=1728929777 SOURCE_GIT_COMMIT=cfe6cbe5ca846776a9107db8fed1d4cf0cacbcbc SOURCE_GIT_TAG=openshift-4.0-archived-3581-gcfe6cbe5 SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
+ENV __doozer=update BUILD_RELEASE=202410161347.p0.g495d512.assembly.test.el8 BUILD_VERSION=v4.18.0 CI_RPM_SVC=base-4-18-rhel8.ocp.svc OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410161347.p0.g495d512.assembly.test.el8 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=ci-openshift-golang-builder-latest.rhel8 __doozer_uuid_tag=ci-openshift-golang-builder-latest-rhel8-v4.18.0-20241016.134725 __doozer_version=v4.18.0 
+ENV __doozer=merge OS_GIT_COMMIT=495d512 OS_GIT_VERSION=4.18.0-202410161347.p0.g495d512.assembly.test.el8-495d512 SOURCE_DATE_EPOCH=1729024584 SOURCE_GIT_COMMIT=495d512878d04cf992d5bb88e27bfde1df57e5dd SOURCE_GIT_TAG=openshift-4.0-archived-3590-g495d5128 SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
 
 # Used by builds scripts to detect whether they are running in the context
 # of OpenShift CI or elsewhere (e.g. brew).
@@ -60,8 +60,8 @@ LABEL \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Release" \
         version="v4.18.0" \
-        release="202410141917.p0.gcfe6cbe.assembly.test.el8" \
-        io.openshift.build.commit.id="cfe6cbe5ca846776a9107db8fed1d4cf0cacbcbc" \
+        release="202410161347.p0.g495d512.assembly.test.el8" \
+        io.openshift.build.commit.id="495d512878d04cf992d5bb88e27bfde1df57e5dd" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/cfe6cbe5ca846776a9107db8fed1d4cf0cacbcbc"
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/495d512878d04cf992d5bb88e27bfde1df57e5dd"
 
