@@ -49,7 +49,7 @@ RUN GOFLAGS='' GO111MODULE=on go install golang.org/x/tools/cmd/cover@latest && 
     GOFLAGS='' GO111MODULE=on go install golang.org/x/lint/golint@latest && \
     GOFLAGS='' GO111MODULE=on go install gotest.tools/gotestsum@latest && \
     GOFLAGS='' GO111MODULE=on go install github.com/openshift/release/tools/gotest2junit@latest && \
-    GOFLAGS='' GO111MODULE=on go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.14 && \
+    GOFLAGS='' GO111MODULE=on go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.7 && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
