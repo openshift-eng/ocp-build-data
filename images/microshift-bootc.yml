@@ -6,6 +6,13 @@ arches:
 content:
   source:
     dockerfile: packaging/imagemode/Containerfile.repobase
+    modifications:
+    - action: replace
+      match: "ARG BASE_IMAGE_URL"
+      replacement: "ARG BASE_IMAGE_URL='registry.redhat.io/rhel9/rhel-bootc'"
+    - action: replace
+      match: "ARG BASE_IMAGE_TAG"
+      replacement: "ARG BASE_IMAGE_TAG='9.4'"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -17,8 +24,6 @@ content:
 # This image has its own separate release process, see USHIFT-4024
 for_release: false
 for_payload: false
-from:
-  stream: bootc-rhel9
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
