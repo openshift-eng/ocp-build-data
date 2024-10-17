@@ -1,0 +1,30 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/gcp-workload-identity-federation-webhook.git
+      web: https://github.com/openshift/gcp-workload-identity-federation-webhook
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: gcp-workload-identity-federation-webhook-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-gcp-workload-identity-federation-webhook
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-gcp-workload-identity-federation-webhook-rhel9
+payload_name: gcp-workload-identity-federation-webhook
+owners:
+- jstuever@redhat.com
