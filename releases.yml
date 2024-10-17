@@ -2,12 +2,12 @@ releases:
   4.14.39:
     assembly:
       basis:
-        brew_event: 60802777
+        brew_event: 60880054
         reference_releases:
           aarch64: 4.14.0-0.nightly-arm64-2024-10-12-104426
           ppc64le: 4.14.0-0.nightly-ppc64le-2024-10-12-130535
           s390x: 4.14.0-0.nightly-s390x-2024-10-12-130535
-          x86_64: 4.14.0-0.nightly-2024-10-12-093248
+          x86_64: 4.14.0-0.nightly-2024-10-16-233537
       group:
         advisories:
           extras: 140022
@@ -22,12 +22,7 @@ releases:
         - distgit_key: openshift-enterprise-console
           metadata:
             is:
-              nvr: openshift-enterprise-console-container-v4.14.0-202410120607.p0.g995c4dc.assembly.stream.el8
-          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        - distgit_key: ose-baremetal-installer
-          metadata:
-            is:
-              nvr: ose-baremetal-installer-container-v4.14.0-202410120107.p0.g945d2af.assembly.stream.el8
+              nvr: openshift-enterprise-console-container-v4.14.0-202410162010.p0.g995c4dc.assembly.stream.el8
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
         rpms: []
       rhcos:
