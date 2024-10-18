@@ -1,4 +1,3 @@
----
 
 ####################################################################################################
 #  STOP. HOLD. PLEASE WAIT. PLEASE READ. FAILURE TO READ WILL HAVE IMPACTS ACROSS THE ORGANIZATION.
@@ -20,7 +19,7 @@
 ####################################################################################################
 
 golang:
-  image: openshift/golang-builder:v1.19.13-202408070335.gfa00de2.el8
+  image: openshift/golang-builder:v1.19.13-202410181055.gfa00de2.el8
   mirror: true
   transform: rhel-8/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
@@ -30,7 +29,7 @@ golang:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
-  image: openshift/golang-builder:v1.19.13-202408070451.g3172d57.el9
+  image: openshift/golang-builder:v1.19.13-202410181055.g3172d57.el9
   mirror: true
   transform: rhel-9/golang
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}.art
@@ -54,7 +53,7 @@ rhel-9-golang-ci-build-root:
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 etcd_rhel9_golang:
-  image: openshift/golang-builder:v1.19.13-202408070451.g3172d57.el9
+  image: openshift/golang-builder:v1.19.13-202410181055.g3172d57.el9
   mirror: false
   # No transform required as etcd does not yum install
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
