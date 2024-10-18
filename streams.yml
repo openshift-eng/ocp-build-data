@@ -1,4 +1,3 @@
----
 
 ####################################################################################################
 #  STOP. HOLD. PLEASE WAIT. PLEASE READ. FAILURE TO READ WILL HAVE IMPACTS ACROSS THE ORGANIZATION.
@@ -42,7 +41,7 @@ rhel-8-golang-ci-build-root:
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
 etcd_golang:
-  image: openshift/golang-builder:v1.19.13-202310161907.el8.g0d095f7
+  image: openshift/golang-builder:v1.19.13-202410181055.gfa00de2.el8
   mirror: false
   # No transform required as etcd does not yum install any packages.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-etcd-golang-1.19
