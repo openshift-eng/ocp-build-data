@@ -27,15 +27,15 @@ releases:
             non_gc_tag: "rhaos-4.16-rhel-9"
       issues:
         include:
-        - id:  OCPBUGS-41476
-        - id:  OCPBUGS-41458
-        - id:  OCPBUGS-41446
-        - id:  OCPBUGS-41437
-        - id:  OCPBUGS-41431
-        - id:  OCPBUGS-41425
-        - id:  OCPBUGS-41413
-        - id:  OCPBUGS-41393
-        - id:  OCPBUGS-36880
+        - id: OCPBUGS-41476
+        - id: OCPBUGS-41458
+        - id: OCPBUGS-41446
+        - id: OCPBUGS-41437
+        - id: OCPBUGS-41431
+        - id: OCPBUGS-41425
+        - id: OCPBUGS-41413
+        - id: OCPBUGS-41393
+        - id: OCPBUGS-36880
 
       members:
         images:
@@ -79,7 +79,12 @@ releases:
             is:
               nvr: ose-installer-container-v4.16.0-202410172201.p0.ga8c32e3.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.16.18-202410181626.p0.gc6f123e.assembly.4.16.18.el9
       rhcos:
         rhel-coreos:
           images:
