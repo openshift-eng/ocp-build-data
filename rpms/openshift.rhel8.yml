@@ -1,0 +1,22 @@
+content:
+  source:
+    specfile: openshift.spec
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/kubernetes.git
+      web: https://github.com/openshift/kubernetes
+  build:
+    use_source_tito_config: false
+    tito_target: aos-{MAJOR}.{MINOR}
+    # Address https://coreos.slack.com/archives/GDBRP5YJH/p1573497720048000 before turning to false
+    push_release_commit: false
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+name: openshift
+owners:
+- aos-master@redhat.com
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+hotfix_targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
