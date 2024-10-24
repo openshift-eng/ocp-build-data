@@ -21,6 +21,14 @@ final_stage_user: 1001
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
+scan_sources:
+  # Packages exempted from update:
+  # https://github.com/openshift-eng/ocp-build-data/blob/0fb79a4bfdfad72416f37f6a10e672d05b52ba9e/Dockerfile#L17
+  exempt_rpms:
+  - nodejs-docs
+  - nodejs-full-i18n
+  - nodejs
+  - npm
 for_payload: false
 for_release: false
 from:
