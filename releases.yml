@@ -1,4 +1,65 @@
 releases:
+  4.16.19:
+    assembly:
+      basis:
+        brew_event: 61004086
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2024-10-23-221918
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-10-23-221904
+          s390x: 4.16.0-0.nightly-s390x-2024-10-23-204857
+          x86_64: 4.16.0-0.nightly-2024-10-23-214257
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.15.35,4.15.36,4.15.37,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5,4.16.6,4.16.7,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18
+      members:
+        images:
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.16.0-202410231737.p0.gf0870c3.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: cluster-storage-operator
+          metadata:
+            is:
+              nvr: ose-cluster-storage-operator-container-v4.16.0-202410231737.p0.g761b62f.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: kube-proxy
+          metadata:
+            is:
+              nvr: kube-proxy-container-v4.16.0-202410231536.p0.ge4a5322.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-sdn
+          metadata:
+            is:
+              nvr: ose-node-container-v4.16.0-202410231536.p0.ge4a5322.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: monitoring-plugin
+          metadata:
+            is:
+              nvr: monitoring-plugin-container-v4.16.0-202410231737.p0.g6a049e3.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:63df0ed572179c55193df24171504d501ab7074c473b1d6e08428e7887f531a3
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a69ba8acd0672cd6c8679df15d7f79dc58c3f87d38cffeffa2bf8358645edd17
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:792dd457f1e4ac5cb9b5b0e57c32e7effe4f416fefd8395d61f1064b6ad85989
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dd8e25a17d20a382ef06937d8bfe9b95e53448a507f2ade0810d69a4236c82d6
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:640e2f1b34206e9edbb16fb350ceb70a3df5bf2a8a06846369528fbc03501c3c
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d5e85062b25b167ef39cbc8dfdca58a5849700a51643aa727a297bf7aedcc51d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:12511f107947261dffccceda379d4017fbecb9d645d4e45c6bfe05aaa08aa4f7
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e12f8dde9bd5bf69c3c80d994e123bdfecc1669e067f1de9bbd959626bac706d
+      type: standard
+
   4.16.18:
     assembly:
       basis:
