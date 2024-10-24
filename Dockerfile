@@ -1,12 +1,12 @@
-FROM quay.io/openshift-release-dev/ocp-v4.0-art-dev-test:ci-openshift-golang-builder-previous-rhel8-v4.18.0-20241016.195524
+FROM quay.io/openshift-release-dev/ocp-v4.0-art-dev-test:ci-openshift-golang-builder-previous-rhel8-v4.18.0-20241024.152230
 
 # Start Konflux-specific steps
 RUN mkdir -p /tmp/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/yum_temp/ || true
 COPY .oit/unsigned.repo /etc/yum.repos.d/
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
 # End Konflux-specific steps
-ENV __doozer=update BUILD_RELEASE=202410161955.p0.g495d512.assembly.test.el8 BUILD_VERSION=v4.18.0 CI_RPM_SVC=base-4-18-rhel8.ocp.svc OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410161955.p0.g495d512.assembly.test.el8 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=ci-openshift-build-root-previous.rhel8 __doozer_uuid_tag=ci-openshift-build-root-previous-rhel8-v4.18.0-20241016.195524 __doozer_version=v4.18.0 
-ENV __doozer=merge OS_GIT_COMMIT=495d512 OS_GIT_VERSION=4.18.0-202410161955.p0.g495d512.assembly.test.el8-495d512 SOURCE_DATE_EPOCH=1729024584 SOURCE_GIT_COMMIT=495d512878d04cf992d5bb88e27bfde1df57e5dd SOURCE_GIT_TAG=openshift-4.0-archived-3590-g495d5128 SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
+ENV __doozer=update BUILD_RELEASE=202410241522.p0.g90d2bf0.assembly.test.el8 BUILD_VERSION=v4.18.0 CI_RPM_SVC=base-4-18-rhel8.ocp.svc OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410241522.p0.g90d2bf0.assembly.test.el8 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=ci-openshift-build-root-previous.rhel8 __doozer_uuid_tag=ci-openshift-build-root-previous-rhel8-v4.18.0-20241024.152230 __doozer_version=v4.18.0 
+ENV __doozer=merge OS_GIT_COMMIT=90d2bf0 OS_GIT_VERSION=4.18.0-202410241522.p0.g90d2bf0.assembly.test.el8-90d2bf0 SOURCE_DATE_EPOCH=1729750006 SOURCE_GIT_COMMIT=90d2bf0d6027691311ab8eb450b28244f4f9d12b SOURCE_GIT_TAG=openshift-4.0-archived-3599-g90d2bf0d SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
 
 # Used by builds scripts to detect whether they are running in the context
 # of OpenShift CI or elsewhere (e.g. brew).
@@ -87,8 +87,8 @@ LABEL \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Unknown" \
         version="v4.18.0" \
-        release="202410161955.p0.g495d512.assembly.test.el8" \
-        io.openshift.build.commit.id="495d512878d04cf992d5bb88e27bfde1df57e5dd" \
+        release="202410241522.p0.g90d2bf0.assembly.test.el8" \
+        io.openshift.build.commit.id="90d2bf0d6027691311ab8eb450b28244f4f9d12b" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/495d512878d04cf992d5bb88e27bfde1df57e5dd"
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/90d2bf0d6027691311ab8eb450b28244f4f9d12b"
 
