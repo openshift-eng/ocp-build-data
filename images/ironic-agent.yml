@@ -10,17 +10,17 @@ content:
       url: git@github.com:openshift-priv/ironic-agent-image.git
       web: https://github.com/openshift/ironic-agent-image
     pkg_managers:
-      - pip
+    - pip
     okd_alignment:
       dockerfile: Dockerfile.okd
 cachito:
   enabled: true
   packages:
     pip:
-      - path: .
-        requirements_files:
-          - requirements.cachito
-          - requirements-build.cachito
+    - path: .
+      requirements_files:
+      - requirements.cachito
+      - requirements-build.cachito
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ironic-agent-container
@@ -34,6 +34,4 @@ owners:
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
-- rhel-9-server-ironic-rpms
-non_shipping_repos:
 - rhel-9-server-ironic-rpms
