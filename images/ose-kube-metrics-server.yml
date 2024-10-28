@@ -1,0 +1,37 @@
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      web: https://github.com/openshift/kubernetes-metrics-server
+      url: git@github.com:openshift-priv/kubernetes-metrics-server.git
+    dockerfile: Dockerfile.ocp
+    ci_alignment:
+      streams_prs:
+        auto_label:
+        - approved
+        - backport-risk-assessed
+        - bugzilla/valid-bug
+        - cherry-pick-approved
+        - lgtm
+        - staff-eng-approved
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-kube-metrics-server-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: kube-metrics-server
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/kube-metrics-server-rhel9
+payload_name: kube-metrics-server
+owners:
+- team-monitoring-incluster@redhat.com

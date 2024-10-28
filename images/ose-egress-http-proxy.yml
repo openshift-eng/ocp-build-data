@@ -1,0 +1,29 @@
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/images.git
+      web: https://github.com/openshift/images
+    path: egress/http-proxy
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-egress-http-proxy-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-egress-http-proxy
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+from:
+  member: openshift-enterprise-base-rhel9
+labels:
+  License: GPLv2+
+  io.k8s.description: This is a component of OpenShift Container Platform and contains an egress http proxy.
+  io.k8s.display-name: OpenShift Container Platform Egress Http Proxy
+  io.openshift.tags: openshift,http-proxy,egress
+  vendor: Red Hat
+name: openshift/ose-egress-http-proxy-rhel9
+owners:
+- aos-network-edge@redhat.com
