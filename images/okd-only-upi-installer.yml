@@ -1,0 +1,40 @@
+# This file is solely for the purpose of generating OKD CI configuration for
+# the "upi-installer" tag in the CI integration imagestream. This image
+# is only used for CI purposes and should never be included in the product.
+mode: disabled  # OKD only, so do not include in brew/Konflux builds.
+content:
+  source:
+    dockerfile: images/installer/Dockerfile.upi.ci
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/installer.git
+      web: https://github.com/openshift/installer
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-installer-container
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: true
+from:
+  builder:
+  - member: ose-installer-terraform-providers
+  - member: ose-installer-kube-apiserver-artifacts
+  - member: ose-installer-etcd-artifacts
+  - stream: rhel-9-golang
+  - member: openshift-enterprise-cli
+  - image: quay.io/ocp-splat/govc:v0.30.7
+  - image: quay.io/ocp-splat/pwsh:v7.3.12
+  - image: quay.io/multi-arch/yq:3.3.0
+  - image: quay.io/multi-arch/yq:4.30.5
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-upi-installer-rhel9
+payload_name: upi-installer
+owners:
+- aos-install@redhat.com

@@ -1,0 +1,26 @@
+arches:
+- x86_64
+- aarch64
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/aws-efs-utils.git
+      web: https://github.com/openshift/aws-efs-utils
+    pkg_managers: [] # FIXME: Don't use pip package manager magic in Cachito
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-aws-efs-utils-container
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-aws-efs-utils-base
+owners:
+- aos-storage-staff@redhat.com
