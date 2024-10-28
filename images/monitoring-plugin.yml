@@ -1,0 +1,46 @@
+cachito:
+  enabled: true
+  packages:
+    npm:
+    - path: web
+    gomod:
+    - path: .
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/monitoring-plugin.git
+      web: https://github.com/openshift/monitoring-plugin
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+    pkg_managers:
+    - npm
+    - gomod
+    okd_alignment:
+      dockerfile: Dockerfile
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: monitoring-plugin-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-monitoring-plugin
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - member: openshift-base-nodejs.rhel9
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-monitoring-plugin-rhel9
+payload_name: monitoring-plugin
+owners:
+- team-observability-ui@redhat.com
+konflux:
+  # Until cachito support is setup https://issues.redhat.com/browse/ART-11115
+  mode: disabled
