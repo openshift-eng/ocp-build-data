@@ -1,0 +1,30 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/must-gather.git
+      web: https://github.com/openshift/must-gather
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-must-gather-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-must-gather
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-cli
+name: openshift/ose-must-gather-rhel9
+payload_name: must-gather
+owners:
+- aos-master@redhat.com

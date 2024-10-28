@@ -1,0 +1,34 @@
+# Disable automated builds, this image is intended to be built manually like microshift rpm
+mode: disabled
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    dockerfile: packaging/imagemode/Containerfile.repobase
+    modifications:
+    - action: replace
+      match: "ARG BASE_IMAGE_URL"
+      replacement: "ARG BASE_IMAGE_URL='registry.redhat.io/rhel9/rhel-bootc'"
+    - action: replace
+      match: "ARG BASE_IMAGE_TAG"
+      replacement: "ARG BASE_IMAGE_TAG='9.4'"
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/microshift.git
+      web: https://github.com/openshift/microshift
+    ci_alignment:
+      streams_prs:
+        enabled: false
+# This image has its own separate release process, see USHIFT-4024
+for_release: false
+for_payload: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-fast-datapath-rpms
+- rhel-9-server-microshift-rpms
+name: openshift/microshift-bootc
+owners:
+- microshift-devel@redhat.com
