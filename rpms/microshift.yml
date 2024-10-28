@@ -1,0 +1,29 @@
+# Disable automated build because it is intended to be built after a release is promoted.
+mode: disabled
+# This field won't restrict building arches; it will only determine what arches will be published on mirror
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/microshift.git
+      web: https://github.com/openshift/microshift
+    specfile: packaging/rpm/microshift.spec
+    modifications:
+    - action: command
+      command: microshift-rebase
+      env:
+        RELEASE_NAME: "{release_name}"
+name: microshift
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+owners:
+- microshift-devel@redhat.com
+# This is used by microshift_sync job
+rhel_targets:
+- 9
