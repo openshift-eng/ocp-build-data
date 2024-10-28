@@ -1,0 +1,32 @@
+content:
+  source:
+    dockerfile: Dockerfile.daemon.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ingress-node-firewall.git
+      web: https://github.com/openshift/ingress-node-firewall
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ingress-node-firewall-daemon-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ingress-node-firewall
+dependents:
+- ingress-node-firewall-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ingress-node-firewall-rhel9
+name_in_bundle: ingress-node-firewall-daemon
+owners:
+- mmahmoud@redhat.com

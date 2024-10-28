@@ -1,0 +1,39 @@
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/multus-cni.git
+      web: https://github.com/openshift/multus-cni
+    ci_alignment:
+      streams_prs:
+        # Label so that this PR automatically merges if tests pass.
+        auto_label:
+        - approved
+        - lgtm
+        enabled: false
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: multus-cni-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-multus-cni
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  - stream: rhel-8-golang
+  member: openshift-enterprise-base-rhel9
+labels:
+  io.k8s.description: This is a component of OpenShift Container Platform and provides a meta CNI plugin.
+  io.k8s.display-name: Multus CNI
+  io.openshift.tags: openshift
+  vendor: Red Hat
+name: openshift/ose-multus-cni-rhel9
+payload_name: multus-cni
+owners:
+- multus-dev@redhat.com
