@@ -1,0 +1,33 @@
+content:
+  source:
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/machine-os-images.git
+      web: https://github.com/openshift/machine-os-images
+    okd_alignment:
+      build_args:
+      - name: DIRECT_DOWNLOAD
+        value: "true"
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-machine-os-images-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-machine-os-images
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: true
+from:
+  builder:
+  - member: ose-installer
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-machine-os-images-rhel9
+payload_name: machine-os-images
+owners:
+- metal-platform@redhat.com
+konflux:
+  # Until cachito support is setup https://issues.redhat.com/browse/ART-11115
+  mode: disabled
