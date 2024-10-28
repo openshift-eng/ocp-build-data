@@ -1,0 +1,31 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/api.git
+      web: https://github.com/openshift/api
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-cluster-config-api-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-cluster-config-api
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-cluster-config-api-rhel9
+payload_name: cluster-config-api
+owners:
+- jspeed@redhat.com
+- deads@redhat.com
