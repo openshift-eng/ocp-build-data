@@ -1,0 +1,22 @@
+releases:
+  stream:
+    assembly:
+      type: stream
+      permits:
+      - code: OUTDATED_RPMS_IN_STREAM_BUILD
+        component: '*'
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: openshift-clients
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: local-storage-mustgather
+      members:
+        images:
+        - distgit_key: '*'
+          why: Exclude rpm updates that should not cause mass rebuilds
+          metadata:
+            scan_sources:
+              exempt_rpms:
+              - redhat-release*  # documents rhel release notes and concerns
+              - tzdata
