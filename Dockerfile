@@ -1,12 +1,12 @@
-FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:v1.22.7-202410111609.gc451559.el9
+FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:v1.21.11-202407030000.gab74a9a.el9
 
 # Start Konflux-specific steps
 RUN mkdir -p /tmp/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/yum_temp/ || true
 COPY .oit/unsigned.repo /etc/yum.repos.d/
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
 # End Konflux-specific steps
-ENV __doozer=update BUILD_RELEASE=202410280809.p0.g8682161.assembly.stream.el9 BUILD_VERSION=v4.18.0 CI_RPM_SVC=base-4-18-rhel9.ocp.svc OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410280809.p0.g8682161.assembly.stream.el9 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=ci-openshift-golang-builder-latest.rhel9 __doozer_uuid_tag=ci-openshift-golang-builder-latest-rhel9-v4.18.0-20241028.080943 __doozer_version=v4.18.0 
-ENV __doozer=merge OS_GIT_COMMIT=8682161 OS_GIT_VERSION=4.18.0-202410280809.p0.g8682161.assembly.stream.el9-8682161 SOURCE_DATE_EPOCH=1730047304 SOURCE_GIT_COMMIT=86821614af4c60f1903a0d7762e0c488c384da30 SOURCE_GIT_TAG=openshift-4.0-archived-3608-g86821614 SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
+ENV __doozer=update BUILD_RELEASE=202410290853.p0.gc179d37.assembly.stream.el9 BUILD_VERSION=v4.18.0 CI_RPM_SVC=base-4-18-rhel9.ocp.svc OS_GIT_MAJOR=4 OS_GIT_MINOR=18 OS_GIT_PATCH=0 OS_GIT_TREE_STATE=clean OS_GIT_VERSION=4.18.0-202410290853.p0.gc179d37.assembly.stream.el9 SOURCE_GIT_TREE_STATE=clean __doozer_group=openshift-4.18 __doozer_key=ci-openshift-golang-builder-latest.rhel9 __doozer_uuid_tag=ci-openshift-golang-builder-latest-rhel9-v4.18.0-20241029.085304 __doozer_version=v4.18.0 
+ENV __doozer=merge OS_GIT_COMMIT=c179d37 OS_GIT_VERSION=4.18.0-202410290853.p0.gc179d37.assembly.stream.el9-c179d37 SOURCE_DATE_EPOCH=1730149422 SOURCE_GIT_COMMIT=c179d3701ec23ba2c7723c9de01c7f42a67545fb SOURCE_GIT_TAG=openshift-4.0-archived-3612-gc179d370 SOURCE_GIT_URL=https://github.com/openshift-eng/ocp-build-data 
 
 # Used by builds scripts to detect whether they are running in the context
 # of OpenShift CI or elsewhere (e.g. brew).
@@ -53,8 +53,8 @@ LABEL \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Release" \
         version="v4.18.0" \
-        release="202410280809.p0.g8682161.assembly.stream.el9" \
-        io.openshift.build.commit.id="86821614af4c60f1903a0d7762e0c488c384da30" \
+        release="202410290853.p0.gc179d37.assembly.stream.el9" \
+        io.openshift.build.commit.id="c179d3701ec23ba2c7723c9de01c7f42a67545fb" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/86821614af4c60f1903a0d7762e0c488c384da30"
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/c179d3701ec23ba2c7723c9de01c7f42a67545fb"
 
