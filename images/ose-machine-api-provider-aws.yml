@@ -1,0 +1,33 @@
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    dockerfile: Dockerfile.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/machine-api-provider-aws.git
+      web: https://github.com/openshift/machine-api-provider-aws
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-machine-api-provider-aws-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-machine-api-provider-aws
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-machine-api-provider-aws-rhel9
+payload_name: aws-machine-controllers
+owners:
+- aos-cloud@redhat.com

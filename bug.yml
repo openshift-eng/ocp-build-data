@@ -1,0 +1,120 @@
+---
+
+jira_config:
+  server: "https://issues.redhat.com"
+  project: "OCPBUGS"
+
+bugzilla_config:
+  server: "bugzilla.redhat.com"
+  classification: "Red Hat"
+  product: "OpenShift Container Platform"
+
+target_release:
+  - "4.17.0"
+  - "4.17.z"
+
+version:
+  - "4.17"
+  - "4.17.z"
+
+# Configure how elliott find-bugs:kernel[-clones] finds and clones kernel bugs (ART-6964)
+kernel_bug_sweep:
+  tracker_jira:
+    project: KMAINT
+    labels:
+    - early-kernel-track
+  bugzilla:
+    target_releases:
+    - "{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0"
+  target_jira:
+    project: OCPBUGS
+    component: RHCOS
+    version: "{MAJOR}.{MINOR}"
+    target_release: "{MAJOR}.{MINOR}.0"
+    candidate_brew_tag: "rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate"
+    prod_brew_tag: "rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}"
+
+# List of OCP components for which advisories are not maintained by ART
+# to be ignored when looking for bugs to be attached to OCP advisories
+# Note: Operators that use OCPBUGS project but are not managed by ART, can be found here
+# https://source.redhat.com/groups/public/gss-openshift/cee_openshift_wiki/openshift_bugs_and_rfe_workflow#routing-table
+filters:
+  default:
+    - "AWS Load Balancer Operator"
+    - "Quay"
+    - "Test Framework"
+    - "assisted-installer"
+    - "cluster loader"
+    - "ExternalDNS Operator"
+    - "RFE"
+    - "Documentation"
+    - "Security"
+    - "Migration Tooling"
+    - "CNF Platform Validation"
+    - "Windows Containers"
+    - "File Integrity Operator"
+    - "Compliance Operator"
+    - "OpenShift Update Service"
+    - "Logging"
+    - "Networking / openshift-sdn"
+    - "Node Maintenance Operator"
+    - "Node / Numa aware Scheduling"
+    - "Node / Node Problem Detector"
+    - "NVIDIA"
+    - "Poison Pill Operator"
+    - "TALM Operator"
+    - "Test Infrastructure"
+    - "Telco Edge"
+    - "Jenkins"
+    - "Console Kubevirt Plugin"
+    - "Security Profiles Operator"
+    - "kmm"
+    - "secondary-scheduler-operator"
+    - "cert-manager"
+    - "run-once-duration-override"
+    - "lvms"
+    - "Logical Volume Manager Storage"
+    - "GitOps ZTP"
+    - "Cloud Native Events / Hardware Event Proxy"
+    - "descheduler"
+    - "secondary-scheduler-operator"
+    - "LCA operator"
+  security:
+    - "AWS Load Balancer Operator"
+    - "Quay"
+    - "Test Framework"
+    - "assisted-installer"
+    - "cluster loader"
+    - "ExternalDNS Operator"
+    - "RFE"
+    - "Documentation"
+    - "Migration Tooling"
+    - "CNF Platform Validation"
+    - "Windows Containers"
+    - "File Integrity Operator"
+    - "Compliance Operator"
+    - "OpenShift Update Service"
+    - "Logging"
+    - "Networking / openshift-sdn"
+    - "Node Maintenance Operator"
+    - "Node / Numa aware Scheduling"
+    - "Node / Node Problem Detector"
+    - "NVIDIA"
+    - "Poison Pill Operator"
+    - "TALM Operator"
+    - "Test Infrastructure"
+    - "Telco Edge"
+    - "Jenkins"
+    - "Console Kubevirt Plugin"
+    - "Security Profiles Operator"
+    - "kmm"
+    - "secondary-scheduler-operator"
+    - "cert-manager"
+    - "run-once-duration-override"
+    - "lvms"
+    - "Logical Volume Manager Storage"
+    - "GitOps ZTP"
+    - "Cloud Native Events / Hardware Event Proxy"
+    - "descheduler"
+    - "secondary-scheduler-operator"
+    - "LCA operator"
