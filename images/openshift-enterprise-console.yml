@@ -1,0 +1,48 @@
+content:
+  source:
+    dockerfile: Dockerfile.product
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/console.git
+      web: https://github.com/openshift/console
+    pkg_managers:
+    #- gomod Take out go.mod processing because of STONEBLD-2479 not being supported
+    - yarn
+    artifacts:
+      from_urls:
+      - target: yarn-v1.22.19.tar.gz
+        url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
+        sha256: 732620bac8b1690d507274f025f3c6cfdc3627a84d9642e38a07452cc00e0f2e
+        source-url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-source-v1.22.19.tar.gz
+        source-sha256: 50af0025d2ef942bf3e6cdd0587dc9c4dd8d6e6e69501b84935d09f2b2b5de8b
+cachito:
+  enabled: true
+  packages:
+    yarn:
+    - path: frontend
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-console-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-console
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  - member: openshift-base-nodejs.rhel9
+  member: openshift-enterprise-base-rhel9
+labels:
+  License: GPLv2+
+  io.k8s.description: This is a component of OpenShift Container Platform and provides a web console.
+  io.k8s.display-name: OpenShift Console
+  io.openshift.tags: openshift,console
+  vendor: Red Hat
+name: openshift/ose-console-rhel9
+payload_name: console
+owners:
+- spadgett@redhat.com

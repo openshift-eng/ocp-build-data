@@ -1,0 +1,27 @@
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ironic-static-ip-manager.git
+      web: https://github.com/openshift/ironic-static-ip-manager
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ironic-static-ip-manager-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-ironic-static-ip-manager
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  member: openshift-base-rhel9
+name: openshift/ose-ironic-static-ip-manager-rhel9
+payload_name: ironic-static-ip-manager
+owners:
+- ironic-osp-owners@redhat.com
