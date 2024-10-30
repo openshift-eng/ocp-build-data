@@ -1,0 +1,34 @@
+content:
+  source:
+    dockerfile: ./Dockerfile.assisted-installer-controller.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/assisted-installer.git
+      web: https://github.com/openshift/assisted-installer
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-agent-installer-csr-approver-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-agent-installer-csr-approver
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+maintainer:
+  component: Installer
+  subcomponent: Agent based installation
+name: openshift/ose-agent-installer-csr-approver-rhel9
+payload_name: agent-installer-csr-approver
+owners:
+- ocp-agent-team@redhat.com

@@ -1,0 +1,36 @@
+arches:
+- x86_64
+- ppc64le
+content:
+  source:
+    dockerfile: images/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/csi-driver-nfs.git
+      web: https://github.com/openshift/csi-driver-nfs
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+        auto_label:
+        - approved
+        - lgtm
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: csi-driver-nfs-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-csi-driver-nfs
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-csi-driver-nfs-rhel9
+payload_name: csi-driver-nfs
+owners:
+- shiftstack-team@redhat.com
