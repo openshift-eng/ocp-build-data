@@ -1,0 +1,40 @@
+arches:
+- x86_64
+- aarch64
+- ppc64le
+content:
+  source:
+    dockerfile: Dockerfile.rhel7
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/sriov-network-operator.git
+      web: https://github.com/openshift/sriov-network-operator
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  bundle_component: sriov-network-operator-metadata-container
+  component: sriov-network-operator-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-sriov-network-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-sriov-network-rhel9-operator
+name_in_bundle: sriov-network-operator
+owners:
+- multus-dev@redhat.com
+update-csv:
+  bundle-dir: 'stable/'
+  manifests-dir: manifests
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'

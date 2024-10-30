@@ -1,0 +1,33 @@
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    git:
+      web: https://github.com/openshift/azure-workload-identity
+      url: git@github.com:openshift-priv/azure-workload-identity.git
+      branch:
+        target: release-{MAJOR}.{MINOR}
+    dockerfile: Dockerfile.ocp
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-azure-workload-identity-webhook-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-azure-workload-identity-webhook
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-azure-workload-identity-webhook-rhel9
+payload_name: azure-workload-identity-webhook
+owners:
+- aos-hive@redhat.com
