@@ -1,4 +1,70 @@
 releases:
+  4.16.20:
+    assembly:
+      basis:
+        brew_event: 61131570
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2024-10-30-050825
+          ppc64le: 4.16.0-0.nightly-ppc64le-2024-10-30-050824
+          s390x: 4.16.0-0.nightly-s390x-2024-10-30-050825
+          x86_64: 4.16.0-0.nightly-2024-10-30-023820
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.15.35,4.15.36,4.15.37,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5,4.16.6,4.16.7,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19
+      members:
+        images:
+        - distgit_key: monitoring-plugin
+          metadata:
+            is:
+              nvr: monitoring-plugin-container-v4.16.0-202410300036.p0.g442ccd1.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-tools
+          metadata:
+            is:
+              nvr: ose-tools-container-v4.16.0-202410300036.p0.gcf533b5.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: cluster-node-tuning-operator
+          metadata:
+            is:
+              nvr: cluster-node-tuning-operator-container-v4.16.0-202410300036.p0.g884858e.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-console
+          metadata:
+            is:
+              nvr: openshift-enterprise-console-container-v4.16.0-202410300036.p0.g472f4e8.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: ose-network-tools
+          metadata:
+            is:
+              nvr: ose-network-tools-container-v4.16.0-202410300036.p0.g39eca10.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        - distgit_key: openshift-enterprise-tests
+          metadata:
+            is:
+              nvr: openshift-enterprise-tests-container-v4.16.0-202410300036.p0.g06403d4.assembly.stream.el9
+          why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b6d0ab0fd874719916966ba82f0f7951d4e92a8012c4a3da2869fb582dc152f9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:19df60c43747a04f0ab648dc992c0476a48736270fb059d75dedf9204c8c5d52
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7a394255e76136687fb5a01fa7ee3e4c0c9c7c9b005851721ed28ad1336afde9
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:64967913aa662e7cb6c87bdfc2afe0a5845bd056c867b7eaec0cb544ee8aa5e5
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eaa2e414ee95dde73e2ab7abb764dad295e60bc40eb31d0bb8867c60c7ef30dd
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f2a7f4f6fe464f7a5a3085d89b1176db6222529fe66d3433604d595b0daa27b5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b02cb2d320d4ddcc24b7411fbd725f563e964990192ff14ec7e421aa9c3f2d9d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:27deef3e08e7cad5ec71fb8362b3446e9d4b94914abd6a0d2f145ac8e94aaa17
+      type: standard
+
   4.16.19:
     assembly:
       basis:
