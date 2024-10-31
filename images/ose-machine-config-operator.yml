@@ -32,13 +32,13 @@ scan_sources:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
-  - stream: rhel-8-golang
+  - member: ci-openshift-golang-builder-latest.rhel9
+  - member: ci-openshift-golang-builder-latest.rhel8
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-machine-config-operator-rhel9
 payload_name: machine-config-operator
 owners:
 - jerzhang@redhat.com
-- jkyros@redhat.com
+- dkhater@redhat.com
 - skumari@redhat.com
 - zzlotnik@redhat.com
