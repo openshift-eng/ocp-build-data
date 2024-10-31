@@ -64,5 +64,6 @@ external_scanners:
     jira_integration:
       enabled: false
 konflux:
-  # Until cachito support is setup https://issues.redhat.com/browse/ART-11115
-  mode: disabled
+  content:
+    source:
+      dockerfile: Dockerfile.installer.art-cachi2
