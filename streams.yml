@@ -129,7 +129,7 @@ rhel8:
   # ubi8-container-8.10-901.1717584420
   image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8@sha256:143123d85045df426c5bbafc6863659880ebe276eb02c77ee868b88d08dbd05d
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
-  mirror: true
+  mirror: false
 
 rhel9:
   # the most recent release at present. since we yum update this, it does not need to float.
@@ -137,7 +137,7 @@ rhel9:
   # rhel-els-container-9.4-847.1719484506
   image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:0a4a4ab60ce8abac3edab51cacdbed25cd012a3e4169895bce2d18ed74364e08
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
-  mirror: true
+  mirror: false
 
 nodejs-rhel9:
   image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9-nodejs-18:1-98
