@@ -49,7 +49,12 @@ releases:
             is:
               nvr: ose-installer-artifacts-container-v4.17.0-202411060807.p0.g6339911.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.17.4-202411070923.p0.g06faf6b.assembly.4.17.4.el9
       rhcos:
         rhel-coreos:
           images:
