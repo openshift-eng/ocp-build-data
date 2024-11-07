@@ -24,7 +24,12 @@ releases:
             is:
               nvr: cluster-network-operator-container-v4.15.0-202411061706.p0.g7b8459d.assembly.stream.el9
           why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-        rpms: []
+        rpms:
+        - distgit_key: microshift
+          why: Pin microshift to assembly
+          metadata:
+            is:
+              el9: microshift-4.15.38-202411071009.p0.g1cde99f.assembly.4.15.38.el9
       rhcos:
         machine-os-content:
           images:
