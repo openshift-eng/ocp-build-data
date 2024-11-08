@@ -21,7 +21,7 @@ rhel-8-golang-1.21:
   aliases:
   - rhel-8-golang-{GO_PREVIOUS}
   image: openshift/golang-builder:v1.21.11-202407021847.g1ac3e39.el8
-  mirror: true
+  mirror: false
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}.art
@@ -34,7 +34,7 @@ rhel-9-golang-1.21:
   aliases:
   - rhel-9-golang-{GO_PREVIOUS}
   image: openshift/golang-builder:v1.21.11-202407030000.gab74a9a.el9
-  mirror: true
+  mirror: false
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}.art
@@ -69,22 +69,6 @@ rhel-8-golang:
   upstream_image_mirror:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
 
-partner-rhel-8-golang-1.21:
-  image: openshift/golang-builder:v1.21.11-202407021847.g1ac3e39.el8
-  mirror: true
-  mirror_manifest_list: true
-  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
-  upstream_image_mirror:
-  - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
-
-partner-rhel-9-golang-1.21:
-  image: openshift/golang-builder:v1.21.11-202407030000.gab74a9a.el9
-  mirror: true
-  mirror_manifest_list: true
-  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
-  upstream_image_mirror:
-  - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
-
 partner-rhel-8-golang-1.22:
   image: openshift/golang-builder:v1.22.7-202410111416.gd54e8ac.el8
   mirror: true
@@ -105,6 +89,7 @@ partner-rhel-9-golang-1.22:
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
 rhel-8-golang-1.21-ci-build-root:
+  mirror: false
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.21-openshift-{MAJOR}.{MINOR}
   transform: rhel-8/ci-build-root
@@ -132,6 +117,7 @@ rhel-9-golang-ci-build-root:
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
 rhel-9-golang-1.21-ci-build-root:
+  mirror: false
   image: not_applicable
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
   transform: rhel-9/ci-build-root
