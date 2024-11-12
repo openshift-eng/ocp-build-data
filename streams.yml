@@ -149,9 +149,11 @@ centos_stream8:
   image: quay.io/centos/centos:stream8
   upstream_image: registry.ci.openshift.org/ocp/builder:stream8
   mirror: true
+  mirror_manifest_list: true
 
 centos_stream9:
   # Mirror the centos images so that okd_alignment can reference them in app.ci
   image: quay.io/centos/centos:stream9
   upstream_image: registry.ci.openshift.org/ocp/builder:stream9
   mirror: true
+  mirror_manifest_list: true
