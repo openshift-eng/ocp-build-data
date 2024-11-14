@@ -1,4 +1,40 @@
 releases:
+  4.17.5:
+    assembly:
+      basis:
+        brew_event: 61419636
+        reference_releases:
+          aarch64: 4.17.0-0.nightly-arm64-2024-11-13-161446
+          ppc64le: 4.17.0-0.nightly-ppc64le-2024-11-13-003252
+          s390x: 4.17.0-0.nightly-s390x-2024-11-13-003246
+          x86_64: 4.17.0-0.nightly-2024-11-13-161445
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.22,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aaf1ea74cc4fca8ace277df3558407f8b5826c977868f8a7cb391f4a53f8df1d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a3e7127df4416fbf2a485b38c269d2ddc643d4fa91b9987f8cbe7c2698218f76
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d9b042e12a67fa79c4a667324cab8f79acf268c576757dbde90736a713355562
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1fefef85aedc9c105f92874c1fa3017dd7ede9a9fe4fe77aac06d93492d5341d
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a1876a9000e08606e0bdef29b67777eb115f5377cd0e349ece756c22623f05cb
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:de618824e895751cbadc00a2efa9d6e06531147002ac605f8ccd81b44312fb6f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dbbd0f3f15af1ecbe53aa1ea446146ea73433447ab2e35845226cd95093ffdea
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:41f03c472ee4c8838841b92d6e4c06722694ee89e80a81e32cfcba8eafb1ffa2
+      type: standard
+
   4.17.4:
     assembly:
       basis:
