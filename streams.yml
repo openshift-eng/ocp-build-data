@@ -143,17 +143,3 @@ nodejs-rhel9:
   image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9-nodejs-18:1-98
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
   mirror: true
-
-centos_stream8:
-  # Mirror the centos images so that okd_alignment can reference them in app.ci
-  image: quay.io/centos/centos:stream8
-  upstream_image: registry.ci.openshift.org/ocp/builder:stream8
-  mirror: true
-  mirror_manifest_list: true
-
-centos_stream9:
-  # Mirror the centos images so that okd_alignment can reference them in app.ci
-  image: quay.io/centos/centos:stream9
-  upstream_image: registry.ci.openshift.org/ocp/builder:stream9
-  mirror: true
-  mirror_manifest_list: true
