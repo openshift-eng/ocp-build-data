@@ -310,3 +310,32 @@ releases:
               exempt_rpms:
               - redhat-release*  # documents rhel release notes and concerns
               - tzdata
+        - distgit_key: driver-toolkit
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v4.18.0-202411142011.p0.ge7fe5ff.assembly.stream.el9
+          why: match overridden rhcos
+        - distgit_key: ironic-rhcos-downloader
+          metadata:
+            is:
+              nvr: ironic-rhcos-downloader-container-v4.18.0-202411131836.p0.g04c22ee.assembly.stream.el9
+          why: match overridden rhcos
+        - distgit_key: ose-insights-operator
+          metadata:
+            is:
+              nvr: ose-insights-operator-container-v4.18.0-202411181637.p0.gee53123.assembly.stream.el9
+          why: pin older build
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7f4a087e2feda4219b815a00ff758359cc2d17f81e92f72cc7e0ab478a27c97f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:35ec817bb29612bbacfdb3cd2eaf87e9b372f7c5cb4f391861fce965a088c268
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a57bfe7394a169743f3a27b561d39828de285aaadffd2d2f1539c1ef8de24993
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:35ebda431d85dd7fb502ac0036409a834f4e8165d68d07b99012e31ef83adf9a
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1db3dc90f190c8a4946f64b9d1b9ff968a2c8b1b2e58a531a136ff8ec0155885
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8861d7755ca54978839489f055ec4b2622bda2e169f5431447591747ea0f28df
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:39a8bc32346068593840c80f512a7951050ffb152a2522bcdc82849321099807
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:16038be64578c5a0651bd24683d3da463dd460e18b5dc27be4c59ea4097fbea1
+
