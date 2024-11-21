@@ -1,4 +1,40 @@
 releases:
+  4.17.6:
+    assembly:
+      basis:
+        brew_event: 61526655
+        reference_releases:
+          aarch64: 4.17.0-0.nightly-arm64-2024-11-21-052344
+          ppc64le: 4.17.0-0.nightly-ppc64le-2024-11-21-052343
+          s390x: 4.17.0-0.nightly-s390x-2024-11-21-052347
+          x86_64: 4.17.0-0.nightly-2024-11-21-052346
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:03fa9f8bfbe6ca0753f52b0223ad9af104ffbc4efb363488bf30fe118fdcab31
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:83869b2ac4fd0aa3a0b6dba96e6274270a4deabbcf2978af5db6b2a42061e1b8
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0b9dc4c598de938d59e5bf3043b2a4c0ef0f2aed128925776fb44a0520f6c3bc
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5c6656c87ec0b7806e7decd33443734c4636b827426fc7523c4571c162e20074
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d5289810a21991c308947a8ad3aa91dd90260f8c1ef229d7fe4823f9069442ca
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c00b0363cc67e0ec854ac71def3f08994255a30e8183ef8551f4706a8eac467c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:661f9917994850505323e1e2152cdd93412b00ee0e3f950b0da52171807dfbf6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9512726c82692c273230863644a18cae86f2a705740580059c95c3fca7c7f3be
+      type: standard
+
   4.17.5:
     assembly:
       basis:
