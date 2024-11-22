@@ -18,6 +18,10 @@ releases:
         operator_index_mode: pre-release
         release_jira: ART-10610
         upgrades: 4.17.5,4.17.6,4.18.0-ec.0,4.18.0-ec.1,4.18.0-ec.2,4.18.0-ec.3
+      permits:
+      # for ECs and RCs this should not block us
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: '*'
       members:
         images: []
         rpms: []
