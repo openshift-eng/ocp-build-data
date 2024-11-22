@@ -13,7 +13,15 @@ content:
         enabled: false
       mirror: true
       mirror_manifest_list: true
-      upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-enterprise-base-multi-openshift-{MAJOR}.{MINOR}
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
+
+    okd_alignment:
+      # The tag name in the okd stream to which this image should be promoted
+      tag_name: base-stream9
+      inject_rpm_repositories:
+      - id: rhel-9-server-ose
+        baseurl: http://base-{MAJOR}-{MINOR}-rhel9.ocp.svc/rhel-9-server-ose
+
 from:
   member: openshift-enterprise-base-rhel9
 labels:

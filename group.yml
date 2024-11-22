@@ -4,7 +4,7 @@
 #   - weekdays: always allow manual builds; forbid scheduled builds from Monday to Friday
 #   - no|false: always allow builds
 # Note that ocp4 builds are always permitted  for non-stream assemblies
-freeze_automation: true
+freeze_automation: false
 
 vars:
   MAJOR: 4
@@ -530,6 +530,12 @@ check_golang_versions: "x.y"
 # If set to False, it will use the default art config
 # If set to True, it will honor the image's config
 canonical_builders_from_upstream: True
+
+# This is a toggle to allow streams prs to not yet be opened. This can be useful when golang
+# builders are not yet set up correctly for the release at branch cut time, and we want to limit
+# the churn.
+reconciliation_prs:
+  enabled: false
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # Possible values are defined here: https://github.com/openshift-eng/art-tools/blob/main/artcommon/artcommonlib/release_util.py#L55-L59
