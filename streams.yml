@@ -17,29 +17,45 @@
 #
 ####################################################################################################
 
-rhel-8-golang-1.21:
+rhel-8-golang-1.22:
   aliases:
   - rhel-8-golang-{GO_PREVIOUS}
-  image: openshift/golang-builder:v1.21.11-202407021847.g1ac3e39.el8
+  image: openshift/golang-builder:v1.22.7-202410111416.gd54e8ac.el8
   mirror: false
 
-rhel-9-golang-1.21:
+rhel-9-golang-1.22:
   aliases:
   - rhel-9-golang-{GO_PREVIOUS}
-  image: openshift/golang-builder:v1.21.11-202407030000.gab74a9a.el9
+  image: openshift/golang-builder:v1.22.7-202410111609.gc451559.el9
   mirror: false
 
 rhel-9-golang:
   aliases:
   - rhel-9-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.22.9-202411201508.gfa4fc3b.el9
+  image: openshift/golang-builder:v1.23.2-202411222126.g971a316.el9
   mirror: false
 
 rhel-8-golang:
   aliases:
   - rhel-8-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.22.9-202411201508.gd54e8ac.el8
+  image: openshift/golang-builder:v1.23.2-202411222126.g19d4e14.el8
   mirror: false
+
+partner-rhel-8-golang-1.23:
+  image: openshift/golang-builder:v1.23.2-202411222126.g19d4e14.el8
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
+  upstream_image_mirror:
+  - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
+
+partner-rhel-9-golang-1.23:
+  image: openshift/golang-builder:v1.23.2-202411222126.g971a316.el9
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
+  upstream_image_mirror:
+  - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-8-golang-1.22:
   image: openshift/golang-builder:v1.22.9-202411201508.gd54e8ac.el8
