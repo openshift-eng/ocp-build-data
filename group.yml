@@ -1,4 +1,4 @@
-freeze_automation: false
+freeze_automation: weekdays
 
 vars:
   MAJOR: 4
@@ -14,12 +14,9 @@ compliance:
 
 arches:
 - x86_64
-- ppc64le
-- s390x
-- aarch64
 
 multi_arch:
-  enabled: true
+  enabled: false
 
 operator_image_ref_mode: manifest-list
 operator_channel_stable: default
