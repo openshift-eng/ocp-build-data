@@ -1,4 +1,45 @@
 releases:
+  ec.4:
+    assembly:
+      basis:
+        brew_event: 61532439
+        reference_releases:
+          aarch64: 4.18.0-0.nightly-arm64-2024-11-21-131828
+          s390x: 4.18.0-0.nightly-s390x-2024-11-21-131823
+          x86_64: 4.18.0-0.nightly-2024-11-21-131835
+      group:
+        advisories:
+          extras: 138188
+          image: 138189
+          metadata: 138190
+          microshift: 138191
+          prerelease: -1
+          rpm: 138193
+        operator_index_mode: pre-release
+        release_jira: ART-10610
+        upgrades: 4.17.5,4.17.6,4.18.0-ec.0,4.18.0-ec.1,4.18.0-ec.2,4.18.0-ec.3
+      permits:
+      # for ECs and RCs this should not block us
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: '*'
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1ee5248c4bf7ac0c1802bda03530a97d2babe9fbe6f26eeb5ee9d26a428a1afc
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:09679aafdb9d147d3ca16ab5804e1983e07613a04c956e5d0ff8398508fd1809
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ce0a6c8c11b4598bab3603fd9567488f284f99691ea8d5e3796e36aa282f4196
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:be6f713e7f9ed10689cfde90bb93fd65cad98a7da6e351b739b637336cdd9fb3
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec82328f8b008794b2a616bb796b5332fe68316a6a1c3751bd3a6662a2117898
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fa1d1feb514dcdbbf428d932ad9d24e8f6c071ba6b85e094a3e9a5385a4dc6fb
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aaabb0e2d3a1d1c8dae9abbcbd92534e80187e4cacfa0a8658176b89004275c6
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8fd89dbf2b3edc051c6f1b69b36b394a8232ff5517e6d093c321939fa97c4a78
+      type: preview
+
   ec.3:
     assembly:
       basis:
