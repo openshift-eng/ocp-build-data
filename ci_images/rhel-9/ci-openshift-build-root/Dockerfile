@@ -27,7 +27,7 @@ RUN set -euxo pipefail && \
     /tmp/install_protoc.sh "23.4" && \
     /tmp/install_etcd.sh "3.5.10"
 
-RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros kernel-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build rpmdevtools selinux-policy-devel" && \
+RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros kernel-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build rpmdevtools selinux-policy-devel jq" && \
     dnf install -y --nobest $INSTALL_PKGS && \
     dnf clean all && \
     touch /os-build-image && \
