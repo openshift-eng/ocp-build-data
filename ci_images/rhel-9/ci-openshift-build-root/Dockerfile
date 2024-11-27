@@ -6,6 +6,11 @@ ENV OPENSHIFT_CI="true"
 
 ENV GO_COMPLIANCE_POLICY=exempt_all
 
+# Turn off information for CI environment. This is usually just noise for upstream
+# engineers and can complicate debug. When issues arise, have repos export
+# GO_COMPLIANCE_INFO=1 or GO_COMPLIANCE_DEBUG=1 before running go.
+ENV GO_COMPLIANCE_INFO=0
+
 # Install, matching upstream k8s, protobuf-3.x, see:
 # https://github.com/kubernetes/kubernetes/blob/master/hack/lib/protoc.sh
 # and etcd, see:
@@ -27,7 +32,7 @@ RUN set -euxo pipefail && \
     /tmp/install_protoc.sh "23.4" && \
     /tmp/install_etcd.sh "3.5.10"
 
-RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros kernel-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build rpmdevtools selinux-policy-devel jq" && \
+RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros kernel-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build rpmdevtools selinux-policy-devel" && \
     dnf install -y --nobest $INSTALL_PKGS && \
     dnf clean all && \
     touch /os-build-image && \

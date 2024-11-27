@@ -118,4 +118,4 @@ if ls "${ART_REPOS_PREFIX}"* 1> /dev/null 2>&1; then
   EXTRA_DNF_ARGS="--disableplugin=subscription-manager"
 fi
 
-$0.real "${EXTRA_DNF_ARGS}" "$@"
+$0.real ${EXTRA_DNF_ARGS} "$@"
