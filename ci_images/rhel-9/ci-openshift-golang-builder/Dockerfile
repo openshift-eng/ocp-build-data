@@ -38,3 +38,7 @@ ENV PATH=$DNF_WRAPPER_DIR:$PATH
 # it is not running on a build farm.
 ADD .oit/unsigned.repo $DNF_WRAPPER_DIR/
 
+# These services run on the build farms and serve RPMs to CI workloads.
+# This environment variable is used by dnf_wrapper.sh to know which service
+# to acquire repo information from.
+ENV CI_RPM_SVC=base-MAJOR-MINOR-rhelX.ocp.svc
