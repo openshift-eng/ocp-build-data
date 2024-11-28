@@ -1,4 +1,40 @@
 releases:
+  4.17.7:
+    assembly:
+      basis:
+        brew_event: 61615771
+        reference_releases:
+          aarch64: 4.17.0-0.nightly-arm64-2024-11-27-194432
+          ppc64le: 4.17.0-0.nightly-ppc64le-2024-11-27-114437
+          s390x: 4.17.0-0.nightly-s390x-2024-11-27-114404
+          x86_64: 4.17.0-0.nightly-2024-11-27-180232
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c3b68ba327b4e78acaf47399d075c5a9f0a3b407ba697d1dee5e763f956e8d06
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0a5e279fac990f5b38b49bcf7ed98d31fa879046b88ff2566b4a98923b2cb703
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f4dc503e8b1b87bb3b9a755012c20bfe0777c27c09de5bab4bc7957a31495ea7
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:348d3aa33b3df9e420c8c2e7b3de248ef2bf0caf4eebe82cdb6a2164e3e9311b
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e4bd7f9cc151a27503126a7526bb07150f84523a1af5b02d86525b48fc9a40d8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0affbf61210867cdc9ed877be7ae9fe932c26595fe4c67aaa2553596fb595413
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8699a82c5e9c7796b6a7dbb76ca001217f9c029040d93f9e3f25a03ffaadbcd5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:884ada9e6e8135cfb9393874129fa9c1501823cdb7c3b6f7c7d3d4d6c0363920
+      type: standard
+
   4.17.6:
     assembly:
       basis:
