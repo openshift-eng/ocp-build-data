@@ -30,7 +30,7 @@ RUN set -euxo pipefail && \
     chmod +x /tmp/*.sh && \
     export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
     /tmp/install_protoc.sh "23.4" && \
-    /tmp/install_etcd.sh "3.5.10"
+    /tmp/install_etcd.sh "3.5.16"
 
 RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros libstdc++ llvm-libs qt5-srpm-macros redhat-rpm-config bc procps-ng util-linux bind-utils bsdtar createrepo_c device-mapper device-mapper-persistent-data e2fsprogs ethtool file findutils gcc git glib2-devel gpgme gpgme-devel hostname iptables jq krb5-devel libassuan libassuan-devel libseccomp-devel lsof make nmap-ncat openssl rsync socat systemd-devel tar tree wget which xfsprogs zip goversioninfo gettext python3 iproute rpm-build" && \
     dnf install -y --nobest $INSTALL_PKGS && \
