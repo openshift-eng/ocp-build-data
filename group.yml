@@ -36,31 +36,9 @@ repos:
       extra_options:
         module_hotfixes: 1
         # this repo provides complete RHEL 8 build env; we just want the go-toolset content
-        includepkgs: module-build-macros delve golang* go-toolset*
+        includepkgs: module-build-macros delve golang* go-toolset* goversioninfo
       # golang-1.21.3-4.el8_9
       # https://brewweb.engineering.redhat.com/brew/buildinfo?buildID=2770478
-      baseurl:
-        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
-        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
-        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/s390x/
-        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/x86_64/
-    # These content sets are not used, so just putting something here
-    content_set:
-      default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
-      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
-      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-8-ppc64le-rpms
-      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
-      optional: true
-
-  rhel-8-server-ose-build-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-        # this repo is for our own buildroot, which also inherits a complete RHEL 8 build env;
-        # restrict to specific necessary content, because RHEL 8 build dev content may include
-        # pending unreleased content that can cause conflicts for later CI installs lacking access
-        # to that content.
-        includepkgs: goversioninfo gpgme-devel libassuan-devel mingw*
       baseurl:
         aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/aarch64/
         ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-8-build/latest/ppc64le/
@@ -104,3 +82,17 @@ repos:
     reposync:
       enabled: false
 
+  rhel-8-codeready-builder-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/codeready-builder/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/codeready-builder/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/codeready-builder/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/codeready-builder/os/
+    content_set:
+      default: codeready-builder-for-rhel-8-x86_64-rpms__8
+      aarch64: codeready-builder-for-rhel-8-aarch64-rpms__8
+      ppc64le: codeready-builder-for-rhel-8-ppc64le-rpms__8
+      s390x:   codeready-builder-for-rhel-8-s390x-rpms__8
+    reposync:
+      enabled: false
