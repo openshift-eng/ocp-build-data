@@ -1,4 +1,31 @@
 releases:
+  rc.0:
+    assembly:
+      basis:
+        brew_event: 61658344
+        reference_releases:
+          x86_64: 4.18.0-0.nightly-2024-11-30-141716
+      group:
+        advisories:
+          extras: 138188
+          image: 138189
+          metadata: 138190
+          microshift: 138191
+          rpm: 138193
+        release_jira: ART-10610
+        upgrades: 4.17.5,4.17.6,4.17.7,4.18.0-ec.0,4.18.0-ec.1,4.18.0-ec.2,4.18.0-ec.3,4.18.0-ec.4
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bf7929b416dfe711ad12931a5bb2375ea725625277820bf1e2ff2c6faf416e45
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c0f34925e432aa71d047d42017e057621b0cc532a20099bda45be6df1989acb0
+      type: candidate
+
   ec.4:
     assembly:
       basis:
