@@ -15,6 +15,13 @@ content:
         - approved
         - lgtm
         merge_first: true
+      # The actual image used by CI for the enterprise base image is
+      # built and pushed from ci-openshift-base.rhel9. Setting upstream_image
+      # here ensures that reconciliation PRs for components referencing
+      # this image as their base image will use the image created by
+      # ci-openshift-base.rhel9 and be able to resolve RPMs.
+      mirror: false
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
     okd_alignment:
       # The tag name in the okd stream to which this image should be promoted
       tag_name: base-stream9

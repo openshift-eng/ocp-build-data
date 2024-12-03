@@ -9,7 +9,15 @@ content:
     ci_alignment:
       streams_prs:
         enabled: false
+      # The actual image used by CI for the base image is
+      # built and pushed from ci-openshift-base.rhel9.
+      # This image is technically, the openshift-enterprise-base image
+      # but it shouldn't matter for the purposes of CI
+      # Setting upstream_image here ensures that reconciliation PRs for components referencing
+      # this image as their base image will use the image created by
+      # ci-openshift-base.rhel9 and be able to resolve RPMs.
       mirror: false
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
     okd_alignment:
       resolve_as:
         stream: centos_stream9
