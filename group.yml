@@ -138,7 +138,7 @@ rpm_deliveries:
       - kernel
     rhel_tag: rhel-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0-z-candidate
     integration_tag: early-kernel-candidate
-    stop_ship_tag: early-kernel-stop-ship
+    stop_ship_tag: trashcan
     ship_ok_tag: early-kernel-ship-ok
     target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
 
@@ -535,7 +535,7 @@ canonical_builders_from_upstream: True
 # builders are not yet set up correctly for the release at branch cut time, and we want to limit
 # the churn.
 reconciliation_prs:
-  enabled: false
+  enabled: true
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # Possible values are defined here: https://github.com/openshift-eng/art-tools/blob/main/artcommon/artcommonlib/release_util.py#L55-L59
