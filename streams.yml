@@ -15,25 +15,7 @@
 # indirectly be responsible for opening >150 upstream PRs.
 # Details: https://docs.google.com/document/d/1vTf_Ev_9iv_myWu7ClYLlsiN54rEDIblq-90n3sNscs/edit
 #
-####################################################################################################
-
-rhel-8-golang-1.22:
-  aliases:
-  - rhel-8-golang-{GO_PREVIOUS}
-  image: openshift/golang-builder:v1.22.9-202411201508.gd54e8ac.el8
-  mirror: false
-  # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
-  # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_PREVIOUS}-openshift-{MAJOR}.{MINOR}
-
-rhel-9-golang-1.22:
-  aliases:
-  - rhel-9-golang-{GO_PREVIOUS}
-  image: openshift/golang-builder:v1.22.9-202411201508.gfa4fc3b.el9
-  mirror: false
-  # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
-  # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_PREVIOUS}-openshift-{MAJOR}.{MINOR}
+##############################################################################################
 
 rhel-9-golang:
   aliases:
@@ -68,22 +50,6 @@ partner-rhel-9-golang-1.23:
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
   upstream_image_mirror:
   - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
-
-partner-rhel-8-golang-1.22:
-  image: openshift/golang-builder:v1.22.9-202411201508.gd54e8ac.el8
-  mirror: true
-  mirror_manifest_list: true
-  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
-  upstream_image_mirror:
-  - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
-
-partner-rhel-9-golang-1.22:
-  image: openshift/golang-builder:v1.22.9-202411201508.gfa4fc3b.el9
-  mirror: true
-  mirror_manifest_list: true
-  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
-  upstream_image_mirror:
-  - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.22-openshift-{MAJOR}.{MINOR}
 
 rhel8:
   # the most recent release at present. since we yum update this, it does not need to float.
