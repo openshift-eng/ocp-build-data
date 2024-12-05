@@ -1,4 +1,40 @@
 releases:
+  4.17.8:
+    assembly:
+      basis:
+        brew_event: 61704477
+        reference_releases:
+          aarch64: 4.17.0-0.nightly-arm64-2024-12-04-192257
+          ppc64le: 4.17.0-0.nightly-ppc64le-2024-12-04-192257
+          s390x: 4.17.0-0.nightly-s390x-2024-12-04-192257
+          x86_64: 4.17.0-0.nightly-2024-12-04-192257
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fe10aa19ff1e9912b69fabcd971ee898becdd56452c6e3560ae75bc7ee140fcb
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6f643632471397db4e38ac0f69dbacb4e1db19e2c7f722a6ca4337616c521828
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:66f5137b5bba2500d4b2197091f9d9a7d048980f631ef40e59eefa4598be5835
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:752ea090edaee68b8cb6fb034815c7eca245b405ed4a5d47520fef67786ef2e1
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:86ae946ac80829e3609974d8d7994c99082faf6fb57a616aa3d9a64821a2beb0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6b893f2cdb04897274288b0f8ea96476d7e03ddea1216376f8d36b073776064f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:93ae25bc7fb36acfa235eee30104a86bd848e3047a4f778bc3e3172aa8513175
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b47aa41d9f732ae42fd4a9f607caecf16478eeb000c5c1f6b8c869b096dcc48b
+      type: standard
+
   4.17.7:
     assembly:
       basis:
