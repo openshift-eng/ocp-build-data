@@ -104,6 +104,8 @@ if [[ ! -f "${FIRST_RUN_MARKER}" && "${SKIP_REPO_INSTALL}" == "0" ]]; then
 
   if [[ "${INSTALL_ART_RH_VPN_REPOS}" == "1" ]]; then
     echoerr "Did not detect that this script is running in a CI build pod. Will not install CI repositories."
+    curl --fail --silent --location --retry 5 --retry-delay 2 --output /etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+    update-ca-trust extract
     cp "${DNF_WRAPPER_DIR}/unsigned.repo" "${VPN_RPM_REPO_DEST}"
     echoerr "Installed repos that can be used when connected to the VPN."
   fi
