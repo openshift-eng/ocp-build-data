@@ -10,6 +10,8 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+dependents:
+- pf-status-relay-operator    
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: pf-status-relay-container
@@ -22,5 +24,6 @@ from:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/pf-status-relay-rhel9
+name_in_bundle: pf-status-relay
 owners:
 - marguerr@redhat.com
