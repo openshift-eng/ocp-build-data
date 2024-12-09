@@ -11,12 +11,13 @@ content:
     tito_target: aos-{MAJOR}.{MINOR}
     # Address https://coreos.slack.com/archives/GDBRP5YJH/p1573497720048000 before turning to false
     push_release_commit: false
+distgit:
+  name: openshift
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 name: openshift
 owners:
 - aos-master@redhat.com
 targets:
-- rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
 - rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
 hotfix_targets:
-- rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
 - rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
