@@ -40,7 +40,7 @@ multi_arch:
   enabled: true
 
 # It is not decided yet from which OCP version on a new release version will have the format i.e. 4.18.0-0
-# Until then the new_payload_versioning_scheme will have the value False  
+# Until then the new_payload_versioning_scheme will have the value False
 new_payload_versioning_scheme: false
 
 operator_image_ref_mode: manifest-list
@@ -488,6 +488,42 @@ repos:
       aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
     reposync:
       enabled: false
+
+  rhel-9.6-baseos:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/aarch64/os
+        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/ppc64le/os
+        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    reposync:
+      enabled: true
+
+  rhel-9.6-appstream:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/aarch64/os
+        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/ppc64le/os
+        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    reposync:
+      enabled: true
+
+  rhel-9.6-nfv:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/aarch64/os
+        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/ppc64le/os
+        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    reposync:
+      enabled: true
 
 default_image_build_method: osbs2
 image_build_log_scanner:
