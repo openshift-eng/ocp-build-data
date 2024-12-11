@@ -498,6 +498,8 @@ repos:
         s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/s390x/os
       extra_options:
         gpgcheck: "1"
+    content_set: # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
     reposync:
       enabled: true
 
@@ -510,6 +512,8 @@ repos:
         s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/s390x/os
       extra_options:
         gpgcheck: "1"
+    content_set: # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
     reposync:
       enabled: true
 
@@ -522,6 +526,8 @@ repos:
         s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/s390x/os
       extra_options:
         gpgcheck: "1"
+    content_set: # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
+      optional: true
     reposync:
       enabled: true
 
