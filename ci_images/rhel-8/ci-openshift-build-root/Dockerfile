@@ -23,7 +23,7 @@ ADD ci_images/install_etcd.sh /tmp
 
 RUN set -euxo pipefail && \
     chmod +x /tmp/*.sh && \
-    export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem && \
+    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
     /tmp/install_protoc.sh "23.4" && \
     /tmp/install_etcd.sh "3.5.10"
 
@@ -43,7 +43,7 @@ RUN dnf upgrade -y --nobest && \
 RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
     export GOSUMDB='off' && \
     export GOFLAGS='' && export GO111MODULE=on && \
-    export SSL_CERT_FILE=/tmp/tls-ca-bundle.pem && \
+    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
     go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
     go install github.com/tools/godep@latest && \
     go install golang.org/x/lint/golint@latest && \
