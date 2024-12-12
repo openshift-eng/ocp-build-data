@@ -3,7 +3,7 @@ releases:
     assembly:
       basis:
         brew_event: 61829124
-        reference_releases!: {} 
+        reference_releases!: {}
         # x86_64: 4.17.0-0.nightly-2024-12-12-152238
       group:
         advisories:
@@ -23,6 +23,11 @@ releases:
               is:
                 el9: openshift-4.17.0-202412092205.p0.ga5b43ec.assembly.stream.el9
                 el8: openshift-4.17.0-202412092205.p0.ga5b43ec.assembly.stream.el8
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.17.9-202412122113.p0.g88b65dc.assembly.4.17.9.el9
       rhcos:
         rhel-coreos:
           images:
