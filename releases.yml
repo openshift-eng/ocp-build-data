@@ -1,22 +1,60 @@
 releases:
+  ec.0:
+    assembly:
+      basis:
+        brew_event: 61787226
+        reference_releases:
+          aarch64: 4.19.0-0.nightly-arm64-2024-12-10-055944
+          ppc64le: 4.19.0-0.nightly-ppc64le-2024-12-10-055946
+          s390x: 4.19.0-0.nightly-s390x-2024-12-10-055944
+          x86_64: 4.19.0-0.nightly-2024-12-10-040415
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          prerelease: -1
+          rpm: -1
+        operator_index_mode: pre-release
+        release_jira: ART-0
+        upgrades: 4.18.0-rc.0,4.18.0-rc.1
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:227b77abc5563ed4fc7f93fdb5a3b224f2c1b73070d57b0465e8961a7c3eb47a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2632c7916f1e9bbbc294af0cf36d6521a6c4423c61dca673b014e0fbfd6f2da8
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ae071cbc249c5ce318ba46eab7eb4fde7b8c3176e4d4d6833b57abfc996784a1
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7dd18b22eeea66dcb60dc7e3c1003130dbd4aa34bc9ccd79f803c5f8ed314434
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9c7a1f26980e13f0dd23ec38a83d5e69c501e89f45abcc0e5aa2ba38f6659c53
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8fa8a55e9cef8b67753b47de156861e6577be21bf110a4aeb898b67923da6df0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:14f7b0c3f083386c017adf3289ec62bd7e64e863f7a8c87847b4ed2c004cda66
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5e3b32c3c7b01a90a3c276e8842fd5d8f8b22b72a6dd8920e35558ad5ce6a83d
+      type: preview
+
   stream:
     assembly:
       type: stream
       permits:
-      - code: OUTDATED_RPMS_IN_STREAM_BUILD
-        component: '*'
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: rhcos
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: openshift-clients
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: local-storage-mustgather
+        - code: OUTDATED_RPMS_IN_STREAM_BUILD
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: openshift-clients
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: local-storage-mustgather
       members:
         images:
-        - distgit_key: '*'
-          why: Exclude rpm updates that should not cause mass rebuilds
-          metadata:
-            scan_sources:
-              exempt_rpms:
-              - redhat-release*  # documents rhel release notes and concerns
-              - tzdata
+          - distgit_key: '*'
+            why: Exclude rpm updates that should not cause mass rebuilds
+            metadata:
+              scan_sources:
+                exempt_rpms:
+                  - redhat-release* # documents rhel release notes and concerns
+                  - tzdata
