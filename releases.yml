@@ -19,6 +19,13 @@ releases:
         operator_index_mode: pre-release
         release_jira: ART-0
         upgrades: 4.18.0-rc.0,4.18.0-rc.1
+      permits:
+      # for ECs and RCs this should not block us
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: 'rhcos'
+      # for ECs and RCs this should not block us
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'          
       members:
         images: []
         rpms: []
