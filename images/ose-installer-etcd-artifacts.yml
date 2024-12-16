@@ -59,6 +59,8 @@ external_scanners:
     jira_integration:
       enabled: false
 konflux:
+  # Until https://github.com/openshift/etcd/pull/298 is merged
+  mode: disabled
   content:
     source:
       dockerfile: Dockerfile.installer.art-cachi2
