@@ -37,7 +37,7 @@ external_scanners:
     jira_integration:
       enabled: true
 konflux:
-  # Until VM issue is fixed
-  mode: disabled
   vm_override:
-    aarch64: linux-d160/arm64
+    x86_64: linux-d160-m2xlarge/amd64
+    aarch64: linux-d160-m2xlarge/arm64
+    s390x: linux-large/s390x
