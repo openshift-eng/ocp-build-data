@@ -21,7 +21,12 @@ releases:
               non_gc_tag: rhaos-4.17-rhel-9
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.17.10-202412191858.p0.g0c3afd2.assembly.4.17.10.el9
       rhcos:
         rhel-coreos:
           images:
