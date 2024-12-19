@@ -24,7 +24,12 @@ releases:
               non_gc_tag: rhaos-4.15-rhel-9
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.15.42-202412191546.p0.g520994d.assembly.4.15.42.el9
       rhcos:
         machine-os-content:
           images:
