@@ -16,7 +16,12 @@ releases:
         upgrades: 4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.18.0~rc.3-202412201722.p0.gc70c659.assembly.rc.3.el9
       rhcos:
         rhel-coreos:
           images:
