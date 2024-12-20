@@ -26,6 +26,13 @@ vars:
   GO_LATEST: "1.23"
   GO_EXTRA: "1.23"  # There is no extra version at this time, so just duplicate latest.
 
+feature_gates:
+  # This is to allow the use of the new rpm sweep approach.
+  # With this enabled, rpms that have been shipped in other product versions (e.g. RHEL or other OCP versions)
+  # will not be swept.
+  # We will need to enable this for all future GA releases.
+  product_version_aware_rpm_sweep: true
+
 compliance:
   rpm_shim:
     enabled: true
@@ -38,6 +45,7 @@ arches:
 
 multi_arch:
   enabled: true
+
 
 # It is not decided yet from which OCP version on a new release version will have the format i.e. 4.18.0-0
 # Until then the new_payload_versioning_scheme will have the value False
