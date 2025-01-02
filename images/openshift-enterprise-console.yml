@@ -43,5 +43,7 @@ payload_name: console
 owners:
 - spadgett@redhat.com
 konflux:
-  # Until cachito support is setup https://issues.redhat.com/browse/ART-11115
-  mode: disabled
+  vm_override:
+    x86_64: linux-d160-m2xlarge/amd64
+    aarch64: linux-d160-m2xlarge/arm64
+    s390x: linux-large/s390x
