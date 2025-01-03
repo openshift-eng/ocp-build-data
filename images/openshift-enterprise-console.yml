@@ -36,5 +36,6 @@ name: openshift/ose-console
 owners:
 - spadgett@redhat.com
 konflux:
-  # Until cachito support is setup https://issues.redhat.com/browse/ART-11115
-  mode: disabled
+  vm_override:
+    x86_64: linux-c2xlarge/amd64
+
