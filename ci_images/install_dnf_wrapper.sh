@@ -1,8 +1,19 @@
 #!/bin/sh
 set -euxo pipefail
 
-# DNF_WRAPPER_DIR is set in the Dockerfile for the image.
+# DNF_WRAPPER_DIR and other env vars are set in the Dockerfile for the image.
+# Ensure they are set.
+
+if [[ -z "${DNF_WRAPPER_DIR:-}" || -z "${ART_REPOS_DIR_CI}" || -z "${ART_REPOS_DIR_LOCALDEV}" ]]; then
+  echo "One or more environment variables are not set by Dockerfile ENV. Exiting since environment is not expected."
+  exit 1
+fi
+
 mkdir -p "${DNF_WRAPPER_DIR}"
+
+# Create directories where .repo files can be stored for dnf_wrapper.sh's use.
+mkdir -p "${ART_REPOS_DIR_CI}"
+mkdir -p "${ART_REPOS_DIR_LOCALDEV}"
 
 wrap_command() {
   local command_name="$1"
