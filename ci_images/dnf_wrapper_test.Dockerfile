@@ -22,7 +22,22 @@
 # e.g. "Status code: 400 for http://api.ci.l2s4.p1.openshiftapps.com:6443/rhel-9-openstack-17-rpms/repodata/repomd.xml"
 # This is just a side effect of using "oc proxy" instead of being an actual pod in the cluster.
 
-FROM registry.ci.openshift.org/ocp/4.17:base-rhel9
+# Testing different wrapper policies.
+
+## SKIP
+# 1. Authenticate with app.ci
+# 2. Run "oc proxy &" to create a proxy connection to app.ci's kube API.
+# 3. podman run --network=host -e ART_DNF_WRAPPER_POLICY="skip" -e CI_RPM_SVC=http://localhost:8001/api/v1/namespaces/ocp/services/base-4-17-rhel9:80/proxy/ --rm <built-image-id> dnf search vim
+# Despite being connected to CI, you should see DNF use base image repos because ART_DNF_WRAPPER_POLICY="skip"
+
+## APPEND
+# 1. Authenticate with app.ci
+# 2. Run "oc proxy &" to create a proxy connection to app.ci's kube API.
+# 3. podman run --network=host -e ART_DNF_WRAPPER_POLICY="append" -e CI_RPM_SVC=http://localhost:8001/api/v1/namespaces/ocp/services/base-4-17-rhel9:80/proxy/ --rm <built-image-id> dnf search vim
+# You should see DNF try to access BOTH CI repos (and fail due to proxy) as well as those from the base image.
+
+
+FROM registry.access.redhat.com/ubi9
 
 # Used by dnf_wrapper.sh and upstream component CI build scripts to detect whether they are running in the context
 # of OpenShift CI pod or elsewhere (e.g. brew).
@@ -34,6 +49,11 @@ RUN chmod 777 /etc/yum.repos.d/
 
 # Install the dnf/yum wrapper that will work for CI workloads.
 ENV DNF_WRAPPER_DIR=/bin/dnf_wrapper
+
+# Directories relevant to dnf_wrapper.sh
+ENV ART_REPOS_DIR_CI="/etc/yum.repos.art/ci"
+ENV ART_REPOS_DIR_LOCALDEV="/etc/yum.repos.art/localdev"
+
 ADD ci_images/dnf_wrapper.sh /tmp
 ADD ci_images/install_dnf_wrapper.sh /tmp
 RUN chmod +x /tmp/*.sh && \
