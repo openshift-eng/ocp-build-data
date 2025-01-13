@@ -4,7 +4,7 @@ set -euxo pipefail
 # DNF_WRAPPER_DIR and other env vars are set in the Dockerfile for the image.
 # Ensure they are set.
 
-if [[ -z "${DNF_WRAPPER_DIR:-}" || -z "${ART_REPOS_DIR_CI}" || -z "${ART_REPOS_DIR_LOCALDEV}" ]]; then
+if [[ -z "${DNF_WRAPPER_DIR}" || -z "${ART_REPOS_DIR_CI}" || -z "${ART_REPOS_DIR_LOCALDEV}" ]]; then
   echo "One or more environment variables are not set by Dockerfile ENV. Exiting since environment is not expected."
   exit 1
 fi
