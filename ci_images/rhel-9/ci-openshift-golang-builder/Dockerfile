@@ -27,6 +27,11 @@ RUN chmod 777 /etc/yum.repos.d/
 
 # Install the dnf/yum wrapper that will work for CI workloads.
 ENV DNF_WRAPPER_DIR=/bin/dnf_wrapper
+
+# Directories relevant to dnf_wrapper.sh
+ENV ART_REPOS_DIR_CI="/etc/yum.repos.art/ci"
+ENV ART_REPOS_DIR_LOCALDEV="/etc/yum.repos.art/localdev"
+
 ADD ci_images/dnf_wrapper.sh /tmp
 ADD ci_images/install_dnf_wrapper.sh /tmp
 RUN chmod +x /tmp/*.sh && \
