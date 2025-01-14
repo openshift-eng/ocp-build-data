@@ -63,6 +63,16 @@ releases:
           component: local-storage-mustgather
       members:
         images:
+          - distgit_key: ose-agent-installer-csr-approver
+            why: Pin ose-agent-installer-csr-approver to assembly
+            metadata:
+              is:
+                nvr: ose-agent-installer-csr-approver-container-v4.19.0-202501080039.p0.g34bae2a.assembly.stream.el9
+          - distgit_key: ose-agent-installer-orchestrator
+            why: Pin ose-agent-installer-orchestrator to assembly
+            metadata:
+              is:
+                nvr: ose-agent-installer-orchestrator-container-v4.19.0-202501080039.p0.g34bae2a.assembly.stream.el9
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
             metadata:
