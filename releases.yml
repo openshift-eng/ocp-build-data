@@ -2,12 +2,12 @@ releases:
   4.17.12:
     assembly:
       basis:
-        brew_event: 62092334
+        brew_event: 62151039
         reference_releases:
           aarch64: 4.17.0-0.nightly-arm64-2025-01-08-184832
           ppc64le: 4.17.0-0.nightly-ppc64le-2025-01-08-184832
           s390x: 4.17.0-0.nightly-s390x-2025-01-08-184834
-          x86_64: 4.17.0-0.nightly-2025-01-08-151243
+          x86_64: 4.17.0-0.nightly-2025-01-13-120007
       group:
         advisories:
           extras: 144555
@@ -16,28 +16,23 @@ releases:
           microshift: 144558
           rpm: 144559
         release_jira: ART-11748
-        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.17.11
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.17.11,4.17.12
       members:
         images: []
-        rpms:
-          - distgit_key: microshift
-            why: Pin microshift to assembly
-            metadata:
-              is:
-                el9: microshift-4.17.12-202501091008.p0.g66b7fcc.assembly.4.17.12.el9
+        rpms: []
       rhcos:
         rhel-coreos:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:85ff4d2583238a77a28d3a3d8d015d6ec9106819dce56bb8585506971978f4c0
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d46719d66ad7a151f0ace94a6af9cdaceb49f8ccc4ba22f57f477b1f2412008c
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f4521f9066754a9eacbf4aa381507bce906ed3d91de403f7436cd696e8cae565
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f9ccf91e25200ca9da32d7ba893a6b17561e87438b5dc7bfc8b96c7a698256dc
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:89e4e717205d1d1f238f504cdb1f596828720a60abfcb0782b6b3ccc26ef69d0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:905e1082e91ee7256c7667b924cd2e1032d80a4b04f9b8535e70f5e2f39ae6a6
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1668c0dcf7c515c1be9beef19ae5e819e11cd80a41e033b34db68be2092eaad5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8965d24f705acfd36098f6890103d1fa765a145c3b7ee7f8a690c3cfec7868ef
         rhel-coreos-extensions:
           images:
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1e45276517fd2efac0f0a791e2d71d9fdfff946e7610d2b64eaa76ef3e9b0c7d
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8d4bd42530aaf183994b8dbca9aea620427c9d26c026b0d60d97d9e6cc99e3c9
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a68dc3936c0a4fc3be8e7e4b16589c21f27e1fa86181186e274f8039961bced4
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c31cc4b689b5e011d9544fb0c7415b1df864bda6a73591c272550c17be3e9ad6
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8431b614f52f4e820492e129f857c6d44c4d388a85d888a12d82ad3dd6a0523f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ffe80b640d98f8fabb747c0112894b32e34db9d75615c75593e7fddb67c11c6d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0f9ea18c697bb12ba28747bb008bf38f69f65feb3d8240944db1cfa5f73bf3a1
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ad8e70aa37e8c9558c83966f8b8ab73060ae189dd7c55ecd541098a51ae3d8d7
       type: standard
 
   4.17.11:
