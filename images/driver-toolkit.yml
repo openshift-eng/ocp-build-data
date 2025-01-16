@@ -4,7 +4,7 @@ content:
     modifications:
     - action: replace
       match: "ARG RHEL_VERSION=''"
-      replacement: "ARG RHEL_VERSION='9.4'"
+      replacement: "ARG RHEL_VERSION='9.6'"
     # Uncomment the following sections to pin specific kernel versions
     # - action: replace
     #   match: "ARG KERNEL_VERSION=''"
@@ -30,6 +30,9 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 - rhel-9-rt-rpms
+- rhel-96-baseos
+- rhel-96-appstream
+- rhel-96-nfv
 for_payload: true
 from:
   member: openshift-enterprise-base-rhel9

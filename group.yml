@@ -12,7 +12,7 @@ vars:
   IMPACT: Low
   CVES: None
   RHCOS_EL_MAJOR: 9
-  RHCOS_EL_MINOR: 4
+  RHCOS_EL_MINOR: 6
 
   # The go versions used by the various CI builder images.
   # WARNING: When updating GO_* vars, update streams.yml so that streams referencing
@@ -488,7 +488,7 @@ repos:
     reposync:
       enabled: false
 
-  rhel-9.6-baseos:
+  rhel-96-baseos:
     conf:
       baseurl:
         x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/x86_64/os
@@ -502,7 +502,7 @@ repos:
     reposync:
       enabled: true
 
-  rhel-9.6-appstream:
+  rhel-96-appstream:
     conf:
       baseurl:
         x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/x86_64/os
@@ -516,13 +516,13 @@ repos:
     reposync:
       enabled: true
 
-  rhel-9.6-nfv:
+  rhel-96-nfv:
     conf:
       baseurl:
         x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/s390x/os
+        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
+        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
+        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
       extra_options:
         gpgcheck: "1"
     content_set:
