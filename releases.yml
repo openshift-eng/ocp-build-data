@@ -1,4 +1,44 @@
 releases:
+  rc.5:
+    assembly:
+      permits:
+      # rhcos has an older openshift RPM that we are allowing
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+      basis:
+        brew_event: 62173580
+        reference_releases:
+          aarch64: 4.18.0-0.nightly-arm64-2025-01-15-030110
+          ppc64le: 4.18.0-0.nightly-ppc64le-2025-01-15-030113
+          s390x: 4.18.0-0.nightly-s390x-2025-01-15-030055
+          x86_64: 4.18.0-0.nightly-2025-01-15-030107
+      group:
+        advisories:
+          extras: 138188
+          image: 138189
+          metadata: 138190
+          microshift: 138191
+          rpm: 138193
+        release_jira: ART-10610
+        upgrades: 4.17.11,4.17.12,4.17.13,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adce32f8a776ac79def01b62e485ebf89708bfd240e10a4823b810e917b2e2a9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b95850058a06e6022d19ca091f6d841e93666604c7216d60c493a6af0965001e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84e198b27315ea93fa7d74a6d9d41b416549620aca4578454dda183a51006887
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:354a91c5cd5ef8e0038736ee318b095448cf7a00b94ed17da495f2c24ec86875
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e5bc60deb270a6323cfec4528b1b8c1c1fc0337de3b29c58929f17b093da7f8f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9157615c1df352cfb155a1c38a73dddb562f9d67f7459a66bc9d4c8a6face2cf
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4f631f65773e86dfd56f19b381f2591b9e6bbf9385322bd6649cc4426986367e
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:19d55d09f4171b1ec8a6762428339e76093c62b601661cac473e28c49cd1cb26
+      type: candidate
+
   rc.4:
     assembly:
       basis:
