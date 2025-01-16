@@ -1,4 +1,40 @@
 releases:
+  4.17.13:
+    assembly:
+      basis:
+        brew_event: 62173440
+        reference_releases:
+          aarch64: 4.17.0-0.nightly-arm64-2025-01-15-090135
+          ppc64le: 4.17.0-0.nightly-ppc64le-2025-01-15-090141
+          s390x: 4.17.0-0.nightly-s390x-2025-01-15-090131
+          x86_64: 4.17.0-0.nightly-2025-01-15-090143
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          microshift: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.16.31,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.17.11,4.17.12
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b46d7de389e5316ee262f1a7e7c6820f1b0fb55597e032806c03bbdfbbc40fb2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fce586573ea41d7512877b039ba438161d8a161bd720332044f5e67c88bc353e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6e54c5d2591d4b01e975ccd533aee54965cf54827fd63a2dd0a6f2d075e6cea7
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e74a60ed520384b968ee0b8b8ff0d071e2e12ac650b96f6d93e53b95453ed2a6
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8fb7bab3bc7b9888f3fa20a0e1ead6eaef108e05e0ff2fbc1093c96f4c2a7282
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:45a85d76b0ce6c5da8933a6040561a6ab41c57fc928af2b184b4c760d7717c80
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a3758e23994110c3ffc5d4768eab6ce41a1ffaa86f6cd00c57b92ddb38b808c4
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5fa39b37827c9bd35a632b8ab5c4b344c01702d95f0a4ccbd399f3bb83ca4602
+      type: standard
+
   4.17.12:
     assembly:
       basis:
