@@ -36,6 +36,9 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8d7f8ab34d2d5add177c82ff56b3b8e2a206bf6e4f0bde070848b2a8c4bdb0ac
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cd10542bfe543f0dd15c7807e47f01eeb5a1c53feeca32b6171503f921d728bb
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1f908185ad3442e152582f4898ce476998f24ac2b3b13329754bcafd08eca97e
+      promotion_permits:
+        - code: BLOCKER_BUGS
+          why: Dev claims OCPBUGS-48160 is fixed, we have no falsification. QE is aware of the sensitivity of this bug.
       type: standard
 
   4.14.44:
