@@ -1,4 +1,39 @@
 releases:
+  4.16.32:
+    assembly:
+      basis:
+        brew_event: 62272216
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2025-01-22-221630
+          ppc64le: 4.16.0-0.nightly-ppc64le-2025-01-22-221629
+          s390x: 4.16.0-0.nightly-s390x-2025-01-22-221629
+          x86_64: 4.16.0-0.nightly-2025-01-22-190903
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.15.35,4.15.36,4.15.37,4.15.38,4.15.39,4.15.40,4.15.41,4.15.42,4.15.43,4.15.44,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5,4.16.6,4.16.7,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:175b5c587aec13c69de255cee1f293184e88c785653ddff8d34d0d0ae8b5ec24
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:91a8905f12b5cfbe2c0a2c0a64129852435d9514c967a2bdb69a7523ee3c2d7a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:188587901d7b33c7a855e2332f7b7bb9c53bad609c5fbe01600a5a2e65e0df97
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c2f498d742426c4eed942945833e46bf0b2f4ab7c7aa12412e24d41b3d0667c8
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:835025cdb40fc0c65873249aee9bef8e321924490fd0e677a1ce0ac3e4a491d8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:07d1ebb8b3de78a86a866abf1db1ada60c0013f26981abcf8bccd12acee2d7e9
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d96123ef0188374e7c71813ca2a483d9e613803561bbb8899136cd556a09efd5
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e7b5f3fc7396a916e2b6e00a374631c53ecde794c0cbb2b70432426abd2bc414
+      type: standard
+
   4.16.31:
     assembly:
       basis:
@@ -59,10 +94,12 @@ releases:
       members:
         images:
           - distgit_key: sriov-network-operator
+            why: Pin build
             metadata:
               is:
                 nvr: sriov-network-operator-container-v4.16.0-202501081506.p0.g6e87e04.assembly.stream.el9
           - distgit_key: sriov-cni
+            why: Pin build
             metadata:
               is:
                 nvr: sriov-cni-container-v4.16.0-202501081506.p0.gb250e2b.assembly.stream.el9
