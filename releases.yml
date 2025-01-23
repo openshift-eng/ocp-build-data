@@ -1,4 +1,39 @@
 releases:
+  4.17.14:
+    assembly:
+      basis:
+        brew_event: 62272985
+        reference_releases:
+          aarch64: 4.17.0-0.nightly-arm64-2025-01-22-205919
+          ppc64le: 4.17.0-0.nightly-ppc64le-2025-01-22-205918
+          s390x: 4.17.0-0.nightly-s390x-2025-01-22-205917
+          x86_64: 4.17.0-0.nightly-2025-01-22-220916
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.16.32,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.17.11,4.17.12,4.17.13
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cc29bd67ab8d7b4736115cdebdc8291ebe915e1f2fea3a49403130723f7fba5a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:95b6ed71a85014cb4a44c7471893299632a598b866b0be112eadac0e57299dd0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:12098debfe2fa4bc92c0bc221a479e39373c9dabea3ca844634a2e541e32c423
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6643773c402115b2559691f43a50a964b21002b3ec3c170bd01e00cf8efd8cc5
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:223581b9556beb22ac8cb472ecb28e8c34450d677683510449acafe848ea2ef6
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e28885637554c1285350320f22d9b4b6667dc96eb727c962e8ebf59dd9439092
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8b5f415592f802d765096feed423b8aaed1e210efd94e5fb2d30473d38dbd323
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b7e7dd31dd1b944137e4f80809fa2d6dd1f9ab60b23ef82525cc56112a7ca4eb
+      type: standard
+
   4.17.13:
     assembly:
       basis:
