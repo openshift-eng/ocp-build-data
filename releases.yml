@@ -19,6 +19,9 @@ releases:
       members:
         images: []
         rpms: []
+      promotion_permits:
+        - code: BLOCKER_BUGS
+          why: "OCPBUGS-48766 only relevant for .19, but it was automatically backported"
       rhcos:
         rhel-coreos:
           images:
