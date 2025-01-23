@@ -114,11 +114,18 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
 
     if [[ "${INSTALL_ART_RH_VPN_REPOS}" == "1" ]]; then
       echoerr "Did not detect that this script is running in a CI build pod. Will not install CI repositories."
-      curl --fail --silent --location --retry 5 --retry-delay 2 --output /etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-      update-ca-trust extract
-      cp "${DNF_WRAPPER_DIR}/unsigned.repo" "${VPN_RPM_REPO_DEST}"
-      WRAPPER_MODE="localdev"
-      echoerr "Installed repos that can be used when connected to the VPN."
+      if curl --fail --silent --location --retry 5 --retry-delay 2 --output /etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem; then
+        update-ca-trust extract
+        cp "${DNF_WRAPPER_DIR}/unsigned.repo" "${VPN_RPM_REPO_DEST}"
+        WRAPPER_MODE="localdev"
+        echoerr "Installed repos that can be used when connected to the VPN."
+      else
+        # The context doesn't appear to be a CI build or a RH engineer running the build.
+        # skip all repo file management and allow the user to use the repo files in the
+        # base image.
+        echoerr "Did not detect that this script is running on a system connected to the VPN. Will not install ART repositories."
+        WRAPPER_MODE="skip"
+      fi
     fi
 
     # Store the mode in the marker file

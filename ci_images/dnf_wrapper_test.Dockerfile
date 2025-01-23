@@ -7,12 +7,19 @@
 #   3. ocp-build-data$ podman build -f ci_images/dnf_wrapper_test.Dockerfile .
 # With the resulting image, test with AND without app.ci connectivity
 
-# Testing WITHOUT connectivity to app.ci (emulate a developer running a "podman build" with an upstream CI Dockerfile).
+# Testing WITH VPN and WITHOUT connectivity to app.ci (emulate a developer running a "podman build" with an upstream CI Dockerfile).
 # 1. Connect to the Red Hat VPN.
 # 2. podman run --network=host -e CI_RPM_SVC=base-4-17-rhel9 --rm <built-image-id> dnf search vim
 # You should see the wrapper fail to download repo definitions from the RPM mirror service and fallback to installing
-# VPN repos. If you are connected to the VPN, you should see a repo "rhel-9-baseos-rpms-x86_64" successfully return
+# VPN repos. Since you are connected to the VPN, you should see a repo "rhel-9-baseos-rpms-x86_64" successfully return
 # RPM information for DNF to analyze.
+
+# Testing WITHOUT VPN and WITHOUT connectivity to app.ci (emulate a developer running a "podman build" with an upstream CI Dockerfile).
+# 1. Disconnect from the Red Hat VPN.
+# 2. podman run --network=host -e CI_RPM_SVC=base-4-17-rhel9 --rm <built-image-id> dnf search vim
+# You should see the wrapper fail to download repo definitions from the RPM mirror service and fallback to try installing
+# VPN repos. This should also fail. The wrapper will give up trying to manage the repos and fall back to
+# using the repos from the base image.
 
 # Testing WITH connectivity to app.ci (emulate behavior of CI pod build).
 # 1. Authenticate with app.ci
