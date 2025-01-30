@@ -19,6 +19,9 @@ releases:
       members:
         images: []
         rpms: []
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: "permit 4.16 bugs that are meant to be in 4.17 but we dont have a 4.17 yet due to bad RHCOS"
       rhcos:
         rhel-coreos:
           images:
