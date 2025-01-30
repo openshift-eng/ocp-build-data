@@ -1,4 +1,44 @@
 releases:
+  rc.7:
+    assembly:
+      permits:
+      # rhcos has an older openshift RPM that we are allowing
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+      basis:
+        brew_event: 62361498
+        reference_releases:
+          aarch64: 4.18.0-0.nightly-arm64-2025-01-30-075703
+          ppc64le: 4.18.0-0.nightly-ppc64le-2025-01-30-075704
+          s390x: 4.18.0-0.nightly-s390x-2025-01-30-075702
+          x86_64: 4.18.0-0.nightly-2025-01-30-093109
+      group:
+        advisories:
+          extras: 138188
+          image: 138189
+          metadata: 138190
+          microshift: 138191
+          rpm: 138193
+        release_jira: ART-10610
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4,4.18.0-rc.5,4.18.0-rc.6
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d029559315bc71b35f611d268acb527208e1bbaf23cf97aeadede921956edc76
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:57077bb4e3cf7e07c178cf0908152a4ff6fc4460063df07b748c0047f702f2d9
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7e3e81f399c7f1803d9f29a77f6514ad5619e47a288dd246bdbd12a6ab23afef
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4f3bfaf2e21738678a0f498f204b65f5b5bf6560ccbfda04a974d9c15bc319b8
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:05b66749025e8fdb23d2e8b7f5886505c96b858627b4df3e8e8bd3c14777c609
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2286e7dec56ad1e1ef6840652b1ad82ea71215a1ad2ff566604206a48ff287c8
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d2457d48c2bfdc5ec2be70fe0d2843160c3f31b72cf8713e65fd974a5a2c16c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:74c6e3c0117eeeb27c353d375ccf5dec3970dcfd3d6786098fa5c65641752715
+      type: candidate
+
   rc.6:
     assembly:
       basis:
