@@ -21,6 +21,11 @@ releases:
           rpm: 138193
         release_jira: ART-10610
         upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4,4.18.0-rc.5,4.18.0-rc.6
+        dependencies:
+          rpms:
+            - el9: ignition-2.18.0-6.rhaos4.16.el9
+              why: Newer RPM missing expected tag
+              non_gc_tag: rhaos-4.16-rhel-9
       members:
         images: []
         rpms: []
