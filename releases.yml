@@ -1,4 +1,41 @@
 releases:
+  rc.8:
+    assembly:
+      permits:
+      # rhcos has an older openshift RPM that we are allowing
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+      basis:
+        brew_event: 62429907
+        reference_releases: {}
+          # x86_64: 4.18.0-0.nightly-2025-02-05-033447
+      group:
+        advisories:
+          extras: 138188
+          image: 138189
+          metadata: 138190
+          microshift: 138191
+          rpm: 138193
+        release_jira: ART-10610
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4,4.18.0-rc.5,4.18.0-rc.6
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bf42dfb7c97cb94949e57adf702ee096d58c12c90ffa1ebd800a1544e5603941
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:456f0618565b29882c6d3e270baa7d5ea241a0fd920ba521bef118b7f2570c09
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ec3c124ab51d789c7fbf35d5e9c3ec105b69a9bf78f5727c3a5a787cf00eebb
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:203d176fc4332c3691c2f3c02343364c3a791074cbc9de02b3882e9cb3e88dd1
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a309d67c38486a2e63dea851badfca2b287dfe57f0afcd28f87edce07d9267fc
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:400145fc88a63f4490ebb79cb36f4015a5002d2985bb863cdc86615bdfaa9dbb
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bc543a240fbdfd99f54b3eb31340cea1f3a6044e8d72f711722f19988c347e41
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bde874aee4eff552dccb09045e8bb90e2a880242aa28be1360bf5282fbe56dcb
+      type: candidate
+
   rc.7:
     assembly:
       permits:
