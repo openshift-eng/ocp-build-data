@@ -1,6 +1,10 @@
 releases:
   rc.8:
     assembly:
+    permits:
+      # rhcos has an older openshift RPM that we are allowing
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
       basis:
         brew_event: 62429907
         reference_releases: {}
