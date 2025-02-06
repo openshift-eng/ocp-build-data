@@ -1,10 +1,6 @@
 releases:
   rc.8:
     assembly:
-      permits:
-      # rhcos has an older openshift RPM that we are allowing
-      - code: CONFLICTING_GROUP_RPM_INSTALLED
-        component: rhcos
       basis:
         brew_event: 62429907
         reference_releases: {}
@@ -20,7 +16,13 @@ releases:
         upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4,4.18.0-rc.5,4.18.0-rc.6
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: openshift
+            why: To match builds installed in RHCOS
+            metadata:
+              is:
+                el8: openshift-4.18.0-202502041302.p0.gff3bcb8.assembly.stream.el8
+                el9: openshift-4.18.0-202502041302.p0.gff3bcb8.assembly.stream.el9
       rhcos:
         rhel-coreos:
           images:
