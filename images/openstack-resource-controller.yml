@@ -13,6 +13,9 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openstack-resource-controller-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: openstack-resource-controller
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -21,6 +24,6 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/openstack-resource-controller-rhel9
+name: openshift/ose-openstack-resource-controller-rhel9
 owners:
 - emacchi@redhat.com, maandre@redhat.com, pprinett@redhat.com, mdbooth@redhat.com@redhat.com
