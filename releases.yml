@@ -1,4 +1,40 @@
 releases:
+  rc.9:
+    assembly:
+      basis:
+        brew_event: 62542297
+        reference_releases:
+          aarch64: 4.18.0-0.nightly-arm64-2025-02-11-142433
+          ppc64le: 4.18.0-0.nightly-ppc64le-2025-02-11-142433
+          s390x: 4.18.0-0.nightly-s390x-2025-02-11-142434
+          x86_64: 4.18.0-0.nightly-2025-02-11-134047
+      group:
+        advisories:
+          extras: 138188
+          image: 138189
+          metadata: 138190
+          microshift: 138191
+          rpm: 138193
+        release_jira: ART-10610
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4,4.18.0-rc.5,4.18.0-rc.6,4.18.0-rc.7,4.18.0-rc.8
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6a5aeb9e8cd55e6d9e078d708563ef94ef426e00df39bf3858977f3b9a3006f9
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a10a42421edd76f70fb6bc8443f27208b11acd85434633ed9225243bbe93728a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:668742c1ca1801113dec32503a05648d7254c08960c6e645435f30603d81d1cf
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:75584cd552759d510d014d6acbd22ada0866f17b7ea2679d7d4c46cde0dbe0f0
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0c18ab413ce1a0ece772af2c70fff9723000af507ab328e67a9277fa3f32874d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:03f2f15721e095edbaf8fd1f9efd4ae1db001f7bf12a41a51efd1a2d20527176
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cf87d849255af3584e7a36732c34dea80605f92244c4eef75aa9c64128e9fa41
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fdf61a3b771db4273d0ef2564b3699808e9cc1b33f3e9e535be54fdffa8a7ca2
+      type: candidate
+
   rc.8:
     assembly:
       basis:
