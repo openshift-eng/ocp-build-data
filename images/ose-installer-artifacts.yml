@@ -33,8 +33,8 @@ payload_name: installer-artifacts
 owners:
 - aos-install@redhat.com
 konflux:
-  # Until https://issues.redhat.com/browse/ART-11563 is resolved
   vm_override:
-    aarch64: linux-d160/arm64
+    x86_64: linux-d160-c4xlarge/amd64
+    aarch64: linux-d160-c4xlarge/arm64
+    s390x: linux-largecpu/s390x
     ppc64le: linux-d200-large/ppc64le
-    s390x: linux-large/s390x
