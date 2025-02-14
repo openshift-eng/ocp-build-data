@@ -27,7 +27,17 @@ releases:
         - code: INCONSISTENT_RHCOS_RPMS
           component: rhcos
       members:
-        images: []
+        images:
+          - distgit_key: ose-sriov-rdma-cni
+            why: Pin build
+            metadata:
+              is:
+                nvr: ose-sriov-rdma-cni-container-v4.19.0-202502110410.p0.g5cd5899.assembly.stream.el9
+          - distgit_key: sriov-network-operator
+            why: Pin build
+            metadata:
+              is:
+                nvr: sriov-network-operator-container-v4.19.0-202502110410.p0.g79cb3c6.assembly.stream.el9
         rpms: []
       rhcos:
         rhel-coreos:
