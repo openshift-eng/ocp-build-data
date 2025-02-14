@@ -20,11 +20,21 @@ releases:
               is:
                 nvr: ose-secrets-store-csi-driver-operator-container-v4.14.0-202502121737.p0.g4f339d0.assembly.stream.el8
             why: Make it consistent with the `ose-secrets-store-csi-driver` image being selected
+          - distgit_key: ose-secrets-store-csi-driver
+            metadata:
+              is:
+                nvr: ose-secrets-store-csi-driver-container-v4.14.0-202502121737.p0.g4b5bd4b.assembly.stream.el8
+            why: Make it consistent with the operand images being selected
           - distgit_key: openshift-kubernetes-nmstate-operator
             why: Make it consistent with the operand images being selected
             metadata:
               is:
-                nvr: ose-kubernetes-nmstate-operator-container-v4.14.0-202502121737.p0.g23117c5.assembly.stream.el9
+                nvr: ose-kubernetes-nmstate-operator-container-v4.14.0-202502122108.p0.g23117c5.assembly.stream.el9
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.14.0-202502121835.p0.gb82c422.assembly.stream.el8
+            why: Make it consistent with the operand images being selected
         rpms: []
       rhcos:
         machine-os-content:
