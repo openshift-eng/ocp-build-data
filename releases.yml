@@ -38,7 +38,12 @@ releases:
             metadata:
               is:
                 nvr: sriov-network-operator-container-v4.19.0-202502110410.p0.g79cb3c6.assembly.stream.el9
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.0~ec.2-202502171838.p0.g652b5d3.assembly.ec.2.el9
       rhcos:
         rhel-coreos:
           images:
