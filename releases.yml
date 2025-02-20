@@ -15,6 +15,17 @@ releases:
         operator_index_mode: ga
         release_jira: ART-10610
         upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.18.0-ec.3,4.18.0-ec.4,4.18.0-rc.0,4.18.0-rc.1,4.18.0-rc.2,4.18.0-rc.3,4.18.0-rc.4,4.18.0-rc.5,4.18.0-rc.6,4.18.0-rc.7,4.18.0-rc.8,4.18.0-rc.9,4.18.0-rc.10
+        dependencies:
+          rpms:
+            - why: for CVE fixes
+              non_gc_tag: rhaos-4.18-ironic-rhel-9
+              el9: python-waitress-3.0.1-1.el9
+            - why: for CVE fixes
+              non_gc_tag: rhaos-4.18-ironic-rhel-9
+              el9: python-webob-1.8.8-2.el9
+            - why: for CVE fixes
+              non_gc_tag: rhaos-4.18-ironic-rhel-9
+              el9: python-zipp-3.19.1-1.el9
   rc.10:
     assembly:
       basis:
