@@ -29,6 +29,13 @@ releases:
             - why: for RHCOS
               non_gc_tag: rhel-9.4.0-z
               el9: rpm-ostree-2024.3-6.el9_4
+      members:
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.18.0-202502201314.p0.g84f67ec.assembly.4.18.0.el9
   rc.10:
     assembly:
       basis:
