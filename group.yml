@@ -543,6 +543,61 @@ repos:
       optional: true
     reposync:
       enabled: true
+  rhel-100-baseos:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/BaseOS/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/BaseOS/aarch64/os
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/BaseOS/ppc64le/os
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/BaseOS/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-100-appstream:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/AppStream/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/AppStream/x86_64/os
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/AppStream/x86_64/os
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/AppStream/x86_64/os
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-100-nfv:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/aarch64/os
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/ppc64le/os
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-100-highavailability:
+    conf:
+      baseurl:
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/HighAvailability/x86_64/os
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/HighAvailability/aarch64/os
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/HighAvailability/ppc64le/os
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/HighAvailability/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
 
 default_image_build_method: osbs2
 image_build_log_scanner:
