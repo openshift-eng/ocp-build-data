@@ -24,6 +24,10 @@ releases:
               is:
                 nvr: ose-aws-efs-csi-driver-operator-container-v4.18.0-202502260933.p0.ga95f8b3.assembly.stream.el9
         rpms: []
+      permits:
+      - code: CONFLICTING_GROUP_RPM_INSTALLED
+        component: rhcos
+        # Why: openshift-clients-4.18.0-202502032331.p0.ga50d4c0.assembly.stream.el9 is in rhcos, which is unchanged from 4.18.1.
       rhcos:
         rhel-coreos:
           images:
