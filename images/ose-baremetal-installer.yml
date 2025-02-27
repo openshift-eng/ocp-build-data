@@ -29,5 +29,8 @@ payload_name: baremetal-installer
 owners:
 - kni-devel-deployment@redhat.com
 konflux:
-  # Since parent ose-installer-terraform-providers is disabled
-  mode: disabled
+  vm_override:
+    x86_64: linux-c4xlarge/amd64
+    aarch64: linux-c4xlarge/arm64
+    s390x: linux-largecpu/s390x
+    ppc64le: linux-largecpu/ppc64le
