@@ -25,6 +25,11 @@ releases:
                 nvr: ose-aws-efs-csi-driver-operator-container-v4.18.0-202502260933.p0.ga95f8b3.assembly.stream.el9
         rpms: []
       rhcos:
+        dependencies:
+          rpms:
+          - el9: openshift-clients-4.18.0-202502032331.p0.ga50d4c0.assembly.stream.el9
+            why: Pin GA oc build as rhcos was lagging behind just a bit
+            non_gc_tag: rhaos-4.18-rhel-9
         rhel-coreos:
           images:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:18ab6134e674bc624adb2cfbad926cbd5ca549ab35ab53d61d205acc6df7133b
