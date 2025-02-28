@@ -24,3 +24,9 @@ name: openshift/ose-installer-altinfra-rhel9
 payload_name: installer-altinfra
 owners:
 - aos-install@redhat.com
+konflux:
+  vm_override:
+    x86_64: linux-c4xlarge/amd64
+    aarch64: linux-c4xlarge/arm64
+    s390x: linux-largecpu/s390x
+    ppc64le: linux-largecpu/ppc64le
