@@ -15,6 +15,12 @@ content:
         auto_label:
         - approved
         - lgtm
+    modifications:
+      # Konflux build fails because it's building on detached mode (since it doesn't fetch the branch and just the commit)
+      # https://github.com/openshift/alibaba-cloud-csi-driver/blob/master/build/build-all-amd.sh#L26
+      - action: replace
+        match: "RUN build/build-all-amd.sh noimage"
+        replacement: "RUN git checkout -b rhaos-{MAJOR}.{MINOR}-rhel8 && build/build-all-amd.sh noimage"
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
@@ -26,6 +32,3 @@ from:
 name: openshift/ose-alibaba-cloud-csi-driver
 owners:
 - aos-storage-staff@redhat.com
-konflux:
-  # Until https://issues.redhat.com/browse/ART-11642 is resolved
-  mode: disabled
