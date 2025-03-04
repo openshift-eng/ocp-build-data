@@ -24,3 +24,9 @@ from:
 name: openshift/ose-ironic
 owners:
 - ironic-osp-owners@redhat.com
+konflux:
+  cachito:
+    # Right now art-tools comments out lines with REMOTE_SOURCES_DIR as a temporary fix to cachito
+    # But this image has indirect references to the env variable, which breaks builds.
+    # Since this build works without commenting out the lines, keeping it in for now.
+    comment: false
