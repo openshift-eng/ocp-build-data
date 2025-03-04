@@ -20,7 +20,7 @@
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.23.6-202502260908.g6c23478.el9
+  image: openshift/golang-builder:v1.23.6-202503041452.g6c23478.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -29,14 +29,14 @@ rhel-9-golang:
 rhel-8-golang:
   aliases:
     - rhel-8-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.23.6-202502260908.g6707acc.el8
+  image: openshift/golang-builder:v1.23.6-202503041452.g6707acc.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-8-golang-1.23:
-  image: openshift/golang-builder:v1.23.6-202502260908.g6707acc.el8
+  image: openshift/golang-builder:v1.23.6-202503041452.g6707acc.el8
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
@@ -44,7 +44,7 @@ partner-rhel-8-golang-1.23:
     - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-9-golang-1.23:
-  image: openshift/golang-builder:v1.23.6-202502260908.g6c23478.el9
+  image: openshift/golang-builder:v1.23.6-202503041452.g6c23478.el9
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
