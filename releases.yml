@@ -1,4 +1,28 @@
 releases:
+  4.18.3:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.18.2
+        reference_releases!: {}
+      group:
+        advisories!:
+          image: -1
+        release_jira: ART-0
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.18.1,4.18.2
+      issues:
+        include:
+          - id: OCPBUGS-48341
+          - id: OCPBUGS-51015
+          - id: OCPBUGS-51194
+      members:
+        images:
+          - distgit_key: ose-machine-config-operator
+            why: Include matching non-payload build
+            metadata:
+              is:
+                nvr: ose-machine-config-operator-container-v4.18.0-202503040202.p0.g7c29816.assembly.stream.el9
+
   4.18.2:
     assembly:
       basis:
