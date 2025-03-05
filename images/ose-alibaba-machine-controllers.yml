@@ -12,6 +12,11 @@ content:
       streams_prs:
         ci_build_root:
           stream: rhel-8-golang-ci-build-root
+    modifications:
+      # Konflux build fails because it's building on detached mode (since it doesn't fetch the branch and just the commit)
+      - action: replace
+        match: "GOPROXY=off NO_DOCKER=1 make build"
+        replacement: "git checkout -b rhaos-{MAJOR}.{MINOR}-rhel8 && GOPROXY=off NO_DOCKER=1 make build"
 for_payload: true
 from:
   builder:
