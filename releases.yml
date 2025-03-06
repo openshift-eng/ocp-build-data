@@ -16,6 +16,16 @@ releases:
         operator_index_mode: pre-release
         release_jira: ART-11625
         upgrades: 4.18.1,4.18.2,4.18.3,4.19.0-ec.0,4.19.0-ec.1,4.19.0-ec.2
+      permits:
+      # for ECs and RCs this should not block us
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-node-agent'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-frr'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: rhcos
       members:
         images: []
         rpms: []
