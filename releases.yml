@@ -28,7 +28,12 @@ releases:
           component: rhcos
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.0~ec.3-202503070932.p0.g3267136.assembly.ec.3.el9
       rhcos:
         rhel-coreos:
           images:
