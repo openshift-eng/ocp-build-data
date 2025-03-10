@@ -20,7 +20,7 @@ content:
       # https://github.com/openshift/alibaba-cloud-csi-driver/blob/master/build/build-all-amd.sh#L26
       - action: replace
         match: "RUN build/build-all.sh noimage"
-        replacement: "RUN git checkout -b rhaos-{MAJOR}.{MINOR}-rhel8 && build/build-all-amd.sh noimage"
+        replacement: "RUN git checkout -b rhaos-{MAJOR}.{MINOR}-rhel8 && build/build-all.sh noimage"
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
