@@ -19,7 +19,7 @@ content:
       # Konflux build fails because it's building on detached mode (since it doesn't fetch the branch and just the commit)
       # https://github.com/openshift/alibaba-cloud-csi-driver/blob/master/build/build-all-amd.sh#L26
       - action: replace
-        match: "RUN build/build-all-amd.sh noimage"
+        match: "RUN build/build-all.sh noimage"
         replacement: "RUN git checkout -b rhaos-{MAJOR}.{MINOR}-rhel8 && build/build-all-amd.sh noimage"
 enabled_repos:
 - rhel-8-baseos-rpms
