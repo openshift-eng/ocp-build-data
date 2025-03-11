@@ -27,7 +27,12 @@ releases:
         - code: INCONSISTENT_RHCOS_RPMS
           component: rhcos
       members:
-        images: []
+        images:
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              is:
+                nvr: cluster-nfd-operator-container-v4.19.0-202503101515.p0.g654259d.assembly.stream.el9
+            why: Has correct 4.19 references (older builds had references to 4.18 images)
         rpms:
           - distgit_key: microshift
             why: Pin microshift to assembly
