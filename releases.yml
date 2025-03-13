@@ -17,6 +17,11 @@ releases:
         include:
           - id: OCPBUGS-46945
           - id: OCPBUGS-46959
+          - id: OCPBUGS-52437
+          - id: OCPBUGS-52440
+      promotion_permits:
+        - code: BLOCKER_BUGS
+          why: "OCPBUGS-52440 & OCPBUGS-52437 are not considered blockers for promotion"       
       members:
         images: []
         rpms: []
