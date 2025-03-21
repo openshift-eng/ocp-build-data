@@ -4,11 +4,11 @@
 #   - weekdays: always allow manual builds; forbid scheduled builds from Monday to Friday
 #   - no|false: always allow builds
 # Note that ocp4 builds are always permitted  for non-stream assemblies
-freeze_automation: false
+freeze_automation: scheduled
 
 vars:
   MAJOR: 4
-  MINOR: 19
+  MINOR: 20
   IMPACT: Low
   CVES: None
   RHCOS_EL_MAJOR: 9
@@ -151,7 +151,7 @@ urls:
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
   cgit: https://pkgs.devel.redhat.com/cgit
-  rhcos_release_base: # once 4.19 RHCOS exist the next line should change to 4.19-
+  rhcos_release_base: # once 4.20 RHCOS exist the next line should change to 4.20-
     multi: https://releases-rhcos--prod-pipeline.apps.int.prod-stable-spoke1-dc-iad2.itup.redhat.com/storage/prod/streams/4.19-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}/builds
 dist_git_ignore:
   - gating.yaml
@@ -647,7 +647,7 @@ canonical_builders_from_upstream: True
 # builders are not yet set up correctly for the release at branch cut time, and we want to limit
 # the churn.
 reconciliation_prs:
-  enabled: true
+  enabled: false
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
 # Possible values are defined here: https://github.com/openshift-eng/art-tools/blob/main/artcommon/artcommonlib/release_util.py#L55-L59
