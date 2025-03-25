@@ -1,6 +1,5 @@
 arches:
 - aarch64
-- x86_64
 content:
   source:
     dockerfile: Dockerfile.IntelP4.rhel
@@ -13,8 +12,8 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-#dependents:
-#- dpu-operator
+dependents:
+- dpu-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: dpu-intel-ipu-p4sdk-container
