@@ -1,6 +1,6 @@
-mode: disabled  # ocp4_scan is failing since this image add, disabling for now
 arches:
 - aarch64
+- x86_64
 content:
   source:
     dockerfile: Dockerfile.IntelP4.rhel
@@ -13,9 +13,6 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-konflux:
-  # https://issues.redhat.com/browse/KFLUXSPRT-2420
-  mode: disabled
 dependents:
 - dpu-operator
 distgit:
