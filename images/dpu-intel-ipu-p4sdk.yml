@@ -1,0 +1,35 @@
+arches:
+- aarch64
+content:
+  source:
+    dockerfile: Dockerfile.IntelP4.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/dpu-operator.git
+      web: https://github.com/openshift/dpu-operator
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+konflux:
+  # https://issues.redhat.com/browse/KFLUXSPRT-2420
+  mode: disabled
+dependents:
+- dpu-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: dpu-intel-ipu-p4sdk-container
+delivery:
+  repo_name: ose-dpu-intel-ipu-p4sdk
+for_payload: false
+from:
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-dpu-intel-ipu-p4sdk-rhel9
+name_in_bundle: dpu-intel-ipu-p4sdk
+owners:
+- wizhao@redhat.com
+- konguyen@redhat.com
+- bnemeth@redhat.com
+- sdaniele@redhat.com
+- vpunj@redhat.com
