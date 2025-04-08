@@ -38,3 +38,7 @@ name: openshift/ose-hyperkube-rhel9
 payload_name: hyperkube
 owners:
 - aos-master@redhat.com
+konflux:
+  sast:
+    # Until https://issues.redhat.com/browse/KFLUXSPRT-2639 is resolved
+    enabled: false
