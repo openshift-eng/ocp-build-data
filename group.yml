@@ -100,8 +100,8 @@ rhcos:
   require_consistency:
     driver-toolkit:
     - kernel  # since 9.3, kernel-rt is merged into the kernel package.
-  exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
-  - libreswan
+    ose-ovn-kubernetes:
+    - libreswan
   allow_missing_brew_rpms: false
 
 check_external_packages:
