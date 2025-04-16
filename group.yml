@@ -13,7 +13,7 @@ vars:
   CVES: None
   RHCOS_EL_MAJOR: 9
   RHCOS_EL_MINOR: 6
-  LAYERED_RHCOS: True
+
   # The go versions used by the various CI builder images.
   # WARNING: When updating GO_* vars, update streams.yml so that streams referencing
   #          the corresponding {GO_*} vars to point to an image that actually provides
@@ -79,9 +79,11 @@ rhcos:
   payload_tags:
     - name: rhel-coreos
       build_metadata_key: base-oscontainer
+      index_key: {MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
       primary: true
     - name: rhel-coreos-extensions
       build_metadata_key: extensions-container
+      index_key: {MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
   enabled_repos:
   - rhel-96-baseos
   - rhel-96-appstream
@@ -93,6 +95,7 @@ rhcos:
     ose-ovn-kubernetes:
     - libreswan
   allow_missing_brew_rpms: false
+  layered_rhcos: True
 
 check_external_packages:
   - name: cri-o
