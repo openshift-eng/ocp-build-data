@@ -6,6 +6,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/machine-api-provider-openstack.git
       web: https://github.com/openshift/machine-api-provider-openstack
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/cluster-api/refs/tags/v1.7.2/api/v1beta1/zz_generated.openapi.go"
+      path: "vendor/sigs.k8s.io/cluster-api/api/v1beta1/zz_generated.openapi.go"
     ci_alignment:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: openshift: "
