@@ -79,11 +79,11 @@ rhcos:
   payload_tags:
     - name: rhel-coreos
       build_metadata_key: base-oscontainer
-      index_key: {MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhcos_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
       primary: true
     - name: rhel-coreos-extensions
       build_metadata_key: extensions-container
-      index_key: {MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+      rhcos_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
   enabled_repos:
   - rhel-96-baseos
   - rhel-96-appstream
