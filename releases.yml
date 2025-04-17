@@ -1,4 +1,36 @@
 releases:
+  4.18.10:
+    assembly:
+      basis:
+        brew_event: 63391712
+        reference_releases!: {}
+# nightlies used not available now because of RC outage
+#          x86_64: 4.18.0-0.nightly-2025-04-15-161728
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fcbc20aae499e6aaa29fb5f01a8e6903c2fbbc8a704dece5089d762b6667aba3
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f68b86759897a92f373a9d1946c2879eab3a103cacbaa744ebeb7c14532e65b0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ab2362683fb19fae83990a8af48a7879bf9ddab280aab3751a04805416b84127
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c994fe903c9eb439da993f2bb9c4a1f122a7f988371efd4c5a04448459e4ef15
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:40ad637a3b64ff40941e0b6c4224b444bfd0484320b9d46695bb9f1ff1a4424f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f05b6fc2dbd85562f768ea2b9b84deadf60ee8745cc0f06716a25c49e2604b72
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0e0f65d699f494a65de2cf1209ac03a86734a3afdae98463d57315d24a9e2850
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:498128bc448549cf55aa8032b44ae51b6f849e10506c60e023c2b3d99aabf9ef
+      type: standard
   4.18.9:
     assembly:
       basis:
