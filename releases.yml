@@ -1,4 +1,39 @@
 releases:
+  4.16.39:
+    assembly:
+      basis:
+        brew_event: 63393153
+        reference_releases:
+          aarch64: 4.16.0-0.nightly-arm64-2025-04-15-214015
+          ppc64le: 4.16.0-0.nightly-ppc64le-2025-04-15-214014
+          s390x: 4.16.0-0.nightly-s390x-2025-04-15-214016
+          x86_64: 4.16.0-0.nightly-2025-04-16-004837
+      group:
+        advisories:
+          extras: -1
+          image: -1
+          metadata: -1
+          rpm: -1
+        release_jira: ART-0
+        upgrades: 4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.15.35,4.15.36,4.15.37,4.15.38,4.15.39,4.15.40,4.15.41,4.15.42,4.15.43,4.15.44,4.15.45,4.15.46,4.15.47,4.15.48,4.15.49,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5,4.16.6,4.16.7,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.16.32,4.16.33,4.16.34,4.16.35,4.16.36,4.16.37,4.16.38
+      members:
+        images: []
+        rpms: []
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b1bb867e3af3073f4bbe88e881af4ed026ac7c84d1a78301f5025ce7c2dbf2c7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f7724312f39b2481bbf9f48ece1611fa6a06223d845a61b371e0e9c68f6f079f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:888d3e4953703ee167f0c7730e4aaeb41e96f5dd6d1ac3966bb0ee649a336fc7
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:88274099a2eae3298133b65eb05cfa58ea2c4671d5a95db15ce53a99653bac5d
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:78c9dd127af04b4fd6d3e749cf0a721e579b1202ecfd2728c4135515bb7305a3
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8861461db00ec0f268b6feac247d02297a52fa0c61104ff5b7924853a4bd536a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d422fbe5183b7f365d69a6f70828a24606bc503294288d596f4e435011f72a1a
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:37f1c3012cec79d003caf085d1a6ea01f9de6d06a530c7aa45c13b92c5a42f50
+      type: standard
+
   4.16.38:
     assembly:
       basis:
@@ -613,20 +648,20 @@ releases:
       "group!":
         upgrades: 4.16.23,4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.15.35,4.15.36,4.15.37,4.15.38,4.16.0,4.16.1,4.16.2,4.16.3,4.16.4,4.16.5,4.16.6,4.16.7,4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.22
         "arches!":
-        - x86_64
+          - x86_64
         "advisories!": {}
       members:
         images:
-        - distgit_key: hypershift
-          why: Pin because art12586
-          metadata:
-            is:
-              nvr: ose-hypershift-container-v4.16.0-202504091610.p0.g64381e4.assembly.stream.el9
-        - distgit_key: ose-kubevirt-csi-driver-rhel8
-          why: Pin because art12586
-          metadata:
-            is:
-              nvr: ose-kubevirt-csi-driver-container-v4.16.0-202504100905.p0.gd474c42.assembly.stream.el9
+          - distgit_key: hypershift
+            why: Pin because art12586
+            metadata:
+              is:
+                nvr: ose-hypershift-container-v4.16.0-202504091610.p0.g64381e4.assembly.stream.el9
+          - distgit_key: ose-kubevirt-csi-driver-rhel8
+            why: Pin because art12586
+            metadata:
+              is:
+                nvr: ose-kubevirt-csi-driver-container-v4.16.0-202504100905.p0.gd474c42.assembly.stream.el9
   4.16.23:
     assembly:
       type: standard
