@@ -30,7 +30,11 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1d5a08457b8b8a6766205b2db991c4f1f9242a1d32ffd1f4d8d2a589739d4739
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:83165dcce5d9a7ef37cdf8beb7b7d0494306f640f09c219e020e26d359584e53
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0ea88113812c77a770e4a2d80bfb2d210389fa2c10959c69d4e0d8c28962a174
-
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-builder
+          # why: image build has an older runc build than the one in the assembly
+          # but it is not a blocker
       type: standard
   4.18.9:
     assembly:
