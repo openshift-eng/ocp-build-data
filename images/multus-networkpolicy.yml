@@ -6,6 +6,11 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/multus-networkpolicy.git
       web: https://github.com/openshift/multus-networkpolicy
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/spf13/cobra/refs/tags/v1.9.1/command.go"
+      path: "vendor/github.com/spf13/cobra/command.go"
+      overwriting: true
     ci_alignment:
       streams_prs:
         # Label so that this PR automatically merges if tests pass.
