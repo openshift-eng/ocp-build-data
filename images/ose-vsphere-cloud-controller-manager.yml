@@ -8,6 +8,25 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
     dockerfile: openshift-hack/images/cloud-controller-manager-openshift.Dockerfile
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/emicklei/go-restful/refs/tags/v3.12.0/coverage.sh"
+      path: "vendor/github.com/emicklei/go-restful/v3/coverage.sh"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/gnostic-models/refs/tags/v0.6.8/jsonschema/schema.json"
+      path: "vendor/github.com/google/gnostic-models/jsonschema/schema.json"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/gnostic-models/refs/tags/v0.6.8/openapiv2/openapi-2.0.json"
+      path: "vendor/github.com/google/gnostic-models/openapiv2/openapi-2.0.json"
+    - action: add
+      source: "https://raw.githubusercontent.com/open-telemetry/opentelemetry-go/refs/tags/v1.28.0/renovate.json"
+      path: "vendor/go.opentelemetry.io/otel/renovate.json"
+    - action: add
+      source: "https://raw.githubusercontent.com/golang/text/refs/tags/v0.22.0/internal/language/coverage.go"
+      path: "vendor/golang.org/x/text/internal/language/coverage.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/golang/text/refs/tags/v0.22.0/language/coverage.go"
+      path: "vendor/golang.org/x/text/language/coverage.go"
     ci_alignment:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
