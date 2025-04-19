@@ -8,6 +8,82 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-api-provider-vsphere.git
       web: https://github.com/openshift/cluster-api-provider-vsphere
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/cel/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/cel/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/checker/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/checker/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/checker/decls/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/checker/decls/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/ast/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/ast/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/containers/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/containers/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/debug/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/debug/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/decls/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/decls/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/functions/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/functions/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/operators/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/operators/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/overloads/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/overloads/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/runes/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/runes/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/stdlib/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/stdlib/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/types/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/types/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/types/pb/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/types/pb/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/types/ref/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/types/ref/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/common/types/traits/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/common/types/traits/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/ext/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/ext/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/interpreter/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/interpreter/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/interpreter/functions/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/interpreter/functions/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/parser/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/parser/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/cel-go/refs/tags/v0.17.8/parser/gen/BUILD.bazel"
+      path: "vendor/github.com/google/cel-go/parser/gen/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/refs/tags/v2.16.0/internal/httprule/BUILD.bazel"
+      path: "vendor/github.com/grpc-ecosystem/grpc-gateway/v2/internal/httprule/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/refs/tags/v2.16.0/runtime/BUILD.bazel"
+      path: "vendor/github.com/grpc-ecosystem/grpc-gateway/v2/runtime/BUILD.bazel"
+    - action: add
+      source: "https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/refs/tags/v2.16.0/utilities/BUILD.bazel"
+      path: "vendor/github.com/grpc-ecosystem/grpc-gateway/v2/utilities/BUILD.bazel"
     ci_alignment:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "

@@ -5,6 +5,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-baremetal-operator.git
       web: https://github.com/openshift/cluster-baremetal-operator
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/go-errors/errors/refs/tags/v1.0.1/cover.out"
+      path: "vendor/github.com/go-errors/errors/cover.out"
     ci_alignment:
       streams_prs:
         ci_build_root:
