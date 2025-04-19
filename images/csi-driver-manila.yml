@@ -9,6 +9,19 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cloud-provider-openstack.git
       web: https://github.com/openshift/cloud-provider-openstack
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/google/gnostic-models/refs/tags/v0.6.8/jsonschema/schema.json"
+      path: "vendor/github.com/google/gnostic-models/jsonschema/schema.json"
+    - action: add
+      source: "https://raw.githubusercontent.com/google/gnostic-models/refs/tags/v0.6.8/openapiv2/openapi-2.0.json"
+      path: "vendor/github.com/google/gnostic-models/openapiv2/openapi-2.0.json"
+    - action: add
+      source: "https://raw.githubusercontent.com/open-telemetry/opentelemetry-go/refs/tags/v1.28.0/renovate.json"
+      path: "vendor/go.opentelemetry.io/otel/renovate.json"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes/kubernetes/refs/tags/v1.31.6/test/e2e/testing-manifests/kubectl/agnhost-primary-service.json"
+      path: "vendor/k8s.io/kubernetes/test/e2e/testing-manifests/kubectl/agnhost-primary-service.json"
     ci_alignment:
       streams_prs:
         ci_build_root:
