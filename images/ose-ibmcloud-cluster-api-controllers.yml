@@ -10,6 +10,43 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/cluster-api-provider-ibmcloud.git
       web: https://github.com/openshift/cluster-api-provider-ibmcloud
+    modifications:
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/cluster-api/refs/tags/v1.9.4/util/kubeconfig/kubeconfig.go"
+      path: "vendor/sigs.k8s.io/cluster-api/util/kubeconfig/kubeconfig.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/cluster-api/refs/tags/v1.9.4/util/kubeconfig/testing.go"
+      path: "vendor/sigs.k8s.io/cluster-api/util/kubeconfig/testing.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/encode.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/encode.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/helpers.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/helpers.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/lock.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/lock.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/merge.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/merge.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/paths.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/paths.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/read.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/read.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/remove.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/remove.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/types.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/types.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/internal/kubeconfig/write.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/internal/kubeconfig/write.go"
+    - action: add
+      source: "https://raw.githubusercontent.com/kubernetes-sigs/kind/refs/tags/v0.25.0/pkg/cluster/internal/kubeconfig/kubeconfig.go"
+      path: "vendor/sigs.k8s.io/kind/pkg/cluster/internal/kubeconfig/kubeconfig.go"
     ci_alignment:
       streams_prs:
         commit_prefix: "UPSTREAM: <carry>: "
