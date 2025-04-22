@@ -10,8 +10,7 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    pkg_managers:
-    - gomod
+    pkg_managers: []
 distgit:
   component: ovn-kubernetes-microshift-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
@@ -43,7 +42,3 @@ name: openshift/ose-ovn-kubernetes-microshift-rhel9
 payload_name: ovn-kubernetes-microshift
 owners:
 - aos-networking-staff@redhat.com
-konflux:
-  cachi2:
-    # Until https://redhat-internal.slack.com/archives/GDBRP5YJH/p1745000508652589 is merged
-    enabled: false
