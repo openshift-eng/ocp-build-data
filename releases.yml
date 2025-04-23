@@ -18,7 +18,12 @@ releases:
         upgrades: 4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.19.0-ec.0,4.19.0-ec.1,4.19.0-ec.2,4.19.0-ec.3,4.19.0-ec.4
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.0~ec.5-202504231333.p0.g7195e25.assembly.ec.5.el9
       permits:
         # for ECs and RCs this should not block us
         - code: CONFLICTING_INHERITED_DEPENDENCY
