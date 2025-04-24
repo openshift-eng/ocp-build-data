@@ -3,11 +3,11 @@ releases:
     assembly:
       basis:
         brew_event: 63488688
-        reference_releases:
-          aarch64: 4.17.0-0.nightly-arm64-2025-04-24-131402
-          ppc64le: 4.17.0-0.nightly-ppc64le-2025-04-24-131402
-          s390x: 4.17.0-0.nightly-s390x-2025-04-24-131401
-          x86_64: 4.17.0-0.nightly-2025-04-24-112655
+        reference_releases: {}
+#          aarch64: 4.17.0-0.nightly-arm64-2025-04-24-131402
+#          ppc64le: 4.17.0-0.nightly-ppc64le-2025-04-24-131402
+#          s390x: 4.17.0-0.nightly-s390x-2025-04-24-131401
+#          x86_64: 4.17.0-0.nightly-2025-04-24-112655
       group:
         advisories:
           extras: -1
@@ -24,6 +24,9 @@ releases:
               is:
                 nvr: ose-frr-container-v4.17.0-202504021408.p0.gc30988b.assembly.stream.el9
         rpms: []
+      permits:
+        - component: ose-frr
+          code: CONFLICTING_INHERITED_DEPENDENCY
       rhcos:
         rhel-coreos:
           images:
