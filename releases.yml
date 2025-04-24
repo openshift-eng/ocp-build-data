@@ -3,8 +3,8 @@ releases:
     assembly:
       basis:
         brew_event: 63487425
-        reference_releases:
-          x86_64: 4.18.0-0.nightly-2025-04-24-071841
+        reference_releases: {}
+#          x86_64: 4.18.0-0.nightly-2025-04-24-071841
       group:
         advisories:
           extras: -1
@@ -21,6 +21,9 @@ releases:
               is:
                 nvr: ose-frr-container-v4.18.0-202504021503.p0.g78714ea.assembly.stream.el9
         rpms: []
+        permits:
+          - component: ose-frr
+            code: CONFLICTING_INHERITED_DEPENDENCY
       rhcos:
         rhel-coreos:
           images:
