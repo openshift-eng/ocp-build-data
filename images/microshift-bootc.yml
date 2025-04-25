@@ -34,5 +34,9 @@ owners:
 - microshift-devel@redhat.com
 konflux:
   network_mode: internal-only
+  cachi2:
+    # For them, vendor modifications are necessary
+    # https://redhat-internal.slack.com/archives/C06Q309QUDV/p1745508906683839
+    enabled: false
   sast:
     enabled: true
