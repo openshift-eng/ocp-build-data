@@ -84,10 +84,10 @@ cachito:
 rhcos:
   payload_tags:
     - name: rhel-coreos
-      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      build_metadata_key: base-oscontainer
       primary: true
     - name: rhel-coreos-extensions
-      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+      build_metadata_key: extensions-container
   enabled_repos:
   - rhel-96-baseos
   - rhel-96-appstream
@@ -99,7 +99,6 @@ rhcos:
     ose-ovn-kubernetes:
     - libreswan
   allow_missing_brew_rpms: false
-  layered_rhcos: True
 
 check_external_packages:
   - name: cri-o
@@ -162,6 +161,8 @@ urls:
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
   cgit: https://pkgs.devel.redhat.com/cgit
+  rhcos_release_base: # once 4.19 RHCOS exist the next line should change to 4.19-
+    multi: https://releases-rhcos--prod-pipeline.apps.int.prod-stable-spoke1-dc-iad2.itup.redhat.com/storage/prod/streams/4.19-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}/builds
 dist_git_ignore:
   - gating.yaml
 
