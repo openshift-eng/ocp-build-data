@@ -24,3 +24,7 @@ name: openshift/frr-rhel9
 name_in_bundle: metallb-frr-rhel9
 owners:
 - metallb-dev@redhat.com
+scan_sources:
+  # Gets temporarily pinned, see https://github.com/openshift/frr/pull/87/files and backports
+  exempt_rpms:
+  - frr
