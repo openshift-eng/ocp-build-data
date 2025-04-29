@@ -28,3 +28,7 @@ name_in_bundle: metallb-frr-rhel9
 payload_name: metallb-frr
 owners:
 - metallb-dev@redhat.com
+scan_sources:
+  # Gets temporarily pinned, see https://github.com/openshift/frr/pull/87/files and backports
+  exempt_rpms:
+  - frr
