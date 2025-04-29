@@ -30,3 +30,7 @@ owners:
 - metallb-dev@redhat.com
 konflux:
   network_mode: open
+scan_sources:
+  # Gets temporarily pinned, see https://github.com/openshift/frr/pull/87/files and backports
+  exempt_rpms:
+  - frr
