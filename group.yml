@@ -84,10 +84,10 @@ cachito:
 rhcos:
   payload_tags:
     - name: rhel-coreos
-      build_metadata_key: base-oscontainer
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
       primary: true
     - name: rhel-coreos-extensions
-      build_metadata_key: extensions-container
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
   enabled_repos:
   - rhel-96-baseos
   - rhel-96-appstream
@@ -99,6 +99,7 @@ rhcos:
     ose-ovn-kubernetes:
     - libreswan
   allow_missing_brew_rpms: false
+  layered_rhcos: True
 
 check_external_packages:
   - name: cri-o
