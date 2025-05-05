@@ -10,6 +10,12 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+    okd_alignment:
+      resources:
+        baremetal-installer:
+          requests:
+            cpu: "3"
+            memory: 5Gi        
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-baremetal-installer-container
