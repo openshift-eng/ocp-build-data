@@ -93,6 +93,17 @@ rhel9:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
   mirror: true
 
+rhel-9-golang-1.23:
+  # projects that are keeping 4.18 in sync with 4.19 will need to build with go 1.23 after those projects
+  # finish their k8s rebase
+  image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.23-openshift-4.19
+  mirror: true
+  transform: rhel-9/golang
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
+  upstream_image_mirror:
+    - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
+
 nodejs-rhel9:
   image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9-nodejs-18:1-98
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
