@@ -17,6 +17,14 @@ releases:
       members:
         images: []
         rpms: []
+      permits:
+        # for ECs and RCs this should not block us
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-builder'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: 'rhcos'      
       rhcos:
         rhel-coreos:
           images:
