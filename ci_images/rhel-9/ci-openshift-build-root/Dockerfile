@@ -21,6 +21,8 @@ ENV GHPROXY_PREFIX="https://ocp-artifacts.engineering.redhat.com/github"
 ADD ci_images/install_protoc.sh /tmp
 ADD ci_images/install_etcd.sh /tmp
 
+ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
+
 RUN set -euxo pipefail && \
     chmod +x /tmp/*.sh && \
     export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
