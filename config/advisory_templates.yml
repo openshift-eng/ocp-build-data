@@ -1,5 +1,5 @@
 boilerplates:
-  images:
+  image:
     rhsa:
       synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} bug fix and security update
       topic: |
@@ -52,6 +52,7 @@ boilerplates:
               The image digest is sha256:<SHASUM_HERE>
 
         All OpenShift Container Platform 4.{MINOR} users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html-single/updating_clusters/index#updating-cluster-cli.
+      security_reviewer: sfowler@redhat.com
     rhba:
       synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} bug fix update
       topic: |
@@ -124,6 +125,7 @@ boilerplates:
         For OpenShift Container Platform 4.{MINOR} see the following documentation, which will be updated shortly for this release, for important instructions on how to upgrade your cluster and fully apply this asynchronous errata update:
 
         https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html/release_notes/
+      security_reviewer: sfowler@redhat.com
     rhba:
       synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} packages update
       topic: Red Hat OpenShift Container Platform release 4.{MINOR}.{PATCH} is now available with updates to packages and images that fix several bugs.
@@ -143,7 +145,6 @@ boilerplates:
         https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html/release_notes/
         
         Details on how to access this content are available at https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html-single/updating_clusters/index#updating-cluster-cli.
-
   extras:
     rhsa:
       synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} security and extras update
@@ -223,6 +224,7 @@ boilerplates:
         https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html/release_notes/
         
         Details on how to access this content are available at https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html-single/updating_clusters/index#updating-cluster-cli.
+      security_reviewer: sfowler@redhat.com
     rhba:
       synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} OLM Operators metadata update
       topic: |
@@ -274,6 +276,7 @@ boilerplates:
         For MicroShift 4.{MINOR}, read the following documentation, which will be updated shortly for this release, for important instructions on how to install the latest RPMs and fully apply this asynchronous errata update:
 
         https://access.redhat.com/documentation/en-us/red_hat_build_of_microshift/4.{MINOR}/html/release_notes/index
+      security_reviewer: sfowler@redhat.com
     rhba:
       synopsis: (impact) Red Hat build of MicroShift 4.{MINOR}.{PATCH} packages and security update
       topic: Red Hat build of MicroShift release 4.{MINOR}.{PATCH} is now available with updates to packages and images that fix several bugs.
