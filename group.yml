@@ -504,56 +504,65 @@ repos:
   rhel-96-baseos:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/BaseOS/s390x/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/baseos/os/
       extra_options:
         gpgcheck: "1"
     content_set:
-      optional: true
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_6
     reposync:
       enabled: true
 
   rhel-96-appstream:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/AppStream/s390x/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/os
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/os
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/appstream/os
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/appstream/os
       extra_options:
         gpgcheck: "1"
     content_set:
-      optional: true
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_6
     reposync:
       enabled: true
 
   rhel-96-nfv:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/NFV/x86_64/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/nfv/os
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/nfv/os
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/nfv/os
       extra_options:
         gpgcheck: "1"
     content_set:
-      optional: true
+      default: rhel-9-for-x86_64-nfv-e4s-rpms__9_DOT_6
     reposync:
       enabled: true
 
   rhel-96-highavailability:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/HighAvailability/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/HighAvailability/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/HighAvailability/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.6/compose/HighAvailability/s390x/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/highavailability/os
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/highavailability/os
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/highavailability/os
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/highavailability/os
       extra_options:
         gpgcheck: "1"
     content_set:
-      optional: true
+      default: rhel-9-for-x86_64-highavailability-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-highavailability-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-highavailability-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-highavailability-eus-rpms__9_DOT_6
     reposync:
       enabled: true
   rhel-100-baseos:
