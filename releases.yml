@@ -16,7 +16,12 @@ releases:
         upgrades: 4.18.13,4.19.0-ec.0,4.19.0-ec.1,4.19.0-ec.2,4.19.0-ec.3,4.19.0-ec.4,4.19.0-ec.5
       members:
         images: []
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.0~rc.0-202505140436.p0.g3157b33.assembly.rc.0.el9
       issues:
         exclude:
           - id: OCPBUGS-52548
