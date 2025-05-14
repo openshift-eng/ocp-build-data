@@ -538,10 +538,11 @@ repos:
   rhel-96-nfv:
     conf:
       baseurl:
+        # This is only available for x86_64, making the others not 404
         x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/nfv/os
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/nfv/os
-        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/nfv/os
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -596,10 +597,11 @@ repos:
   rhel-100-nfv:
     conf:
       baseurl:
+        # This is only available for x86_64, making the others not 404
         x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/s390x/os
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
       extra_options:
         gpgcheck: "1"
     content_set:
