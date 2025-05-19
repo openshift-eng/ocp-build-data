@@ -1,0 +1,27 @@
+# permissions for end users to edit helloworlds.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: helloworld-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: helloworld-editor-role
+rules:
+- apiGroups:
+  - apps.example.com
+  resources:
+  - helloworlds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps.example.com
+  resources:
+  - helloworlds/status
+  verbs:
+  - get

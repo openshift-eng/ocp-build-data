@@ -1,0 +1,9 @@
+apiVersion: apps.example.com/v1alpha1
+kind: HelloWorld
+metadata:
+  labels:
+    app.kubernetes.io/name: helloworld-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: helloworld-sample
+spec:
+  size: 1 # Corresponds to the field in HelloWorldSpec
