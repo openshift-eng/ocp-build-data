@@ -9,6 +9,10 @@ content:
       build_args:
       - name: DIRECT_DOWNLOAD
         value: "true"
+    modifications:
+    - action: replace
+      match: "ENV ISO_HOST=https://example.com"
+      replacement: "ENV ISO_HOST=https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-machine-os-images-container
