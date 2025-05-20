@@ -3,8 +3,8 @@ releases:
     assembly:
       basis:
         brew_event: 63812846
-        reference_releases:
-          x86_64: 4.19.0-0.nightly-2025-05-19-005500
+        reference_releases: {}
+          # x86_64: 4.19.0-0.nightly-2025-05-19-005500
       group:
         advisories:
           extras: 144054
@@ -17,6 +17,19 @@ releases:
       members:
         images: []
         rpms: []
+      issues:
+        exclude:
+          - id: OCPBUGS-52548
+      permits:
+        # for ECs and RCs this should not block us
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-builder'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: 'rhcos'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: 'rhcos'
       rhcos:
         rhel-coreos:
           images:
