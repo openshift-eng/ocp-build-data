@@ -1,0 +1,9 @@
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+spec:
+  tags:
+  - name: helloworld-operator
+    from:
+      kind: DockerImage
+      name: quay.io/rh_ee_asdas/hellworld-operator:v0.0.1
