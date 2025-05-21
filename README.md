@@ -1,7 +1,6 @@
 # helloworld-operator
 
-A test operator that simply creates a pod and echos "Hello World". Intended to be used by the Automated Release Tooling Team to test out Brew/Konflux build/release
-pipelines.
+#### (This operator is not inteneded to be used in production. Its meant to be to be used to test out Brew/Konflux build/release pipelines)
 
 ### Test Deploy on a local cluster
 
