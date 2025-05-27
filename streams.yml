@@ -52,6 +52,19 @@ rhel-9-golang-ci-build-root:
   transform: rhel-9/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.20-openshift-{MAJOR}.{MINOR}
 
+golang-1.19:
+  aliases:
+  - rhel-8-golang-1.19
+  image: openshift/golang-builder:v1.19.13-202410181055.gfa00de2.el8
+  mirror: true
+  transform: rhel-8/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+  - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
+
 etcd_rhel9_golang:
   aliases:
   - rhel-9-golang-{GO_EXTRA}
