@@ -38,7 +38,7 @@ scan_sources:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.23
   member: ovn-kubernetes-base
 labels:
   License: GPLv2+
@@ -54,3 +54,4 @@ konflux:
     # Until https://redhat-internal.slack.com/archives/GDBRP5YJH/p1745000508652589 is merged
     enabled: false
   network_mode: open
+canonical_builders_from_upstream: true
