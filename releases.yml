@@ -1,4 +1,49 @@
 releases:
+  rc.4:
+    assembly:
+      type: candidate
+      basis:
+        brew_event: 63929061
+        reference_releases: {}
+#          x86_64: 4.19.0-0.nightly-2025-05-27-223016
+      group:
+        advisories:
+          image: 144055
+          rpm: 147146
+          extras: 144054
+          metadata: 147145
+          microshift: 144057
+        release_jira: ART-11625
+        upgrades: 4.18.13,4.18.14,4.18.15,4.18.16,4.19.0-ec.0,4.19.0-ec.1,4.19.0-ec.2,4.19.0-ec.3,4.19.0-ec.4,4.19.0-ec.5,4.19.0-rc.0,4.19.0-rc.1,4.19.0-rc.2,4.19.0-rc.3
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:de21b0a1708aa28d9b5a5aa4a684de7212af2a7fddc1759aaa687f590520c778
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9e5de7b5d628233fbded62ca3e74c452c643eb653ab1fd2c24fd1ec55254695c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4db101aa8eb5e8017299e38dc47e700b44a43698693da5a766fbc77842771e61
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:14c4f4ac7588a7a12b37831bfa9dd0f0dfea65b1f19e6d99ca9f728b566f37cd
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a7791c8e6e9b61412b50f4bee7bc68960ecc92d61a96b72c7ff00f58f69a47bc
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d8c521850ab4781cc77760e3b05bd8915941654b3cd17c74ae025bf6e3632761
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d60ffb71f3d328b1bde2939cd32b5b621a83fc2d251cd06ae21be4a1c089b758
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2c5a823b4539ac4cdf61f30c60a61259b0b70ef11f1b94a7b8119535632faed3
+      permits:
+        # for ECs and RCs this should not block us
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-builder'
+      members:
+        rpms: []
+        images:
+          - distgit_key: cluster-node-tuning-operator
+            why: |
+              Prevent bad tuned-2.25.1-1.4.20250507gitf828dcf7.el9fdp from getting consumed.
+              Remove pin when https://errata.devel.redhat.com/advisory/149338 is shipped, probably June 2nd.
+            metadata:
+              is:
+                nvr: cluster-node-tuning-operator-container-v4.19.0-202505121540.p0.g7172669.assembly.stream.el9
   rc.3:
     assembly:
       basis:
