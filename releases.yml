@@ -32,10 +32,12 @@ releases:
         rpms: []
         images:
           - distgit_key: cluster-node-tuning-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: |
+              Prevent bad tuned-2.25.1-1.4.20250507gitf828dcf7.el9fdp from getting consumed.
+              Remove pin when https://errata.devel.redhat.com/advisory/149338 is shipped, probably June 2nd.
             metadata:
               is:
-                nvr: cluster-node-tuning-operator-container-v4.19.0-202505210644.p0.g7172669.assembly.stream.el9
+                nvr: cluster-node-tuning-operator-container-v4.19.0-202505121540.p0.g7172669.assembly.stream.el9
   rc.3:
     assembly:
       basis:
