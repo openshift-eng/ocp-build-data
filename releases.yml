@@ -6499,10 +6499,16 @@ releases:
         # why: 4.12 EOM has been reached and rhcos repos for arm and s390x have stopped receiving updates, so there is a drift between rhcos builds. We need this until 4.12 is building only for x86.
       members:
         images:
-          - distgit_key: '*'
-            why: Exclude rpm updates that should not cause mass rebuilds
-            metadata:
-              scan_sources:
-                exempt_rpms:
-                  - redhat-release* # documents rhel release notes and concerns
-                  - tzdata
+        - distgit_key: cluster-node-tuning-operator
+          why: |
+            Prevent bad tuned-2.25.1-1.4.20250507gitf828dcf7.el8fdp from getting consumed.
+          metadata:
+            is:
+              nvr: cluster-node-tuning-operator-container-v4.12.0-202505150328.p0.g20966da.assembly.stream.el8 
+        - distgit_key: '*'
+          why: Exclude rpm updates that should not cause mass rebuilds
+          metadata:
+            scan_sources:
+              exempt_rpms:
+                - redhat-release* # documents rhel release notes and concerns
+                - tzdata
