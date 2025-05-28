@@ -4,8 +4,8 @@ releases:
       type: candidate
       basis:
         brew_event: 63929061
-        reference_releases:
-          x86_64: 4.19.0-0.nightly-2025-05-27-223016
+        reference_releases: {}
+#          x86_64: 4.19.0-0.nightly-2025-05-27-223016
       group:
         advisories:
           image: 144055
@@ -28,6 +28,11 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d8c521850ab4781cc77760e3b05bd8915941654b3cd17c74ae025bf6e3632761
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d60ffb71f3d328b1bde2939cd32b5b621a83fc2d251cd06ae21be4a1c089b758
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2c5a823b4539ac4cdf61f30c60a61259b0b70ef11f1b94a7b8119535632faed3
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-builder'
       members:
         rpms: []
         images:
