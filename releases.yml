@@ -29,6 +29,7 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d60ffb71f3d328b1bde2939cd32b5b621a83fc2d251cd06ae21be4a1c089b758
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2c5a823b4539ac4cdf61f30c60a61259b0b70ef11f1b94a7b8119535632faed3
       permits:
+        # for ECs and RCs this should not block us
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: 'rhcos'
         - code: CONFLICTING_INHERITED_DEPENDENCY
