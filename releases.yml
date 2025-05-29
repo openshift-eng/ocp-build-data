@@ -38,7 +38,12 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a3ba13348e1f921a65a53eab5622c2b51c87fd6963331c96bfa65fc98f02131f
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-ibmcloud-cluster-api-controllers
+            metadata:
+              is:
+                nvr: ose-ibmcloud-cluster-api-controllers-container-v4.15.0-202505270036.p0.gb934c68.assembly.stream.el9
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
   4.15.51:
     assembly:
       basis:
