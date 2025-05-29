@@ -1,4 +1,38 @@
 releases:
+  4.18.16:
+    assembly:
+      type: standard
+      basis:
+        brew_event: 63933658
+        reference_releases:
+          aarch64: 4.18.0-0.nightly-arm64-2025-05-28-141842
+          s390x: 4.18.0-0.nightly-s390x-2025-05-28-120726
+          ppc64le: 4.18.0-0.nightly-ppc64le-2025-05-28-120725
+          x86_64: 4.18.0-0.nightly-2025-05-28-133042
+      group:
+        advisories:
+          image: -1
+          rpm: -1
+          extras: -1
+          metadata: -1
+        release_jira: ART-0
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15
+      rhcos:
+        rhel-coreos:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:15bba18ea1b9c0225971b95c07431bc4789ec95fc94ccdc47b6a77dc2dfb3590
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0f8a9180d731b291d654cca688a8215a3d44a503983ea41e811617e164ec6e45
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d80575484a36c877afb9ba79597a0d08de4e046b548215a28bfd143658d723f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:60e7e194dd91fc48b14021582f9eefddccba1fceed5e8828a4975810b1bbd3d8
+        rhel-coreos-extensions:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a88280175188eb31f34053c59d3ae5aa300ab4dff09f763279b23c5b35019c9c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:abc5467ae16d478391c4da226e6b8eaf63f4fe633006e09fc1b0315534804b5f
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5d83d08b315c580e449b2d8c1cbd7acd74d42654bd5b63cc741608cee3148885
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:841051378d86ad7531975de5ecac065499bad6f83152b719581bf3931c27eaf9
+      members:
+        rpms: []
+        images: []
   4.18.15:
     assembly:
       basis:
