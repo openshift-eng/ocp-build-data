@@ -26,7 +26,14 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3a2413907ece60c26780ebeed9f258531e27b05a5371d8c6fc87dca95debe13d
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: cluster-node-tuning-operator
+            why: |
+              Prevent bad tuned-2.25.1-1.4.20250507gitf828dcf7.el8fdp from getting consumed.
+            metadata:
+              is:
+                nvr: cluster-node-tuning-operator-container-v4.12.0-202505150328.p0.g20966da.assembly.stream.el8
+
   4.12.76:
     assembly:
       basis:
