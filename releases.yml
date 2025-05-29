@@ -20,6 +20,9 @@ releases:
       issues:
         exclude:
           - id: OCPBUGS-37369
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: "OCPBUGS-56732 is already included in 4.18.0-0.nightly-2025-05-28-133042 so 4.18.16 will have the fix"
       rhcos:
         rhel-coreos:
           images:
