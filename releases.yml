@@ -38,7 +38,12 @@ releases:
         exclude:
           - id: OCPBUGS-52548
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.0~rc.4-202505290248.p0.g777a5d2.assembly.rc.4.el9
         images:
           - distgit_key: cluster-node-tuning-operator
             why: |
