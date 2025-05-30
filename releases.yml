@@ -30,7 +30,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fb38d6b19b0199512ad91303b445b2f368e3a6caa27a6fee603c87e82f80444c
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-insights-operator-container
+            metadata:
+              is:
+                nvr: ose-insights-operator-container-v4.20.0-202505200057.p0.ge030d65.assembly.stream.el9
+            why: The selected ose-insights-operator-container build has some issue, use an older one
   ec.0:
     assembly:
       basis:
