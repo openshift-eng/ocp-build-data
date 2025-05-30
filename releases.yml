@@ -19,16 +19,8 @@ releases:
       # for ECs and RCs this should not block us if some rpms version not match desired
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: 'openshift-enterprise-builder'
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: 'ose-agent-installer-node-agent'
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: 'ose-frr'
-        - code: MISMATCHED_SIBLINGS  # ose-installer-altinfra-container removed
-          component: 'ose-baremetal-installer'
-        - code: MISMATCHED_SIBLINGS  # ose-installer-altinfra-container removed
-          component: 'ose-installer'
-        - code: MISMATCHED_SIBLINGS  # ose-installer-altinfra-container removed
-          component: 'ose-installer-artifacts'
+        - code: IMPERMISSIBLE  # builds was referenced from the knoflux build
+          component: 'reference-releases'
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: 'rhcos'
         - code: INCONSISTENT_RHCOS_RPMS
