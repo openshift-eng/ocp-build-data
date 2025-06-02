@@ -6,6 +6,15 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/console.git
       web: https://github.com/openshift/console
+    modifications:
+    - action: replace
+      match: "COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR"
+      replacement: |-
+        COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
+        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/frontend/.npmrc
+    - action: replace
+      match: "RUN container-entrypoint ./build-frontend.sh"
+      replacement: "RUN source $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/cachito.env && container-entrypoint ./build-frontend.sh"
     pkg_managers:
     #- gomod Take out go.mod processing because of STONEBLD-2479 not being supported
     - yarn
