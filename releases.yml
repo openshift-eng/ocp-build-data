@@ -9,6 +9,7 @@ releases:
       group:
         advisories:
           rpm: 149403
+          prerelease: -1
         operator_index_mode: pre-release
         release_jira: ART-12824
         shipment:
@@ -17,7 +18,7 @@ releases:
             - kind: extras
             - kind: metadata
             - kind: prerelease
-        upgrades: 4.19.0-rc.4, 4.20.0-ec.1
+        upgrades: 4.19.0-rc.4, 4.20.0-ec.0
       permits:
       # for ECs and RCs this should not block us if some rpms version not match desired
         - code: CONFLICTING_INHERITED_DEPENDENCY
