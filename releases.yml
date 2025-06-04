@@ -1,4 +1,42 @@
 releases:
+  rc.5:
+    assembly:
+      type: candidate
+      basis:
+        brew_event: 63998623
+        reference_releases:
+          x86_64: 4.19.0-0.nightly-2025-06-02-200358
+      group:
+        advisories:
+          image: 144055
+          rpm: 147146
+          extras: 144054
+          metadata: 147145
+          microshift: 144057
+        release_jira: ART-11625
+        upgrades: 4.18.16,4.18.17,4.19.0-ec.0,4.19.0-ec.1,4.19.0-ec.2,4.19.0-ec.3,4.19.0-ec.4,4.19.0-ec.5,4.19.0-rc.0,4.19.0-rc.1,4.19.0-rc.2,4.19.0-rc.3,4.19.0-rc.4
+      permits:
+        # for ECs and RCs this should not block us
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-builder'
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec16622a2758c7aacfd04679980848dd0ae7511be027cab590c10cd5bc02eae2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4de1f1357d29e8a09195c2d16760fe1628c329ee96ee09f8683ca280f28ed810
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a23815ca5073a82598d3d691d140a82da71bc4ca4b61e954db3c1e24d12f8989
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:74eebe7060a90547a98d3f002d16cf540195f4c17ab523d20b5ca113706ea7d9
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:72a056652dbcfeb75e08909b501e2efd12b4298bba4e158396a49fc316ce99e5
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:92d131d6b0353180607e5a83cef772722e0a654c359187c8b080461763d2e63a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bc51f1967642243847809360614b8504c81a800c039d6af4a6e01f6673053ab9
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f0738991f1a0d0cc8eaa9fe31c0a6510188b42913c72efab535509a5128dd22a
+      members:
+        rpms: []
+        images: []
   rc.4:
     assembly:
       type: candidate
