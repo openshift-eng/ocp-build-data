@@ -1463,13 +1463,3 @@ releases:
                 exempt_rpms:
                   - redhat-release* # documents rhel release notes and concerns
                   - tzdata
-          - distgit_key: ose-etcd
-            why: excluding ETCD-727 as microshift does not like golang-1.23
-            metadata:
-              is:
-                nvr: ose-etcd-container-v4.18.0-202506031105.p0.g72173bc.assembly.stream.el9
-          - distgit_key: ose-installer-etcd-artifacts
-            why: excluding ETCD-727 as microshift does not like golang-1.23
-            metadata:
-              is:
-                nvr: ose-installer-etcd-artifacts-container-v4.18.0-202506031105.p0.g72173bc.assembly.stream.el9
