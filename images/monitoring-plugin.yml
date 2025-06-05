@@ -19,6 +19,7 @@ content:
       replacement: |-
         COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
         RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/.npmrc
+        RUN test -d ${REMOTE_SOURCES_DIR}/cachito-gomod-with-deps || exit 1;     cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem .  && cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/{.npmrc,package-lock.json} web/  && source ${REMOTE_SOURCES_DIR}/cachito-gomod-with-deps/cachito.env  && make install-frontend-ci  || env || cat /opt/app-root/src/.npm/_logs/*.log  || exit 1
     ci_alignment:
       streams_prs:
         ci_build_root:
