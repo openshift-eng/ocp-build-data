@@ -32,7 +32,17 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:30da0117cebc1fe99b4173ae647b3b664c791608d0e50a2aeef6f001ba514f78
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-etcd
+            why: excluding ETCD-727 as microshift does not like golang-1.23
+            metadata:
+              is:
+                nvr: ose-etcd-container-v4.18.0-202506031105.p0.g72173bc.assembly.stream.el9
+          - distgit_key: ose-installer-etcd-artifacts
+            why: excluding ETCD-727 as microshift does not like golang-1.23
+            metadata:
+              is:
+                nvr: ose-installer-etcd-artifacts-container-v4.18.0-202506031105.p0.g72173bc.assembly.stream.el9
   4.18.16:
     assembly:
       type: standard
