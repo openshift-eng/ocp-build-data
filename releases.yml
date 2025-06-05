@@ -44,7 +44,12 @@ releases:
             metadata:
               is:
                 el9: microshift-4.19.0~rc.5-202506040556.p0.gd7c4c0b.assembly.rc.5.el9
-        images: []
+        images: 
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              is:
+                nvr: cluster-nfd-operator-container-v4.19.0-202506021915.p0.g54c0a77.assembly.stream.el9
+            why: This contains fix for nfd operator. Pinning correct nfd to assembly.
   rc.4:
     assembly:
       type: candidate
