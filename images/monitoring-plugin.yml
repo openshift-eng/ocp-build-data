@@ -19,7 +19,11 @@ content:
       replacement: |-
         COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
         RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/.npmrc  
-        RUN test -d $REMOTE_SOURCES_DIR/cachito-gomod-with-deps || exit 1;     cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem .  && cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/.npmrc web/ && cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/package-lock.json web/ && source $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/cachito.env  && make install-frontend-ci  ||  env && cat /opt/app-root/src/.npm/_logs/*.log  && exit 1
+        RUN test -d $REMOTE_SOURCES_DIR/cachito-gomod-with-deps || exit 1;     cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem .  && cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/package-lock.json web/  && cp -f $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/package-lock.json web/
+        RUN source $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/cachito.env  && make install-frontend-ci || echo "failed install"
+        RUN source $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/cachito.env  && make build-frontend || echo "failed build"
+        RUN env
+        RUN cat /opt/app-root/src/.npm/_logs/*.log
     ci_alignment:
       streams_prs:
         ci_build_root:
