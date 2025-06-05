@@ -15,6 +15,12 @@ content:
     - action: replace
       match: "RUN container-entrypoint ./build-frontend.sh"
       replacement: "RUN source $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/cachito.env && container-entrypoint ./build-frontend.sh"
+    - action: add
+      source: "https://github.com/redhat-certification/chart-verifier/raw/f4f07c9860f725551c21229f2580e5b64cafdb1c/internal/chartverifier/checks/.DS_Store"
+      path: "vendor/github.com/redhat-certification/chart-verifier/internal/chartverifier/checks/.DS_Store"
+    - action: add
+      source: "https://raw.githubusercontent.com/subosito/gotenv/refs/tags/v1.2.0/.env"
+      path: "vendor/github.com/subosito/gotenv/.env"
     pkg_managers:
     - gomod
     - yarn
