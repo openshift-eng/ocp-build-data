@@ -4,6 +4,7 @@ releases:
       type: preview
       basis:
         time: "2025-05-26T07:41:37+00:00"
+        brew_event: 63905880
         reference_releases:
           x86_64: 4.20.0-0.nightly-2025-05-26-181128
       group:
@@ -40,8 +41,18 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7594a50a3fef80741ddc4e90c3b306be3229cb0e93d3ca60c8f232d374b2cef0
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fb38d6b19b0199512ad91303b445b2f368e3a6caa27a6fee603c87e82f80444c
       members:
-        rpms: [ ]
-        images: [ ]
+        rpms: []
+        images:
+          - distgit_key: ose-insights-operator
+            why: Pin commit due to source commit conflict in upstream repo
+            metadata:
+              is:
+                nvr: ose-insights-operator-container-v4.20.0-202505210258.p0.g231bf07.assembly.stream.el9
+              content:
+                source:
+                  git:
+                    branch:
+                      target: 231bf07325dc47797b788ec90407d9db1a733211
   ec.1:
     assembly:
       type: preview
