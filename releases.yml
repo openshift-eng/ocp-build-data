@@ -50,6 +50,21 @@ releases:
               is:
                 nvr: cluster-nfd-operator-container-v4.19.0-202506021915.p0.g54c0a77.assembly.stream.el9
             why: This contains fix for nfd operator. Pinning correct nfd to assembly.
+          - distgit_key: sriov-network-operator
+            metadata:
+              is:
+                nvr: sriov-network-operator-container-v4.19.0-202506041351.p0.gf66d332.assembly.stream.el9
+            why: Pinning build for sriov
+          - distgit_key: sriov-network-webhook-container
+            metadata:
+              is:
+                nvr: sriov-network-webhook-container-v4.19.0-202506041351.p0.gf66d332.assembly.stream.el9
+            why: Pinning build for sriov-network-webook-container
+          - distgit_key: sriov-network-config-daemon-container
+            metadata:
+              is:
+                nvr: sriov-network-config-daemon-container-v4.19.0-202506041351.p0.gf66d332.assembly.stream.el9
+            why: Pinning build for sriov-network-config-daemon-container
   rc.4:
     assembly:
       type: candidate
