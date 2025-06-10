@@ -1,3 +1,7 @@
+cachito:
+  packages:
+    gomod:
+    - path: go-controller
 content:
   source:
     dockerfile: Dockerfile.microshift
@@ -10,7 +14,8 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    pkg_managers: []
+    pkg_managers:
+    - gomod
 distgit:
   component: ovn-kubernetes-microshift-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
