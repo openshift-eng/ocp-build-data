@@ -17,6 +17,13 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+    modifications:
+    - action: replace
+      match: "COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR"
+      replacement: |-
+        COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
+        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/.npmrc
+
     pkg_managers:
     - npm
     - gomod
