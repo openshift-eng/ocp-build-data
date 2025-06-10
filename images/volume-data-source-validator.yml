@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: /Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/volume-data-source-validator.git
+      web: https://github.com/openshift/volume-data-source-validator
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-9-golang-ci-build-root
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: volume-data-source-validator-container
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/volume-data-source-validator-rhel9
+owners:
+- rbednar@redhat.com, jsafrane@redhat.com@redhat.com
