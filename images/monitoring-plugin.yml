@@ -15,7 +15,7 @@ content:
       match: "COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR"
       replacement: |-
         COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
-        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/web/.npmrc
+        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.npmrc $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.yarnrc
     pkg_managers:
     - yarn
     artifacts:
