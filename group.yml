@@ -99,6 +99,10 @@ rhcos:
     - kernel  # since 9.3, kernel-rt is merged into the kernel package.
     ose-ovn-kubernetes:
     - libreswan
+  exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
+  - crun-wasm
+  - lld
+  - llvm
   allow_missing_brew_rpms: false
   layered_rhcos: True
 
