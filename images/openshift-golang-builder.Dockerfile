@@ -55,7 +55,7 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
     # Required packages for mac cross-compilation
-    llvm-toolset cmake3 gcc-c++ libxml2-devel \
+    llvm-toolset-17* cmake3 gcc-c++ libxml2-devel \
     # Required packages for windows cross-compilation
     glibc mingw64-gcc && \
     # compile macos cross-compilers
