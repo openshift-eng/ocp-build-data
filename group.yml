@@ -73,6 +73,10 @@ rhcos:
     driver-toolkit:
     - kernel
     - kernel-rt
+  exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
+  - libsemanage
+  - python3-libsemanage
+  - protobuf
 
 check_external_packages:
   # This config powers the assembly check: CONFLICTING_INHERITED_DEPENDENCY
