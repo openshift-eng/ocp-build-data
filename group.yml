@@ -80,6 +80,8 @@ rhcos:
     driver-toolkit:
     - kernel
     - kernel-rt
+  exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
+  - libreswan
   # Set to true to allow CentOS content in RHCOS
   allow_missing_brew_rpms: false
 
