@@ -17,6 +17,13 @@ releases:
         exclude:
           - id: OCPBUGS-47459 # Has Security Group the bot and release operators cannot see. Excluding.
       permits!: []
+      members:
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.0-202506131600.p0.gd7c4c0b.assembly.4.19.0.el9
   rc.5:
     assembly:
       type: candidate
