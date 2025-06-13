@@ -23,4 +23,12 @@ WORKDIR /
 COPY --from=builder /workspace/manager .
 USER 65532:65532
 
+LABEL \
+  name="helloworld operator" \
+  description="Test operator meant to be to be used to test out Brew/Konflux build/release pipelines. Not to be used in prod." \
+  io.k8s.description="Test operator meant to be to be used to test out Brew/Konflux build/release pipelines. Not to be used in prod." \
+  summary="Test operator meant to be to be used to test out Brew/Konflux build/release pipelines. Not to be used in prod." \
+  io.k8s.display-name="helloworld operator" \
+  url="https://github.com/openshift-eng/ocp-build-data/tree/helloworld-operator"
+
 ENTRYPOINT ["/manager"]
