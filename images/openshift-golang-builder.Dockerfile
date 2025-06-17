@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9:latest
+FROM registry.redhat.io/ubi10:latest
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -51,30 +51,7 @@ RUN dnf update -y && \
         zip && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
-# provide a cross-compiler for windows/mac binaries (amd64 only)
-COPY cross.tar.gz .
-RUN [ $(go env GOARCH) != "amd64" ] || (\
-    # only install cross-compiler dependencies on amd64
-    yum install -y --setopt=tsflags=nodocs \
-    # Required packages for mac cross-compilation
-    llvm-toolset cmake3 gcc-c++ libxml2-devel \
-    # Required packages for windows cross-compilation
-    glibc mingw64-gcc && \
-    # compile macos cross-compilers
-    tar zfx cross.tar.gz && \
-    export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
-    pushd cross/osxcross && \
-    UNATTENDED=yes ./build.sh && \
-    popd && \
-    cp -avr cross/osxcross/target/bin/* /usr/local/bin/ && \
-    cp -avr cross/osxcross/target/lib/* /usr/local/lib64/ && \
-    cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
-    echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
-    /sbin/ldconfig && \
-    rm -rf cross)
-
-# above is conditional; clean up unconditionally
-RUN rm -f cross.tar.gz && yum clean all -y
+RUN dnf clean all -y
 
 # FOD wrapper modification
 COPY go_wrapper.sh /tmp/go_wrapper.sh
