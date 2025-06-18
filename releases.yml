@@ -8,6 +8,11 @@ releases:
         reference_releases:
           x86_64: 4.20.0-0.nightly-2025-05-26-181128
       group:
+        dependencies:
+          rpms:
+            - el9: cri-o-1.33.1-2.rhaos4.20.gitde5978d.el9
+              non_gc_tag: insert tag here if needed
+              why: microshift-bootc build needs it
         advisories:
           rpm: 149403
           prerelease: 150366
