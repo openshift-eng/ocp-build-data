@@ -2,6 +2,12 @@ arches:
 - x86_64
 - aarch64
 base_only: true
+cachito:
+  packages:
+    pip:
+    - path: .
+      requirements_files:
+      - requirements.txt.ocp
 content:
   source:
     dockerfile: Dockerfile
