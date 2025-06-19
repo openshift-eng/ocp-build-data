@@ -20,7 +20,10 @@ releases:
       issues:
         exclude:
           - id: OCPBUGS-37369
-            # why: no access to the issue      
+            # why: no access to the issue   
+      promotion_permits:
+      - code: INVALID_ERRATA_STATUS
+        why: Advisory 151176 cannot move to QE because what should be a test flake. Willfully ignoring to allow promotion.      
       rhcos:
         rhel-coreos:
           images:
