@@ -112,12 +112,6 @@ check_external_packages:
   - name: cri-tools
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
-  - name: crun
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: greater_equal
-  - name: conmon
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: greater_equal
   - name: conmon-rs
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
@@ -129,11 +123,8 @@ check_external_packages:
     condition: greater_equal
   - name: containers-common
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
-  - name: podman
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: greater_equal
-  - name: skopeo
+  - name: podman
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: greater_equal
   - name: runc
