@@ -1,9 +1,14 @@
 boilerplates:
   image:
     rhsa:
-      synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} bug fix and security update
-      # Enable legacy style comment on advisory creation
+      # This is to enable leaving legacy style comment when we create an advisory
+      # It is relied on by rel-eng automation to trigger binary releases to Customer Portal
+      # It is really only required for our main payload advisory "image"
+      # https://gitlab.cee.redhat.com/releng/g-chat-notifier/notifier/-/blob/3d71698a45de9f847cb272d18a5a27dccf9521a0/notifier/etera_controller.py#L128
+      # https://issues.redhat.com/browse/ART-8758
+      # Do not leave a comment for a custom assembly type
       advisory_type_comment: True
+      synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} bug fix and security update
       topic: |
         Red Hat OpenShift Container Platform release 4.{MINOR}.{PATCH} is now available with updates to packages and images that fix several bugs and add enhancements.
 
@@ -52,6 +57,13 @@ boilerplates:
         All OpenShift Container Platform 4.{MINOR} users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.redhat.com/en/documentation/openshift_container_platform/4.{MINOR}/html-single/updating_clusters/index#updating-cluster-cli.
       security_reviewer: sfowler@redhat.com
     rhba:
+      # This is to enable leaving legacy style comment when we create an advisory
+      # It is relied on by rel-eng automation to trigger binary releases to Customer Portal
+      # It is really only required for our main payload advisory "image"
+      # https://gitlab.cee.redhat.com/releng/g-chat-notifier/notifier/-/blob/3d71698a45de9f847cb272d18a5a27dccf9521a0/notifier/etera_controller.py#L128
+      # https://issues.redhat.com/browse/ART-8758
+      # Do not leave a comment for a custom assembly type
+      advisory_type_comment: True
       synopsis: OpenShift Container Platform 4.{MINOR}.{PATCH} bug fix update
       topic: |
         Red Hat OpenShift Container Platform release 4.{MINOR}.{PATCH} is now available with updates to packages and images that fix several bugs.
