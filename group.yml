@@ -45,6 +45,8 @@ konflux:
   cachi2:
     enabled: true
     gomod_version_patch: true
+    lockfile:
+      force: true
   sast:
     enabled: true
   network_mode: hermetic
@@ -53,7 +55,7 @@ multi_arch:
   enabled: true
 
 # It is not decided yet from which OCP version on a new release version will have the format i.e. 4.18.0-0
-# Until then the new_payload_versioning_scheme will have the value False  
+# Until then the new_payload_versioning_scheme will have the value False
 new_payload_versioning_scheme: false
 
 operator_image_ref_mode: manifest-list
