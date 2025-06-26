@@ -19,6 +19,10 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-ptp-operator-container
   bundle_component: ose-ptp-operator-metadata-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-ptp-operator
+  bundle_delivery_repo_name: openshift4/ose-ptp-operator-bundle
 for_payload: false
 from:
   builder:
@@ -40,5 +44,3 @@ konflux:
   cachi2:
     enabled: false
   network_mode: open
-delivery:
-  bundle_delivery_repo_name: openshift4/ose-ptp-operator-bundle
