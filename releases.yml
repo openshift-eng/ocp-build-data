@@ -228,7 +228,19 @@ releases:
           component: rhcos
         - code: MISMATCHED_SIBLINGS
           # why: build error for dpu-intel-ipu-vsp: OCPBUGS-58136
-          component: 'dpu*'
+          component: dpu-cni
+        - code: MISMATCHED_SIBLINGS
+          # why: build error for dpu-intel-ipu-vsp: OCPBUGS-58136
+          component: dpu-daemon
+        - code: MISMATCHED_SIBLINGS
+          # why: build error for dpu-intel-ipu-vsp: OCPBUGS-58136
+          component: dpu-intel-ipu-p4sdk
+        - code: MISMATCHED_SIBLINGS
+          # why: build error for dpu-intel-ipu-vsp: OCPBUGS-58136
+          component: dpu-intel-ipu-vsp
+        - code: MISMATCHED_SIBLINGS
+          # why: build error for dpu-intel-ipu-vsp: OCPBUGS-58136
+          component: dpu-operator
       members:
         images:
           - distgit_key: '*'
