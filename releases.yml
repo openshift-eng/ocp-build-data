@@ -1,4 +1,38 @@
 releases:
+  4.18.19:
+    assembly:
+      type: standard
+      basis:
+        brew_event: 64310112
+        reference_releases:
+          s390x: 4.18.0-0.nightly-s390x-2025-06-25-175254
+          aarch64: 4.18.0-0.nightly-arm64-2025-06-25-175254
+          ppc64le: 4.18.0-0.nightly-ppc64le-2025-06-25-175254
+          x86_64: 4.18.0-0.nightly-2025-06-25-183019
+      group:
+        advisories:
+          image: -1
+          rpm: -1
+          extras: -1
+          metadata: -1
+        release_jira: ART-0
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15,4.18.16,4.18.17,4.18.18
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f1aeba19ab3d98d850d1688fe059684d668fa705d51d882bc9446c140343c212
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:468b1ed60fab7a385c62ea6d5a7c98571fc62364b0961d01134f229f641924ec
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:513d4ec7c75bbe2772656303cf9abc0af3c0199aefcdd4d2add6badcffdcaf29
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b5602c14b0c6ce3e850238f6cc32925116ba3af7afdf86d912c309aee708f3ed
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e9680cdd70cc35925e0cfc50b7b37de75504df77c7bd764a36a1668fe020a272
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a7898c33aec227e14c17776365e36beb1294c9fe837443cb6367adec7d41d997
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:16359818b755009980d74359aee07f65aaf53113f99fc4a65f575294f9e4307b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a7b76005a3d92997ed1d6adc08126c1336ced81ead5da70e6853332b08ecd49
+      members:
+        rpms: []
+        images: []
   4.18.18:
     assembly:
       type: standard
@@ -18,8 +52,8 @@ releases:
         release_jira: ART-13159
         upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15,4.18.16,4.18.17
       promotion_permits:
-      - code: INVALID_ERRATA_STATUS
-        why: Advisory 151156 cannot move to QE because what should be a test flake. Willfully ignoring to allow promotion.
+        - code: INVALID_ERRATA_STATUS
+          why: Advisory 151156 cannot move to QE because what should be a test flake. Willfully ignoring to allow promotion.
       rhcos:
         rhel-coreos:
           images:
