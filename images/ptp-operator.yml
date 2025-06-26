@@ -19,6 +19,9 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-ptp-operator-container
   bundle_component: ose-ptp-operator-metadata-container
+delivery:
+  bundle_delivery_repo_name: openshift4/ose-ptp-operator-bundle
+  repo_name: ose-ptp-operator
 for_payload: false
 from:
   builder:
@@ -40,5 +43,3 @@ konflux:
   cachi2:
     enabled: false
   network_mode: open
-delivery:
-  bundle_delivery_repo_name: openshift4/ose-ptp-operator-bundle
