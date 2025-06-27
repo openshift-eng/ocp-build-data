@@ -30,9 +30,22 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a7898c33aec227e14c17776365e36beb1294c9fe837443cb6367adec7d41d997
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:16359818b755009980d74359aee07f65aaf53113f99fc4a65f575294f9e4307b
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a7b76005a3d92997ed1d6adc08126c1336ced81ead5da70e6853332b08ecd49
+      issues:
+        include:
+          - id: OCPBUGS-58120
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: cloud-event-proxy
+            why: fix for OCPBUGS-58120
+            metadata:
+              is:
+                nvr: cloud-event-proxy-container-v4.18.0-202506260833.p0.g641a346.assembly.stream.el9
+          - distgit_key: ptp-operator
+            why: fix for OCPBUGS-58120
+            metadata:
+              is:
+                nvr: ose-ptp-operator-container-v4.18.0-202506260833.p0.g28fb484.assembly.stream.el9
   4.18.18:
     assembly:
       type: standard
