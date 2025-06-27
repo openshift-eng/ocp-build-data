@@ -11,13 +11,14 @@ content:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
 dependents:
-- pf-status-relay-operator    
+- pf-status-relay-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: pf-status-relay-container
 delivery:
   # Maps to honeybadger repo_name
   repo_name: pf-status-relay
+  delivery_repo_name: openshift4/pf-status-relay-rhel9
 for_payload: false
 from:
   builder:

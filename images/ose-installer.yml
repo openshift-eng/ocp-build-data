@@ -19,17 +19,18 @@ content:
         src:
           requests:
             cpu: "3"
-            memory: 5Gi        
+            memory: 5Gi
         installer-altinfra:
           requests:
             cpu: "3"
-            memory: 5Gi            
+            memory: 5Gi
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-installer-container
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-installer
+  delivery_repo_name: openshift4/ose-installer-rhel9
 for_payload: true
 from:
   builder:
