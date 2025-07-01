@@ -15,13 +15,14 @@ content:
         baremetal-installer:
           requests:
             cpu: "3"
-            memory: 5Gi       
+            memory: 5Gi
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-baremetal-installer-container
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-baremetal-installer
+  delivery_repo_name: openshift4/ose-baremetal-installer-rhel9
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms

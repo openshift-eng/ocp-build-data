@@ -9,7 +9,7 @@ content:
     modifications:
     - action: replace
       match: "COPY . ."
-      replacement: "COPY . .\nRUN rm -rf unpacked_remote_sources"  # FIXME: Workaround for CLOUDBLD-8974
+      replacement: "COPY . .\nRUN rm -rf unpacked_remote_sources"    # FIXME: Workaround for CLOUDBLD-8974
     ci_alignment:
       streams_prs:
         ci_build_root:
@@ -21,6 +21,7 @@ distgit:
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-hyperkube
+  delivery_repo_name: openshift4/ose-hyperkube-rhel9
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
