@@ -29,4 +29,7 @@ update-csv:
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Container Platform", "OpenShift Platform Plus"]'
 delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ingress-node-firewall-operator
   bundle_delivery_repo_name: openshift4/ingress-node-firewall-operator-bundle
+  delivery_repo_name: openshift4/ingress-node-firewall-rhel9-operator
