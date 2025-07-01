@@ -29,4 +29,7 @@ update-csv:
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
 delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-cluster-nfd-operator
   bundle_delivery_repo_name: openshift4/ose-cluster-nfd-operator-bundle
+  delivery_repo_name: openshift4/ose-cluster-nfd-rhel9-operator
