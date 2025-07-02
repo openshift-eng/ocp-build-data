@@ -15,6 +15,10 @@ distgit:
   component: operator-lifecycle-manager-container
 envs:
   GO_COMPLIANCE_EXCLUDE: "build.*operator-lifecycle-manager/util/cpb"
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-operator-lifecycle-manager
+  delivery_repo_name: openshift4/ose-operator-lifecycle-manager-rhel9
 for_payload: true
 from:
   builder:

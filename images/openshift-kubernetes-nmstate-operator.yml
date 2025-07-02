@@ -14,6 +14,11 @@ distgit:
   component: ose-kubernetes-nmstate-operator-container
   bundle_component: ose-kubernetes-nmstate-operator-bundle-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: kubernetes-nmstate-operator
+  bundle_delivery_repo_name: openshift4/kubernetes-nmstate-operator-bundle
+  delivery_repo_name: openshift4/kubernetes-nmstate-rhel9-operator
 for_payload: false
 from:
   builder:
@@ -36,5 +41,4 @@ update-csv:
 konflux:
   cachi2:
     enabled: false
-delivery:
-  bundle_delivery_repo_name: openshift4/kubernetes-nmstate-operator-bundle
+
