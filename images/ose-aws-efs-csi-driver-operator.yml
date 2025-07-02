@@ -20,6 +20,11 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: ose-aws-efs-csi-driver-operator-container
   bundle_component: ose-aws-efs-csi-driver-operator-bundle-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-aws-efs-csi-driver-operator
+  bundle_delivery_repo_name: openshift4/ose-aws-efs-csi-driver-operator-bundle
+  delivery_repo_name: openshift4/ose-aws-efs-csi-driver-rhel9-operator
 for_payload: false
 from:
   builder:
@@ -34,5 +39,4 @@ update-csv:
   manifests-dir: config/manifests
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
-delivery:
-  bundle_delivery_repo_name: openshift4/ose-aws-efs-csi-driver-operator-bundle
+
