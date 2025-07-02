@@ -47,6 +47,10 @@ konflux:
     gomod_version_patch: true
     lockfile:
       force: true
+      replaces:
+        bind-9: bind-utils
+        python3.9-3.9: python-unversioned-command
+        lmdb-0.9: lmdb-libs
   sast:
     enabled: true
   network_mode: open
