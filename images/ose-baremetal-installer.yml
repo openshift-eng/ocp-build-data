@@ -19,7 +19,8 @@ enabled_repos:
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-baremetal-installer
-  delivery_repo_name: openshift4/ose-baremetal-installer-rhel8
+  delivery_repo_names:
+  - openshift4/ose-baremetal-installer-rhel8
 for_payload: true
 # Once this moves to rhel9, pyartcd.pipelines.promote.PromotePipeline.publish_baremetal_installer_binary
 # needs to bump to account for the new tarball suffix

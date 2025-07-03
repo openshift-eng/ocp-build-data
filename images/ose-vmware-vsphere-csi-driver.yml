@@ -25,7 +25,9 @@ enabled_repos:
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-vsphere-csi-driver
-  delivery_repo_name: openshift4/ose-vsphere-csi-driver-rhel9
+  delivery_repo_names:
+  - openshift4/ose-vmware-vsphere-csi-driver-rhel9
+  - openshift4/ose-vsphere-csi-driver-rhel9
 for_payload: true
 from:
   builder:
