@@ -36,6 +36,10 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:230d091fcbae8cb9e6d70505b50fb84728b2a1820eecbe70a2d49ea422b931e6
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c18b58e357d0fc333f6fd4c5af9d17471e27e7260c2f1e2d6c9b03c8323f3761
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:efe4c4ccde161872277ec7ad3475c4cb3d0886f6d0d7f5b3810c3f377e2388b6
+      issues:
+        exclude:
+          - id: OCPBUGS-57761
+            # why: build not found in advisory      
       members:
         rpms: []
         images: []
