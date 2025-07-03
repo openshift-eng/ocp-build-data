@@ -25,7 +25,8 @@ delivery:
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
-  delivery_repo_name: openshift4/ose-ovn-kubernetes-microshift-rhel9
+  delivery_repo_names:
+  - openshift4/ose-ovn-kubernetes-microshift-rhel9
 scan_sources:
   # ovn-kubernetes uses pins in the Dockerfile.
   # We should configure exemptions for those known pins to avoid meaningless rebuild.
