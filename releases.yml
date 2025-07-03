@@ -1,4 +1,38 @@
 releases:
+  4.17.35:
+    assembly:
+      type: standard
+      basis:
+        brew_event: 64412818
+        reference_releases:
+          s390x: 4.17.0-0.nightly-s390x-2025-07-02-183619
+          ppc64le: 4.17.0-0.nightly-ppc64le-2025-07-02-183623
+          aarch64: 4.17.0-0.nightly-arm64-2025-07-02-183628
+          x86_64: 4.17.0-0.nightly-2025-07-02-183638
+      group:
+        advisories:
+          image: -1
+          rpm: -1
+          extras: -1
+          metadata: -1
+        release_jira: ART-0
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.16.32,4.16.33,4.16.34,4.16.35,4.16.36,4.16.37,4.16.38,4.16.39,4.16.40,4.16.41,4.16.42,4.16.43,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34
+      rhcos:
+        rhel-coreos:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:752a6115a36651ddf6c5aad1b02296ef922627cb50b069ff5c65e45a5a20f5db
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7520993c2ccdf3c68f03facbea4e2a026ec36a42eaba5f2662a29c22c8138d9a
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2fd7b57d209c4b6cc56e93633cd33118cf0a76a8fa83b456d0ce723ec66cb05c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bf026eef53eac6e9957fcaf1ea458ba684ec832bc841a0fb645d62512fdbb20e
+        rhel-coreos-extensions:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:573b344623b492bb13cdc49603cbdfffb16982c6820ec412969afe94cd326464
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8e5ee9bf0a9efa472105a9a6e496c00221acf69c50d8c0fc8927f7b27e67d9be
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:61e2e4665ae8bc032e112d44d1a040920080219f69ef40c3fc340d9a7384aa80
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4a71db29526ccc93742acefb8b91c043fbea417898870a6a67f6962b0bcdf3d0
+      members:
+        rpms: []
+        images: []
   4.17.34:
     assembly:
       type: standard
@@ -22,8 +56,8 @@ releases:
           - id: OCPBUGS-37369
             # why: no access to the issue   
       promotion_permits:
-      - code: INVALID_ERRATA_STATUS
-        why: Advisory 151176 cannot move to QE because what should be a test flake. Willfully ignoring to allow promotion.      
+        - code: INVALID_ERRATA_STATUS
+          why: Advisory 151176 cannot move to QE because what should be a test flake. Willfully ignoring to allow promotion.
       rhcos:
         rhel-coreos:
           images:
