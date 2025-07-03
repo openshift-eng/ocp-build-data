@@ -47,7 +47,7 @@ RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
     go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
     go install github.com/tools/godep@latest && \
     go install golang.org/x/lint/golint@latest && \
-    go install gotest.tools/gotestsum@latest && \
+    go install gotest.tools/gotestsum@1.12.2 && \
     go install github.com/openshift/release/tools/gotest2junit@latest && \
     go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
     mv $GOPATH/bin/* /usr/bin/ && \
