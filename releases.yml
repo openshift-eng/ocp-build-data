@@ -37,7 +37,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec74cad7513cebeb28d9e937ad0614e542a585b43b170c8b9c17cdb4d66f13e2
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec128a28962e9ceb333094e0dcbfb7b25a10746a07dc8568fc0959d94e2ef5d1
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.20.0~ec.3-202507081733.p0.g8ae81eb.assembly.ec.3.el9
         images: []
       permits:
         # for ECs and RCs this should not block us if some rpms version not match desired
