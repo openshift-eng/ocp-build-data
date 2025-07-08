@@ -765,16 +765,6 @@ releases:
       permits:
         - code: OUTDATED_RPMS_IN_STREAM_BUILD
           component: '*'
-        - code: CONFLICTING_GROUP_RPM_INSTALLED
-          component: rhcos
-        - code: CONFLICTING_GROUP_RPM_INSTALLED
-          component: openshift-clients
-        - code: CONFLICTING_GROUP_RPM_INSTALLED
-          component: local-storage-mustgather
-        # RHCOS extensions temporarily use inconsistent RPMs between arches.
-        # ref. https://redhat-internal.slack.com/archives/C01CQA76KMX/p1738863088399379
-        - code: INCONSISTENT_RHCOS_RPMS
-          component: rhcos
       members:
         images:
           - distgit_key: '*'
