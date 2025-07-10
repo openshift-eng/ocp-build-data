@@ -32,7 +32,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:42d747d2162b0717a90fbb5faef94bcc9e2c534683368fdcc9bb3deb9c820b3b
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: ose-kubernetes-nmstate-operator
+          why: Pin later operator build because of matching references
+          metadata:
+            is:
+              nvr: ose-kubernetes-nmstate-operator-container-v4.16.0-202507100305.p0.g20c879e.assembly.stream.el9
   4.16.43:
     assembly:
       type: standard
