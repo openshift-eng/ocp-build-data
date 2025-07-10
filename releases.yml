@@ -32,7 +32,12 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:76db20e6b7123167ad0a863e528d2e74ca3ba9f15945363a3d61531438bb8a9f
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: ose-aws-efs-csi-driver-operator
+          why: Pin good operator build
+          metadata:
+            is:
+              nvr: ose-aws-efs-csi-driver-operator-container-v4.19.0-202507091938.p0.gb61e357.assembly.stream.el9
   4.19.3:
     assembly:
       type: standard
