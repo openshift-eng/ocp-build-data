@@ -3,7 +3,7 @@ arches:
 - x86_64
 content:
   source:
-    dockerfile: Dockerfile.IntelP4.rhel
+    dockerfile: Dockerfile.IntelVSPP4.rhel
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -17,16 +17,16 @@ dependents:
 - dpu-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-  component: dpu-intel-ipu-p4sdk-container
+  component: dpu-intel-ipu-vsp-p4sdk-container
 delivery:
-  repo_name: ose-dpu-intel-ipu-p4sdk
+  repo_name: ose-dpu-intel-ipu-vsp-p4sdk
   delivery_repo_names:
-  - openshift4/ose-dpu-intel-ipu-p4sdk-rhel9
+  - openshift4/ose-dpu-intel-ipu-vsp-p4sdk-rhel9
 for_payload: false
 from:
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-dpu-intel-ipu-p4sdk-rhel9
-name_in_bundle: dpu-intel-ipu-p4sdk
+name: openshift/ose-dpu-intel-ipu-vsp-p4sdk-rhel9
+name_in_bundle: dpu-intel-ipu-vsp-p4sdk
 owners:
 - wizhao@redhat.com
 - konguyen@redhat.com
