@@ -42,7 +42,8 @@ labels:
   io.k8s.description: This is a component of OpenShift Container Platform that provides an overlay network using ovn.
   io.k8s.display-name: ovn kubernetes
   io.openshift.tags: openshift
-name: openshift/ose-ovn-kubernetes-rhel-9
+name: openshift/ose-ovn-kubernetes-rhel9
+payload_name: ovn-kubernetes-rhel-9
 owners:
 - aos-networking-staff@redhat.com
 konflux:
@@ -51,5 +52,4 @@ konflux:
   network_mode: open
 delivery:
   delivery_repo_names:
-  - openshift4/ose-ovn-kubernetes
   - openshift4/ose-ovn-kubernetes-rhel9
