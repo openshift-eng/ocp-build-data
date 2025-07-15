@@ -1,4 +1,45 @@
 releases:
+  ec.5:
+    assembly:
+      type: preview
+      basis:
+        time: "2025-07-14T15:26:20+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2025-07-15-031201
+      group:
+        advisories:
+          rpm: 149403
+          microshift: 151969
+        release_jira: ART-0
+        operator_index_mode: pre-release
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+          env: stage
+        upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2c1d2ccb3c7e16c3c8023dcfbfbdda6dee5b8f0846ae53d2f274ade45e22720a
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cf2d7eccfc42493ebff9040d62322e27605f883d1dd7dd95d252782b30e9d27b
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a073ded7a87c55eebb3b41a28bc4c130da203afe5f8cbd17ac5956dbbeb21ee4
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a0b86038df3edb6e27d05d9d79c213ccff563e72f197c3ab4f2bb1d0f6dacadd
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c5eed6410290ffb51a14ad8ee0133a2d2338b3f6c0d26df68a00ef374aac4e76
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:76e6c98a12969af1cfae5c8852dd48ff5ef55178ddf395088056fb0477ca4fb7
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fdc7dedfd929de92c48dd52457b191a8571638f0a55d1d2a1a85f41f4db44921
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a8913d5e60a3700bbf11cb1a65d9f4e7b10821a764907d7118047c316d0d1b80
+      members:
+        rpms: []
+        images: []
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: '*'
   ec.4:
     assembly:
       type: preview
