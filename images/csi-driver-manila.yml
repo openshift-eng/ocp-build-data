@@ -20,7 +20,7 @@ from:
   builder:
   - stream: golang
   member: openshift-enterprise-base
-name: openshift/ose-csi-driver-manila
+name: openshift/ose-csi-driver-manila-rhel8
 owners:
 - shiftstack-team@redhat.com
 delivery:
@@ -29,3 +29,4 @@ delivery:
 konflux:
   cachi2:
     enabled: false  # https://issues.redhat.com/browse/ART-13260
+payload_name: csi-driver-manila
