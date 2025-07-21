@@ -8,11 +8,12 @@ content:
       web: https://github.com/openshift/containernetworking-plugins
     ci_alignment:
       streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
         # Label so that this PR automatically merges if tests pass.
         auto_label:
         - approved
         - lgtm
-        enabled: false
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-containernetworking-plugins-container
