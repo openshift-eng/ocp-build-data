@@ -17,7 +17,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-containernetworking-plugins-container
 delivery:
-  # Maps to honeybadger repo_name
   repo_name: ose-container-networking-plugins
   delivery_repo_names:
   - openshift4/ose-container-networking-plugins-rhel9
@@ -40,4 +39,6 @@ owners:
 - tohayash@redhat.com
 - dcbw@redhat.com
 konflux:
-  network_mode: open # reason: rpm lockfile
+  cachi2:
+    lockfile:
+      inspect_parent: false
