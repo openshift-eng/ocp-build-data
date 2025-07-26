@@ -50,4 +50,8 @@ payload_name: networking-console-plugin
 konflux:
   cachito:
     mode: emulation
-  network_mode: open # https://issues.redhat.com/browse/ART-13869
+  network_mode: open # fails due to npm install -g https://github.com/...
+  cachi2:
+    artifact_lockfile:
+      resources:
+      - name: ca-certificates
