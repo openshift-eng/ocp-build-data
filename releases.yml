@@ -1,4 +1,36 @@
 releases:
+  4.18.22:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-07-28T11:35:53+00:00"
+        reference_releases:
+          x86_64: 4.18.0-0.konflux-nightly-2025-07-28-130925
+      group:
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.17.35,4.17.36,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15,4.18.16,4.18.17,4.18.18,4.18.19,4.18.20,4.18.21
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eb81b00eb36e37b225bdcc24871379d9be97d55669a37f23e3ec42c2bf1ec78c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7e2fabd4341288d96420d887655729bccaa2990c6c19e2071937faf9469e1bf0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bab0ab038a2166b8e1fe388e26f8faddfcb3d9c5c02e980131a2044cbe68f46f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:61c68bc5ae0439d64237b823b84bf0f0678b90058df39df3bc73448480019ef6
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff95342a58dbd103a3f41d8f42f5fa167ea3da63582f77df6b45de9f41701914
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dfb1537afda37d235b5c91e63d9a728067390d5f6c0ec02abe6595caa7ee1788
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:565f97a9f9f6ef3303ef853b726603ee870720d0b2f1ec78ed51f85c9aacdb89
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:075ae1cee488398ee7ac24fda6c7100bf13f487a700e920deb72cc8e4bd3e013
+      members:
+        rpms: [ ]
+        images: [ ]
   4.18.21:
     assembly:
       type: standard
