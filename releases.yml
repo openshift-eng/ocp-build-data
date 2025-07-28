@@ -7,13 +7,17 @@ releases:
         reference_releases:
           x86_64: 4.18.0-0.konflux-nightly-2025-07-28-130925
       group:
-        release_jira: ART-0
+        release_jira: ART-13872
         shipment:
           advisories:
             - kind: image
+              live_id: 11997
             - kind: extras
+              live_id: 11998
             - kind: metadata
+              live_id: 11999
             - kind: fbc
+          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/55
         upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.17.35,4.17.36,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15,4.18.16,4.18.17,4.18.18,4.18.19,4.18.20,4.18.21
       rhcos:
         rhel-coreos:
@@ -29,8 +33,8 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:565f97a9f9f6ef3303ef853b726603ee870720d0b2f1ec78ed51f85c9aacdb89
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:075ae1cee488398ee7ac24fda6c7100bf13f487a700e920deb72cc8e4bd3e013
       members:
-        rpms: [ ]
-        images: [ ]
+        rpms: []
+        images: []
   4.18.21:
     assembly:
       type: standard
