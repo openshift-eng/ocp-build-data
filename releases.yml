@@ -33,7 +33,17 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:29197ad5d67da17e0794b1efc31ab845ef874a39f2ca9929b4f632fbb1dccad5
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-secrets-store-csi-driver-operator
+            why: Pin good operator build
+            metadata:
+              is:
+                nvr: ose-secrets-store-csi-driver-operator-container-v4.19.0-202507280852.p2.gd830230.assembly.stream.el9
+          - distgit_key: sriov-network-operator
+            why: Pin good operator build
+            metadata:
+              is:
+                nvr: sriov-network-operator-container-v4.19.0-202507280852.p2.gdc77dbc.assembly.stream.el9
   4.19.6:
     assembly:
       type: standard
