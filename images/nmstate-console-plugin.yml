@@ -56,8 +56,8 @@ owners:
 konflux:
   cachito:
     mode: emulation
-  network_mode: open # fails due to npm install -g https://github.com/...
   cachi2:
     artifact_lockfile:
       resources:
-      - name: ca-certificates
+      - https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+      - https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
