@@ -1,4 +1,57 @@
 releases:
+  ec.5:
+    assembly:
+      type: preview
+      basis:
+        time: "2025-07-28T10:25:56+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2025-07-28-153905
+      group:
+        advisories:
+          rpm: 149403
+          microshift: 151969
+        release_jira: ART-12824
+        operator_index_mode: pre-release
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+            - kind: prerelease
+          env: stage
+        release_date: 2025-Oct-30
+        upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b62d338d37521f73b2952465b17eaa0c36a98b79e2162fc7273eab557e9ac585
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:567dcf48440d2eb8489d1501d3a828f7c2445d4c0132e258f4be001a9a9c0f5a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ccfd48380588a1b1b21387119bf10120d48ffae8c7b0c4a5ebd42ea42a5174b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2f33ca6408f2d3118aec821ea6283d1d554a8e57e5a0e8ab32b5fb3c8bc9bc6c
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:118618e7bc4036dfe0918d8db4623bce4e25ae0b0e11e3862af28c92e9478d23
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5f417910e97905e8302bfc07c32c5e314a370c27dfe4f1917ed66857797b9e08
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80f22780ba53de72fd5519bdd9187c6d0a57ceb1e2a6144f1d44ce4c6cbb8129
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:812bca65f5c05831c94e688a46b5318784cb1d5d4e89490f7ccc25f5cd3810b7
+      members:
+        rpms: []
+        images: []
+      permits:
+        # for ECs and RCs this should not block us if some rpms version not match desired
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-api-server'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-node-agent'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-frr'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: 'rhcos'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: 'rhcos'
   ec.4:
     assembly:
       type: preview
