@@ -9,10 +9,10 @@ content:
     modifications:
     - action: replace
       match: "ARG BASE_IMAGE_URL"
-      replacement: "ARG BASE_IMAGE_URL='registry.redhat.io/rhel9-eus/rhel-9.4-bootc'"
+      replacement: "ARG BASE_IMAGE_URL=registry.redhat.io/rhel9-eus/rhel-9.6-bootc"
     - action: replace
       match: "ARG BASE_IMAGE_TAG"
-      replacement: "ARG BASE_IMAGE_TAG='9.4'"
+      replacement: "ARG BASE_IMAGE_TAG=9.6"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -28,8 +28,8 @@ delivery:
 for_release: false
 for_payload: false
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-96-baseos-rpms
+- rhel-96-appstream-rpms
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-microshift-rpms
 name: openshift/microshift-bootc-rhel9
