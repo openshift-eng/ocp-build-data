@@ -18,7 +18,7 @@ COPY internal/controller/ internal/controller/
 # Build
 RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -a -o manager cmd/main.go
 
-FROM registry.ci.openshift.org/ocp/4.18:base-rhel9
+FROM registry.ci.openshift.org/ocp/builder:rhel-9-base-openshift-4.18
 WORKDIR /
 COPY --from=builder /workspace/manager .
 USER 65532:65532
