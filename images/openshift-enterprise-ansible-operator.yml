@@ -56,3 +56,23 @@ konflux:
   network_mode: open
   cachi2:
     enabled: false
+    artifact_lockfile:
+      resources:
+      - https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+    lockfile:
+      rpms:
+      - binutils
+      - binutils-gold
+      - cpp
+      - elfutils-debuginfod-client
+      - gcc
+      - glibc
+      - glibc-headers
+      - glibc-devel
+      - kernel-headers
+      - libasan
+      - libatomic
+      - libmpc
+      - libubsan
+      - libxcrypt-devel
+      - make
