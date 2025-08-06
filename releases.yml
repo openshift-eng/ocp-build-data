@@ -35,7 +35,12 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:560e89d2290c6fe652f69cddca20bbbe08a129c204497cbb44e524131ba2093a
       members:
         rpms: []
-        images: []
+        images: 
+          - distgit_key: ose-metallb
+            why: Pin build
+            metadata:
+              is:
+                nvr: ose-metallb-container-v4.14.0-202507250306.p0.g990fd37.assembly.stream.el9
   4.14.54:
     assembly:
       type: standard
