@@ -1,4 +1,41 @@
 releases:
+  ec.6:
+    assembly:
+      type: preview
+      basis:
+        time: "2025-08-08T07:10:16+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2025-08-08-075412
+      group:
+        advisories:
+          rpm: 149403
+          microshift: 151969
+        release_jira: ART-12824
+        operator_index_mode: pre-release
+        shipment:
+          advisories:
+            - kind: fbc
+            - kind: prerelease
+          env: stage
+          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/62
+        release_date: 2025-Oct-30
+        upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4,4.20.0-ec.5
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b20928fb8670aa0a6c2afc46e6d357370a6229e3f59c0384315f4087bdcc6ddd
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:335ad0203172cdac8d10c89decbb3a8ef6bb96318be623a7855100ab90c4e773
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a210c415c557f60b1c651512ada4eb8ad38c10c4f500282152d5cec0d81ad508
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bccff997be909546b2ec1e2a65efdba0147fbb9d445b9da76daab3bfecfd5361
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ad7d93d19863ed71b1e6bd2b9d596265a72df2a4de100b8b572d296b85f1c100
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7bc5da9cf86f9760fceb24e3d713b14192e15bf012fa030629562ec0d6addb4e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e974de87e0a0220df4c808166e7f897b989ed0a8d81a2027bc0ee0e56d0749df
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5ba6be2f50d181dafc4c9685389cf0b5a2b8a53760501bc0e4f41ad70dbb0fd2
+      members:
+        rpms: []
+        images: []
   ec.5:
     assembly:
       type: preview
