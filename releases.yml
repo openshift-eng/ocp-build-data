@@ -1,4 +1,42 @@
 releases:
+  4.19.9:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-08-13T06:08:43+00:00"
+        reference_releases:
+          s390x: 4.19.0-0.nightly-s390x-2025-08-13-072032
+          aarch64: 4.19.0-0.nightly-arm64-2025-08-13-072040
+          ppc64le: 4.19.0-0.nightly-ppc64le-2025-08-13-072033
+          x86_64: 4.19.0-0.nightly-2025-08-13-120509
+      group:
+        advisories:
+          rpm: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2025-Aug-19
+        upgrades: 4.18.19,4.18.20,4.18.21,4.18.22,4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7384a08d1327d5229510cbe24207f25b3c1e631ce9e6d1608f3dccd50aa15534
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eebffee6285fc10561e6998abce0bfde5c49d1020e4c7a18ce32fd37140d48fb
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5f3a9cd97a62063c2b01df3e32d5b8723674012aeb71b745d562e9646e313167
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5fe58edc3805c840a1df80afe7345d2c70877c0cdb9fcf17765c6174b4d4370d
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0f9de8068fa54bd0d197fa43b7296820b7f418608684fcb73a59e664484fb45b
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6757a9d43d08ac7f3d9c88666a1b2c4cf3c4ddb191cc030fd58497b2d95c56a6
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e7c80570871be323c54a2db953cf0e3587eebeee738658d2c5ba574bd65f3c5c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b547c6896641d4d21f0e34c4074001ed07ea5471842fe2a70b3dd7b09cfda705
+      members:
+        rpms: []
+        images: []
   4.19.8:
     assembly:
       type: standard
