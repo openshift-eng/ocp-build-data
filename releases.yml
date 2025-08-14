@@ -9,6 +9,12 @@ releases:
           aarch64: 4.19.0-0.nightly-arm64-2025-08-13-072040
           ppc64le: 4.19.0-0.nightly-ppc64le-2025-08-13-072033
           x86_64: 4.19.0-0.nightly-2025-08-13-120509
+      issues:
+        include:
+          - id: OCPBUGS-58910
+            # why: RHCOS bug needs to be explicitly included
+          - id: OCPBUGS-58900
+            # why: RHCOS bug needs to be explicitly included
       group:
         advisories:
           rpm: 153556
