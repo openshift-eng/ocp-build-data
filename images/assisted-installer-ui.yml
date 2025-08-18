@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: apps/assisted-disconnected-ui/Containerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/assisted-installer-ui.git
+      web: https://github.com/openshift/assisted-installer-ui
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: assisted-installer-ui-container
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/assisted-installer-ui-rhel9
+owners:
+- afasano@redhat.com, bfournie@redhat.com, ppinjark@redhat.com, rwsu@redhat.com@redhat.com
