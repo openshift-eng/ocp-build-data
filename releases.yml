@@ -8,7 +8,7 @@ releases:
           x86_64: 4.17.0-0.nightly-2025-08-15-082131
       group:
         advisories:
-          rpm: -1
+          rpm: 153615
           rhcos: -1
         release_jira: ART-14004
         shipment:
@@ -170,7 +170,7 @@ releases:
       issues:
         exclude:
           - id: OCPBUGS-37369
-            # why: no access to the issue   
+            # why: no access to the issue
       promotion_permits:
         - code: INVALID_ERRATA_STATUS
           why: Advisory 151176 cannot move to QE because what should be a test flake. Willfully ignoring to allow promotion.
