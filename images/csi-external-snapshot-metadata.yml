@@ -19,18 +19,15 @@ distgit:
   component: csi-external-snapshot-metadata-container
 delivery:
   # Maps to honeybadger repo_name
-  repo_name: csi-external-snapshot-metadata 
+  repo_name: ose-csi-external-snapshot-metadata
   delivery_repo_names:
-  - openshift4/csi-external-snapshot-metadata-rhel9
-enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+  - openshift4/ose-csi-external-snapshot-metadata-rhel9
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/csi-external-snapshot-metadata-rhel9
+name: openshift/ose-csi-external-snapshot-metadata-rhel9
 payload_name: csi-external-snapshot-metadata
 name_in_bundle: csi-external-snapshot-metadata
 owners:
