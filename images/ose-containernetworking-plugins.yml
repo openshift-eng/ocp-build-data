@@ -24,6 +24,10 @@ delivery:
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
+konflux:
+  cachi2:
+    lockfile:
+      inspect_parent: false
 for_payload: true
 from:
   builder:
@@ -39,5 +43,3 @@ owners:
 - fpan@redhat.com
 - tohayash@redhat.com
 - dcbw@redhat.com
-konflux:
-  network_mode: open
