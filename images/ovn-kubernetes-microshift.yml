@@ -36,7 +36,7 @@ scan_sources:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.24
   member: ovn-kubernetes-base
 labels:
   License: GPLv2+
@@ -49,3 +49,4 @@ owners:
 - aos-networking-staff@redhat.com
 konflux:
   network_mode: open
+canonical_builders_from_upstream: true
