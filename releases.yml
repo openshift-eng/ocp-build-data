@@ -3,9 +3,12 @@ releases:
     assembly:
       type: standard
       basis:
-        time: "2025-08-15T06:30:03+00:00"
+        time: "2025-08-20T14:26:22+00:00"
         reference_releases:
-          x86_64: 4.17.0-0.nightly-2025-08-15-082131
+          ppc64le: 4.17.0-0.nightly-ppc64le-2025-08-20-175013
+          s390x: 4.17.0-0.nightly-s390x-2025-08-20-175012
+          aarch64: 4.17.0-0.nightly-arm64-2025-08-20-175013
+          x86_64: 4.17.0-0.nightly-2025-08-20-184658
       group:
         advisories:
           rpm: 153615
@@ -14,11 +17,8 @@ releases:
         shipment:
           advisories:
             - kind: image
-              live_id: 14060
             - kind: extras
-              live_id: 14061
             - kind: metadata
-              live_id: 14062
             - kind: fbc
           url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/69
         release_date: 2025-Aug-27
