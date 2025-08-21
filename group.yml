@@ -199,10 +199,10 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8-embargoed/latest/x86_64/os/
       # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
@@ -220,10 +220,10 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/x86_64/os/
       ci_alignment:
         profiles:
         - el8
@@ -347,10 +347,10 @@ repos:
       extra_options:
         module_hotfixes: 1
       baseurl:
-        aarch64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/"
-        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/"
-        s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/"
-        x86_64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/"
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
       ci_alignment:
         profiles:
         - el9
@@ -369,10 +369,10 @@ repos:
       extra_options:
         module_hotfixes: 1
       baseurl:
-        aarch64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/"
-        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/"
-        s390x: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/"
-        x86_64: "https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/"
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/
       ci_alignment:
         profiles:
         - el9
@@ -393,10 +393,10 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9-embargoed/latest/x86_64/os/
       # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
@@ -414,10 +414,10 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/x86_64/os/
       ci_alignment:
         profiles:
         - el9
@@ -435,10 +435,10 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10-embargoed/latest/x86_64/os/
       # Do not add ci_alignment here. These RPMs should not be installed except for internal builds.
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-10-x86_64-rpms
@@ -456,10 +456,10 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el10/latest/x86_64/os/
       ci_alignment:
         profiles:
         - el10
@@ -475,10 +475,10 @@ repos:
       extra_options:
         module_hotfixes: 1  # play nicely with modules
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/s390x/os
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/ironic-el9/latest/x86_64/os/
       ci_alignment:
         profiles:
         - el9
@@ -519,11 +519,11 @@ repos:
       extra_options:
         module_hotfixes: 1
       baseurl:
-        x86_64: "https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/"
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
         # Kernel RT is x86 only, so use same repo as a dummy for other arches.
-        aarch64: "https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/"
-        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/"
-        s390x: "https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/"
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
 
     content_set:
       default: rhel-9-for-x86_64-rt-e4s-rpms__9_DOT_4
@@ -538,10 +538,10 @@ repos:
         includepkgs: microshift* openshift-clients cri-tools cri-o # only pick up these rpms from this repo, microshift and its dependencies
         module_hotfixes: 1  # play nicely with modules
       baseurl:
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/x86_64/os
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/aarch64/os
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/ppc64le/os
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/s390x/os
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/x86_64/os/
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/microshift-el9/latest/s390x/os/
       ci_alignment:
         profiles:
         - el9
@@ -574,10 +574,10 @@ repos:
   rhel-96-appstream:
     conf:
       baseurl:
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/os
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/os
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/appstream/os
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/appstream/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/appstream/os/
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -592,10 +592,10 @@ repos:
     conf:
       baseurl:
         # This is only available for x86_64, making the others not 404
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
-        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -606,10 +606,10 @@ repos:
   rhel-96-highavailability:
     conf:
       baseurl:
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/highavailability/os
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/highavailability/os
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/highavailability/os
-        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/highavailability/os
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/highavailability/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/highavailability/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/highavailability/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/highavailability/os/
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -622,10 +622,10 @@ repos:
   rhel-10-baseos:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/s390x/os
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/x86_64/os/
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/aarch64/os/
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/ppc64le/os/
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/BaseOS/s390x/os/
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -636,10 +636,10 @@ repos:
   rhel-10-appstream:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os
-        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os
-        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os/
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os/
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os/
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/AppStream/x86_64/os/
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -651,10 +651,10 @@ repos:
     conf:
       baseurl:
         # This is only available for x86_64, making the others not 404
-        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
-        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
-        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os/
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os/
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os/
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/NFV/x86_64/os/
       extra_options:
         gpgcheck: "1"
     content_set:
@@ -665,10 +665,10 @@ repos:
   rhel-10-highavailability:
     conf:
       baseurl:
-        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/x86_64/os
-        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/aarch64/os
-        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/ppc64le/os
-        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/s390x/os
+        x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/x86_64/os/
+        aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/aarch64/os/
+        ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/ppc64le/os/
+        s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.1/compose/HighAvailability/s390x/os/
       extra_options:
         gpgcheck: "1"
     content_set:
