@@ -32,6 +32,10 @@ enabled_repos:
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
+konflux:
+  cachi2:
+    lockfile:
+      inspect_parent: false
 scan_sources:
   # ovn-kubernetes uses pins in the Dockerfile.
   # We should configure exemptions for those known pins to avoid meaningless rebuild.
@@ -53,5 +57,3 @@ name: openshift/ose-ovn-kubernetes-rhel9
 payload_name: ovn-kubernetes
 owners:
 - aos-networking-staff@redhat.com
-konflux:
-  network_mode: open
