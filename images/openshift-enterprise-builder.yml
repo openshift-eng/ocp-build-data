@@ -22,6 +22,10 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
+konflux:
+  cachi2:
+    lockfile:
+      inspect_parent: false
 for_payload: true
 from:
   builder:
@@ -36,5 +40,3 @@ name: openshift/ose-docker-builder-rhel9
 payload_name: docker-builder
 owners:
 - openshift-build-api@redhat.com
-konflux:
-  network_mode: open
