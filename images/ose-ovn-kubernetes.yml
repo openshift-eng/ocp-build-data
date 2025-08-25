@@ -36,6 +36,7 @@ konflux:
   cachi2:
     lockfile:
       inspect_parent: false
+  network_mode: open  # cannot install signed rpms from unreleased ose-rpms repo
 scan_sources:
   # ovn-kubernetes uses pins in the Dockerfile.
   # We should configure exemptions for those known pins to avoid meaningless rebuild.
