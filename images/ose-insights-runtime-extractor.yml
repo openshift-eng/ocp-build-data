@@ -33,4 +33,32 @@ name: openshift/insights-runtime-extractor-rhel9
 owners:
 - jmesnil@redhat.com
 konflux:
-  network_mode: open
+  network_mode: open open # lockfile
+  cachi2:
+    lockfile:
+      inspect_parent: false
+      rpms:
+      - binutils
+      - binutils-gold
+      - cpp
+      - elfutils-debuginfod-client
+      - gcc
+      - gcc-c++
+      - libstdc++-devel
+      - glibc
+      - glibc-headers
+      - glibc-devel
+      - kernel-headers
+      - libasan
+      - libatomic
+      - libmpc
+      - libubsan
+      - libxcrypt-devel
+      - make
+      - rust-toolset
+      - rustfmt
+      - cargo
+      - rust
+      - rust-std-static
+      - llvm-compat-libs
+      - llvm-libs
