@@ -35,7 +35,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6dd159f42b42186ec252e225345c8aa56f80b02484dd1c878d2f16d1600125c3
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: dpu-operator
+            metadata:
+              is:
+                nvr: dpu-operator-container-v4.20.0-202508132303.p2.g7d03c6b.assembly.stream.el9
+            why: Pinning to align with recent success reference dpu-daemon build
       permits:
         # for ECs and RCs this should not block us if some rpms version not match desired
         - code: CONFLICTING_INHERITED_DEPENDENCY
