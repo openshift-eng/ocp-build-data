@@ -8,16 +8,12 @@ releases:
           x86_64: 4.20.0-0.nightly-2025-08-18-192426
       group:
         advisories:
-          rhcos: -1
           rpm: 149403
           microshift: 151969
         release_jira: ART-12824
         operator_index_mode: pre-release
         shipment:
           advisories:
-            - kind: image
-            - kind: extras
-            - kind: metadata
             - kind: fbc
             - kind: prerelease
           env: stage
@@ -40,6 +36,24 @@ releases:
       members:
         rpms: []
         images: []
+      permits:
+        # for ECs and RCs this should not block us if some rpms version not match desired
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-api-server'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-node-agent'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-frr'
+        - code: MISMATCHED_SIBLINGS
+          component: 'dpu-daemon'
+        - code: MISMATCHED_SIBLINGS
+          component: 'ose-olm-catalogd'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: 'rhcos'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: 'rhcos'
   ec.5:
     assembly:
       type: preview
