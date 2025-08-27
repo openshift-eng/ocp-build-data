@@ -24,4 +24,4 @@ ENV PATH=$DNF_WRAPPER_DIR:$PATH
 # Add the doozer repos so that someone connected to the VPN can use those
 # repositories. The dnf_wrapper will enable these repos if it detects
 # it is not running on a build farm.
-ADD .oit/unsigned.repo $DNF_WRAPPER_DIR/
+ADD .oit/art-unsigned.repo $DNF_WRAPPER_DIR/unsigned.repo
