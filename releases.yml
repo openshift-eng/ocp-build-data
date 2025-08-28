@@ -37,7 +37,18 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a073552f25b52435994cee0273fbc9dbf7ef5fd305b0406cf57e4d9ffc60ce2c
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: nmstate-console-plugin
+            why: pin most recent build to fix operator rebase error
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.19.0-202508280858.p2.ge3d5438.assembly.stream.el9
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: pin most recent build to match latest operand build
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.19.0-202508280858.p2.gb49a6e5.assembly.stream.el9
+
   4.19.9:
     assembly:
       type: standard
