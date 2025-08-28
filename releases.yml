@@ -49,7 +49,10 @@ releases:
             metadata:
               is:
                 nvr: ose-kubernetes-nmstate-operator-container-v4.19.0-202508280858.p2.gb49a6e5.assembly.stream.el9
-
+      issues:
+        exclude:
+          # The component openshift4/ose-operator-sdk-rhel9 has been deprecated for version 4.19+.
+          - id: OCPBUGS-60453
   4.19.9:
     assembly:
       type: standard
