@@ -43,6 +43,32 @@ rhel-9-golang:
   upstream_image_mirror:
     - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
 
+rhel-9-golang-1.23:
+  aliases:
+    - rhel-9-golang-{GO_EXTRA}
+  image: openshift/golang-builder:v1.23.9-202506111225.g6c23478.el9
+  mirror: true
+  transform: rhel-9/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+    - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
+
+rhel-8-golang-1.23:
+  aliases:
+    - rhel-8-golang-{GO_EXTRA}
+  image: openshift/golang-builder:v1.23.9-202506111440.gdd3c620.el8
+  mirror: true
+  transform: rhel-8/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+    - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
+
 ibm-rhel-9-golang-1.21:
   # Mirror non-embargoed golang builders for IBM
   image: openshift/golang-builder:v1.21.13-202507041112.g5ebadc3.el9
@@ -74,6 +100,24 @@ rhel-9-golang-ci-build-root:
   upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
   transform: rhel-9/ci-build-root
   upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.21-openshift-{MAJOR}.{MINOR}
+
+# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# Our transform is designed to create a buildconfig atop a specific golang version, layering on
+# packages that upstream has traditionally had present in its build_roots.
+rhel-8-golang-1.23-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
+  transform: rhel-8/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-8-release-golang-1.23-openshift-{MAJOR}.{MINOR}
+
+# This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
+# Our transform is designed to create a buildconfig atop a specific golang version, layering on
+# packages that upstream has traditionally had present in its build_roots.
+rhel-9-golang-1.23-ci-build-root:
+  image: not_applicable
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.23-openshift-{MAJOR}.{MINOR}
+  transform: rhel-9/ci-build-root
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.23-openshift-{MAJOR}.{MINOR}
 
 # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
 # approval to diverge from what kube apiserver uses for a given release.
