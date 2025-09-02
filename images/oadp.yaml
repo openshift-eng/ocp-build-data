@@ -1,3 +1,7 @@
+cachito:
+  packages:
+    gomod:
+      - path: oadp-operator/oadp-operator
 content:
   source:
     path: oadp-operator
@@ -13,6 +17,9 @@ delivery:
   - oadp/oadp-rhel9-operator
 for_payload: false
 for_release: false
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
 from:
   builder:
     - stream: rhel-9-golang
