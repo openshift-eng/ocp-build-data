@@ -15,13 +15,13 @@ content:
         - lgtm
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-  component: ose-must-gather-operator-container
-  bundle_component: ose-must-gather-operator-bundle-container
+  component: ose-support-log-gather-operator-container
+  bundle_component: ose-support-log-gather-operator-bundle-container
 delivery:
-  repo_name: ose-must-gather-operator
-  bundle_delivery_repo_name: openshift4/ose-must-gather-operator-bundle
+  repo_name: ose-support-log-gather-operator
+  bundle_delivery_repo_name: openshift4/ose-support-log-gather-operator-bundle
   delivery_repo_names:
-  - openshift4/ose-must-gather-rhel9-operator
+  - openshift4/ose-support-log-gather-rhel9-operator
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -30,8 +30,8 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-must-gather-rhel9-operator
-name_in_bundle: must-gather-operator
+name: openshift/ose-support-log-gather-rhel9-operator
+name_in_bundle: support-log-gather-operator
 owners:
 - openshift-oap-tech-team@redhat.com
 update-csv:
