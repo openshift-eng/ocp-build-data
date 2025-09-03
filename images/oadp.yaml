@@ -1,13 +1,9 @@
-cachito:
-  packages:
-    gomod:
-      - path: oadp-operator/oadp-operator
 content:
   source:
-    path: oadp-operator
+    dockerfile: Dockerfile.oadp
     git:
       branch:
-        target: oadp-1.3
+        target: oadp-1.5
       url: git@github.com:openshift-priv/migtools-konflux-build-data.git
       web: https://github.com/migtools/konflux-build-data
 distgit:
