@@ -1,0 +1,12 @@
+# Global plashet config
+# Full dir: $MAJOR.$MINOR/$runtime_assembly/$slug/$yyyy-$mm/$revision/$arch/os
+# e.g. 4.20/stream/el10-embargoed/2025-08/202508272328/x86_64/os
+# Symlink is created at 4.20/stream/el10-embargoed/latest
+base_dir: "{MAJOR}.{MINOR}/$runtime_assembly/$slug"
+plashet_dir: "$yyyy-$MM/$revision"
+create_symlinks: true
+symlink_name: "latest"
+create_repo_subdirs: true
+repo_subdir: "os"
+arches: ["x86_64", "s390x", "ppc64le", "aarch64"]
+download_url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/$runtime_assembly/$slug/latest/$arch/os/

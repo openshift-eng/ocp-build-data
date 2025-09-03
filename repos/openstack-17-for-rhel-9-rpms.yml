@@ -1,0 +1,16 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/openstack/17.1/os/
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+  content_set:
+    default: openstack-17.1-for-rhel-9-x86_64-rpms
+    optional: true
+  name: openstack-17-for-rhel-9-rpms
+  type: external
