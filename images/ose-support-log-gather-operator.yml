@@ -1,0 +1,41 @@
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/must-gather-operator.git
+      web: https://github.com/openshift/must-gather-operator
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+        auto_label:
+        - approved
+        - lgtm
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-support-log-gather-operator-container
+  bundle_component: ose-support-log-gather-operator-bundle-container
+delivery:
+  repo_name: ose-support-log-gather-operator
+  bundle_delivery_repo_name: openshift4/ose-support-log-gather-operator-bundle
+  delivery_repo_names:
+  - openshift4/ose-support-log-gather-rhel9-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-support-log-gather-rhel9-operator
+name_in_bundle: support-log-gather-operator
+owners:
+- openshift-oap-tech-team@redhat.com
+update-csv:
+  bundle-dir: 'tech-preview/'
+  manifests-dir: bundle/manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
