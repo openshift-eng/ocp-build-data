@@ -1,4 +1,17 @@
-name: rhel-9-golang-1.23
+name: oadp-1.5
+
+vars:
+  # The go versions used by the various CI builder images.
+  # WARNING: When updating GO_* vars, update streams.yml so that streams referencing
+  #          the corresponding {GO_*} vars to point to an image that actually provides
+  #          the level of go specified by the variable.
+  #          For example, if GO_LATEST=1.21, `image:` must point to a 1.21 golang.
+  #             rhel-9-golang:
+  #               aliases:
+  #               - rhel-9-golang-{GO_LATEST}
+  #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
+  GO_LATEST: "1.24"
+  GO_EXTRA: "1.24"  # There is no extra version at this time, so just duplicate latest.
 
 arches:
 - x86_64
@@ -6,50 +19,7 @@ arches:
 - s390x
 - aarch64
 
-vars:
-  MAJOR: 4
-  MINOR: 19
-
-urls:
-  brewhub: https://brewhub.engineering.redhat.com/brewhub
-  brew_image_host: registry-proxy.engineering.redhat.com
-  brew_image_namespace: rh-osbs
-  cgit: https://pkgs.devel.redhat.com/cgit
-
-insecure_source: true
-
-branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-default_image_build_method: osbs2
-
-# To prevent from being garbage collected, builds should be tagged with a -hotfix tag.
-default_image_build_profile: unsigned
-build_profiles:
-  image:
-    unsigned:
-      signing_intent: unsigned
-      repo_type: unsigned
-      targets:
-        - rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
-
 repos:
-  rhel-9-golang-rpms:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-        includepkgs: module-build-macros golang* goversioninfo
-      baseurl:
-        aarch64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
-        ppc64le: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
-        s390x: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/s390x/
-        x86_64: https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/x86_64/
-    # These content sets are not used, so just putting something here
-    content_set:
-      default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
-      aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
-      ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
-      s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
-      optional: true
-
   rhel-9-baseos-rpms:
     conf:
       baseurl:
