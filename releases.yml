@@ -35,6 +35,22 @@ releases:
       members:
         rpms: []
         images: []
+      permits:
+        # for ECs and RCs this should not block us if some rpms version not match desired
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-api-server'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-agent-installer-node-agent'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-frr'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-machine-config-operator'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: 'rhcos'
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: 'rhcos'
   ec.6:
     assembly:
       type: preview
