@@ -1,0 +1,41 @@
+- conf:
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    aarch64: rhocp-4.21-for-rhel-9-aarch64-rpms
+    default: rhocp-4.21-for-rhel-9-x86_64-rpms
+    optional: true
+    ppc64le: rhocp-4.21-for-rhel-9-ppc64le-rpms
+    s390x: rhocp-4.21-for-rhel-9-s390x-rpms
+  name: rhel-9-server-ose-rpms-embargoed
+  plashet:
+    assembly_aware: true
+    embargo_aware: true
+    include_embargoed: true
+    include_previous_packages:
+    - conmon
+    - cri-o
+    - cri-tools
+    - crun
+    - haproxy
+    - ignition
+    - kernel
+    - kernel-rt
+    - libreswan
+    - nmstate
+    - openshift
+    - openvswitch
+    - ovn
+    - podman
+    - python3-openvswitch
+    - spdlog
+    slug: el9-embargoed
+    source:
+      embargoed_tags:
+      - rhaos-{MAJOR}.{MINOR}-rhel-9-embargoed
+      from_tags:
+      - name: rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+        product_version: OSE-{MAJOR}.{MINOR}-RHEL-9
+        release_tag: rhaos-{MAJOR}.{MINOR}-rhel-9
+      type: brew
+  type: plashet

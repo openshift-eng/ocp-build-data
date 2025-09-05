@@ -1,0 +1,20 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
+    default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
+    ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
+    s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
+  name: rhel-9-baseos-rpms
+  type: external
