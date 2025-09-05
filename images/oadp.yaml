@@ -1,0 +1,32 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+      - path: restic
+content:
+  source:
+    dockerfile: Dockerfile.oadp
+    git:
+      branch:
+        target: asdas-dev-velero
+      url: git@github.com:openshift-priv/migtools-konflux-build-data.git
+      web: https://github.com/migtools/konflux-build-data
+distgit:
+  component: oadp-operator-container
+delivery:
+  delivery_repo_names:
+  - oadp/oadp-rhel9-operator
+for_payload: false
+for_release: false
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: migtools/oadp
+owners:
+- rjohnson@redhat.com
+konflux:
+  network_mode: open
