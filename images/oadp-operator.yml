@@ -12,6 +12,7 @@ content:
       web: https://github.com/openshift/oadp-operator
 distgit:
   component: oadp-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - oadp/oadp-rhel9-operator
@@ -23,14 +24,9 @@ enabled_repos:
 from:
   builder:
     - stream: rhel-9-golang
-  member: rhel9
+  stream: rhel9
 name: oadp/oadp-rhel9-operator
 owners:
 - rjohnson@redhat.com
 konflux:
   network_mode: open
-update-csv:
-  bundle-dir: ''
-  manifests-dir: manifests/
-  registry: image-registry.openshift-image-registry.svc:5000
-  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
