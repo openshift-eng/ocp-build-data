@@ -14,8 +14,12 @@ releases:
         release_jira: ART-12824
         shipment:
           advisories:
-            - kind: fbc
-            - kind: prerelease
+            - kind: image
+              live_id: 9562
+            - kind: extras
+              live_id: 9563
+            - kind: metadata
+              live_id: 9564
           env: stage
           url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/101
         release_date: 2025-Oct-30
