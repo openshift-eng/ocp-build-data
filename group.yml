@@ -19,6 +19,25 @@ arches:
 - s390x
 - aarch64
 
+konflux:
+  arches:
+  - x86_64
+  - aarch64
+  - s390x
+  - ppc64le
+  cachi2:
+    enabled: true
+    gomod_version_patch: true
+    lockfile:
+      force: true
+  sast:
+    enabled: true
+  network_mode: hermetic
+
+public_upstreams:
+- private: "https://github.com/openshift-priv"
+  public:  "https://github.com/openshift"
+
 repos:
   rhel-9-baseos-rpms:
     conf:
