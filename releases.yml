@@ -1,4 +1,49 @@
 releases:
+  rc.1:
+    assembly:
+      type: candidate
+      basis:
+        time: "2025-09-08T17:29:02+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2025-09-08-182033
+      group:
+        advisories:
+          rpm: 149403
+          rhcos: 154250
+          microshift: 151969
+        release_jira: ART-12824
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 9562
+            - kind: extras
+              live_id: 9563
+            - kind: metadata
+              live_id: 9564
+          env: stage
+        release_date: 2025-Oct-30
+        upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4,4.20.0-ec.5,4.20.0-ec.6,4.20.0-rc.0
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b46a72650865b24c4bcc241b4d2a85fbd6c2aa4b3a59b4911b84d26bafae3e04
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7cbd66851bd37083d3728ad002516864325b2529cb1ea2d3d49889c9f2098ba2
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:40fb11e271ae67d90e30356d9427ad542e84aa57ff2b60f0a6c0582e7a758cd7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:79425642dc0051c2be3ba19daa39af8e33ec0e0a03619009b170c8ae61a250a1
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fc761ffba189fb7236cc470a620b4197292e4d30239f78c4c0406fa26184cf3b
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3d51aaa64cd9548f7ffa4d5843c955a948f88e4b61868f10c60aae3b099851bb
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f0bc3b6138e5434e81bfc932b6919598ce96bdd3cd6b83e713ee75abc44c69db
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:478ecde48b4ea04f9d4c0d5cb9216505c90ab0f2688f030377652d584683a38c
+      members:
+        rpms:
+          - distgit_key: openshift-clients
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                el9: openshift-clients-4.20.0-202509011459.p2.ga434281.assembly.stream.el9
+        images: []
   rc.0:
     assembly:
       type: candidate
