@@ -46,6 +46,22 @@ releases:
                 el9: openshift-clients-4.20.0-202509011459.p2.ga434281.assembly.stream.el9
                 el10: openshift-clients-4.20.0-202509011459.p2.ga434281.assembly.stream.el10
         images: []
+        permits:
+          # for ECs and RCs this should not block us if some rpms version not match desired
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: 'ose-agent-installer-api-server'
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: 'ose-agent-installer-node-agent'
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: 'ose-frr'
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: 'ose-machine-config-operator'
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: 'rhcos'
+          - code: CONFLICTING_GROUP_RPM_INSTALLED
+            component: 'rhcos'
+          - code: INCONSISTENT_RHCOS_RPMS
+            component: 'rhcos'
   rc.0:
     assembly:
       type: candidate
