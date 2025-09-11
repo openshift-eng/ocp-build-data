@@ -1,0 +1,21 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/aarch64/fast-datapath/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/ppc64le/fast-datapath/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/s390x/fast-datapath/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/fast-datapath/os/
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+  content_set:
+    aarch64: fast-datapath-for-rhel-9-aarch64-rpms
+    default: fast-datapath-for-rhel-9-x86_64-rpms
+    optional: true
+    ppc64le: fast-datapath-for-rhel-9-ppc64le-rpms
+    s390x: fast-datapath-for-rhel-9-s390x-rpms
+  name: rhel-9-fast-datapath-rpms
+  reposync:
+    enabled: true
+  type: external

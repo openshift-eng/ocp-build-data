@@ -1,0 +1,14 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/nfv/os/
+    extra_options:
+      gpgcheck: '1'
+  content_set:
+    default: rhel-9-for-x86_64-nfv-e4s-rpms__9_DOT_6
+  name: rhel-96-nfv
+  reposync:
+    enabled: true
+  type: external

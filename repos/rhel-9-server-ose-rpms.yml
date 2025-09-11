@@ -1,0 +1,43 @@
+- conf:
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    optional: true
+  name: rhel-9-server-ose-rpms
+  plashet:
+    assembly_aware: true
+    embargo_aware: true
+    include_previous_packages:
+    - conmon
+    - cri-o
+    - cri-tools
+    - crun
+    - haproxy
+    - ignition
+    - kernel
+    - kernel-rt
+    - libreswan
+    - nmstate
+    - openshift
+    - openvswitch
+    - ovn
+    - podman
+    - python3-openvswitch
+    - spdlog
+    slug: el9
+    source:
+      embargoed_tags:
+      - rhaos-{MAJOR}.{MINOR}-rhel-9-embargoed
+      from_tags:
+      - name: rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+        product_version: OSE-{MAJOR}.{MINOR}-RHEL-9
+        release_tag: rhaos-{MAJOR}.{MINOR}-rhel-9
+      type: brew
+  reposync:
+    latest_only: false
+  type: plashet

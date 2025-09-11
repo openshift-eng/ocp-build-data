@@ -1,0 +1,25 @@
+- conf:
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+    extra_options:
+      includepkgs: microshift* openshift-clients cri-tools cri-o
+      module_hotfixes: 1
+  content_set:
+    aarch64: rhocp-4.21-for-rhel-9-aarch64-rpms
+    default: rhocp-4.21-for-rhel-9-x86_64-rpms
+    optional: true
+  name: rhel-9-server-microshift-rpms
+  plashet:
+    assembly_aware: true
+    embargo_aware: true
+    slug: microshift-el9
+    source:
+      from_tags:
+      - name: rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+        product_version: OSE-{MAJOR}.{MINOR}-RHEL-9
+        release_tag: rhaos-{MAJOR}.{MINOR}-rhel-9
+      type: brew
+  type: plashet

@@ -1,0 +1,13 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.4/x86_64/rt/os/
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    default: rhel-9-for-x86_64-rt-e4s-rpms__9_DOT_4
+    optional: true
+  name: rhel-9-rt-rpms
+  type: external
