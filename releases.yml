@@ -11,9 +11,9 @@ releases:
           x86_64: 4.18.0-0.nightly-2025-09-10-135328
       group:
         advisories:
-          rpm: -1
+          rpm: 154448
           rhcos: -1
-        release_jira: ART-0
+        release_jira: ART-14103
         shipment:
           advisories:
             - kind: image
@@ -36,8 +36,8 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ceb6e0ff6747846d89041a018e7be327d994826003c3bbc5a8fef9befa1f382f
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5fdbbb5d45437afd5afef69c8389d560b98447c0c2167156e6cc9fc47df860b5
       permits:
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: '*'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
       members:
         rpms: []
         images: []
