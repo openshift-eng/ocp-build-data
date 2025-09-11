@@ -40,7 +40,11 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1a3e04294898cd8774f0cfb9b538af0dd300e260378381f1d7d00cc794cfd67c
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              for_release: false
+            why: yaml file for the component is not correct
   4.16.47:
     assembly:
       type: standard
