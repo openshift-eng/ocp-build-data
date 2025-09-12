@@ -1,0 +1,32 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: konflux.Dockerfile
+    git:
+      branch:
+        target: oadp-1.5
+      url: git@github.com:openshift-priv/openshift-velero-plugin.git
+      web: https://github.com/openshift/openshift-velero-plugin
+distgit:
+  component: oadp-velero-plugin-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - oadp/oadp-velero-plugin-rhel9
+for_payload: false
+for_release: false
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: oadp/oadp-velero-plugin-rhel9
+owners:
+- rjohnson@redhat.com
+konflux:
+  network_mode: open
