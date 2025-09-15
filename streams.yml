@@ -20,7 +20,7 @@
 golang:
   aliases:
     - rhel-8-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.20.12-202504121010.g92d4921.el8
+  image: openshift/golang-builder:v1.20.12-202507041122.g92d4921.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -33,7 +33,7 @@ golang:
 golang-1.21:
   aliases:
     - rhel-8-golang-1.21
-  image: openshift/golang-builder:v1.21.13-202504100942.g1ac3e39.el8
+  image: openshift/golang-builder:v1.21.13-202507080849.g73a5095.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -46,7 +46,7 @@ golang-1.21:
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.20.12-202504121010.g5488123.el9
+  image: openshift/golang-builder:v1.20.12-202507041122.g5488123.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -59,7 +59,7 @@ rhel-9-golang:
 rhel-9-golang-1.21:
   aliases:
     - rhel-9-golang-1.21
-  image: openshift/golang-builder:v1.21.13-202504100942.g5ebadc3.el9
+  image: openshift/golang-builder:v1.20.12-202507041122.g5488123.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -102,7 +102,7 @@ rhel-8-golang-ci-build-root-1.21:
 golang-1.19:
   aliases:
     - rhel-8-golang-1.19
-  image: openshift/golang-builder:v1.19.13-202410181055.gfa00de2.el8
+  image: openshift/golang-builder:v1.19.13-202507041126.gfa00de2.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -115,7 +115,7 @@ golang-1.19:
 etcd_rhel9_golang:
   aliases:
     - rhel-9-golang-{GO_EXTRA}
-  image: openshift/golang-builder:v1.19.13-202410181055.g3172d57.el9
+  image: openshift/golang-builder:v1.19.13-202507041126.g3172d57.el9
   mirror: false
   # No transform required as etcd does not yum install
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
