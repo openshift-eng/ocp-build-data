@@ -1,0 +1,18 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/baseos/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/baseos/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/baseos/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el8
+  content_set:
+    aarch64: rhel-8-for-aarch64-baseos-rpms__8
+    default: rhel-8-for-x86_64-baseos-rpms__8
+    ppc64le: rhel-8-for-ppc64le-baseos-rpms__8
+    s390x: rhel-8-for-s390x-baseos-rpms__8
+  name: rhel-8-baseos-rpms
+  type: external

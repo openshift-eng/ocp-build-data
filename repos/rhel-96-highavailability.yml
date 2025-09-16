@@ -1,0 +1,17 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/highavailability/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/highavailability/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/highavailability/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/highavailability/os/
+    extra_options:
+      gpgcheck: '1'
+  content_set:
+    aarch64: rhel-9-for-aarch64-highavailability-eus-rpms__9_DOT_6
+    default: rhel-9-for-x86_64-highavailability-eus-rpms__9_DOT_6
+    ppc64le: rhel-9-for-ppc64le-highavailability-eus-rpms__9_DOT_6
+    s390x: rhel-9-for-s390x-highavailability-eus-rpms__9_DOT_6
+  name: rhel-96-highavailability
+  reposync:
+    enabled: true
+  type: external

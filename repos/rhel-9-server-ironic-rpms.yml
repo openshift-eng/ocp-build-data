@@ -1,0 +1,34 @@
+- conf:
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    aarch64: rhocp-ironic-4.21-for-rhel-9-aarch64-rpms
+    default: rhocp-ironic-4.21-for-rhel-9-x86_64-rpms
+    optional: true
+    ppc64le: rhocp-ironic-4.21-for-rhel-9-ppc64le-rpms
+    s390x: rhocp-ironic-4.21-for-rhel-9-s390x-rpms
+  name: rhel-9-server-ironic-rpms
+  plashet:
+    assembly_aware: true
+    embargo_aware: true
+    include_previous_packages:
+    - openstack-ironic
+    - openstack-ironic-inspector
+    - openstack-ironic-python-agent
+    - python-ironic-lib
+    - python-sushy
+    slug: ironic-el9
+    source:
+      from_tags:
+      - name: rhaos-{MAJOR}.{MINOR}-ironic-rhel-9-candidate
+        product_version: OSE-IRONIC-4.21-RHEL-9
+        release_tag: rhaos-{MAJOR}.{MINOR}-ironic-rhel-9
+      type: brew
+  reposync:
+    latest_only: false
+  type: plashet
