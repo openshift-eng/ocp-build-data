@@ -2,20 +2,21 @@ cachito:
   packages:
     gomod:
       - path: .
+      - path: restic/
 content:
   source:
-    dockerfile: konflux.Dockerfile
+    dockerfile: konflux.velero-restore-helper.Dockerfile
     git:
       branch:
-        target: oadp-1.5
-      url: git@github.com:openshift-priv/hypershift-oadp-plugin.git
-      web: https://github.com/openshift/hypershift-oadp-plugin
+        target: oadp-1.4
+      url: git@github.com:openshift-priv/velero.git
+      web: https://github.com/openshift/velero
 distgit:
-  component: oadp-hypershift-velero-plugin-container
+  component: oadp-velero-restic-restore-helper-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - oadp/oadp-hypershift-velero-plugin-rhel9
+  - oadp/oadp-velero-restic-restore-helper-rhel9
 for_payload: false
 for_release: false
 enabled_repos:
@@ -25,7 +26,7 @@ from:
   builder:
     - stream: rhel-9-golang
   stream: rhel9
-name: oadp/oadp-hypershift-velero-plugin-rhel9
+name: oadp/oadp-velero-restic-restore-helper-rhel9
 owners:
 - rjohnson@redhat.com
 konflux:
