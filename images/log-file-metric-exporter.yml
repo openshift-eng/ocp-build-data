@@ -1,0 +1,22 @@
+content:
+  source:
+    git:
+      branch:
+        target: release-6.1
+      url: git@github.com:openshift-priv/log-file-metric-exporter.git
+      web: https://github.com/ViaQ/log-file-metric-exporter
+distgit:
+  component: log-file-metric-exporter-rhel9-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - openshift-logging/log-file-metric-exporter-rhel9
+for_payload: false
+for_release: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: openshift-logging/log-file-metric-exporter-rhel9
+owners:
+- jcantril@redhat.com
