@@ -26,6 +26,11 @@ releases:
           env: stage
         release_date: 2026-Jan-1
         upgrades: 4.20.0-rc.1,4.20.0-rc.2,4.20.0-rc.3
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
       rhcos:
         rhel-coreos:
           images:
