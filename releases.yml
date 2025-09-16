@@ -23,6 +23,11 @@ releases:
           env: stage
         release_date: 2025-Oct-30
         upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4,4.20.0-ec.5,4.20.0-ec.6,4.20.0-rc.0,4.20.0-rc.1
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: '*'
       rhcos:
         rhel-coreos:
           images:
