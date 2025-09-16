@@ -1,4 +1,47 @@
 releases:
+  ec.0:
+    assembly:
+      type: preview
+      basis:
+        time: "2025-09-08T01:31:35+00:00"
+        reference_releases:
+          ppc64le: 4.21.0-0.nightly-ppc64le-2025-09-08-035238
+          s390x: 4.21.0-0.nightly-s390x-2025-09-08-035233
+          aarch64: 4.21.0-0.nightly-arm64-2025-09-08-035244
+          x86_64: 4.21.0-0.nightly-2025-09-08-035253
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+          microshift: -1
+        release_jira: ART-0
+        operator_index_mode: pre-release
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+            - kind: prerelease
+          env: stage
+        release_date: 2026-Jan-1
+        upgrades: 4.20.0-rc.1,4.20.0-rc.2,4.20.0-rc.3
+      rhcos:
+        rhel-coreos:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:27cadc004a1a454a18ae2b6e8e3fd30bfeab3ebef151ea41a869bbc83b942273
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4c3ccc6c992da58e35be1460b9e83dfeac56caf42627f5a0d3959b5ad7ca8659
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:13c26488a89937f736ae9d3232fe75c0b325cef572c085a5ee19c73eb4b6b70f
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eb116198e37f8cd0d70217ebf224620455d5f1166e5e9973f6c969a24997a864
+        rhel-coreos-extensions:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8af21d32d83250e9ac97de32cae718fc32238aa737ff64c35e580c98eddca4db
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80697158ff65e9ae8612e39c86099dbadb213dd20474436852c153db570479db
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a4b9e86ba8fd44b09a5a9fda482770b850fd4aa9ab85e995d2f69900d31126a5
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2b568b6e1aca332f316bcd5119a7e22e76ec06db8891968187b58ce320081ced
+      members:
+        rpms: []
+        images: []
   stream:
     assembly:
       type: stream
