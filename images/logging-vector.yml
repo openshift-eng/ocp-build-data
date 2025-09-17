@@ -13,6 +13,9 @@ delivery:
   - openshift-logging/vector-rhel9
 for_payload: false
 for_release: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 from:
   builder:
     - stream: rhel-9-golang
