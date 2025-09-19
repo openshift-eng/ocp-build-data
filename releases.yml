@@ -4,11 +4,11 @@ releases:
       type: standard
       basis:
         time: "2025-09-18T02:22:04+00:00"
-        reference_releases:
-          ppc64le: 4.15.0-0.nightly-ppc64le-2025-09-18-025559
-          aarch64: 4.15.0-0.nightly-arm64-2025-09-18-025558
-          s390x: 4.15.0-0.nightly-s390x-2025-09-18-025558
-          x86_64: 4.15.0-0.nightly-2025-09-18-025557
+        reference_releases: {}
+          # ppc64le: 4.15.0-0.nightly-ppc64le-2025-09-18-025559
+          # aarch64: 4.15.0-0.nightly-arm64-2025-09-18-025558
+          # s390x: 4.15.0-0.nightly-s390x-2025-09-18-025558
+          # x86_64: 4.15.0-0.nightly-2025-09-18-025557
       group:
         advisories:
           rpm: 154650
@@ -47,7 +47,12 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0b3d9be4ff451f4b3141296d50c722c5cb682e3b220288d128ba1c7c7c20fc9f
       members:
         rpms: []
-        images: []
+        images: 
+          - distgit_key: ose-installer-artifacts
+            why: Pin build
+            metadata:
+              is:
+                nvr: ose-installer-artifacts-container-v4.15.0-202509181729.p2.g8bd1092.assembly.stream.el8
   4.15.57:
     assembly:
       type: standard
