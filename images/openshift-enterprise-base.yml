@@ -56,3 +56,7 @@ labels:
 name: openshift/ose-base
 owners:
 - lmeyer@redhat.com
+konflux:
+  # due to lacking logic to provide modules or having a base image that doesnt require modules
+  # https://issues.redhat.com/browse/ART-14111
+  network_mode: open
