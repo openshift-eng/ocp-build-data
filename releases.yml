@@ -17,6 +17,12 @@ releases:
         #   microshift: -1
         release_jira: ART-14107
         operator_index_mode: pre-release
+        dependencies:
+          rpms:
+          # For microshift bootc
+            - el9: cri-o-1.34.0-4.rhaos4.21.git941066d.el9
+              why: on request, microshift team
+              non_gc_tag: rhaos-4.21-rhel-9
         shipment:
           advisories:
             - kind: image
