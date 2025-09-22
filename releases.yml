@@ -51,10 +51,13 @@ releases:
       members:
         rpms:
           - distgit_key: microshift
-            why: Pin microshift to assembly
+            why: microshift team askes to use a specified commit
             metadata:
-              is:
-                el9: microshift-4.21.0~ec.0-202509221338.p0.g4aede49.assembly.ec.0.el9
+              content:
+                source:
+                  git:
+                    branch:
+                      target: a88f42833d122e0bd3c47e2eb43e25f6c5024f8e
         images: []
   stream:
     assembly:
