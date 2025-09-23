@@ -35,4 +35,21 @@ konflux:
     # ref thread: https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1743022042311039
     # can be removed after whilelist is in
     x86_64: linux/amd64
-  network_mode: open # lockfile
+  cachi2:
+    lockfile:
+      rpms:
+      - jq
+      - coreos-installer
+      - cryptsetup-libs
+      - device-mapper
+      - device-mapper-libs
+      - kbd
+      - kbd-legacy
+      - kbd-misc
+      - kmod
+      - kpartx
+      - oniguruma
+      - s390utils-core
+      - systemd-udev
+      inspect_parent: false
+  network_mode: open  # cannot install signed rpms from unreleased ose-rpms repo - ART-14122
