@@ -31,7 +31,7 @@ payload_name: machine-os-images
 owners:
 - metal-platform@redhat.com
 konflux:
-  network_mode: open # lockfile generator
+  network_mode: open  # fetch_image.sh script requires network access to download images in hermetic env - ART-14122
   vm_override:
     # ref thread: https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1743022042311039
     # can be removed after whilelist is in
