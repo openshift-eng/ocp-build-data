@@ -36,6 +36,7 @@ payload_name: agent-installer-api-server
 owners:
 - ocp-agent-team@redhat.com
 konflux:
+  network_mode: open  # lockfile
   cachi2:
     lockfile:
       inspect_parent: false
@@ -58,4 +59,3 @@ konflux:
       - libxcrypt-devel
       - make
       - nmstate-devel
-  network_mode: open  # modular metadata issue with postgresql packages - see ART-14111
