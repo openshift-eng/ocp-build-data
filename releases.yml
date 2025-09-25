@@ -41,7 +41,11 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e11356e2fcdcc6788384d0c000ab4400b5947a782d65cbc0bb04530c30368206
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              for_release: false
+            why: yaml file for the component is not correct
   4.16.48:
     assembly:
       type: standard
