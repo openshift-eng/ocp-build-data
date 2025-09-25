@@ -34,9 +34,9 @@ name: openshift/ose-hyperkube-rhel9
 owners:
 - aos-master@redhat.com
 konflux:
-  network_mode: open
   cachi2:
-    enabled: false
+    lockfile:
+      inspect_parent: false
 delivery:
   delivery_repo_names:
   - openshift4/ose-hyperkube-rhel9
