@@ -1,4 +1,54 @@
 releases:
+  rc.3:
+    assembly:
+      type: candidate
+      basis:
+        time: "2025-09-15T03:00:38+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2025-09-15-043031
+      group:
+        advisories:
+          rpm: 149403
+          rhcos: 154250
+          microshift: 151969
+        release_jira: ART-12824
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 9562
+            - kind: extras
+              live_id: 9563
+            - kind: metadata
+              live_id: 9564
+          env: stage
+        release_date: 2025-Oct-30
+        upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.19.12,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4,4.20.0-ec.5,4.20.0-ec.6,4.20.0-rc.0,4.20.0-rc.1
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: '*'
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:61db65d959c992aba422576f1c54f06199ab24e0ceae77d35942e6982deef372
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0bda541d4d50782091f919a40dae18bab8e7b9f1e080c7edcb8d3cd43cb2c466
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:267e2af6b98438a873a201851e0c69447929b442ab1c4cdecdcca317b748bcf1
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c2ab07c982a98cff02b655db305b363fb8a4f926699418a1750ef0519c0a09dd
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b039a2acac17919d7b2f3283adc68ab1908f32ac10135a641ff97283c40509f5
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e2edb246a993dd84b21c5943b9d9c3787da2a777b66a6a62cefbfdf2b96f1f3c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d1b876e4ac3ff1806075bf94c8efc310c603fe2fece5eff88509edddfc9a0bd8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:358a2d28e2842c8881d6c82a476125d6888bcfa29415ff6d1da007225bcaf830
+      members:
+        rpms: []
+        images:
+          - distgit_key: ingress-node-firewall-operator
+            metadata:
+              is:
+                nvr: ingress-node-firewall-operator-container-v4.20.0-202509151025.p2.gb5bb87b.assembly.stream.el9
+            why: Pinning to align with recent success reference ingress-node-firewall-operator build
   rc.2:
     assembly:
       type: candidate
