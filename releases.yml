@@ -41,7 +41,12 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4cf7d4bad9d8660f8d13d0ac470740d5fbdc0331db13aa59f358bffee2593ace
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: Include matching non-payload build
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.19.0-202509240557.p2.g75f7247.assembly.stream.el9
   4.19.13:
     assembly:
       type: standard
