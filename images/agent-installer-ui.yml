@@ -1,0 +1,57 @@
+arches:
+- x86_64
+- aarch64
+- ppc64le
+cachito:
+  enabled: true
+content:
+  source:
+    dockerfile: apps/assisted-disconnected-ui/Containerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/assisted-installer-ui.git
+      web: https://github.com/openshift-assisted/assisted-installer-ui
+    pkg_managers:
+    - yarn
+    artifacts:
+      from_urls:
+      - target: 3.4.1.tar.gz
+        url: https://ocp-artifacts.engineering.redhat.com/github/yarnpkg/berry/archive/refs/tags/@yarnpkg/cli/3.4.1.tar.gz
+        sha256: d77eb555be73c3fc30b35b1a37fb85c098bac612e9239812708007d452b05731
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: assisted-installer-ui-container
+delivery:
+  repo_name: ose-agent-installer-ui-rhel9
+  delivery_repo_names:
+  - openshift4/ose-agent-installer-ui-rhel9
+for_payload: true
+from:
+  builder:
+  - member: openshift-base-nodejs.rhel9
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/assisted-installer-ui-rhel9
+owners:
+- afasano@redhat.com
+- bfournie@redhat.com
+- ppinjark@redhat.com
+- rwsu@redhat.com@redhat.com
+payload_name: agent-installer-ui
+konflux:
+  cachito:
+    mode: emulation
+  vm_override:
+    x86_64: linux-d160-c4xlarge/amd64
+    aarch64: linux-d160-c4xlarge/arm64
+  cachi2:
+    artifact_lockfile:
+      resources:
+      - https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+      - https://ocp-artifacts.engineering.redhat.com/github/yarnpkg/berry/archive/refs/tags/@yarnpkg/cli/3.4.1.tar.gz
+  network_mode: open # Bunch of yarn dependencies, not sure how to fix
