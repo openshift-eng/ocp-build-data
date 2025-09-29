@@ -1,4 +1,44 @@
 releases:
+  rc.3:
+    assembly:
+      type: candidate
+      basis:
+        time: "2025-09-27T14:55:45+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2025-09-27-153025
+      group:
+        advisories:
+          rpm: 149403
+          rhcos: 154250
+          microshift: 151969
+        release_jira: ART-12824
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 9562
+            - kind: extras
+              live_id: 9563
+            - kind: metadata
+              live_id: 9564
+          env: stage
+        release_date: 2025-Oct-30
+        upgrades: 4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.19.12,4.19.13,4.19.14,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4,4.20.0-ec.5,4.20.0-ec.6,4.20.0-rc.0,4.20.0-rc.1,4.20.0-rc.2
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f9d1f649ed9bc155cd6b43aa43a606846b996b6577a7bcc3d872a91e415abc98
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a90d223c72ea420342a696befc9f060bebeceb84b96d11fd5e1f242afdb65ffe
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:74c574e956a626e3c1240d7f923ae7938d3d727246f555a93017edd5494d1fec
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:113478d44e4a9dc6422d2e79fa0863f04b664c79b60df9f135617097cf70c8d8
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80849ffb79dd5c24c4ce31ac060045aa173ce440c6ee46e8c9810a30073a27b6
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4dfe44de6bbc51824b27d53af126c09ce7fcc87103b61fbbe478fff198098c3e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a18cbd623f6cccff0abcdd0994a76e2b9a19089d6d783baa3f27460cbff185b7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:65fff61dbd05d4cdc20e7e40119ebee43f9a36692fed7be5f4aa3891824db198
+      members:
+        rpms: []
+        images: []
   rc.2:
     assembly:
       type: candidate
