@@ -44,7 +44,7 @@ RUN GOFLAGS='' GO111MODULE=on go install golang.org/x/tools/cmd/cover@latest && 
     GOFLAGS='' GO111MODULE=on go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
     GOFLAGS='' GO111MODULE=on go install github.com/tools/godep@latest && \
     GOFLAGS='' GO111MODULE=on go install golang.org/x/lint/golint@latest && \
-    GOFLAGS='' GO111MODULE=on go install gotest.tools/gotestsum@latest && \
+    GOFLAGS='' GO111MODULE=on go install gotest.tools/gotestsum@v1.12.2 && \
     GOFLAGS='' GO111MODULE=on go install github.com/openshift/release/tools/gotest2junit@latest && \
     GOFLAGS='' GO111MODULE=on go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
     mv $GOPATH/bin/* /usr/bin/ && \
