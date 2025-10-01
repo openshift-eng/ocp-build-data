@@ -1260,6 +1260,11 @@ releases:
           component: '*'
       members:
         images:
+          - distgit_key: driver-toolkit
+            why: Pinning last build matching rhcos
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.19.0-202509301225.p2.g686fdac.assembly.stream.el9
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
             metadata:
