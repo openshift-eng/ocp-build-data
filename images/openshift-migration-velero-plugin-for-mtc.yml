@@ -1,0 +1,34 @@
+cachito:
+  packages:
+    gomod:
+    - path: .
+content:
+  source:
+    dockerfile: konflux.Dockerfile
+    git:
+      branch:
+        target: release-1.8
+      url: git@github.com:openshift-priv/velero-plugin-for-mtc.git
+      web: https://github.com/migtools/velero-plugin-for-mtc
+delivery:
+  delivery_repo_names:
+  - rhmtc/openshift-migration-velero-plugin-for-mtc-rhel8
+dependents:
+- openshift-migration-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: openshift-migration-velero-plugin-for-mtc container
+enabled_repos:
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
+for_payload: false
+for_release: false
+from:
+  builder:
+  - stream: rhel-8-golang
+  stream: rhel8
+konflux:
+  network_mode: open
+name: rhmtc/openshift-migration-velero-plugin-for-mtc-rhel8
+owners:
+- rjohnson@redhat.com

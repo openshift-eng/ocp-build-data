@@ -1,5 +1,5 @@
-name: oadp-1.5
-csv_namespace: oadp
+name: mtc-1.8
+csv_namespace: rhmtc
 
 vars:
   # The go versions used by the various CI builder images.
@@ -18,16 +18,10 @@ vars:
 
 arches:
 - x86_64
-- ppc64le
-- s390x
-- aarch64
 
 konflux:
   arches:
   - x86_64
-  - aarch64
-  - s390x
-  - ppc64le
   cachi2:
     enabled: true
     gomod_version_patch: true
@@ -42,13 +36,7 @@ assemblies:
 
 public_upstreams:
 - private: "https://github.com/openshift-priv"
-  public:  "https://github.com/openshift"
-- private: "https://github.com/openshift-priv/kubevirt-velero-plugin"
-  public:  "https://github.com/migtools/kubevirt-velero-plugin"
-- private: "https://github.com/openshift-priv/kopia"
-  public:  "https://github.com/migtools/kopia"
-- private: "https://github.com/openshift-priv/oadp-non-admin"
-  public:  "https://github.com/migtools/oadp-non-admin"
+  public:  "https://github.com/migtools"
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -56,47 +44,38 @@ urls:
   brew_image_namespace: rh-osbs
 
 repos:
-  rhel-9-baseos-rpms:
+  rhel-8-baseos-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.8/x86_64/baseos/os/
     content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
+      default: rhel-8-for-x86_64-baseos-eus-rpms__8_DOT_8
     reposync:
       enabled: false
 
-  rhel-9-appstream-rpms:
+  rhel-8-appstream-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.8/x86_64/appstream/os/
     content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_4
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_4
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_4
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
+      default: rhel-8-for-x86_64-appstream-eus-rpms__8_DOT_8
     reposync:
       enabled: false
 
-  rhel-9-codeready-builder-rpms:
+  rhel-8-codeready-builder-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/codeready-builder/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/codeready-builder/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/codeready-builder/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/codeready-builder/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.8/x86_64/codeready-builder/os/
     content_set:
-      default: codeready-builder-for-rhel-9-x86_64-eus-rpms__9_DOT_4
-      aarch64: codeready-builder-for-rhel-9-aarch64-eus-rpms__9_DOT_4
-      ppc64le: codeready-builder-for-rhel-9-ppc64le-eus-rpms__9_DOT_4
-      s390x: codeready-builder-for-rhel-9-s390x-eus-rpms__9_DOT_4
+      default: codeready-builder-for-rhel-8-x86_64-eus-rpms__8_DOT_8
+    reposync:
+      enabled: false
+
+  rhocp-4.7-for-rhel-8-x86_64-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/rhocp/4.7/os/
+    content_set:
+      default: rhocp-4_DOT_7-for-rhel-8-x86_64-rpms
     reposync:
       enabled: false
