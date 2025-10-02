@@ -1,12 +1,24 @@
 ---
-ose-cli:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.19.0-202508260738.p2.g298429b.assembly.stream.el9
+ose-ansible-operator:
+  image: registry.redhat.io/openshift4/ose-ansible-operator:v4.17
 
-rhel-9-golang:
+aap-25:
+  image: registry.redhat.io/ansible-automation-platform-25/platform-resource-runner-rhel8:latest
+
+nodejs-16:
+  image: registry.redhat.io/ubi8/nodejs-16:latest
+
+nodejs-16-minimal:
+  image: registry.redhat.io/ubi8/nodejs-16-minimal:latest
+
+ose-must-gather:
+  image: registry.redhat.io/openshift4/ose-must-gather:v4.15
+
+rhel-8-golang:
   aliases:
-    - rhel-9-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.24.4-202507171054.g2f6f49f.el9
+    - rhel-8-golang-{GO_LATEST}
+  image: openshift/golang-builder:v1.24.4-202507171054.g35b6b0c.el8
 
-rhel9:
-  # ubi9-container-9.6-440.1756861791
-  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9@sha256:18411066c15bbc9c76e86bdd01bd41e89076ed73fd508875148fee92ef057c02
+rhel8:
+  # ubi8-container-8.10-1304.1756174612
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8@sha256:719b137631e8e4313c41729a5e599dd9eed2b72854d356e67a7dce49c32f7366
