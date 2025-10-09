@@ -37,6 +37,7 @@ owners:
 - kni-devel-deployment@redhat.com
 konflux:
   vm_override:
-    x86_64: linux-c4xlarge/amd64
+    # https://konflux.pages.redhat.com/docs/users/getting-started/multi-platform-builds.html#amd64-2
+    x86_64: linux-d160-c4xlarge/amd64
     aarch64: linux-c4xlarge/arm64
   network_mode: open
