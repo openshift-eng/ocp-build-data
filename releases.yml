@@ -75,7 +75,11 @@ releases:
           component: '*'
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              for_release: false
+            why: yaml file for the component is not correct
   4.16.49:
     assembly:
       type: standard
