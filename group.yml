@@ -16,8 +16,6 @@ vars:
   MAJOR: 4
   MINOR: 19
 
-OCP_TARGET_VERSIONS = ["4.19"]
-
 arches:
 - x86_64
 - ppc64le
@@ -38,6 +36,9 @@ konflux:
   sast:
     enabled: true
   network_mode: hermetic
+
+# OCP versions to publish FBC builds to
+OCP_TARGET_VERSIONS = ["4.19"]
 
 assemblies:
   enabled: true
