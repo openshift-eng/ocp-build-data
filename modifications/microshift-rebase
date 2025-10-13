@@ -47,6 +47,6 @@ PODMAN_RUN_CMD="podman run --rm \
 -v $PWD:/workdir/microshift:z \
 -w /workdir/microshift \
 microshift-rebase:$BREW_TAG \
-bash -c 'git config user.email noreply@redhat.com && $REBASE_CMD'"
+$REBASE_CMD"
 echo $PODMAN_RUN_CMD
 eval $PODMAN_RUN_CMD
