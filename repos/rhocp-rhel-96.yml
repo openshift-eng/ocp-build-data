@@ -1,0 +1,43 @@
+- conf:
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    optional: true
+  name: rhocp-rhel-9.6-rpms
+  plashet:
+    slug: "9.6"
+    assembly_aware: true
+    embargo_aware: true
+    include_previous_packages:
+    - conmon
+    - cri-o
+    - cri-tools
+    - crun
+    - haproxy
+    - ignition
+    - kernel
+    - kernel-rt
+    - libreswan
+    - nmstate
+    - openshift
+    - openvswitch
+    - ovn
+    - podman
+    - python3-openvswitch
+    - spdlog
+    source:
+      embargoed_tags:
+      - rhocp-rhel-{MAJOR}.{MINOR}-embargoed
+      from_tags:
+      - name: rhocp-rhel-{MAJOR}.{MINOR}-candidate
+        product_version: OSE-{MAJOR}.{MINOR}-RHEL-9
+        release_tag: rhocp-rhel-{MAJOR}.{MINOR}
+      type: brew
+  reposync:
+    latest_only: false
+  type: plashet

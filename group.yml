@@ -1,0 +1,290 @@
+# freeze_automation controls when scheduled/manual builds are permitted. Possible values are:
+#   - yes|true: never allow builds
+#   - scheduled: only allow manual builds
+#   - weekdays: always allow manual builds; forbid scheduled builds from Monday to Friday
+#   - no|false: always allow builds
+# Note that ocp4 builds are always permitted  for non-stream assemblies
+freeze_automation: false
+
+vars:
+  MAJOR: 9
+  MINOR: 6
+  IMPACT: Low
+  CVES: None
+  RHCOS_EL_MAJOR: 9
+  RHCOS_EL_MINOR: 6
+
+compliance:
+  rpm_shim:
+    enabled: true
+
+arches:
+- x86_64
+- ppc64le
+- s390x
+- aarch64
+
+konflux:
+  arches:
+  - x86_64
+  - aarch64
+  - s390x
+  - ppc64le
+  cachi2:
+    enabled: true
+    gomod_version_patch: true
+    lockfile:
+      force: true
+  sast:
+    enabled: true
+  network_mode: hermetic
+
+multi_arch:
+  enabled: true
+
+# It is not decided yet from which OCP version on a new release version will have the format i.e. 4.18.0-0
+# Until then the new_payload_versioning_scheme will have the value False
+new_payload_versioning_scheme: false
+
+operator_image_ref_mode: manifest-list
+
+# TODO: Currently we are using the same signing advisory as OCP 4.21, we need to change this to the correct one for RHCOS 9.6
+signing_advisory: 146686
+
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+    signed:
+      signing_intent: release
+      repo_type: signed
+  rpm:
+    default:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+      hotfix_targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
+
+assemblies:
+  enabled: true
+
+cachito:
+  enabled: true
+  version: 2
+
+rhcos:
+  payload_tags:
+    - name: rhel-coreos
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.21-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      primary: true
+    - name: rhel-coreos-extensions
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.21-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+  enabled_repos:
+  - rhel-96-baseos
+  - rhel-96-appstream
+  - rhel-9-fast-datapath-rpms
+  - rhel-9-server-ose-rpms
+  require_consistency:
+    driver-toolkit:
+    - kernel  # since 9.3, kernel-rt is merged into the kernel package.
+    ose-ovn-kubernetes:
+    - libreswan
+  exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
+  - crun-wasm
+  - lld
+  - llvm
+  allow_missing_brew_rpms: false
+  layered_rhcos: True
+
+check_external_packages:
+  - name: cri-o
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: cri-tools
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: crun
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: conmon
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: conmon-rs
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: containernetworking-plugins
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: container-selinux
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: containers-common
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: podman
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: skopeo
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: runc
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: toolbox
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: NetworkManager
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: greater_equal
+
+default_image_build_profile: unsigned
+default_rpm_build_profile: default
+
+# rpm_deliveries is mainly to support for "Weekly" kernel delivery through OCP (ART-6100)
+rpm_deliveries:
+  - packages:
+      - kernel
+    rhel_tag: rhel-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0-z-candidate
+    integration_tag: early-kernel-candidate
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
+    target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+
+branch: rhocp-rhel-{MAJOR}.{MINOR}
+name: rhocp-rhel-{MAJOR}.{MINOR}
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
+  cgit: https://pkgs.devel.redhat.com/cgit
+  rhcos_release_base: # once 4.21 RHCOS exist the next line should change to 4.21-
+    multi: https://releases-rhcos--prod-pipeline.apps.int.prod-stable-spoke1-dc-iad2.itup.redhat.com/storage/prod/streams/4.19-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}/builds
+dist_git_ignore:
+  - gating.yaml
+
+push:
+  registries: []
+    # - quay.io/openshift-qe-optional-operators
+
+public_upstreams:
+- private: "https://github.com/openshift-priv/operator-marketplace"
+  public:  "https://github.com/operator-framework/operator-marketplace"
+- private: "https://github.com/openshift-priv"
+  public:  "https://github.com/openshift"
+- private: "https://github.com/openshift-priv/cloud-event-proxy"
+  public:  "https://github.com/redhat-cne/cloud-event-proxy"
+- private: "https://github.com/openshift-priv/ocp-build-data"
+  public: "https://github.com/openshift-eng/ocp-build-data"
+- private: "https://github.com/openshift-priv/assisted-installer-ui"
+  public: "https://github.com/openshift-assisted/assisted-installer-ui"
+
+default_image_build_method: osbs2
+image_build_log_scanner:
+  matches:
+    # yum failed to install a package (but may not give an error result)
+  - "No package .* available"
+    # dnf failed to find a package to install:
+  - "Error: Unable to find a match"
+    # on multiarch builds, installed different NVR of pkg for different arches:
+  - "Failed component comparison for components:.*"
+    # docker does not understand multi-stage builds
+  - "is not a valid repository/tag: invalid reference format"
+    # indicative of https://github.com/openshift/imagebuilder/issues/87 or file(s) missing
+  - "plugins.imagebuilder.*lstat.*no such file or directory"
+    # koji sucks at auto-incrementing releases
+  - "bump_release: BuildError.'Unable to increment release value:"
+    # need to add the image component to whitelist building into candidate tag
+  - "not in list for tag rhaos-.*-candidate"
+  files:
+  - x86_64.log
+  - s390x.log
+  - ppc64le.log
+  - aarch64.log
+  - task_failed.log
+  - orchestrator.log
+scan_freshness:
+  release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
+  threshold_hours: 1
+csv_namespace: openshift
+
+# whether and how to check if all buildroots have consistent versions of golang compilers (rpm build only)
+# "x.y" (default): only major and minor version; "exact": the z-version must be the same; "no": do not check
+check_golang_versions: "x.y"
+
+# Until feature freeze, prefer to use the golang builder that the upstream CI build is using
+# if different from what ART has configured, encouraging deliberate transitioning.
+# canonical_builders_from_upstream can be overridden by every single image
+# If set to False, it will use the default art config
+# If set to True, it will honor the image's config
+canonical_builders_from_upstream: True
+
+# This is a toggle to allow streams prs to not yet be opened. This can be useful when golang
+# builders are not yet set up correctly for the release at branch cut time, and we want to limit
+# the churn.
+reconciliation_prs:
+  enabled: true
+
+# To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
+# Possible values are defined here: https://github.com/openshift-eng/art-tools/blob/main/artcommon/artcommonlib/release_util.py#L55-L59
+# At the moment of writing this comment, there are:
+# - 'pre-release': For EC time
+# - 'signing': for RC time
+# - 'release': for post GA time
+# - 'eol': For when a release will not formally ship anymore
+software_lifecycle:
+  phase: pre-release
+
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      # Enable feature to raise OCPBUGS Jira tickets if SAST scan issues are found
+      # This flag enables for this OCP version, but it also has to be enabled specifically in the image config
+      # as well
+      enabled: true
+
+      exclude_components:
+      # Built by CPAAS
+      - cnf-tests-container
+      - bare-metal-event-relay-operator-container
+      - lifecycle-agent-operator-container
+      - numaresources-must-gather-container
+      - topology-aware-lifecycle-manager-recovery-container
+      - noderesourcetopology-scheduler-container
+      - windows-machine-config-operator-container
+      - ztp-site-generate-container
+      - dpdk-base-container
+      - topology-aware-lifecycle-manager-precache-container
+      - numaresources-operator-container
+      - topology-aware-lifecycle-manager-operator-container
+      - baremetal-hardware-event-proxy-container
+      # Requested ART to exclude
+      - kernel
+      - kernel-rt
+      - systemd
+      - openvswitch2.13
+      - openvswitch2.15
+      - openvswitch2.16
+      - openvswitch2.17
+      - openvswitch3.0
+      - openvswitch3.1
+      - ovn-2021
+      - ovn2.12
+      - ovn2.13
+      - ovn21.09
+      - ovn21.12
+      - ovn22.03
+      - ovn22.06
+      - ovn22.09
+      - ovn22.12
+      - ovn23.03
+      - ovn23.06
+      - ovn23.09
+      - ovn23.12
+      - ovn24.03
+      - ovn24.06
+      - ovn24.09
+      - ovn24.12
+      # these are pinned in node base image
+      - nodejs*
+      - npm
