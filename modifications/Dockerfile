@@ -19,4 +19,6 @@ RUN wget ${OC_URL} -O openshift-client-linux.tar.gz && \
     tar -zxvf openshift-client-linux.tar.gz && \
     cp oc /usr/local/bin/ && \
     cp kubectl /usr/local/bin/ && \
-    rm -rf openshift-client-linux.tar.gz oc kubectl
+    rm -rf openshift-client-linux.tar.gz oc kubectl && \
+    git config --global http.postBuffer 524288000 && \
+    git config --global user.email noreply@redhat.com
