@@ -1,4 +1,34 @@
 releases:
+  4.20.0:
+    assembly:
+      type!: standard
+      basis:
+        assembly: rc.3
+        reference_releases!: {}
+      group:
+        shipment:
+          advisories!:
+          - kind: image
+            live_id: 9562
+          - kind: extras
+            live_id: 9563
+          - kind: metadata
+            live_id: 9564
+          - kind: fbc
+        release_date!: 2025-Oct-21
+        upgrades!: 4.19.17,4.19.16,4.19.15,4.20.0-rc.3,4.20.0-ec.0,4.20.0-ec.2,4.20.0-ec.3,4.20.0-ec.4,4.20.0-ec.5,4.20.0-ec.6,4.20.0-rc.0,4.20.0-rc.1,4.20.0-rc.2
+      members:
+        images:
+        - distgit_key: openshift-kubernetes-nmstate-operator
+          why: Need fix to csv
+          metadata:
+            is:
+              nvr: ose-kubernetes-nmstate-operator-container-v4.20.0-202510130855.p2.g0c6220d.assembly.stream.el9
+        - distgit_key: openshift-kubernetes-nmstate-handler
+          why: Need fix to csv
+          metadata:
+            is:
+              nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.20.0-202510130855.p2.g0c6220d.assembly.stream.el9
   rc.3:
     assembly:
       type: candidate
