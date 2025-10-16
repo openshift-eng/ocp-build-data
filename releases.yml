@@ -1,4 +1,40 @@
 releases:
+  4.19.17:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-10-15T04:03:55+00:00"
+        reference_releases:
+          x86_64: 4.19.0-0.nightly-2025-10-15-051359
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2025-Oct-22
+        upgrades: 4.18.19,4.18.20,4.18.21,4.18.22,4.18.23,4.18.24,4.18.25,4.18.26,4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.19.12,4.19.13,4.19.14,4.19.15,4.19.16
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:29e3563d5fc11a54ffbf7b28694f1cc3975a72e24035fca4afa44d7937e932c7
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b83d5d6705ada9becdfe1b19eeef89ef9040c8c2b304632f9791c76a78916fa7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f8a7679e946b04e08d085a0ca7d1ab0b41afc1a05c05427ff17d6f3176fe85b5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0ba86da705d3520df4e31cf76e5058d1c59eb71e16a7207b07ff928d0b154b5a
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4b2d64b5a6e08c191fdeb0a49595cb6c9c873fbc190d029940d3652303cbbae6
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e0f76d622f27e6822a89e90693e938b60520c5d93f2c11fd711db0399c4ce25e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:388e714f294815c10241395064d7bf2690ec619b4c55caf775644c961b303fdc
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c4ba56ff45fba5fe547ae7cdae51feec4bf3a6c8d8e3f5d7f0961c75a6e0a59d
+      members:
+        rpms: []
+        images: []
   4.19.16:
     assembly:
       type: standard
