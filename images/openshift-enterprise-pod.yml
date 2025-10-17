@@ -21,6 +21,10 @@ delivery:
   repo_name: ose-pod
   delivery_repo_names:
   - openshift4/ose-pod-rhel9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-codeready-builder-rpms
 for_payload: true
 from:
   builder:
@@ -37,3 +41,21 @@ name: openshift/ose-pod-rhel9
 payload_name: pod
 owners:
 - aos-pod@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - cpp
+      - gcc
+      - gcc-c++
+      - glibc
+      - glibc-common
+      - glibc-devel
+      - glibc-gconv-extra
+      - glibc-headers
+      - glibc-langpack-en
+      - glibc-minimal-langpack
+      - glibc-static
+      - libgcc
+      - libgomp
+      - libstdc++
