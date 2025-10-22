@@ -1,0 +1,21 @@
+content:
+  source:
+    git:
+      branch:
+        target: upstream-v3.4.3
+      url: git@github.com:openshift-priv/loki.git
+      web: https://github.com/openshift/loki
+distgit:
+  component: logging-loki-rhel9-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - openshift-logging/logging-loki-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: 4-18-base-rhel9
+name: openshift-logging/logging-loki-rhel9
+owners:
+- jcantril@redhat.com
