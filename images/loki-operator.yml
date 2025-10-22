@@ -1,0 +1,31 @@
+content:
+  source:
+    path: operator
+    git:
+      branch:
+        target: release-6.3
+      url: git@github.com:openshift-priv/loki.git
+      url_pull: git@github.com:openshift/loki.git
+      web: https://github.com/openshift/loki
+distgit:
+  component: loki-rhel9-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - openshift-logging/loki-rhel9-operator
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+    - stream: ose-cli-artifacts
+  stream: rhel9
+name: openshift-logging/loki-rhel9-operator
+owners:
+- jcantril@redhat.com
+update-csv:
+  bundle-dir: manifests/
+  manifests-dir: bundle/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+konflux:
+  network_mode: open
