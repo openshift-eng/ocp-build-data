@@ -1,4 +1,49 @@
 releases:
+  ec.2:
+    assembly:
+      type: preview
+      basis:
+        time: "2025-10-19T15:58:13+00:00"
+        reference_releases:
+          x86_64: 4.21.0-0.nightly-2025-10-19-181151
+      group:
+        advisories:
+          rpm: 154550
+          rhcos: -1
+          microshift: -1
+        release_jira: ART-14107
+        operator_index_mode: pre-release
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 16017
+            - kind: extras
+              live_id: 16018
+            - kind: metadata
+              live_id: 16019
+            - kind: fbc
+          env: stage
+        release_date: 2026-Feb-01
+        upgrades: 4.20.0,4.21.0-ec.0
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c7ba2a9638c369c24f9d564f9bfa8d59154df08085bb75510454b98aa0fda51e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:626212c2d296a02a550b53e3389676f0134897a90a0a5b55f28d8ee9f4fb50b2
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ad3118315800da30a607c55658ceb89402cfeb92984146222f1557df226588ec
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3224eb29126739141c563418c31c761b5a9669163c48e740af1aca1a583f382b
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adc29f335c59babe9f2ac31dac2e219f9a038534665b5b4440cb5c724e330eae
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:39ec3f5ff826cf662a9691df02aab45fd51ae2d8c8d46afda7276342bb6401b5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a085d138ecb48d6dbffaef73fb93b6b105133ff9bc6223b60056bf0f4f6ab5ba
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8f6575fb55a22450a5237517b98e65d3996a51171bba0533606b0342b593f59b
+      members:
+        rpms: []
+        images: []
   ec.1:
     assembly:
       type: preview
