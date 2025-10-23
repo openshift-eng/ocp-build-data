@@ -9,6 +9,10 @@ content:
       url: git@github.com:openshift-priv/kubernetes.git
       web: https://github.com/openshift/kubernetes
     path: build/pause
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-codeready-builder-rpms
 for_payload: true
 from:
   builder:
@@ -28,3 +32,24 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-pod
 payload_name: pod
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - cpp
+      - gcc
+      - gcc-c++
+      - gcc-plugin-annobin
+      - glibc
+      - glibc-common
+      - glibc-devel
+      - glibc-gconv-extra
+      - glibc-headers
+      - glibc-langpack-en
+      - glibc-minimal-langpack
+      - libgcc
+      - libgomp
+      - libstdc++
+      - libstdc++-devel
+      - glibc-static
+      - libxcrypt-static
