@@ -41,7 +41,16 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c10c46272515f1b2a6d08c0f0f7dfbed4554790387de991e894d32d12c2c6a82
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: openshift-kubernetes-nmstate-handler
+            why: Pin later operator build because of matching references
+            metadata:
+              is:
+                nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.16.0-202510211319.p2.gedb22d6.assembly.stream.el9
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              for_release: false
+            why: yaml file for the component is not correct
   4.16.50:
     assembly:
       type: standard
