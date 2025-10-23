@@ -1,4 +1,49 @@
 releases:
+  4.18.27:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-10-23T09:47:59+00:00"
+        reference_releases:
+          x86_64: 4.18.0-0.nightly-2025-10-23-105654
+      group:
+        advisories:
+          rpm: 155476
+          rhcos: 155477
+        release_jira: ART-14192
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 19047
+            - kind: extras
+              live_id: 19048
+            - kind: metadata
+              live_id: 19049
+            - kind: fbc
+          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/192
+        release_date: 2025-Oct-29
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.17.35,4.17.36,4.17.37,4.17.38,4.17.39,4.17.40,4.17.41,4.17.42,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15,4.18.16,4.18.17,4.18.18,4.18.19,4.18.20,4.18.21,4.18.22,4.18.23,4.18.24,4.18.25,4.18.26
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d3a1c1e1ca85f95011f0da66c04a1bbab66920684213d0f5d58865442b09bc04
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2dfa1940dee44cbfde3ba170c983e79cf2ced7016cc497ff0ee4a968bab9ce69
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3293dc0daa8b2f671e6242814c7767f4c932b5685a1caad9d8c85d075ffe4c1b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bc8c422d04f81aa817a3186c7fd14149bd7b22d87afd01f04de10fdb61a1e282
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a6a8017b89bfef4a76f8523a9e89288c664475a4060eeb37c09c3cf711b55f60
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:03207f151a54a3a6b1295da7155fe72f805e0666ed64ec28d62434d15cee09a7
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:12d1be4f4f38f72885caa2c70fbb5c20036997a1ed4f7e21a22a702b4819820f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e171a6469e57937d01b56fc13af9d78bb0fc426f6c97d394d3a18c8370591b6
+      members:
+        rpms: []
+        images:
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.18.0-202510230851.p2.g9f866a2.assembly.stream.el9
+            why: Pin nmstate-console-plugin image to assembly
   4.18.26:
     assembly:
       type: standard
