@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: main/Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/commatrix.git
+      web: https://github.com/openshift/commatrix
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: commatrix-container
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/commatrix-rhel9
+owners:
+- aabugosh@redhat.com, shmoran@redhat.com, mlin@redhat.com@redhat.com
