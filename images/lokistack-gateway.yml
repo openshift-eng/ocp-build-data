@@ -1,0 +1,23 @@
+mode: disabled
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/observatorium-api.git
+      web: https://github.com/observatorium/api
+distgit:
+  component: lokistack-gateway-rhel9-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - openshift-logging/lokistack-gateway-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: openshift-logging/lokistack-gateway-rhel9
+owners:
+- jcantril@redhat.com
