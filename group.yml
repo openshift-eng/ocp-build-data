@@ -74,6 +74,9 @@ rhcos:
   - rhel-8-rt-rpms
   - rhel-8-fast-datapath-rpms
   - rhel-8-server-ose-rpms
+  require_consistency:
+    driver-toolkit:
+    - kernel
   exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
   - libsemanage
   - python3-libsemanage
