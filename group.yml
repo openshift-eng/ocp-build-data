@@ -17,7 +17,10 @@ vars:
   MINOR: 16
 
 OCP_TARGET_VERSIONS: [
+  "4.17",
   "4.18",
+  "4.19",
+  "4.20",
 ]
 
 arches:
@@ -25,6 +28,8 @@ arches:
 - ppc64le
 - s390x
 - aarch64
+
+operator_image_ref_mode: manifest-list
 
 konflux:
   arches:
