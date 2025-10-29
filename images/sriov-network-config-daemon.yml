@@ -25,6 +25,10 @@ from:
 name: openshift/ose-sriov-network-config-daemon
 owners:
 - multus-dev@redhat.com
+konflux:
+  network_mode: open
+  cachi2:
+    enabled: false  # https://issues.redhat.com/browse/ART-13260
 delivery:
   delivery_repo_names:
   - openshift4/ose-sriov-network-config-daemon
