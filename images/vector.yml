@@ -25,4 +25,15 @@ name: openshift-logging/vector-rhel9
 owners:
 - jcantril@redhat.com
 konflux:
+  # ref https://redhat-internal.slack.com/archives/GDBRP5YJH/p1761835848487449?thread_ts=1761769013.687149&cid=GDBRP5YJH
+  # need to figure out how to cache dependencies for rust
   network_mode: open
+#  cachi2:
+#    lockfile:
+#      rpms:
+#      - git
+#      - git-core
+#      - git-core-doc
+#      - perl-Git
+#      - cyrus-sasl
+#      - cyrus-sasl-devel
