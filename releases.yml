@@ -1,4 +1,40 @@
 releases:
+  4.19.18:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-10-29T12:09:22+00:00"
+        reference_releases:
+          x86_64: 4.19.0-0.nightly-2025-10-29-141440
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2025-Nov-05
+        upgrades: 4.18.19,4.18.20,4.18.21,4.18.22,4.18.23,4.18.24,4.18.25,4.18.26,4.18.27,4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.19.12,4.19.13,4.19.14,4.19.15,4.19.16,4.19.17
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0c2f1b16bd4a8446f415cefc63fefbe11deed5f479def11a3b16d9cdbbacdc8e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e00b9a192f462e6da3318ded7413f486bc42218844d7490216bb8d20741eab46
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a78668a2d4b17aa89cff80e2ef5b794dbf423dfb8827808b2d83982c5c38cc75
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8ed5fb55bc56d18ba43ae55fdf4b56955e98e5095bc3a60e05759f91d6b74ed2
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f4d68d8ef64d0821c6bffc045a3713dae437d1c4a6b626b604386b2943cb8e22
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e43166b2fd4dc5ac70db4b071a4dcf93aef77bfe7d21933a7787be3e7b9c785f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:25a52465debd119c89a7d9124d4f894033e7573acaf4900fcc16f298b5442815
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c13b0ebab5743fa6fa2b254b8d76227ab1a4f982bf5456601278e0d6693f0bf9
+      members:
+        rpms: []
+        images: []
   4.19.17:
     assembly:
       type: standard
