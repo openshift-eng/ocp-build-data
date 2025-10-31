@@ -4,11 +4,11 @@ releases:
       type: standard
       basis:
         time: "2025-10-29T02:15:16+00:00"
-        reference_releases:
-          s390x: 4.15.0-0.nightly-s390x-2025-10-29-135240
-          aarch64: 4.15.0-0.nightly-arm64-2025-10-29-135240
-          ppc64le: 4.15.0-0.nightly-ppc64le-2025-10-29-135238
-          x86_64: 4.15.0-0.nightly-2025-10-29-032928
+        reference_releases: {}
+          #s390x: 4.15.0-0.nightly-s390x-2025-10-29-135240
+          #aarch64: 4.15.0-0.nightly-arm64-2025-10-29-135240
+          #ppc64le: 4.15.0-0.nightly-ppc64le-2025-10-29-135238
+          #x86_64: 4.15.0-0.nightly-2025-10-29-032928
       group:
         advisories:
           rpm: 155633
@@ -47,7 +47,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c77ac52f39df7d754edae3a6943eccea099e9174ccbb3dc8adabc2c3bbd74c5e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ironic-agent
+            why: Pin build
+            metadata:
+              is:
+                nvr: ironic-agent-container-v4.15.0-202510172044.p2.gd339f3f.assembly.stream.el9
   4.15.58:
     assembly:
       type: standard
