@@ -5,14 +5,19 @@ ENV ART_BUILD_ENGINE=konflux
 ENV ART_BUILD_DEPS_METHOD=cachi2
 ENV ART_BUILD_NETWORK=open
 RUN go clean -cache || true
-ENV ART_BUILD_DEPS_MODE=default
+ENV REMOTE_SOURCES=cachito-emulation
+ENV REMOTE_SOURCES_DIR=/tmp/art/cachito-emulation
+COPY . $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/
+RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem
+ENV ART_BUILD_DEPS_MODE=cachito-emulation
 USER 0
 RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
 COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-8-golang-1.24 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.24.6-20251103.071732 __doozer_version=v1.24.6 
+ENV __doozer=update __doozer_group=rhel-8-golang-1.24 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.24.6-20251104.080132 __doozer_version=v1.24.6 
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
