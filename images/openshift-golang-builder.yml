@@ -8,7 +8,8 @@ content:
         target: rhel-8-golang-1.24
       url: git@github.com:openshift-eng/ocp-build-data.git
     modifications:
-    - action: add
+    - &add_fips_wrapper
+      action: add
       doozer_source: golang_builder_FIPS_wrapper.sh
       path: go_wrapper.sh
       overwriting: true
@@ -35,3 +36,17 @@ additional_tags:
 - 'rhel_8_1.24'
 maintainer:
   component: Release
+
+konflux:
+  cachi2:
+    artifact_lockfile:
+      resources:
+      - https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-golang-builder/cross.tar.gz
+  network_mode: open
+  content:
+    source:
+      modifications:
+        - *add_fips_wrapper
+        - action: replace
+          match: "COPY cross.tar.gz "
+          replacement: "RUN cp /cachi2/output/deps/generic/cross.tar.gz "
