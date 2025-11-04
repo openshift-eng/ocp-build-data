@@ -7,6 +7,19 @@ rhel-9-golang:
     - rhel-9-golang-{GO_LATEST}
   image: registry.redhat.io/ubi9/go-toolset:1.23
 
+rhel-9-nodejs-18:
+  image: registry.redhat.io/ubi9/nodejs-18:latest
+
+rhel-9-nodejs-20:
+  image: registry.redhat.io/ubi9/nodejs-20:latest
+
+rhel-9-ansible-operator:
+  image: registry.redhat.io/openshift4/ose-ansible-rhel9-operator:v4.17
+
+# Don't know if I can do this with brew registry but will try
+mta-analyzer-lsp:
+  image: brew.registry.redhat.io/rh-osbs/mta-mta-analyzer-lsp-rhel9:8.0.0
+
 rhel9:
   # ubi9-container-9.6-440.1756861791
   # image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9@sha256:18411066c15bbc9c76e86bdd01bd41e89076ed73fd508875148fee92ef057c02
