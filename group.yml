@@ -1,5 +1,5 @@
-name: oadp-1.5
-csv_namespace: oadp
+name: mta-8.0
+csv_namespace: mta
 
 vars:
   # The go versions used by the various CI builder images.
@@ -11,15 +11,13 @@ vars:
   #               aliases:
   #               - rhel-9-golang-{GO_LATEST}
   #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
-  GO_LATEST: "1.24"
-  GO_EXTRA: "1.24"  # There is no extra version at this time, so just duplicate latest.
+  GO_LATEST: "1.23"
+  GO_EXTRA: "1.23"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
   MINOR: 19
 
 arches:
 - x86_64
-- ppc64le
-- s390x
 - aarch64
 
 operator_image_ref_mode: manifest-list
@@ -27,8 +25,6 @@ konflux:
   arches:
   - x86_64
   - aarch64
-  - s390x
-  - ppc64le
   cachi2:
     enabled: true
     gomod_version_patch: true
@@ -50,13 +46,29 @@ assemblies:
 
 public_upstreams:
 - private: "https://github.com/openshift-priv"
-  public:  "https://github.com/openshift"
-- private: "https://github.com/openshift-priv/migtools-kubevirt-velero-plugin"
-  public:  "https://github.com/migtools/kubevirt-velero-plugin"
-- private: "https://github.com/openshift-priv/migtools-kopia"
-  public:  "https://github.com/migtools/kopia"
-- private: "https://github.com/openshift-priv/migtools-oadp-non-admin"
-  public:  "https://github.com/migtools/oadp-non-admin"
+  public:  "https://github.com/migtools"
+- private: "https://github.com/openshift-priv/migtools-mta-analyzer-lsp"
+  public:  "https://github.com/migtools/mta-analyzer-lsp"
+- private: "https://github.com/openshift-priv/migtools-mta-java-analyzer-bundle"
+  public:  "https://github.com/migtools/mta-java-analyzer-bundle"
+- private: "https://github.com/openshift-priv/migtools-mta-tackle2-ui"
+  public:  "https://github.com/migtools/mta-tackle2-ui"
+- private: "https://github.com/openshift-priv/migtools-mta-tackle2-hub"
+  public:  "https://github.com/migtools/mta-tackle2-hub"
+- private: "https://github.com/openshift-priv/migtools-mta-operator"
+  public:  "https://github.com/migtools/mta-operator"
+- private: "https://github.com/openshift-priv/migtools-mta-kantra"
+  public:  "https://github.com/migtools/mta-kantra"
+- private: "https://github.com/openshift-priv/migtools-mta-kai"
+  public:  "https://github.com/migtools/mta-kai"
+- private: "https://github.com/openshift-priv/migtools-mta-tackle2-addon-analyzer"
+  public:  "https://github.com/migtools/mta-tackle2-addon-analyzer"
+- private: "https://github.com/openshift-priv/migtools-mta-tackle2-addon-platform"
+  public:  "https://github.com/migtools/mta-tackle2-addon-platform"
+- private: "https://github.com/openshift-priv/migtools-mta-tackle2-addon-discovery"
+  public:  "https://github.com/migtools/mta-tackle2-addon-discovery"
+- private: "https://github.com/openshift-priv/migtools-mta-static-report"
+  public:  "https://github.com/migtools/mta-static-report"
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -68,14 +80,10 @@ repos:
     conf:
       baseurl:
         aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/
         x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
     content_set:
       default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
       aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
     reposync:
       enabled: false
 
@@ -83,14 +91,10 @@ repos:
     conf:
       baseurl:
         aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/
         x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/
     content_set:
       default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_4
       aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_4
-      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_4
-      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
     reposync:
       enabled: false
 
@@ -98,13 +102,9 @@ repos:
     conf:
       baseurl:
         aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/codeready-builder/os/
-        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/codeready-builder/os/
-        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/codeready-builder/os/
         x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/codeready-builder/os/
     content_set:
       default: codeready-builder-for-rhel-9-x86_64-eus-rpms__9_DOT_4
       aarch64: codeready-builder-for-rhel-9-aarch64-eus-rpms__9_DOT_4
-      ppc64le: codeready-builder-for-rhel-9-ppc64le-eus-rpms__9_DOT_4
-      s390x: codeready-builder-for-rhel-9-s390x-eus-rpms__9_DOT_4
     reposync:
       enabled: false
