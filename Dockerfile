@@ -17,7 +17,7 @@ COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.24 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.24.6-20251104.094425 __doozer_version=v1.24.6 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.24 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.24.6-20251104.100213 __doozer_version=v1.24.6 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -65,7 +65,7 @@ RUN dnf update -y && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (amd64 only)
-COPY /cachi2/output/deps/generic/cross.tar.gz .
+RUN cp /cachi2/output/deps/generic/cross.tar.gz .
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
