@@ -31,10 +31,11 @@ enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed # required by the builder
 konflux:
-  network_mode: open
   cachi2:
     lockfile:
       inspect_parent: false
+      rpms:
+      - golang-github-prometheus-promu
 for_payload: true
 from:
   builder:
