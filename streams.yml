@@ -1,7 +1,4 @@
 ---
-ose-cli:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.19.0-202508260738.p2.g298429b.assembly.stream.el9
-
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
@@ -18,20 +15,6 @@ rhel-9-ansible-operator:
 
 dotnet-80:
   image: registry.redhat.io/ubi8/dotnet-80:latest
-
-  # FIXME: Don't know if I can do this with brew registry but will try
-  # These should point to images built by Konflux in quay.io
-mta-analyzer-lsp:
-  image: brew.registry.redhat.io/rh-osbs/mta-mta-analyzer-lsp-rhel9:8.0.0
-
-mta-jdtls-server-base:
-  image: brew.registry.redhat.io/rh-osbs/mta-mta-jdtls-server-base-rhel9:8.0.0
-
-mta-static-report:
-  image: brew.registry.redhat.io/rh-osbs/mta-mta-static-report-rhel9:8.0.0
-
-mta-golang-dependency-provider:
-  image: brew.registry.redhat.io/rh-osbs/mta-mta-golang-dependency-provider-rhel9:8.0.0
 
 rhel9:
   # ubi9-container-9.6-440.1756861791
