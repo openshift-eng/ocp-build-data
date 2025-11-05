@@ -1,0 +1,34 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+      - path: external-providers/java-external-provider/
+content:
+  source:
+    dockerfile: konflux.Dockerfile
+    git:
+      branch:
+        target: mta-8.0
+      url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
+      web: https://github.com/migtools/mta-analyzer-lsp
+distgit:
+  component: mta-analyzer-lsp-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - mta/mta-analyzer-lsp-rhel9
+for_payload: false
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: mta-jdtls-server-base
+name: mta/mta-analyzer-lsp-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
+dependents:
+  - mta-operator
+  - mta-jdtls-server-base

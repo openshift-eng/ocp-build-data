@@ -7,15 +7,15 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: oadp-1.5
-      url: git@github.com:openshift-priv/hypershift-oadp-plugin.git
-      web: https://github.com/openshift/hypershift-oadp-plugin
+        target: mta-8.0
+      url: git@github.com:openshift-priv/migtools-mta-tackle2-addon-platform.git
+      web: https://github.com/migtools/mta-tackle2-addon-platform
 distgit:
-  component: oadp-hypershift-velero-plugin-container
+  component: mta-platform-addon-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - oadp/oadp-hypershift-velero-plugin-rhel9
+  - mta/mta-platform-addon-rhel9
 for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
@@ -24,8 +24,9 @@ from:
   builder:
     - stream: rhel-9-golang
   stream: rhel9
-name: oadp/oadp-hypershift-velero-plugin-rhel9
+name: mta/mta-platform-addon-rhel9
 owners:
+- fbladilo@redhat.com
 - rjohnson@redhat.com
 dependents:
-  - oadp-operator
+  - mta-operator
