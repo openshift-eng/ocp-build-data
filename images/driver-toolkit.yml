@@ -5,9 +5,6 @@ content:
     - action: replace
       match: "ARG RHEL_VERSION=''"
       replacement: "ARG RHEL_VERSION='9.6'"
-    - action: replace
-      match: "diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM')"
-      replacement: 'echo hi'
     # Uncomment the following sections to pin specific kernel versions
     # - action: replace
     #   match: "ARG KERNEL_VERSION=''"
@@ -47,6 +44,8 @@ payload_name: driver-toolkit
 owners:
 - edge-sro@redhat.com
 konflux:
+  vm_override:
+    aarch64: linux-d160-m2xlarge/arm64
   cachi2:
     lockfile:
       inspect_parent: false
