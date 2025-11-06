@@ -7,15 +7,15 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-v0.8
-      url: git@github.com:openshift-priv/migtools-kubevirt-velero-plugin.git
-      web: https://github.com/migtools/kubevirt-velero-plugin
+        target: release-0.8
+      url: git@github.com:openshift-priv/migtools-mta-tackle2-addon-analyzer.git
+      web: https://github.com/migtools/mta-tackle2-addon-analyzer
 distgit:
-  component: oadp-kubevirt-velero-plugin-container
+  component: mta-analyzer-addon-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - oadp/oadp-kubevirt-velero-plugin-rhel9
+  - mta/mta-analyzer-addon-rhel9
 for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
@@ -23,9 +23,10 @@ enabled_repos:
 from:
   builder:
     - stream: rhel-9-golang
-  stream: rhel9
-name: oadp/oadp-kubevirt-velero-plugin-rhel9
+  member: mta-analyzer-lsp
+name: mta/mta-analyzer-addon-rhel9
 owners:
+- fbladilo@redhat.com
 - rjohnson@redhat.com
 dependents:
-  - oadp-operator
+  - mta-operator

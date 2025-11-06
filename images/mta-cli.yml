@@ -2,34 +2,33 @@ cachito:
   packages:
     gomod:
       - path: .
-      - path: kopia/
-      - path: restic/
-      - path: velero/
 content:
   source:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: oadp-1.5
-      url: git@github.com:openshift-priv/oadp-must-gather.git
-      web: https://github.com/openshift/oadp-must-gather
+        target: release-0.8
+      url: git@github.com:openshift-priv/migtools-mta-kantra.git
+      web: https://github.com/migtools/mta-kantra
 distgit:
-  component: oadp-mustgather-container
+  component: mta-cli-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - oadp/oadp-mustgather-rhel9
+  - mta/mta-cli-rhel9
 for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 from:
   builder:
-    - stream: ose-cli
     - stream: rhel-9-golang
-  stream: rhel9
-name: oadp/oadp-mustgather-rhel9
+    - stream: rhel-9
+    - member: mta-static-report
+  member: mta-analyzer-lsp
+name: mta/mta-cli-rhel9
 owners:
+- fbladilo@redhat.com
 - rjohnson@redhat.com
 dependents:
-  - oadp-operator
+  - mta-operator
