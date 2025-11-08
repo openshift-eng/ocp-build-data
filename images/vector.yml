@@ -30,16 +30,47 @@ name: openshift-logging/vector-rhel9
 owners:
 - jcantril@redhat.com
 konflux:
-  network_mode: open
   cachi2:
-    enabled: false
-#    lockfile:
-#      rpms:
-#      - gcc-11.5.0-5.el9_5
-#      - gcc-c++-11.5.0-5.el9_5
-#      - git
-#      - llvm-toolset-17.0.6-5.el9
-#      - make
-#      - openssl-devel
-#      - rust-toolset-1.75.0-1.el9
-#      - systemd
+    lockfile:
+      rpms:
+      - gcc-11.5.0-5.el9_5
+      - gcc-c++-11.5.0-5.el9_5
+      - llvm-toolset-17.0.6-5.el9
+      - rust-toolset-1.75.0-1.el9
+      - perl-base
+      - perl-constant
+      - perl-if
+      - perl-interpreter
+      - perl-lib
+      - perl-libnet
+      - perl-libs
+      - perl-mro
+      - perl-overload
+      - perl-overloading
+      - perl-parent
+      - perl-podlators
+      - perl-subs
+      - perl-vars
+      - pkgconf
+      - pkgconf-m4
+      - pkgconf-pkg-config
+      - policycoreutils
+      - policycoreutils-python-utils
+      - procps-ng
+      - python3-audit
+      - python3-distro
+      - python3-libselinux
+      - python3-libsemanage
+      - python3-policycoreutils
+      - python3-setools
+      - rust
+      - rust-std-static
+      - scl-utils
+      - tcl
+      - vim-filesystem
+      - compiler-rt
+      - libatomic
+      - libomp
+      - libomp-devel
+      - perl-NDBM_File
+
