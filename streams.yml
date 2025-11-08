@@ -17,3 +17,11 @@ ose-cli-artifacts:
 4-18-base-rhel9:
   # TODO: Change this to a floating tag to pull the latest 18 base-rhel9 image
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:69980e9f2314406141a450f136658600ef551d0a3c90ceee837fcaf648d800af
+
+rhel9-els:
+  # the most recent release at present. since we yum update this, it does not need to float.
+  # it is important that we not build from unreleased builds and publish them.
+  # rhel-els-container-9.4-847.1719484506
+  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:0a4a4ab60ce8abac3edab51cacdbed25cd012a3e4169895bce2d18ed74364e08
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
+  mirror: false
