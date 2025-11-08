@@ -17,11 +17,8 @@ for_payload: false
 dependents:
 - cluster-logging-operator
 enabled_repos:
-- rhel-96-baseos
-- rhel-96-baseos-source
 - rhel-96-appstream
-- rhel-96-appstream-debug
-- rhel-96-appstream-source
+- rhel-96-baseos
 from:
   builder:
     - stream: rhel9-els
@@ -33,10 +30,116 @@ konflux:
   cachi2:
     lockfile:
       rpms:
+      - binutils
+      - binutils-gold
+      - cargo
+      - checkpolicy
+      - clang
+      - clang-libs
+      - clang-resource-filesystem
+      - compiler-rt
+      - cpp
+      - diffutils
+      - elfutils-debuginfod-client
+      - emacs-filesystem
+      - environment-modules
+      - gcc
       - gcc-11.5.0-5.el9_5
+      - gcc-c++
       - gcc-c++-11.5.0-5.el9_5
+      - gcc-toolset-13-binutils
+      - gcc-toolset-13-binutils-gold
+      - gcc-toolset-13-gcc
+      - gcc-toolset-13-gcc-c++
+      - gcc-toolset-13-libstdc++-devel
+      - gcc-toolset-13-runtime
+      - git
+      - git-core
+      - git-core-doc
+      - glibc-devel
+      - glibc-headers
+      - groff-base
+      - jansson
+      - kernel-headers
+      - less
+      - libatomic
+      - libcbor
+      - libedit
+      - libfido2
+      - libgcc
+      - libgomp
+      - libmpc
+      - libomp
+      - libomp-devel
+      - libpipeline
+      - libpkgconf
+      - libselinux-utils
+      - libstdc++
+      - libstdc++-devel
+      - libxcrypt-devel
+      - lld
+      - lld-libs
+      - llvm
+      - llvm-libs
+      - llvm-toolset
       - llvm-toolset-17.0.6-5.el9
-      - rust-toolset-1.75.0-1.el9
+      - make
+      - man-db
+      - ncurses
+      - openssh
+      - openssh-clients
+      - openssl
+      - openssl-devel
+      - openssl-libs
+      - perl-AutoLoader
+      - perl-B
+      - perl-Carp
+      - perl-Class-Struct
+      - perl-Data-Dumper
+      - perl-Digest
+      - perl-Digest-MD5
+      - perl-DynaLoader
+      - perl-Encode
+      - perl-Errno
+      - perl-Error
+      - perl-Exporter
+      - perl-Fcntl
+      - perl-File-Basename
+      - perl-File-Find
+      - perl-File-Path
+      - perl-File-Temp
+      - perl-File-stat
+      - perl-FileHandle
+      - perl-Getopt-Long
+      - perl-Getopt-Std
+      - perl-Git
+      - perl-HTTP-Tiny
+      - perl-IO
+      - perl-IO-Socket-IP
+      - perl-IO-Socket-SSL
+      - perl-IPC-Open3
+      - perl-MIME-Base64
+      - perl-Mozilla-CA
+      - perl-NDBM_File
+      - perl-Net-SSLeay
+      - perl-POSIX
+      - perl-PathTools
+      - perl-Pod-Escapes
+      - perl-Pod-Perldoc
+      - perl-Pod-Simple
+      - perl-Pod-Usage
+      - perl-Scalar-List-Utils
+      - perl-SelectSaver
+      - perl-Socket
+      - perl-Storable
+      - perl-Symbol
+      - perl-Term-ANSIColor
+      - perl-Term-Cap
+      - perl-TermReadKey
+      - perl-Text-ParseWords
+      - perl-Text-Tabs+Wrap
+      - perl-Time-Local
+      - perl-URI
       - perl-base
       - perl-constant
       - perl-if
@@ -65,12 +168,8 @@ konflux:
       - python3-setools
       - rust
       - rust-std-static
+      - rust-toolset
+      - rust-toolset-1.75.0-1.el9
       - scl-utils
       - tcl
       - vim-filesystem
-      - compiler-rt
-      - libatomic
-      - libomp
-      - libomp-devel
-      - perl-NDBM_File
-
