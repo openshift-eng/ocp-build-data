@@ -1,9 +1,11 @@
 content:
   source:
+    dockerfile: Dockerfile.art
     git:
       branch:
         target: v0.37.1-rh
       url: git@github.com:openshift-priv/vector.git
+      url_pull: git@github.com:ashwindasr/vector.git
       web: https://github.com/ViaQ/vector
 distgit:
   component: vector-container
@@ -15,25 +17,160 @@ for_payload: false
 dependents:
 - cluster-logging-operator
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-96-appstream
+- rhel-96-baseos
 from:
   builder:
-    - stream: rhel-9-golang
-  stream: rhel9
+    - stream: rhel9-els
+  stream: rhel9-els
 name: openshift-logging/vector-rhel9
 owners:
 - jcantril@redhat.com
 konflux:
-  # ref https://redhat-internal.slack.com/archives/GDBRP5YJH/p1761835848487449?thread_ts=1761769013.687149&cid=GDBRP5YJH
-  # need to figure out how to cache dependencies for rust
   network_mode: open
-#  cachi2:
-#    lockfile:
-#      rpms:
-#      - git
-#      - git-core
-#      - git-core-doc
-#      - perl-Git
-#      - cyrus-sasl
-#      - cyrus-sasl-devel
+  cachi2:
+    lockfile:
+      rpms:
+      - binutils-2.35.2-63.el9
+      - binutils-gold-2.35.2-63.el9
+      - cargo-1.75.0-1.el9
+      - checkpolicy
+      - clang-17.0.6-5.el9
+      - clang-libs-17.0.6-5.el9
+      - clang-resource-filesystem-17.0.6-5.el9
+      - compiler-rt
+      - cpp
+      - diffutils
+      - elfutils-debuginfod-client-0.192-6.el9_6
+      - emacs-filesystem
+      - environment-modules
+      - gcc
+      - gcc-11.5.0-5.el9_5
+      - gcc-c++
+      - gcc-c++-11.5.0-5.el9_5
+      - gcc-toolset-13-binutils
+      - gcc-toolset-13-binutils-gold
+      - gcc-toolset-13-gcc
+      - gcc-toolset-13-gcc-c++
+      - gcc-toolset-13-libstdc++-devel
+      - gcc-toolset-13-runtime
+      - git
+      - git-core
+      - git-core-doc
+      - glibc-devel
+      - glibc-headers
+      - groff-base
+      - jansson
+      - kernel-headers
+      - less
+      - libatomic
+      - libcbor
+      - libedit
+      - libfido2
+      - libgcc
+      - libgomp
+      - libmpc
+      - libomp
+      - libomp-devel
+      - libpipeline
+      - libpkgconf
+      - libselinux-utils
+      - libstdc++
+      - libstdc++-devel
+      - libxcrypt-devel
+      - lld-17.0.6-1.el9
+      - lld-libs-17.0.6-1.el9
+      - llvm-17.0.6-5.el9
+      - llvm-libs-17.0.6-5.el9
+      - llvm-toolset
+      - llvm-toolset-17.0.6-5.el9
+      - make
+      - man-db
+      - ncurses
+      - openssh
+      - openssh-clients
+      - openssl
+      - openssl-devel
+      - openssl-libs
+      - perl-AutoLoader
+      - perl-B
+      - perl-Carp
+      - perl-Class-Struct
+      - perl-Data-Dumper
+      - perl-Digest
+      - perl-Digest-MD5
+      - perl-DynaLoader
+      - perl-Encode
+      - perl-Errno
+      - perl-Error
+      - perl-Exporter
+      - perl-Fcntl
+      - perl-File-Basename
+      - perl-File-Find
+      - perl-File-Path
+      - perl-File-Temp
+      - perl-File-stat
+      - perl-FileHandle
+      - perl-Getopt-Long
+      - perl-Getopt-Std
+      - perl-Git
+      - perl-HTTP-Tiny
+      - perl-IO
+      - perl-IO-Socket-IP
+      - perl-IO-Socket-SSL
+      - perl-IPC-Open3
+      - perl-MIME-Base64
+      - perl-Mozilla-CA
+      - perl-NDBM_File
+      - perl-Net-SSLeay
+      - perl-POSIX
+      - perl-PathTools
+      - perl-Pod-Escapes
+      - perl-Pod-Perldoc
+      - perl-Pod-Simple
+      - perl-Pod-Usage
+      - perl-Scalar-List-Utils
+      - perl-SelectSaver
+      - perl-Socket
+      - perl-Storable
+      - perl-Symbol
+      - perl-Term-ANSIColor
+      - perl-Term-Cap
+      - perl-TermReadKey
+      - perl-Text-ParseWords
+      - perl-Text-Tabs+Wrap
+      - perl-Time-Local
+      - perl-URI
+      - perl-base
+      - perl-constant
+      - perl-if
+      - perl-interpreter
+      - perl-lib
+      - perl-libnet
+      - perl-libs
+      - perl-mro
+      - perl-overload
+      - perl-overloading
+      - perl-parent
+      - perl-podlators
+      - perl-subs
+      - perl-vars
+      - pkgconf
+      - pkgconf-m4
+      - pkgconf-pkg-config
+      - policycoreutils
+      - policycoreutils-python-utils
+      - procps-ng
+      - python3-audit
+      - python3-distro
+      - python3-libselinux
+      - python3-libsemanage
+      - python3-policycoreutils
+      - python3-setools
+      - rust-1.75.0-1.el9
+      - rust-std-static-1.75.0-1.el9
+      - rust-toolset
+      - rust-toolset-1.75.0-1.el9
+      - scl-utils
+      - tcl
+      - vim-filesystem

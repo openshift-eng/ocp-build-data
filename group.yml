@@ -83,6 +83,40 @@ repos:
     reposync:
       enabled: false
 
+  rhel-96-baseos:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/baseos/os/
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_6
+    reposync:
+      enabled: true
+
+  rhel-96-baseos-source:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/baseos/source/SRPMS
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/baseos/source/SRPMS
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/baseos/source/SRPMS
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/baseos/source/SRPMS
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      default: rhel-9-for-x86_64-baseos-source-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-baseos-source-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-baseos-source-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-baseos-source-eus-rpms__9_DOT_6
+    reposync:
+      enabled: true
+
   rhel-9-appstream-rpms:
     conf:
       baseurl:
@@ -97,6 +131,57 @@ repos:
       s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
     reposync:
       enabled: false
+
+  rhel-96-appstream:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/appstream/os/
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_6
+    reposync:
+      enabled: true
+
+  rhel-96-appstream-source:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/source/SRPMS
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/source/SRPMS
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/appstream/source/SRPMS
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/appstream/source/SRPMS
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      default: rhel-9-for-x86_64-appstream-source-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-appstream-source-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-appstream-source-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-appstream-source-eus-rpms__9_DOT_6
+    reposync:
+      enabled: true
+
+  rhel-96-appstream-debug:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/debug/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/debug/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/ppc64le/appstream/debug/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/s390x/appstream/debug/
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      default: rhel-9-for-x86_64-appstream-debug-eus-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-appstream-debug-eus-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-appstream-debug-eus-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-appstream-debug-eus-rpms__9_DOT_6
+    reposync:
+      enabled: true
 
   rhel-9-codeready-builder-rpms:
     conf:
