@@ -18,9 +18,7 @@ dependents:
 - cluster-logging-operator
 enabled_repos:
 - rhel-96-appstream
-- rhel-96-appstream-source
 - rhel-96-baseos
-- rhel-96-baseos-source
 from:
   builder:
     - stream: rhel9-els
@@ -29,4 +27,148 @@ name: openshift-logging/vector-rhel9
 owners:
 - jcantril@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      rpms:
+      - binutils
+      - binutils-gold
+      - cargo-1.75.0-1.el9
+      - checkpolicy
+      - clang-17.0.6-5.el9
+      - clang-libs-17.0.6-5.el9
+      - clang-resource-filesystem-17.0.6-5.el9
+      - compiler-rt-17.0.6-1.el9
+      - cpp
+      - diffutils
+      - elfutils-debuginfod-client
+      - emacs-filesystem
+      - environment-modules
+      - gcc-11.5.0-5.el9_5
+      - gcc-c++-11.5.0-5.el9_5
+      - gcc-toolset-13-binutils
+      - gcc-toolset-13-binutils-gold
+      - gcc-toolset-13-gcc
+      - gcc-toolset-13-gcc-c++
+      - gcc-toolset-13-libstdc++-devel
+      - gcc-toolset-13-runtime
+      - git
+      - git-core
+      - git-core-doc
+      - glibc-devel
+      - glibc-headers
+      - groff-base
+      - jansson
+      - kernel-headers
+      - less
+      - libasan-11.5.0-5.el9_5
+      - libatomic
+      - libcbor
+      - libgcc-11.5.0-5.el9_5
+      - libgomp-11.5.0-5.el9_5
+      - libedit
+      - libfido2
+      - libmpc
+      - libomp
+      - libomp-devel
+      - libpipeline
+      - libpkgconf
+      - libselinux-utils
+      - libstdc++-11.5.0-5.el9_5
+      - libstdc++-devel
+      - libubsan-11.5.0-5.el9_5
+      - libxcrypt-devel
+      - lld-17.0.6-1.el9
+      - lld-libs-17.0.6-1.el9
+      - llvm-17.0.6-5.el9
+      - llvm-libs-17.0.6-5.el9
+      - llvm-toolset-17.0.6-5.el9
+      - make
+      - man-db
+      - ncurses
+      - openssh
+      - openssh-clients
+      - openssl-1:3.2.2-6.el9_5.1
+      - openssl-devel
+      - openssl-libs-1:3.2.2-6.el9_5.1
+      - perl-AutoLoader
+      - perl-B
+      - perl-Carp
+      - perl-Class-Struct
+      - perl-Data-Dumper
+      - perl-Digest
+      - perl-Digest-MD5
+      - perl-DynaLoader
+      - perl-Encode
+      - perl-Errno
+      - perl-Error
+      - perl-Exporter
+      - perl-Fcntl
+      - perl-File-Basename
+      - perl-File-Find
+      - perl-File-Path
+      - perl-File-Temp
+      - perl-File-stat
+      - perl-FileHandle
+      - perl-Getopt-Long
+      - perl-Getopt-Std
+      - perl-Git
+      - perl-HTTP-Tiny
+      - perl-IO
+      - perl-IO-Socket-IP
+      - perl-IO-Socket-SSL
+      - perl-IPC-Open3
+      - perl-MIME-Base64
+      - perl-Mozilla-CA
+      - perl-NDBM_File
+      - perl-Net-SSLeay
+      - perl-POSIX
+      - perl-PathTools
+      - perl-Pod-Escapes
+      - perl-Pod-Perldoc
+      - perl-Pod-Simple
+      - perl-Pod-Usage
+      - perl-Scalar-List-Utils
+      - perl-SelectSaver
+      - perl-Socket
+      - perl-Storable
+      - perl-Symbol
+      - perl-Term-ANSIColor
+      - perl-Term-Cap
+      - perl-TermReadKey
+      - perl-Text-ParseWords
+      - perl-Text-Tabs+Wrap
+      - perl-Time-Local
+      - perl-URI
+      - perl-base
+      - perl-constant
+      - perl-if
+      - perl-interpreter
+      - perl-lib
+      - perl-libnet
+      - perl-libs
+      - perl-mro
+      - perl-overload
+      - perl-overloading
+      - perl-parent
+      - perl-podlators
+      - perl-subs
+      - perl-vars
+      - pkgconf
+      - pkgconf-m4
+      - pkgconf-pkg-config
+      - policycoreutils
+      - policycoreutils-python-utils
+      - procps-ng
+      - python3-audit
+      - python3-distro
+      - python3-libselinux
+      - python3-libsemanage
+      - python3-policycoreutils
+      - python3-setools
+      - rust-1.75.0-1.el9
+      - rust-std-static-1.75.0-1.el9
+      - rust-toolset-1.75.0-1.el9
+      - scl-utils
+      - systemd
+      - tcl
+      - vim-filesystem
