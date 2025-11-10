@@ -20,8 +20,15 @@ enabled_repos:
 for_payload: false
 from:
   stream: ose-ansible-operator
-# konflux:
-#   network_mode: open
+konflux:
+  network_mode: open
+# https://issues.redhat.com/browse/ART-14111
+#  cachi2:
+#    lockfile:
+#      enabled: true
+#      inpsect_parent: true
+#      rpms:
+#        - PLACEHOLDER
 name: rhmtc/openshift-migration-rhel8-operator
 owners:
 - rjohnson@redhat.com

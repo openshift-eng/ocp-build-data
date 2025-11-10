@@ -23,8 +23,15 @@ from:
   builder:
   - stream: rhel8
   stream: rhel8
-# konflux:
-#   network_mode: open
+konflux:
+  network_mode: open
+# https://issues.redhat.com/browse/ART-14111
+#  cachi2:
+#    lockfile:
+#      enabled: true
+#      inpsect_parent: true
+#      rpms:
+#        - PLACEHOLDER
 name: rhmtc/openshift-migration-openvpn-rhel8
 owners:
 - rjohnson@redhat.com
