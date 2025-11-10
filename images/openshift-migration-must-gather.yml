@@ -28,8 +28,15 @@ from:
   - stream: ose-must-gather
   - stream: rhel-8-golang
   stream: rhel8
-# konflux:
-#   network_mode: open
+konflux:
+  network_mode: open
+# https://issues.redhat.com/browse/ART-14111
+#  cachi2:
+#    lockfile:
+#      enabled: true
+#      inpsect_parent: true
+#      rpms:
+#        - PLACEHOLDER
 name: rhmtc/openshift-migration-must-gather-rhel8
 owners:
 - rjohnson@redhat.com
