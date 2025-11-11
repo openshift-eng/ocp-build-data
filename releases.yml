@@ -155,6 +155,14 @@ releases:
               is:
                 el9: microshift-4.21.0~ec.0-202509221556.p0.ga88f428.assembly.ec.0.el9
         images: []
+  minimal:
+    assembly:
+      type: stream
+      streams:
+        rhel9:
+          image: registry.redhat.io/ubi9/ubi-minimal@sha256:34880b64c07f28f64d95737f82f891516de9a3b43583f39970f7bf8e4cfa48b7
+          upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
+          mirror: false
   stream:
     assembly:
       type: stream
