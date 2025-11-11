@@ -32,7 +32,7 @@ payload_name: network-tools
 owners:
 - aos-networking-staff@redhat.com
 konflux:
+  network_mode: open # modular dependencies https://issues.redhat.com/browse/ART-14111
   cachi2:
-    # Until upstream issue is resolved
-    enabled: false # https://issues.redhat.com/browse/ART-13260
-  network_mode: open
+    lockfile:
+      inspect_parent: false
