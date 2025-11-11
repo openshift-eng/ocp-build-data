@@ -163,6 +163,20 @@ releases:
           image: registry.redhat.io/ubi9/ubi-minimal@sha256:34880b64c07f28f64d95737f82f891516de9a3b43583f39970f7bf8e4cfa48b7
           upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
           mirror: false
+      members:
+        images:
+        - distgit_key: openshift-enterprise-base-rhel9
+          why: "Fix dnf references"
+          metadata:
+            content:
+              source:
+                modifications:
+                - action: replace
+                  match: "echo 'skip_missing_names_on_install=0' >> /etc/yum.conf"
+                  replacement: "echo 'skip_missing_names_on_install=0' >> /etc/dnf/dnf.conf"
+                - action: replace
+                  match: "dnf install -y --nodocs --setopt=install_weak_deps=False ${INSTALL_PKGS}"
+                  replacement: dnf install -y --nodocs ${INSTALL_PKGS}
   stream:
     assembly:
       type: stream
