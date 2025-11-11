@@ -30,11 +30,6 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed # required by the builder
-konflux:
-  network_mode: open
-  cachi2:
-    lockfile:
-      inspect_parent: false
 for_payload: true
 from:
   builder:
@@ -44,3 +39,8 @@ name: openshift/ose-thanos-rhel9
 payload_name: thanos
 owners:
 - team-monitoring@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - openshift-prometheus-promu
