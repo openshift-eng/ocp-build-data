@@ -10,6 +10,14 @@ content:
         target: oadp-1.5
       url: git@github.com:openshift-priv/oadp-operator.git
       web: https://github.com/openshift/oadp-operator
+    modifications:
+    # https://github.com/openshift/oadp-operator/blob/oadp-1.5/konflux.Dockerfile#L8
+    - action: replace
+      match: "dnf -y"
+      replacement: "microdnf -y"
+    - action: replace
+      match: "dnf clean all"
+      replacement: "microdnf clean all"
 distgit:
   component: oadp-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9

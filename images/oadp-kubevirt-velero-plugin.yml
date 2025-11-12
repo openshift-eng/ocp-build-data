@@ -10,6 +10,14 @@ content:
         target: release-v0.8
       url: git@github.com:openshift-priv/migtools-kubevirt-velero-plugin.git
       web: https://github.com/migtools/kubevirt-velero-plugin
+    modifications:
+    # https://github.com/migtools/kubevirt-velero-plugin/blob/release-v0.8/konflux.Dockerfile#L9
+    - action: replace
+      match: "dnf -y"
+      replacement: "microdnf -y"
+    - action: replace
+      match: "dnf clean all"
+      replacement: "microdnf clean all"
 distgit:
   component: oadp-kubevirt-velero-plugin-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
