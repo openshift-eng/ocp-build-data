@@ -1,7 +1,3 @@
-cachito:
-  packages:
-    generic:
-      - path: .
 content:
   source:
     dockerfile: konflux.Dockerfile
@@ -24,8 +20,6 @@ from:
   builder:
     - stream: rhel9
   stream: rhel9
-konflux:
-  network_mode: open
 name: mta/mta-jdtls-server-base-rhel9
 owners:
 - fbladilo@redhat.com
@@ -34,3 +28,8 @@ dependents:
   - mta-operator
   - mta-java-external-provider
   - mta-analyzer-lsp
+konflux:
+  cachi2:
+    artifact_lockfile:
+      enabled: true
+      path: .
