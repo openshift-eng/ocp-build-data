@@ -38,4 +38,10 @@ owners:
 - openshift-build-api@redhat.com
 # the network mode has to be open until https://issues.redhat.com/browse/ART-14111 is solved to assure this image build without error
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - container-tools        # Provides criu, fuse-overlayfs, runc
+      - perl                   # Base perl module
+      - perl-IO-Socket-SSL     # Perl SSL socket module
+      - perl-libwww-perl       # Perl web modules (Mozilla-CA, Net-SSLeay)
