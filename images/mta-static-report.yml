@@ -27,8 +27,6 @@ from:
     - stream: rhel-9-golang
     - stream: rhel-9-nodejs-18
   stream: rhel9
-konflux:
-  network_mode: open
 name: mta/mta-static-report-rhel9
 owners:
 - fbladilo@redhat.com
@@ -37,3 +35,7 @@ dependents:
   - mta-operator
   - mta-cli
   - mta-hub
+konflux:
+  network_mode: open
+  vm_override:
+    aarch64: linux-mxlarge/arm64
