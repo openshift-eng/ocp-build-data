@@ -5,7 +5,11 @@ FROM rhel9
 
 # If we are build atop UBI or ELS minimal image, setup a link so that invocations of
 # dnf and yum call microdnf instead.
-RUN [ -x /usr/bin/microdnf ] && ln -sf /usr/bin/microdnf /usr/bin/yum && ln -sf /usr/bin/microdnf /usr/bin/dnf || true
+COPY microdnf-wrapper.sh /usr/bin/microdnf-wrapper.sh
+RUN chmod +x /usr/bin/microdnf-wrapper.sh
+RUN [ -x /usr/bin/microdnf ] && \
+    ln -sf /usr/bin/microdnf-wrapper.sh /usr/bin/dnf && \
+    ln -sf /usr/bin/microdnf-wrapper.sh /usr/bin/yum || true
 
 RUN echo 'skip_missing_names_on_install=0' >> /etc/yum.conf \
  && yum update -y  \
