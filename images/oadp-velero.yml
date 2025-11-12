@@ -16,6 +16,9 @@ content:
     - action: replace
       match: "dnf -y"
       replacement: "microdnf -y"
+    - action: replace
+      match: "dnf clean all"
+      replacement: "microdnf clean all"
 distgit:
   component: oadp-velero-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
