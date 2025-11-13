@@ -10,6 +10,14 @@ content:
         target: oadp-1.4
       url: git@github.com:openshift-priv/velero-plugin-for-aws.git
       web: https://github.com/openshift/velero-plugin-for-aws
+    modifications:
+    # https://github.com/openshift/velero-plugin-for-aws/blob/oadp-1.4/konflux.Dockerfile#L9
+    - action: replace
+      match: "dnf -y"
+      replacement: "microdnf -y"
+    - action: replace
+      match: "dnf clean all"
+      replacement: "microdnf clean all"
 distgit:
   component: oadp-velero-plugin-for-aws-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
