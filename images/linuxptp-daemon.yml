@@ -37,3 +37,9 @@ name: openshift/ose-ptp-rhel9
 name_in_bundle: ptp
 owners:
 - multus-dev@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      # Upstream Dockerfile was updated in 4.21 https://github.com/openshift/linuxptp-daemon/blob/release-4.21/addons/redhat/Dockerfile.ocp#L12
+      - synce4l
