@@ -13,6 +13,14 @@ content:
         target: oadp-1.3
       url: git@github.com:openshift-priv/oadp-must-gather.git
       web: https://github.com/openshift/oadp-must-gather
+    modifications:
+    # https://github.com/openshift/oadp-must-gather/blob/oadp-1.3/konflux.Dockerfile#L51
+    - action: replace
+      match: "dnf -y"
+      replacement: "microdnf -y"
+    - action: replace
+      match: "dnf clean all"
+      replacement: "microdnf clean all"
 distgit:
   component: oadp-mustgather-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
