@@ -10,6 +10,11 @@ content:
         target: release-1.8
       url: git@github.com:openshift-priv/migtools-mig-ui.git
       web: https://github.com/migtools/mig-ui
+    modifications:
+    # operation would result in switching of module 'nodejs' stream '20' to stream '16'
+    - action: replace
+      match: "nodejs:16"
+      replacement: "nodejs:20"
 delivery:
   delivery_repo_names:
   - rhmtc/openshift-migration-ui-rhel8
