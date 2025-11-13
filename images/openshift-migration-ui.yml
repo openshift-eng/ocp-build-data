@@ -12,9 +12,10 @@ content:
       web: https://github.com/migtools/mig-ui
     modifications:
     # operation would result in switching of module 'nodejs' stream '20' to stream '16'
+    # module 'nodejs:20' from Fail-Safe repository @modulefailsafe is not allowed
     - action: replace
       match: "nodejs:16"
-      replacement: "nodejs:20"
+      replacement: "nodejs:18"
 delivery:
   delivery_repo_names:
   - rhmtc/openshift-migration-ui-rhel8
@@ -29,8 +30,8 @@ enabled_repos:
 for_payload: false
 from:
   builder:
-  - stream: nodejs-20
-  stream: nodejs-20-minimal
+  - stream: nodejs-18
+  stream: nodejs-18-minimal
 konflux:
   network_mode: open
 # https://issues.redhat.com/browse/ART-14111
