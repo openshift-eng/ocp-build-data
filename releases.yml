@@ -1,4 +1,43 @@
 releases:
+  4.20.4:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-11-11T19:48:45+00:00"
+        reference_releases:
+          ppc64le: 4.20.0-0.nightly-ppc64le-2025-11-12-000037
+          aarch64: 4.20.0-0.nightly-arm64-2025-11-12-000044
+          s390x: 4.20.0-0.nightly-s390x-2025-11-12-000034
+          x86_64: 4.20.0-0.nightly-2025-11-11-205214
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2025-Nov-18
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.20.0,4.20.1,4.20.2,4.20.3
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9361211075ec7128f92ea09def71b4cd28bcf1abb2c0ac309e1901af21fceed1
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3af0d67a0d835965929aac5ccbedc046dd17fd10ac2f5b071e39c09c9fc51127
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cfe050301ff76e1c4b7b432d0691229712bd86863ac4a41bd28dc3a050a36255
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:921715b3b757e7012ae3ebba2042ea4935d1987140fd3ed34f75b7bfad597854
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2c6fef0789e2182aacb35cc8c3ae1a0847fb61306a4e134f67381c87c5e7b41c
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7cc3652150ed39ff26b2a5fb3c1b5a9c5e4b76c5cf8d1a309bd55d35f76ba0fb
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:25e5ae6ee3031d2d93c8d8b2ee36428a8dc81eaa47c4400442e1d07eb4ea7c2c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9aa1e90a57f22d566c248f2102bfd1fa5707cedf87f70170c912f90ae163b4c0
+      members:
+        rpms: []
+        images: []
   4.20.3:
     assembly:
       type: standard
