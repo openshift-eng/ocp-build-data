@@ -11,6 +11,14 @@ content:
         target: oadp-1.4
       url: git@github.com:openshift-priv/velero.git
       web: https://github.com/openshift/velero
+    modifications:
+    # https://github.com/openshift/velero/blob/oadp-1.4/konflux.velero-restore-helper.Dockerfile#L8
+    - action: replace
+      match: "dnf -y"
+      replacement: "microdnf -y"
+    - action: replace
+      match: "dnf clean all"
+      replacement: "microdnf clean all"
 distgit:
   component: oadp-velero-restic-restore-helper-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
