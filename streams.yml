@@ -8,8 +8,6 @@ rhel-9-golang:
 ose-cli-artifacts:
   image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.17
 
-rhel9-els:
-  image: registry.redhat.io/rhel9-6-els/rhel:9.6
-
-rhel9-els-minimal:
-  image: registry.redhat.io/rhel9-6-els/rhel-minimal:9.6
+rhel9:
+  # To match OCP: https://github.com/openshift-eng/ocp-build-data/blob/7a86cf1525b49c3156e54884454a3a5964d6b832/releases.yml#L163
+  image: registry.redhat.io/ubi9/ubi-minimal@sha256:34880b64c07f28f64d95737f82f891516de9a3b43583f39970f7bf8e4cfa48b7
