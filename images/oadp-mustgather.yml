@@ -35,9 +35,14 @@ from:
   builder:
     - stream: ose-cli
     - stream: rhel-9-golang
-  stream: rhel9
+  member: base-rhel9
 name: oadp/oadp-mustgather-rhel9
 owners:
 - rjohnson@redhat.com
 dependents:
   - oadp-operator
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - tzdata
