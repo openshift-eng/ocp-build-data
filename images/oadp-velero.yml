@@ -32,9 +32,14 @@ enabled_repos:
 from:
   builder:
     - stream: rhel-9-golang
-  stream: rhel9
+  member: base-rhel9
 name: oadp/oadp-velero-rhel9
 owners:
 - rjohnson@redhat.com
 dependents:
   - oadp-operator
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - tzdata
