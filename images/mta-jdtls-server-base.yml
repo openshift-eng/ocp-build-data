@@ -32,9 +32,10 @@ konflux:
   cachi2:
     lockfile:
       inspect_parent: false
-      # javapackages-tools not being picked by dep solver
-#      rpms:
-#      - javapackages-tools
+      # These deps are not being picked by dep solver
+      rpms:
+      - javapackages-tools
+      - aopalliance
       modules:
       - maven:3.9
     artifact_lockfile:
