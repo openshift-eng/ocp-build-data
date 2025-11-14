@@ -37,6 +37,9 @@ payload_name: prometheus-alertmanager
 owners:
 - team-monitoring@redhat.com
 konflux:
-  network_mode: open
+  network_mode: open  # Upstream has to fix their vendor.
   cachi2:
-    enabled: false  # https://issues.redhat.com/browse/ART-13260
+    enabled: false  # Upstream has to fix their vendor.
+    lockfile:
+      rpms:
+      - openshift-prometheus-promu

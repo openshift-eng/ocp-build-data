@@ -32,6 +32,7 @@ payload_name: network-tools
 owners:
 - aos-networking-staff@redhat.com
 konflux:
+  network_mode: open # modular dependencies https://issues.redhat.com/browse/ART-14111
   cachi2:
-    enabled: false
-  network_mode: open
+    lockfile:
+      inspect_parent: false

@@ -22,6 +22,10 @@ delivery:
   repo_name: ose-thanos
   delivery_repo_names:
   - openshift4/ose-thanos-rhel9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed # required by the builder
 for_payload: true
 from:
   builder:
@@ -32,4 +36,7 @@ payload_name: thanos
 owners:
 - team-monitoring@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      rpms:
+      - openshift-prometheus-promu
