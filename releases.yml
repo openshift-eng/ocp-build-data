@@ -157,6 +157,15 @@ releases:
         images: []
   minimal:
     assembly:
+      group:
+        repos:
+          rhel-9-baseos-rpms:
+            conf:
+              baseurl:
+                x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/x86_64/baseos/os/
+                aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/aarch64/baseos/os/
+                ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/ppc64le/baseos/os/
+                s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/s390x/baseos/os/
       type: stream
       streams:
         rhel9:
