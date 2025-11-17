@@ -17,6 +17,11 @@ for arg in "$@"; do
             [[ "$arg" == --setopt ]] && skip_next=true
             continue
             ;;
+        --exclude*)
+            # Handles '--exclude=foo' and '--exclude foo'
+            [[ "$arg" == --exclude ]] && skip_next=true
+            continue
+            ;;
         *)
             args+=("$arg")
             ;;
