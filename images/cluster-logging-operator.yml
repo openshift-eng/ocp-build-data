@@ -10,9 +10,9 @@ distgit:
   component: ose-cluster-logging-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
-  bundle_delivery_repo_name: openshift4/ose-cluster-logging-operator-bundle
+  bundle_delivery_repo_name: openshift-logging/cluster-logging-operator-bundle
   delivery_repo_names:
-  - openshift4/ose-cluster-logging-operator
+  - openshift-logging/cluster-logging-rhel9-operator
 for_payload: false
 enabled_repos:
 - rhel-9-baseos-rpms
@@ -22,7 +22,7 @@ from:
     - stream: rhel-9-golang
     - stream: ose-cli-artifacts
   member: base-rhel9
-name: openshift4/ose-cluster-logging-operator
+name: openshift-logging/cluster-logging-rhel9-operator
 owners:
 - jcantril@redhat.com
 update-csv:
