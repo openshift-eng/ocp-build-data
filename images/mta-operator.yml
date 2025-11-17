@@ -19,8 +19,6 @@ enabled_repos:
 - rhel-9-baseos-rpms
 from:
   stream: rhel-9-ansible-operator
-konflux:
-  network_mode: open
 name: mta/mta-rhel9-operator
 owners:
 - fbladilo@redhat.com
@@ -30,3 +28,8 @@ update-csv:
   manifests-dir: bundle/
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+konflux:
+  cachi2:
+    lockfile:
+      modules:
+      - postgresql:15
