@@ -11,6 +11,9 @@ content:
     - action: replace
       match: "CGO_ENABLED=0"
       replacement: "CGO_ENABLED=1"
+    - action: replace
+      match: -mod=readonly -a -ldflags '-extldflags "-static"' -o ./stern-linux
+      replacement: -mod=vendor -tags strictfipsruntime -a -o ./stern-linux
 delivery:
   delivery_repo_names:
   - rhmtc/openshift-migration-log-reader-rhel8
