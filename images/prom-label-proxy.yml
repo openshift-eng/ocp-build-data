@@ -29,11 +29,6 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
-konflux:
-  network_mode: open
-  cachi2:
-    lockfile:
-      inspect_parent: false
 for_payload: true
 from:
   builder:
@@ -43,3 +38,8 @@ name: openshift/ose-prom-label-proxy-rhel9
 payload_name: prom-label-proxy
 owners:
 - team-monitoring@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - openshift-prometheus-promu
