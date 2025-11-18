@@ -32,7 +32,8 @@ payload_name: network-tools
 owners:
 - aos-networking-staff@redhat.com
 konflux:
-  network_mode: open # modular dependencies https://issues.redhat.com/browse/ART-14111
   cachi2:
     lockfile:
       inspect_parent: false
+      modules:
+      - nginx:1.24
