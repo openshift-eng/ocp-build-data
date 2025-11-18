@@ -6,6 +6,11 @@ content:
         target: release-1.8
       url: git@github.com:openshift-priv/migtools-mig-log-reader.git
       web: https://github.com/migtools/mig-log-reader
+    modifications:
+    # https://github.com/migtools/mig-log-reader/blob/release-1.8/konflux.Dockerfile#L7
+    - action: replace
+      match: "CGO_ENABLED=0"
+      replacement: "CGO_ENABLED=1"
 delivery:
   delivery_repo_names:
   - rhmtc/openshift-migration-log-reader-rhel8
