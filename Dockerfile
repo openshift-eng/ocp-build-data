@@ -7,9 +7,13 @@ FROM rhel9
 # dnf and yum call microdnf instead.
 COPY microdnf-wrapper.sh /usr/bin/microdnf-wrapper.sh
 RUN chmod +x /usr/bin/microdnf-wrapper.sh
-RUN [ -x /usr/bin/microdnf ] && \
-    ln -sf /usr/bin/microdnf-wrapper.sh /usr/bin/dnf && \
-    ln -sf /usr/bin/microdnf-wrapper.sh /usr/bin/yum || true
+RUN if [ -x /usr/bin/microdnf ]; then \
+      echo "microdnf detected: creating symlinks for dnf and yum"; \
+      ln -sf /usr/bin/microdnf-wrapper.sh /usr/bin/dnf || true; \
+      ln -sf /usr/bin/microdnf-wrapper.sh /usr/bin/yum || true; \
+    else \
+      echo "microdnf not found: skipping dnf/yum symlink creation"; \
+    fi
 
 RUN echo 'skip_missing_names_on_install=0' >> /etc/yum.conf \
  && yum update -y  \
