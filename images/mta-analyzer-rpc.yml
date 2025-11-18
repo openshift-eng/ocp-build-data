@@ -1,9 +1,12 @@
 cachito:
   packages:
     gomod:
+      - .
       - path: kai_analyzer_rpc/
 content:
   source:
+    pkg_managers:
+      - gomod
     dockerfile: konflux.analyzer-rpc.Dockerfile
     git:
       branch:
