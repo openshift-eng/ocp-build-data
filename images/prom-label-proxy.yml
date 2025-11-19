@@ -13,13 +13,15 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: prom-label-proxy-container
-delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-prom-label-proxy
 enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-server-ose-rpms-embargoed
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-prom-label-proxy
+  delivery_repo_names:
+  - openshift4/ose-prom-label-proxy
 for_payload: true
 from:
   builder:
