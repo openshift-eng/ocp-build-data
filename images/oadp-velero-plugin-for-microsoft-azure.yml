@@ -11,34 +11,37 @@ content:
       url: git@github.com:openshift-priv/velero-plugin-for-microsoft-azure.git
       web: https://github.com/openshift/velero-plugin-for-microsoft-azure
     modifications:
-    # https://github.com/openshift/velero-plugin-for-microsoft-azure/blob/oadp-1.4/konflux.Dockerfile#L9
-    - action: replace
-      match: "dnf -y"
-      replacement: "microdnf -y"
-    - action: replace
-      match: "dnf clean all"
-      replacement: "microdnf clean all"
+      # https://github.com/openshift/velero-plugin-for-microsoft-azure/blob/oadp-1.4/konflux.Dockerfile#L9
+      - action: replace
+        match: "dnf -y"
+        replacement: "microdnf -y"
+      - action: replace
+        match: "dnf clean all"
+        replacement: "microdnf clean all"
 distgit:
   component: oadp-velero-plugin-for-microsoft-azure-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - oadp/oadp-velero-plugin-for-microsoft-azure-rhel9
+    - oadp/oadp-velero-plugin-for-microsoft-azure-rhel9
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
 from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
 name: oadp/oadp-velero-plugin-for-microsoft-azure-rhel9
 owners:
-- rjohnson@redhat.com
+  - rjohnson@redhat.com
 dependents:
   - oadp-operator
 konflux:
   cachi2:
     lockfile:
       rpms:
-      - tzdata
+        - tzdata
+jira:
+  project: OADP
+  component: oadp-velero-plugin-for-microsoft-azure-container
