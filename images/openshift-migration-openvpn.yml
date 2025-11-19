@@ -8,20 +8,20 @@ content:
       web: https://github.com/migtools/openvpn
 delivery:
   delivery_repo_names:
-  - rhmtc/openshift-migration-openvpn-rhel8
+    - rhmtc/openshift-migration-openvpn-rhel8
 dependents:
-- openshift-migration-operator
+  - openshift-migration-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-migration-openvpn-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
-- rhel-8-codeready-builder-rpms
+  - rhel-8-appstream-rpms
+  - rhel-8-baseos-rpms
+  - rhel-8-codeready-builder-rpms
 for_payload: false
 from:
   builder:
-  - stream: rhel8
+    - stream: rhel8
   stream: rhel8
 konflux:
   network_mode: open
@@ -34,4 +34,7 @@ konflux:
 #        - PLACEHOLDER
 name: rhmtc/openshift-migration-openvpn-rhel8
 owners:
-- rjohnson@redhat.com
+  - rjohnson@redhat.com
+jira:
+  project: MIG
+  component: openshift-migration-openvpn-container

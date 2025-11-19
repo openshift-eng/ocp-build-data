@@ -1,8 +1,8 @@
 cachito:
   packages:
     gomod:
-    - path: .
-    - path: crane/
+      - path: .
+      - path: crane/
 content:
   source:
     dockerfile: konflux.Dockerfile
@@ -13,22 +13,25 @@ content:
       web: https://github.com/migtools/mig-controller
 delivery:
   delivery_repo_names:
-  - rhmtc/openshift-migration-controller-rhel8
+    - rhmtc/openshift-migration-controller-rhel8
 dependents:
-- openshift-migration-operator
+  - openshift-migration-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-migration-controller-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
+  - rhel-8-appstream-rpms
+  - rhel-8-baseos-rpms
 for_payload: false
 from:
   builder:
-  - stream: rhel-8-golang
+    - stream: rhel-8-golang
   stream: rhel8
 # konflux:
 #   network_mode: open
 name: rhmtc/openshift-migration-controller-rhel8
 owners:
-- rjohnson@redhat.com
+  - rjohnson@redhat.com
+jira:
+  project: MIG
+  component: openshift-migration-controller-container
