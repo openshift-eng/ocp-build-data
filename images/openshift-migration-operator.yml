@@ -9,14 +9,14 @@ content:
 delivery:
   bundle_delivery_repo_name: rhmtc/openshift-migration-operator-bundle
   delivery_repo_names:
-  - rhmtc/openshift-migration-rhel8-operator
+    - rhmtc/openshift-migration-rhel8-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-8
   component: openshift-migration-operator-container
 enabled_repos:
-- rhel-8-appstream-rpms
-- rhel-8-baseos-rpms
-- rhocp-4.7-for-rhel-8-x86_64-rpms
+  - rhel-8-appstream-rpms
+  - rhel-8-baseos-rpms
+  - rhocp-4.7-for-rhel-8-x86_64-rpms
 for_payload: false
 from:
   stream: ose-ansible-operator
@@ -31,9 +31,12 @@ konflux:
 #        - PLACEHOLDER
 name: rhmtc/openshift-migration-rhel8-operator
 owners:
-- rjohnson@redhat.com
+  - rjohnson@redhat.com
 update-csv:
   bundle-dir: manifests/
   manifests-dir: deploy/olm-catalog/bundle/
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+jira:
+  project: MIG
+  component: openshift-migration-operator-container
