@@ -11,34 +11,37 @@ content:
       url: git@github.com:openshift-priv/velero-plugin-for-gcp.git
       web: https://github.com/openshift/velero-plugin-for-gcp
     modifications:
-    # https://github.com/openshift/velero-plugin-for-gcp/blob/oadp-1.3/konflux.Dockerfile#L9
-    - action: replace
-      match: "dnf -y"
-      replacement: "microdnf -y"
-    - action: replace
-      match: "dnf clean all"
-      replacement: "microdnf clean all"
+      # https://github.com/openshift/velero-plugin-for-gcp/blob/oadp-1.3/konflux.Dockerfile#L9
+      - action: replace
+        match: "dnf -y"
+        replacement: "microdnf -y"
+      - action: replace
+        match: "dnf clean all"
+        replacement: "microdnf clean all"
 distgit:
   component: oadp-velero-plugin-for-gcp-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - oadp/oadp-velero-plugin-for-gcp-rhel9
+    - oadp/oadp-velero-plugin-for-gcp-rhel9
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
 from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
 name: oadp/oadp-velero-plugin-for-gcp-rhel9
 owners:
-- rjohnson@redhat.com
+  - rjohnson@redhat.com
 dependents:
   - oadp-operator
 konflux:
   cachi2:
     lockfile:
       rpms:
-      - tzdata
+        - tzdata
+jira:
+  project: OADP
+  component: oadp-velero-plugin-for-gcp-container

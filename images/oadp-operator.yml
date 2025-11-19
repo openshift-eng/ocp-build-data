@@ -11,31 +11,31 @@ content:
       url: git@github.com:openshift-priv/oadp-operator.git
       web: https://github.com/openshift/oadp-operator
     modifications:
-    # https://github.com/openshift/oadp-operator/blob/oadp-1.3/konflux.Dockerfile#L8
-    - action: replace
-      match: "dnf -y"
-      replacement: "microdnf -y"
-    - action: replace
-      match: "dnf clean all"
-      replacement: "microdnf clean all"
+      # https://github.com/openshift/oadp-operator/blob/oadp-1.3/konflux.Dockerfile#L8
+      - action: replace
+        match: "dnf -y"
+        replacement: "microdnf -y"
+      - action: replace
+        match: "dnf clean all"
+        replacement: "microdnf clean all"
 distgit:
   component: oadp-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   bundle_delivery_repo_name: oadp/oadp-operator-bundle
   delivery_repo_names:
-  - oadp/oadp-rhel9-operator
+    - oadp/oadp-rhel9-operator
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
 from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
 name: oadp/oadp-rhel9-operator
 owners:
-- rjohnson@redhat.com
+  - rjohnson@redhat.com
 update-csv:
   bundle-dir: manifests/
   manifests-dir: bundle/
@@ -45,4 +45,7 @@ konflux:
   cachi2:
     lockfile:
       rpms:
-      - tzdata
+        - tzdata
+jira:
+  project: OADP
+  component: oadp-operator-container
