@@ -3,8 +3,9 @@ content:
     dockerfile: openshift/Dockerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: v1.42.0-rebase-main
       url: git@github.com:openshift-priv/ansible-operator-plugins.git
+      url_pull: git@github.com:chiragkyal/ansible-operator-plugins.git
       web: https://github.com/openshift/ansible-operator-plugins
     ci_alignment:
       streams_prs:
