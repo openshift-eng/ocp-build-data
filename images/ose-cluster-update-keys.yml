@@ -14,8 +14,6 @@ content:
         - backport-risk-assessed
         - bugzilla/valid-bug
         - cherry-pick-approved
-    okd_alignment:
-      dockerfile: Dockerfile
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-update-keys-container
@@ -31,3 +29,7 @@ name: openshift/ose-cluster-update-keys-rhel9
 payload_name: cluster-update-keys
 owners:
 - aos-team-art@redhat.com
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile
