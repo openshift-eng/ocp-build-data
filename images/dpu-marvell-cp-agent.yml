@@ -1,0 +1,97 @@
+arches:
+- aarch64
+- x86_64
+content:
+  source:
+    dockerfile: Dockerfile.mrvlCPAgent.rhel
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/dpu-operator.git
+      web: https://github.com/openshift/dpu-operator
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+dependents:
+- dpu-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: dpu-marvell-cp-agent-container
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-codeready-builder-rpms
+delivery:
+  repo_name: ose-dpu-marvell-cp-agent
+  delivery_repo_names:
+  - openshift4/ose-dpu-marvell-cp-agent-rhel9
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-dpu-marvell-cp-agent-rhel9
+name_in_bundle: dpu-marvell-cp-agent
+owners:
+- bnemeth@redhat.com
+- wizhao@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      inspect_parent: false
+      rpms:
+      - binutils
+      - binutils-gold
+      - cpp
+      - elfutils-debuginfod-client
+      - gcc
+      - gcc-c++
+      - libstdc++-devel
+      - glibc-headers
+      - glibc-devel
+      - kernel-headers
+      - libasan
+      - libatomic
+      - libmpc
+      - libubsan
+      - libxcrypt-devel
+      - make
+      - libconfig-devel
+      - git
+      - git-core
+      - git-core-doc
+      - krb5-devel
+      - libkadm5
+      - libxml2-devel
+      - ncurses
+      - perl-AutoLoader
+      - perl-B
+      - perl-Class-Struct
+      - perl-DynaLoader
+      - perl-Errno
+      - perl-Fcntl
+      - perl-File-Basename
+      - perl-File-Compare
+      - perl-File-Copy
+      - perl-File-Find
+      - perl-File-stat
+      - perl-FileHandle
+      - perl-Getopt-Std
+      - perl-Git
+      - perl-IO
+      - perl-IPC-Open3
+      - perl-NDBM_File
+      - perl-POSIX
+      - perl-SelectSaver
+      - perl-Symbol
+      - perl-base
+      - perl-if
+      - perl-interpreter
+      - perl-lib
+      - perl-libs
+      - perl-mro
+      - perl-overload
+      - perl-overloading
+      - perl-subs
+      - perl-vars
