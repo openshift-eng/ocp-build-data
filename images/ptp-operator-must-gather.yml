@@ -16,6 +16,8 @@ content:
         enabled: true
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+dependents:
+- ptp-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ptp-operator-must-gather-container
@@ -30,5 +32,6 @@ from:
   - stream: rhel-9-golang
   member: ose-must-gather
 name: openshift/ptp-must-gather-rhel9
+name_in_bundle: ptp-operator-must-gather
 owners:
 - multus-dev@redhat.com
