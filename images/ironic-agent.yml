@@ -44,8 +44,5 @@ enabled_repos:
 konflux:
   network_mode: open
   cachi2:
-    lockfile:
-      inspect_parent: false
-      rpms:
-      - python3.12-futurist
-      - python3.12-oslo-service
+    # [asdas] due to error https://konflux-ui.apps.kflux-ocp-p01.7ayg.p1.openshiftapps.com/ns/ocp-art-tenant/applications/openshift-4-22/pipelineruns/ose-4-22-ironic-agent-xf6qd/logs
+    enabled: false
