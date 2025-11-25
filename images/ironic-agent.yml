@@ -43,3 +43,9 @@ enabled_repos:
 - rhel-9-server-ironic-rpms
 konflux:
   network_mode: open
+  cachi2:
+    lockfile:
+      inspect_parent: false
+      rpms:
+      - python3.12-futurist
+      - python3.12-oslo-service
