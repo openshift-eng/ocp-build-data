@@ -1,7 +1,7 @@
 [rhel-9-golang-rpms-x86_64]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/appstream/os
 module_hotfixes = 1
-includepkgs = module-build-macros golang* goversioninfo
+includepkgs = module-build-macros goversioninfo
 name = rhel-9-golang-rpms-x86_64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
@@ -9,7 +9,7 @@ gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 [rhel-9-golang-rpms-ppc64le]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/ppc64le/appstream/os
 module_hotfixes = 1
-includepkgs = module-build-macros golang* goversioninfo
+includepkgs = module-build-macros goversioninfo
 name = rhel-9-golang-rpms-ppc64le
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
@@ -17,7 +17,7 @@ gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 [rhel-9-golang-rpms-s390x]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/s390x/appstream/os
 module_hotfixes = 1
-includepkgs = module-build-macros golang* goversioninfo
+includepkgs = module-build-macros goversioninfo
 name = rhel-9-golang-rpms-s390x
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
@@ -25,8 +25,40 @@ gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 [rhel-9-golang-rpms-aarch64]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/aarch64/appstream/os
 module_hotfixes = 1
-includepkgs = module-build-macros golang* goversioninfo
+includepkgs = module-build-macros goversioninfo
 name = rhel-9-golang-rpms-aarch64
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-97-golang-rpms-x86_64]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/x86_64/appstream/os
+module_hotfixes = 1
+includepkgs = golang*
+name = rhel-97-golang-rpms-x86_64
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-97-golang-rpms-ppc64le]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/ppc64le/appstream/os
+module_hotfixes = 1
+includepkgs = golang*
+name = rhel-97-golang-rpms-ppc64le
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-97-golang-rpms-s390x]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/s390x/appstream/os
+module_hotfixes = 1
+includepkgs = golang*
+name = rhel-97-golang-rpms-s390x
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-97-golang-rpms-aarch64]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/aarch64/appstream/os
+module_hotfixes = 1
+includepkgs = golang*
+name = rhel-97-golang-rpms-aarch64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
