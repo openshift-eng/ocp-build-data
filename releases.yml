@@ -1,4 +1,48 @@
 releases:
+  4.19.20:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-11-27T01:04:30+00:00"
+        reference_releases:
+          aarch64: 4.19.0-0.nightly-arm64-2025-11-27-015116
+          ppc64le: 4.19.0-0.nightly-ppc64le-2025-11-27-015111
+          s390x: 4.19.0-0.nightly-s390x-2025-11-27-015107
+          x86_64: 4.19.0-0.nightly-2025-11-27-015126
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2025-Dec-03
+        upgrades: 4.18.19,4.18.20,4.18.21,4.18.22,4.18.23,4.18.24,4.18.25,4.18.26,4.18.27,4.18.28,4.18.29,4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.19.12,4.19.13,4.19.14,4.19.15,4.19.16,4.19.17,4.19.18,4.19.19
+      rhcos:
+        rhel-coreos:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:efeaaa89ecfe4c0041e6f6078bd36bf46dd3204a2bd7bdd4c8c053893755955f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:630da93e1b96dfe0fe91a6f1a1fdf739fd5bd924afbcabc07b663234934a8661
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c2cb2c4cb65acf902c4633a785d95b2d12c8e9c6b36e9f897bd987cfdeed39a5
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c096f4bfdbdfb10fb94f3060f77a4d1ac56c677ef439eb475875f67a5eb3a0b7
+        rhel-coreos-extensions:
+          images:
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e031c5d207292b20afea4dea8660b1af86e855fd467b008b290093daadb6fe2a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5274cc31a9c39d5504e92e804b6943c2eb00aaeeda20fdeafb15e4ee92b59810
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec0c32ac85715d34988b4413904a6876e4f358201f244d90bcc299d1a238c68d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3129a695d075954242532480c356b5bd401d04294754f706ddc9332217f8db06
+      members:
+        rpms: []
+        images:
+          - distgit_key: ose-openshift-apiserver
+            why: build was missing since it was not in the past 30 days
+            metadata:
+              is:
+                nvr: ose-openshift-apiserver-container-v4.19.0-202510211212.p2.g7fe5736.assembly.stream.el9
   4.19.19:
     assembly:
       type: standard
