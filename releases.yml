@@ -37,7 +37,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3129a695d075954242532480c356b5bd401d04294754f706ddc9332217f8db06
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-openshift-apiserver
+            why: build was missing since it was not in the past 30 days
+            metadata:
+              is:
+                nvr: ose-openshift-apiserver-container-v4.19.0-202510211212.p2.g7fe5736.assembly.stream.el9
   4.19.19:
     assembly:
       type: standard
