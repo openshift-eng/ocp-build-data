@@ -1,4 +1,43 @@
 releases:
+  4.20.6:
+    assembly:
+      type: standard
+      basis:
+        time: "2025-11-25T23:45:58+00:00"
+        reference_releases:
+          ppc64le: 4.20.0-0.nightly-ppc64le-2025-11-26-003223
+          aarch64: 4.20.0-0.nightly-arm64-2025-11-26-003230
+          s390x: 4.20.0-0.nightly-s390x-2025-11-26-003219
+          x86_64: 4.20.0-0.nightly-2025-11-26-003240
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2025-Dec-02
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dcc6cbc5289b567b17a8c64259fa2fea895c0debbf325ac527be6f7342b06ded
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f2de3cb6c9705722e05eb7c42f5dc09100524878a857a2f5480860497f48f3d7
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:43f0b8063ee82169684569525e428bb57fbd71bd5b7db7c51c1d4962383c4b39
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:56a8429190be732e9617ffa89df5bc1b49d910a5ca42be64292af8d87d77014f
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:85e46504bff69c62b49101e36ad147d8a9be0b2cb871028ddea034d42f1fc85a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f6d9e457807337aa4f87298c1008081b9887c81cd40188c0f8c2234a0ed74e46
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3af9fd529726503cebf3729a1fa06698310ec72a267b6eb4c2916f1385364b49
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5a9384cf14c1311d99314427f46ae1a54704bc1661674fdc165895f1b36f7413
+      members:
+        rpms: []
+        images: []
   4.20.5:
     assembly:
       type: standard
