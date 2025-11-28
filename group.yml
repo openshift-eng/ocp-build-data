@@ -87,10 +87,16 @@ cachito:
 rhcos:
   payload_tags:
     - name: rhel-coreos
-      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.20-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_build_id_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.20-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_version: 9.6
+      meta_type: commitmeta
       primary: true
     - name: rhel-coreos-extensions
-      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.20-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+      rhel_build_id_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.20-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_version: 9.6
+      meta_type: meta
   enabled_repos:
   - rhel-96-baseos
   - rhel-96-appstream
