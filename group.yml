@@ -89,10 +89,16 @@ rhcos:
     - name: rhel-coreos
       # once rhel-coreos 4.22 exists this line has to be updated to 4.22
       rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.21-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_build_id_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.21-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_version: 9.6
+      meta_type: commitmeta
       primary: true
     - name: rhel-coreos-extensions
       # once rhel-coreos-extensions 4.22 exists this line has to be updated to 4.22
       rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.21-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+      rhel_build_id_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:4.21-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_version: 9.6
+      meta_type: meta
   enabled_repos:
   - rhel-96-baseos
   - rhel-96-appstream
