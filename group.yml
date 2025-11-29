@@ -361,34 +361,6 @@ repos:
       aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
       ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
       s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-  rhel-9-baseos-rpms-x86_64:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-      baseurl:
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
-      ci_alignment:
-        profiles:
-        - el9
-        localdev:
-          enabled: true
-    content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    reposync:
-      enabled: false
-  rhel-9-baseos-rpms-aarch64:
-    conf:
-      extra_options:
-        module_hotfixes: 1
-      baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/
-      ci_alignment:
-        profiles:
-        - el9
-        localdev:
-          enabled: true
-    content_set:
-      default: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
     reposync:
       enabled: false
 
