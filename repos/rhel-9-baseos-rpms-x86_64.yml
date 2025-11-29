@@ -1,0 +1,19 @@
+- conf:
+    baseurl:
+      unsigned:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
+      signed:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
+  name: rhel-9-baseos-rpms-x86_64
+  reposync:
+    enabled: false
+  type: external
