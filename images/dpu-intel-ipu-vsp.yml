@@ -72,3 +72,16 @@ konflux:
       - libubsan
       - libxcrypt-devel
       - make
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "COPY openshift/install-dpu.sh ."
+        replacement: |
+          COPY openshift/install-dpu.sh .
+          # Create a pip.conf file to globally set --ignore-installed.
+          # Needed as the base centos image has setuptools installed by a package manager
+          RUN mkdir -p /root/.config/pip && \
+            echo "[install]" > /root/.config/pip/pip.conf && \
+            echo "ignore-installed = true" >> /root/.config/pip/pip.conf

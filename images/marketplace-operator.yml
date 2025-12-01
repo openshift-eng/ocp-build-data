@@ -10,8 +10,6 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: Dockerfile.okd
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: marketplace-operator-container
@@ -29,3 +27,7 @@ name: openshift/ose-operator-marketplace-rhel9
 payload_name: operator-marketplace
 owners:
 - aos-marketplace@redhat.com
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile.okd

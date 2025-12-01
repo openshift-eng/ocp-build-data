@@ -38,7 +38,7 @@ enabled_repos:
 - rhel-96-highavailability
 for_payload: true
 from:
-  member: openshift-enterprise-base-rhel9
+  stream: centos_stream10
 name: openshift/driver-toolkit-rhel9
 payload_name: driver-toolkit
 owners:
@@ -49,3 +49,13 @@ konflux:
   cachi2:
     lockfile:
       inspect_parent: false
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM'); \\"
+        replacement: |-
+          diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM') || true; \
+  enabled_repos:
+  - rhel-96-nfv
