@@ -28,8 +28,6 @@ content:
         enabled: false
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: Dockerfile.installer
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-installer-etcd-artifacts-container
@@ -64,3 +62,7 @@ konflux:
   content:
     source:
       dockerfile: Dockerfile.installer.art-cachi2
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile.installer

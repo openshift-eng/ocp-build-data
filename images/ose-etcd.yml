@@ -26,8 +26,6 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: Dockerfile.rhel
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-etcd-container
@@ -59,6 +57,10 @@ owners:
 maintainer:
   component: "Etcd"
 konflux:
+  content:
+    source:
+      dockerfile: Dockerfile.rhel
+okd:
   content:
     source:
       dockerfile: Dockerfile.rhel

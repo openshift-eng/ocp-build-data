@@ -60,3 +60,16 @@ konflux:
       - "elfutils-debuginfod-client"
       - "make"
   network_mode: open  # needs to declare netaddr in requirements.txt
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "RUN chmod +x install-dpu.sh \\"
+        replacement: |-
+          # Create a pip.conf file to globally set --ignore-installed.
+          # Needed as the base centos image has setuptools installed by a package manager
+          RUN mkdir -p /root/.config/pip && \
+              echo "[install]" > /root/.config/pip/pip.conf && \
+              echo "ignore-installed = true" >> /root/.config/pip/pip.conf
+          RUN chmod +x install-dpu.sh \

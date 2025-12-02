@@ -11,8 +11,6 @@ content:
       web: https://github.com/openshift/ironic-agent-image
     pkg_managers:
     - pip
-    okd_alignment:
-      dockerfile: Dockerfile.okd
 cachito:
   enabled: true
   packages:
@@ -43,3 +41,7 @@ enabled_repos:
 - rhel-9-server-ironic-rpms
 konflux:
   network_mode: open
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile.okd
