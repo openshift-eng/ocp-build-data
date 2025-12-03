@@ -9,8 +9,6 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: Dockerfile.okd
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-samples-operator-container
@@ -28,3 +26,7 @@ name: openshift/ose-cluster-samples-rhel9-operator
 payload_name: cluster-samples-operator
 owners:
 - openshift-build-api@redhat.com
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile.okd

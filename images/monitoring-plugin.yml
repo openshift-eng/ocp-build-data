@@ -26,8 +26,6 @@ content:
     pkg_managers:
     - npm
     - gomod
-    okd_alignment:
-      dockerfile: Dockerfile
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: monitoring-plugin-container
@@ -50,3 +48,8 @@ konflux:
   cachito:
     mode: emulation
   network_mode: open
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile
+      modifications: []

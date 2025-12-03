@@ -16,8 +16,6 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: images/cli/Dockerfile.ci
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: oc-mirror-plugin-container
@@ -41,3 +39,7 @@ owners:
 konflux:
   cachito:
     mode: removal
+okd:
+  content:
+    source:
+      dockerfile: images/cli/Dockerfile.ci
