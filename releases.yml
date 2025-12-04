@@ -41,7 +41,12 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d2955bb745b42c70471fb7d3bffd6061bfe3a7ec4a21a15e58de42947b52fe06
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: openshift-enterprise-ansible-operator
+            metadata:
+              is:
+                nvr: openshift-enterprise-ansible-operator-container-v4.18.0-202512040718.p2.gb276665.assembly.4.18.30.el9
+            why: Rebuild with conforma fix
   4.18.29:
     assembly:
       type: standard
