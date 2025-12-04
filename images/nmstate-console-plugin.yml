@@ -56,9 +56,4 @@ owners:
 konflux:
   cachito:
     mode: emulation
-  cachi2:
-    artifact_lockfile:
-      resources:
-      - https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-      - https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
-  network_mode: open # Bunch of yarn dependencies, not sure how to fix, signed @lgarciaa
+  network_mode: open # https://issues.redhat.com/browse/ART-14311
