@@ -35,10 +35,6 @@ payload_name: multus-networkpolicy
 owners:
 - multus-dev@redhat.com
 konflux:
+  network_mode: open # vendor changed upstream
   cachi2:
-    # Until https://github.com/openshift/multus-networkpolicy/pull/69 is merged
     enabled: false
-  # Can do hermetic builds due to:
-  # Error: PackageRejected: The content of the vendor directory is not consistent with go.mod. Please check the logs for more details.
-  # Please try running `go mod vendor` and committing the changes.
-  network_mode: open
