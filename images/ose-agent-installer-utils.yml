@@ -36,4 +36,24 @@ payload_name: agent-installer-utils
 owners:
 - ocp-agent-team@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      rpms:
+      - binutils
+      - binutils-gold
+      - cpp
+      - elfutils-debuginfod-client
+      - gcc
+      - gcc-c++
+      - libstdc++-devel
+      - glibc
+      - glibc-headers
+      - glibc-devel
+      - kernel-headers
+      - libasan
+      - libatomic
+      - libmpc
+      - libubsan
+      - libxcrypt-devel
+      - make
+      - nmstate-devel
