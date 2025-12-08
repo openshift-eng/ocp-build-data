@@ -35,6 +35,24 @@ rhel-8-golang:
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
 
+rhel-9-golang-1.25:
+  aliases:
+    - rhel-9-golang-{GO_EXTRA}
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.3-202511260833.g5015a16.el9
+  mirror: false
+  # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
+  # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
+
+rhel-8-golang-1.25:
+  aliases:
+    - rhel-8-golang-{GO_EXTRA}
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.3-202512040841.gb36c047.el8
+  mirror: false
+  # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
+  # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
+
 partner-rhel-8-golang-1.24:
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.24.6-202511041143.gc784618.el8
   mirror: true
