@@ -88,6 +88,12 @@ for arg in "$@"; do
             # microdnf doesn't support --allowerasing, skip it
             continue
             ;;
+        --forcearch*)
+            # microdnf doesn't support --forcearch, skip it
+            # Handles '--forcearch=x86_64' and '--forcearch x86_64'
+            [[ "$arg" == --forcearch ]] && skip_next=true
+            continue
+            ;;
         *)
             args+=("$arg")
             ;;
