@@ -84,6 +84,10 @@ for arg in "$@"; do
             [[ "$arg" == --exclude ]] && skip_next=true
             continue
             ;;
+        --allowerasing)
+            # microdnf doesn't support --allowerasing, skip it
+            continue
+            ;;
         *)
             args+=("$arg")
             ;;
