@@ -25,9 +25,7 @@
 
 set -euo pipefail
 
-# Detect which package manager we're wrapping based on how we were called
-WRAPPER_BASENAME=$(basename "$0")
-LOG_PREFIX="ART ${WRAPPER_BASENAME} wrapper [$$]:"
+LOG_PREFIX="ART yum/dnf wrapper [$$]:"
 
 echoerr() {
   echo -n "${LOG_PREFIX} " 1>&2
@@ -153,15 +151,12 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
       # If any ART repos files were populated and we are ignoring
       # base image repos, eliminate extraneous warnings by
       # disabling RH subscription manager plugin.
-      # Note: microdnf doesn't have a plugin system, so skip this for microdnf
-      if [[ "${WRAPPER_BASENAME}" != "microdnf" ]]; then
-        EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --disableplugin=subscription-manager"
-      fi
+      EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --disableplugin=subscription-manager"
     fi
 
-    # Set the repo file search path for DNF/yum/microdnf
+    # Set the repo file search path for DNF
     EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --setopt=reposdir=${DNF_OPTS_REPOSDIR}"
-    echoerr "${WRAPPER_BASENAME} will search for repo files in: ${DNF_OPTS_REPOSDIR}"
+    echoerr "DNF will search for repo files in: ${DNF_OPTS_REPOSDIR}"
   fi
 
 fi

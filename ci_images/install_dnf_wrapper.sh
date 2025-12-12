@@ -31,23 +31,14 @@ wrap_command() {
 # Allow repos to be skipped if they are not responsive. Reasons:
 # 1. A single misconfigured repo in the CI mirroring service should not break all CI.
 # 2. If a user it not connected to the VPN, the internal repos will not be accessible, but should not break all yum operations.
-# Only configure if we're not on a microdnf-based system (ubi9-minimal)
-# Note: openshift-enterprise-base-rhel9 creates symlinks /usr/bin/yum -> microdnf-wrapper.sh on minimal systems
-if [ -x /usr/bin/microdnf ]; then
-  echo "Detected microdnf system, skipping config-manager (not supported)"
-elif which yum >/dev/null 2>&1; then
-  yum config-manager --setopt=skip_if_unavailable=True --save
-  echo "Configured yum repos with config-manager"
-elif which dnf >/dev/null 2>&1; then
-  dnf config-manager --setopt=skip_if_unavailable=True --save
-  echo "Configured dnf repos with config-manager"
-else
-  echo "No package manager found for repo configuration"
-fi
+yum config-manager --setopt=skip_if_unavailable=True --save
 
-# Wrap package managers that exist in the base image
+# SSL certificates for ocp-artifacts will not be trusted by default
+# CAs, so ignore ssl requirements. http is used by the in-cluster
+# build farms.
+yum config-manager --setopt=skip_if_unavailable=True --save
+
 wrap_command yum
 wrap_command dnf
-wrap_command microdnf
 
 
