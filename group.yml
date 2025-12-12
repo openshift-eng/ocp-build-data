@@ -172,6 +172,9 @@ check_external_packages:
   - name: NetworkManager
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: greater_equal
+  - name: kernel
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
 
 default_image_build_profile: unsigned
 default_rpm_build_profile: default
