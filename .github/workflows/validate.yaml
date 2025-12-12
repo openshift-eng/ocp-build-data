@@ -1,6 +1,6 @@
 name: Run ocp-build-data-validator
 
-on: 
+on:
   pull_request:
     branches:
       - 'openshift-**'
@@ -17,10 +17,10 @@ jobs:
         with:
           fetch-depth: '0'
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: '3.11'
 
       - name: Install validator
         run: git clone https://github.com/openshift-eng/art-tools && cd art-tools/ocp-build-data-validator && pip install .
@@ -39,5 +39,5 @@ jobs:
               - 'images/**.yml'
 
       - name: Run validator
-        if: steps.changed-files.outputs.config_any_changed == 'true'  
+        if: steps.changed-files.outputs.config_any_changed == 'true'
         run: validate-ocp-build-data --exclude-vpn --images-dir images ${{ steps.changed-files.outputs.config_all_changed_files }}
