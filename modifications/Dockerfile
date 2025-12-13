@@ -1,4 +1,4 @@
-FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-ci-openshift-golang-builder-latest-rhel9:v4.20
+FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-ci-openshift-golang-builder-latest-rhel9:v4.21
 USER root
 
 RUN dnf -y install python3 jq gettext python3-pyyaml \
@@ -12,9 +12,8 @@ RUN url="$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/mikefara
     && chmod +x /usr/bin/yq
 
 # Manually download and install OpenShift client (oc)
-ENV OC_VERSION=4.19.0
+ENV OC_VERSION=latest-4.20
 ENV OC_URL=https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OC_VERSION}/openshift-client-linux.tar.gz
-
 RUN wget ${OC_URL} -O openshift-client-linux.tar.gz && \
     tar -zxvf openshift-client-linux.tar.gz && \
     cp oc /usr/local/bin/ && \
