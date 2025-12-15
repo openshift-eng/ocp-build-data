@@ -643,7 +643,8 @@ repos:
       s390x: rhel-9-for-s390x-highavailability-eus-rpms__9_DOT_6
     reposync:
       enabled: true
-  rhel-10-baseos:
+
+  rhel-101-baseos:
     conf:
       baseurl:
         x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel10/10.1/x86_64/baseos/os/
@@ -657,7 +658,7 @@ repos:
     reposync:
       enabled: true
 
-  rhel-10-appstream:
+  rhel-101-appstream:
     conf:
       baseurl:
         x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel10/10.1/x86_64/appstream/os/
@@ -671,7 +672,7 @@ repos:
     reposync:
       enabled: true
 
-  rhel-10-nfv:
+  rhel-101-nfv:
     conf:
       baseurl:
         # This is only available for x86_64, making the others not 404
@@ -686,7 +687,7 @@ repos:
     reposync:
       enabled: true
 
-  rhel-10-highavailability:
+  rhel-101-highavailability:
     conf:
       baseurl:
         x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel10/10.1/x86_64/highavailability/os/
@@ -694,6 +695,49 @@ repos:
         ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel10/10.1/ppc64le/highavailability/os/
         s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel10/10.1/s390x/highavailability/os/
       extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-101-fast-datapath:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/x86_64/fast-datapath/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/aarch64/fast-datapath/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/ppc64le/fast-datapath/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/s390x/fast-datapath/os/
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-101-server-ose-4.21:
+    conf:
+      baseurl:
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/ppc64le/os 
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/s390x/os
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      optional: true
+    reposync:
+      enabled: true
+
+  rhel-101-early-kernel:
+    conf:
+      baseurl:
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/x86_64/os
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/aarch64/os
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/ppc64le/os
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.21/stream/el10/latest/s390x/os
+      extra_options:
+        includepkgs: kernel,kernel-*
         gpgcheck: "1"
     content_set:
       optional: true
