@@ -1,0 +1,14 @@
+- conf:
+    baseurl:
+      x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/AppStream/x86_64/os/
+      aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/AppStream/aarch64/os/
+      ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/AppStream/ppc64le/os/
+      s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/AppStream/s390x/os/
+    extra_options:
+      gpgcheck: '1'
+  content_set:
+    optional: true
+  name: rhel-98-appstream
+  reposync:
+    enabled: true
+  type: external

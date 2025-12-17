@@ -1,0 +1,15 @@
+- conf:
+    baseurl:
+      x86_64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/BaseOS/x86_64/os/
+      aarch64: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/BaseOS/aarch64/os/
+      ppc64le: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/BaseOS/ppc64le/os/
+      s390x: https://download.devel.redhat.com/rhel-9/nightly/RHEL-9/latest-RHEL-9.8/compose/BaseOS/s390x/os/
+    extra_options:
+      excludepkgs: toolbox*
+      gpgcheck: '1'
+  content_set:
+    optional: true
+  name: rhel-98-baseos
+  reposync:
+    enabled: true
+  type: external
