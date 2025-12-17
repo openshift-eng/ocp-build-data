@@ -30,3 +30,7 @@ name: openshift/ose-kube-proxy-rhel9
 payload_name: kube-proxy
 owners:
 - aos-networking-staff@redhat.com
+konflux:
+  network_mode: open # The content of the vendor directory is not consistent with go.mod
+  cachi2:
+    enabled: false
