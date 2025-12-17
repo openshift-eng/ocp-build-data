@@ -36,4 +36,26 @@ payload_name: agent-installer-api-server
 owners:
 - ocp-agent-team@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - postgresql:16
+      rpms:
+      - binutils
+      - binutils-gold
+      - cpp
+      - elfutils-debuginfod-client
+      - gcc
+      - gcc-c++
+      - libstdc++-devel
+      - glibc
+      - glibc-headers
+      - glibc-devel
+      - kernel-headers
+      - libasan
+      - libatomic
+      - libmpc
+      - libubsan
+      - libxcrypt-devel
+      - make
+      - nmstate-devel
