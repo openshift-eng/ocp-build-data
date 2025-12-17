@@ -590,6 +590,23 @@ repos:
     reposync:
       enabled: true
 
+  rhel-98-baseos:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.8/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.8/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.8/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.8/s390x/baseos/os/
+      extra_options:
+        gpgcheck: "1"
+    content_set:
+      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_8
+      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_8
+      ppc64le: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_8
+      s390x: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_8
+    reposync:
+      enabled: true
+
   rhel-96-appstream:
     conf:
       baseurl:
