@@ -35,4 +35,8 @@ payload_name: ironic-machine-os-downloader
 owners:
 - ironic-osp-owners@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      rpms:
+      - edk2-aarch64
+      - edk2-ovmf
