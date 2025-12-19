@@ -3,11 +3,11 @@ name: Run ocp-build-data-validator
 on:
   pull_request:
     branches:
-      - 'openshift-**'
+      - "openshift-**"
     paths:
-      - '**.yml'
-      - 'rpms/**.yml'
-      - 'images/**.yml'
+      - "**.yml"
+      - "rpms/**.yml"
+      - "images/**.yml"
 
 jobs:
   validate:
@@ -15,15 +15,33 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: '0'
+          fetch-depth: "0"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libkrb5-dev
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+
+      - name: Clone art-tools
+        run: |
+          git clone https://github.com/openshift-eng/art-tools
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.18"
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
 
       - name: Install validator
-        run: git clone https://github.com/openshift-eng/art-tools && cd art-tools/ocp-build-data-validator && pip install .
+        run: |
+          cd art-tools
+          ./install.sh
 
       - name: Get all relevant files that have changed
         id: changed-files
@@ -39,5 +57,8 @@ jobs:
               - 'images/**.yml'
 
       - name: Run validator
+
         if: steps.changed-files.outputs.config_any_changed == 'true'
-        run: validate-ocp-build-data --exclude-vpn --images-dir images ${{ steps.changed-files.outputs.config_all_changed_files }}
+        run: |
+          uv run --project ./art-tools validate-ocp-build-data --exclude-vpn \
+          --images-dir images ${{ steps.changed-files.outputs.config_all_changed_files }}
