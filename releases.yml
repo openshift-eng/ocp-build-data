@@ -57,7 +57,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80b926675fcfa5c3e4a0f39ac62d7673d061981ff31303960a375e07e35695f9
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: dpu-operator
+          metadata:
+            is:
+              nvr: dpu-operator-container-v4.21.0-202512191853.p2.gf34101f.assembly.stream.el9
+          why: Pinning to align with recent success reference dpu-daemon build
   rc.0:
     assembly:
       type: candidate
