@@ -12,7 +12,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          stream: rhel-9-golang-1.23-ci-build-root
+          stream: rhel-9-golang-ci-build-root
         auto_label:
         - approved
         - lgtm
@@ -27,7 +27,7 @@ delivery:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang-1.23
+  - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-powervs-block-csi-driver-rhel9-operator
 payload_name: powervs-block-csi-driver-operator
