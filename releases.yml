@@ -31,6 +31,9 @@ releases:
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: rhcos
+      issues:
+        exclude:
+          - id: OCPBUGS-62378 # why: both ART and Konflux can't access this bug
       rhcos:
         rhel-coreos:
           images:
