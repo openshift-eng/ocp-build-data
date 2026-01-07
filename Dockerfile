@@ -5,19 +5,14 @@ ENV ART_BUILD_ENGINE=konflux
 ENV ART_BUILD_DEPS_METHOD=cachi2
 ENV ART_BUILD_NETWORK=open
 RUN go clean -cache || true
-ENV REMOTE_SOURCES=cachito-emulation
-ENV REMOTE_SOURCES_DIR=/tmp/art/cachito-emulation
-COPY . $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/
-RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem
-ENV ART_BUILD_DEPS_MODE=cachito-emulation
+ENV ART_BUILD_DEPS_MODE=default
 USER 0
 RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
 COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-8-golang-1.24 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.24.6-20251104.114312 __doozer_version=v1.24.6 
+ENV __doozer=update __doozer_group=rhel-8-golang-1.24 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.24.11-20260107.225422 __doozer_version=v1.24.11 
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
@@ -104,16 +99,16 @@ LABEL \
         io.k8s.description="golang builder image for Red Hat internal builds" \
         io.k8s.display-name="Go Builder 1.24" \
         com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
-        version="v1.24.6" \
+        version="v1.24.11" \
         name="openshift/golang-builder" \
         vendor="Red Hat, Inc." \
         cpe="cpe:/a:redhat:openshift:1.24::el8" \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202511041143.gc784618.el8" \
-        io.openshift.build.commit.id="c78461829b790c3ef3a2417bc3c89aeca40ba3a4" \
+        release="202601072254.g1f0d617.el8" \
+        io.openshift.build.commit.id="1f0d6178c1eec337b1b201b449f036ee343f0cb6" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/c78461829b790c3ef3a2417bc3c89aeca40ba3a4" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/1f0d6178c1eec337b1b201b449f036ee343f0cb6" \
         io.openshift.tags="Empty"
 
