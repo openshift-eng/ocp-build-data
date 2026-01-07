@@ -58,7 +58,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c7aecaa37f4053822b3b8078b33ba6fc191c6756e66e9fdcca9499782226f029
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: openshift-enterprise-haproxy-router
+            metadata:
+              is:
+                nvr: openshift-enterprise-haproxy-router-container-v4.21.0-202601070050.p2.gb231c65.assembly.stream.el9
+            why: Rebuilt for an updated rpm
   rc.0:
     assembly:
       type: candidate
