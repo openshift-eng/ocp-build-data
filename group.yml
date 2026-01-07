@@ -58,6 +58,14 @@ okd:
       enabled: false
       lockfile:
         force: false
+  coreos:
+    payload_tags:
+      # Reference the legacy imagestream tags in origin namespace
+      # This allows the new imagestream to stay in sync with the legacy one
+      - name: stream-coreos
+        source_pullspec: "origin/scos-4.22:stream-coreos"
+      - name: stream-coreos-extensions
+        source_pullspec: "origin/scos-4.22:stream-coreos-extensions"
 
 multi_arch:
   enabled: true
