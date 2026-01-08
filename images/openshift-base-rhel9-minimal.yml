@@ -1,0 +1,43 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-rhel9
+      url: git@github.com:openshift-priv/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      # The actual image used by CI for the base image is
+      # built and pushed from ci-openshift-base.rhel9.
+      # This image is technically, the openshift-enterprise-base image
+      # but it shouldn't matter for the purposes of CI
+      # Setting upstream_image here ensures that reconciliation PRs for components referencing
+      # this image as their base image will use the image created by
+      # ci-openshift-base.rhel9 and be able to resolve RPMs.
+      mirror: false
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9-minimal
+    okd_alignment:
+      resolve_as:
+        stream: centos_stream9
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-base-rhel9-minimal-container
+enabled_repos:
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+  # sometimes we ship RHEL content ahead of RHEL (usually for RHCOS).
+  # update with that content too so we avoid out-of-date assembly issues:
+- rhel-9-server-ose-rpms-embargoed
+for_payload: false
+for_release: false
+from:
+  stream: rhel9-minimal
+name: openshift/base-rhel9-minimal
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+okd:
+  mode: disabled
+
