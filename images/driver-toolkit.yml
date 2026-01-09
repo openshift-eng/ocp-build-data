@@ -46,3 +46,15 @@ owners:
 konflux:
   vm_override:
     aarch64: linux-d160-m2xlarge/arm64
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM'); \\"
+        replacement: |-
+          diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM') || true; \
+  enabled_repos:
+  - rhel-96-nfv
+  from:
+    stream: centos_stream10

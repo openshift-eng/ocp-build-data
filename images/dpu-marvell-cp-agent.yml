@@ -59,3 +59,16 @@ konflux:
       - openssl-devel
       - systemd-libs
       - systemd-devel
+okd:
+  enabled_repos:  # needed by the golang-builder stage, removed in the next layer by the modifications below
+  - rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+  - rhel-9-codeready-builder-rpms
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "COPY --from=stage1 /cpagent-bin/ /usr/bin/"
+        replacement: |-
+          COPY --from=stage1 /cpagent-bin/ /usr/bin/
+          RUN rm /etc/yum.repos.d/art-*.repo
