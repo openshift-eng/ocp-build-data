@@ -1,4 +1,43 @@
 releases:
+  4.20.10:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-01-05T22:27:43+00:00"
+        reference_releases:
+          aarch64: 4.20.0-0.nightly-arm64-2026-01-05-230503
+          ppc64le: 4.20.0-0.nightly-ppc64le-2026-01-05-230502
+          s390x: 4.20.0-0.nightly-s390x-2026-01-05-230502
+          x86_64: 4.20.0-0.nightly-2026-01-05-230502
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Jan-13
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8
+      rhcos:
+        rhel-coreos:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:491c37bf06d86e6518e73e214ed0315f5aee54ec8fac2a661892ede5c106341e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:825ce624947f2f0d4046c12f365cfc468ce3165fc56da32792d301eafa22012b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8e601720d6823e061de2ef998fd74cc30fafcf6d27e1ee7219b4a3b3a90160ba
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7c84bde02315cfe35c3ecaf716e4b066f53a27be5a3302bc699826e36965d737
+        rhel-coreos-extensions:
+          images:
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:48f15d4453cff59fe5c1d549135ff1a59a8a16af97c2b47b363c1bf1ac3010f9
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0125610f4284cb7ff8a5acb7075ed89a83054a2ad1bc9c68e6c825bd265db94c
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:08a63ed615319a9b7e42d87da31f2706f212bddf3d0132d6991a6359996d9eac
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6439b2a46f30aa31af36239901ff8b648ffc5d12eec85ae93ce8110d5d5ad7d8
+      members:
+        rpms: []
+        images: []
   4.20.9:
     assembly:
       type: standard
