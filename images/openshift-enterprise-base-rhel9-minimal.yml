@@ -1,0 +1,48 @@
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile.rhel9
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/images.git
+      web: https://github.com/openshift/images
+    path: base
+    ci_alignment:
+      streams_prs:
+        # Try to have this PR merge as quickly as possible by pre-approving it.
+        auto_label:
+        - approved
+        - lgtm
+        merge_first: true
+      # The actual image used by CI for the enterprise base image is
+      # built and pushed from ci-openshift-base.rhel9. Setting upstream_image
+      # here ensures that reconciliation PRs for components referencing
+      # this image as their base image will use the image created by
+      # ci-openshift-base.rhel9 and be able to resolve RPMs.
+      mirror: false
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9-minimal
+    okd_alignment:
+      # The tag name in the okd stream to which this image should be promoted
+      tag_name: base-stream9
+      inject_rpm_repositories:
+      - id: rhel-9-server-ose
+        baseurl: http://base-{MAJOR}-{MINOR}-rhel9.ocp.svc/rhel-9-server-ose
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-base-rhel9-minimal-container
+enabled_repos:
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  member: openshift-base-rhel9-minimal
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the minimal base image from which all OpenShift Container Platform images inherit.
+  io.k8s.display-name: OpenShift Container Platform RHEL 9 Base minimal
+  io.openshift.tags: openshift,base
+name: openshift/openshift-enterprise-base-rhel9-minimal
+owners:
+- lmeyer@redhat.com
