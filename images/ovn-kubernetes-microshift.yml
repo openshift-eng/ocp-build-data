@@ -22,17 +22,8 @@ distgit:
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-ovn-kubernetes-microshift
-# Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
-# However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
-# detect they were used.
   delivery_repo_names:
   - openshift4/ose-ovn-kubernetes-microshift-rhel9
-scan_sources:
-  # ovn-kubernetes uses pins in the Dockerfile.
-  # We should configure exemptions for those known pins to avoid meaningless rebuild.
-  # https://github.com/openshift/ovn-kubernetes/blob/e236fea83d62de8b60b9456770a3e0b525830051/Dockerfile.base#L22
-  exempt_rpms:
-  - ovn*
 for_payload: true
 from:
   builder:
