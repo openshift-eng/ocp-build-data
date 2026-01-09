@@ -28,7 +28,12 @@ owners:
 - ccoleman@redhat.com
 - aos-master@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - perl
+      - pmem
+      - judy
 delivery:
   delivery_repo_names:
   - openshift4/ose-tools-rhel8

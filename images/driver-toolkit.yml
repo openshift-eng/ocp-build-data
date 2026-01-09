@@ -5,7 +5,6 @@ content:
     - action: replace
       match: "ARG RHEL_VERSION=''"
       replacement: "ARG RHEL_VERSION='9.2'"
-
     # Uncomment the following sections to pin specific kernel versions
 
     # - action: replace
@@ -33,15 +32,6 @@ from:
 name: openshift/driver-toolkit-rhel9
 owners:
 - edge-sro@redhat.com
-konflux:
-  enabled_repos:
-  - rhel-9-server-ose-rpms-embargoed
-  - rhel-9-baseos-rpms
-  - rhel-9-appstream-rpms
-  - rhel-9-baseos-rpms
-  - rhel-9-appstream-rpms
-  - rhel-9-rt-rpms
-  network_mode: open
 delivery:
   delivery_repo_names:
   - openshift4/driver-toolkit-rhel9

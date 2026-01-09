@@ -33,4 +33,23 @@ delivery:
   - openshift4/ose-pod
 payload_name: pod
 konflux:
-  network_mode: open # rpms with modules
+  cachi2:
+    lockfile:
+      rpms:
+      - cpp
+      - gcc
+      - gcc-c++
+      - gcc-plugin-annobin
+      - glibc
+      - glibc-common
+      - glibc-devel
+      - glibc-gconv-extra
+      - glibc-headers
+      - glibc-langpack-en
+      - glibc-minimal-langpack
+      - libgcc
+      - libgomp
+      - libstdc++
+      - libstdc++-devel
+      - glibc-static
+      - libxcrypt-static

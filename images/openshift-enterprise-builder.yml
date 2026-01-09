@@ -32,6 +32,10 @@ delivery:
   - openshift4/ose-docker-builder
 payload_name: docker-builder
 konflux:
-  # No available modular metadata for modular package
-  # https://issues.redhat.com/browse/ART-14111
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - container-tools # Provides criu, fuse-overlayfs, runc
+      - perl # Base perl module
+      - perl-IO-Socket-SSL # Perl SSL socket module
+      - perl-libwww-perl # Perl web modules (Mozilla-CA, Net-SSLeay)

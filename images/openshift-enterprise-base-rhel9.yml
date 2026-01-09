@@ -15,7 +15,6 @@ content:
         - approved
         - lgtm
         merge_first: true
-
       # The OpenShift 4.x:base image used by numerous images in CI.
       # The problem is that the actual image is built upstream very infrequently
       # (very few changes are made to the openshift/images repo).
@@ -40,7 +39,6 @@ content:
       # a little sketchy, but I believe the reward is a significant improvement in CI
       # signal fidelity.
       upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
-
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
@@ -58,5 +56,3 @@ labels:
 name: openshift/openshift-enterprise-base-rhel9
 owners:
 - lmeyer@redhat.com
-konflux:
-  network_mode: open
