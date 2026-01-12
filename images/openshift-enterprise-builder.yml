@@ -28,7 +28,13 @@ name: openshift/ose-docker-builder
 owners:
 - openshift-build-api@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - container-tools # Provides criu, fuse-overlayfs, runc
+      - perl # Base perl module
+      - perl-IO-Socket-SSL # Perl SSL socket module
+      - perl-libwww-perl # Perl web modules (Mozilla-CA, Net-SSLeay)
 delivery:
   delivery_repo_names:
   - openshift4/ose-docker-builder

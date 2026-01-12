@@ -32,4 +32,9 @@ delivery:
   - openshift4/ose-tools-rhel8
 payload_name: tools
 konflux:
-  network_mode: open # https://issues.redhat.com/browse/ART-14111
+  cachi2:
+    lockfile:
+      modules:
+      - perl
+      - pmem
+      - judy
