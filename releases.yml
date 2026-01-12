@@ -23,6 +23,15 @@ releases:
           env: stage
         release_date: 2026-May-25
         upgrades: 4.21.0-rc.0,4.21.0-rc.1
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
       rhcos:
         rhel-coreos:
           images:
