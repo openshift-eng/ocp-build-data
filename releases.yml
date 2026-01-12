@@ -29,6 +29,11 @@ releases:
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: 'rhcos'
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: |
+            - OCPBUGS-72563 blocker bug is not fixed yet
+            - OCPBUGS-72412 blocker bug is not fixed yet
       rhcos:
         rhel-coreos:
           images:
