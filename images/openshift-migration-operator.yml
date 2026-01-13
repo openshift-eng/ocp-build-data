@@ -21,16 +21,18 @@ for_payload: false
 from:
   stream: ose-ansible-operator
 konflux:
-  network_mode: open
-# https://issues.redhat.com/browse/ART-14111
-#  cachi2:
-#    lockfile:
-#      enabled: true
-#      inpsect_parent: true
-#      rpms:
-#        - PLACEHOLDER
+  cachi2:
+    lockfile:
+      dnf_modules_enable: true
+      modules:
+        - perl:5.26
+        - perl-IO-Socket-SSL:2.066
+        - perl-libwww-perl:6.34
+      enabled: true
+      inspect_parent: false
 name: rhmtc/openshift-migration-rhel8-operator
 owners:
+  - ocp-migrate-team@redhat.com
   - rjohnson@redhat.com
 update-csv:
   bundle-dir: manifests/

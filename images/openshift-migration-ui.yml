@@ -27,16 +27,82 @@ from:
     - stream: nodejs-16
   stream: nodejs-16-minimal
 konflux:
-  network_mode: open
-# https://issues.redhat.com/browse/ART-14111
-#  cachi2:
-#    lockfile:
-#      enabled: true
-#      inpsect_parent: true
-#      rpms:
-#        - PLACEHOLDER
+  cachi2:
+    lockfile:
+      enabled: true
+      dnf_modules_enable: true
+      modules:
+        - nodejs:16
+        - python36:3.6
+      inspect_parent: false
+      rpms:
+        -  annobin
+        -  annobin-10.94-1.el8
+        -  brotli-devel
+        -  brotli-devel-1.0.6-3.el8
+        -  dwz
+        -  dwz-0.12-10.el8
+        -  efi-srpm-macros
+        -  efi-srpm-macros-3-3.el8
+        -  file
+        -  file-5.33-24.el8
+        -  file-libs
+        -  file-libs-5.33-24.el8
+        -  ghc-srpm-macros
+        -  ghc-srpm-macros-1.4.2-7.el8
+        -  go-srpm-macros
+        -  go-srpm-macros-2-17.el8
+        -  nodejs
+        -  nodejs-1:16.20.2-4.module+el8.8.0+21791+70c4808d.1
+        -  nodejs-devel
+        -  nodejs-devel-1:16.20.2-4.module+el8.8.0+21791+70c4808d.1
+        -  nodejs-docs
+        -  nodejs-docs-1:16.20.2-4.module+el8.8.0+21791+70c4808d.1
+        -  nodejs-full-i18n
+        -  nodejs-full-i18n-1:16.20.2-4.module+el8.8.0+21791+70c4808d.1
+        -  nodejs-packaging
+        -  nodejs-packaging-26-1.module+el8.8.0+19857+6d2a104d
+        -  npm
+        -  npm-1:8.19.4-1.16.20.2.4.module+el8.8.0+21791+70c4808d.1
+        -  ocaml-srpm-macros
+        -  ocaml-srpm-macros-5-4.el8
+        -  openblas-srpm-macros
+        -  openblas-srpm-macros-2-2.el8
+        -  openssl
+        -  openssl-1:1.1.1k-14.el8_6
+        -  openssl-devel
+        -  openssl-devel-1:1.1.1k-14.el8_6
+        -  openssl-libs
+        -  openssl-libs-1:1.1.1k-14.el8_6
+        -  openssl-pkcs11
+        -  openssl-pkcs11-0.4.10-3.el8
+        -  perl-srpm-macros
+        -  perl-srpm-macros-1-25.el8
+        -  platform-python-pip
+        -  platform-python-pip-9.0.3-22.3.el8_8
+        -  python36
+        -  python36-3.6.8-38.module+el8.5.0+12207+5c5719bc
+        -  python3-pip
+        -  python3-pip-9.0.3-22.3.el8_8
+        -  python3-rpm-macros
+        -  python3-rpm-macros-3-45.el8
+        -  python3-setuptools
+        -  python3-setuptools-39.2.0-7.el8
+        -  python-rpm-macros
+        -  python-rpm-macros-3-45.el8
+        -  python-srpm-macros
+        -  python-srpm-macros-3-45.el8
+        -  qt5-srpm-macros
+        -  qt5-srpm-macros-5.15.3-1.el8
+        -  redhat-rpm-config
+        -  redhat-rpm-config-125-1.el8
+        -  rust-srpm-macros
+        -  rust-srpm-macros-5-2.el8
+        -  zip
+        -  zip-3.0-23.el8
 name: rhmtc/openshift-migration-ui-rhel8
 owners:
+  - ocp-migrate-team@redhat.com
   - rjohnson@redhat.com
 jira:
   project: MIG
