@@ -16,7 +16,6 @@ enabled_repos:
 - openstack-16-for-rhel-8-rpms
 - rhel-8-appstream-rpms
 - rhel-8-baseos-rpms
-
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
 # detect they were used.
@@ -25,7 +24,6 @@ scan_sources:
   # For some reason this image doesn't consume those newer versions.
   exempt_rpms:
   - python3-dateutil
-
 for_payload: true
 from:
   builder:
@@ -40,8 +38,6 @@ name: openshift/ose-tests
 owners:
 - aos-master@redhat.com
 - openshift-technical-release-staff@redhat.com
-konflux:
-  network_mode: open
 delivery:
   delivery_repo_names:
   - openshift4/ose-tests

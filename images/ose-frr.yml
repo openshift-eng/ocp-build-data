@@ -20,7 +20,16 @@ name_in_bundle: metallb-frr-rhel8
 owners:
 - metallb-dev@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - perl
+      - perl-IO-Socket-SSL
+      - perl-libwww-perl
+      - python36
+      rpms:
+      - podman-catatonit
+      - podman-2:4.2.0-11.el9_1
 delivery:
   delivery_repo_names:
   - openshift4/frr-rhel8

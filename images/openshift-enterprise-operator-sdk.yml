@@ -27,7 +27,10 @@ owners:
 - fabian@redhat.com
 - cmacedo@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      modules:
+      - go-toolset
 delivery:
   delivery_repo_names:
   - openshift4/ose-operator-sdk-rhel8

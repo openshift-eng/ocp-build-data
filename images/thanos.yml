@@ -25,7 +25,11 @@ name: openshift/ose-thanos-rhel8
 owners:
 - team-monitoring@redhat.com
 konflux:
-  network_mode: open
+  cachi2:
+    lockfile:
+      rpms:
+      - openshift-prometheus-promu
+      - prometheus-promu
 delivery:
   delivery_repo_names:
   - openshift4/ose-thanos-rhel8
