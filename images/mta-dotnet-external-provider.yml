@@ -4,12 +4,14 @@ cachito:
       - path: external-providers/dotnet-external-provider/
 content:
   source:
-    dockerfile: konflux.dotnet-external-provider.Dockerfile
+    dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-0.8
-      url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
-      web: https://github.com/migtools/mta-analyzer-lsp
+        target: main
+#      url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
+      url: git@github.com:openshift-priv/migtools-mta-c-sharp-analyzer-provider.git
+#      web: https://github.com/migtools/mta-analyzer-lsp
+      web: https://github.com/migtools/mta-c-sharp-analyzer-provider
 jira:
   project: MTA
   component: Application Analysis
@@ -25,8 +27,7 @@ enabled_repos:
 - rhel-9-baseos-rpms
 from:
   builder:
-    - stream: rhel-9-golang
-    - stream: dotnet-80
+    - stream: rhel9
   stream: rhel9
 name: mta/mta-dotnet-external-provider-rhel9
 owners:
