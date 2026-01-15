@@ -2,11 +2,11 @@
     extra_options:
       module_hotfixes: 1
   content_set:
-    aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
-    default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
+    aarch64: rhocp-4.22-for-rhel-9-aarch64-rpms
+    default: rhocp-4.22-for-rhel-9-x86_64-rpms
     optional: true
-    ppc64le: rhocp-{MAJOR}.{MINOR}-for-rhel-9-ppc64le-rpms
-    s390x: rhocp-{MAJOR}.{MINOR}-for-rhel-9-s390x-rpms
+    ppc64le: rhocp-4.22-for-rhel-9-ppc64le-rpms
+    s390x: rhocp-4.22-for-rhel-9-s390x-rpms
   name: rhel-9-server-ose-rpms-embargoed
   plashet:
     assembly_aware: true
@@ -32,10 +32,10 @@
     slug: el9-embargoed
     source:
       embargoed_tags:
-      - rhaos-{MAJOR}.{MINOR}-rhel-9-embargoed
+      - rhaos-4.22-rhel-9-embargoed
       from_tags:
-      - name: rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
-        product_version: OSE-{MAJOR}.{MINOR}-RHEL-9
-        release_tag: rhaos-{MAJOR}.{MINOR}-rhel-9
+      - name: rhaos-4.22-rhel-9-candidate
+        product_version: OSE-4.22-RHEL-9
+        release_tag: rhaos-4.22-rhel-9
       type: brew
   type: plashet
