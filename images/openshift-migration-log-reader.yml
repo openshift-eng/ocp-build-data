@@ -6,14 +6,6 @@ content:
         target: release-1.8
       url: git@github.com:openshift-priv/migtools-mig-log-reader.git
       web: https://github.com/migtools/mig-log-reader
-    modifications:
-      # https://github.com/migtools/mig-log-reader/blob/release-1.8/konflux.Dockerfile#L7
-      - action: replace
-        match: "CGO_ENABLED=0"
-        replacement: "CGO_ENABLED=1"
-      - action: replace
-        match: -mod=readonly -a -ldflags '-extldflags "-static"' -o ./stern-linux
-        replacement: -mod=vendor -tags strictfipsruntime -a -o ./stern-linux
 delivery:
   delivery_repo_names:
     - rhmtc/openshift-migration-log-reader-rhel8
@@ -31,10 +23,9 @@ from:
     - stream: ose-must-gather
     - stream: rhel-8-golang
   stream: rhel8
-# konflux:
-#   network_mode: open
 name: rhmtc/openshift-migration-log-reader-rhel8
 owners:
+  - ocp-migrate-team@redhat.com
   - rjohnson@redhat.com
 jira:
   project: MIG
