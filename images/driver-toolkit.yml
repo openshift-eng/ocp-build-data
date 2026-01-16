@@ -29,13 +29,9 @@ enabled_repos:
 - rhel-9-server-ose-rpms-embargoed
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
 - rhel-9-rt-rpms
-- rhel-96-baseos
-- rhel-96-appstream
-- rhel-96-nfv
-- rhel-96-highavailability
+- rhel-9-nfv
+- rhel-9-highavailability
 for_payload: true
 from:
   member: openshift-enterprise-base-rhel9
@@ -55,6 +51,6 @@ okd:
         replacement: |-
           diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM') || true; \
   enabled_repos:
-  - rhel-96-nfv
+  - rhel-9-nfv
   from:
     stream: centos_stream10

@@ -96,8 +96,8 @@ rhel8:
 rhel9:
   # the most recent release at present. since we yum update this, it does not need to float.
   # it is important that we not build from unreleased builds and publish them.
-  # rhel-els-container-9.4-847.1719484506
-  image: registry-proxy.engineering.redhat.com/rh-osbs/rhel-els@sha256:0a4a4ab60ce8abac3edab51cacdbed25cd012a3e4169895bce2d18ed74364e08
+  # ubi9-container-9.6-440.1760321968
+  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9@sha256:08a8d763ab10280a510d12180363adbe08264a7448bcdfdf92dfaaed4549899c
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
