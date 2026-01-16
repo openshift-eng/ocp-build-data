@@ -23,6 +23,9 @@ arches:
 - aarch64
 
 operator_image_ref_mode: manifest-list
+
+# RPM lockfile is enabled by default when cachi2 is enabled with repos configured
+# New Y-streams please run initial jenkins build with NETWORK_MODE set to open to populate build database
 konflux:
   arches:
   - x86_64
@@ -30,8 +33,6 @@ konflux:
   cachi2:
     enabled: true
     gomod_version_patch: true
-    lockfile:
-      force: true
   sast:
     enabled: true
   network_mode: hermetic
