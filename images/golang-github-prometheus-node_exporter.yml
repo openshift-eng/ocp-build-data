@@ -27,14 +27,14 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-prometheus-node-exporter-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   License: ASL 2.0
   io.k8s.description: Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors

@@ -35,13 +35,13 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-etcd-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   License: Apache 2.0
   io.k8s.description: etcd is distributed key-value store which stores the persistent master state for Kubernetes and OpenShift.

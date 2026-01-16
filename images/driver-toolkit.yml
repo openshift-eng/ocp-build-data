@@ -27,14 +27,14 @@ delivery:
   - openshift4/driver-toolkit-rhel9
 enabled_repos:
 - rhel-9-server-ose-rpms-embargoed
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-rt-rpms
 - rhel-9-nfv
 - rhel-9-highavailability
 for_payload: true
 from:
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/driver-toolkit-rhel9
 payload_name: driver-toolkit
 owners:

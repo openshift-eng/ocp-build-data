@@ -22,13 +22,13 @@ delivery:
   delivery_repo_names:
   - openshift4/container-networking-plugins-microshift-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   io.k8s.description: Multus plugins from the reference CNI plugins of the CNCF container networking project, including typical utility CNI plugins.
   io.k8s.display-name: Reference CNI plugins

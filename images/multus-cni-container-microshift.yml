@@ -22,13 +22,13 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-multus-cni-microshift-rhel9
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+- rhel-9-minimal-baseos-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   io.k8s.description: This is an optional component of MicroShift and provides a meta CNI plugin.
   io.k8s.display-name: Multus CNI for MicroShift

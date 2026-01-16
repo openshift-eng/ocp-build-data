@@ -38,13 +38,13 @@ delivery:
   delivery_repo_names:
   - openshift4/nmstate-console-plugin-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: false
 from:
   builder:
   - member: openshift-base-nodejs.rhel9
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/nmstate-console-plugin-rhel9
 name_in_bundle: nmstate-console-plugin-rhel8
 owners:

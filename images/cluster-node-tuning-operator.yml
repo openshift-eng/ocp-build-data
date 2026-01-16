@@ -23,14 +23,14 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-cluster-node-tuning-rhel9-operator
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-fast-datapath-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-cluster-node-tuning-rhel9-operator
 payload_name: cluster-node-tuning-operator
 owners:

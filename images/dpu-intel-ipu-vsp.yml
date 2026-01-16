@@ -30,8 +30,8 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: dpu-intel-ipu-vsp-container
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-ose-rpms-embargoed
 delivery:
@@ -42,7 +42,7 @@ for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-dpu-intel-ipu-vsp-rhel9
 name_in_bundle: dpu-intel-ipu-vsp
 owners:

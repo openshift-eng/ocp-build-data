@@ -21,14 +21,14 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-kubernetes-nmstate-handler-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-kubernetes-nmstate-handler-rhel9
 name_in_bundle: kubernetes-nmstate-handler
 owners:

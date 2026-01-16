@@ -27,13 +27,13 @@ delivery:
 dependents:
 - ose-smb-csi-driver-operator
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-smb-csi-driver-rhel9
 name_in_bundle: smb-csi-driver-container-rhel9
 owners:
