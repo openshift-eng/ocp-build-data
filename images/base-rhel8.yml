@@ -1,0 +1,36 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-rhel8
+      url: git@github.com:openshift-priv/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
+    modifications:
+      # https://github.com/openshift-eng/ocp-build-data/blob/openshift-base-rhel8/Dockerfile#L8-L9
+      - action: replace
+        match: "yum update -y"
+        replacement: "microdnf update -y"
+      - action: replace
+        match: "yum clean all"
+        replacement: "microdnf clean all"
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
+  component: base-rhel8-container
+enabled_repos:
+- rhel-8-baseos-rpms
+- rhel-8-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  stream: rhel8
+name: art-core/base-rhel8
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - ca-certificates
+      - findutils

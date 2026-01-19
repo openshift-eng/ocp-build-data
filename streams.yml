@@ -19,7 +19,8 @@ rhel-8-golang:
     - rhel-8-golang-{GO_LATEST}
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.24.11-202601072254.g1f0d617.el8
 
-rhel8:
-  # ubi8-container-8.10-1304.1756174612
-  # image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8@sha256:719b137631e8e4313c41729a5e599dd9eed2b72854d356e67a7dce49c32f7366
+rhel-8-builder:
   image: registry.redhat.io/ubi8/ubi:latest
+
+rhel8:
+  image: registry.redhat.io/ubi8/ubi-minimal:latest

@@ -10,6 +10,14 @@ content:
         target: release-1.8
       url: git@github.com:openshift-priv/migtools-must-gather.git
       web: https://github.com/migtools/must-gather
+    modifications:
+      # https://github.com/migtools/must-gather/blob/release-1.8/konflux.Dockerfile#L17
+      - action: replace
+        match: "dnf -y"
+        replacement: "microdnf -y"
+      - action: replace
+        match: "dnf clean all"
+        replacement: "microdnf clean all"
     pkg_managers:
     - gomod
 delivery:
@@ -28,7 +36,7 @@ from:
   builder:
     - stream: ose-must-gather
     - stream: rhel-8-golang
-  stream: rhel8
+  member: base-rhel8
 konflux:
   cachi2:
     lockfile:
