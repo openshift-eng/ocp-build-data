@@ -114,7 +114,9 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
 
     if [[ "${INSTALL_ART_RH_VPN_REPOS}" == "1" ]]; then
       echoerr "Did not detect that this script is running in a CI build pod. Will not install CI repositories."
-      if curl --fail --silent --location --retry 5 --retry-delay 2 --output /etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem; then
+      mkdir -p /tmp/art/
+      if curl --fail --silent --location --retry 5 --retry-delay 2 --output /tmp/art/Current-IT-RootCAs.pem https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem; then
+        cp /tmp/art/Current-IT-RootCAs.pem /etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem
         update-ca-trust extract
         cp "${DNF_WRAPPER_DIR}/unsigned.repo" "${VPN_RPM_REPO_DEST}"
         WRAPPER_MODE="localdev"
