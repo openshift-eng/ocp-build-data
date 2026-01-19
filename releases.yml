@@ -96,6 +96,8 @@ releases:
           url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/304
         release_date: 2026-May-25
         upgrades: 4.21.0-rc.0,4.21.0-rc.1
+        advisories:
+          microshift: 158125
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: rhcos
@@ -135,7 +137,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d7453a7ef961e9ce9774c205e69b317708d1fd77339654ac8c64b75e6b51511d
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cdb889e878a1942caa89c6268a8932ba9db45c283f4552336a1b6f010890742c
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.22.0~ec.0-202601190958.p0.gb444ffd.assembly.ec.0.el9
         images: []
   stream:
     assembly:
