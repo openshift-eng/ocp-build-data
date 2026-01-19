@@ -6,6 +6,14 @@ content:
         target: release-1.8
       url: git@github.com:openshift-priv/migtools-openvpn.git
       web: https://github.com/migtools/openvpn
+    modifications:
+      # https://github.com/migtools/openvpn/blob/release-1.8/konflux.Dockerfile#L17
+      - action: replace
+        match: "dnf -y install cpio"
+        replacement: "microdnf -y install cpio"
+      - action: replace
+        match: "dnf clean all"
+        replacement: "microdnf clean all"
 delivery:
   delivery_repo_names:
     - rhmtc/openshift-migration-openvpn-rhel8
@@ -21,8 +29,8 @@ enabled_repos:
 for_payload: false
 from:
   builder:
-    - stream: rhel8
-  stream: rhel8
+    - stream: rhel-8-builder
+  member: base-rhel8
 konflux:
   cachi2:
     lockfile:
