@@ -24,6 +24,22 @@ arches:
 
 operator_image_ref_mode: manifest-list
 
+# Default configuration for all images, override as necessary in definitions
+content:
+  source:
+    dockerfile: konflux.Dockerfile
+    git:
+      branch:
+        target: main
+for_payload: false
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+
+# Konflux Defaults
 # RPM lockfile is enabled by default when cachi2 is enabled with repos configured
 # New Y-streams please run initial jenkins build with NETWORK_MODE set to open to populate build database
 konflux:
