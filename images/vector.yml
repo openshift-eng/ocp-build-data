@@ -1,10 +1,23 @@
 content:
   source:
+    dockerfile: Dockerfile.art
     git:
       branch:
         target: v0.47.0-rh
       url: git@github.com:openshift-priv/vector.git
       web: https://github.com/ViaQ/vector
+    modifications:
+      # https://issues.redhat.com/browse/LOG-7142
+      - action: replace
+        match: '      " && \'
+        replacement: '      systemd " && \'
+    pkg_managers:
+      - cargo
+cachito:
+  packages:
+    cargo:
+      - path: .
+  flags: []
 distgit:
   component: vector-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
@@ -26,6 +39,7 @@ owners:
 - jcantril@redhat.com
 konflux:
   cachi2:
+    enabled: true
     lockfile:
       rpms:
       - autoconf
