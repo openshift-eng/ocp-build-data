@@ -1,9 +1,6 @@
 content:
   source:
-    dockerfile: konflux.Dockerfile
     git:
-      branch:
-        target: main
       url: git@github.com:openshift-priv/migtools-mta-java-analyzer-bundle.git
       web: https://github.com/migtools/mta-java-analyzer-bundle
 jira:
@@ -11,11 +8,9 @@ jira:
   component: JDTLS Server
 distgit:
   component: mta-jdtls-server-base-container
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-jdtls-server-base-rhel9
-for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -24,9 +19,6 @@ from:
     - stream: rhel9
   stream: rhel9
 name: mta/mta-jdtls-server-base-rhel9
-owners:
-- fbladilo@redhat.com
-- rjohnson@redhat.com
 dependents:
   - mta-operator
   - mta-java-external-provider

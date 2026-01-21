@@ -8,8 +8,6 @@ content:
   source:
     dockerfile: konflux.golang-dependency-provider.Dockerfile
     git:
-      branch:
-        target: main
       url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       web: https://github.com/migtools/mta-analyzer-lsp
 jira:
@@ -17,11 +15,9 @@ jira:
   component: Application Analysis
 distgit:
   component: mta-golang-dependency-provider-container
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-golang-dependency-provider-rhel9
-for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -30,9 +26,6 @@ from:
     - stream: rhel-9-golang
   stream: rhel9
 name: mta/mta-golang-dependency-provider-rhel9
-owners:
-- fbladilo@redhat.com
-- rjohnson@redhat.com
 dependents:
   - mta-operator
   - mta-generic-external-provider

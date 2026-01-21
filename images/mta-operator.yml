@@ -1,9 +1,6 @@
 content:
   source:
-    dockerfile: konflux.Dockerfile
     git:
-      branch:
-        target: main
       url: git@github.com:openshift-priv/migtools-mta-operator.git
       web: https://github.com/migtools/mta-operator
 jira:
@@ -11,21 +8,16 @@ jira:
   component: Operator
 distgit:
   component: mta-operator-container
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   bundle_delivery_repo_name: mta/mta-operator-bundle
   delivery_repo_names:
   - mta/mta-rhel9-operator
-for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 from:
   stream: rhel-9-ansible-operator
 name: mta/mta-rhel9-operator
-owners:
-- fbladilo@redhat.com
-- rjohnson@redhat.com
 update-csv:
   bundle-dir: manifests/
   manifests-dir: bundle/
