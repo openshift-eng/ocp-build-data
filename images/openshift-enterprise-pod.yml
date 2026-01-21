@@ -11,7 +11,6 @@ content:
     path: build/pause
     okd_alignment:
       context_dir: build/pause
-      dockerfile: Dockerfile.Rhel
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-pod-container
@@ -36,3 +35,7 @@ name: openshift/ose-pod-rhel9
 payload_name: pod
 owners:
 - aos-pod@redhat.com
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile.Rhel
