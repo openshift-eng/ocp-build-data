@@ -1,0 +1,60 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = [
+# "ruamel.yaml"
+# ]
+# ///
+
+from ruamel.yaml import YAML
+from pathlib import Path
+from subprocess import run
+from sys import exit
+
+yml = YAML()
+
+repo = Path(run(['git', 'rev-parse', '--show-toplevel'], capture_output=True).stdout.decode('utf-8').strip())
+
+mapping = yml.load(repo / 'product.yml')
+
+versions = mapping['bug_mapping']['active_versions']
+
+worktrees = repo / 'worktrees'
+
+
+result = dict()
+result['default_issue_project'] = 'OCPBUGS'
+result['active_versions'] = versions
+
+components = dict()
+
+for version in versions:
+    wt = worktrees / version
+    if wt.is_dir():
+        print('removing worktree', wt)
+        run(['git', 'worktree', 'remove', '--force', wt])
+    run(['git', 'worktree', 'add', wt, f'origin/openshift-{version}'])
+
+    for imagefile in wt.glob('images/*.yml'):
+        image = yml.load(imagefile)
+        try:
+            delivery_repos = image['delivery']['delivery_repo_names']
+        except KeyError:
+            continue
+        try:
+            internal_name = image['distgit']['component']
+        except KeyError:
+            internal_name = f'{imagefile.stem}-container'
+
+        for delivery_repo in delivery_repos:
+            components.setdefault(delivery_repo, {})
+            components[delivery_repo]['internal_name'] = internal_name
+            try:
+                components[delivery_repo]['issue_component'] = mapping['bug_mapping']['components'][internal_name]['issue_component']
+            except KeyError:
+                pass
+            components[delivery_repo].setdefault('versions', []).append(version)
+    run(['git', 'worktree', 'remove', '--force', wt])
+
+result['components'] = {a[0]: a[1] for a in sorted(components.items(), key=lambda x: (x[1]['internal_name'], x[0]))}
+
+yml.dump({'bug_mapping': result}, repo / 'delivery_component_mapping.yml')
