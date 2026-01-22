@@ -4,7 +4,10 @@ cachito:
       - path: external-providers/dotnet-external-provider/
 content:
   source:
+    dockerfile: konflux.Dockerfile
     git:
+      branch:
+        target: main
 #      url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       url: git@github.com:openshift-priv/migtools-mta-c-sharp-analyzer-provider.git
 #      web: https://github.com/migtools/mta-analyzer-lsp
@@ -14,9 +17,11 @@ jira:
   component: Application Analysis
 distgit:
   component: mta-dotnet-external-provider-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-dotnet-external-provider-rhel9
+for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -25,6 +30,9 @@ from:
     - stream: rhel9
   stream: rhel9
 name: mta/mta-dotnet-external-provider-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
 dependents:
   - mta-operator
 konflux:

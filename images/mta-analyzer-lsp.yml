@@ -6,6 +6,8 @@ content:
   source:
     dockerfile: konflux.analyzer-lsp.Dockerfile
     git:
+      branch:
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       web: https://github.com/migtools/mta-analyzer-lsp
 jira:
@@ -13,9 +15,11 @@ jira:
   component: Analyzer LSP
 distgit:
   component: mta-analyzer-lsp-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-analyzer-lsp-rhel9
+for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -24,6 +28,9 @@ from:
     - stream: rhel-9-golang
   stream: rhel9
 name: mta/mta-analyzer-lsp-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
 dependents:
   - mta-operator
   - mta-analyzer-addon

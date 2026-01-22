@@ -9,7 +9,10 @@ content:
     pkg_managers:
       - gomod
       - npm
+    dockerfile: konflux.Dockerfile
     git:
+      branch:
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-static-report.git
       web: https://github.com/migtools/mta-static-report
 jira:
@@ -17,9 +20,11 @@ jira:
   component: Static Report
 distgit:
   component: mta-static-report-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-static-report-rhel9
+for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -29,6 +34,9 @@ from:
     - stream: rhel-9-nodejs-18
   stream: rhel9
 name: mta/mta-static-report-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
 dependents:
   - mta-operator
   - mta-cli

@@ -4,7 +4,10 @@ cachito:
       - path: .
 content:
   source:
+    dockerfile: konflux.Dockerfile
     git:
+      branch:
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-tackle2-addon-discovery.git
       web: https://github.com/migtools/mta-tackle2-addon-discovery
 jira:
@@ -12,9 +15,11 @@ jira:
   component: Platform Awareness & Asset Generation
 distgit:
   component: mta-discovery-addon-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-discovery-addon-rhel9
+for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -23,5 +28,8 @@ from:
     - stream: rhel-9-golang
   stream: rhel9
 name: mta/mta-discovery-addon-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
 dependents:
   - mta-operator
