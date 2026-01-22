@@ -35,6 +35,10 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:842f8d644df4973899b13ce66e962061a076729e7ae39a2903f4f2fdb64304ec
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d5d75a129b72f818f7d04025b637eae16eb0be5f86dd493019076c27cbdf0ddb
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2c702cec5cb02389f206dd1beeada0929e1bba8bffec02b3c9c5c843eac2f8ff
+      issues:
+        exclude:
+          - id: OCPBUGS-63766
+          # why: this has been delivered in cri-o build in 4.16.55
       members:
         rpms: []
         images: []
