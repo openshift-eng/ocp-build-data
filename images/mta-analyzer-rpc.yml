@@ -8,6 +8,8 @@ content:
       - gomod
     dockerfile: konflux.analyzer-rpc.Dockerfile
     git:
+      branch:
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-kai.git
       web: https://github.com/migtools/mta-kai
 jira:
@@ -15,9 +17,11 @@ jira:
   component: Kai
 distgit:
   component: mta-analyzer-rpc-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-analyzer-rpc-rhel9
+for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -26,6 +30,9 @@ from:
     - stream: rhel-9-golang
   stream: rhel9
 name: mta/mta-analyzer-rpc-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
 dependents:
   - mta-operator
 konflux:

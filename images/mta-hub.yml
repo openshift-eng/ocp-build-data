@@ -4,7 +4,10 @@ cachito:
       - path: .
 content:
   source:
+    dockerfile: konflux.Dockerfile
     git:
+      branch:
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-tackle2-hub.git
       web: https://github.com/migtools/mta-tackle2-hub
 jira:
@@ -12,9 +15,11 @@ jira:
   component: Hub
 distgit:
   component: mta-hub-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
   - mta/mta-hub-rhel9
+for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
@@ -24,5 +29,8 @@ from:
     - member: mta-static-report
   stream: rhel9
 name: mta/mta-hub-rhel9
+owners:
+- fbladilo@redhat.com
+- rjohnson@redhat.com
 dependents:
   - mta-operator
