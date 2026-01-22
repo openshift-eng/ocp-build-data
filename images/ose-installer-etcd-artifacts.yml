@@ -15,7 +15,7 @@ cachito:
     - path: tools/mod
 content:
   source:
-    dockerfile: Dockerfile.installer.art
+    dockerfile: Dockerfile.installer.art-cachi2
     git:
       branch:
         target: openshift-{MAJOR}.{MINOR}
@@ -28,8 +28,6 @@ content:
         enabled: false
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: Dockerfile.installer
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-installer-etcd-artifacts-container
@@ -60,7 +58,12 @@ external_scanners:
   sast_scanning:
     jira_integration:
       enabled: false
-konflux:
+okd:
   content:
     source:
-      dockerfile: Dockerfile.installer
+      modifications:
+      - action: replace
+        match: |-
+          RUN export GOFLAGS='-mod=readonly' && export GO_BUILD_FLAGS='-v' \
+        replacement: |-
+          RUN export GOTOOLCHAIN="go${GO_VERSION#v}" && export GOFLAGS='-mod=readonly' && export GO_BUILD_FLAGS='-v' \
