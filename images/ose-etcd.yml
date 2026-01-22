@@ -14,7 +14,7 @@ cachito:
     - path: tools/mod
 content:
   source:
-    dockerfile: Dockerfile.art
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: openshift-{MAJOR}.{MINOR}
@@ -26,8 +26,6 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-    okd_alignment:
-      dockerfile: Dockerfile.rhel
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-etcd-container
@@ -58,7 +56,11 @@ owners:
 - melbeher@redhat.com
 maintainer:
   component: "Etcd"
-konflux:
+okd:
   content:
     source:
-      dockerfile: Dockerfile.rhel
+      modifications:
+      - action: replace
+        match: "RUN GOFLAGS='-mod=readonly' GO_BUILD_FLAGS='-v' ./build.sh"
+        replacement: |-
+          RUN export GOTOOLCHAIN="go${GO_VERSION#v}" && GOFLAGS='-mod=readonly' GO_BUILD_FLAGS='-v' ./build.sh
