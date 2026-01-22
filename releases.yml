@@ -1,4 +1,46 @@
 releases:
+  4.20.12:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-01-21T20:09:11+00:00"
+        reference_releases:
+          aarch64: 4.20.0-0.nightly-arm64-2026-01-21-204417
+          ppc64le: 4.20.0-0.nightly-ppc64le-2026-01-21-204416
+          s390x: 4.20.0-0.nightly-s390x-2026-01-21-204415
+          x86_64: 4.20.0-0.nightly-2026-01-21-204416
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Jan-27
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'rhcos'
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9b9bc51ec5d4d55148e176be3c11a964d6c0b52e698fe2e6a80ff0c7e1cc67cc
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7c2c1a05f3d6627cc2cffe3bc33405375e3061fc90dd22d500123e85c7901ed8
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a00ba24a4c10bb3f087c82e5e43d99a94ea6eba7bca91d365ce74da7799a7bfe
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80f4aadd2dbcc25fe551e14c6e6bb920244cbd62a4d0f81149ff52ba850bafce
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fd7ff2277536848337f18417979845260b0c58158bb41bb8ec2037cb8104ec8f
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b22785c9899b37a05f71bf0a8c5c3445c4aa17cc87000cbc367426ea01c65fa2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f412b1f4c7078ecd14a112f36c57bd080279cff2df2f381c3c1ab796d9cc9b8b
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d12ba20432fa6bca09febdf3df98c095447173d25e01671749394032a606b8fb
+      members:
+        rpms: []
+        images: []
   4.20.11:
     assembly:
       type: standard
@@ -31,7 +73,7 @@ releases:
           component: 'rhcos'
       promotion_permits:
         - code: BLOCKER_BUGS
-          why:  OCPBUGS-72563 blocker bug is not fixed yet
+          why: OCPBUGS-72563 blocker bug is not fixed yet
       rhcos:
         rhel-coreos:
           images:
