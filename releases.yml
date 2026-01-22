@@ -38,6 +38,10 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b22785c9899b37a05f71bf0a8c5c3445c4aa17cc87000cbc367426ea01c65fa2
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f412b1f4c7078ecd14a112f36c57bd080279cff2df2f381c3c1ab796d9cc9b8b
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d12ba20432fa6bca09febdf3df98c095447173d25e01671749394032a606b8fb
+      issues:
+        exclude:
+          - id: OCPBUGS-74105
+          # why: bz summary has incorrect format
       members:
         rpms: []
         images: []
