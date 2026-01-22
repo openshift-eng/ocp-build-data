@@ -5,12 +5,8 @@ content:
       branch:
         target: v0.47.0-rh
       url: git@github.com:openshift-priv/vector.git
+      url_pull: git@github.com:rayfordj/vector.git
       web: https://github.com/ViaQ/vector
-    modifications:
-      # https://issues.redhat.com/browse/LOG-7142
-      - action: replace
-        match: '      " && \'
-        replacement: '      systemd " && \'
     pkg_managers:
       - cargo
 cachito:
