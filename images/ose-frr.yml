@@ -15,8 +15,8 @@ delivery:
   delivery_repo_names:
   - openshift4/frr-rhel9
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+- rhel-9-minimal-baseos-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: true
 dependents:
@@ -24,7 +24,7 @@ dependents:
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/frr-rhel9
 name_in_bundle: metallb-frr-rhel9
 payload_name: metallb-frr

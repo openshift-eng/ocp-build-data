@@ -24,11 +24,11 @@ delivery:
   - openshift4/ose-dpu-intel-ipu-p4sdk-rhel9
 for_payload: false
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-fast-datapath-rpms
 from:
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-dpu-intel-ipu-p4sdk-rhel9
 name_in_bundle: dpu-intel-ipu-p4sdk
 owners:

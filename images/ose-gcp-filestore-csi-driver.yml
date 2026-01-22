@@ -31,13 +31,13 @@ delivery:
 dependents:
 - ose-gcp-filestore-csi-driver-operator
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-gcp-filestore-csi-driver-rhel9
 name_in_bundle: gcp-filestore-csi-driver-container-rhel8
 owners:

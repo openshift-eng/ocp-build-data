@@ -18,15 +18,15 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-machine-os-images-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: true
 from:
   builder:
   - member: ose-installer
   - member: openshift-enterprise-cli
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-machine-os-images-rhel9
 payload_name: machine-os-images
 owners:

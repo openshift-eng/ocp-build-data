@@ -16,8 +16,8 @@ distgit:
   component: ose-ovn-kubernetes-base-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+- rhel-9-minimal-baseos-rpms
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-ose-rpms-embargoed
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
@@ -32,7 +32,7 @@ scan_sources:
 for_payload: false
 for_release: false
 from:
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   License: GPLv2+
   io.k8s.description: This is the base image from which all ovn-kubernetes images inherit.

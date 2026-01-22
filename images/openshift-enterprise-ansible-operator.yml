@@ -33,14 +33,14 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-ansible-rhel9-operator
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-codeready-builder-rpms
 for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 maintainer:
   component: Operator SDK
 name: openshift/ose-ansible-rhel9-operator

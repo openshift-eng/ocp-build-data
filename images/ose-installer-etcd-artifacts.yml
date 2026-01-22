@@ -32,8 +32,8 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-installer-etcd-artifacts-container
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: false
 for_release: false
 from:
@@ -45,7 +45,7 @@ from:
   - stream: rhel-9-golang
   - stream: rhel-9-golang
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   License: GPLv2+
   io.k8s.description: This is the etcd base image from which all OCP installer images inherit.

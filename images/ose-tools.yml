@@ -20,15 +20,15 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-tools-rhel9
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+- rhel-9-minimal-baseos-rpms
 dependents:
 - ose-aws-efs-csi-driver-operator
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   License: GPLv2+
   io.k8s.description: Contains debugging and diagnostic tools for use with an OpenShift cluster.

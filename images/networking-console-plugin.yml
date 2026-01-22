@@ -32,13 +32,13 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-networking-console-plugin-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: true
 from:
   builder:
   - member: openshift-base-nodejs.rhel9
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-networking-console-plugin-rhel9
 owners:
 - upalatuc@redhat.com

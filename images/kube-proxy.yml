@@ -19,13 +19,13 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-kube-proxy-rhel9
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 for_payload: true
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-kube-proxy-rhel9
 payload_name: kube-proxy
 owners:
