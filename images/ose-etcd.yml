@@ -56,3 +56,11 @@ owners:
 - melbeher@redhat.com
 maintainer:
   component: "Etcd"
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "RUN GOFLAGS='-mod=readonly' GO_BUILD_FLAGS='-v' ./build.sh"
+        replacement: |-
+          RUN export GOTOOLCHAIN="go${GO_VERSION#v}" && GOFLAGS='-mod=readonly' GO_BUILD_FLAGS='-v' ./build.sh
