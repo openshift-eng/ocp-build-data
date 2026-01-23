@@ -87,6 +87,12 @@ WRAPPER_MODE_MARKER="/tmp/first-dnf-wrapper-run-$HOSTNAME"
 CI_RPM_REPO_DEST="${ART_REPOS_DIR_CI}/ci-svc-repos.repo"
 VPN_RPM_REPO_DEST="${ART_REPOS_DIR_LOCALDEV}/rh-vpn-repos.repo"
 
+# Red Hat IT Root CA certificate paths for localdev builds
+RH_IT_ROOT_CA_CERT_FILENAME="Current-IT-Root-CAs.pem"
+RH_IT_ROOT_CA_CERT_URL="https://certs.corp.redhat.com/certs/${RH_IT_ROOT_CA_CERT_FILENAME}"
+RH_IT_ROOT_CA_CERT_TMP_PATH="/tmp/art/${RH_IT_ROOT_CA_CERT_FILENAME}"
+RH_IT_ROOT_CA_CERT_SYSTEM_PATH="/etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem"
+
 EXTRA_DNF_ARGS=""
 
 if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
@@ -115,8 +121,8 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
     if [[ "${INSTALL_ART_RH_VPN_REPOS}" == "1" ]]; then
       echoerr "Did not detect that this script is running in a CI build pod. Will not install CI repositories."
       mkdir -p /tmp/art/
-      if curl --fail --silent --location --retry 5 --retry-delay 2 --output /tmp/art/Current-IT-RootCAs.pem https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem; then
-        cp /tmp/art/Current-IT-RootCAs.pem /etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem
+      if curl --fail --silent --location --retry 5 --retry-delay 2 --output "${RH_IT_ROOT_CA_CERT_TMP_PATH}" "${RH_IT_ROOT_CA_CERT_URL}"; then
+        cp "${RH_IT_ROOT_CA_CERT_TMP_PATH}" "${RH_IT_ROOT_CA_CERT_SYSTEM_PATH}"
         update-ca-trust extract
         cp "${DNF_WRAPPER_DIR}/unsigned.repo" "${VPN_RPM_REPO_DEST}"
         WRAPPER_MODE="localdev"
