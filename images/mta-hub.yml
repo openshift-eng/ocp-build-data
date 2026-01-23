@@ -35,3 +35,13 @@ owners:
 - rjohnson@redhat.com
 dependents:
   - mta-operator
+konflux:
+  cachi2:
+    lockfile:
+      # These rpms are needed in intermediate build stages, they are not tracked by the RPMs database (which only records final runtime image installed RPMs)
+      rpms:
+        - cmake
+        - make
+        - gcc
+        - gcc-c++
+        - glibc-static
