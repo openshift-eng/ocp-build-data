@@ -19,8 +19,8 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: dpu-marvell-cp-agent-container
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-codeready-builder-rpms
 delivery:
   repo_name: ose-dpu-marvell-cp-agent
@@ -30,7 +30,7 @@ for_payload: false
 from:
   builder:
   - stream: rhel-9-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-dpu-marvell-cp-agent-rhel9
 name_in_bundle: dpu-marvell-cp-agent
 owners:

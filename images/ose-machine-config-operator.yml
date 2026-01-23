@@ -19,8 +19,8 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-machine-config-rhel9-operator
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
 # Generally doozer scan-sources will detect all possible change factors automatically and trigger rebuilds.
 # However, certain images may consume RPMs in unexpected way that make it programmatically impossible to
@@ -36,7 +36,7 @@ from:
   builder:
   - stream: rhel-9-golang
   - stream: rhel-8-golang
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-machine-config-rhel9-operator
 payload_name: machine-config-operator
 owners:
