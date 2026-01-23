@@ -18,11 +18,11 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-ironic-static-ip-manager-rhel9
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-9-minimal-appstream-rpms
+- rhel-9-minimal-baseos-rpms
 for_payload: true
 from:
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-ironic-static-ip-manager-rhel9
 payload_name: ironic-static-ip-manager
 owners:
