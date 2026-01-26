@@ -212,6 +212,70 @@ releases:
               is:
                 nvr: microshift-bootc-container-v4.21.0-202512191535.p2.gd9d327c.assembly.rc.0.el9
             why: Pin microshift-bootc image to assembly
+  ec.4:
+    assembly:
+      type: preview
+      basis:
+        time: "2025-11-13T03:37:23+00:00"
+        reference_releases:
+          x86_64: 4.21.0-0.nightly-2025-11-13-042845
+      group:
+        advisories:
+          microshift: -1
+          rhcos: -1
+          rpm: -1
+        operator_index_mode: pre-release
+        shipment:
+          advisories:
+            - kind: image
+              live_id: -1
+            - kind: extras
+              live_id: -1
+            - kind: metadata
+              live_id: -1
+            - kind: fbc
+          env: stage
+          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/242
+        release_date: 2026-Feb-01
+        upgrades: 4.20.3,4.20.4,4.21.0-ec.0,4.21.0-ec.2
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:526e083ec2b1b6e105ec9062ed92ef77074e4138c9da7dd691d8eba0075eb12e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:12724ba1fadbceb893126d3d954ecaf99e58bf228f6632b2778f1d073295089e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8b2eb0a4c8dcba0b31fb24813988a13064eba4e9386d8f6e671fb99173ba845a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:234c14093561a7b91a50b63fed4e8ecfa38bdd3e165eddff079b3839d1662647
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:facb02619e7d3e1fbaeb18063532420391a2cc528bd231f8101159dcf1f7b144
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:649661542dd3306ed868f0f536423968a4822e22d940195ed042149e9c71681a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8c396e00635a5fdf53b1ebf774d1e974258a9fc0491fdd9d21e006b44c1b8e43
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fa066da8a0ed2c55a09a9b93b8050477c5ac997435400ac120857fb163797909
+      members:
+        rpms:
+          - distgit_key: openshift-clients
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                el8: openshift-clients-4.21.0-202511040653.p2.g1c5f490.assembly.stream.el8
+                el9: openshift-clients-4.21.0-202511040653.p2.g1c5f490.assembly.stream.el9
+                el10: openshift-clients-4.21.0-202511040653.p2.g1c5f490.assembly.stream.el10
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.21.0~ec.3-202512040955.p0.g763e10c.assembly.ec.3.el9
+        images:
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.21.0-202512051002.p2.g1505610.assembly.ec.3.el9
+            why: Pin microshift-bootc image to assembly
   ec.3:
     assembly:
       type: preview
