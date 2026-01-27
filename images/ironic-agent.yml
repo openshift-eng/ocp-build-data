@@ -29,15 +29,15 @@ delivery:
   - openshift4/ose-ironic-agent-rhel9
 for_payload: true
 from:
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 name: openshift/ose-ironic-agent-rhel9
 payload_name: ironic-agent
 owners:
 - ironic-osp-owners@redhat.com
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
-- rhel-9-codeready-builder-rpms
+- rhel-9-minimal-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-codeready-builder-rpms
 - rhel-9-server-ironic-rpms
 konflux:
   network_mode: open
