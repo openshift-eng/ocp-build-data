@@ -1,0 +1,18 @@
+- conf:
+    baseurl:
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/aarch64/codeready-builder/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/ppc64le/codeready-builder/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/s390x/codeready-builder/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/x86_64/codeready-builder/os/
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el9
+  content_set:
+    aarch64: codeready-builder-for-rhel-9-aarch64-rpms__9_DOT_6
+    default: codeready-builder-for-rhel-9-x86_64-rpms__9_DOT_6
+    ppc64le: codeready-builder-for-rhel-9-ppc64le-rpms__9_DOT_6
+    s390x: codeready-builder-for-rhel-9-s390x-rpms__9_DOT_6
+  name: rhel-9-minimal-codeready-builder-rpms
+  type: external
