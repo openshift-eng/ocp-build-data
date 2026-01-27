@@ -1,0 +1,14 @@
+- conf:
+    baseurl:
+      x86_64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.2/compose/BaseOS/x86_64/os/
+      aarch64: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.2/compose/BaseOS/aarch64/os/
+      ppc64le: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.2/compose/BaseOS/ppc64le/os/
+      s390x: https://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.2/compose/BaseOS/s390x/os/
+    extra_options:
+      gpgcheck: '1'
+  content_set:
+    optional: true
+  name: rhel-102-baseos
+  reposync:
+    enabled: true
+  type: external
