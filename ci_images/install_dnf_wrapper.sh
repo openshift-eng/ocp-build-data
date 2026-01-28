@@ -31,14 +31,15 @@ wrap_command() {
 # Allow repos to be skipped if they are not responsive. Reasons:
 # 1. A single misconfigured repo in the CI mirroring service should not break all CI.
 # 2. If a user it not connected to the VPN, the internal repos will not be accessible, but should not break all yum operations.
-yum config-manager --setopt=skip_if_unavailable=True --save
-
-# SSL certificates for ocp-artifacts will not be trusted by default
-# CAs, so ignore ssl requirements. http is used by the in-cluster
-# build farms.
-yum config-manager --setopt=skip_if_unavailable=True --save
+# Note: microdnf doesn't support config-manager, so write directly to config file
+if which microdnf &>/dev/null; then
+  echo "skip_if_unavailable=True" >> /etc/dnf/dnf.conf
+else
+  yum config-manager --setopt=skip_if_unavailable=True --save
+fi
 
 wrap_command yum
 wrap_command dnf
+wrap_command microdnf
 
 

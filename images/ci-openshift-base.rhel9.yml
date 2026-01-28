@@ -23,7 +23,7 @@ content:
         baseurl: http://base-{MAJOR}-{MINOR}-rhel96.ocp.svc/rhel-9-server-ose
 
 from:
-  member: openshift-enterprise-base-rhel9
+  member: openshift-enterprise-base-rhel9-minimal
 labels:
   io.k8s.description: openshift-enterprise-base-rhel9 for Red Hat CI
 distgit:
@@ -36,12 +36,12 @@ distgit:
 # desirable since it allows Dockerfile builds requiring RPMs to work as long
 # as the host is connected to the VPN.
 enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
+- rhel-9-minimal-baseos-rpms
+- rhel-9-minimal-appstream-rpms
 - rhel-9-server-ose-rpms
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-ironic-rpms
-- rhel-9-codeready-builder-rpms
+- rhel-9-minimal-codeready-builder-rpms
 
 name: openshift/ci-openshift-base-rhel9
 for_payload: false
