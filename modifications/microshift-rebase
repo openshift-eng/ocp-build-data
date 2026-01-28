@@ -37,7 +37,7 @@ echo $PODMAN_BUILD_CMD
 eval $PODMAN_BUILD_CMD
 podman image prune -f  # clean up unused images
 
-# Run the podman container
+# Run the podman container with retry logic
 PODMAN_RUN_CMD="podman run --rm \
 -e RELEASE_NAME \
 -e MICROSHIFT_PAYLOAD_X86_64 \
@@ -49,4 +49,22 @@ PODMAN_RUN_CMD="podman run --rm \
 microshift-rebase:$BREW_TAG \
 $REBASE_CMD"
 echo $PODMAN_RUN_CMD
-eval $PODMAN_RUN_CMD
+
+# Retry the podman run command up to 3 times on error
+MAX_RETRIES=3
+RETRY_COUNT=0
+while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+    if eval $PODMAN_RUN_CMD; then
+        echo "microshift rebase succeeded"
+        break
+    else
+        RETRY_COUNT=$((RETRY_COUNT + 1))
+        if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+            echo "microshift rebase failed (attempt $RETRY_COUNT/$MAX_RETRIES). Retrying in 5 seconds..."
+            sleep 5
+        else
+            echo "microshift rebase failed after $MAX_RETRIES attempts"
+            exit 1
+        fi
+    fi
+done
