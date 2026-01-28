@@ -1,5 +1,6 @@
 content:
   source:
+    dockerfile: Dockerfile.art
     path: operator
     git:
       branch:
@@ -20,7 +21,7 @@ from:
   member: base-rhel9
 name: openshift-logging/loki-rhel9-operator
 owners:
-- jcantril@redhat.com
+- rojacob@redhat.com
 update-csv:
   bundle-dir: openshift/manifests/
   manifests-dir: bundle/
