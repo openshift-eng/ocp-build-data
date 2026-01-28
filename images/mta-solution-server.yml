@@ -23,11 +23,13 @@ from:
   builder:
     - stream: rhel9
   stream: rhel9
-konflux:
-  network_mode: open
 name: mta/mta-solution-server-rhel9
 owners:
 - fbladilo@redhat.com
 - rjohnson@redhat.com
 dependents:
   - mta-operator
+konflux:
+  network_mode: open
+  cachi2:
+    enabled: false
