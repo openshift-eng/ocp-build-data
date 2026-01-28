@@ -6,26 +6,19 @@ releases:
         assembly: rc.2
         reference_releases!: {}
       group:
-        advisories:
+        advisories!:
           rpm: 158547
           rhcos: 158548
-          microshift: 157498
+          microshift: -1
         release_jira: ART-14107
         operator_index_mode: ga
-        shipment:
+        shipment!:
           advisories:
-            - kind: image
-              live_id: 16017
-            - kind: extras
-              live_id: 16018
-            - kind: metadata
-              live_id: 16019
             - kind: fbc
             - kind: image
             - kind: extras
             - kind: metadata
           env: prod
-          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/308
         release_date: 2026-Feb-3
         upgrades: 4.20.12,4.20.13,4.21.0-ec.0,4.21.0-ec.2,4.21.0-ec.3,4.21.0-rc.0,4.21.0-rc.1,4.21.0-rc.2
   rc.2:
