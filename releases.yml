@@ -6,22 +6,21 @@ releases:
         assembly: rc.2
         reference_releases!: {}
       group:
-        advisories:
-          rpm: 154550
-          rhcos: 157362
-          microshift: 157498
         release_jira: ART-14107
         operator_index_mode: ga
-        shipment:
-          advisories!:
+        release_date: 2026-Feb-3
+        upgrades: 4.20.12,4.20.13,4.21.0-ec.0,4.21.0-ec.2,4.21.0-ec.3,4.21.0-rc.0,4.21.0-rc.1,4.21.0-rc.2
+        shipment!:
+          advisories:
             - kind: image
             - kind: extras
             - kind: metadata
             - kind: fbc
           env: prod
-          url-:
-        release_date: 2026-Feb-3
-        upgrades: 4.20.12,4.20.13,4.21.0-ec.0,4.21.0-ec.2,4.21.0-ec.3,4.21.0-rc.0,4.21.0-rc.1,4.21.0-rc.2
+        advisories!:
+          rpm: 154550
+          rhcos: 157362
+          microshift: 157498
   rc.2:
     assembly:
       type: candidate
