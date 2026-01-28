@@ -1,34 +1,38 @@
 [rhel-8-golang-rpms-x86_64]
-baseurl = https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/x86_64/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/x86_64/
 module_hotfixes = 1
 includepkgs = module-build-macros delve golang* go-toolset* goversioninfo
 name = rhel-8-golang-rpms-x86_64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-8-golang-rpms-ppc64le]
-baseurl = https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/ppc64le/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/ppc64le/
 module_hotfixes = 1
 includepkgs = module-build-macros delve golang* go-toolset* goversioninfo
 name = rhel-8-golang-rpms-ppc64le
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-8-golang-rpms-s390x]
-baseurl = https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/s390x/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/s390x/
 module_hotfixes = 1
 includepkgs = module-build-macros delve golang* go-toolset* goversioninfo
 name = rhel-8-golang-rpms-s390x
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-8-golang-rpms-aarch64]
-baseurl = https://download-node-02.eng.bos.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/aarch64/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-8-build/latest/aarch64/
 module_hotfixes = 1
 includepkgs = module-build-macros delve golang* go-toolset* goversioninfo
 name = rhel-8-golang-rpms-aarch64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-8-baseos-rpms-x86_64]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
