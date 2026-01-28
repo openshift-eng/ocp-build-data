@@ -1,6 +1,16 @@
 releases:
-  # WARNING: do not use this assembly for GA
-  # see https://redhat-internal.slack.com/archives/CB95J6R4N/p1765837022676159
+  4.21.0:
+    assembly:
+      type: standard
+      basis:
+        assembly: rc.2
+        reference_releases!: {}
+      group:
+        operator_index_mode: ga
+        release_date: 2026-Feb-3
+        upgrades: 4.20.12,4.20.13,4.21.0-ec.0,4.21.0-ec.2,4.21.0-ec.3,4.21.0-rc.0,4.21.0-rc.1,4.21.0-rc.2
+        advisories!: {}
+        shipment!: {}
   rc.2:
     assembly:
       type: candidate
