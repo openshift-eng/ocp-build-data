@@ -13,6 +13,14 @@ releases:
         advisories:
           rpm: 158605
           rhcos: 158606
+        dependencies:
+          rpms:
+            - el8: runc-1.2.9-1.rhaos4.16.el8
+              non_gc_tag: insert tag here if needed
+              why: pin rhaos 4.16 rpm in 4.15 delivery
+            - el9: runc-1.2.9-1.rhaos4.16.el9
+              non_gc_tag: insert tag here if needed
+              why: pin rhaos 4.16 rpm in 4.15 delivery
         release_jira: ART-0
         shipment:
           advisories:
