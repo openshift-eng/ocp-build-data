@@ -1,4 +1,56 @@
 releases:
+  4.20.13:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-01-29T01:45:11+00:00"
+        reference_releases:
+          s390x: 4.20.0-0.nightly-s390x-2026-01-29-043333
+          ppc64le: 4.20.0-0.nightly-ppc64le-2026-01-29-043435
+          aarch64: 4.20.0-0.nightly-arm64-2026-01-29-043333
+          x86_64: 4.20.0-0.nightly-2026-01-29-045853
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Feb-03
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: driver-toolkit
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
+      rhcos:
+        rhel-coreos:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a973767aa6b01b2a3d8b8b22af573d305823713c75121a6caf63126a1f33c7c4
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1ed8379cef5acb044a4951dde2a01024030e2dae2d39fc3c52f341789843ed48
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:061f8e61a0181c41c56b443636307c077b92df16057cb8cd0e97c23aa0f5640b
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b1c684664ccfc7a4da88b8767ae773c79e7ae58359dfacd836637f0f5d06df90
+        rhel-coreos-extensions:
+          images:
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c167580c7a52a3eed2c33c1b0c445456f946808cea92fb7447d3c65232e66876
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4293cbd9b2fb93148374357e933308c15645f9e1604472e205ea66073dade23f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:20ff81327c5a9dab7b7483b14c81ffbd4c6aefc0a1d3f70ad5a9938318a809d3
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:42fbee8c6be143d759e2498d90682e8f40906e7e0fabb0622dcdf5ea8319f161
+      members:
+        rpms: []
+        images: []
   4.20.12:
     assembly:
       type: standard
