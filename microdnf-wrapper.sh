@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # Wrapper for microdnf that removes unsupported dnf options.
 
+# Enable debug mode with bash -x if ART_DNF_WRAPPER_DEBUG is set
+if [[ -n "${ART_DNF_WRAPPER_DEBUG:-}" ]]; then
+  set -x
+fi
+
 # Allowed setopt options for microdnf
 ALLOWED_SETOPTS=(
     "tsflags"
