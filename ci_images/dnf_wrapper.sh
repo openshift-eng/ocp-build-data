@@ -25,6 +25,11 @@
 
 set -euo pipefail
 
+# Enable debug mode with bash -x if ART_DNF_WRAPPER_DEBUG is set
+if [[ -n "${ART_DNF_WRAPPER_DEBUG:-}" ]]; then
+  set -x
+fi
+
 LOG_PREFIX="ART yum/dnf wrapper [$$]:"
 
 echoerr() {
@@ -159,7 +164,11 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
       # If any ART repos files were populated and we are ignoring
       # base image repos, eliminate extraneous warnings by
       # disabling RH subscription manager plugin.
-      EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --disableplugin=subscription-manager"
+      # Note: microdnf doesn't support plugins, so skip this option when the
+      # underlying command is microdnf (check if microdnf exists on the system)
+      if ! which microdnf &>/dev/null; then
+        EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --disableplugin=subscription-manager"
+      fi
     fi
 
     # Set the repo file search path for DNF
