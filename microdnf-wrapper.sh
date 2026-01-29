@@ -6,6 +6,7 @@ ALLOWED_SETOPTS=(
     "tsflags"
     "keepcache"
     "install_weak_deps"
+    "reposdir"
 )
 
 # Normalize boolean values (false/False => 0, true/True => 1)
