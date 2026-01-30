@@ -27,10 +27,18 @@ from:
     - stream: rhel-9-golang
     - stream: rhel9
     - member: mta-static-report
-  member: mta-analyzer-lsp
+    - member: mta-analyzer-lsp
+    - member: mta-generic-external-provider
+  member: mta-java-external-provider
 name: mta/mta-cli-rhel9
 owners:
 - fbladilo@redhat.com
 - rjohnson@redhat.com
 dependents:
   - mta-operator
+konflux:
+  cachi2:
+    lockfile:
+      dnf_modules_enable: false # disable automatic injection
+      modules:
+      - nodejs:18
