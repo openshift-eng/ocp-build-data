@@ -45,3 +45,6 @@ owners:
 - aos-install@redhat.com
 konflux:
   network_mode: open
+  no_shell: true  # Image uses minimal base images (govc, pwsh, yq) without /bin/sh
+okd:
+  mode: enabled

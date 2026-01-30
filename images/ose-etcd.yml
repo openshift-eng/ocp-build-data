@@ -14,7 +14,7 @@ cachito:
     - path: tools/mod
 content:
   source:
-    dockerfile: Dockerfile.art
+    dockerfile: Dockerfile.rhel
     git:
       branch:
         target: openshift-{MAJOR}.{MINOR}
@@ -58,7 +58,11 @@ owners:
 - melbeher@redhat.com
 maintainer:
   component: "Etcd"
-konflux:
+okd:
   content:
     source:
-      dockerfile: Dockerfile.rhel
+      modifications:
+      - action: replace
+        match: "RUN GOFLAGS='-mod=readonly' GO_BUILD_FLAGS='-v' ./build.sh"
+        replacement: |-
+          RUN export GOTOOLCHAIN="go${GO_VERSION#v}" && GOFLAGS='-mod=readonly' GO_BUILD_FLAGS='-v' ./build.sh
