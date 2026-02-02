@@ -38,6 +38,22 @@ rhel-9-golang:
   upstream_image_mirror:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
 
+
+# IMPORTANT: This stream is created for the specific use of go1.22 in openhshift-enterprise-builder image
+
+rhel-8-golang-1.22:
+  aliases:
+    - rhel-8-golang-{GO_LATEST}
+  image: openshift/golang-builder:v1.22.12-202507011013.g20d2fa9.el8
+  mirror: true
+  transform: rhel-8/golang
+  # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}.art
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
+  # To ensure consistency in our builds and allow CI to use the same build, mirror the upstream builder image from ocp/builder to ocp-private/builder-priv.
+  upstream_image_mirror:
+    - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.22-openshift-{MAJOR}.{MINOR}
+
 # This image is not used by ART. It is an artifact required in upstream CI to build unit tests.
 # Our transform is designed to create a buildconfig atop a specific golang version, layering on
 # packages that upstream has traditionally had present in its build_roots.
