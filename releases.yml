@@ -53,6 +53,11 @@ releases:
             metadata:
               is:
                 nvr: ovn-kubernetes-microshift-container-v4.22.0-202601201943.p2.g1938041.assembly.stream.el9
+          - distgit_key: ose-baremetal-installer
+            why: Pin build due to differing global network_mode config for the build that's in nightly
+            metadata:
+              is:
+                nvr: ose-baremetal-installer-container-v4.22.0-202602010522.p2.g2a7b94f.assembly.stream.el9
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
