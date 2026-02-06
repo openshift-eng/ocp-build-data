@@ -628,6 +628,46 @@ releases:
           image: registry.redhat.io/ubi9/ubi-minimal@sha256:34880b64c07f28f64d95737f82f891516de9a3b43583f39970f7bf8e4cfa48b7
           upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
           mirror: false
+  # Assembly to test compilation with go cover enabled
+  coverage:
+    assembly:
+      type: stream
+      permits:
+        - code: OUTDATED_RPMS_IN_STREAM_BUILD
+          component: '*'
+      prerelease_permits:
+        - code: OUTDATED_RPMS_IN_STREAM_BUILD
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: openshift-clients
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: local-storage-mustgather
+        # RHCOS extensions temporarily use inconsistent RPMs between arches.
+        # ref. https://redhat-internal.slack.com/archives/C01CQA76KMX/p1738863088399379
+        - code: INCONSISTENT_RHCOS_RPMS
+          component: rhcos
+        - code: MISMATCHED_SIBLINGS
+          component: '*'
+        - code: FAILED_CONSISTENCY_REQUIREMENT
+          component: '*'
+      group:
+        build_profiles:
+          enable_go_cover: true
+      streams:
+        rhel-9-golang:
+          image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.24.11-202602060215.ge8e5642.el9-2
+          mirror: false
+        rhel-8-golang:
+          image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.24.11-202602060215.g1f0d617.el8-2
+          mirror: false
+        rhel-9-golang-1.25:
+          image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.3-20260206.211530-2
+          mirror: false
+        rhel-8-golang-1.25:
+          image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.3-20260206.203350-2
+          mirror: false
   stream:
     assembly:
       type: stream
