@@ -23,6 +23,17 @@ releases:
             - kind: fbc
         release_date: 2026-Feb-17
         upgrades: 4.20.13,4.20.14,4.21.0,4.21.1
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
       rhcos:
         rhel-coreos:
           images:
