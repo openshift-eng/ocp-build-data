@@ -1,0 +1,33 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: release-4.22
+      url: git@github.com:openshift-priv/os.git
+      web: https://github.com/openshift/os
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: rhcos-node-extensions-image-container
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+for_payload: false
+for_release: false
+from:
+  builder:
+    - stream: rhel_coreos
+    - stream: centos_stream9
+  member: openshift-enterprise-base-rhel9
+name: openshift/base-rhel9
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+okd:
+  mode: disabled
