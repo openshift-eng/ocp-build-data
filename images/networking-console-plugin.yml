@@ -13,9 +13,14 @@ content:
       match: "COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR"
       replacement: |-
         COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
-        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.npmrc $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.yarnrc
+        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.npmrc $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/.yarnrc $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/yarn.lock
+    - action: replace
+      match: "ARG YARN_VERSION=v1.22.19"
+      replacement: |-
+        ARG YARN_VERSION=v1.22.19
+        ENV CYPRESS_INSTALL_BINARY=0
     pkg_managers:
-    - yarn
+    - npm
     artifacts:
       from_urls:
       - target: yarn-v1.22.19.tar.gz
@@ -48,7 +53,15 @@ payload_name: networking-console-plugin
 konflux:
   cachito:
     mode: emulation
-  network_mode: open # Bunch of yarn dependencies, not sure how to fix
+  cachi2:
+    artifact_lockfile:
+      enabled: true
+      resources:
+        - https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
+        - https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+    lockfile:
+      modules:
+        - nginx:1.26
 okd:
   content:
     source:
