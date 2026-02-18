@@ -3,7 +3,9 @@ content:
     dockerfile: Dockerfile.diskmaker.rhel7
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        # The target version is 4.18 on purpose. Ref: https://issues.redhat.com/browse/ART-14558
+        # Do not change branch without team approval
+        target: release-4.18
       url: git@github.com:openshift-priv/local-storage-operator.git
       web: https://github.com/openshift/local-storage-operator
     ci_alignment:
