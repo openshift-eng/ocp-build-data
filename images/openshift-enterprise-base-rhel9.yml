@@ -1,0 +1,28 @@
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile.rhel9
+    git:
+      branch:
+        target: release-4.18
+      url: git@github.com:openshift-priv/images.git
+      web: https://github.com/openshift/images
+    path: base
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-base-rhel9-container
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  member: openshift-base-rhel9
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the base image from which all OpenShift Container Platform images inherit.
+  io.k8s.display-name: OpenShift Container Platform RHEL 9 Base
+  io.openshift.tags: openshift,base
+name: openshift/openshift-enterprise-base-rhel9
+owners:
+- asdas@redhat.com
