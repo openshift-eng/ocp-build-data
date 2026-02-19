@@ -1,0 +1,27 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/aws-node-termination-handler.git
+      web: https://github.com/openshift/aws-node-termination-handler
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: aws-node-termination-handler-container
+delivery:
+  delivery_repo_names:
+  - openshift4/aws-kms-encryption-provider-rhel9
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/aws-node-termination-handler-rhel9
+owners:
+- hypershift-team@redhat.com@redhat.com
+payload_name: aws-node-termination-handler
