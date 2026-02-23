@@ -87,8 +87,3 @@ rhel-9-golang-1-22:
     - rhel-9-golang-1.22
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.22.12-202602122125.g388ceb2.el9
 
-rhel-9-golang-ci-build-root:
-  image: not_applicable
-  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.22-openshift-4.18
-  transform: rhel-9/ci-build-root
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.22-openshift-4.18
