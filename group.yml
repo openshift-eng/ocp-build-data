@@ -1,7 +1,7 @@
-name: oadp-1.5
+name: oadp-1.6
 csv_namespace: oadp
 product: oadp
-version: 1.5.5
+version: 1.6.0
 
 vars:
   # The go versions used by the various CI builder images.
@@ -16,7 +16,7 @@ vars:
   GO_LATEST: "1.25"
   GO_EXTRA: "1.25"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
-  MINOR: 19
+  MINOR: 22
 
 arches:
 - x86_64
@@ -42,9 +42,7 @@ konflux:
 
 # OCP versions to publish FBC builds to
 OCP_TARGET_VERSIONS: [
-  "4.19",
-  "4.20",
-  "4.21",
+  "4.22",
 ]
 
 assemblies:
