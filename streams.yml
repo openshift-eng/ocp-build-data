@@ -106,3 +106,8 @@ nodejs:
   image: registry.access.redhat.com/ubi8/nodejs-18:1-86
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-nodejs-base-{MAJOR}.{MINOR}.art
   mirror: true
+
+rhel-9-golang-1-22:
+  aliases:
+    - rhel-9-golang-1.22
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.22.12-202602122125.g388ceb2.el9
