@@ -1,0 +1,24 @@
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-4.18
+      url: git@github.com:openshift-priv/must-gather.git
+      web: https://github.com/openshift/must-gather
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: ose-must-gather-container
+enabled_repos:
+- rhel-94-baseos-rpms
+- rhel-94-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-cli-rhel9
+name: openshift/ose-must-gather-rhel9
+owners:
+- aos-master@redhat.com
