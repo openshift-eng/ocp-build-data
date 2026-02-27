@@ -22,7 +22,7 @@ for_payload: false
 from:
   builder:
   - stream: rhel-9-golang-1-22
-  member: openshift-enterprise-base-rhel94
+  member: openshift-enterprise-base-rhel9
 name: openshift/ose-local-storage-rhel9-operator
 name_in_bundle: local-storage-operator
 owners:
@@ -33,4 +33,3 @@ update-csv:
   manifests-dir: config/manifests
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
-

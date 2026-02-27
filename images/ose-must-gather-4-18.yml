@@ -11,14 +11,14 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-must-gather-container
 enabled_repos:
-- rhel-94-baseos-rpms
-- rhel-94-appstream-rpms
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_payload: false
 for_release: false
 from:
   builder:
-  - stream: rhel-9-golang
-  member: openshift-enterprise-cli-rhel9
+  - stream: rhel-9-golang-1-22
+  member: openshift-enterprise-cli-4-18
 name: openshift/ose-must-gather-rhel9
 owners:
 - aos-master@redhat.com

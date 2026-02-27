@@ -14,9 +14,9 @@ distgit:
 dependents:
 - local-storage-operator
 enabled_repos:
-- rhel-94-baseos-rpms
-- rhel-94-appstream-rpms
-- rhel-94-server-ose-rpms-embargoed
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed-4-18
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-local-storage-mustgather
@@ -24,9 +24,7 @@ delivery:
   - openshift4/ose-local-storage-mustgather-rhel9
 for_payload: false
 from:
-  builder:
-  - stream: rhel-9-golang-1-22
-  member: openshift-enterprise-base-rhel94
+  member: ose-must-gather-4-18
 name: openshift/ose-local-storage-mustgather-rhel9
 name_in_bundle: local-storage-mustgather
 owners:
