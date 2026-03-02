@@ -1,7 +1,6 @@
 ---
-
 jira_config:
-  server: "https://issues.redhat.com"
+  server: "https://redhat.atlassian.net/"
   project: "OCPBUGS"
 
 bugzilla_config:
@@ -23,10 +22,10 @@ kernel_bug_sweep:
   tracker_jira:
     project: KMAINT
     labels:
-    - early-kernel-track
+      - early-kernel-track
   bugzilla:
     target_releases:
-    - "{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0"
+      - "{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0"
   target_jira:
     project: OCPBUGS
     component: RHCOS
