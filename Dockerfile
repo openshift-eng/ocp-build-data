@@ -1,5 +1,5 @@
 # This is a base image that most rhel9-based containers should layer on.
-FROM rhel9
+FROM registry.ci.openshift.org/ocp/builder:rhel-9-openshift-4.14.art
 # we pin to a RHEL EUS (rhel-els) stream for stability.
 # rhel9-els from rhel-els-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=77439)
 
