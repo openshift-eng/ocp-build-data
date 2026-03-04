@@ -8,6 +8,9 @@ content:
       url: git@github.com:openshift-priv/images.git
       web: https://github.com/openshift/images
     path: base
+    ci_alignment:
+      stream_prs:
+        enabled: false
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-base-rhel9-container
