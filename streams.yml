@@ -43,6 +43,11 @@ rhel-9-golang:
   upstream_image_mirror:
     - registry.ci.openshift.org/ocp-private/builder-priv:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
 
+rhel-9-golang-1.22:
+  aliases:
+    - rhel-9-golang-1.22
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.22.12-202602241847.p2.g388ceb2.el9
+
 rhel-9-golang-1.23:
   aliases:
     - rhel-9-golang-{GO_EXTRA}
