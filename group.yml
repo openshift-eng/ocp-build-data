@@ -98,3 +98,20 @@ repos:
     reposync:
       enabled: false
 
+  rhel-88-baseos-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.8/x86_64/baseos/os/
+    content_set:
+      default: rhel-8-for-x86_64-baseos-eus-rpms__8_DOT_8
+    reposync:
+      enabled: false
+
+  rhel-88-appstream-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel8/8.8/x86_64/appstream/os/
+    content_set:
+      default: rhel-8-for-x86_64-appstream-eus-rpms__8_DOT_8
+    reposync:
+      enabled: false
