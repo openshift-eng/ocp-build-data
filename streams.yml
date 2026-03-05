@@ -19,6 +19,8 @@
 ####################################################################################################
 
 golang:
+  aliases:
+    - rhel-8-golang-{GO_LATEST}
   image: openshift/golang-builder:v1.19.13-202507041126.gfa00de2.el8
   mirror: true
   transform: rhel-8/golang
@@ -29,6 +31,8 @@ golang:
   - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.19-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang:
+  aliases:
+    - rhel-9-golang-{GO_LATEST}
   image: openshift/golang-builder:v1.19.13-202507041126.g3172d57.el9
   mirror: true
   transform: rhel-9/golang
@@ -92,5 +96,5 @@ nodejs16:
 
 rhel-9-golang-1-22:
   aliases:
-    - rhel-9-golang-1.22
+    - rhel-9-golang-{GO_EXTRA}
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.22.12-202602122125.g388ceb2.el9
