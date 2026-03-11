@@ -1,0 +1,30 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-4.18
+      url: git@github.com:openshift-priv/csi-livenessprobe.git
+      web: https://github.com/openshift/csi-livenessprobe
+    ci_alignment:
+      streams_prs:
+        enabled: false
+dependents:
+- ose-smb-csi-driver-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: csi-livenessprobe-4.18-container
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+labels:
+  License: ASL 2.0
+  io.k8s.description: Liveness probe for CSI drivers
+  io.k8s.display-name: Liveness probe for CSI drivers
+  io.openshift.tags: csi,storage,probe
+name: openshift/ose-csi-livenessprobe-4.18-rhel9
+name_in_bundle: csi-livenessprobe-4.18
+owners:
+- aos-storage-staff@redhat.com
