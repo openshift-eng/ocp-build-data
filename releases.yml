@@ -13,6 +13,20 @@ releases:
         advisories:
           rpm: 163538
           rhcos: 163539
+        dependencies:
+          rpms:
+          - el9: runc-1.2.9-3.rhaos4.17.el9
+            non_gc_tag: insert tag here if needed
+            why: pin rpm
+          - el9: podman-5.2.2-12.rhaos4.17.el9
+            non_gc_tag: insert tag here if needed
+            why: pin rpm
+          - el9: skopeo-1.16.1-4.rhaos4.17.el9
+            non_gc_tag: insert tag here if needed
+            why: pin rpm
+          - el9: containernetworking-plugins-1.4.0-6.el9_4.1
+            non_gc_tag: insert tag here if needed
+            why: pin rpm                    
         release_jira: ART-0
         shipment:
           advisories:
