@@ -50,7 +50,7 @@ RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
     go install golang.org/x/lint/golint@latest && \
     go install gotest.tools/gotestsum@v1.12.2 && \
     go install github.com/openshift/release/tools/gotest2junit@latest && \
-    go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
+    go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.19 && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
