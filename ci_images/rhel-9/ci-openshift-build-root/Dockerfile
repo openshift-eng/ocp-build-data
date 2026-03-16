@@ -26,10 +26,9 @@ ENV GHPROXY_PREFIX="https://ocp-artifacts.engineering.redhat.com/github"
 ADD ci_images/install_protoc.sh /tmp
 ADD ci_images/install_etcd.sh /tmp
 
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp
 RUN set -euxo pipefail && \
     chmod +x /tmp/*.sh && \
-    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
+    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || true` && \
     /tmp/install_protoc.sh "23.4" && \
     /tmp/install_etcd.sh "3.5.21"
 
@@ -40,21 +39,19 @@ RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros kernel-srpm
     git config --system user.name origin-release-container && \
     git config --system user.email origin-release@redhat.com
 
+COPY ci_images/rhel-9/ci-openshift-build-root/go.mod ci_images/rhel-9/ci-openshift-build-root/go.sum /tmp/tools/
+
 # Notes:
 # - brew will not be able to access go modules outside RH, setting GOPROXY allows them to be sourced from ocp-artifacts
 # - brew will not be able to connect to https://sum.golang.org/ . GOSUMDB='off' disables this check.
 # - brew temporarily injects a trust store at /tmp/tls-ca-bundle.pem. Setting SSL_CERT_FILE allows go install to use it.
 #   this is important because the system trust store does not trust Red Hat IT certificates.
-RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
+RUN cd /tmp/tools && \
+    export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/,https://proxy.golang.org,direct" && \
     export GOSUMDB='off' && \
-    export GOFLAGS='' && export GO111MODULE=on && \
-    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
-    go install golang.org/x/tools/cmd/goimports@v0.42.0 && \
-    go install github.com/tools/godep@latest && \
-    go install golang.org/x/lint/golint@latest && \
-    go install gotest.tools/gotestsum@latest && \
-    go install github.com/openshift/release/tools/gotest2junit@latest && \
-    go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
+    export GOFLAGS='' && \
+    export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || true` && \
+    go install tool && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
