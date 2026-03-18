@@ -3,6 +3,12 @@ arches:
 - x86_64
 content:
   source:
+    modifications:
+      - action: replace
+        match: "RUN /opt/p4rt_proto/copy_p4rt_python_deps.sh"
+        replacement: |
+          ENV PATH="/usr/local/bin:${PATH}"
+          RUN /opt/p4rt_proto/copy_p4rt_python_deps.sh
     dockerfile: Dockerfile.IntelVSP.rhel
     git:
       branch:
