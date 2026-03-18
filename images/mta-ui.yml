@@ -10,6 +10,11 @@ content:
         target: release-0.9
       url: git@github.com:openshift-priv/migtools-mta-tackle2-ui.git
       web: https://github.com/migtools/mta-tackle2-ui
+    modifications:
+      # https://github.com/migtools/mta-tackle2-ui/blob/release-0.9/konflux.Dockerfile#L21
+      - action: replace
+        match: "dnf -y install"
+        replacement: "dnf -y update && dnf -y install"
 jira:
   project: MTA
   component: UI
