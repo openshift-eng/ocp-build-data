@@ -400,6 +400,11 @@ releases:
           component: '*'
       members:
         images:
+          - distgit_key: ironic
+            why: Pin success build for ironic
+            metadata:
+              is:
+                el9: ironic-container-v4.22.0-202603130056.p2.g0c07656.assembly.stream.el9
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
             metadata:
