@@ -50,10 +50,25 @@ konflux:
     lockfile:
       cross_arch: true
       rpms:
+      - acl
+      - apr
+      - apr-util
+      - apr-util-bdb
+      - attr
+      - binutils
+      - binutils-gold
+      - coreos-installer
+      - cpp
       - cpio
+      - crudini
       - cryptsetup-libs
+      - dbus
+      - dbus-broker
+      - dbus-common
+      - dbus-libs
       - device-mapper
       - device-mapper-libs
+      - dnsmasq
       - dnf
       - dnf-plugins-core
       - dosfstools
@@ -62,28 +77,57 @@ konflux:
       - e2fsprogs-libs
       - efi-filesystem
       - efivar-libs
+      - elfutils-debuginfod-client
+      - elfutils-default-yama-scope
+      - elfutils-libs
       - file
       - flashrom
       - fuse-libs
       - fwupd
       - fwupd-plugin-flashrom
+      - gcc
+      - gcc-c++
       - gdisk
       - gettext
       - gettext-libs
+      - git-core
+      - glibc-devel
       - glibc-gconv-extra
+      - glibc-headers
+      - groff-base
+      - grub2
       - grub2-common
+      - grub2-efi-aa64
       - grub2-efi-x64
       - grub2-pc
       - grub2-pc-modules
       - grub2-tools
       - grub2-tools-minimal
+      - httpd
+      - httpd-core
+      - httpd-filesystem
+      - httpd-tools
+      - ima-evm-utils
       - inih
+      - ipcalc
+      - ipmitool
+      - ipxe-bootimgs-aarch64
+      - ipxe-bootimgs-x86
+      - ipxe-roms-qemu
+      - iproute
       - kbd
       - kbd-legacy
       - kbd-misc
+      - kernel-headers
+      - keyutils
       - kmod
+      - kmod-libs
       - kpartx
+      - less
+      - libaio
+      - libasan
       - libatasmart
+      - libatomic
       - libblockdev
       - libblockdev-crypto
       - libblockdev-fs
@@ -92,68 +136,331 @@ konflux:
       - libblockdev-part
       - libblockdev-swap
       - libblockdev-utils
+      - libbrotli
+      - libburn
       - libbytesize
+      - libcbor
+      - libcomps
       - libedit
+      - libfido2
+      - libgomp
       - libgudev
       - libgusb
+      - libisoburn
+      - libisofs
       - libjcat
       - libkcapi
       - libkcapi-hmaccalc
+      - libmpc
+      - libnsl2
+      - libpath_utils
+      - libpkgconf
+      - libseccomp
       - libss
+      - libstdc++-devel
+      - libtalloc
       - libudisks2
+      - libubsan
+      - liburing
       - libusbx
+      - libxcrypt-devel
       - libxmlb
+      - libxslt
+      - mailcap
+      - make
       - mdadm
+      - memcached
+      - mod_ssl
       - mokutil
+      - mpdecimal
       - mtools
+      - ncurses
       - nspr
       - nss
       - nss-softokn
       - nss-softokn-freebl
       - nss-sysinit
       - nss-util
+      - numactl-libs
+      - openssh
+      - openssh-clients
       - os-prober
       - parted
       - pciutils-libs
+      - perl-AutoLoader
+      - perl-B
+      - perl-base
+      - perl-Carp
+      - perl-Class-Struct
+      - perl-constant
+      - perl-Data-Dumper
+      - perl-Digest
+      - perl-Digest-MD5
+      - perl-Encode
+      - perl-Errno
+      - perl-Exporter
+      - perl-Fcntl
+      - perl-File-Basename
+      - perl-File-Path
+      - perl-File-stat
+      - perl-File-Temp
+      - perl-FileHandle
+      - perl-Getopt-Long
+      - perl-Getopt-Std
+      - perl-HTTP-Tiny
+      - perl-if
+      - perl-interpreter
+      - perl-IO
+      - perl-IO-Socket-IP
+      - perl-IO-Socket-SSL
+      - perl-IPC-Open3
+      - perl-libnet
+      - perl-libs
+      - perl-MIME-Base64
+      - perl-Mozilla-CA
+      - perl-mro
+      - perl-Net-SSLeay
+      - perl-overload
+      - perl-overloading
+      - perl-parent
+      - perl-PathTools
+      - perl-Pod-Escapes
+      - perl-Pod-Perldoc
+      - perl-Pod-Simple
+      - perl-Pod-Usage
+      - perl-podlators
+      - perl-POSIX
+      - perl-Scalar-List-Utils
+      - perl-SelectSaver
+      - perl-Socket
+      - perl-Storable
+      - perl-subs
+      - perl-Symbol
+      - perl-Term-ANSIColor
+      - perl-Term-Cap
+      - perl-Text-ParseWords
+      - perl-Text-Tabs+Wrap
+      - perl-Time-Local
+      - perl-URI
+      - perl-vars
       - pigz
-      - polkit
-      - polkit-libs
-      - polkit-pkla-compat
-      - shared-mime-info
-      - shim-x64
-      - systemd-udev
-      - udisks2
-      - userspace-rcu
-      - volume_key-libs
-      - xfsprogs
-      - xz
-      - sqlite
-      - binutils
-      - binutils-gold
-      - cpp
-      - elfutils-debuginfod-client
-      - gcc
-      - gcc-c++
-      - glibc-devel
-      - glibc-headers
-      - kernel-headers
-      - libmpc
-      - libpkgconf
-      - libstdc++-devel
-      - libxcrypt-devel
-      - make
       - pkgconf
       - pkgconf-m4
       - pkgconf-pkg-config
+      - polkit
+      - polkit-libs
+      - polkit-pkla-compat
+      - python-oslo-cache-lang
+      - python-oslo-concurrency-lang
+      - python-oslo-db-lang
+      - python-oslo-i18n-lang
+      - python-oslo-log-lang
+      - python-oslo-middleware-lang
+      - python-oslo-policy-lang
+      - python-oslo-utils-lang
+      - python-oslo-versionedobjects-lang
+      - python-pycadf-common
+      - python3-dateutil
+      - python3-dbus
+      - python3-dnf
+      - python3-dnf-plugins-core
+      - python3-gpg
+      - python3-hawkey
+      - python3-iniparse
+      - python3-libcomps
+      - python3-libdnf
+      - python3-rpm
+      - python3-six
+      - python3-systemd
+      - python3.12
+      - python3.12-alembic
+      - python3.12-amqp
+      - python3.12-appdirs
+      - python3.12-attrs
+      - python3.12-automaton
+      - python3.12-autopage
+      - python3.12-babel
+      - python3.12-bcrypt
+      - python3.12-beautifulsoup4
+      - python3.12-binary-memcached
+      - python3.12-cachetools
+      - python3.12-certifi
+      - python3.12-cffi
+      - python3.12-charset-normalizer
+      - python3.12-cheroot
+      - python3.12-click
+      - python3.12-cliff
+      - python3.12-cmd2
+      - python3.12-colorama
+      - python3.12-construct
+      - python3.12-cotyledon
+      - python3.12-cryptography
+      - python3.12-dateutil
+      - python3.12-debtcollector
+      - python3.12-decorator
+      - python3.12-defusedxml
       - python3.12-devel
-      - python3.12-wheel
-      - python3.12-lark
+      - python3.12-dns
+      - python3.12-dogpile-cache
+      - python3.12-eventlet
+      - python3.12-fasteners
+      - python3.12-flask
+      - python3.12-futurist
+      - python3.12-greenlet
+      - python3.12-gunicorn
+      - python3.12-idna
+      - python3.12-ifaddr
+      - python3.12-inotify
       - python3.12-ironic-prometheus-exporter
-      - grub2-efi-aa64
-      - libasan
-      - libatomic
-      - libubsan
+      - python3.12-ironicclient
+      - python3.12-iso8601
+      - python3.12-itsdangerous
+      - python3.12-jaraco
+      - python3.12-jaraco-classes
+      - python3.12-jaraco-context
+      - python3.12-jaraco-functools
+      - python3.12-jeepney
+      - python3.12-jinja2
+      - python3.12-jmespath
+      - python3.12-jsonpatch
+      - python3.12-jsonpath-rw
+      - python3.12-jsonpointer
+      - python3.12-jsonschema
+      - python3.12-kazoo
+      - python3.12-keyring
+      - python3.12-keystoneauth1
+      - python3.12-keystoneclient
+      - python3.12-keystonemiddleware
+      - python3.12-kombu
+      - python3.12-lark
+      - python3.12-libs
+      - python3.12-logutils
+      - python3.12-lxml
+      - python3.12-mako
+      - python3.12-markupsafe
+      - python3.12-memcached
+      - python3.12-microversion-parse
+      - python3.12-migrate
+      - python3.12-more-itertools
+      - python3.12-msgpack
+      - python3.12-netaddr
+      - python3.12-openstacksdk
+      - python3.12-os-service-types
+      - python3.12-os-traits
+      - python3.12-osc-lib
+      - python3.12-oslo-cache
+      - python3.12-oslo-concurrency
+      - python3.12-oslo-config
+      - python3.12-oslo-context
+      - python3.12-oslo-db
+      - python3.12-oslo-i18n
+      - python3.12-oslo-log
+      - python3.12-oslo-messaging
+      - python3.12-oslo-metrics
+      - python3.12-oslo-middleware
+      - python3.12-oslo-policy
+      - python3.12-oslo-serialization
+      - python3.12-oslo-service
+      - python3.12-oslo-upgradecheck
+      - python3.12-oslo-utils
+      - python3.12-oslo-versionedobjects
+      - python3.12-osprofiler
+      - python3.12-packaging
+      - python3.12-paste
+      - python3.12-paste-deploy
+      - python3.12-pbr
+      - python3.12-pecan
+      - python3.12-pint
+      - python3.12-pip
+      - python3.12-pip-wheel
+      - python3.12-platformdirs
+      - python3.12-ply
+      - python3.12-prettytable
+      - python3.12-prometheus_client
+      - python3.12-psutil
+      - python3.12-pyasn1
+      - python3.12-pyasn1-modules
+      - python3.12-pyasyncore
+      - python3.12-pycadf
+      - python3.12-pycdlib
+      - python3.12-pycparser
+      - python3.12-pyghmi
+      - python3.12-PyMySQL
+      - python3.12-pyOpenSSL
+      - python3.12-pyparsing
+      - python3.12-pyperclip
+      - python3.12-pyrsistent
+      - python3.12-pysnmp-lextudio
+      - python3.12-pysnmpcrypto
+      - python3.12-pytz
+      - python3.12-pyyaml
+      - python3.12-redis
+      - python3.12-repoze-lru
+      - python3.12-requests
+      - python3.12-requestsexceptions
+      - python3.12-retrying
+      - python3.12-rfc3986
+      - python3.12-routes
+      - python3.12-secretstorage
+      - python3.12-setproctitle
+      - python3.12-setuptools
+      - python3.12-setuptools_scm
+      - python3.12-simplegeneric
+      - python3.12-simplejson
+      - python3.12-singledispatch
+      - python3.12-six
+      - python3.12-smi-lextudio
+      - python3.12-soupsieve
+      - python3.12-sqlalchemy
+      - python3.12-sqlparse
+      - python3.12-statsd
+      - python3.12-stevedore
+      - python3.12-tempita
+      - python3.12-tenacity
+      - python3.12-tooz
+      - python3.12-typing-extensions
+      - python3.12-uhashring
+      - python3.12-urllib3
+      - python3.12-vine
+      - python3.12-voluptuous
+      - python3.12-waitress
+      - python3.12-wcwidth
+      - python3.12-webob
+      - python3.12-websockify
+      - python3.12-webtest
+      - python3.12-werkzeug
+      - python3.12-wheel
+      - python3.12-wrapt
+      - python3.12-yappi
+      - python3.12-zake
+      - python3.12-zeroconf
+      - python3.12-zipp
+      - python3.12-zombie-imp
+      - qemu-img
+      - redhat-logos-httpd
+      - rpm-build-libs
+      - rpm-plugin-systemd-inhibit
+      - rpm-sign-libs
+      - shared-mime-info
       - shim-aa64
+      - shim-x64
+      - sqlite
+      - sscg
+      - syslinux
+      - syslinux-nonlinux
+      - systemd
+      - systemd-pam
+      - systemd-rpm-macros
+      - systemd-udev
+      - tpm2-tss
+      - udisks2
+      - userspace-rcu
+      - util-linux
+      - volume_key-libs
+      - xfsprogs
+      - xorriso
+      - xz
+
 okd:
   content:
     source:
