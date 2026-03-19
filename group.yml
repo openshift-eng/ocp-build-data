@@ -14,6 +14,12 @@ konflux:
   arches:
   - x86_64
   network_mode: hermetic
+  image_repo: quay.io/redhat-user-workloads/ocp-agent-based-installer-tenant/ove-ui-iso
+  additional_build_args:
+  - privileged-nested: true
+  - release-value: "quay.io/openshift-release-dev/ocp-release:4.21.0-ec.1-x86_64"
+  - major-minor-version: "4.21"
+  - patch-version: "0"
 
 assemblies:
   enabled: true
