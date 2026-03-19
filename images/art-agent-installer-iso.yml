@@ -1,6 +1,7 @@
 content:
   source:
-    dockerfile: tools/iso_builder/Dockerfile
+    path: tools/iso_builder
+    dockerfile: Dockerfile
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -17,7 +18,7 @@ for_payload: false
 from:
   builder:
   - stream: agent-preinstall-image-builder
-  stream: agent-preinstall-image-builder
+  stream: scratch
 maintainer:
   component: Installer
   subcomponent: Agent based installation
