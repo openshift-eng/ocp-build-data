@@ -6,6 +6,11 @@ content:
         target: release-0.9
       url: git@github.com:openshift-priv/migtools-mta-operator.git
       web: https://github.com/migtools/mta-operator
+    modifications:
+      # https://github.com/migtools/mta-operator/blob/release-0.9/konflux.Dockerfile#L14
+      - action: replace
+        match: "dnf clean all"
+        replacement: "dnf -y update && dnf clean all"
 jira:
   project: MTA
   component: Operator
