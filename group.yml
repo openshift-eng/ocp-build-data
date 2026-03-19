@@ -1,49 +1,18 @@
 name: logging-6.3
-csv_namespace: cluster-logging
+product: installer-ove-ui
 
 vars:
-  # The go versions used by the various CI builder images.
-  # WARNING: When updating GO_* vars, update streams.yml so that streams referencing
-  #          the corresponding {GO_*} vars to point to an image that actually provides
-  #          the level of go specified by the variable.
-  #          For example, if GO_LATEST=1.21, `image:` must point to a 1.21 golang.
-  #             rhel-9-golang:
-  #               aliases:
-  #               - rhel-9-golang-{GO_LATEST}
-  #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
-  GO_LATEST: "1.23"
-  GO_EXTRA: "1.24=3"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
-  MINOR: 16
+  MINOR: 20
 
-OCP_TARGET_VERSIONS: [
-  "4.17",
-  "4.18",
-  "4.19",
-  "4.20",
-]
 
 arches:
 - x86_64
-- ppc64le
-- s390x
-- aarch64
 
-operator_image_ref_mode: manifest-list
 
 konflux:
   arches:
   - x86_64
-  - aarch64
-  - s390x
-  - ppc64le
-  cachi2:
-    enabled: true
-    gomod_version_patch: true
-    lockfile:
-      force: true
-  sast:
-    enabled: true
   network_mode: hermetic
 
 assemblies:
@@ -52,14 +21,7 @@ assemblies:
 public_upstreams:
 - private: "https://github.com/openshift-priv"
   public:  "https://github.com/openshift"
-- private: "https://github.com/openshift-priv/log-file-metric-exporter"
-  public:  "https://github.com/ViaQ/log-file-metric-exporter"
-- private: "https://github.com/openshift-priv/vector"
-  public:  "https://github.com/ViaQ/vector"
-- private: "https://github.com/openshift-priv/observatorium-opa-openshift"
-  public:  "https://github.com/observatorium/opa-openshift"
-- private: "https://github.com/openshift-priv/observatorium-api"
-  public:  "https://github.com/observatorium/api"
+
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
