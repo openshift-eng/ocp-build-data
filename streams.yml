@@ -1,22 +1,3 @@
 ---
 agent-preinstall-image-builder:
-  image: registry.redhat.io/assisted/agent-preinstall-image-builder-rhel9
-
-ose-cli:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.16.0-202509240123.p2.g4c7883f.assembly.stream.el9
-
-rhel-9-golang:
-  aliases:
-    - rhel-9-golang-{GO_LATEST}
-  image: openshift/golang-builder:v1.23.9-202506111225.g6c23478.el9
-
-rhel9:
-  # 9.6-1755695350
-  image: registry.redhat.io/ubi9-minimal@sha256:2f06ae0e6d3d9c4f610d32c480338eef474867f435d8d28625f2985e8acde6e8
-
-ose-cli-artifacts:
-  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.16.0-202509240123.p2.g4c7883f.assembly.stream.el9
-
-4-18-base-rhel9:
-  # TODO: Change this to a floating tag to pull the latest 18 base-rhel9 image
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:69980e9f2314406141a450f136658600ef551d0a3c90ceee837fcaf648d800af
+  image: registry.ci.openshift.org/ocp/4.21:agent-preinstall-image-builder
