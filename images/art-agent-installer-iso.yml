@@ -26,4 +26,4 @@ name: ocp-art-tenant/art-agent-installer-iso
 owners:
 - ocp-agent-team@redhat.com
 konflux:
-  no_shell: true
+  no_shell: true  # Skip .oit injected RUN commands (e.g. yum repo setup) since this image does not use RPMs
