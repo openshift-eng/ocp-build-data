@@ -1117,6 +1117,18 @@ releases:
           component: '*'
       members:
         images:
+          # ref: https://redhat-internal.slack.com/archives/CB95J6R4N/p1774010990629829?thread_ts=1773996076.317449&amp;cid=CB95J6R4N
+          # revert after https://github.com/openshift/insights-runtime-extractor/pull/73 merges and new builds are available
+          - distgit_key: ose-insights-runtime-exporter
+            why: Pin consistent sibling builds to stream to unblock nightlies
+            metadata:
+              is:
+                nvr: ose-insights-runtime-exporter-container-v4.21.0-202603181245.p2.g8316a95.assembly.stream.el9
+          - distgit_key: ose-insights-runtime-extractor
+            why: Pin consistent sibling builds to stream to unblock nightlies
+            metadata:
+              is:
+                nvr: ose-insights-runtime-extractor-container-v4.21.0-202603181245.p2.g8316a95.assembly.stream.el9
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
             metadata:
