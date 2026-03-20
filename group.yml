@@ -16,8 +16,7 @@ konflux:
   - x86_64_root
   network_mode: open
   image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-agent-installer-iso
-  additional_build_args:
-  - privileged-nested: true
+  privileged_nested: true
   additional_secret: ove-ui-image-pull-secret
   build_args:
   - "RELEASE_FLAG=--release-image-url"
