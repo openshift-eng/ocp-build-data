@@ -49,6 +49,10 @@ konflux:
       force: true
   sast:
     enabled: true
+  build_step_resources:
+    memory: "8Gi"
+    ephemeral-storage: "250Gi"
+  workspace_storage: "100Gi"
   network_mode: hermetic
 
 okd:
