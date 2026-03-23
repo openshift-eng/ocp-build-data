@@ -8,19 +8,19 @@ vars:
 
 
 arches:
-- x86_64_root
+- x86_64
 
 
 konflux:
   arches:
-  - x86_64_root
+  - x86_64
   network_mode: open
   image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-agent-installer-iso
   privileged_nested: true
   additional_secret: ove-ui-image-pull-secret
   build_step_resources:
     memory: "8Gi"
-    ephemeral-storage: "200Gi"
+    ephemeral-storage: "250Gi"
   build_args:
   - "RELEASE_FLAG=--release-image-url"
   - "RELEASE_VALUE=quay.io/openshift-release-dev/ocp-release:4.21.5-x86_64"
