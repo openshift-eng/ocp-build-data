@@ -48,6 +48,9 @@ konflux:
   sast:
     enabled: true
   network_mode: hermetic
+  # The number of times a build should be attempted before giving up.
+  # Each failed attempt will result in a failed record in BigQuery
+  build_attempts: 1
 
 okd:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-10
