@@ -71,5 +71,11 @@ konflux:
       - libatomic
       - libubsan
 okd:
+  distgit:
+    branch: rhaos-5.0-rhel-9
   enabled_repos:
   - rhel-9-codeready-builder-rpms
+  from:
+    builder:
+    - stream: rhel-9-golang
+    stream: centos_stream9
