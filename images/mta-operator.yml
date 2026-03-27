@@ -3,12 +3,12 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-operator.git
       web: https://github.com/migtools/mta-operator
       allow_unprotected_branch: true
     modifications:
-      # https://github.com/migtools/mta-operator/blob/release-0.9/konflux.Dockerfile#L14
+      # https://github.com/migtools/mta-operator/blob/main/konflux.Dockerfile#L14
       - action: replace
         match: "dnf clean all"
         replacement: "dnf -y update && dnf clean all"
@@ -20,14 +20,14 @@ distgit:
 delivery:
   bundle_delivery_repo_name: mta/mta-operator-bundle
   delivery_repo_names:
-  - mta/mta-rhel9-operator
+  - mta/mta-rhel10-operator
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-10-appstream-rpms
+- rhel-10-baseos-rpms
 from:
-  stream: rhel-9-ansible-operator
-name: mta/mta-rhel9-operator
+  stream: rhel-10-ansible-operator
+name: mta/mta-rhel10-operator
 owners:
 - mta-devs@redhat.com
 update-csv:

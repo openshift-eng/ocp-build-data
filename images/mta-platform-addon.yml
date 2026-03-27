@@ -7,7 +7,7 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-tackle2-addon-platform.git
       web: https://github.com/migtools/mta-tackle2-addon-platform
 jira:
@@ -17,16 +17,16 @@ distgit:
   component: mta-platform-addon-container
 delivery:
   delivery_repo_names:
-  - mta/mta-platform-addon-rhel9
+  - mta/mta-platform-addon-rhel10
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-10-appstream-rpms
+- rhel-10-baseos-rpms
 from:
   builder:
-    - stream: rhel-9-golang
-  stream: rhel9
-name: mta/mta-platform-addon-rhel9
+    - stream: rhel-10-golang
+  stream: rhel10
+name: mta/mta-platform-addon-rhel10
 owners:
 - mta-devs@redhat.com
 dependents:

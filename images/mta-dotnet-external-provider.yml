@@ -7,7 +7,7 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
 #      url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       url: git@github.com:openshift-priv/migtools-mta-c-sharp-analyzer-provider.git
 #      web: https://github.com/migtools/mta-analyzer-lsp
@@ -19,16 +19,16 @@ distgit:
   component: mta-dotnet-external-provider-container
 delivery:
   delivery_repo_names:
-  - mta/mta-dotnet-external-provider-rhel9
+  - mta/mta-dotnet-external-provider-rhel10
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-10-appstream-rpms
+- rhel-10-baseos-rpms
 from:
   builder:
-    - stream: rhel9
-  stream: rhel9
-name: mta/mta-dotnet-external-provider-rhel9
+    - stream: rhel10
+  stream: rhel10
+name: mta/mta-dotnet-external-provider-rhel10
 owners:
 - mta-devs@redhat.com
 dependents:

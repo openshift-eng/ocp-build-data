@@ -10,9 +10,9 @@ vars:
   #          the corresponding {GO_*} vars to point to an image that actually provides
   #          the level of go specified by the variable.
   #          For example, if GO_LATEST=1.21, `image:` must point to a 1.21 golang.
-  #             rhel-9-golang:
+  #             rhel-10-golang:
   #               aliases:
-  #               - rhel-9-golang-{GO_LATEST}
+  #               - rhel-10-golang-{GO_LATEST}
   #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
   GO_LATEST: "1.24"
   GO_EXTRA: "1.24"  # There is no extra version at this time, so just duplicate latest.
@@ -60,7 +60,7 @@ public_upstreams:
   public:  "https://github.com/migtools"
 
 # Default distgit branch
-branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+branch: rhaos-{MAJOR}.{MINOR}-rhel-10
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -68,35 +68,35 @@ urls:
   brew_image_namespace: rh-osbs
 
 repos:
-  rhel-9-baseos-rpms:
+  rhel-10-baseos-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/baseos/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel10/10.2/aarch64/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel10/10.2/x86_64/baseos/os/
     content_set:
-      default: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_6
-      aarch64: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_6
+      default: rhel-10-for-x86_64-baseos-eus-rpms__10_DOT_2
+      aarch64: rhel-10-for-aarch64-baseos-eus-rpms__10_DOT_2
     reposync:
       enabled: false
 
-  rhel-9-appstream-rpms:
+  rhel-10-appstream-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/appstream/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel10/10.2/aarch64/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel10/10.2/x86_64/appstream/os/
     content_set:
-      default: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_6
-      aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_6
+      default: rhel-10-for-x86_64-appstream-eus-rpms__10_DOT_2
+      aarch64: rhel-10-for-aarch64-appstream-eus-rpms__10_DOT_2
     reposync:
       enabled: false
 
-  rhel-9-codeready-builder-rpms:
+  rhel-10-codeready-builder-rpms:
     conf:
       baseurl:
-        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/aarch64/codeready-builder/os/
-        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.6/x86_64/codeready-builder/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel10/10.2/aarch64/codeready-builder/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel10/10.2/x86_64/codeready-builder/os/
     content_set:
-      default: codeready-builder-for-rhel-9-x86_64-eus-rpms__9_DOT_6
-      aarch64: codeready-builder-for-rhel-9-aarch64-eus-rpms__9_DOT_6
+      default: codeready-builder-for-rhel-10-x86_64-eus-rpms__10_DOT_2
+      aarch64: codeready-builder-for-rhel-10-aarch64-eus-rpms__10_DOT_2
     reposync:
       enabled: false

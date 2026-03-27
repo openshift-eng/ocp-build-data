@@ -3,7 +3,7 @@ content:
     dockerfile: konflux.solution-server.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-kai.git
       web: https://github.com/migtools/mta-kai
 jira:
@@ -13,17 +13,17 @@ distgit:
   component: mta-solution-server-container
 delivery:
   delivery_repo_names:
-  - mta/mta-solution-server-rhel9
+  - mta/mta-solution-server-rhel10
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
-- rhel-9-codeready-builder-rpms
+- rhel-10-appstream-rpms
+- rhel-10-baseos-rpms
+- rhel-10-codeready-builder-rpms
 from:
   builder:
-    - stream: rhel9
-  stream: rhel9
-name: mta/mta-solution-server-rhel9
+    - stream: rhel10
+  stream: rhel10
+name: mta/mta-solution-server-rhel10
 owners:
 - mta-devs@redhat.com
 dependents:

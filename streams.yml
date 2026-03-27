@@ -1,21 +1,19 @@
 ---
-rhel-9-golang:
+rhel-10-golang:
   aliases:
-    - rhel-9-golang-{GO_LATEST}
-  image: registry.redhat.io/ubi9/go-toolset:1.24
+    - rhel-10-golang-{GO_LATEST}
+  image: registry.redhat.io/ubi10/go-toolset:1.24
 
-rhel-9-nodejs-18:
-  image: registry.redhat.io/ubi9/nodejs-18:latest
+rhel-10-nodejs-18:
+  image: registry.redhat.io/ubi10/nodejs-18:latest
 
-rhel-9-nodejs-20:
-  image: registry.redhat.io/ubi9/nodejs-20:9.7-1768870189
+rhel-10-nodejs-20:
+  image: registry.redhat.io/ubi10/nodejs-20:9.7-1768870189
 
 # See OCP to upstream SDK alignment in this repo:
 # https://github.com/openshift/ocp-release-operator-sdk/tree/main
-rhel-9-ansible-operator:
+rhel-10-ansible-operator:
   image: registry.redhat.io/openshift4/ose-ansible-rhel9-operator:v4.18
 
-rhel9:
-  # ubi9-container-9.6-440.1756861791
-  # image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9@sha256:18411066c15bbc9c76e86bdd01bd41e89076ed73fd508875148fee92ef057c02
-  image: registry.redhat.io/ubi9/ubi:latest
+rhel10:
+  image: registry.redhat.io/ubi10/ubi:latest

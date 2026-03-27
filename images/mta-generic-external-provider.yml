@@ -10,7 +10,7 @@ content:
     dockerfile: konflux.generic-external-provider.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       web: https://github.com/migtools/mta-analyzer-lsp
 jira:
@@ -20,17 +20,17 @@ distgit:
   component: mta-generic-external-provider-container
 delivery:
   delivery_repo_names:
-  - mta/mta-generic-external-provider-rhel9
+  - mta/mta-generic-external-provider-rhel10
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-10-appstream-rpms
+- rhel-10-baseos-rpms
 from:
   builder:
-    - stream: rhel-9-golang
+    - stream: rhel-10-golang
     - member: mta-golang-dependency-provider
-  stream: rhel9
-name: mta/mta-generic-external-provider-rhel9
+  stream: rhel10
+name: mta/mta-generic-external-provider-rhel10
 owners:
 - mta-devs@redhat.com
 dependents:
