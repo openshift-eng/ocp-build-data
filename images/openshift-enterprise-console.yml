@@ -1,6 +1,7 @@
 content:
   source:
     dockerfile: Dockerfile.product
+    hermetic: true
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -20,11 +21,9 @@ content:
     - yarn
     artifacts:
       from_urls:
-      - target: yarn-v1.22.19.tar.gz
-        url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
-        sha256: 732620bac8b1690d507274f025f3c6cfdc3627a84d9642e38a07452cc00e0f2e
-        source-url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-source-v1.22.19.tar.gz
-        source-sha256: 50af0025d2ef942bf3e6cdd0587dc9c4dd8d6e6e69501b84935d09f2b2b5de8b
+      - target: corepack-0.34.6.tar.gz
+        url: https://ocp-artifacts.engineering.redhat.com/github/nodejs/corepack/releases/download/v0.34.6/corepack.tgz
+        sha256: af29678fc25ed5ae02343e9b67b214a25bacdcffae566f8cf848936beb23a7c8
 cachito:
   enabled: true
   packages:
