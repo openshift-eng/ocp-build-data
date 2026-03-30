@@ -1,0 +1,46 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: konflux.Dockerfile
+    git:
+      branch:
+        target: oadp-1.6
+      url: git@github.com:openshift-priv/migtools-oadp-vmdp.git
+      web: https://github.com/migtools/oadp-vmdp
+    modifications:
+      - action: replace
+        match: "dnf -y"
+        replacement: "microdnf -y"
+      - action: replace
+        match: "dnf clean all"
+        replacement: "microdnf clean all"
+distgit:
+  component: oadp-vmdp-binaries-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+    - oadp/oadp-vmdp-binaries-rhel9
+for_payload: false
+enabled_repos:
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: oadp/oadp-vmdp-binaries-rhel9
+owners:
+  - oadp-maintainers@redhat.com
+dependents:
+  - oadp-operator
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+        - tzdata
+jira:
+  project: OADP
+  component: oadp-vmdp-binaries-container
