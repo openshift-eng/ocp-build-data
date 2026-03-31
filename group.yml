@@ -245,10 +245,10 @@ repos:
         localdev:
           enabled: true
     content_set:
-      default: rhel-8-for-x86_64-baseos-rpms__8
-      aarch64: rhel-8-for-aarch64-baseos-rpms__8
-      ppc64le: rhel-8-for-ppc64le-baseos-rpms__8
-      s390x:   rhel-8-for-s390x-baseos-rpms__8
+      default: rhel-8-for-x86_64-baseos-rpms
+      aarch64: rhel-8-for-aarch64-baseos-rpms
+      ppc64le: rhel-8-for-ppc64le-baseos-rpms
+      s390x:   rhel-8-for-s390x-baseos-rpms
     reposync:
       enabled: false
 
@@ -265,10 +265,10 @@ repos:
         localdev:
           enabled: true
     content_set:
-      default: codeready-builder-for-rhel-8-x86_64-rpms__8
-      aarch64: codeready-builder-for-rhel-8-aarch64-rpms__8
-      ppc64le: codeready-builder-for-rhel-8-ppc64le-rpms__8
-      s390x:   codeready-builder-for-rhel-8-s390x-rpms__8
+      default: codeready-builder-for-rhel-8-x86_64-rpms
+      aarch64: codeready-builder-for-rhel-8-aarch64-rpms
+      ppc64le: codeready-builder-for-rhel-8-ppc64le-rpms
+      s390x:   codeready-builder-for-rhel-8-s390x-rpms
     reposync:
       enabled: false
 
@@ -307,10 +307,10 @@ repos:
       extra_options:
         excludepkgs: containernetworking-plugins
     content_set:
-      default: rhel-8-for-x86_64-appstream-rpms__8
-      aarch64: rhel-8-for-aarch64-appstream-rpms__8
-      ppc64le: rhel-8-for-ppc64le-appstream-rpms__8
-      s390x:   rhel-8-for-s390x-appstream-rpms__8
+      default: rhel-8-for-x86_64-appstream-rpms
+      aarch64: rhel-8-for-aarch64-appstream-rpms
+      ppc64le: rhel-8-for-ppc64le-appstream-rpms
+      s390x:   rhel-8-for-s390x-appstream-rpms
     reposync:
       enabled: false
 
@@ -571,7 +571,7 @@ repos:
         s390x: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
 
     content_set:
-      default: rhel-9-for-x86_64-rt-rpms__9_DOT_2
+      default: rhel-9-for-x86_64-rt-e4s-rpms__9_DOT_2
       # don't have content set for other arches since they don't exist
       optional: true
     reposync:
@@ -587,7 +587,7 @@ repos:
         ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
         s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.6/x86_64/rt/os/
     content_set:
-      default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
+      default: rhel-8-for-x86_64-rt-tus-rpms__8_DOT_6
       # don't have content set for other arches since they don't exist
       optional: true
     reposync:
