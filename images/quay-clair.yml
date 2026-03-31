@@ -1,11 +1,11 @@
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: components/clair/Containerfile
     git:
       branch:
-        target: release-4.7
-      url: git@github.com:openshift-priv/clair.git
-      web: https://github.com/quay/clair
+        target: redhat-3.16
+      url: git@github.com:quay/quay-konflux-components.git
+      web: https://github.com/quay/quay-konflux-components
 jira:
   project: PROJQUAY
   component: Clair
