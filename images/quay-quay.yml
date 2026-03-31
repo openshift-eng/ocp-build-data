@@ -19,7 +19,9 @@ enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 from:
-  stream: rhel9
+  builder:
+  - stream: rhel-9-golang
+  stream: ubi9-python-312
 name: quay/quay-rhel9
 owners:
 - quay-devel@redhat.com
