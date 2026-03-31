@@ -4,12 +4,13 @@ arches:
 - ppc64le
 content:
   source:
-    dockerfile: addons/redhat/Dockerfile.ocp
+    dockerfile: Dockerfile
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/linuxptp-daemon.git
-      web: https://github.com/openshift/linuxptp-daemon
+      web: https://github.com/redhat-cne/downstream-ptp-operator-monorepo
+    path: pkg/linuxptp-daemon
     ci_alignment:
       streams_prs:
         ci_build_root:
