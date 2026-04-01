@@ -1209,6 +1209,11 @@ releases:
           component: '*'
       members:
         images:
+          - distgit_key: driver-toolkit
+            why: driver-toolkit with a lower kernel is needed for matching RHCOS
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.21.0-202603271656.p2.gf0ae9d1.assembly.stream.el9
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
             metadata:
