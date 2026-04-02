@@ -6,6 +6,17 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/thanos.git
       web: https://github.com/openshift/thanos
+    modifications:
+    - action: replace
+      match: 'promu build;'
+      replacement: |
+        CGO_ENABLED=1 go build -a -tags "slicelabels" \
+            -ldflags "-X github.com/prometheus/common/version.Version=${SOURCE_GIT_TAG} \
+                      -X github.com/prometheus/common/version.Revision=${SOURCE_GIT_COMMIT} \
+                      -X github.com/prometheus/common/version.Branch=${OS_GIT_MAJOR}.${OS_GIT_MINOR} \
+                      -X github.com/prometheus/common/version.BuildUser=doozer \
+                      -X github.com/prometheus/common/version.BuildDate=$(date -u +'%Y%m%d-%H:%M:%S')" \
+            -o thanos ./cmd/thanos;
     ci_alignment:
       streams_prs:
         auto_label:
