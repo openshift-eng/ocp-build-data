@@ -1,0 +1,30 @@
+--- a/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.h
++++ b/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.h
+@@ -105,6 +105,8 @@ public:
+ 	char *stringAt(Offset offset);
+ 	const char *stringAt(Offset offset) const;
+
++	BlobCore *clone() const;
++
+ 	void *data()						{ return this; }
+ 	const void *data() const			{ return this; }
+ 	void length(size_t size)			{ mLength = size; }
+--- a/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.cpp
++++ b/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.cpp
+@@ -52,6 +52,16 @@ const char *BlobCore::stringAt(Offset offset) const
+ 		return NULL;
+ }
+
++//
++// Clone (deep copy) a blob
++//
++BlobCore *BlobCore::clone() const
++{
++	size_t len = this->length();
++	BlobCore *copy = (BlobCore *)malloc(len);
++	if (copy) memcpy(copy, this, len);
++	return copy;
++}
+
+ //
+ // Read a blob from a standard file stream.
