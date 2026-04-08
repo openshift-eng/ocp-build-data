@@ -1,4 +1,4 @@
-FROM brew.registry.redhat.io/rh-osbs/ubi9@sha256:08a8d763ab10280a510d12180363adbe08264a7448bcdfdf92dfaaed4549899c
+FROM brew.registry.redhat.io/rh-osbs/rhel-els@sha256:2aaaf576ca73226a6f00af0fd0f0f1e08d5f6a269d15f9b5305d3d5bde94d4f7
 
 # Start Konflux-specific steps
 ENV ART_BUILD_ENGINE=konflux
@@ -12,7 +12,7 @@ COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.7-20260402.215209 __doozer_version=v1.25.7 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.8-20260408.160706 __doozer_version=v1.25.8 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -61,7 +61,6 @@ RUN dnf update -y && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (amd64 only)
 RUN cp /cachi2/output/deps/generic/cross.tar.gz .
-COPY cctools-blobcore-clone.patch /tmp/
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
@@ -71,7 +70,6 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     glibc mingw64-gcc && \
     # compile macos cross-compilers
     tar zfx cross.tar.gz && \
-    patch -p1 -d cross < /tmp/cctools-blobcore-clone.patch && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
@@ -103,16 +101,16 @@ LABEL \
         io.k8s.description="golang builder image for Red Hat internal builds" \
         io.k8s.display-name="Go Builder 1.25" \
         com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
-        version="v1.25.7" \
+        version="v1.25.8" \
         name="openshift/golang-builder" \
         vendor="Red Hat, Inc." \
         cpe="cpe:/a:redhat:openshift:1.25::el9" \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202604022152.p2.g7f26b42.el9" \
-        io.openshift.build.commit.id="7f26b424125dcb16acb8adcf59b74a1f3a7d4eb2" \
+        release="202604081607.p2.gf28329a.el9" \
+        io.openshift.build.commit.id="f28329a965f2f0a38cf1345e8bd330bca1d0c9cf" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/7f26b424125dcb16acb8adcf59b74a1f3a7d4eb2" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/f28329a965f2f0a38cf1345e8bd330bca1d0c9cf" \
         io.openshift.tags="Empty"
 
