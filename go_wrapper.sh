@@ -46,6 +46,7 @@ GO_COMPLIANCE_FOD_MODE_INCLUDE=${GO_COMPLIANCE_FOD_MODE_INCLUDE:-'.*'}
 GO_COMPLIANCE_CGO_ENABLED_INCLUDE=${GO_COMPLIANCE_CGO_ENABLED_INCLUDE:-'.*'}
 GO_COMPLIANCE_DYNAMIC_LINKING_INCLUDE=${GO_COMPLIANCE_DYNAMIC_LINKING_INCLUDE:-'.*'}
 GO_COMPLIANCE_OPENSSL_ENABLED_INCLUDE=${GO_COMPLIANCE_OPENSSL_ENABLED_INCLUDE:-'.*'}
+GO_COMPLIANCE_COVER=${GO_COMPLIANCE_COVER:-'0'}
 
 if [[ -n "${OPENSHIFT_CI}" || "${__doozer_group}" == "openshift-"* ]]; then
   GO_COMPLIANCE_POLICY="${GO_COMPLIANCE_POLICY:-exempt_darwin,exempt_windows,exempt_cross_compile}"
@@ -217,6 +218,7 @@ if [[ "${EXEMPT}" != "1" ]]; then
   IN_BUILD=0
   IN_RUN=0
   IN_TAGS=0
+  COVERAGE_ADDED=0  # Track whether coverage_server.go has been added to the args
   ARGS=()  # We need to rebuild the argument list.
   for arg in "$@"; do
 
@@ -238,12 +240,19 @@ if [[ "${EXEMPT}" != "1" ]]; then
         exit 1
       fi
 
-      ARGS+=("${arg}") # Add "build"
+      ARGS+=("${arg}") # Add "build" or "install"
+
+      if [[ "${GO_COMPLIANCE_COVER}" == "1" ]]; then
+        echoerr "adding -cover for build or install operation"
+        ARGS+=("-cover")
+        ARGS+=("-covermode=atomic")
+      fi
+
       if [[ "${FORCE_FOD_MODE}" == "1" && "${HAS_TAGS}" == "0" ]]; then
         ARGS+=("-tags")
         ARGS+=("strictfipsruntime")
       fi
-      continue  # We've already added 'build', so don't reach the bottom of the loop where it would be added again.
+      continue  # We've already added 'build' or 'install', so don't reach the bottom of the loop where it would be added again.
     fi
 
     if [[ ( "${arg}" == "-tags="* || "${arg}" == "--tags="* ) && "${FORCE_FOD_MODE}" == "1" ]]; then
@@ -314,6 +323,23 @@ if [[ "${EXEMPT}" != "1" ]]; then
       fi
     fi
     ARGS+=("${arg}")
+
+    # When coverage is enabled and explicit .go files are being compiled,
+    # ensure coverage_server.go is included if it exists alongside them.
+    # Package-path builds (e.g. ./cmd/...) don't need this since Go
+    # automatically includes all .go files in the package.
+    if [[ "${GO_COMPLIANCE_COVER}" == "1" && "${IN_BUILD}" == "1" && "${COVERAGE_ADDED}" == "0" && "${arg}" == *.go ]]; then
+      if [[ "$(basename "${arg}")" == "coverage_server.go" ]]; then
+        COVERAGE_ADDED=1
+      else
+        coverage_path="$(dirname "${arg}")/coverage_server.go"
+        if [[ -f "${coverage_path}" ]]; then
+          echoerr "adding ${coverage_path} to build for coverage instrumentation"
+          ARGS+=("${coverage_path}")
+          COVERAGE_ADDED=1
+        fi
+      fi
+    fi
   done
 
   if [[ "${FORCE_CGO_ENABLED}" == "1" && "${IN_BUILD}" == "1" ]]; then
