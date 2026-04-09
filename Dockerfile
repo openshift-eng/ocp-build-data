@@ -12,7 +12,7 @@ COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.8-20260408.172351 __doozer_version=v1.25.8 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.0-20260409.182803 __doozer_version=v1.25.0 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -101,14 +101,14 @@ LABEL \
         io.k8s.description="golang builder image for Red Hat internal builds" \
         io.k8s.display-name="Go Builder 1.25" \
         com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
-        version="v1.25.8" \
+        version="v1.25.0" \
         name="openshift/golang-builder" \
         vendor="Red Hat, Inc." \
         cpe="cpe:/a:redhat:openshift:1.25::el9" \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202604081723.p2.gf28329a.el9" \
+        release="202604091800.p2.gf28329a.el9" \
         io.openshift.build.commit.id="f28329a965f2f0a38cf1345e8bd330bca1d0c9cf" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
         io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/f28329a965f2f0a38cf1345e8bd330bca1d0c9cf" \
