@@ -34,7 +34,27 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4fcee3873629a9c7aa0297e8095bfa92459a8473a2a9caf1739644223aa418d2
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: cluster-node-tuning-operator
+          metadata:
+            permits:
+            - code: CONFLICTING_INHERITED_DEPENDENCY
+        - distgit_key: openshift-enterprise-operator-sdk
+          metadata:
+            permits:
+            - code: CONFLICTING_INHERITED_DEPENDENCY
+        - distgit_key: openshift-enterprise-tests
+          metadata:
+            permits:
+            - code: CONFLICTING_INHERITED_DEPENDENCY
+        - distgit_key: ose-network-tools
+          metadata:
+            permits:
+            - code: CONFLICTING_INHERITED_DEPENDENCY
+        - distgit_key: ose-tools
+          metadata:
+            permits:
+            - code: CONFLICTING_INHERITED_DEPENDENCY
   4.18.37:
     assembly:
       type: standard
