@@ -1,11 +1,14 @@
-# disable until fixed, npm
-mode: disabled
 cachito:
   packages:
     gomod:
       - path: .
+    npm:
+      - path: frontend
 content:
   source:
+    pkg_managers:
+      - gomod
+      - npm
     dockerfile: konflux.Dockerfile
     git:
       branch:
@@ -19,6 +22,10 @@ delivery:
   delivery_repo_names:
     - oadp/oadp-vmfr-access-filebrowser-rhel9
 for_payload: false
+arches:
+- aarch64
+- s390x
+- x86_64
 enabled_repos:
   - rhel-9-appstream-rpms
   - rhel-9-baseos-rpms
