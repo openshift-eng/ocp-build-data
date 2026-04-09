@@ -2,7 +2,7 @@ freeze_automation: true
 name: logging-6.0
 csv_namespace: openshift-logging
 product: openshift-logging
-version: 6.0.16
+version: 6.0.15
 
 vars:
   # The go versions used by the various CI builder images.
@@ -14,16 +14,16 @@ vars:
   #               aliases:
   #               - rhel-9-golang-{GO_LATEST}
   #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
-  GO_LATEST: "1.23"
-  GO_EXTRA: "1.24=3"  # There is no extra version at this time, so just duplicate latest.
+  GO_LATEST: "1.25"
+  GO_EXTRA: "1.25"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
   MINOR: 17
 
 OCP_TARGET_VERSIONS: [
+  "4.14",
+  "4.15",
+  "4.16",
   "4.17",
-  "4.18",
-  "4.19",
-  "4.20",
 ]
 
 arches:
