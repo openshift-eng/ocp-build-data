@@ -14,10 +14,11 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: rhcos-node-image-container
 enabled_repos:
-- rhel-9-fast-datapath-rpms
-- rhel-9-server-ose-rpms
-- rhel-98-baseos
-- rhel-98-appstream
+- rhel-9.8-baseos
+- rhel-9.8-appstream
+- rhel-9.8-early-kernel
+- rhel-9.8-fast-datapath
+- rhel-9.8-server-ose-4.22
 for_payload: false
 for_release: false
 from:
@@ -27,5 +28,7 @@ name: openshift/rhcos-node-image-rhel9
 owners:
 - aos-team-art@redhat.com
 canonical_builders_from_upstream: false
+konflux:
+  network_mode: open
 okd:
   mode: disabled
