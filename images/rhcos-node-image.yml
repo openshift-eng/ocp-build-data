@@ -5,6 +5,7 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/os.git
+      url_pull: git@github.com:thegreyd/os.git
       web: https://github.com/openshift/os
     ci_alignment:
       streams_prs:
@@ -14,11 +15,10 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: rhcos-node-image-container
 enabled_repos:
-- rhel-9.8-baseos
-- rhel-9.8-appstream
-- rhel-9.8-early-kernel
-- rhel-9.8-fast-datapath
-- rhel-9.8-server-ose-4.22
+- rhel-9-fast-datapath-rpms
+- rhel-9-server-ose-rpms
+- rhel-98-baseos
+- rhel-98-appstream
 for_payload: false
 for_release: false
 from:
