@@ -17,6 +17,8 @@ LABEL summary="$SUMMARY" \
       com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
       version="$VERSION"
 
+USER 0
+RUN dnf module enable -y python36:3.6 perl perl-IO-Socket-SSL perl-libwww-perl
 RUN dnf update -y && \
     dnf install -y --nodocs \
         bc \
