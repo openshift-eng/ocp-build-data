@@ -3,16 +3,11 @@ FROM brew.registry.redhat.io/rh-osbs/rhel-els@sha256:2aaaf576ca73226a6f00af0fd0f
 # Start Konflux-specific steps
 ENV ART_BUILD_ENGINE=konflux
 ENV ART_BUILD_DEPS_METHOD=cachi2
-ENV ART_BUILD_NETWORK=open
+ENV ART_BUILD_NETWORK=hermetic
 RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
-USER 0
-RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
-COPY .oit/art-unsigned.repo /etc/yum.repos.d/
-RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.21 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.21.13-20260325.165003 __doozer_version=v1.21.13 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.21 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.21.13-20260415.112806 __doozer_version=v1.21.13 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -87,13 +82,6 @@ RUN rm -f cross.tar.gz && yum clean all -y
 COPY go_wrapper.sh /tmp/go_wrapper.sh
 RUN GO_BIN_PATH=$(which go) && mv $GO_BIN_PATH $GO_BIN_PATH.real && mv /tmp/go_wrapper.sh $GO_BIN_PATH && chmod +x $GO_BIN_PATH
 
-# Start Konflux-specific steps
-USER 0
-RUN rm -f /etc/yum.repos.d/art-* && mv /tmp/art/yum_temp/* /etc/yum.repos.d/ || true
-RUN rm -rf /tmp/art
-
-# End Konflux-specific steps
-
 LABEL \
         summary="RHEL9 based Go builder image for OpenShift ART" \
         description="RHEL9 based Go builder image for OpenShift ART" \
@@ -107,7 +95,7 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202603251649.p2.g670cbfa.el9" \
+        release="202604151128.p2.g670cbfa.el9" \
         io.openshift.build.commit.id="670cbfad98c9c5e4545167019499ea797b36670e" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
         io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/670cbfad98c9c5e4545167019499ea797b36670e" \
