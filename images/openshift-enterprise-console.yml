@@ -8,23 +8,18 @@ content:
       web: https://github.com/openshift/console
     modifications:
     - action: replace
-      match: "COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR"
-      replacement: |-
-        COPY $REMOTE_SOURCES $REMOTE_SOURCES_DIR
-        RUN touch $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/registry-ca.pem $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/app/frontend/.npmrc
+      match: "./artifacts/corepack-${COREPACK_VERSION}.tar.gz"
+      replacement: "/cachi2/output/deps/generic/corepack-v${COREPACK_VERSION}.tgz"
     - action: replace
       match: "RUN container-entrypoint ./build-frontend.sh"
-      replacement: "RUN source $REMOTE_SOURCES_DIR/cachito-gomod-with-deps/cachito.env && container-entrypoint ./build-frontend.sh"
+      replacement: |
+        WORKDIR frontend
+        RUN node .yarn/releases/yarn-4.12.0.cjs install --immutable && \
+            node .yarn/releases/yarn-4.12.0.cjs build
+    - action: command
+      command: ["sh", "-c", "echo '\nsupportedArchitectures:\n  os: [\"linux\"]\n  cpu: [\"x64\", \"arm64\", \"s390x\", \"ppc64\"]' >> frontend/.yarnrc.yml"]
     pkg_managers:
-    #- gomod Take out go.mod processing because of STONEBLD-2479 not being supported
     - yarn
-    artifacts:
-      from_urls:
-      - target: yarn-v1.22.19.tar.gz
-        url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
-        sha256: 732620bac8b1690d507274f025f3c6cfdc3627a84d9642e38a07452cc00e0f2e
-        source-url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-source-v1.22.19.tar.gz
-        source-sha256: 50af0025d2ef942bf3e6cdd0587dc9c4dd8d6e6e69501b84935d09f2b2b5de8b
 cachito:
   enabled: true
   packages:
@@ -58,7 +53,9 @@ konflux:
     x86_64: linux-d160-m2xlarge/amd64
     aarch64: linux-d160-m2xlarge/arm64
   cachito:
-    mode: emulation
+    mode: removal
   cachi2:
-    enabled: true
-  network_mode: open
+    artifact_lockfile:
+      resources:
+      - url: https://ocp-artifacts.engineering.redhat.com/github/nodejs/corepack/releases/download/v0.34.6/corepack.tgz
+        filename: corepack-v0.34.6.tgz
