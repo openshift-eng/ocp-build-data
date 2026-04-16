@@ -78,12 +78,12 @@ releases:
       members:
         rpms: []
         images:
-        - distgit_key: openshift-kubernetes-nmstate-operator
-          why: Excluding because dependent nmstate-console-plugin Konflux build image is missing from quay
-          exclude: true
-        - distgit_key: nmstate-console-plugin
-          why: Excluding because Konflux build image is missing from quay
-          exclude: true
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: Excluding because dependent nmstate-console-plugin Konflux build image is missing from quay
+            exclude: true
+          - distgit_key: nmstate-console-plugin
+            why: Excluding because Konflux build image is missing from quay
+            exclude: true
   4.21.10:
     assembly:
       type: standard
