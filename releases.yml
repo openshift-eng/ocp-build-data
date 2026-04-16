@@ -44,7 +44,13 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:67f3c4da9ca20fc51ad29d61ccdcc9969d43949009e96cd286a4241110790cb1
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: openshift-kubernetes-nmstate-operator
+          why: "Bundle build failed: nmstate-console-plugin-rhel8 image not found in Quay (manifest unknown). Excluding to unblock 4.14.64 prepare-release-konflux."
+          exclude: true
+        - distgit_key: ose-metallb-operator
+          why: "Bundle build failed: frr-rhel9 image not found in Quay (manifest unknown). Excluding to unblock 4.14.64 prepare-release-konflux."
+          exclude: true
   4.14.63:
     assembly:
       type: standard
