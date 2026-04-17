@@ -7,11 +7,11 @@ content:
       url: git@github.com:openshift-priv/vector.git
       web: https://github.com/ViaQ/vector
     pkg_managers:
-      - cargo
+    - cargo
 cachito:
   packages:
     cargo:
-      - path: .
+    - path: .
   flags: []
 distgit:
   component: vector-container
@@ -27,7 +27,7 @@ enabled_repos:
 - rhel-9-baseos-rpms
 from:
   builder:
-    - member: base-rhel9
+  - member: base-rhel9
   member: base-rhel9
 name: openshift-logging/vector-rhel9
 owners:
@@ -37,15 +37,17 @@ konflux:
     enabled: true
     lockfile:
       rpms:
+      - acl
       - autoconf
       - automake
       - binutils
       - binutils-gold
       - cargo
+      - cargo-1.75.0-1.el9
       - checkpolicy
-      - clang
-      - clang-libs
-      - clang-resource-filesystem
+      - clang-17.0.6-5.el9
+      - clang-libs-17.0.6-5.el9
+      - clang-resource-filesystem-17.0.6-5.el9
       - cmake
       - cmake-data
       - cmake-filesystem
@@ -56,6 +58,9 @@ konflux:
       - cracklib-dicts
       - cyrus-sasl
       - cyrus-sasl-devel
+      - dbus
+      - dbus-broker
+      - dbus-common
       - diffutils
       - elfutils-debuginfod-client
       - elfutils-default-yama-scope
@@ -65,12 +70,12 @@ konflux:
       - emacs-filesystem
       - environment-modules
       - expat
-      - gcc
-      - gcc-c++
+      - gcc-11.5.0-11.el9
+      - gcc-c++-11.5.0-11.el9
       - gcc-toolset-13-binutils
       - gcc-toolset-13-binutils-gold
-      - gcc-toolset-13-gcc
-      - gcc-toolset-13-gcc-c++
+      - gcc-toolset-13-gcc-13.3.1-2.3.el9
+      - gcc-toolset-13-gcc-c++-13.3.1-2.3.el9
       - gcc-toolset-13-libstdc++-devel
       - gcc-toolset-13-runtime
       - gcc-toolset-14-binutils
@@ -87,6 +92,7 @@ konflux:
       - gzip
       - jansson
       - kernel-headers
+      - kmod-libs
       - less
       - libasan
       - libatomic
@@ -106,27 +112,29 @@ konflux:
       - libpwquality
       - libpython3.9
       - librtas
+      - libseccomp
       - libselinux-utils
       - libstdc++-devel
       - libtool
       - libubsan
       - libutempter
       - libuv
+      - libxcrypt-compat
       - libxcrypt-devel
-      - lld
-      - lld-libs
-      - llvm
-      - llvm-libs
-      - llvm-toolset
+      - lld-17.0.6-1.el9
+      - lld-libs-17.0.6-1.el9
+      - llvm-17.0.6-5.el9
+      - llvm-libs-17.0.6-5.el9
+      - llvm-toolset-17.0.6-5.el9
       - m4
       - make
       - man-db
       - ncurses
+      - openssh
+      - openssh-clients
       - openssl
       - openssl-devel
       - openssl-libs
-      - openssh
-      - openssh-clients
       - pam
       - perl
       - perl-Archive-Tar
@@ -147,13 +155,13 @@ konflux:
       - perl-Compress-Raw-Zlib
       - perl-Config-Extensions
       - perl-Config-Perl-V
-      - perl-DB_File
       - perl-DBM_Filter
+      - perl-DB_File
       - perl-Data-Dumper
       - perl-Devel-PPPort
-      - perl-Devel-Size
       - perl-Devel-Peek
       - perl-Devel-SelfStubber
+      - perl-Devel-Size
       - perl-Digest
       - perl-Digest-MD5
       - perl-Digest-SHA
@@ -210,8 +218,8 @@ konflux:
       - perl-IO-Zlib
       - perl-IPC-Cmd
       - perl-IPC-Open3
-      - perl-IPC-System-Simple
       - perl-IPC-SysV
+      - perl-IPC-System-Simple
       - perl-JSON-PP
       - perl-Locale-Maketext
       - perl-Locale-Maketext-Simple
@@ -271,6 +279,7 @@ konflux:
       - perl-Test-Simple
       - perl-Text-Abbrev
       - perl-Text-Balanced
+      - perl-Text-Glob
       - perl-Text-ParseWords
       - perl-Text-Tabs+Wrap
       - perl-Thread
@@ -312,6 +321,7 @@ konflux:
       - perl-libnet
       - perl-libnetcfg
       - perl-libs
+      - perl-local-lib
       - perl-locale
       - perl-macros
       - perl-meta-notation
@@ -339,31 +349,31 @@ konflux:
       - policycoreutils
       - policycoreutils-python-utils
       - procps-ng
+      - python-unversioned-command
       - python3
       - python3-audit
       - python3-distro
+      - python3-libs
       - python3-libselinux
       - python3-libsemanage
-      - python3-libs
       - python3-pip-wheel
       - python3-policycoreutils
       - python3-setools
       - python3-setuptools
       - python3-setuptools-wheel
       - redhat-rpm-config
-      - rust
-      - rust-std-static
-      - rust-toolset
-      - rust-toolset-1.75.0
+      - rust-1.75.0-1.el9
+      - rust-std-static-1.75.0-1.el9
+      - rust-toolset-1.75.0-1.el9
       - scl-utils
       - systemd
+      - systemd-pam
+      - systemd-rpm-macros
       - systemtap-sdt-devel
       - tcl
       - util-linux
       - util-linux-core
       - vim-filesystem
-      - perl-local-lib
-      - perl-Text-Glob
 jira:
   project: LOG
   component: vector-container
