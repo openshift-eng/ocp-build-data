@@ -5,7 +5,7 @@ content:
     dockerfile: openshift-golang-builder.Dockerfile
     git:
       branch:
-        target: rhel-9-golang-1.25
+        target: rhel-9-golang-1.26
       url: git@github.com:openshift-eng/ocp-build-data.git
     modifications:
     - &add_fips_wrapper
@@ -33,8 +33,8 @@ owners:
 
 # for CPaaS
 additional_tags:
-- 'rhel_9_golang_1.25'
-- 'rhel_9_1.25'
+- 'rhel_9_golang_1.26'
+- 'rhel_9_1.26'
 maintainer:
   component: Release
 
