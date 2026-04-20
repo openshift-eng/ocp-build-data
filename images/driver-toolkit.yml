@@ -32,10 +32,6 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 - rhel-9-rt-rpms
-- rhel-98-baseos
-- rhel-98-appstream
-- rhel-98-nfv
-- rhel-98-highavailability
 for_payload: true
 from:
   member: openshift-enterprise-base-rhel9
@@ -44,7 +40,6 @@ payload_name: driver-toolkit
 owners:
 - edge-sro@redhat.com
 konflux:
-  network_mode: open
   vm_override:
     aarch64: linux-d160-m2xlarge/arm64
 okd:

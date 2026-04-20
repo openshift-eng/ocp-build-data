@@ -39,3 +39,10 @@ payload_name: tools
 owners:
 - aos-master@redhat.com
 name_in_bundle: ose-tools-rhel9
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: 'RUN if yum install -y iotop >/dev/null 2>&1; then IOTOP_PKG="iotop"; else IOTOP_PKG="iotop-c"; fi &&'
+        replacement: 'RUN IOTOP_PKG="iotop-c" &&'
