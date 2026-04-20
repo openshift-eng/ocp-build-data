@@ -30,6 +30,18 @@ else
     fail "Environment variable RELEASE_NAME is not set."
 fi
 
+# Determine which auth file to use
+# Use QUAY_AUTH_FILE if set (contains Quay credentials), otherwise fall back to default podman auth
+if [ -n "$QUAY_AUTH_FILE" ] && [ -f "$QUAY_AUTH_FILE" ]; then
+    HOST_AUTH_FILE="$QUAY_AUTH_FILE"
+    echo "Using Quay auth file: $HOST_AUTH_FILE"
+elif [ -n "${XDG_RUNTIME_DIR}" ] && [ -f "${XDG_RUNTIME_DIR}/containers/auth.json" ]; then
+    HOST_AUTH_FILE="${XDG_RUNTIME_DIR}/containers/auth.json"
+    echo "Using default podman auth file: $HOST_AUTH_FILE"
+else
+    fail "No valid auth file found. Set QUAY_AUTH_FILE or ensure ${XDG_RUNTIME_DIR}/containers/auth.json exists."
+fi
+
 # Build the podman image
 DIR=$(dirname $(readlink -f $0))
 PODMAN_BUILD_CMD="podman build  -t microshift-rebase:$BREW_TAG $DIR"
@@ -43,7 +55,7 @@ PODMAN_RUN_CMD="podman run --rm \
 -e MICROSHIFT_PAYLOAD_X86_64 \
 -e MICROSHIFT_PAYLOAD_AARCH64 \
 -e REGISTRY_AUTH_FILE=/workdir/microshift/auth.json \
--v ${XDG_RUNTIME_DIR}/containers/auth.json:/workdir/microshift/auth.json:ro,z \
+-v $HOST_AUTH_FILE:/workdir/microshift/auth.json:ro,z \
 -v $PWD:/workdir/microshift:z \
 -w /workdir/microshift \
 microshift-rebase:$BREW_TAG \
