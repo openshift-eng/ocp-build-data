@@ -1,6 +1,10 @@
 content:
   source:
     dockerfile: Dockerfile.openshift
+    modifications:
+    - action: replace
+      match: "\tcatatonit"
+      replacement: "\tpodman-catatonit"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -31,4 +35,4 @@ konflux:
   cachi2:
     lockfile:
       rpms:
-      - catatonit
+      - podman-catatonit
