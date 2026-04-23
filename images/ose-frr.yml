@@ -1,6 +1,10 @@
 content:
   source:
     dockerfile: Dockerfile.openshift
+    modifications:
+    - action: replace
+      match: "\tcatatonit"
+      replacement: "\tpodman-catatonit"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -21,12 +25,11 @@ name: openshift/frr-rhel9
 name_in_bundle: metallb-frr-rhel9
 owners:
 - metallb-dev@redhat.com
-delivery:
-  delivery_repo_names:
-  - openshift4/frr-rhel9
 konflux:
   cachi2:
     lockfile:
       rpms:
       - podman-catatonit
-      - podman-2:4.2.0-11.el9_1
+delivery:
+  delivery_repo_names:
+  - openshift4/frr-rhel9
