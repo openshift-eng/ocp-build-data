@@ -1,0 +1,45 @@
+cachito:
+  enabled: true
+  packages:
+    npm:
+    - path: web
+    gomod:
+    - path: .
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/cluster-update-console-plugin.git
+      web: https://github.com/openshift/cluster-update-console-plugin
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+    pkg_managers:
+    - npm
+    - gomod
+    okd_alignment:
+      dockerfile: Dockerfile
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: cluster-update-console-plugin-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: ose-cluster-update-console-plugin
+  delivery_repo_names:
+  - openshift5/ose-cluster-update-console-plugin-rhel9
+for_payload: true
+from:
+  builder:
+  - member: openshift-base-nodejs.rhel9
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/ose-cluster-update-console-plugin-rhel9
+payload_name: cluster-update-console-plugin
+owners:
+- aos-team-ota@redhat.com
+konflux:
+  cachito:
+    mode: emulation
