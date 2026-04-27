@@ -1,0 +1,42 @@
+# Fix for missing BlobCore::clone() implementation in cctools-port
+#
+# This patch adds the missing BlobCore::clone() method that is called by
+# Blob<BlobType>::clone() but was never declared or implemented.
+#
+# The bug has existed since at least cctools-port 949.0.1 (2020) but only
+# manifests with RHEL 9.6 toolchain (GCC 14.2) which performs stricter linking.
+#
+# Upstream PR: https://github.com/tpoechtrager/cctools-port/pull/191
+# This patch should be removed once upstream merges the fix and we rebuild
+# cross.tar.gz from the updated cctools-port.
+#
+--- a/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.h
++++ b/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.h
+@@ -105,6 +105,8 @@ public:
+ 	char *stringAt(Offset offset);
+ 	const char *stringAt(Offset offset) const;
+
++	BlobCore *clone() const;
++
+ 	void *data()						{ return this; }
+ 	const void *data() const			{ return this; }
+ 	void length(size_t size)			{ mLength = size; }
+--- a/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.cpp
++++ b/deps/cctools-port/cctools/ld64/src/ld/code-sign-blobs/blob.cpp
+@@ -52,6 +52,16 @@ const char *BlobCore::stringAt(Offset offset) const
+ 		return NULL;
+ }
+
++//
++// Clone (deep copy) a blob
++//
++BlobCore *BlobCore::clone() const
++{
++	size_t len = this->length();
++	BlobCore *copy = (BlobCore *)malloc(len);
++	if (copy) memcpy(copy, this, len);
++	return copy;
++}
+
+ //
+ // Read a blob from a standard file stream.
