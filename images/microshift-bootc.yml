@@ -13,6 +13,11 @@ content:
     - action: replace
       match: "ARG BASE_IMAGE_TAG"
       replacement: "ARG BASE_IMAGE_TAG='9.6'"
+    - action: replace
+      match: "RUN dnf install"
+      replacement: |
+        RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
+            dnf install \
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
