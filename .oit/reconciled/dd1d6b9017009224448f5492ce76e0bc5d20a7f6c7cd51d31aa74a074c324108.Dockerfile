@@ -1,18 +1,4 @@
-FROM brew.registry.redhat.io/rh-osbs/ubi9@sha256:08a8d763ab10280a510d12180363adbe08264a7448bcdfdf92dfaaed4549899c
-
-# Start Konflux-specific steps
-ENV ART_BUILD_ENGINE=konflux
-ENV ART_BUILD_DEPS_METHOD=cachi2
-ENV ART_BUILD_NETWORK=open
-RUN go clean -cache || true
-ENV ART_BUILD_DEPS_MODE=default
-USER 0
-RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
-COPY .oit/art-unsigned.repo /etc/yum.repos.d/
-RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
-# End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.9-20260427.145430 __doozer_version=v1.25.9 
+FROM registry.redhat.io/ubi9:latest
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -25,6 +11,12 @@ ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
     GO_VERSION="${__doozer_version:-$VERSION}" \
     GODEBUG="disablethp=1"
 
+LABEL summary="$SUMMARY" \
+      description="$SUMMARY" \
+      io.k8s.description="$SUMMARY" \
+      io.k8s.display-name="Go Builder $VERSION" \
+      com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
+      version="$VERSION"
 
 RUN dnf update -y && \
     dnf install -y --nodocs \
@@ -60,12 +52,12 @@ RUN dnf update -y && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (amd64 only)
-RUN cp /cachi2/output/deps/generic/cross.tar.gz .
+COPY cross.tar.gz .
 # Patch for missing BlobCore::clone() implementation in cctools-port
 # RHEL 9.6 toolchain (GCC 14.2) requires stricter linking and exposes this latent bug
 # Upstream PR: https://github.com/tpoechtrager/cctools-port/pull/191
 # This patch can be removed once upstream merges the fix and we rebuild cross.tar.gz
-RUN cp /cachi2/output/deps/generic/cctools-blobcore-clone.patch /tmp/
+COPY cctools-blobcore-clone.patch /tmp/
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
@@ -93,30 +85,3 @@ RUN rm -f cross.tar.gz && yum clean all -y
 # FOD wrapper modification
 COPY go_wrapper.sh /tmp/go_wrapper.sh
 RUN GO_BIN_PATH=$(which go) && mv $GO_BIN_PATH $GO_BIN_PATH.real && mv /tmp/go_wrapper.sh $GO_BIN_PATH && chmod +x $GO_BIN_PATH
-
-# Start Konflux-specific steps
-USER 0
-RUN rm -f /etc/yum.repos.d/art-* && mv /tmp/art/yum_temp/* /etc/yum.repos.d/ || true
-RUN rm -rf /tmp/art
-
-# End Konflux-specific steps
-
-LABEL \
-        summary="RHEL9 based Go builder image for OpenShift ART" \
-        description="RHEL9 based Go builder image for OpenShift ART" \
-        io.k8s.description="golang builder image for Red Hat internal builds (RHEL 9.6)" \
-        io.k8s.display-name="Go Builder 1.25" \
-        com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
-        version="v1.25.9" \
-        name="openshift/golang-builder" \
-        vendor="Red Hat, Inc." \
-        cpe="cpe:/a:redhat:openshift:1.25::el9" \
-        com.redhat.component="openshift-golang-builder-container" \
-        io.openshift.maintainer.project="OCPBUGS" \
-        io.openshift.maintainer.component="Security" \
-        release="202604271454.p2.gf50c697.el9" \
-        io.openshift.build.commit.id="f50c697690e62f17d05f4edab0a1df3c5db88c9f" \
-        io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/f50c697690e62f17d05f4edab0a1df3c5db88c9f" \
-        io.openshift.tags="Empty"
-

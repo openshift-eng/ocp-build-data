@@ -53,6 +53,11 @@ RUN dnf update -y && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (amd64 only)
 COPY cross.tar.gz .
+# Patch for missing BlobCore::clone() implementation in cctools-port
+# RHEL 9.6 toolchain (GCC 14.2) requires stricter linking and exposes this latent bug
+# Upstream PR: https://github.com/tpoechtrager/cctools-port/pull/191
+# This patch can be removed once upstream merges the fix and we rebuild cross.tar.gz
+COPY cctools-blobcore-clone.patch /tmp/
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
@@ -62,6 +67,7 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     glibc mingw64-gcc && \
     # compile macos cross-compilers
     tar zfx cross.tar.gz && \
+    patch -p1 -d cross < /tmp/cctools-blobcore-clone.patch && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
