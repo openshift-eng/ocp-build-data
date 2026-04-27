@@ -27,3 +27,5 @@ owners:
 - ocp-agent-team@redhat.com
 konflux:
   no_shell: true  # Skip .oit injected RUN commands (e.g. yum repo setup) since this image does not use RPMs
+  vm_override:
+    x86_64: "linux-d320-m8xlarge/amd64"
