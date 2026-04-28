@@ -53,7 +53,6 @@ RUN dnf update -y && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (amd64 only)
 COPY cross.tar.gz .
-COPY cctools-blobcore-clone.patch /tmp/
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
@@ -63,7 +62,6 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     glibc mingw64-gcc && \
     # compile macos cross-compilers
     tar zfx cross.tar.gz && \
-    patch -p1 -d cross < /tmp/cctools-blobcore-clone.patch && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
