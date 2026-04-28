@@ -3,9 +3,9 @@ content:
     dockerfile: Containerfile.konflux
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: ship-help/konflux-build-support # revert to release-{MAJOR}.{MINOR} after testing
       url: git@github.com:openshift-priv/os.git
-      url_pull: git@github.com:thegreyd/os.git
+      url_pull: git@github.com:redhat-ship-help/os.git
       web: https://github.com/openshift/os
     ci_alignment:
       streams_prs:
