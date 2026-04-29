@@ -14,7 +14,7 @@ content:
     specfile: packaging/rpm/microshift.spec
     modifications:
     - action: command
-      command: microshift-rebase
+      command: microshift-rebase --registry-config={registry_config}
       env:
         RELEASE_NAME: "{release_name}"
 name: microshift
