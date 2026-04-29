@@ -4,6 +4,10 @@
 #   as the pullspecs of x86_64 and aarch64 release payloads.
 # To rebase against a named release, define RELEASE_NAME.
 # To not rebase at all, define MICROSHIFT_NO_REBASE=1
+#
+# Auth file can be provided via:
+#   --registry-config <path>  (preferred, CLI flag)
+#   REGISTRY_AUTH_FILE env var (fallback)
 
 set -e
 
@@ -14,6 +18,20 @@ fail() {
     >&2 echo "$msg"
     exit 1
 }
+
+# Parse command line arguments
+REGISTRY_CONFIG_CLI=""
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --registry-config)
+            REGISTRY_CONFIG_CLI="$2"
+            shift 2
+            ;;
+        *)
+            fail "Unknown argument: $1"
+            ;;
+    esac
+done
 
 # If MICROSHIFT_NO_REBASE is set and non-zero, stop execution here
 if [ -n "$MICROSHIFT_NO_REBASE" ] && [ "$MICROSHIFT_NO_REBASE" -ne 0 ] ; then
@@ -30,17 +48,17 @@ else
     fail "Environment variable RELEASE_NAME is not set."
 fi
 
-# Determine which auth file to use
-# Use QUAY_AUTH_FILE if set (contains Quay credentials), otherwise fall back to default podman auth
-if [ -n "$QUAY_AUTH_FILE" ] && [ -f "$QUAY_AUTH_FILE" ]; then
-    HOST_AUTH_FILE="$QUAY_AUTH_FILE"
-    echo "Using Quay auth file: $HOST_AUTH_FILE"
-elif [ -n "${XDG_RUNTIME_DIR}" ] && [ -f "${XDG_RUNTIME_DIR}/containers/auth.json" ]; then
-    HOST_AUTH_FILE="${XDG_RUNTIME_DIR}/containers/auth.json"
-    echo "Using default podman auth file: $HOST_AUTH_FILE"
-else
-    fail "No valid auth file found. Set QUAY_AUTH_FILE or ensure ${XDG_RUNTIME_DIR}/containers/auth.json exists."
+# Validate that --registry-config was provided
+if [ -z "$REGISTRY_CONFIG_CLI" ]; then
+    fail "Missing required argument: --registry-config <path>"
 fi
+
+if [ ! -f "$REGISTRY_CONFIG_CLI" ]; then
+    fail "Auth file not found at: $REGISTRY_CONFIG_CLI"
+fi
+
+HOST_AUTH_FILE="$REGISTRY_CONFIG_CLI"
+echo "Using registry auth file: $HOST_AUTH_FILE"
 
 # Build the podman image
 DIR=$(dirname $(readlink -f $0))
