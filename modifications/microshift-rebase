@@ -23,9 +23,9 @@ fail() {
 REGISTRY_CONFIG_CLI=""
 while [[ $# -gt 0 ]]; do
     case $1 in
-        --registry-config)
-            REGISTRY_CONFIG_CLI="$2"
-            shift 2
+        --registry-config=*)
+            REGISTRY_CONFIG_CLI="${1#*=}"
+            shift
             ;;
         *)
             fail "Unknown argument: $1"
