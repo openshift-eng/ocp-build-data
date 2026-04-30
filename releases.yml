@@ -1,4 +1,40 @@
 releases:
+  4.20.20:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-04-27T18:34:40+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2026-04-28-011031
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-May-06
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cd9e5ab8fc2babdfe244b279e165fd55b88913fefe31cc8f99ace01f7208bf47
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ee5907ff5d61bae41e8f89a9000e386dce606f4e3eccefadc8819e35ccd6afd7
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0db800de8627b9826dbfecaaba889bf532997e196717beef0505ce63806c71a4
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aba5b207c085b160e36721e1d83d0fb66a32063fa8cf2c5c455d7401d2790570
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a14e5947beaaefaff730e927f4754c4ac19207cd5696517170b447863bacea2c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:915ab0d7e46c402d25944e262eccce22b7cc5f133b915f9d861007901d3b3473
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:52ddb941dc09a09e4e273ee625694abe9438082948193d38f740d63cc471ebaf
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adafd2e3acfcab4e6c846a43554cc45b121f9df3dec222b7401913a54072b73a
+      members:
+        rpms: []
+        images: []
   4.20.19:
     assembly:
       type: standard
