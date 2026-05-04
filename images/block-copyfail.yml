@@ -1,0 +1,24 @@
+content:
+  source:
+    path: .
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: main
+      url: git@github.com:mrunalp/block-copyfail.git
+      web: https://github.com/mrunalp/block-copyfail
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: block-copyfail-container
+delivery:
+  repo_name: block-copyfail
+  delivery_repo_names:
+  - ocp-art-tenant/block-copyfail
+for_payload: false
+from:
+  builder:
+  - stream: fedora
+  stream: ubi9-minimal
+name: ocp-art-tenant/block-copyfail
+owners:
+- aos-team-art@redhat.com
