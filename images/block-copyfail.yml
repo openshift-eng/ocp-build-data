@@ -1,0 +1,27 @@
+content:
+  source:
+    path: .
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/block-copyfail.git
+      web: https://github.com/mrunalp/block-copyfail
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: block-copyfail-container
+delivery:
+  repo_name: block-copyfail
+  delivery_repo_names:
+  - openshift4/ose-block-copyfail-rhel9
+for_payload: false
+for_release: false
+from:
+  builder:
+  - stream: fedora
+  stream: rhel9
+name: openshift4/ose-block-copyfail-rhel9
+owners:
+- aos-team-art@redhat.com
+konflux:
+  no_shell: true
