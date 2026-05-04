@@ -124,6 +124,6 @@ centos_stream10:
   mirror: true
   mirror_manifest_list: true
 
-fedora:
-  image: registry.fedoraproject.org/fedora:latest
-  mirror: false
+rhel9-custom:
+  # To match OCP: https://github.com/openshift-eng/ocp-build-data/blob/7a86cf1525b49c3156e54884454a3a5964d6b832/releases.yml#L163
+  image: registry.redhat.io/ubi9/ubi-minimal@sha256:7d4e47500f28ac3a2bff06c25eff9127ff21048538ae03ce240d57cf756acd00
