@@ -16,6 +16,10 @@ delivery:
   - openshift4/ose-block-copyfail-rhel9
 for_payload: false
 for_release: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
 from:
   builder:
   - stream: rhel9-custom
