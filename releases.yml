@@ -35,12 +35,6 @@ releases:
         include:
           - id: OCPBUGS-84780
       members:
-        rpms:
-          - distgit_key: kernel
-            why: Pin kernel to 5.14.0-427.124.1.el9_4 for hotfix assembly
-            metadata:
-              is:
-                el9: kernel-5.14.0-427.124.1.el9_4
         images:
           - distgit_key: driver-toolkit
             why: Pin driver-toolkit to stream build aligned with kernel 5.14.0-427.124.1.el9_4
