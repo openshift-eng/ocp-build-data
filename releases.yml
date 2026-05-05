@@ -6,14 +6,14 @@ releases:
         assembly: 4.17.52
         reference_releases!: {}
       group:
-        advisories:
+        advisories!:
           rpm: -1
           rhcos: -1
         dependencies:
           rpms:
             - el9: kernel-5.14.0-427.124.1.el9_4
               why: Pin kernel to match pinned RHCOS (5.14.0-427.124.1.el9_4)
-        shipment:
+        shipment!:
           advisories:
             - kind: image
         release_date: 2026-May-13
