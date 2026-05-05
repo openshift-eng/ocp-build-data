@@ -1,4 +1,65 @@
 releases:
+  4.18.40:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.18.39
+        reference_releases!: {}
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-427.124.1.el9_4
+              why: Pin kernel to match pinned RHCOS (5.14.0-427.124.1.el9_4)
+        shipment:
+          advisories:
+            - kind: image
+        release_date: 2026-May-07
+        upgrades: 4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.17.35,4.17.36,4.17.37,4.17.38,4.17.39,4.17.40,4.17.41,4.17.42,4.17.43,4.17.44,4.17.45,4.17.46,4.17.47,4.17.48,4.17.49,4.17.50,4.17.51,4.17.52,4.18.1,4.18.2,4.18.3,4.18.4,4.18.5,4.18.6,4.18.7,4.18.8,4.18.9,4.18.10,4.18.11,4.18.12,4.18.13,4.18.14,4.18.15,4.18.16,4.18.17,4.18.18,4.18.19,4.18.20,4.18.21,4.18.22,4.18.23,4.18.24,4.18.25,4.18.26,4.18.27,4.18.28,4.18.29,4.18.30,4.18.31,4.18.32,4.18.33,4.18.34,4.18.35,4.18.36,4.18.37,4.18.38,4.18.39
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80d3653baacde1b96ed343898a982b0accd546b273bbb479ae77d61bb5c91857
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:83822686bf06b378f0202d78e8f0b1a00714b8b1730b409dd762ba9a9e61e5ad
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:36bcccb9c2e40c23d05c2b9e06f242e34726a6f9e59a1f831ecf92c800e8efbf
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:44e5d0ae72d91583c24e646251a03869d594f108872cc6e45efee8447d4dae9d
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b837334f95a53762d165c50b0f1985e28fa1027dfeef8d7d34e262155344b3d7
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1f6d793475127fc2187fae3be1eef91984cc57e6f942c729ecf6bd4362cc0730
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3e95957897f5ab560c80abe5d6ae16fe6e85244e5cbac2fc676da141421f3015
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:95fe659482fd284d9cd08de4f6f7106f044fd2ec2722294ee352e583c59be006
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-operator-sdk
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
+      issues:
+        include:
+          - id: OCPBUGS-84781
+      members:
+        rpms:
+          - distgit_key: kernel
+            why: Pin kernel to 5.14.0-427.124.1.el9_4 for hotfix assembly
+            metadata:
+              is:
+                el9: kernel-5.14.0-427.124.1.el9_4
+        images:
+          - distgit_key: driver-toolkit
+            why: Pin driver-toolkit to stream build with kernel 5.14.0-427.124.1.el9_4 (ART build history)
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.18.0-202605042014.p2.g2e139ed.assembly.stream.el9
   4.18.39:
     assembly:
       type: standard
