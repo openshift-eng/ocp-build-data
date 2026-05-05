@@ -5,14 +5,15 @@ releases:
       basis:
         assembly: 4.21.13
         reference_releases!: {}
-      group!:
-        advisories:
+      group:
+        advisories!:
           rpm: -1
           rhcos: -1
-        shipment:
+        shipment!:
           advisories:
             - kind: image
         release_date: 2026-May-07
+        release_jira: ART-0
         upgrades: 4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.21.0,4.21.1,4.21.2,4.21.3,4.21.4,4.21.5,4.21.6,4.21.7,4.21.8,4.21.9,4.21.10,4.21.11,4.21.13
         dependencies:
           rpms:
