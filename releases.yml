@@ -18,12 +18,6 @@ releases:
           advisories:
             - kind: image
               live_id: 13736
-            - kind: extras
-              live_id: 12119
-            - kind: metadata
-              live_id: 12120
-            - kind: fbc
-            - kind: image
           url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/503
         advisories!:
           rpm: 166728
@@ -58,12 +52,6 @@ releases:
         include:
           - id: OCPBUGS-84781
       members:
-        rpms:
-          - distgit_key: kernel
-            why: Pin kernel to 5.14.0-427.124.1.el9_4 for hotfix assembly
-            metadata:
-              is:
-                el9: kernel-5.14.0-427.124.1.el9_4
         images:
           - distgit_key: driver-toolkit
             why: Pin driver-toolkit to stream build with kernel 5.14.0-427.124.1.el9_4 (ART build history)
