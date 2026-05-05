@@ -13,10 +13,12 @@ releases:
           advisories:
             - kind: image
         release_date: 2026-May-07
+        upgrades: 4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.21.0,4.21.1,4.21.2,4.21.3,4.21.4,4.21.5,4.21.6,4.21.7,4.21.8,4.21.9,4.21.10,4.21.11,4.21.13
         dependencies:
           rpms:
             - el9: kernel-5.14.0-570.112.1.el9_6
               why: Pin kernel for CVE-2026-31431
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
