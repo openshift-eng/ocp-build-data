@@ -1,4 +1,58 @@
 releases:
+  4.20.21:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.20.20
+        reference_releases!: {}
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        shipment:
+          advisories:
+            - kind: image
+        release_date: 2026-May-07
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-570.112.1.el9_6
+              why: Pin kernel for CVE-2026-31431
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:587a5168e1f9b66182964d14b1b3640fc61cae7cf63b935e390a3c0b4209e720
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a589082c07be9346671b0c1e1ce4b36d52d63ce7edbee022c47482a8cc856b10
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0e26dd91cfb6571608f153cc52a6a587e0361e5e38700b8c7c792088f5c138c0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:26e61f7f038a342dc44eb8fbf5b6ab3c9d54d998e23e8f8cf04469b37701db61
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:914faa145afb66d67c0b457c05ed259a753f341d0de68e03591cba01c6776979
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d997eb1ff886d875acc0d7b06b50af161e418213b8687d9b07ed4308214925eb
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f7a543030a230ac4ba71fa1f093ccc956e566c416399af43d56a36cd439a566e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4c83cf5b29d7efe954028b01b5280b8045f9998837dc873e789283198a8e3198
+      members:
+        rpms:
+          - distgit_key: kernel
+            why: Pin kernel to 5.14.0-570.112.1.el9_6 for CVE-2026-31431
+            metadata:
+              is:
+                el9: kernel-5.14.0-570.112.1.el9_6
+        images:
+          - distgit_key: driver-toolkit
+            why: Pin DTK to match RHCOS kernel 5.14.0-570.112.1.el9_6 for CVE-2026-31431
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.20.0-202605041819.p2.g62e1f60.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: dpu-intel-ipu-vsp
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+      issues:
+        include:
+          - id: OCPBUGS-84792
   4.20.20:
     assembly:
       type: standard
