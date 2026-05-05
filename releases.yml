@@ -32,6 +32,11 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:48af31d9d19040d69181270cb233b1a4217fa4953cbd2ade7b39aaab247458a4
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ffd601a45a25f8506139a1547e591bc9b7e9ac1ffce1062e4add85876c9fd525
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9b55c3dc6e21847a18cc8475050b1188c955fcbcb332320f12168133e96f80f3
+      promotion_permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          why: Images not yet rebuilt with pinned kernel 5.14.0-427.124.1.el9_4; will be rebuilt before ship
+        - code: MISMATCHED_NETWORK_MODE
+          why: Images built non-hermetically in stream; will be rebuilt hermetically for assembly
       issues:
         include:
           - id: OCPBUGS-84780
