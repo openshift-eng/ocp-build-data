@@ -20,6 +20,29 @@ releases:
             - el9: kernel-5.14.0-284.169.1.el9_2
               why: Pin kernel for CVE-2026-31431
               non_gc_tag: hotfix
+      permits:
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ironic'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ironic-agent'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'monitoring-plugin'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'nmstate-console-plugin'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'openshift-enterprise-console'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'openshift-enterprise-hyperkube'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-agent-installer-utils'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-alibaba-cloud-csi-driver'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-libvirt-machine-controllers'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ironic-rhcos-downloader'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'cluster-node-tuning-operator'
       rhcos:
         machine-os-content:
           images:
