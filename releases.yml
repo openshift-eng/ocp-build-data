@@ -1,4 +1,53 @@
 releases:
+  4.15.64:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.15.63
+        reference_releases!: {}
+      group:
+        advisories!:
+          rpm: -1
+          rhcos: -1
+        shipment!:
+          advisories:
+            - kind: image
+        release_jira: ART-0
+        upgrades: 4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32,4.14.33,4.14.34,4.14.35,4.14.36,4.14.37,4.14.38,4.14.39,4.14.40,4.14.41,4.14.42,4.14.43,4.14.44,4.14.45,4.14.46,4.14.48,4.14.49,4.14.50,4.14.51,4.14.52,4.14.53,4.14.54,4.14.55,4.14.56,4.14.57,4.14.58,4.14.59,4.14.60,4.14.61,4.14.62,4.14.63,4.15.0,4.15.2,4.15.3,4.15.5,4.15.6,4.15.7,4.15.8,4.15.9,4.15.10,4.15.11,4.15.12,4.15.13,4.15.14,4.15.15,4.15.16,4.15.17,4.15.18,4.15.19,4.15.20,4.15.21,4.15.22,4.15.23,4.15.24,4.15.25,4.15.26,4.15.27,4.15.28,4.15.29,4.15.30,4.15.31,4.15.32,4.15.33,4.15.34,4.15.35,4.15.36,4.15.37,4.15.38,4.15.39,4.15.40,4.15.41,4.15.42,4.15.43,4.15.44,4.15.45,4.15.46,4.15.47,4.15.48,4.15.49,4.15.50,4.15.51,4.15.52,4.15.53,4.15.54,4.15.55,4.15.56,4.15.57,4.15.58,4.15.59,4.15.60,4.15.61,4.15.62,4.15.63
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-284.169.1.el9_2
+              why: Pin kernel for CVE-2026-31431
+              non_gc_tag: hotfix
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:134e0ac6a660b050deb37adbebb0873725b92956765895a4fae688c79c79476b
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:19388399bd92eadaae95be85ab455a54bbd2c5c9d2ce6ad009e5b072b41281ae
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff520a0f6302f9d1d16f33e6b2e90590d0947011dc3945ac15a6e4223f999bb1
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:04fa68662344880e685e234e9b202846cbd214323cc75272161458e0d0c894fd
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3b0bb7c0aca84f0891aaaf613ffbced34684d78e483d5e137244dd36aef9262c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cb982ea95ce150aa9ce465c8d8a78de7cd1be1b873ae70f20d6417885718fd7d
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d268e2f9c3129f1ae58d11ae2e55dc258f345a5881fcc2b96d8c43e058791711
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ad0e9060b9097840642c4e03d3f082bc3743e886eff0c13056447ecc66746b52
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a333e699142d2489e728a1f30a6664ee6f031635e44837e0b84e1e315d3c71bf
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7e99316fdf31d32f8f8add76a927282c787b4b2ae633553b970c6a08c19a7859
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:652c88b92a5263b88836b16822cd67a32a6e3b3b15904a30b120badf24ea503b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0a04c0b88791cceaaaf5e0b03f8eea84392202db28df1b238d4a190ef9bda968
+      members:
+        images:
+          - distgit_key: driver-toolkit
+            why: Pin DTK to match RHCOS kernel 5.14.0-284.169.1.el9_2 for CVE-2026-31431
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.15.0-202605051413.p2.g7a448c2.assembly.stream.el9
+      issues:
+        include:
+          - id: OCPBUGS-84778
   4.15.63:
     assembly:
       type: standard
