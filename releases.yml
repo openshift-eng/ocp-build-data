@@ -1,4 +1,81 @@
 releases:
+  4.14.65:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.14.63
+        reference_releases!: {}
+      group:
+        advisories!:
+          rpm: -1
+          rhcos: -1
+        shipment!:
+          advisories:
+            - kind: image
+        release_date: 2026-May-07
+        release_jira: ART-0
+        upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46,4.13.48,4.13.49,4.13.50,4.13.51,4.13.52,4.13.53,4.13.54,4.13.55,4.13.56,4.13.57,4.13.58,4.13.59,4.13.60,4.13.61,4.13.62,4.13.63,4.13.64,4.13.65,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32,4.14.33,4.14.34,4.14.35,4.14.36,4.14.37,4.14.38,4.14.39,4.14.40,4.14.41,4.14.42,4.14.43,4.14.44,4.14.45,4.14.46,4.14.48,4.14.49,4.14.50,4.14.51,4.14.52,4.14.53,4.14.54,4.14.55,4.14.56,4.14.57,4.14.58,4.14.59,4.14.60,4.14.61,4.14.62,4.14.63,4.14.64
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-284.169.1.el9_2
+              why: Pin kernel for CVE-2026-31431
+              non_gc_tag: hotfix
+      permits:
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ironic'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ironic-agent'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'monitoring-plugin'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'nmstate-console-plugin'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'openshift-enterprise-console'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'openshift-enterprise-hyperkube'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-agent-installer-api-server'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-agent-installer-utils'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-alibaba-cloud-csi-driver'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-containernetworking-plugins'
+        - code: MISMATCHED_NETWORK_MODE
+          component: 'ose-libvirt-machine-controllers'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'cluster-node-tuning-operator'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ironic-rhcos-downloader'
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:96ecc2d4f9cecafeb8838b21ec5e63b8a2a058764f1eeb9699b578df062bdd79
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1012cb0c8b6f011061ff5028ee30ede11907d155d822e5979a7f347554d8b4bf
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:23d1dc1ceb610f22e9ce7e72065d2c0a313690f0b6359bd1a8edbc7e8c05a44d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f972f909833329efb6f7756a4c26c86ae1530b21de53be7b63c926afa3560548
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:19b31d86e3469a3bef4a4c05e7ce2bfb037fe4276db9d65f6d30c24146c1c57e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ab1a9505583588358b5e8b4f1a0beab8f9226d32a7ab448b9e6e6b8b4cabf733
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1cfa8183cf6138c5a4b2602442f798f68c0622b1e9306fce2711af7c491eac14
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:206602a6a13cb223d06c981335970999fe806bdeecff21029fb05621a09078d9
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:864fd6d60b181da32a01592e13bf5bec56f178589e652f6262bb9f358acd1578
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6c2fe92dfab65e9d110640853783f243caa7cbc88a770f3e43f747812a004178
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a0da60c2c65cede8511bf79ecc066cbd60fa0a621a92e1b36eb4895ea066e097
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1f219b8ac8bae7b940b2b69444e368f7e66c8068bcee13f3f350b0293a734264
+      members:
+        images:
+          - distgit_key: driver-toolkit
+            why: Pin DTK to match RHCOS kernel 5.14.0-284.169.1.el9_2 for CVE-2026-31431
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.14.0-202605051430.p2.gcafed17.assembly.stream.el9
+      issues:
+        include:
+          - id: OCPBUGS-84777
   4.14.64:
     assembly:
       type: standard
