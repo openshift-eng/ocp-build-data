@@ -20,6 +20,17 @@ releases:
             - el8: kernel-4.18.0-372.191.1.el8_6
               why: Pin kernel for CVE-2026-31431
               non_gc_tag: hotfix
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'cluster-node-tuning-operator'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-operator-sdk'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'openshift-enterprise-tests'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-network-tools'
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: 'ose-tools'
       rhcos:
         machine-os-content:
           images:
