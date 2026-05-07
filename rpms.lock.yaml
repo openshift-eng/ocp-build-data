@@ -605,6 +605,34 @@ arches:
     size: 260411
     sourcerpm: gobject-introspection-1.68.0-11.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/g/gobject-introspection-1.68.0-11.el9.x86_64.rpm
+  - name: golang
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:cd14f0478e97bb3337b554593f4bdc6bcf72a6563ca847bbeb4d6c8b3827531d
+    repoid: rhocp-4.18-for-rhel-9-x86_64-rpms
+    size: 678425
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/x86_64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/x86_64/golang-1.22.12-12.el9.x86_64.rpm
+  - name: golang-bin
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:2b56ef4b1281e19ab4311706cd1cd34a47ba98af3c3b31fe6123d14332c94fc7
+    repoid: rhocp-4.18-for-rhel-9-x86_64-rpms
+    size: 60282411
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/x86_64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/x86_64/golang-bin-1.22.12-12.el9.x86_64.rpm
+  - name: golang-race
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:f0086398eba5a6fa018035ae656e38b956f97f441432d59a6a8bc11f1b7f841f
+    repoid: rhocp-4.18-for-rhel-9-x86_64-rpms
+    size: 214575
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/x86_64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/x86_64/golang-race-1.22.12-12.el9.x86_64.rpm
+  - name: golang-src
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:11e93dd269124ce5decd4e1c5a11e35d9cd89fa11bd8ef75b49499ff78b83d0e
+    repoid: rhocp-4.18-for-rhel-9-x86_64-rpms
+    size: 9405667
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/x86_64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/noarch/golang-src-1.22.12-12.el9.noarch.rpm
   - name: goversioninfo
     evr: 0:1.4.0-1.el9
     checksum: sha256:c24f5a61fb883f6fdea701e70398d28d2e748f711970e46642b8aaa0fe6c90ee
@@ -697,13 +725,6 @@ arches:
     sourcerpm: json-glib-1.6.6-1.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/j/json-glib-1.6.6-1.el9.x86_64.rpm
   - name: kernel-headers
-    evr: 0:5.14.0-427.117.1.el9_4
-    checksum: sha256:a46a0f2e6619867ffc58339224ec4cb08ccb20673cd3ff913c9bfb446f0b6344
-    repoid: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_4
-    size: 1985125
-    sourcerpm: kernel-5.14.0-427.117.1.el9_4.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-427.117.1.el9_4.x86_64.rpm
-  - name: kernel-headers
     evr: 0:5.14.0-427.124.1.el9_4
     checksum: sha256:999c67e590c535c2e52a5b9d8f7dabb4170d641ca7f4444a04a2702acf634529
     repoid: rhel-9-for-x86_64-appstream-eus-rpms__9_DOT_4
@@ -787,13 +808,6 @@ arches:
     size: 24627
     sourcerpm: acl-2.3.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/l/libacl-2.3.1-4.el9.x86_64.rpm
-  - name: libarchive
-    evr: 0:3.5.3-4.el9_4.2
-    checksum: sha256:afa197f92d9817fca99e7f1c14b2e96fda11740864e66c88c8a68e637760c25c
-    repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    size: 396205
-    sourcerpm: libarchive-3.5.3-4.el9_4.2.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/l/libarchive-3.5.3-4.el9_4.2.x86_64.rpm
   - name: libarchive
     evr: 0:3.5.3-5.el9_4
     checksum: sha256:57c03012b198734bc2c3bab1a7c3dd43f52a81e0d5e2df8df1c8533ada1d461e
@@ -1067,13 +1081,6 @@ arches:
     size: 66075
     sourcerpm: libmpc-1.2.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/Packages/l/libmpc-1.2.1-4.el9.x86_64.rpm
-  - name: libnghttp2
-    evr: 0:1.43.0-5.el9_4.3
-    checksum: sha256:0321ee7f557d856fcf729cda401abcdc47ac775bb3340cdd3dc1c0054ef91ca1
-    repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    size: 76753
-    sourcerpm: nghttp2-1.43.0-5.el9_4.3.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/l/libnghttp2-1.43.0-5.el9_4.3.x86_64.rpm
   - name: libnghttp2
     evr: 0:1.43.0-5.el9_4.4
     checksum: sha256:395d1288e8bf3e926d4da8bb1dcd50482db00bd739154928776c93d87194afa5
@@ -1572,26 +1579,12 @@ arches:
     sourcerpm: openldap-2.6.6-3.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/o/openldap-2.6.6-3.el9.x86_64.rpm
   - name: openssh
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:be22659d957d0cedc6d75a3d1b5aae9c97fa00e90be10960d1865c434c6f32ec
-    repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    size: 467252
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.6.x86_64.rpm
-  - name: openssh
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:80d00513befc5958c6109c908529a5f67f179f3a692267b4f1487d6a7ee3ab18
     repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
     size: 467622
     sourcerpm: openssh-8.7p1-38.el9_4.7.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.7.x86_64.rpm
-  - name: openssh-clients
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:5dff426059bb929f04acbb293fd1e0cee2771f70694778136041ab38ad39e549
-    repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    size: 729131
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/o/openssh-clients-8.7p1-38.el9_4.6.x86_64.rpm
   - name: openssh-clients
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:a493a1c9c1a885b8ac71b484d300fe613b3a1123e5bf22d09fda59dc3688d7f0
@@ -2293,13 +2286,6 @@ arches:
     sourcerpm: python-rpm-macros-3.9-53.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/appstream/os/Packages/p/python-srpm-macros-3.9-53.el9.noarch.rpm
   - name: python3
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:d14f12524a843eea88e390434db6adb12ab844e4a86f65445f7c9d602f3e2344
-    repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    size: 25713
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/p/python3-3.9.18-3.el9_4.11.x86_64.rpm
-  - name: python3
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:2b64f576eaf45170fa646b0b41d603c008a03f4b885ac320d0df651c10969fcf
     repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
@@ -2439,13 +2425,6 @@ arches:
     size: 51462
     sourcerpm: librepo-1.14.5-2.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/p/python3-librepo-1.14.5-2.el9.x86_64.rpm
-  - name: python3-libs
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:d4b1809414c5b5d2f22bc7f9df78a1aa6a4da9d5c71820d0efa269fb428c47bc
-    repoid: rhel-9-for-x86_64-baseos-eus-rpms__9_DOT_4
-    size: 8231800
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/x86_64/baseos/os/Packages/p/python3-libs-3.9.18-3.el9_4.11.x86_64.rpm
   - name: python3-libs
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:78d56a14bae0f59804992e268eb3bd0c76ff1e2ccfeae56c0fb702d5978a1d81
@@ -3464,6 +3443,34 @@ arches:
     size: 265545
     sourcerpm: gobject-introspection-1.68.0-11.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/g/gobject-introspection-1.68.0-11.el9.ppc64le.rpm
+  - name: golang
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:2916db90cd08444c3c0e150921bc6b2fa835b523ab7ce483b9acb70c4287c4ca
+    repoid: rhocp-4.18-for-rhel-9-ppc64le-rpms
+    size: 678484
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/ppc64le/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/ppc64le/golang-1.22.12-12.el9.ppc64le.rpm
+  - name: golang-bin
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:b77434d3ae6a08831e4b22cff1c3bd4204644a0d206343caaa7c7a7d3ef8c115
+    repoid: rhocp-4.18-for-rhel-9-ppc64le-rpms
+    size: 56441344
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/ppc64le/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/ppc64le/golang-bin-1.22.12-12.el9.ppc64le.rpm
+  - name: golang-race
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:b73d8c33bb0ea20aa0cbf13ac390e3deb9250021bfa7d913d217c451378cf2eb
+    repoid: rhocp-4.18-for-rhel-9-ppc64le-rpms
+    size: 210156
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/ppc64le/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/ppc64le/golang-race-1.22.12-12.el9.ppc64le.rpm
+  - name: golang-src
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:11e93dd269124ce5decd4e1c5a11e35d9cd89fa11bd8ef75b49499ff78b83d0e
+    repoid: rhocp-4.18-for-rhel-9-ppc64le-rpms
+    size: 9405667
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/ppc64le/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/noarch/golang-src-1.22.12-12.el9.noarch.rpm
   - name: goversioninfo
     evr: 0:1.4.0-1.el9
     checksum: sha256:5e7152fd4d214e7faa0e725feb005ed5db839cea21789688b7ef1a6870c46201
@@ -3556,13 +3563,6 @@ arches:
     sourcerpm: json-glib-1.6.6-1.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/j/json-glib-1.6.6-1.el9.ppc64le.rpm
   - name: kernel-headers
-    evr: 0:5.14.0-427.117.1.el9_4
-    checksum: sha256:bf0345731b2a6263904a802f73facf73754ce21f45d65a18c62f36ebaaf30ba2
-    repoid: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_4
-    size: 1968449
-    sourcerpm: kernel-5.14.0-427.117.1.el9_4.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/Packages/k/kernel-headers-5.14.0-427.117.1.el9_4.ppc64le.rpm
-  - name: kernel-headers
     evr: 0:5.14.0-427.124.1.el9_4
     checksum: sha256:0abbf1d8334e3e964584cc99e0eccf30579a19418121b39441623a2895974dfa
     repoid: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_4
@@ -3646,13 +3646,6 @@ arches:
     size: 26589
     sourcerpm: acl-2.3.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/l/libacl-2.3.1-4.el9.ppc64le.rpm
-  - name: libarchive
-    evr: 0:3.5.3-4.el9_4.2
-    checksum: sha256:218082617e7967c63bec8acae81a417172ad406aea150b6d57adbfdfa233fc1d
-    repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-    size: 464776
-    sourcerpm: libarchive-3.5.3-4.el9_4.2.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/l/libarchive-3.5.3-4.el9_4.2.ppc64le.rpm
   - name: libarchive
     evr: 0:3.5.3-5.el9_4
     checksum: sha256:0f6c893f66b6496b2bafe073c83a41f515c708459d232f5cf7c9be29ee9c9f62
@@ -3926,13 +3919,6 @@ arches:
     size: 71343
     sourcerpm: libmpc-1.2.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/Packages/l/libmpc-1.2.1-4.el9.ppc64le.rpm
-  - name: libnghttp2
-    evr: 0:1.43.0-5.el9_4.3
-    checksum: sha256:1f35f33236fef2eecbb626a7c416cf637450a440cfe01ccb53fefcf5fff7c34a
-    repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-    size: 85992
-    sourcerpm: nghttp2-1.43.0-5.el9_4.3.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/l/libnghttp2-1.43.0-5.el9_4.3.ppc64le.rpm
   - name: libnghttp2
     evr: 0:1.43.0-5.el9_4.4
     checksum: sha256:9b3e4632bce06afcfc542e243eb8a7a278841f729ed945ad606aae50dc76eff2
@@ -4438,26 +4424,12 @@ arches:
     sourcerpm: openldap-2.6.6-3.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/o/openldap-2.6.6-3.el9.ppc64le.rpm
   - name: openssh
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:5d9b4008b29a1f7250452f86ccd64c3c77d828849d27be0aa5236784e67c1ea7
-    repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-    size: 479826
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.6.ppc64le.rpm
-  - name: openssh
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:fa652ba4e995e7a3699a6a36cd432550b678559d3749703f357133cfe15899ec
     repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
     size: 480017
     sourcerpm: openssh-8.7p1-38.el9_4.7.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.7.ppc64le.rpm
-  - name: openssh-clients
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:78ce1f2415e4825f0bcdb058b71eec444aedec15242644adbdcddf21a8500cff
-    repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-    size: 753942
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/o/openssh-clients-8.7p1-38.el9_4.6.ppc64le.rpm
   - name: openssh-clients
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:565312557550b120e7a219eca8275ec18f29a8357212b0dd0d371485f047a25e
@@ -5159,13 +5131,6 @@ arches:
     sourcerpm: python-rpm-macros-3.9-53.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/appstream/os/Packages/p/python-srpm-macros-3.9-53.el9.noarch.rpm
   - name: python3
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:4e77caec232d738bea228a497e1a8a8c9b7bffec9c71694ebe8fba52714a4d28
-    repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-    size: 25689
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/p/python3-3.9.18-3.el9_4.11.ppc64le.rpm
-  - name: python3
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:41c5ee7b47a33c3873df1ed8dccf70ab3934d4d7da0441ef5c16fe78a708a393
     repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
@@ -5305,13 +5270,6 @@ arches:
     size: 53099
     sourcerpm: librepo-1.14.5-2.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/p/python3-librepo-1.14.5-2.el9.ppc64le.rpm
-  - name: python3-libs
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:34ef5cca18f44c95aba29471ded8493b12942a38abe13491bd9af29314f4f569
-    repoid: rhel-9-for-ppc64le-baseos-eus-rpms__9_DOT_4
-    size: 8213940
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/ppc64le/baseos/os/Packages/p/python3-libs-3.9.18-3.el9_4.11.ppc64le.rpm
   - name: python3-libs
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:14d5db175045cb3045b7d03dff92ff26004a0fb930cf101e502aac1a8c371e45
@@ -6337,6 +6295,34 @@ arches:
     size: 256508
     sourcerpm: gobject-introspection-1.68.0-11.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/g/gobject-introspection-1.68.0-11.el9.s390x.rpm
+  - name: golang
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:f451cfa8736a763f6dd12140756be1ab634036819708023e119008501f254857
+    repoid: rhocp-4.18-for-rhel-9-s390x-rpms
+    size: 678629
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/s390x/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/s390x/golang-1.22.12-12.el9.s390x.rpm
+  - name: golang-bin
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:7241fbcd2a99b39091c851472583a81fee743bddc8b3752cb1594cf38ac8e9d3
+    repoid: rhocp-4.18-for-rhel-9-s390x-rpms
+    size: 57736468
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/s390x/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/s390x/golang-bin-1.22.12-12.el9.s390x.rpm
+  - name: golang-race
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:5d10c230b8aaefbbc68252fe1b7f69f25cca5c40c58a440cdd75159cb68d6315
+    repoid: rhocp-4.18-for-rhel-9-s390x-rpms
+    size: 209949
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/s390x/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/s390x/golang-race-1.22.12-12.el9.s390x.rpm
+  - name: golang-src
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:11e93dd269124ce5decd4e1c5a11e35d9cd89fa11bd8ef75b49499ff78b83d0e
+    repoid: rhocp-4.18-for-rhel-9-s390x-rpms
+    size: 9405667
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/s390x/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/noarch/golang-src-1.22.12-12.el9.noarch.rpm
   - name: goversioninfo
     evr: 0:1.4.0-1.el9
     checksum: sha256:a2edb6888432efc58c9a70d62ec4365bfaea366dc6cf9ecf06f09d843c508629
@@ -6429,13 +6415,6 @@ arches:
     sourcerpm: json-glib-1.6.6-1.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/j/json-glib-1.6.6-1.el9.s390x.rpm
   - name: kernel-headers
-    evr: 0:5.14.0-427.117.1.el9_4
-    checksum: sha256:3f05ce2749bc6526c285a5e9c23549866a5d849453d9d7ad9d84a7bd320f1515
-    repoid: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
-    size: 1976521
-    sourcerpm: kernel-5.14.0-427.117.1.el9_4.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/Packages/k/kernel-headers-5.14.0-427.117.1.el9_4.s390x.rpm
-  - name: kernel-headers
     evr: 0:5.14.0-427.124.1.el9_4
     checksum: sha256:3793651320aff6ca5a2a5379d283dafb22cf206443c9a06e87f4eaeb705655af
     repoid: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_4
@@ -6519,13 +6498,6 @@ arches:
     size: 24699
     sourcerpm: acl-2.3.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/l/libacl-2.3.1-4.el9.s390x.rpm
-  - name: libarchive
-    evr: 0:3.5.3-4.el9_4.2
-    checksum: sha256:0b91516a2d8accf1be1a1a60df95d3ad1c5eb4757d05dbfe312c46b4075a77c7
-    repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-    size: 394489
-    sourcerpm: libarchive-3.5.3-4.el9_4.2.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/l/libarchive-3.5.3-4.el9_4.2.s390x.rpm
   - name: libarchive
     evr: 0:3.5.3-5.el9_4
     checksum: sha256:a21722bb384cbd067827a16d9370f96f37216ad939af758b249130dda3a08f2a
@@ -6799,13 +6771,6 @@ arches:
     size: 66959
     sourcerpm: libmpc-1.2.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/Packages/l/libmpc-1.2.1-4.el9.s390x.rpm
-  - name: libnghttp2
-    evr: 0:1.43.0-5.el9_4.3
-    checksum: sha256:10fdcd40ed002e1be0bc90581ac2f52c7539825566f285aa924a07a8b407ae1d
-    repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-    size: 74717
-    sourcerpm: nghttp2-1.43.0-5.el9_4.3.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/l/libnghttp2-1.43.0-5.el9_4.3.s390x.rpm
   - name: libnghttp2
     evr: 0:1.43.0-5.el9_4.4
     checksum: sha256:f94731ab22f141057bc99fffae396b36a65b23523df86d58101f435d7616f3d3
@@ -7276,26 +7241,12 @@ arches:
     sourcerpm: openldap-2.6.6-3.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/o/openldap-2.6.6-3.el9.s390x.rpm
   - name: openssh
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:cc774e5f151f65220d5fe740c9dec9e9d95ec458078480753e28f64169e57b04
-    repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-    size: 452186
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.6.s390x.rpm
-  - name: openssh
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:22a7ffe2144c193160e8a1afd37a7fb53925ab96067dfc44e432902321137dfb
     repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
     size: 452289
     sourcerpm: openssh-8.7p1-38.el9_4.7.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.7.s390x.rpm
-  - name: openssh-clients
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:d76314eeccd71f447113ef0aae2a4761cbac16c70fe31632a54ee5c70330efb0
-    repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-    size: 684432
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/o/openssh-clients-8.7p1-38.el9_4.6.s390x.rpm
   - name: openssh-clients
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:5de6c0c72bce20b5d41f7d6d17544801676c578ddac74852a4f8d838be6e77cb
@@ -7997,13 +7948,6 @@ arches:
     sourcerpm: python-rpm-macros-3.9-53.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/appstream/os/Packages/p/python-srpm-macros-3.9-53.el9.noarch.rpm
   - name: python3
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:df51907b79f9e2ea352241fb84d2c25a8f991a52c9ed95ca3a913bd97e110631
-    repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-    size: 25515
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/p/python3-3.9.18-3.el9_4.11.s390x.rpm
-  - name: python3
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:f5c4918cebaeb38c41606f99fa981cdc0ca3aa6bb8712039d114e31c4d3df3d4
     repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
@@ -8143,13 +8087,6 @@ arches:
     size: 50168
     sourcerpm: librepo-1.14.5-2.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/p/python3-librepo-1.14.5-2.el9.s390x.rpm
-  - name: python3-libs
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:154d6f1df7c44e11b1e1f561c45fa27caf50d0db34ee08940a6f335b2c592a52
-    repoid: rhel-9-for-s390x-baseos-eus-rpms__9_DOT_4
-    size: 8086595
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/s390x/baseos/os/Packages/p/python3-libs-3.9.18-3.el9_4.11.s390x.rpm
   - name: python3-libs
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:1f5e571f17fad22af27cb25c2c27a5ef92934c3a6c7448c2bbee0ab36fee0cc6
@@ -9175,6 +9112,34 @@ arches:
     size: 258397
     sourcerpm: gobject-introspection-1.68.0-11.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/g/gobject-introspection-1.68.0-11.el9.aarch64.rpm
+  - name: golang
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:428468cc371871a3b0c4388d9e0dbc28bc5e135c04b1999fa83668a124e80419
+    repoid: rhocp-4.18-for-rhel-9-aarch64-rpms
+    size: 678832
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/aarch64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/aarch64/golang-1.22.12-12.el9.aarch64.rpm
+  - name: golang-bin
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:71af1ee916c872a85091249804e4bff6b780543d3683e424737a245faf6e14a6
+    repoid: rhocp-4.18-for-rhel-9-aarch64-rpms
+    size: 55704059
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/aarch64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/aarch64/golang-bin-1.22.12-12.el9.aarch64.rpm
+  - name: golang-race
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:abb139ab9c7cb6777d13e486e189c9231b2f098ff117c215a424cac08164eab8
+    repoid: rhocp-4.18-for-rhel-9-aarch64-rpms
+    size: 167192
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/aarch64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/aarch64/golang-race-1.22.12-12.el9.aarch64.rpm
+  - name: golang-src
+    evr: 0:1.22.12-12.el9
+    checksum: sha256:11e93dd269124ce5decd4e1c5a11e35d9cd89fa11bd8ef75b49499ff78b83d0e
+    repoid: rhocp-4.18-for-rhel-9-aarch64-rpms
+    size: 9405667
+    sourcerpm: golang-1.22.12-12.el9.src.rpm
+    url: https://download.devel.redhat.com/brewroot/repos/rhaos-4.18-rhel-9-build/latest/aarch64/toplink/vol/rhel-9/packages/golang/1.22.12/12.el9/noarch/golang-src-1.22.12-12.el9.noarch.rpm
   - name: goversioninfo
     evr: 0:1.4.0-1.el9
     checksum: sha256:aea1c51f52c5d418aa6c306ecb58b6165189dca8d0943d7f78ea88ada8e15bcc
@@ -9267,13 +9232,6 @@ arches:
     sourcerpm: json-glib-1.6.6-1.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/j/json-glib-1.6.6-1.el9.aarch64.rpm
   - name: kernel-headers
-    evr: 0:5.14.0-427.117.1.el9_4
-    checksum: sha256:71145264ba66278bee5b3af4d442e9cd338f4352bb93a7debfe8f62ff20a4bdc
-    repoid: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_4
-    size: 1948133
-    sourcerpm: kernel-5.14.0-427.117.1.el9_4.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/Packages/k/kernel-headers-5.14.0-427.117.1.el9_4.aarch64.rpm
-  - name: kernel-headers
     evr: 0:5.14.0-427.124.1.el9_4
     checksum: sha256:9d8fd4f537facebeb41a0ab5f31bb866356f104cc5c121724e63f61c3d2d9f46
     repoid: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_4
@@ -9357,13 +9315,6 @@ arches:
     size: 24374
     sourcerpm: acl-2.3.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/l/libacl-2.3.1-4.el9.aarch64.rpm
-  - name: libarchive
-    evr: 0:3.5.3-4.el9_4.2
-    checksum: sha256:e83235c6bbf2946d1bc29c1968552ee8917788540cad6158c7de3ca062444dbc
-    repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-    size: 394373
-    sourcerpm: libarchive-3.5.3-4.el9_4.2.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/l/libarchive-3.5.3-4.el9_4.2.aarch64.rpm
   - name: libarchive
     evr: 0:3.5.3-5.el9_4
     checksum: sha256:a5a3fe8b9571588486e60746843b339d35b32d75e1d40ed867404aed864e3689
@@ -9637,13 +9588,6 @@ arches:
     size: 67120
     sourcerpm: libmpc-1.2.1-4.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/Packages/l/libmpc-1.2.1-4.el9.aarch64.rpm
-  - name: libnghttp2
-    evr: 0:1.43.0-5.el9_4.3
-    checksum: sha256:686c10b1763c225d402c79e45a452161641cb306080aaefe03a3f1ad2e638547
-    repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-    size: 75930
-    sourcerpm: nghttp2-1.43.0-5.el9_4.3.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/l/libnghttp2-1.43.0-5.el9_4.3.aarch64.rpm
   - name: libnghttp2
     evr: 0:1.43.0-5.el9_4.4
     checksum: sha256:8c47d749bd6e9a2f57c31152bd8ddf16896edf9c110b1325cb5e9d7ec40f72bc
@@ -10142,26 +10086,12 @@ arches:
     sourcerpm: openldap-2.6.6-3.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/o/openldap-2.6.6-3.el9.aarch64.rpm
   - name: openssh
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:1611996025fb3e94933c5255a92a0b80fab6fd2da63c96df52d0e7838219a4ee
-    repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-    size: 457043
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.6.aarch64.rpm
-  - name: openssh
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:3b1881d67378922e7abf397dfac2307fb0c494c7ba0ab655ce73ad2638bfb5cd
     repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
     size: 456785
     sourcerpm: openssh-8.7p1-38.el9_4.7.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/o/openssh-8.7p1-38.el9_4.7.aarch64.rpm
-  - name: openssh-clients
-    evr: 0:8.7p1-38.el9_4.6
-    checksum: sha256:2d984752fd66b9be5e9e474d2bc8a9893c7cee1f42b89f6ce24e50725aace50c
-    repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-    size: 698717
-    sourcerpm: openssh-8.7p1-38.el9_4.6.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/o/openssh-clients-8.7p1-38.el9_4.6.aarch64.rpm
   - name: openssh-clients
     evr: 0:8.7p1-38.el9_4.7
     checksum: sha256:eb6216ed26224704a6567bd47b7fe2f15f6d936ccc50e80c1372965e4d9c59b3
@@ -10863,13 +10793,6 @@ arches:
     sourcerpm: python-rpm-macros-3.9-53.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/appstream/os/Packages/p/python-srpm-macros-3.9-53.el9.noarch.rpm
   - name: python3
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:bba4fdd159dfdc303a143804558ef363c59f30465089a77ebd5c8119d1bd74c9
-    repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-    size: 25660
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/p/python3-3.9.18-3.el9_4.11.aarch64.rpm
-  - name: python3
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:417564834314fd128b7520398e2973dfb7191c69e592602a316048dc005cad68
     repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
@@ -11009,13 +10932,6 @@ arches:
     size: 50962
     sourcerpm: librepo-1.14.5-2.el9.src.rpm
     url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/p/python3-librepo-1.14.5-2.el9.aarch64.rpm
-  - name: python3-libs
-    evr: 0:3.9.18-3.el9_4.11
-    checksum: sha256:8484ec4a439baf5cf6c56c5be9d8f5457e56382b87619699fe594589418bd684
-    repoid: rhel-9-for-aarch64-baseos-eus-rpms__9_DOT_4
-    size: 8200458
-    sourcerpm: python3.9-3.9.18-3.el9_4.11.src.rpm
-    url: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.4/aarch64/baseos/os/Packages/p/python3-libs-3.9.18-3.el9_4.11.aarch64.rpm
   - name: python3-libs
     evr: 0:3.9.18-3.el9_4.12
     checksum: sha256:eca53f676d5d7620a56af42705daafcf6f6d417043db858ceb5f9704288a0b82
