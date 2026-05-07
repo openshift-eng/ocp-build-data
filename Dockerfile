@@ -7,7 +7,7 @@ ENV ART_BUILD_NETWORK=hermetic
 RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.22 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.22.12-20260415.112641 __doozer_version=v1.22.12 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.22 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.22.12-20260507.081024 __doozer_version=v1.22.12 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -96,9 +96,9 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202604151126.p2.g388ceb2.el9" \
-        io.openshift.build.commit.id="388ceb2fb3d2ca010bfe3e6eb4cf9802a32aac77" \
+        release="202605070810.p2.g8cd6399.el9" \
+        io.openshift.build.commit.id="8cd6399fc8e0396f122a69f3d914a3df1512800a" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/388ceb2fb3d2ca010bfe3e6eb4cf9802a32aac77" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/8cd6399fc8e0396f122a69f3d914a3df1512800a" \
         io.openshift.tags="Empty"
 
