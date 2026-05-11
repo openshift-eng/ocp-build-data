@@ -49,7 +49,7 @@ rhel-9-golang-1.22:
 rhel-9-golang-1.23:
   aliases:
     - rhel-9-golang-{GO_EXTRA}
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.23.10-202603131509.p2.gd0321dd.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.23.10-202605111554.p2.gbf0298b.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -62,7 +62,7 @@ rhel-9-golang-1.23:
 rhel-8-golang-1.23:
   aliases:
     - rhel-8-golang-{GO_EXTRA}
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.23.10-202603131509.p2.gdc331c7.el8
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.23.10-202605111554.p2.gdc331c7.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
