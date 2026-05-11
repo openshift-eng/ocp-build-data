@@ -48,6 +48,11 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.18.0-202605100603.p2.g2e139ed.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-agent-installer-node-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-frr
       issues:
         include:
           - id: OCPBUGS-85292
