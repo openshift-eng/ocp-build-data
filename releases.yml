@@ -40,6 +40,12 @@ releases:
             metadata:
               is:
                 el9: kernel-5.14.0-570.113.1.el9_6
+          - distgit_key: openshift
+            why: Pin openshift RPM
+            metadata:
+              is:
+                el8: openshift-4.20.0-202605061218.p2.gba5f1e6.assembly.stream.el8
+                el9: openshift-4.20.0-202605061218.p2.gba5f1e6.assembly.stream.el9
         images:
           - distgit_key: driver-toolkit
             why: Pin DTK to match RHCOS kernel 5.14.0-570.113.1.el9_6 for CVE-2026-43284
