@@ -3,9 +3,8 @@ releases:
     assembly:
       type: standard
       basis:
-        time: "2026-05-11T15:57:23+00:00"
-        reference_releases:
-          x86_64: 4.20.0-0.nightly-2026-05-11-185554
+        assembly: 4.20.21
+        reference_releases!: {}
       group:
         advisories:
           rpm: -1
@@ -14,11 +13,13 @@ releases:
         shipment:
           advisories:
             - kind: image
-            - kind: extras
-            - kind: metadata
-            - kind: fbc
         release_date: 2026-May-27
-        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.20.21
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.19.31,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.20.21
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-570.113.1.el9_6
+              why: Pin kernel for CVE-2026-43284
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
@@ -33,8 +34,21 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e46d0e244dade669cc4b4407666e778b2025248b4fc4d8cd946e16a94899324
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afa973753e808b672567b6224600310d87dfd27a0398823fde662b1eac4b3f8e
       members:
-        rpms: []
-        images: []
+        rpms:
+          - distgit_key: kernel
+            why: Pin kernel to 5.14.0-570.113.1.el9_6 for CVE-2026-43284
+            metadata:
+              is:
+                el9: kernel-5.14.0-570.113.1.el9_6
+        images:
+          - distgit_key: driver-toolkit
+            why: Pin DTK to match RHCOS kernel 5.14.0-570.113.1.el9_6 for CVE-2026-43284
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.20.0-202605102019.p2.g62e1f60.assembly.stream.el9
+      issues:
+        include:
+          - id: OCPBUGS-85301
   4.20.21:
     assembly:
       type: standard
