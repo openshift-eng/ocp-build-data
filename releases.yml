@@ -1,4 +1,67 @@
 releases:
+  4.14.66:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.14.65
+        reference_releases!: {}
+      group:
+        advisories!:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment!:
+          advisories:
+            - kind: image
+        release_date: 2026-MAY-15
+        upgrades: 4.13.19,4.13.21,4.13.22,4.13.23,4.13.24,4.13.25,4.13.26,4.13.27,4.13.28,4.13.29,4.13.30,4.13.31,4.13.32,4.13.33,4.13.34,4.13.35,4.13.36,4.13.37,4.13.38,4.13.39,4.13.40,4.13.41,4.13.42,4.13.43,4.13.44,4.13.45,4.13.46,4.13.48,4.13.49,4.13.50,4.13.51,4.13.52,4.13.53,4.13.54,4.13.55,4.13.56,4.13.57,4.13.58,4.13.59,4.13.60,4.13.61,4.13.62,4.13.63,4.13.64,4.13.65,4.13.66,4.14.0,4.14.1,4.14.2,4.14.3,4.14.4,4.14.5,4.14.6,4.14.7,4.14.8,4.14.9,4.14.10,4.14.11,4.14.12,4.14.13,4.14.14,4.14.15,4.14.16,4.14.17,4.14.18,4.14.19,4.14.20,4.14.21,4.14.22,4.14.23,4.14.24,4.14.25,4.14.26,4.14.27,4.14.28,4.14.29,4.14.30,4.14.31,4.14.32,4.14.33,4.14.34,4.14.35,4.14.36,4.14.37,4.14.38,4.14.39,4.14.40,4.14.41,4.14.42,4.14.43,4.14.44,4.14.45,4.14.46,4.14.48,4.14.49,4.14.50,4.14.51,4.14.52,4.14.53,4.14.54,4.14.55,4.14.56,4.14.57,4.14.58,4.14.59,4.14.60,4.14.61,4.14.62,4.14.63,4.14.65
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-284.170.1.el9_2
+              why: Pin kernel for CVE-2026-43284
+              non_gc_tag: hotfix
+      rhcos:
+        machine-os-content:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:15a20639f227a3048fdeefe725bdbc4167250366020dacd53f32e37ea4e51731
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:54e4652533a390774d2abcf4e90ad6ab48d5b032769612c86764b1036005f334
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fb253b72cb538469f63dc1c9576025b7a2aa5c7a4f5e3ab7f77c868fcd18a876
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:93e82ad6da8ef7d74ad5f868aee749fc1a7e15ca7fdd43f358d7f42c1620ab3a
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f894e271bd6b3987b5bd1f75d8c99677471acbdd709581658ca1daa89d2e1830
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c9d347ecaf926a94a7f18e5f453cccb05bb86b8d5ad406a5f8d1695a39a2e116
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3621a46b09dede535c101f81f235d32959c1ac95c8e38bb46bdee093ce9a722a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b7d015a875eedc8f1e8a309c0780e70e9194d6b4508685f3acdbdd952a0daec4
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff2a4a047ac54a5f7fcda1db56ce855db32730946a9412c4876a2c0c3024f721
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4f37eb2fcbbf9cc38dc48e5d9bc17a0290c2a888d4f787a81c3c49621c1dd5e6
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6a284df3a3aa80243e82b1373cc901950391c66c83d41d5326ccd96e1b579851
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f04adefc13af41622bcdf5a882f6126023a19f1c0289c7a6890f211fb526c825
+      members:
+        rpms:
+          - distgit_key: kernel
+            why: Pin kernel to kernel-5.14.0-284.170.1.el9_2 for CVE-2026-43284
+            metadata:
+              is:
+                el9: kernel-5.14.0-284.170.1.el9_2
+        images:
+          - distgit_key: driver-toolkit
+            why: Pin DTK to match RHCOS kernel kernel-5.14.0-284.170.1.el9_2 for CVE-2026-43284
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.14.0-202605111845.p2.gcafed17.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
+      issues:
+        include:
+          - id: OCPBUGS-85288
   4.14.65:
     assembly:
       type: standard
