@@ -1754,6 +1754,14 @@ releases:
         - code: FAILED_CONSISTENCY_REQUIREMENT
           component: '*'
       members:
+        rpms:
+          - distgit_key: openshift
+            why: Pin openshift RPM
+            metadata:
+              is:
+                el8: openshift-4.21.0-202604030310.p2.gdfffacd.assembly.stream.el8
+                el9: openshift-4.21.0-202604030310.p2.gdfffacd.assembly.stream.el9
+                el10: openshift-4.21.0-202604030310.p2.gdfffacd.assembly.stream.el10
         images:
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
