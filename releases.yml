@@ -52,6 +52,13 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.14.0-202605111845.p2.gcafed17.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
       issues:
         include:
           - id: OCPBUGS-85288
