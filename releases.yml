@@ -14,6 +14,9 @@ releases:
             - el9: kernel-5.14.0-284.170.1.el9_2
               why: Pin kernel for CVE-2026-43284
               non_gc_tag: hotfix
+            - el9: skopeo-1.11.4-0.1.el9_2.5
+              why: Pin skopeo for RHCOS
+              non_gc_tag: hotfix
         shipment!:
           advisories:
             - kind: image
@@ -59,8 +62,6 @@ releases:
           component: cluster-node-tuning-operator
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic-rhcos-downloader
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: rhcos
       issues:
         include:
           - id: OCPBUGS-85288
