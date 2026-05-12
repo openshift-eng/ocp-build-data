@@ -7,17 +7,12 @@ content:
       url: git@github.com:openshift-priv/console.git
       web: https://github.com/openshift/console
     modifications:
-    - action: replace
-      match: "./artifacts/corepack-${COREPACK_VERSION}.tar.gz"
-      replacement: "/cachi2/output/deps/generic/corepack-v${COREPACK_VERSION}.tgz"
-    - action: replace
-      match: "RUN container-entrypoint ./build-frontend.sh"
-      replacement: |
-        WORKDIR frontend
-        RUN node .yarn/releases/yarn-4.12.0.cjs install --immutable && \
-            node .yarn/releases/yarn-4.12.0.cjs build
     - action: command
-      command: ["sh", "-c", "echo '\nsupportedArchitectures:\n  os: [\"linux\"]\n  cpu: [\"x64\", \"arm64\", \"s390x\", \"ppc64\"]' >> frontend/.yarnrc.yml"]
+      command:
+      - sh
+      - -c
+      - "echo '\nsupportedArchitectures:\n  os: [\"linux\"]\n  cpu: [\"x64\", \"arm64\"\
+        , \"s390x\", \"ppc64\"]' >> frontend/.yarnrc.yml"
     pkg_managers:
     - yarn
 cachito:
@@ -33,7 +28,8 @@ from:
   member: openshift-enterprise-base
 labels:
   License: GPLv2+
-  io.k8s.description: This is a component of OpenShift Container Platform and provides a web console.
+  io.k8s.description: This is a component of OpenShift Container Platform and provides
+    a web console.
   io.k8s.display-name: OpenShift Console
   io.openshift.tags: openshift,console
 name: openshift/ose-console
@@ -45,11 +41,6 @@ konflux:
     aarch64: linux-d160-m2xlarge/arm64
   cachito:
     mode: removal
-  cachi2:
-    artifact_lockfile:
-      resources:
-      - url: https://ocp-artifacts.engineering.redhat.com/github/nodejs/corepack/releases/download/v0.34.6/corepack.tgz
-        filename: corepack-v0.34.6.tgz
 delivery:
   delivery_repo_names:
   - openshift4/ose-console
