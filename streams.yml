@@ -20,7 +20,7 @@
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.9-202604271607.p2.ge9dad93.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.9-202605121249.p2.gdf787b0.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -29,7 +29,7 @@ rhel-9-golang:
 rhel-8-golang:
   aliases:
     - rhel-8-golang-{GO_LATEST}
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.9-202604242241.p2.g2aa6a05.el8
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.9-202605121249.p2.g2aa6a05.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
