@@ -20,7 +20,10 @@ content:
     - action: replace
       match: "ENV CI_RPM_SVC=base-MAJOR-MINOR-rhelX.ocp.svc"
       replacement: "ENV CI_RPM_SVC=base-{MAJOR}-{MINOR}-rhel9.ocp.svc"
-
+cachito:
+  packages:
+    gomod:
+    - path: ci_images/rhel-9/ci-openshift-build-root
 from:
   member: ci-openshift-golang-builder-latest.rhel9
 labels:
