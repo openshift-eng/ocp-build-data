@@ -12,7 +12,7 @@ COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-8-golang-1.19 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.19.13-20260512.082610 __doozer_version=v1.19.13 
+ENV __doozer=update __doozer_group=rhel-8-golang-1.19 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.19.13-20260513.100629 __doozer_version=v1.19.13 
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
@@ -105,7 +105,7 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202605120826.p2.g276c5af.el8" \
+        release="202605131006.p2.g276c5af.el8" \
         io.openshift.build.commit.id="276c5af610e32bfc8a0877eaff9bc3e476314ce8" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
         io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/276c5af610e32bfc8a0877eaff9bc3e476314ce8" \
