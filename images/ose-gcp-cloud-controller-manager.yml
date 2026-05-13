@@ -8,6 +8,10 @@ content:
       branch:
         target: release-{MAJOR}.{MINOR}
     dockerfile: openshift-hack/images/Dockerfile.openshift
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          stream: rhel-8-golang-ci-build-root
 name: openshift/ose-gcp-cloud-controller-manager-rhel8
 for_payload: true
 owners:
