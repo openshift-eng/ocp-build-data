@@ -6,6 +6,12 @@ content:
         target: release-1.8
       url: git@github.com:openshift-priv/migtools-mig-operator.git
       web: https://github.com/migtools/mig-operator
+    modifications:
+      # Enable perl:5.32 module for hermetic builds - rebaser skips module enablement for EL8 (el_ver < 9 guard)
+      # so we inject it manually. Lockfile resolver picks perl 5.32 modular RPMs as highest EVR. See art-tools#2686
+      - action: replace
+        match: "dnf -y install python3-boto3 nss_wrapper"
+        replacement: "dnf module disable -y freeradius && dnf module enable -y perl:5.32 perl-IO-Socket-SSL:2.066 perl-libwww-perl:6.34 && dnf -y install python3-boto3 nss_wrapper"
 delivery:
   bundle_delivery_repo_name: rhmtc/openshift-migration-operator-bundle
   delivery_repo_names:
@@ -25,7 +31,7 @@ konflux:
     lockfile:
       dnf_modules_enable: true
       modules:
-        - perl:5.26
+        - perl:5.32
         - perl-IO-Socket-SSL:2.066
         - perl-libwww-perl:6.34
       enabled: true

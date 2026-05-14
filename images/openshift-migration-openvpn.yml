@@ -11,6 +11,11 @@ content:
       - action: replace
         match: "dnf -y install cpio"
         replacement: "microdnf -y install cpio"
+      # Enable perl:5.32 module for hermetic builds - rebaser skips module enablement for EL8 (el_ver < 9 guard)
+      # so we inject it manually. Lockfile resolver picks perl 5.32 modular RPMs as highest EVR. See art-tools#2686
+      - action: replace
+        match: "dnf builddep -y pkcs11-helper*"
+        replacement: "dnf module disable -y freeradius && dnf module enable -y perl:5.32 perl-IO-Socket-SSL:2.066 perl-libwww-perl:6.34 && dnf builddep -y pkcs11-helper*"
       - action: replace
         match: "dnf clean all"
         replacement: "microdnf clean all"
@@ -36,9 +41,9 @@ konflux:
     lockfile:
       dnf_modules_enable: true
       modules:
-        - perl
-        - perl-IO-Socket-SSL
-        - perl-libwww-perl
+        - perl:5.32
+        - perl-IO-Socket-SSL:2.066
+        - perl-libwww-perl:6.34
       enabled: true
       inspect_parent: false
       rpms:
@@ -214,7 +219,7 @@ konflux:
         - perl-macros
         - perl-MIME-Base64
         - perl-Mozilla-CA
-        - perl-Net-SSLeay
+        - perl-Net-SSLeay-1.88-2.module+el8.6.0+13392+6b8485cb  # Pinned to perl:5.32 context; bare name resolves to perl:5.24 context (higher EVR due to RPM segment comparison of context hash)
         - perl-parent
         - perl-PathTools
         - perl-Pod-Escapes
@@ -285,7 +290,7 @@ konflux:
         - urw-base35-standard-symbols-ps-fonts
         - urw-base35-z003-fonts
         - xkeyboard-config
-        - xorg-x11-fonts-ISO8859-1-100dpi
+        - xorg-x11-fonts-ISO8859-1-100dpi-7.5-19.el8  # Pinned: bare name misparsed as NVR by doozer _detect_nvr_vs_name(), silently dropped. See art-tools#2686
         - xorg-x11-font-utils
         - xorg-x11-server-utils
         - xz
