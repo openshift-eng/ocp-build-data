@@ -37,11 +37,11 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:898d526816064ebf7c7133d194a90734c25b0dc5256936dd8420bc6365fbf96e
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7a648ecaa22e51fd5a0ce7fe2683401c52b34bbf9691c90db8bc8653c214f0f9
       issues:
-        include:
-          - id: OCPBUGS-76196
         exclude:
+          - id: OCPBUGS-76196
+            # why: Fixed build shipped with a previous release
           - id: OCPBUGS-82024
-            # why: "RPM tracker bug (ovn24.03) cannot be translated by attach-cve-flaws in Konflux mode. RPM fix is already on the RPM advisory."
+            # why: Fixed build shipped with a previous release
       members:
         rpms: []
         images: []
