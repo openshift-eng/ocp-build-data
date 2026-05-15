@@ -26,6 +26,10 @@ from:
 labels:
   io.k8s.description: golang builder image for Red Hat internal builds
 
+# revert after https://gitlab.cee.redhat.com/releng/konflux-release-data/-/merge_requests/18026 merges
+base_image_release:
+  enabled: false
+
 name: openshift/golang-builder
 
 owners:
