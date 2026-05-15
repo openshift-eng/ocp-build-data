@@ -1,0 +1,81 @@
+freeze_automation: false
+name: acm-2.16
+csv_namespace: open-cluster-management
+product: acm
+version: 2.16.0
+
+vars:
+  GO_LATEST: "1.25"
+  GO_EXTRA: "1.25"
+  MAJOR: 4
+  MINOR: 21
+
+OCP_TARGET_VERSIONS: [
+  "4.18",
+  "4.19",
+  "4.20",
+  "4.21",
+  "4.22",
+]
+
+arches:
+- x86_64
+- aarch64
+- ppc64le
+- s390x
+
+operator_image_ref_mode: manifest-list
+
+konflux:
+  arches:
+  - x86_64
+  - aarch64
+  - ppc64le
+  - s390x
+  cachi2:
+    enabled: true
+    gomod_version_patch: true
+  sast:
+    enabled: true
+  network_mode: open
+
+assemblies:
+  enabled: true
+
+branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
+
+repos:
+  rhel-9-baseos-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/baseos/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/baseos/os/
+    content_set:
+      default: rhel-9-for-x86_64-baseos-e4s-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-baseos-e4s-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-baseos-e4s-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-baseos-e4s-rpms__9_DOT_6
+    reposync:
+      enabled: false
+
+  rhel-9-appstream-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/x86_64/appstream/os/
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.6/s390x/appstream/os/
+    content_set:
+      default: rhel-9-for-x86_64-appstream-e4s-rpms__9_DOT_6
+      aarch64: rhel-9-for-aarch64-appstream-e4s-rpms__9_DOT_6
+      ppc64le: rhel-9-for-ppc64le-appstream-e4s-rpms__9_DOT_6
+      s390x: rhel-9-for-s390x-appstream-e4s-rpms__9_DOT_6
+    reposync:
+      enabled: false

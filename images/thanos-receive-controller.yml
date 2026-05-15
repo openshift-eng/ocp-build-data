@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:stolostron/thanos-receive-controller.git
+      web: https://github.com/stolostron/thanos-receive-controller
+distgit:
+  component: acm-thanos-receive-controller-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/thanos-receive-controller-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/thanos-receive-controller-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-thanos-receive-controller-container
