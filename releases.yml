@@ -44,7 +44,12 @@ releases:
             metadata:
               is:
                 el9: microshift-4.18.42-202605181217.p0.gf4eeb37.assembly.4.18.42.el9
-        images: []
+        images:
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.18-202605181422.p2.gf4eeb37.assembly.4.18.42.el9
+            why: Pin microshift-bootc image to assembly
       issues:
         exclude:
           - id: OCPBUGS-78913 # CVE fix already shipped in 4.18.41, no new rhcos build for 4.18.42
