@@ -24,6 +24,8 @@ content:
       web: https://github.com/openshift/etcd
     pkg_managers:
     - gomod
+    # CI build root is still the default rhel-9-golang-ci-build-root (Go 1.21 on this branch).
+    # Align with builder stream `rhel-9-golang-1.19` in a follow-up if unit-test CI must use Go 1.19.
     ci_alignment:
       streams_prs:
         enabled: false
@@ -41,13 +43,12 @@ for_payload: false
 for_release: false
 from:
   builder:
-  # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
-  # approval to diverge from what kube apiserver uses for a given release.
-  - stream: etcd_rhel9_golang
-  - stream: etcd_rhel9_golang
-  - stream: etcd_rhel9_golang
-  - stream: etcd_rhel9_golang
-  - stream: etcd_rhel9_golang
+  # Pinned Go 1.19 on RHEL 9 via stream rhel-9-golang-1.19 (same art-images-base as openshift-4.12 rhel-9-golang).
+  - stream: rhel-9-golang-1.19
+  - stream: rhel-9-golang-1.19
+  - stream: rhel-9-golang-1.19
+  - stream: rhel-9-golang-1.19
+  - stream: rhel-9-golang-1.19
   member: openshift-enterprise-base-rhel9
 labels:
   License: GPLv2+
