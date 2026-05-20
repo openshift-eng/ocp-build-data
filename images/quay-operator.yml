@@ -1,11 +1,11 @@
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: components/quay-operator/Containerfile
     git:
       branch:
         target: redhat-3.16
-      url: git@github.com:openshift-priv/quay-operator.git
-      web: https://github.com/quay/quay-operator
+      url: git@github.com:quay/quay-konflux-components.git
+      web: https://github.com/quay/quay-konflux-components
 jira:
   project: PROJQUAY
   component: Operator
@@ -16,16 +16,15 @@ delivery:
   delivery_repo_names:
   - quay/quay-operator-rhel9
 for_payload: false
-enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: ubi9-go-toolset
   stream: rhel9-minimal
 name: quay/quay-operator-rhel9
 owners:
-- quay-devel@redhat.com
-update-csv:
-  bundle-dir: manifests/
-  manifests-dir: bundle/
+- mkok@redhat.com
+# TODO: Upstream needs to move away from quay/quay-konflux-components to build
+# bundles via ART. They would also need to add the ART bundle directories.
+#update-csv:
+#  bundle-dir: manifests/
+#  manifests-dir: bundle/

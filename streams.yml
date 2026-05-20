@@ -1,8 +1,6 @@
 ---
-rhel-9-golang:
-  aliases:
-    - rhel-9-golang-{GO_LATEST}
-  image: registry.redhat.io/ubi9/go-toolset:1.22
+ubi9-go-toolset:
+  image: registry.access.redhat.com/ubi9/go-toolset:1.22
 
 rhel9:
   image: registry.redhat.io/ubi9/ubi:latest
@@ -12,3 +10,9 @@ rhel9-minimal:
 
 rhel8:
   image: registry.redhat.io/ubi8/ubi:latest
+
+ubi9-python-312:
+  image: registry.access.redhat.com/ubi9/python-312:latest
+
+ubi9-podman:
+  image: registry.access.redhat.com/ubi9/podman:latest

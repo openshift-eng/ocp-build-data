@@ -1,11 +1,11 @@
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: components/quay/Containerfile
     git:
       branch:
         target: redhat-3.16
-      url: git@github.com:openshift-priv/quay.git
-      web: https://github.com/quay/quay
+      url: git@github.com:quay/quay-konflux-components.git
+      web: https://github.com/quay/quay-konflux-components
 jira:
   project: PROJQUAY
   component: Quay
@@ -19,7 +19,9 @@ enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 from:
-  stream: rhel9
+  builder:
+  - stream: ubi9-go-toolset
+  stream: ubi9-python-312
 name: quay/quay-rhel9
 owners:
-- quay-devel@redhat.com
+- mkok@redhat.com

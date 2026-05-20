@@ -1,11 +1,11 @@
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: components/clair/Containerfile
     git:
       branch:
-        target: release-4.7
-      url: git@github.com:openshift-priv/clair.git
-      web: https://github.com/quay/clair
+        target: redhat-3.16
+      url: git@github.com:quay/quay-konflux-components.git
+      web: https://github.com/quay/quay-konflux-components
 jira:
   project: PROJQUAY
   component: Clair
@@ -15,13 +15,10 @@ delivery:
   delivery_repo_names:
   - quay/clair-rhel9
 for_payload: false
-enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: ubi9-go-toolset
   stream: rhel9-minimal
 name: quay/clair-rhel9
 owners:
-- quay-devel@redhat.com
+- mkok@redhat.com
