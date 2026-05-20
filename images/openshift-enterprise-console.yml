@@ -6,9 +6,6 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/console.git
       web: https://github.com/openshift/console
-    modifications:
-    - action: command
-      command: ["sh", "-c", "echo '\nsupportedArchitectures:\n  os: [\"linux\"]\n  cpu: [\"x64\", \"arm64\", \"s390x\", \"ppc64\"]' >> frontend/.yarnrc.yml"]
     pkg_managers:
     - yarn
 cachito:
