@@ -1,15 +1,15 @@
 - conf:
     baseurl:
       # We only have x86_64 repo for nfv
-      aarch64: https://rhsm-pulp.corp.stage.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
-      ppc64le: https://rhsm-pulp.corp.stage.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
-      s390x: https://rhsm-pulp.corp.stage.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
-      x86_64: https://rhsm-pulp.corp.stage.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
+      s390x: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
+      x86_64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel9/9.8/x86_64/nfv/os/
     extra_options:
       gpgcheck: '1'
   content_set:
     default: rhel-9-for-x86_64-nfv-e4s-rpms__9_DOT_8
   name: rhel-9-nfv
   reposync:
-    enabled: true
+    enabled: false
   type: external
