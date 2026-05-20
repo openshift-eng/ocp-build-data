@@ -12,7 +12,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
         auto_label:
         - approved
         - lgtm
@@ -27,7 +27,7 @@ delivery:
 for_payload: true
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.26
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-csi-driver-manila-rhel9
 payload_name: csi-driver-manila
