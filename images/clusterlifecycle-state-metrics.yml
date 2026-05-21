@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: backplane-2.11
+      url: git@github.com:openshift-priv/stolostron-clusterlifecycle-state-metrics.git
+      web: https://github.com/stolostron/clusterlifecycle-state-metrics
+distgit:
+  component: mce-clusterlifecycle-state-metrics-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/clusterlifecycle-state-metrics-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: multicluster-engine/clusterlifecycle-state-metrics-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-clusterlifecycle-state-metrics-container
