@@ -47,7 +47,12 @@ releases:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ose-tools
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.32-202605212036.p0.g27d51c3.assembly.4.19.32.el9
         images: []
   4.19.31:
     assembly:
