@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.registration.rhtap
+    git:
+      branch:
+        target: backplane-2.11
+      url: git@github.com:openshift-priv/stolostron-ocm.git
+      web: https://github.com/stolostron/ocm
+distgit:
+  component: mce-registration-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/registration-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: multicluster-engine/registration-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-registration-container
