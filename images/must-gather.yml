@@ -11,6 +11,10 @@ content:
         target: release-2.16
       url: git@github.com:openshift-priv/stolostron-must-gather.git
       web: https://github.com/stolostron/must-gather
+    modifications:
+      - action: replace
+        match: "--chown=default"
+        replacement: "--chown=1001:0"
 distgit:
   component: acm-must-gather-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
