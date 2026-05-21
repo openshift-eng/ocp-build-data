@@ -1,0 +1,35 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+      - path: external-providers/go-external-provider/
+content:
+  source:
+    dockerfile: konflux.go-external-provider.Dockerfile
+    git:
+      branch:
+        target: release-0.9
+      url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
+      web: https://github.com/migtools/mta-analyzer-lsp
+jira:
+  project: MTA
+  component: Application Analysis
+distgit:
+  component: mta-go-external-provider-container
+delivery:
+  delivery_repo_names:
+  - mta/mta-go-external-provider-rhel9
+for_payload: false
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: mta/mta-go-external-provider-rhel9
+owners:
+- mta-devs@redhat.com
+dependents:
+  - mta-cli
+  - mta-operator
