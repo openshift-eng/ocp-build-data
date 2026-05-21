@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhtap
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:openshift-priv/stolostron-mtv-integrations.git
+      web: https://github.com/stolostron/mtv-integrations
+distgit:
+  component: acm-mtv-integrations-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/mtv-integrations-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/mtv-integrations-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-mtv-integrations-container

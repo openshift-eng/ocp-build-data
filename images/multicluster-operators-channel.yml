@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:openshift-priv/stolostron-multicloud-operators-channel.git
+      web: https://github.com/stolostron/multicloud-operators-channel
+distgit:
+  component: acm-multicluster-operators-channel-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/multicluster-operators-channel-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/multicluster-operators-channel-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-multicluster-operators-channel-container

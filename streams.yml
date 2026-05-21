@@ -1,0 +1,17 @@
+---
+rhel-9-golang:
+  aliases:
+    - rhel-9-golang-{GO_LATEST}
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604211249.p2.g50071d5.el9
+
+rhel-8-golang:
+  image: registry.redhat.io/ubi8/go-toolset:1.25
+
+rhel-9-nodejs-20:
+  image: registry.redhat.io/ubi9/nodejs-20-minimal@sha256:a22d96776233a2830007c406874935ace3244abf0581515fbd797d5b1f7b00d5
+
+ose-cli:
+  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.21
+
+rhel9:
+  image: registry.redhat.io/ubi9/ubi-minimal@sha256:7d4e47500f28ac3a2bff06c25eff9127ff21048538ae03ce240d57cf756acd00

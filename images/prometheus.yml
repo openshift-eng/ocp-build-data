@@ -1,0 +1,31 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+    - path: promu/
+content:
+  source:
+    dockerfile: Containerfile.operator
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:openshift-priv/stolostron-prometheus.git
+      web: https://github.com/stolostron/prometheus
+distgit:
+  component: acm-prometheus-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/prometheus-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/prometheus-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-prometheus-container

@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhtap
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:openshift-priv/stolostron-multicluster-role-assignment.git
+      web: https://github.com/stolostron/multicluster-role-assignment
+distgit:
+  component: acm-multicluster-role-assignment-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/multicluster-role-assignment-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/multicluster-role-assignment-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-multicluster-role-assignment-container

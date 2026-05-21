@@ -1,0 +1,38 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: external/hypershift
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:openshift-priv/stolostron-must-gather.git
+      web: https://github.com/stolostron/must-gather
+    modifications:
+      - action: replace
+        match: "--chown=default"
+        replacement: "--chown=1001:0"
+distgit:
+  component: acm-must-gather-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/must-gather-rhel9
+for_payload: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: ose-cli
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/must-gather-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-must-gather-container
