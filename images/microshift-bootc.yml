@@ -23,6 +23,8 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/microshift.git
       web: https://github.com/openshift/microshift
+    pkg_managers:
+    - gomod
     ci_alignment:
       streams_prs:
         enabled: false
@@ -37,6 +39,13 @@ enabled_repos:
 - rhel-96-appstream
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-microshift-rpms
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - firewalld
+      - microshift
+      - microshift-release-info
 name: openshift/microshift-bootc-rhel9
 owners:
 - microshift-devel@redhat.com
