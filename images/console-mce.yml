@@ -1,0 +1,25 @@
+content:
+  source:
+    dockerfile: Containerfile.mce.konflux
+    git:
+      branch:
+        target: backplane-2.11
+      url: git@github.com:openshift-priv/stolostron-console.git
+      web: https://github.com/stolostron/console
+distgit:
+  component: mce-console-mce-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/console-mce-rhel9
+for_payload: false
+from:
+  builder:
+    - stream: rhel-9-nodejs-24
+  stream: rhel-9-nodejs-24
+name: multicluster-engine/console-mce-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-console-mce-container

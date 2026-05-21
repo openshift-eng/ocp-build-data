@@ -1,0 +1,28 @@
+content:
+  source:
+    dockerfile: Containerfile.operator
+    git:
+      branch:
+        target: backplane-2.11
+      url: git@github.com:openshift-priv/stolostron-kube-rbac-proxy.git
+      web: https://github.com/stolostron/kube-rbac-proxy
+distgit:
+  component: mce-kube-rbac-proxy-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/kube-rbac-proxy-rhel9
+for_payload: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang-1.25
+  stream: rhel9
+name: multicluster-engine/kube-rbac-proxy-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-kube-rbac-proxy-container
