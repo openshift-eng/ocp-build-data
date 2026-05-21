@@ -77,7 +77,37 @@ releases:
           component: rhcos
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: csi-livenessprobe
+            why: Pin older operand to match aws-efs-csi-driver-operator bundle requirements
+            metadata:
+              is:
+                nvr: csi-livenessprobe-container-v4.21.0-202605131727.p2.g78dacb7.assembly.stream.el9
+          - distgit_key: csi-node-driver-registrar
+            why: Pin older operand to match aws-efs-csi-driver-operator bundle requirements
+            metadata:
+              is:
+                nvr: csi-node-driver-registrar-container-v4.21.0-202605131727.p2.gd29f3f7.assembly.stream.el9
+          - distgit_key: csi-provisioner
+            why: Pin older operand to match aws-efs-csi-driver-operator bundle requirements
+            metadata:
+              is:
+                nvr: csi-provisioner-container-v4.21.0-202605131727.p2.gac55db6.assembly.stream.el9
+          - distgit_key: kube-rbac-proxy
+            why: Pin older operand to match aws-efs-csi-driver-operator bundle requirements
+            metadata:
+              is:
+                nvr: kube-rbac-proxy-container-v4.21.0-202605131727.p2.gcd63668.assembly.stream.el9
+          - distgit_key: ose-aws-efs-csi-driver
+            why: Pin older operand to match aws-efs-csi-driver-operator bundle requirements
+            metadata:
+              is:
+                nvr: ose-aws-efs-csi-driver-container-v4.21.0-202605181732.p2.gfa8b810.assembly.stream.el9
+          - distgit_key: ose-tools
+            why: Pin older operand to match aws-efs-csi-driver-operator bundle requirements
+            metadata:
+              is:
+                nvr: ose-tools-container-v4.21.0-202605200048.p2.g9d9df34.assembly.stream.el9
   4.21.16:
     assembly:
       type: standard
