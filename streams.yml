@@ -35,6 +35,13 @@ rhel-8-golang:
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
 
+rhel-9-golang-1.26:
+  aliases:
+    - rhel-9-golang-{GO_EXTRA}
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.2-202605152147.p2.gb1b9903.el9
+  mirror: true
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
+
 partner-rhel-8-golang-1.25:
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.8-202604081607.p2.g2aa6a05.el8
   mirror: true
