@@ -18,6 +18,10 @@ konflux:
     lockfile:
       backend: rpm-lockfile-prototype
 
+# revert after manually verifying base-image-release works for the desired golang builder nvr
+base_image_release:
+  enabled: false
+
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
