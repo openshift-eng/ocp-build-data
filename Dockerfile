@@ -8,7 +8,7 @@ RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.26 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.26.3-20260527.160141 __doozer_version=v1.26.3 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.26 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.26.3-20260527.181515 __doozer_version=v1.26.3 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -55,10 +55,10 @@ RUN \
         zip && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
-# provide a cross-compiler for windows/mac binaries (amd64 only)
+# provide a cross-compiler for windows/mac binaries (x86_64 only)
 RUN cp /cachi2/output/deps/generic/cross.tar.gz .
-RUN [ $(go env GOARCH) != "amd64" ] || (\
-    # only install cross-compiler dependencies on amd64
+RUN if [ "$(uname -m)" = "x86_64" ]; then \
+    # only install cross-compiler dependencies on x86_64
     yum install -y --setopt=tsflags=nodocs \
     # Required packages for mac cross-compilation
     llvm-toolset cmake3 gcc-c++ libxml2-devel \
@@ -75,7 +75,8 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
     echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
     /sbin/ldconfig && \
-    rm -rf cross)
+    rm -rf cross; \
+fi
 
 # above is conditional; clean up unconditionally
 RUN rm -f cross.tar.gz && yum clean all -y
@@ -97,9 +98,9 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202605271601.p2.ge5b8e9c.el9" \
-        io.openshift.build.commit.id="e5b8e9cab13ea7da2efdd57ec0846a9354e90455" \
+        release="202605271815.p2.g40b9f1e.el9" \
+        io.openshift.build.commit.id="40b9f1e2585b30cef7e71e49e74b132bf5343b52" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/e5b8e9cab13ea7da2efdd57ec0846a9354e90455" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/40b9f1e2585b30cef7e71e49e74b132bf5343b52" \
         io.openshift.tags="Empty"
 
