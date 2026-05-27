@@ -83,7 +83,11 @@ releases:
           component: rhcos
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: dpu-operator
+            metadata:
+              is:
+                nvr: dpu-operator-container-v4.22.0-202605270858.p2.gb2a79d5.assembly.stream.el9
   rc.4:
     assembly:
       type: candidate
