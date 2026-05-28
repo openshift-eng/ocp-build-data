@@ -23,6 +23,8 @@ enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: true
+base_image_release:
+  force: true
 from:
   builder:
   - member: ose-installer-terraform-providers
