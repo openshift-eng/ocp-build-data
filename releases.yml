@@ -38,7 +38,19 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3fc79aea046c9a6b819f3608d328597843ba444231e26eec9600fe243785caaf
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: local-storage-operator
+            why: LSO delivered from 4.18 catalog, not needed in 4.13
+            exclude: true
+          - distgit_key: local-storage-operator-metadata
+            why: LSO delivered from 4.18 catalog, not needed in 4.13
+            exclude: true
+          - distgit_key: local-storage-mustgather
+            why: LSO delivered from 4.18 catalog, not needed in 4.13
+            exclude: true
+          - distgit_key: local-storage-diskmaker
+            why: LSO delivered from 4.18 catalog, not needed in 4.13
+            exclude: true
   4.13.66:
     assembly:
       type: standard
