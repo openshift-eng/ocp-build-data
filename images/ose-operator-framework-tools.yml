@@ -10,6 +10,10 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+
+# canonical does not correctly handle multi stage dockerfiles right now
+canonical_builders_from_upstream: false
+
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-operator-framework-tools-container
