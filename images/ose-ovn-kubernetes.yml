@@ -31,6 +31,8 @@ enabled_repos:
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: true
+base_image_release:
+  force: true
 from:
   builder:
   - stream: rhel-9-golang
