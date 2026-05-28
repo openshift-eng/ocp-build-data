@@ -38,7 +38,12 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3fc79aea046c9a6b819f3608d328597843ba444231e26eec9600fe243785caaf
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: local-storage-mustgather
+          metadata:
+            is:
+              nvr: ose-local-storage-mustgather-container-v4.13.0-202605271326.p2.g1284973.assembly.stream.el9
+          why: Pin to match local-storage-operator bundle NVR reference
   4.13.66:
     assembly:
       type: standard
