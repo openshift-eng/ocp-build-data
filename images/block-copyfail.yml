@@ -1,0 +1,39 @@
+# This is a custom image that was added only for the purpose of releasing a fix for a CVE. This build should not be
+# swept in regular releases. Keeping it in mode: disabled for historical context.
+mode: disabled
+content:
+  source:
+    path: .
+    dockerfile: Dockerfile
+    git:
+      allow_unprotected_branch: true
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/block-copyfail.git
+      web: https://github.com/openshift/block-copyfail
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: block-copyfail-container
+delivery:
+  repo_name: block-copyfail
+  delivery_repo_names:
+  - openshift4/ose-block-copyfail-rhel9
+for_payload: false
+for_release: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+- rhel-9-server-ose-rpms-embargoed
+- rhel-9-codeready-builder-rpms
+from:
+  builder:
+  - stream: rhel9-custom
+  member: openshift-enterprise-base-rhel9
+name: openshift4/ose-block-copyfail-rhel9
+owners:
+- aos-team-art@redhat.com
+konflux:
+  image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/supplemental-tools
+  cachi2:
+    lockfile:
+      backend: rpm-lockfile-prototype
