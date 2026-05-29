@@ -1,0 +1,32 @@
+base_only: true
+content:
+  source:
+    git:
+      branch:
+        target: openshift-base-rhel10
+      url: git@github.com:openshift-priv/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel10
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: openshift-base-rhel10-container
+enabled_repos:
+- rhel-102-baseos
+- rhel-102-appstream
+  # sometimes we ship RHEL content ahead of RHEL (usually for RHCOS).
+  # update with that content too so we avoid out-of-date assembly issues:
+- rhel-10-server-ose-rpms-embargoed
+for_payload: false
+for_release: false
+from:
+  stream: rhel10
+name: openshift/base-rhel10
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+okd:
+  mode: disabled
