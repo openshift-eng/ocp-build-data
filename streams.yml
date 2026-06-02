@@ -20,7 +20,7 @@
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604150744.p2.gf28329a.el9
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.3-202605272015.p2.ged14a27.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -29,21 +29,37 @@ rhel-9-golang:
 rhel-8-golang:
   aliases:
     - rhel-8-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604081607.p2.g2aa6a05.el8
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.3-202605272015.p2.g8642f2e.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
 
-rhel-9-golang-1.26:
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.3-202605272015.p2.ged14a27.el9
+rhel-9-golang-1.25:
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604150744.p2.gf28329a.el9
   mirror: true
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
 
-rhel-8-golang-1.26:
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.3-202605272015.p2.g8642f2e.el8
+rhel-8-golang-1.25:
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604081607.p2.g2aa6a05.el8
   mirror: true
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
+
+partner-rhel-8-golang-1.26:
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.3-202605272015.p2.g8642f2e.el8
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.26-openshift-{MAJOR}.{MINOR}
+  upstream_image_mirror:
+    - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.26-openshift-{MAJOR}.{MINOR}
+
+partner-rhel-9-golang-1.26:
+  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.26.3-202605272015.p2.ged14a27.el9
+  mirror: true
+  mirror_manifest_list: true
+  upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.26-openshift-{MAJOR}.{MINOR}
+  upstream_image_mirror:
+    - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.26-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-8-golang-1.25:
   image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.8-202604081607.p2.g2aa6a05.el8
