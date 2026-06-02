@@ -3,12 +3,16 @@ FROM brew.registry.redhat.io/rh-osbs/ubi8:8.6-754
 # Start Konflux-specific steps
 ENV ART_BUILD_ENGINE=konflux
 ENV ART_BUILD_DEPS_METHOD=cachi2
-ENV ART_BUILD_NETWORK=hermetic
+ENV ART_BUILD_NETWORK=open
 RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
+RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
+COPY .oit/art-unsigned.repo /etc/yum.repos.d/
+RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
+ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-8-golang-1.21 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.21.13-20260602.190621 __doozer_version=v1.21.13 
+ENV __doozer=update __doozer_group=rhel-8-golang-1.21 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.21.13-20260602.195302 __doozer_version=v1.21.13 
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
@@ -21,7 +25,7 @@ ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
     GODEBUG="disablethp=1"
 
 
-RUN \
+RUN dnf update -y && \
     dnf install -y --nodocs \
         bc \
         diffutils \
@@ -54,7 +58,7 @@ RUN \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (amd64 only)
-RUN cp /cachi2/output/deps/generic/cross.tar.gz .
+COPY cross.tar.gz .
 RUN [ $(go env GOARCH) != "amd64" ] || (\
     # only install cross-compiler dependencies on amd64
     yum install -y --setopt=tsflags=nodocs \
@@ -82,6 +86,13 @@ RUN rm -f cross.tar.gz && yum clean all -y
 COPY go_wrapper.sh /tmp/go_wrapper.sh
 RUN GO_BIN_PATH=$(which go) && mv $GO_BIN_PATH $GO_BIN_PATH.real && mv /tmp/go_wrapper.sh $GO_BIN_PATH && chmod +x $GO_BIN_PATH
 
+# Start Konflux-specific steps
+USER 0
+RUN rm -f /etc/yum.repos.d/art-* && mv /tmp/art/yum_temp/* /etc/yum.repos.d/ || true
+RUN rm -rf /tmp/art
+
+# End Konflux-specific steps
+
 LABEL \
         summary="RHEL8 based Go builder image for OpenShift ART" \
         description="RHEL8 based Go builder image for OpenShift ART" \
@@ -95,7 +106,7 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202606021906.p2.gb91c6ac.el8" \
+        release="202606021953.p2.gb91c6ac.el8" \
         io.openshift.build.commit.id="b91c6acf1249e8f23c1b1cce8ab3117589f0d100" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
         io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/b91c6acf1249e8f23c1b1cce8ab3117589f0d100" \
