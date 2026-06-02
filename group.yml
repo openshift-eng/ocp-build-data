@@ -23,7 +23,7 @@ vars:
   #               aliases:
   #               - rhel-9-golang-{GO_LATEST}
   #               image: openshift/golang-builder:v1.21.3-202401221732.el9.g00c615b
-  GO_LATEST: "1.25"
+  GO_LATEST: "1.26"
   GO_EXTRA: "1.26"
 
 compliance:
@@ -31,17 +31,17 @@ compliance:
     enabled: true
 
 arches:
-- x86_64
-- ppc64le
-- s390x
-- aarch64
+  - x86_64
+  - ppc64le
+  - s390x
+  - aarch64
 
 konflux:
   arches:
-  - x86_64
-  - aarch64
-  - s390x
-  - ppc64le
+    - x86_64
+    - aarch64
+    - s390x
+    - ppc64le
   cachi2:
     enabled: true
     gomod_version_patch: true
@@ -82,9 +82,9 @@ build_profiles:
   rpm:
     default:
       targets:
-      - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+        - rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
       hotfix_targets:
-      - rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
+        - rhaos-{MAJOR}.{MINOR}-rhel-8-hotfix
 
 assemblies:
   enabled: true
@@ -119,21 +119,21 @@ rhcos:
       rhel_version: 10.1
       meta_type: meta
   enabled_repos:
-  - rhel-9-fast-datapath-rpms
-  - rhel-9-server-ose-rpms
-  - rhel-9-baseos-rpms
-  - rhel-9-appstream-rpms
+    - rhel-9-fast-datapath-rpms
+    - rhel-9-server-ose-rpms
+    - rhel-9-baseos-rpms
+    - rhel-9-appstream-rpms
   require_consistency:
     driver-toolkit:
-    - kernel  # since 9.3, kernel-rt is merged into the kernel package.
+      - kernel # since 9.3, kernel-rt is merged into the kernel package.
     ose-ovn-kubernetes:
-    - libreswan
+      - libreswan
   exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
-  - crun-wasm
-  - lld
-  - llvm
+    - crun-wasm
+    - lld
+    - llvm
   allow_missing_brew_rpms: false
-  layered_rhcos: True
+  layered_rhcos: true
 
 check_external_packages:
   - name: cri-o
@@ -207,41 +207,41 @@ push:
     # - quay.io/openshift-qe-optional-operators
 
 public_upstreams:
-- private: "https://github.com/openshift-priv/operator-marketplace"
-  public:  "https://github.com/operator-framework/operator-marketplace"
-- private: "https://github.com/openshift-priv"
-  public:  "https://github.com/openshift"
-- private: "https://github.com/openshift-priv/cloud-event-proxy"
-  public:  "https://github.com/redhat-cne/cloud-event-proxy"
-- private: "https://github.com/openshift-priv/ocp-build-data"
-  public: "https://github.com/openshift-eng/ocp-build-data"
-- private: "https://github.com/openshift-priv/assisted-installer-ui"
-  public: "https://github.com/openshift-assisted/assisted-installer-ui"
+  - private: "https://github.com/openshift-priv/operator-marketplace"
+    public: "https://github.com/operator-framework/operator-marketplace"
+  - private: "https://github.com/openshift-priv"
+    public: "https://github.com/openshift"
+  - private: "https://github.com/openshift-priv/cloud-event-proxy"
+    public: "https://github.com/redhat-cne/cloud-event-proxy"
+  - private: "https://github.com/openshift-priv/ocp-build-data"
+    public: "https://github.com/openshift-eng/ocp-build-data"
+  - private: "https://github.com/openshift-priv/assisted-installer-ui"
+    public: "https://github.com/openshift-assisted/assisted-installer-ui"
 
 default_image_build_method: osbs2
 image_build_log_scanner:
   matches:
     # yum failed to install a package (but may not give an error result)
-  - "No package .* available"
+    - "No package .* available"
     # dnf failed to find a package to install:
-  - "Error: Unable to find a match"
+    - "Error: Unable to find a match"
     # on multiarch builds, installed different NVR of pkg for different arches:
-  - "Failed component comparison for components:.*"
+    - "Failed component comparison for components:.*"
     # docker does not understand multi-stage builds
-  - "is not a valid repository/tag: invalid reference format"
+    - "is not a valid repository/tag: invalid reference format"
     # indicative of https://github.com/openshift/imagebuilder/issues/87 or file(s) missing
-  - "plugins.imagebuilder.*lstat.*no such file or directory"
+    - "plugins.imagebuilder.*lstat.*no such file or directory"
     # koji sucks at auto-incrementing releases
-  - "bump_release: BuildError.'Unable to increment release value:"
+    - "bump_release: BuildError.'Unable to increment release value:"
     # need to add the image component to whitelist building into candidate tag
-  - "not in list for tag rhaos-.*-candidate"
+    - "not in list for tag rhaos-.*-candidate"
   files:
-  - x86_64.log
-  - s390x.log
-  - ppc64le.log
-  - aarch64.log
-  - task_failed.log
-  - orchestrator.log
+    - x86_64.log
+    - s390x.log
+    - ppc64le.log
+    - aarch64.log
+    - task_failed.log
+    - orchestrator.log
 scan_freshness:
   release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
   threshold_hours: 1
@@ -284,46 +284,46 @@ external_scanners:
 
       exclude_components:
       # Built by CPAAS
-      - cnf-tests-container
-      - bare-metal-event-relay-operator-container
-      - lifecycle-agent-operator-container
-      - numaresources-must-gather-container
-      - topology-aware-lifecycle-manager-recovery-container
-      - noderesourcetopology-scheduler-container
-      - windows-machine-config-operator-container
-      - ztp-site-generate-container
-      - dpdk-base-container
-      - topology-aware-lifecycle-manager-precache-container
-      - numaresources-operator-container
-      - topology-aware-lifecycle-manager-operator-container
-      - baremetal-hardware-event-proxy-container
+        - cnf-tests-container
+        - bare-metal-event-relay-operator-container
+        - lifecycle-agent-operator-container
+        - numaresources-must-gather-container
+        - topology-aware-lifecycle-manager-recovery-container
+        - noderesourcetopology-scheduler-container
+        - windows-machine-config-operator-container
+        - ztp-site-generate-container
+        - dpdk-base-container
+        - topology-aware-lifecycle-manager-precache-container
+        - numaresources-operator-container
+        - topology-aware-lifecycle-manager-operator-container
+        - baremetal-hardware-event-proxy-container
       # Requested ART to exclude
-      - kernel
-      - kernel-rt
-      - systemd
-      - openvswitch2.13
-      - openvswitch2.15
-      - openvswitch2.16
-      - openvswitch2.17
-      - openvswitch3.0
-      - openvswitch3.1
-      - ovn-2021
-      - ovn2.12
-      - ovn2.13
-      - ovn21.09
-      - ovn21.12
-      - ovn22.03
-      - ovn22.06
-      - ovn22.09
-      - ovn22.12
-      - ovn23.03
-      - ovn23.06
-      - ovn23.09
-      - ovn23.12
-      - ovn24.03
-      - ovn24.06
-      - ovn24.09
-      - ovn24.12
+        - kernel
+        - kernel-rt
+        - systemd
+        - openvswitch2.13
+        - openvswitch2.15
+        - openvswitch2.16
+        - openvswitch2.17
+        - openvswitch3.0
+        - openvswitch3.1
+        - ovn-2021
+        - ovn2.12
+        - ovn2.13
+        - ovn21.09
+        - ovn21.12
+        - ovn22.03
+        - ovn22.06
+        - ovn22.09
+        - ovn22.12
+        - ovn23.03
+        - ovn23.06
+        - ovn23.09
+        - ovn23.12
+        - ovn24.03
+        - ovn24.06
+        - ovn24.09
+        - ovn24.12
       # these are pinned in node base image
-      - nodejs*
-      - npm
+        - nodejs*
+        - npm
