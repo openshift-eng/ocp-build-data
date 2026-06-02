@@ -1,4 +1,4 @@
-FROM registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.25-openshift-5.0
+FROM registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.26-openshift-5.0
 USER root
 
 RUN dnf -y install python3 jq gettext python3-pyyaml \
