@@ -1,6 +1,12 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: mce-capi-webhook-config
 content:
   source:
-    dockerfile: mce-capi-webhook-config/Dockerfile
+    path: mce-capi-webhook-config
+    dockerfile: Dockerfile
     git:
       branch:
         target: backplane-2.11
