@@ -12,8 +12,17 @@ vars:
   MINOR: minor
 
 konflux:
+  network_mode: hermetic
+  build_attempts: 1
   cachi2:
     enabled: true
+    lockfile:
+      backend: rpm-lockfile-prototype
+
+base_image_release:
+  enabled: false
+
+branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
@@ -30,6 +39,8 @@ build_profiles:
     unsigned:
       signing_intent: unsigned
       repo_type: unsigned
+      targets:
+        - rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
 
 repos:
   # RHEL 9
