@@ -31,4 +31,18 @@ konflux:
     # ref thread: https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1743022042311039
     # can be removed after whilelist is in
     x86_64: linux/amd64
-  network_mode: open
+  cachi2:
+    artifact_lockfile:
+      # RHCOS ISO URLs sourced from openshift/installer repo:
+      # data/data/coreos/rhcos.json
+      # These are the same URLs that openshift-install coreos print-stream-json outputs.
+      # Whenever it changes, update these URLs to match .architectures.{arch}.artifacts.metal.formats.iso.disk.location
+      resources:
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.15-9.2/builds/415.92.202407091355-0/x86_64/rhcos-415.92.202407091355-0-live.x86_64.iso
+        filename: coreos-x86_64.iso
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.15-9.2/builds/415.92.202407091355-0/aarch64/rhcos-415.92.202407091355-0-live.aarch64.iso
+        filename: coreos-aarch64.iso
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.15-9.2/builds/415.92.202407091355-0/ppc64le/rhcos-415.92.202407091355-0-live.ppc64le.iso
+        filename: coreos-ppc64le.iso
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.15-9.2/builds/415.92.202407091355-0/s390x/rhcos-415.92.202407091355-0-live.s390x.iso
+        filename: coreos-s390x.iso
