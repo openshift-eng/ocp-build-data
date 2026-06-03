@@ -1,0 +1,36 @@
+base_only: true
+content:
+  source:
+    dockerfile: extensions/Dockerfile
+    git:
+      branch:
+        target: release-4.23
+      url: git@github.com:openshift-priv/os.git
+      url_pull: git@github.com:ashwindasr/os.git
+      web: https://github.com/openshift/os
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: rhcos-node-extensions-image-container
+enabled_repos:
+- rhel-9.8-baseos
+- rhel-98-appstream
+- rhel-98-nfv
+- rhel-98-highavailability
+for_payload: false
+for_release: false
+from:
+  builder:
+    - stream: rhel_coreos
+    - stream: centos_stream9
+  member: openshift-enterprise-base-rhel9
+name: openshift/rhcos-node-extensions-image-rhel9
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+okd:
+  mode: disabled
