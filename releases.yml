@@ -27,6 +27,15 @@ releases:
           rpm: 164955
           rhcos: 164956
           microshift: 159142
+      issues:
+        exclude:
+          - id: OCPBUGS-70113  # CVE-2025-65637 openshift/cloud-provider-openstack placeholder
+          - id: OCPBUGS-70120  # CVE-2025-65637 openshift/openstack-cinder-csi-driver-operator placeholder
+          - id: OCPBUGS-70127  # CVE-2025-65637 openshift/csi-driver-manila-operator placeholder
+          - id: OCPBUGS-77060  # CVE-2024-45338 ose-insights-runtime-extractor golang.org/x/net/html
+          - id: OCPBUGS-82075  # CVE-2026-33186 secondary-scheduler-operator gRPC-Go auth bypass
+          - id: OCPBUGS-82515  # CVE-2025-61726 dpu-daemon net/url memory exhaustion
+          - id: OCPBUGS-85440  # CVE-2026-33186 ose-node-feature-discovery gRPC-Go auth bypass
       members:
         rpms: []
         images: []
