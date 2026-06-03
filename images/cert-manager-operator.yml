@@ -8,17 +8,17 @@ content:
     git:
       allow_unprotected_branch: true
       branch:
-        target: release-1.1
-      url: git@github.com:openshift-priv/external-secrets-operator.git
-      url_pull: https://github.com/fbladilo/external-secrets-operator.git
-      web: https://github.com/openshift/external-secrets-operator
+        target: cert-manager-1.19
+      url: git@github.com:openshift-priv/cert-manager-operator.git
+      url_pull: https://github.com/shruti-rh/cert-manager-operator.git
+      web: https://github.com/openshift/cert-manager-operator
 distgit:
-  component: external-secrets-operator-container
+  component: cert-manager-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
-  bundle_delivery_repo_name: external-secrets-operator/external-secrets-operator-bundle
+  bundle_delivery_repo_name: cert-manager/cert-manager-operator-bundle
   delivery_repo_names:
-    - external-secrets-operator/external-secrets-operator-rhel9
+    - cert-manager/cert-manager-operator-rhel9
 for_payload: false
 enabled_repos:
   - rhel-9-appstream-rpms
@@ -27,7 +27,7 @@ from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
-name: external-secrets-operator/external-secrets-operator-rhel9
+name: cert-manager/cert-manager-operator-rhel9
 owners:
   - tgeer@redhat.com
   - mykastur@redhat.com
@@ -39,5 +39,5 @@ update-csv:
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
 jira:
-  project: ESO
-  component: External Secrets Operator
+  project: CM
+  component: cert-manager Operator

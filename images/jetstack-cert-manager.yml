@@ -8,16 +8,16 @@ content:
     git:
       allow_unprotected_branch: true
       branch:
-        target: release-1.1
-      url: git@github.com:openshift-priv/external-secrets.git
-      url_pull: https://github.com/fbladilo/external-secrets.git
-      web: https://github.com/openshift/external-secrets
+        target: release-1.19
+      url: git@github.com:openshift-priv/jetstack-cert-manager.git
+      url_pull: https://github.com/shruti-rh/jetstack-cert-manager.git
+      web: https://github.com/openshift/jetstack-cert-manager
 distgit:
-  component: external-secrets-container
+  component: jetstack-cert-manager-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-    - external-secrets-operator/external-secrets-rhel9
+    - cert-manager/jetstack-cert-manager-rhel9
 for_payload: false
 enabled_repos:
   - rhel-9-appstream-rpms
@@ -26,14 +26,14 @@ from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
-name: external-secrets-operator/external-secrets-rhel9
+name: cert-manager/jetstack-cert-manager-rhel9
 owners:
   - tgeer@redhat.com
   - mykastur@redhat.com
   - bhb@redhat.com
   - sbhor@redhat.com
 dependents:
-  - external-secrets-operator
+  - cert-manager-operator
 jira:
-  project: ESO
-  component: External Secrets Operator
+  project: CM
+  component: cert-manager Operator

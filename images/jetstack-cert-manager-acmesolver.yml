@@ -1,0 +1,39 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Containerfile.acmesolver.art
+    git:
+      allow_unprotected_branch: true
+      branch:
+        target: release-1.19
+      url: git@github.com:openshift-priv/jetstack-cert-manager.git
+      url_pull: https://github.com/shruti-rh/jetstack-cert-manager.git
+      web: https://github.com/openshift/jetstack-cert-manager
+distgit:
+  component: jetstack-cert-manager-acmesolver-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+    - cert-manager/jetstack-cert-manager-acmesolver-rhel9
+for_payload: false
+enabled_repos:
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: cert-manager/jetstack-cert-manager-acmesolver-rhel9
+owners:
+  - tgeer@redhat.com
+  - mykastur@redhat.com
+  - bhb@redhat.com
+  - sbhor@redhat.com
+dependents:
+  - cert-manager-operator
+jira:
+  project: CM
+  component: cert-manager Operator

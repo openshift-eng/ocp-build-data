@@ -1,0 +1,39 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Containerfile.art
+    git:
+      allow_unprotected_branch: true
+      branch:
+        target: cert-manager-1.19
+      url: git@github.com:openshift-priv/cert-manager-trust-manager.git
+      url_pull: https://github.com/shruti-rh/cert-manager-trust-manager.git
+      web: https://github.com/openshift/cert-manager-trust-manager
+distgit:
+  component: cert-manager-trust-manager-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+    - cert-manager/cert-manager-trust-manager-rhel9
+for_payload: false
+enabled_repos:
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: cert-manager/cert-manager-trust-manager-rhel9
+owners:
+  - tgeer@redhat.com
+  - mykastur@redhat.com
+  - bhb@redhat.com
+  - sbhor@redhat.com
+dependents:
+  - cert-manager-operator
+jira:
+  project: CM
+  component: cert-manager Operator
