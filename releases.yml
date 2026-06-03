@@ -1,4 +1,32 @@
 releases:
+  4.22.0:
+    assembly:
+      type: standard
+      basis:
+        assembly: rc.5
+        reference_releases!: {}
+      group:
+        release_jira: ART-14438
+        operator_index_mode: ga
+        release_date: 2026-Jun-09
+        upgrades: 4.21.6,4.21.7,4.21.8,4.21.9,4.21.10,4.21.11,4.21.12,4.21.13,4.21.14,4.21.15,4.21.16,4.21.17,4.21.18,4.21.19,4.22.0-ec.0,4.22.0-ec.1,4.22.0-ec.2,4.22.0-ec.3,4.22.0-ec.4,4.22.0-ec.5,4.22.0-rc.0,4.22.0-rc.1,4.22.0-rc.2,4.22.0-rc.3,4.22.0-rc.4,4.22.0-rc.5
+        shipment!:
+          advisories:
+            - kind: image
+              live_id: 449
+            - kind: extras
+              live_id: 450
+            - kind: metadata
+              live_id: 451
+            - kind: fbc
+          env: prod
+        advisories!:
+          rpm: 164955
+          rhcos: 164956
+          microshift: 159142
+      members:
+        rpms: []
+        images: []
   rc.5:
     assembly:
       type: candidate
