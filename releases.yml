@@ -12,6 +12,11 @@ releases:
         microshift_bootc_shipment:
           url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/554
         operator_index_mode: ga
+        dependencies:
+          rpms:
+            - el9: python-pyasn1-0.5.1-5.el9ocp
+              why: OCPBUGS-82540
+              non_gc_tag: rhaos-4.22-ironic-rhel-9-candidate
         shipment!:
           advisories:
             - kind: image
@@ -27,11 +32,6 @@ releases:
           rpm: 164955
           rhcos: 164956
           microshift: 159142
-        dependencies:
-          rpms:
-            - el9: python-pyasn1-0.5.1-5.el9ocp
-              why: OCPBUGS-82540
-              non_gc_tag: rhaos-4.22-ironic-rhel-9-candidate
       issues:
         exclude:
           - id: OCPBUGS-70113  # CVE-2025-65637 openshift/cloud-provider-openstack placeholder
