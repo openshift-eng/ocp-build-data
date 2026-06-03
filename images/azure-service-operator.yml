@@ -6,6 +6,13 @@ content:
         target: backplane-2.11
       url: git@github.com:openshift-priv/stolostron-azure-service-operator.git
       web: https://github.com/stolostron/azure-service-operator
+    modifications:
+      - action: replace
+        match: "COPY ./ ./"
+        replacement: "COPY v2/ ./"
+      - action: replace
+        match: "go mod download"
+        replacement: "go mod download all"
 distgit:
   component: mce-azure-service-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
