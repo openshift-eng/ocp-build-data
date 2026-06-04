@@ -11,8 +11,8 @@ content:
         match: "COPY ./ ./"
         replacement: "COPY v2/ ./"
       - action: replace
-        match: "go mod download"
-        replacement: "go mod download all"
+        match: "COPY stolostron/crds ./crds"
+        replacement: "COPY v2/stolostron/crds ./crds"
 distgit:
   component: mce-azure-service-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
