@@ -1,0 +1,65 @@
+releases:
+  6.4.5:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.18':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.18__operator_nvr__ose-cluster-logging-operator-container-6.4.5-202605291028.p2.ga0a997d.assembly.stream.el9
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.18__operator_nvr__loki-rhel9-operator-container-6.4.5-202605291028.p2.gc9d70af.assembly.stream.el9
+          '4.19':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.19__operator_nvr__ose-cluster-logging-operator-container-6.4.5-202605291028.p2.ga0a997d.assembly.stream.el9
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.19__operator_nvr__loki-rhel9-operator-container-6.4.5-202605291028.p2.gc9d70af.assembly.stream.el9
+          '4.20':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.20__operator_nvr__ose-cluster-logging-operator-container-6.4.5-202605291028.p2.ga0a997d.assembly.stream.el9
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.20__operator_nvr__loki-rhel9-operator-container-6.4.5-202605291028.p2.gc9d70af.assembly.stream.el9
+          '4.21':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.21__operator_nvr__ose-cluster-logging-operator-container-6.4.5-202605291028.p2.ga0a997d.assembly.stream.el9
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc:v4.21__operator_nvr__loki-rhel9-operator-container-6.4.5-202605291028.p2.gc9d70af.assembly.stream.el9
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+      members:
+        images:
+          - distgit_key: log-file-metric-exporter-container
+            metadata:
+              is:
+                nvr: log-file-metric-exporter-container-6.4.5-202605291028.p2.g3c1201f.assembly.stream.el9
+          - distgit_key: logging-loki-rhel9-container
+            metadata:
+              is:
+                nvr: logging-loki-rhel9-container-6.4.5-202605291028.p2.g3e5aaf9.assembly.stream.el9
+          - distgit_key: loki-rhel9-operator-container
+            metadata:
+              is:
+                nvr: loki-rhel9-operator-container-6.4.5-202605291028.p2.gc9d70af.assembly.stream.el9
+          - distgit_key: loki-rhel9-operator-metadata-container
+            metadata:
+              is:
+                nvr: loki-rhel9-operator-metadata-container-6.4.5.202605291028.p2.gc9d70af.assembly.stream.el9-1
+          - distgit_key: lokistack-gateway-rhel9-container
+            metadata:
+              is:
+                nvr: lokistack-gateway-rhel9-container-6.4.5-202605291028.p2.gacf51e1.assembly.stream.el9
+          - distgit_key: opa-openshift-rhel9-container
+            metadata:
+              is:
+                nvr: opa-openshift-rhel9-container-6.4.5-202605291028.p2.g6133bbb.assembly.stream.el9
+          - distgit_key: ose-cluster-logging-operator-container
+            metadata:
+              is:
+                nvr: ose-cluster-logging-operator-container-6.4.5-202605291028.p2.ga0a997d.assembly.stream.el9
+          - distgit_key: ose-cluster-logging-operator-metadata-container
+            metadata:
+              is:
+                nvr: ose-cluster-logging-operator-metadata-container-6.4.5.202605291028.p2.ga0a997d.assembly.stream.el9-1
+          - distgit_key: ose-logging-eventrouter-container
+            metadata:
+              is:
+                nvr: ose-logging-eventrouter-container-6.4.5-202605291028.p2.g6f6ae3c.assembly.stream.el9
+          - distgit_key: vector-container
+            metadata:
+              is:
+                nvr: vector-container-6.4.5-202605291028.p2.g730bd65.assembly.stream.el9
