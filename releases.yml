@@ -43,7 +43,12 @@ releases:
           - id: OCPBUGS-85440  # CVE-2026-33186 ose-node-feature-discovery gRPC-Go auth bypass
           - id: OCPBUGS-82540  # CVE-2026-23490 python-pyasn1 DoS via malformed RELATIVE-OID
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.22.0-202606042304.p0.g853f977.assembly.4.22.0.el9
         images: []
   rc.5:
     assembly:
