@@ -32,6 +32,15 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4cd92168e4629e158aff634c0d9381581bfe81bb097030ce40abc84c45a09994
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:43425a041d83573adb7a8716a35d031056da0fa67b07e71fcc0b3ecbe6918725
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:96a1ac44509cdb16722520c7387cf802b4442cfa5b9d9cb24fbc9c1c36724e21
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
       members:
         rpms: []
         images: []
