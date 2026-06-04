@@ -42,6 +42,9 @@ payload_name: baremetal-installer
 owners:
 - kni-devel-deployment@redhat.com
 konflux:
+  cachi2:
+    lockfile:
+      backend: rpm-lockfile-prototype
   vm_override:
     x86_64: linux-d160-c4xlarge/amd64
     aarch64: linux-d160-c4xlarge/arm64
