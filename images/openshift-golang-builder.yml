@@ -14,11 +14,11 @@ content:
       path: go_wrapper.sh
       overwriting: true
 enabled_repos:
-- rhel-8-server-ose-build-rpms
 - rhel-8-golang-rpms
 - rhel-8-baseos-rpms
 # for clang
 - rhel-8-appstream-rpms
+- rhel-8-codeready-builder-rpms
 
 from:
   stream: rhel8
@@ -40,6 +40,7 @@ maintainer:
 konflux:
   cachi2:
     lockfile:
+      backend: rpm-lockfile-prototype
       rpms:
       - golang
     artifact_lockfile:
