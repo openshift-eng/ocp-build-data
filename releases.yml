@@ -1,0 +1,35 @@
+releases:
+  6.0.15:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.17': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:75693e04e5b474a4bfa57a4f8621a968e14721794af15678fa738ec6aa93b22f
+          '4.14': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1e55598578c2c5653b29bffa2a22352e0b5693aee5cc751db7f063416ffd5482
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+      members:
+        images:
+          - distgit_key: logging-loki-rhel9-container
+            metadata:
+              is:
+                nvr: logging-loki-rhel9-container-6.0.15-202606041727.p2.g3e5aaf9.assembly.stream.el9
+          - distgit_key: loki-rhel9-operator-container
+            metadata:
+              is:
+                nvr: loki-rhel9-operator-container-6.0.15-202606041727.p2.g3d09d2c.assembly.stream.el9
+          - distgit_key: lokistack-gateway-rhel9-container
+            metadata:
+              is:
+                nvr: lokistack-gateway-rhel9-container-6.0.15-202606041727.p2.gacf51e1.assembly.stream.el9
+          - distgit_key: opa-openshift-rhel9-container
+            metadata:
+              is:
+                nvr: opa-openshift-rhel9-container-6.0.15-202606041727.p2.g6133bbb.assembly.stream.el9
+          - distgit_key: ose-logging-eventrouter-container
+            metadata:
+              is:
+                nvr: ose-logging-eventrouter-container-6.4.5-202605291028.p2.g6f6ae3c.assembly.stream.el9
