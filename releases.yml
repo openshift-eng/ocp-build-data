@@ -51,11 +51,11 @@ releases:
       members:
         rpms: []
         images:
-        - distgit_key: openshift-kubernetes-nmstate-operator
-          why: Latest build has missing nmstate-console-plugin operand image in quay. Same commit, all operands match.
-          metadata:
-            is:
-              nvr: ose-kubernetes-nmstate-operator-container-v4.21.0-202606030321.p2.g0766979.assembly.stream.el9
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: Latest build has missing nmstate-console-plugin operand image in quay. Same commit, all operands match.
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.21.0-202606030321.p2.g0766979.assembly.stream.el9
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
