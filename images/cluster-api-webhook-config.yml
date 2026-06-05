@@ -1,0 +1,34 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+content:
+  source:
+    path: mce-capi-webhook-config
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: backplane-2.11
+      url: git@github.com:openshift-priv/stolostron-cluster-api-installer.git
+      web: https://github.com/stolostron/cluster-api-installer
+distgit:
+  component: mce-cluster-api-webhook-config-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/cluster-api-webhook-config-rhel9
+for_payload: false
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang-1.25
+  stream: rhel9
+name: multicluster-engine/cluster-api-webhook-config-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-cluster-api-webhook-config-container
