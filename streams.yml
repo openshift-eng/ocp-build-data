@@ -78,7 +78,8 @@ partner-rhel-9-golang-1.25:
     - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.25-openshift-{MAJOR}.{MINOR}
 
 rhel9:
-  image: registry.redhat.io/ubi9/ubi-minimal@sha256:34880b64c07f28f64d95737f82f891516de9a3b43583f39970f7bf8e4cfa48b7
+  # built on top of rhel9-8-els/rhel-minimal
+  image: registry.redhat.io/rhel9-8-els/rhel-minimal@sha256:80826084cee52711b25acf828e4882f2ed76d9ad222d36002ff1e9343d8a4654
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
