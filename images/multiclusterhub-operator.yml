@@ -25,6 +25,8 @@ from:
 name: rhacm2/multiclusterhub-operator-rhel9
 update-csv:
   name: advanced-cluster-management
+  manifests-dir: bundle
+  bundle-dir: manifests
   registry: image-registry.openshift-image-registry.svc:5000
   registry-target-namespace: open-cluster-management
 owners:
