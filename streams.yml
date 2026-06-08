@@ -57,6 +57,11 @@ rhel9:
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
+rhel10-bootc:
+  # RHEL 10.2 bootc base image for microshift-bootc-rhel10
+  image: registry.redhat.io/rhel10/rhel-bootc:10.2
+  mirror: false
+
 nodejs-rhel9:
   image: registry-proxy.engineering.redhat.com/rh-osbs/ubi9-nodejs-22:1-3
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
