@@ -45,7 +45,7 @@ repos:
       extra_options:
         module_hotfixes: 1
         # this repo provides complete RHEL 9 build env; we just want the go-toolset content
-        includepkgs: module-build-macros golang* goversioninfo gpgme-devel libassuan-devel mingw*
+        includepkgs: module-build-macros golang* goversioninfo
       baseurl:
         aarch64: https://download.devel.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/aarch64/
         ppc64le: https://download.devel.redhat.com/brewroot/repos/rhaos-{MAJOR}.{MINOR}-rhel-9-build/latest/ppc64le/
@@ -86,5 +86,20 @@ repos:
       aarch64: rhel-9-for-aarch64-appstream-eus-rpms__9_DOT_0
       ppc64le: rhel-9-for-ppc64le-appstream-eus-rpms__9_DOT_0
       s390x: rhel-9-for-s390x-appstream-eus-rpms__9_DOT_0
+    reposync:
+      enabled: false
+
+  rhel-9-codeready-builder-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/codeready-builder/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/codeready-builder/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/codeready-builder/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/codeready-builder/os/
+    content_set:
+      default: codeready-builder-for-rhel-9-x86_64-eus-rpms__9_DOT_0
+      aarch64: codeready-builder-for-rhel-9-aarch64-eus-rpms__9_DOT_0
+      ppc64le: codeready-builder-for-rhel-9-ppc64le-eus-rpms__9_DOT_0
+      s390x: codeready-builder-for-rhel-9-s390x-eus-rpms__9_DOT_0
     reposync:
       enabled: false
