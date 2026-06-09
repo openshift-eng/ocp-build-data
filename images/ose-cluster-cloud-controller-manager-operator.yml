@@ -7,7 +7,9 @@ content:
       url: git@github.com:openshift-priv/cluster-cloud-controller-manager-operator.git
       web: https://github.com/openshift/cluster-cloud-controller-manager-operator
     ci_alignment:
-      streams_prs: {}
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-extra.rhel9
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-cloud-controller-manager-operator-container
