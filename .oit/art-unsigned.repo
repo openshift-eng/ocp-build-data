@@ -1,62 +1,38 @@
 [rhel-9-golang-rpms-x86_64]
-baseurl = https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.13/stream/golang-el9/latest/x86_64/os/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.13-rhel-9-build/latest/x86_64/
 module_hotfixes = 1
-includepkgs = golang* goversioninfo
+includepkgs = module-build-macros golang* goversioninfo
 name = rhel-9-golang-rpms-x86_64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-9-golang-rpms-ppc64le]
-baseurl = https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.13/stream/golang-el9/latest/ppc64le/os/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.13-rhel-9-build/latest/ppc64le/
 module_hotfixes = 1
-includepkgs = golang* goversioninfo
+includepkgs = module-build-macros golang* goversioninfo
 name = rhel-9-golang-rpms-ppc64le
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-9-golang-rpms-s390x]
-baseurl = https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.13/stream/golang-el9/latest/s390x/os/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.13-rhel-9-build/latest/s390x/
 module_hotfixes = 1
-includepkgs = golang* goversioninfo
+includepkgs = module-build-macros golang* goversioninfo
 name = rhel-9-golang-rpms-s390x
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 sslcacert = /tmp/art/Current-IT-Root-CAs.pem
 
 [rhel-9-golang-rpms-aarch64]
-baseurl = https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.13/stream/golang-el9/latest/aarch64/os/
+baseurl = https://download.devel.redhat.com/brewroot/repos/rhaos-4.13-rhel-9-build/latest/aarch64/
 module_hotfixes = 1
-includepkgs = golang* goversioninfo
+includepkgs = module-build-macros golang* goversioninfo
 name = rhel-9-golang-rpms-aarch64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 sslcacert = /tmp/art/Current-IT-Root-CAs.pem
-
-[rhel-9-codeready-builder-rpms-x86_64]
-baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/codeready-builder/os/
-name = rhel-9-codeready-builder-rpms-x86_64
-gpgcheck = 0
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-
-[rhel-9-codeready-builder-rpms-ppc64le]
-baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/codeready-builder/os/
-name = rhel-9-codeready-builder-rpms-ppc64le
-gpgcheck = 0
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-
-[rhel-9-codeready-builder-rpms-s390x]
-baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/codeready-builder/os/
-name = rhel-9-codeready-builder-rpms-s390x
-gpgcheck = 0
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-
-[rhel-9-codeready-builder-rpms-aarch64]
-baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/codeready-builder/os/
-name = rhel-9-codeready-builder-rpms-aarch64
-gpgcheck = 0
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
 [rhel-9-baseos-rpms-x86_64]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/baseos/os/
@@ -103,6 +79,30 @@ gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 [rhel-9-appstream-rpms-aarch64]
 baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/appstream/os/
 name = rhel-9-appstream-rpms-aarch64
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-9-codeready-builder-rpms-x86_64]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/x86_64/codeready-builder/os/
+name = rhel-9-codeready-builder-rpms-x86_64
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-9-codeready-builder-rpms-ppc64le]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/ppc64le/codeready-builder/os/
+name = rhel-9-codeready-builder-rpms-ppc64le
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-9-codeready-builder-rpms-s390x]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/s390x/codeready-builder/os/
+name = rhel-9-codeready-builder-rpms-s390x
+gpgcheck = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-9-codeready-builder-rpms-aarch64]
+baseurl = https://rhsm-pulp.corp.redhat.com/content/eus/rhel9/9.0/aarch64/codeready-builder/os/
+name = rhel-9-codeready-builder-rpms-aarch64
 gpgcheck = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
