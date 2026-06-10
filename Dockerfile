@@ -3,16 +3,12 @@ FROM brew.registry.redhat.io/rh-osbs/ubi8:8.6-754
 # Start Konflux-specific steps
 ENV ART_BUILD_ENGINE=konflux
 ENV ART_BUILD_DEPS_METHOD=cachi2
-ENV ART_BUILD_NETWORK=open
+ENV ART_BUILD_NETWORK=hermetic
 RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
-RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
-COPY .oit/art-unsigned.repo /etc/yum.repos.d/
-RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-8-golang-1.20 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.20.12-20260410.110116 __doozer_version=v1.20.12 
+ENV __doozer=update __doozer_group=rhel-8-golang-1.20 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.20.12-20260610.145448 __doozer_version=v1.20.12 
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
@@ -56,10 +52,10 @@ RUN dnf update -y && \
         zip && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
-# provide a cross-compiler for windows/mac binaries (amd64 only)
+# provide a cross-compiler for windows/mac binaries (x86_64 only)
 RUN cp /cachi2/output/deps/generic/cross.tar.gz .
-RUN [ $(go env GOARCH) != "amd64" ] || (\
-    # only install cross-compiler dependencies on amd64
+RUN if [ "$(uname -m)" = "x86_64" ]; then \
+    # only install cross-compiler dependencies on x86_64
     yum install -y --setopt=tsflags=nodocs \
     # Required packages for mac cross-compilation
     llvm-toolset cmake3 gcc-c++ libxml2-devel \
@@ -76,7 +72,8 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
     echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
     /sbin/ldconfig && \
-    rm -rf cross)
+    rm -rf cross; \
+fi
 
 # above is conditional; clean up unconditionally
 RUN rm -f cross.tar.gz && yum clean all -y
@@ -84,13 +81,6 @@ RUN rm -f cross.tar.gz && yum clean all -y
 # FOD wrapper modification
 COPY go_wrapper.sh /tmp/go_wrapper.sh
 RUN GO_BIN_PATH=$(which go) && mv $GO_BIN_PATH $GO_BIN_PATH.real && mv /tmp/go_wrapper.sh $GO_BIN_PATH && chmod +x $GO_BIN_PATH
-
-# Start Konflux-specific steps
-USER 0
-RUN rm -f /etc/yum.repos.d/art-* && mv /tmp/art/yum_temp/* /etc/yum.repos.d/ || true
-RUN rm -rf /tmp/art
-
-# End Konflux-specific steps
 
 LABEL \
         summary="RHEL8 based Go builder image for OpenShift ART" \
@@ -105,9 +95,10 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202604101100.p2.g6e050e4.el8" \
-        io.openshift.build.commit.id="6e050e427935377b3d4a77a8374c9ac4dad74e7a" \
+        release="202606101454.p2.gb566c1e.el8" \
+        io.openshift.build.golang-nvr="golang-1.20.12-25.el8" \
+        io.openshift.build.commit.id="b566c1e686d4c83a227391485391198a9b03e4f6" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/6e050e427935377b3d4a77a8374c9ac4dad74e7a" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/b566c1e686d4c83a227391485391198a9b03e4f6" \
         io.openshift.tags="Empty"
 
