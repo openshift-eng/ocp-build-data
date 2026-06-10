@@ -1,3 +1,4 @@
+mode: disabled  # Temporarily disabled: Conforma (EC) violation for scratch-based image pending fix
 content:
   source:
     dockerfile: Containerfile
@@ -15,8 +16,6 @@ delivery:
 for_payload: true
 from:
   stream: scratch
-konflux:
-  no_shell: true
 name: openshift/agentic-skills
 payload_name: agentic-skills
 owners:
