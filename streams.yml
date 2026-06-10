@@ -83,6 +83,12 @@ rhel9:
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
+rhel10:
+  # built on top of ubi10/ubi-minimal
+  image: registry.redhat.io/rhel10-2-els/rhel-minimal@sha256:a7ea6d51d627e172783cf8f6a0b3edc2f8b817713368823ceb36f97339515b0f
+  upstream_image: registry.ci.openshift.org/ocp/builder:ubi10-minimal-openshift-{MAJOR}.{MINOR}.art
+  mirror: false
+
 nodejs-rhel9:
   image: registry.redhat.io/ubi9/nodejs-22:latest
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
