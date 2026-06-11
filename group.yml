@@ -134,19 +134,7 @@ rhcos:
   layered_rhcos: True
 
 check_external_packages:
-  - name: cri-o
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
   - name: cri-tools
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
-  - name: crun
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
-  - name: conmon
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
-  - name: conmon-rs
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
   - name: containernetworking-plugins
@@ -158,21 +146,9 @@ check_external_packages:
   - name: containers-common
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
-  - name: podman
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
-  - name: skopeo
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
-  - name: runc
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
   - name: toolbox
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
-  - name: NetworkManager
-    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: greater_equal
   - name: kernel
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
