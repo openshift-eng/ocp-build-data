@@ -50,7 +50,15 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6d02687991e400c3dd9b3e9f047f3b87cf0195058acaaf9f56b437e183e341ca
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: Latest build has missing nmstate-console-plugin operand image in quay. Same commit, all operands match.
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.21.0-202606100719.p2.g0766979.assembly.stream.el9
+          - distgit_key: sriov-network-operator
+            why: Dependent ose-sriov-network-config-daemon broken (missing kmod RPM in hermetic build, ART-19547).
+            exclude: true
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
