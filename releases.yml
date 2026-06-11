@@ -38,7 +38,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:853149fd02373e35452f3818869c6d24977f9e9db38c7862b70a388a260bb081
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: sriov-network-operator
+            why: Dependent ose-sriov-network-config-daemon broken (missing kmod RPM in hermetic build, ART-19547).
+            exclude: true
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
