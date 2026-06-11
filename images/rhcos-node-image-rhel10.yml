@@ -1,0 +1,59 @@
+content:
+  source:
+    dockerfile: Containerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/os.git
+      web: https://github.com/openshift/os
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+    modifications:
+    - action: replace
+      match: "ARG OPENSHIFT_VERSION=overridden"
+      replacement: "ARG OPENSHIFT_VERSION=5.0"
+    - action: replace
+      match: "ARG IMAGE_NAME"
+      replacement: "ARG IMAGE_NAME=openshift/rhcos-node-image-rhel10"
+    - action: replace
+      match: "ARG IMAGE_CPE"
+      replacement: "ARG IMAGE_CPE=cpe:/a:redhat:openshift:5.0::el10"
+    - action: replace
+      match: "ARG TARGETARCH"
+      replacement: "ARG TARGETARCH=amd64"
+    - action: replace
+      match: "LABEL name=${IMAGE_NAME}"
+      replacement: ""
+    - action: replace
+      match: "LABEL architecture=${TARGETARCH}"
+      replacement: ""
+    - action: replace
+      match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo /run/src/build-node-image.sh'
+      replacement: |
+        RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo \
+            sed -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
+                -e '/cat \/run\/src\/\*\.repo >> \/etc\/yum\.repos\.d\/git\.repo/a sed -i "s/enabled=1/enabled=0/g" /etc/yum.repos.d/git.repo' \
+                /run/src/build-node-image.sh | bash
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: rhcos-node-image-container
+enabled_repos:
+- rhel-10-server-ose-rpms
+- rhel-102-baseos
+- rhel-102-appstream
+- rhel-102-fast-datapath
+for_payload: false
+for_release: false
+from:
+  builder:
+    - stream: rhel_coreos10
+name: openshift/rhcos-node-image-rhel10
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+konflux:
+  network_mode: open
+okd:
+  mode: disabled
