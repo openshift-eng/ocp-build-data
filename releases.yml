@@ -62,7 +62,12 @@ releases:
               is:
                 el9: microshift-5.0.0~ec.3-202606121318.p0.ga0b5a13.assembly.ec.3.el9
                 el10: microshift-5.0.0~ec.3-202606121318.p0.ga0b5a13.assembly.ec.3.el10
-        images: []
+        images:
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v5.0-202606121354.p2.ga0b5a13.assembly.ec.3.el9
+            why: Pin microshift-bootc image to assembly
   ec.2:
     assembly:
       type: preview
