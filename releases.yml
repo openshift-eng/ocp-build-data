@@ -55,7 +55,13 @@ releases:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~ec.3-202606121318.p0.ga0b5a13.assembly.ec.3.el9
+                el10: microshift-5.0.0~ec.3-202606121318.p0.ga0b5a13.assembly.ec.3.el10
         images: []
   ec.2:
     assembly:
