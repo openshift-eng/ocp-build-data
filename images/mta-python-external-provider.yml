@@ -3,6 +3,12 @@ cachito:
     gomod:
       - path: .
       - path: external-providers/python-external-provider/
+    pip:
+      - path: hack/cachi2
+        requirements_files:
+        - requirements.txt
+        requirements_build_files:
+        - requirements-build.txt
 content:
   source:
     dockerfile: konflux.python-external-provider.Dockerfile
@@ -11,6 +17,9 @@ content:
         target: main
       url: git@github.com:openshift-priv/migtools-mta-analyzer-lsp.git
       web: https://github.com/migtools/mta-analyzer-lsp
+    pkg_managers:
+    - gomod
+    - pip
 jira:
   project: MTA
   component: Application Analysis
@@ -21,8 +30,8 @@ delivery:
   - mta/mta-python-external-provider-rhel9
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-98-appstream-rpms
+- rhel-98-baseos-rpms
 from:
   builder:
     - stream: rhel-9-golang
