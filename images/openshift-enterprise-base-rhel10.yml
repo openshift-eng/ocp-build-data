@@ -1,0 +1,57 @@
+base_only: true
+content:
+  source:
+    dockerfile: Dockerfile.rhel10
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:kopero2000/images.git
+      web: https://github.com/kopero2000/images
+    path: base
+    ci_alignment:
+      streams_prs:
+        # Try to have this PR merge as quickly as possible by pre-approving it.
+        auto_label:
+        - approved
+        - lgtm
+        merge_first: true
+      # The actual image used by CI for the enterprise base image is
+      # built and pushed from ci-openshift-base.rhel10. Setting upstream_image
+      # here ensures that reconciliation PRs for components referencing
+      # this image as their base image will use the image created by
+      # ci-openshift-base.rhel10 and be able to resolve RPMs.
+      mirror: false
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel10
+    okd_alignment:
+      # The tag name in the okd stream to which this image should be promoted
+      tag_name: base-stream10
+      inject_rpm_repositories:
+      - id: rhel-10-server-ose
+        baseurl: http://base-{MAJOR}-{MINOR}-rhel10.ocp.svc/rhel-10-server-ose
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: openshift-enterprise-base-rhel10-container
+enabled_repos:
+- rhel-102-baseos
+- rhel-102-appstream
+for_payload: false
+for_release: false
+from:
+  builder:
+  - member: openshift-base-rhel10
+  member: openshift-base-rhel10
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the base image from which all OpenShift Container Platform images inherit.
+  io.k8s.display-name: OpenShift Container Platform RHEL 10 Base
+  io.openshift.tags: openshift,base
+name: openshift/openshift-enterprise-base-rhel10
+owners:
+- lmeyer@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      backend: rpm-lockfile-prototype
+okd:
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-10
