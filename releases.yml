@@ -56,7 +56,12 @@ releases:
             metadata:
               is:
                 el9: microshift-4.22.1-202606151226.p0.gc2f19a8.assembly.4.22.1.el9
-        images: []
+        images:
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.22-202606151301.p2.gc2f19a8.assembly.4.22.1.el9
+            why: Pin microshift-bootc image to assembly
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic-rhcos-downloader
