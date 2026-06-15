@@ -7,7 +7,10 @@
     extra_options:
       gpgcheck: '1'
   content_set:
-    optional: true
+    aarch64: rhel-10-for-aarch64-baseos-e4s-rpms__10_DOT_2
+    default: rhel-10-for-x86_64-baseos-e4s-rpms__10_DOT_2
+    ppc64le: rhel-10-for-ppc64le-baseos-e4s-rpms__10_DOT_2
+    s390x: rhel-10-for-s390x-baseos-e4s-rpms__10_DOT_2
   name: rhel-102-baseos
   reposync:
     enabled: false  # RHEL 10.2 is GA; use E4S content directly
