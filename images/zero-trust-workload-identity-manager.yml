@@ -8,17 +8,17 @@ content:
     git:
       allow_unprotected_branch: true
       branch:
-        target: cert-manager-1.19
-      url: git@github.com:openshift-priv/cert-manager-operator.git
-      url_pull: https://github.com/shruti-rh/cert-manager-operator.git
-      web: https://github.com/openshift/cert-manager-operator
+        target: release-1.1
+      url: git@github.com:openshift-priv/zero-trust-workload-identity-manager.git
+      url_pull: https://github.com/shruti-rh/zero-trust-workload-identity-manager.git
+      web: https://github.com/openshift/zero-trust-workload-identity-manager
 distgit:
-  component: cert-manager-operator-container
+  component: zero-trust-workload-identity-manager-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
-  bundle_delivery_repo_name: cert-manager/cert-manager-operator-bundle
+  bundle_delivery_repo_name: zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-operator-bundle
   delivery_repo_names:
-    - cert-manager/cert-manager-operator-rhel9
+    - zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-rhel9
 for_payload: false
 enabled_repos:
   - rhel-9-appstream-rpms
@@ -27,7 +27,7 @@ from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
-name: cert-manager/cert-manager-operator-rhel9
+name: zero-trust-workload-identity-manager/zero-trust-workload-identity-manager-rhel9
 owners:
   - tgeer@redhat.com
   - mykastur@redhat.com
@@ -39,5 +39,5 @@ update-csv:
   registry: image-registry.openshift-image-registry.svc:5000
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
 jira:
-  project: CM
-  component: cert-manager Operator
+  project: ZTWIM
+  component: Zero Trust Workload Identity Manager

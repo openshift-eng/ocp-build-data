@@ -8,16 +8,16 @@ content:
     git:
       allow_unprotected_branch: true
       branch:
-        target: release-1.19
-      url: git@github.com:openshift-priv/jetstack-cert-manager.git
-      url_pull: https://github.com/shruti-rh/jetstack-cert-manager.git
-      web: https://github.com/openshift/jetstack-cert-manager
+        target: release/0.11.x
+      url: git@github.com:openshift-priv/spiffe-spiffe-helper.git
+      url_pull: https://github.com/shruti-rh/spiffe-spiffe-helper.git
+      web: https://github.com/openshift/spiffe-spiffe-helper
 distgit:
-  component: jetstack-cert-manager-container
+  component: spiffe-helper-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-    - cert-manager/jetstack-cert-manager-rhel9
+    - zero-trust-workload-identity-manager/spiffe-helper-rhel9
 for_payload: false
 enabled_repos:
   - rhel-9-appstream-rpms
@@ -26,14 +26,14 @@ from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
-name: cert-manager/jetstack-cert-manager-rhel9
+name: zero-trust-workload-identity-manager/spiffe-helper-rhel9
 owners:
   - tgeer@redhat.com
   - mykastur@redhat.com
   - bhb@redhat.com
   - sbhor@redhat.com
 dependents:
-  - cert-manager-operator
+  - zero-trust-workload-identity-manager
 jira:
-  project: CM
-  component: cert-manager Operator
+  project: ZTWIM
+  component: Zero Trust Workload Identity Manager

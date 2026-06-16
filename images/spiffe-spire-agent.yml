@@ -1,0 +1,39 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Containerfile.spire-agent.art
+    git:
+      allow_unprotected_branch: true
+      branch:
+        target: release/v1.15.1
+      url: git@github.com:openshift-priv/spiffe-spire.git
+      url_pull: https://github.com/shruti-rh/spiffe-spire.git
+      web: https://github.com/openshift/spiffe-spire
+distgit:
+  component: spire-agent-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+    - zero-trust-workload-identity-manager/spiffe-spire-agent-rhel9
+for_payload: false
+enabled_repos:
+  - rhel-9-appstream-rpms
+  - rhel-9-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: zero-trust-workload-identity-manager/spiffe-spire-agent-rhel9
+owners:
+  - tgeer@redhat.com
+  - mykastur@redhat.com
+  - bhb@redhat.com
+  - sbhor@redhat.com
+dependents:
+  - zero-trust-workload-identity-manager
+jira:
+  project: ZTWIM
+  component: Zero Trust Workload Identity Manager
