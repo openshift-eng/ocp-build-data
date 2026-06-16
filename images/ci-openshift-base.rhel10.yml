@@ -5,10 +5,9 @@ content:
     dockerfile: ci_images/rhel-10/ci-openshift-base/Dockerfile
     git:
       branch:
-        target: create-rhel10-base-image
-      url_pull: git@github.com:kopero2000/ocp-build-data.git
-      web: https://github.com/kopero2000/ocp-build-data
+        target: openshift-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
     ci_alignment:
       streams_prs:
         enabled: false
