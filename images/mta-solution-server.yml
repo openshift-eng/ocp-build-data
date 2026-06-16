@@ -2,6 +2,8 @@ cachito:
   packages:
     pip:
       - path: kai_mcp_solution_server
+        requirements_build_files:
+          - requirements-build.txt
 content:
   source:
     pkg_managers:
@@ -9,7 +11,7 @@ content:
     dockerfile: konflux.solution-server.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-kai.git
       web: https://github.com/migtools/mta-kai
 jira:
