@@ -1,0 +1,32 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: rhobs-obo-prometheus-operator
+content:
+  source:
+    dockerfile: Containerfile.prom-operator
+    git:
+      branch:
+        target: release-2.16
+      url: git@github.com:openshift-priv/stolostron-obo-prometheus-operator.git
+      web: https://github.com/stolostron/obo-prometheus-operator
+distgit:
+  component: acm-obo-prometheus-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/obo-prometheus-rhel9-operator
+for_payload: false
+dependents:
+- multiclusterhub-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: rhacm2/obo-prometheus-rhel9-operator
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-obo-prometheus-operator-container
