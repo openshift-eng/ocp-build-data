@@ -96,7 +96,7 @@ check_external_packages:
     condition: match
   - name: skopeo
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-    condition: match
+    condition: greater_equal
   - name: runc
     tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
     condition: match
