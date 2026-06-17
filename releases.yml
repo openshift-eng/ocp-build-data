@@ -29,6 +29,11 @@ releases:
         rhel-coreos-8-extensions:
           images:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:02d99fdafb838fe599c3654322efaf678919ff7c716840861d5f3414327995d2
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-agent-installer-node-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-ovn-kubernetes
       members:
         rpms: []
         images: []
