@@ -1,0 +1,47 @@
+content:
+  source:
+    dockerfile: extensions/Containerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/os.git
+      web: https://github.com/openshift/os
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+    modifications:
+    - action: replace
+      match: "ARG OPENSHIFT_VERSION=overridden"
+      replacement: "ARG OPENSHIFT_VERSION=5.0"
+    - action: replace
+      match: "ARG STREAM_CLASS"
+      replacement: "ARG STREAM_CLASS=rhel10"
+    - action: replace
+      match: "RUN --mount=type=secret,id=yumrepos,target=/os/secret.repo extensions/build.sh"
+      replacement: "RUN extensions/build.sh"
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: rhcos-node-extensions-container
+enabled_repos:
+- rhel-102-baseos
+- rhel-102-appstream
+- rhel-102-fast-datapath
+- rhel-10-server-ose-rpms
+- rhel-102-highavailability
+- rhel-102-nfv
+for_payload: false
+for_release: false
+from:
+  builder:
+    - member: rhcos-node-image
+    - member: openshift-enterprise-base-rhel10
+  member: openshift-enterprise-base-rhel10
+name: openshift/rhcos-node-extensions-rhel10
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+konflux:
+  network_mode: open
+okd:
+  mode: disabled
