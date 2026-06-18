@@ -3,7 +3,8 @@ content:
     dockerfile: extensions/Containerfile
     git:
       branch:
-        target: release-{MAJOR}.{MINOR}
+        target: feature/extensions-dnf-download
+      url_pull: git@github.com:locriandev/os.git
       url: git@github.com:openshift-priv/os.git
       web: https://github.com/openshift/os
     ci_alignment:
@@ -19,7 +20,10 @@ content:
       replacement: "ARG STREAM_CLASS=rhel10"
     - action: replace
       match: "RUN --mount=type=secret,id=yumrepos,target=/os/secret.repo extensions/build.sh"
-      replacement: "RUN extensions/build.sh"
+      replacement: |
+        RUN sed -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
+                -e '/cat \/os\/\*\.repo >> \/etc\/yum\.repos\.d\/git\.repo/a sed -i "s/enabled=1/enabled=0/g" /etc/yum.repos.d/git.repo' \
+                extensions/build.sh | bash
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-10
   component: rhcos-node-extensions-container
@@ -33,7 +37,7 @@ for_payload: false
 for_release: false
 from:
   builder:
-    - member: rhcos-node-image
+    - member: rhcos-node-image-rhel10
     - member: openshift-enterprise-base-rhel10
   member: openshift-enterprise-base-rhel10
 name: openshift/rhcos-node-extensions-rhel10
