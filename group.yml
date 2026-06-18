@@ -52,10 +52,20 @@ assemblies:
   enabled: true
 
 public_upstreams:
+- private: "https://github.com/openshift-priv/cluster-api-provider-openshift-assisted"
+  public:  "https://github.com/openshift-assisted/cluster-api-provider-openshift-assisted"
+- private: "https://github.com/openshift-priv/hypershift"
+  public:  "https://github.com/openshift/hypershift"
+- private: "https://github.com/openshift-priv/hive"
+  public:  "https://github.com/openshift/hive"
+- private: "https://github.com/openshift-priv/cluster-api-provider-kubevirt"
+  public:  "https://github.com/openshift/cluster-api-provider-kubevirt"
+- private: "https://github.com/openshift-priv/image-based-install-operator"
+  public:  "https://github.com/openshift/image-based-install-operator"
+- private: "https://github.com/openshift-priv/cluster-api-provider-agent"
+  public:  "https://github.com/openshift/cluster-api-provider-agent"
 - private: "https://github.com/openshift-priv"
   public:  "https://github.com/stolostron"
-- private: "https://github.com/openshift-priv"
-  public:  "https://github.com/openshift-assisted"
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
