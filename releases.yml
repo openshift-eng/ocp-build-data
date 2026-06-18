@@ -65,7 +65,10 @@ releases:
           - id: OCPBUGS-82444
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: sriov-network-operator
+            why: Dependent ose-sriov-network-config-daemon broken (missing kmod RPM in hermetic build, ART-19547).
+            exclude: true
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
