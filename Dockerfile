@@ -1,7 +1,7 @@
-# This is a base image that most rhel9-based containers should layer on.
-FROM rhel9
+# This is a base image that most rhel10-based containers should layer on.
+FROM rhel10
 # we pin to a RHEL EUS (rhel-els) stream for stability.
-# rhel9-els from rhel-els-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=77439)
+# rhel10-els from rhel-els-container
 
 # If we are build atop UBI or ELS minimal image, setup a link so that invocations of
 # dnf and yum call microdnf instead.
@@ -21,5 +21,5 @@ RUN echo 'skip_missing_names_on_install=0' >> /etc/yum.conf \
 
 # EUS / ELS images do not have repositories configured, and anyway they would
 # not be publicly accessible without an enabled subscription. Insert public
-# ubi9 repos in the base image so the end user can update all images easily.
+# ubi10 repos in the base image so the end user can update all images easily.
 COPY ubi.repo /etc/yum.repos.d/ubi.repo
