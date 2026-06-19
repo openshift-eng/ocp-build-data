@@ -12,7 +12,7 @@ COPY .oit/art-unsigned.repo /etc/yum.repos.d/
 RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
 ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.23 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.23.10-20260527.135944 __doozer_version=v1.23.10 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.23 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.23.10-20260619.090919 __doozer_version=v1.23.10 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -59,10 +59,10 @@ RUN dnf update -y && \
         zip && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
-# provide a cross-compiler for windows/mac binaries (amd64 only)
+# provide a cross-compiler for windows/mac binaries (x86_64 only)
 RUN cp /cachi2/output/deps/generic/cross.tar.gz .
-RUN [ $(go env GOARCH) != "amd64" ] || (\
-    # only install cross-compiler dependencies on amd64
+RUN if [ "$(uname -m)" = "x86_64" ]; then \
+    # only install cross-compiler dependencies on x86_64
     yum install -y --setopt=tsflags=nodocs \
     # Required packages for mac cross-compilation
     llvm-toolset cmake3 gcc-c++ libxml2-devel \
@@ -79,7 +79,8 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
     echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
     /sbin/ldconfig && \
-    rm -rf cross)
+    rm -rf cross; \
+fi
 
 # above is conditional; clean up unconditionally
 RUN rm -f cross.tar.gz && yum clean all -y
@@ -108,9 +109,9 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202605271359.p2.gbf0298b.el9" \
-        io.openshift.build.commit.id="bf0298b1992afa51a4421f84fda971589fae1b07" \
+        release="202606190909.p2.gf31e6fd.el9" \
+        io.openshift.build.commit.id="f31e6fd9b601dde04cf52748736ccc7b9da3d0b7" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/bf0298b1992afa51a4421f84fda971589fae1b07" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/f31e6fd9b601dde04cf52748736ccc7b9da3d0b7" \
         io.openshift.tags="Empty"
 
