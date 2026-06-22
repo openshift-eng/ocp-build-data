@@ -46,7 +46,7 @@ rhel-8-golang:
 rhel-9-golang-1.23:
   aliases:
     - rhel-9-golang-{GO_EXTRA}
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.23.10-202605111554.p2.gbf0298b.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.23.10-202605181541.p2.gbf0298b.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -59,7 +59,7 @@ rhel-9-golang-1.23:
 rhel-8-golang-1.23:
   aliases:
     - rhel-8-golang-{GO_EXTRA}
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.23.10-202605111554.p2.gdc331c7.el8
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.23.10-202605181541.p2.gdc331c7.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -70,14 +70,14 @@ rhel-8-golang-1.23:
     - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-1.23-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.24:
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.24.13-202603271447.p2.g04d2cd5.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.24.13-202605181913.p2.gffe23cf.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.24-openshift-{MAJOR}.{MINOR}
 
 rhel-8-golang-1.24:
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.24.13-202603271447.p2.gcb9763d.el8
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.24.13-202605181913.p2.g3562721.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
