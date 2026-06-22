@@ -36,4 +36,20 @@ konflux:
     # ref thread: https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1743022042311039
     # can be removed after whilelist is in
     x86_64: linux/amd64
-  network_mode: open  # fetch_image.sh script requires network access to download images in hermetic env - ART-14122
+  cachi2:
+    lockfile:
+      backend: rpm-lockfile-prototype
+    artifact_lockfile:
+      # RHCOS ISO URLs sourced from openshift/installer repo:
+      # data/data/coreos/rhcos.json
+      # These are the same URLs that openshift-install coreos print-stream-json outputs.
+      # Whenever it changes, update these URLs to match .architectures.{arch}.artifacts.metal.formats.iso.disk.location
+      resources:
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/rhel-9.6/builds/9.6.20260512-0/x86_64/rhcos-9.6.20260512-0-live-iso.x86_64.iso
+        filename: coreos-x86_64.iso
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/rhel-9.6/builds/9.6.20260512-0/aarch64/rhcos-9.6.20260512-0-live-iso.aarch64.iso
+        filename: coreos-aarch64.iso
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/rhel-9.6/builds/9.6.20260512-0/ppc64le/rhcos-9.6.20260512-0-live-iso.ppc64le.iso
+        filename: coreos-ppc64le.iso
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/rhel-9.6/builds/9.6.20260512-0/s390x/rhcos-9.6.20260512-0-live-iso.s390x.iso
+        filename: coreos-s390x.iso
