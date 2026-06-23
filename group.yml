@@ -22,6 +22,7 @@ konflux:
   - clair-scan
   build_step_resources:
     memory: "8Gi"
+    ephemeral-storage: "250Gi"
   build_args:
   - "RELEASE_FLAG=--release-image-url"
   - "RELEASE_VALUE=quay.io/openshift-release-dev/ocp-release:4.22.0-rc.0-x86_64"
