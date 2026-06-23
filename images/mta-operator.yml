@@ -3,12 +3,12 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-operator.git
       web: https://github.com/migtools/mta-operator
       allow_unprotected_branch: true
     modifications:
-      # https://github.com/migtools/mta-operator/blob/release-0.9/konflux.Dockerfile#L14
+      # https://github.com/migtools/mta-operator/blob/main/konflux.Dockerfile#L14
       - action: replace
         match: "dnf clean all"
         replacement: "dnf -y update && dnf clean all"

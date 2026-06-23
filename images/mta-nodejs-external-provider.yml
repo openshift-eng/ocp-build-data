@@ -2,10 +2,10 @@ cachito:
   packages:
     gomod:
       - path: .
-      - path: external-providers/java-external-provider/
+      - path: external-providers/nodejs-external-provider/
 content:
   source:
-    dockerfile: konflux.java-external-provider.Dockerfile
+    dockerfile: konflux.nodejs-external-provider.Dockerfile
     git:
       branch:
         target: main
@@ -15,10 +15,10 @@ jira:
   project: MTA
   component: Application Analysis
 distgit:
-  component: mta-java-external-provider-container
+  component: mta-nodejs-external-provider-container
 delivery:
   delivery_repo_names:
-  - mta/mta-java-external-provider-rhel9
+  - mta/mta-nodejs-external-provider-rhel9
 for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
@@ -26,8 +26,8 @@ enabled_repos:
 from:
   builder:
     - stream: rhel-9-golang
-  member: mta-jdtls-server-base
-name: mta/mta-java-external-provider-rhel9
+  stream: rhel9
+name: mta/mta-nodejs-external-provider-rhel9
 owners:
 - mta-devs@redhat.com
 dependents:

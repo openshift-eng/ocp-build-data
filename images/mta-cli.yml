@@ -7,7 +7,7 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-0.9
+        target: main
       url: git@github.com:openshift-priv/migtools-mta-kantra.git
       web: https://github.com/migtools/mta-kantra
 jira:
@@ -28,7 +28,9 @@ from:
     - stream: rhel9
     - member: mta-static-report
     - member: mta-analyzer-lsp
-    - member: mta-generic-external-provider
+    - member: mta-go-external-provider
+    - member: mta-nodejs-external-provider
+    - member: mta-python-external-provider
   member: mta-java-external-provider
 name: mta/mta-cli-rhel9
 owners:
