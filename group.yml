@@ -35,6 +35,9 @@ konflux:
   sast:
     enabled: true
   network_mode: hermetic
+  # The number of times a build should be attempted before giving up.
+  # Each failed attempt will result in a failed record in BigQuery
+  build_attempts: 1
 
 # OCP versions to publish FBC builds to
 OCP_TARGET_VERSIONS: [
