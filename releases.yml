@@ -40,7 +40,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:509d0d0732760dbe982a06dc84e0f49d29423c081c424a98eed81df4784e2247
       members:
         rpms: []
-        images: []
+        images: 
+          - distgit_key: ose-machine-os-images
+            why: pin nvr referenced by bundle
+            metadata:
+              is:
+                nvr: ose-machine-os-images-container-v4.15.0-202606231258.p2.gad1c48f.assembly.stream.el8
   4.15.65:
     assembly:
       type: standard
