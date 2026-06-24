@@ -1,0 +1,31 @@
+releases:
+  6.4.6:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.19': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:b54d0369442b4a967d5986736681b5ce25ddfa805d362052d37f0d9ef9958b55
+          '4.21': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:3deb6bbd30a4edb26036ce2a57c39eaa0b02561a9152f419a72fe8a77c91a608
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+      members:
+        images:
+          - distgit_key: logging-loki-rhel9-container
+            metadata:
+              is:
+                nvr: logging-loki-rhel9-container-6.4.6-202606240830.p2.g3e5aaf9.assembly.stream.el9
+          - distgit_key: loki-rhel9-operator-container
+            metadata:
+              is:
+                nvr: loki-rhel9-operator-container-6.4.6-202606240830.p2.ge8dc64e.assembly.stream.el9
+          - distgit_key: lokistack-gateway-rhel9-container
+            metadata:
+              is:
+                nvr: lokistack-gateway-rhel9-container-6.4.6-202606240830.p2.g0ab74d0.assembly.stream.el9
+          - distgit_key: opa-openshift-rhel9-container
+            metadata:
+              is:
+                nvr: opa-openshift-rhel9-container-6.4.6-202606240830.p2.g6133bbb.assembly.stream.el9
