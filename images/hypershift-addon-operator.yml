@@ -13,6 +13,8 @@ delivery:
   delivery_repo_names:
   - multicluster-engine/hypershift-addon-operator-rhel9
 for_payload: false
+dependents:
+- backplane-operator
 from:
   builder:
     - stream: rhel-9-golang
