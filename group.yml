@@ -190,6 +190,7 @@ repos:
       optional: true
     reposync:
       latest_only: false
+      enabled: true
 
   rhel-8-server-ironic-rpms:
     conf:
@@ -212,6 +213,7 @@ repos:
       s390x: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-8-s390x-rpms
     reposync:
       latest_only: false
+      enabled: true
 
   rhel-8-baseos-rpms:
     conf:
@@ -270,6 +272,8 @@ repos:
       default: rhel-8-for-x86_64-rt-rpms__8_DOT_6
       # don't have content set for other arches
       optional: true
+    reposync:
+      enabled: false
 
   rhel-8-appstream-rpms:
     conf:
@@ -317,7 +321,7 @@ repos:
       s390x: fast-datapath-for-rhel-8-s390x-rpms
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   openstack-16-for-rhel-8-rpms:
     conf:
@@ -338,7 +342,7 @@ repos:
       # don't have content set for aarch64 or s390x
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-9-baseos-rpms:
     conf:
@@ -406,6 +410,7 @@ repos:
       optional: true  # [lmeyer] have not requested creation yet
     reposync:
       latest_only: false
+      enabled: true
 
 default_image_build_method: osbs2
 image_build_log_scanner:
