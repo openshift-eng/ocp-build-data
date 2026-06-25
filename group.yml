@@ -38,6 +38,8 @@ repos:
       optional: true
 
   # this needs to be named alphabetically first to pick up signed RPMs
+    reposync:
+      enabled: false
   rhel-7-server-rpms:
     conf:
       baseurl:
@@ -49,6 +51,8 @@ repos:
       ppc64le: rhel-7-for-power-le-rpms
       s390x: rhel-7-for-system-z-rpms
       optional: true
+    reposync:
+      enabled: false
 
   rhel-server-ose-build-rpms:
     conf:
@@ -61,3 +65,5 @@ repos:
       ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
       s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
       optional: true
+    reposync:
+      enabled: false
