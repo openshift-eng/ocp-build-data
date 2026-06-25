@@ -57,6 +57,9 @@ releases:
           - distgit_key: sriov-network-operator
             why: Dependent ose-sriov-network-config-daemon broken (missing kmod RPM in hermetic build, ART-19547).
             exclude: true
+      promotion_permits:
+        - code: BLOCKER_BUGS
+          why: "OCPBUGS-92056 fix in assisted-service#10516 did not make it into nightly in time"
   4.22.2:
     assembly:
       type: standard
