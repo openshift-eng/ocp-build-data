@@ -29,6 +29,8 @@ repos:
       optional: true
 
   # The toolset repo should be that pointed to by the current build tag. e.g. for rhel-8 4.3
+    reposync:
+      enabled: false
   rhel-8-server-go-toolset:
     conf:
       baseurl:
@@ -40,3 +42,5 @@ repos:
       ppc64le: rhel-8-server-for-power-le-devtools-rpms
       s390x: rhel-8-server-for-system-z-devtools-rpms
       optional: true      
+    reposync:
+      enabled: false
