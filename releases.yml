@@ -38,7 +38,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:090391d2df8cadb8a2c231b92c854d0fcfec084ba0c57abdccfd73122cdddf7c
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: nmstate-console-plugin
+            why: pin nvr referenced by bundle
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.18.0-202606231945.p2.g583bd91.assembly.stream.el9
   4.18.45:
     assembly:
       type: standard
