@@ -35,6 +35,8 @@ repos:
       default: rhel-7-server-rpms
       ppc64le: rhel-7-for-power-le-rpms
       s390x: rhel-7-for-system-z-rpms
+    reposync:
+      enabled: false
   rhel-server-ose-build-rpms:
     conf:
       baseurl:
@@ -46,3 +48,5 @@ repos:
       ppc64le: rhel-7-for-power-le-ose-{MAJOR}.{MINOR}-rpms
       s390x: rhel-7-for-system-z-ose-{MAJOR}.{MINOR}-rpms
       optional: true
+    reposync:
+      enabled: false
