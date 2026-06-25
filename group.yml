@@ -251,6 +251,7 @@ repos:
       optional: true
     reposync:
       latest_only: false
+      enabled: true
 
   rhel-8-baseos-rpms:
     conf:
@@ -338,7 +339,7 @@ repos:
       s390x: fast-datapath-for-rhel-8-s390x-rpms
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   openstack-17-for-rhel-9-rpms:
     conf:
@@ -380,7 +381,7 @@ repos:
       ppc64le: rhel-9-for-ppc64le-baseos-e4s-rpms__9_DOT_6
       s390x: rhel-9-for-s390x-baseos-e4s-rpms__9_DOT_6
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-9-appstream-rpms:
     conf:
@@ -402,7 +403,7 @@ repos:
       ppc64le: rhel-9-for-ppc64le-appstream-e4s-rpms__9_DOT_6
       s390x: rhel-9-for-s390x-appstream-e4s-rpms__9_DOT_6
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-9-server-ose-rpms-embargoed:
     conf:
@@ -445,6 +446,7 @@ repos:
       optional: true
     reposync:
       latest_only: false
+      enabled: true
 
   rhel-10-server-ose-rpms-embargoed:
     conf:
@@ -487,6 +489,7 @@ repos:
       optional: true
     reposync:
       latest_only: false
+      enabled: true
 
   rhel-9-server-ironic-rpms:
     conf:
@@ -510,6 +513,7 @@ repos:
       optional: true  # [lmeyer] have not requested creation yet
     reposync:
       latest_only: false
+      enabled: true
 
   rhel-9-fast-datapath-rpms:
     conf:
@@ -530,7 +534,7 @@ repos:
       s390x: fast-datapath-for-rhel-9-s390x-rpms
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-9-rt-rpms:
     conf:
@@ -570,7 +574,7 @@ repos:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
       aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
     reposync:
-      enabled: false
+      enabled: true
 
   rhel-9-nfv-rpms:
     conf:
@@ -589,7 +593,7 @@ repos:
     content_set:
       default: rhel-9-for-x86_64-nfv-e4s-rpms__9_DOT_6
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-9-highavailability-rpms:
     conf:
@@ -611,7 +615,7 @@ repos:
       ppc64le: rhel-9-for-ppc64le-highavailability-e4s-rpms__9_DOT_6
       s390x: rhel-9-for-s390x-highavailability-e4s-rpms__9_DOT_6
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-10-baseos:
     conf:
@@ -625,7 +629,7 @@ repos:
     content_set:
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-10-appstream:
     conf:
@@ -639,7 +643,7 @@ repos:
     content_set:
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-10-nfv:
     conf:
@@ -654,7 +658,7 @@ repos:
     content_set:
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
   rhel-10-highavailability:
     conf:
@@ -668,7 +672,7 @@ repos:
     content_set:
       optional: true
     reposync:
-      enabled: true
+      enabled: false
 
 default_image_build_method: osbs2
 image_build_log_scanner:
