@@ -50,7 +50,13 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1d6fff1e2e5285ec279f01805f160e4603a132ad01fd17cb391ecd838e03aa19
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-metallb-operator
+            exclude: true
+            why: "Bundle build failing due to missing operand frr-rhel9"
+          - distgit_key: sriov-network-operator
+            why: Dependent ose-sriov-network-config-daemon broken (missing kmod RPM in hermetic build, ART-19547).
+            exclude: true
   4.22.2:
     assembly:
       type: standard
