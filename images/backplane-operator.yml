@@ -12,6 +12,7 @@ distgit:
 delivery:
   delivery_repo_names:
   - multicluster-engine/backplane-operator-rhel9
+  bundle_delivery_repo_name: multicluster-engine/mce-operator-bundle
 for_payload: false
 enabled_repos:
 - rhel-9-baseos-rpms
@@ -22,6 +23,12 @@ from:
     - stream: rhel-9-golang
   stream: rhel9
 name: multicluster-engine/backplane-operator-rhel9
+update-csv:
+  name: multicluster-engine
+  manifests-dir: bundle
+  bundle-dir: manifests
+  registry: image-registry.openshift-image-registry.svc:5000
+  registry-target-namespace: multicluster-engine
 owners:
 - acm-cicd@redhat.com
 jira:
