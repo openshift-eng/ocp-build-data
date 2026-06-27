@@ -1,8 +1,8 @@
 content:
   set_build_variables: false
   source:
-    path: images
-    dockerfile: openshift-golang-builder.Dockerfile
+    path: Dockerfiles
+    dockerfile: 1-24.rhel8.Dockerfile
     git:
       branch:
         target: golang
@@ -15,10 +15,10 @@ content:
       overwriting: true
 enabled_repos:
 - rhel-8-golang-rpms
-- rhel-8-baseos-rpms
+- rhel-810-baseos-rpms
 # for clang
-- rhel-8-appstream-rpms
-- rhel-8-codeready-builder-rpms
+- rhel-810-appstream-rpms
+- rhel-810-codeready-builder-rpms
 
 from:
   stream: rhel-810
