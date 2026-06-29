@@ -16,7 +16,7 @@ RUN if [ -x /usr/bin/microdnf ]; then \
     fi
 
 RUN echo 'skip_missing_names_on_install=0' >> /etc/yum.conf \
- && yum update -y  \
+ && yum update -y --nobest --exclude=openssl-fips-provider \
  && yum clean all
 
 # EUS / ELS images do not have repositories configured, and anyway they would
