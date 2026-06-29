@@ -1,0 +1,52 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhel10
+    modifications:
+    - action: replace
+      match: "ARG RHEL_VERSION=''"
+      replacement: "ARG RHEL_VERSION='10.2'"
+    # Uncomment the following sections to pin specific kernel versions
+    # - action: replace
+    #   match: "ARG KERNEL_VERSION=''"
+    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
+    # - action: replace
+    #   match: "ARG RT_KERNEL_VERSION=''"
+    #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/driver-toolkit.git
+      web: https://github.com/openshift/driver-toolkit
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: driver-toolkit-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: driver-toolkit
+  delivery_repo_names:
+  - openshift5/driver-toolkit-rhel10
+enabled_repos:
+- rhel-10-server-ose-rpms-embargoed
+- rhel-102-baseos
+- rhel-102-appstream
+- rhel-10-server-ose-rpms
+for_payload: true
+from:
+  member: openshift-enterprise-base-rhel10
+name: openshift/driver-toolkit-rhel10
+payload_name: driver-toolkit-10
+owners:
+- edge-sro@redhat.com
+konflux:
+  vm_override:
+    aarch64: linux-d160-m2xlarge/arm64
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM'); \\"
+        replacement: |-
+          diff --side-by-side <(rpm -qi kernel-core | grep 'Source RPM') <(rpm -qi kernel-rt-core | grep 'Source RPM') || true; \
+  enabled_repos:
+  - rhel-102-nfv
