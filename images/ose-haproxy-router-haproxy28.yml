@@ -1,0 +1,14 @@
+mode: wip
+name: openshift/ose-haproxy-router-haproxy28
+delivery_repo: openshift5/ose-haproxy-router-haproxy28
+for_payload: true
+content:
+  source:
+    git:
+      web: https://github.com/openshift/router
+      url: git@github.com:openshift-priv/router.git
+      branch:
+        target: release-{MAJOR}.{MINOR}
+    dockerfile: /images/router/haproxy28/Dockerfile.ocp
+owners:
+- aos-network-edge-staff@redhat.com
