@@ -5,13 +5,13 @@ content:
     - action: replace
       match: "ARG RHEL_VERSION=''"
       replacement: "ARG RHEL_VERSION='10.2'"
-    # Uncomment the following sections to pin specific kernel versions
-    # - action: replace
-    #   match: "ARG KERNEL_VERSION=''"
-    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
-    # - action: replace
-    #   match: "ARG RT_KERNEL_VERSION=''"
-    #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
+    # Pin kernel versions to ensure kernel and kernel-rt match
+    - action: replace
+      match: "ARG KERNEL_VERSION=''"
+      replacement: "ARG KERNEL_VERSION='6.12.0-211.7.1.el10_2'"
+    - action: replace
+      match: "ARG RT_KERNEL_VERSION=''"
+      replacement: "ARG RT_KERNEL_VERSION='6.12.0-211.7.1.el10_2'"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
