@@ -21,6 +21,10 @@ content:
     okd_alignment:
       resolve_as:
         stream: centos_stream9
+    modifications:
+      - action: replace
+        match: "yum update -y"
+        replacement: "yum update -y --exclude=openssl-fips-provider* && yum install -y openssl-fips-provider-3.0.7-2.el9"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-base-rhel9-container
