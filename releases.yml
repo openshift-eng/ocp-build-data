@@ -1,4 +1,40 @@
 releases:
+  4.20.28:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-07-01T13:25:32+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2026-07-01-161907
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Jul-07
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.19.31,4.19.32,4.19.33,4.19.34,4.19.35,4.19.36,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.20.21,4.20.22,4.20.23,4.20.24,4.20.25,4.20.26,4.20.27
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a74ab7d8d31df1327bbb68cf9b3336db9ca3a933b17f81cea1aac4b2009430a0
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3aa167098705a54ab97bd1714baacdf36c71b318f3d61a22e8d51b13f76b6921
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:36986f31e8182abb879f4269bb771fa3548ca57cb18ed9edbe1331ae54317214
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8ba0eb6fb6c3309a24b560732f21cc2c3bbf38ebed87aa37bb3089d24073a14d
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d418d0aebcdd6eaa841c0191a05c87bde1eccad93b53fbd0d0fec182d10b4cdf
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:12c0517ad200444284b8756df2ef91fe07c9c8186346565fd6ac3191e1ba03a5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f8656bc3431b04ca68c2e5031ed499710806aaaeb981dd9e63775add058b4f43
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b20657074d2046dcbecb63ddc77d535e74e08c036bfd2f110167f9293d71d78f
+      members:
+        rpms: []
+        images: []
   4.20.27:
     assembly:
       type: standard
