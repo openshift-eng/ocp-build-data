@@ -38,7 +38,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:94d7f049fee7b78cb4638f89754f00461ae758fab2a63844d58e7ad62936c1c1
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-metallb-operator
+            exclude: true
+            why: "Bundle build failing due to missing operand frr-rhel9"
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
