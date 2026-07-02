@@ -1,4 +1,90 @@
 releases:
+  ec.4:
+    assembly:
+      type: preview
+      basis:
+        time: "2026-06-29T14:03:50+00:00"
+        # reference_releases:
+        #   x86_64: 5.0.0-0.nightly-2026-06-29-195240
+      group:
+        advisories:
+          rpm: 168422
+          rhcos: -1
+          microshift: 167863
+        release_jira: ART-14755
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 4893
+            - kind: extras
+              live_id: 4894
+            - kind: metadata
+              live_id: 4895
+            - kind: fbc
+          env: stage
+        release_date: 2026-Oct-01
+        upgrades: 4.22.0-rc.0,4.22.0-rc.1,4.22.0-rc.2,4.22.0-rc.3,4.22.0-rc.4,4.22.0-rc.5,4.22.0,4.22.1,4.22.2,4.22.3,5.0.0-ec.0,5.0.0-ec.1,5.0.0-ec.2,5.0.0-ec.3
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.19.1.el9_8
+              non_gc_tag: rhaos-5.0-rhel-9
+              why: Pin kernel to match RHCOS build 5.0.9.8.202606270721-0
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:87bbe732f5b6a84c00e9effeede5d9cf1867498b480054cdc40cf8d45bb5bf4b
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1d0994279c9e4a620bcbe0f20637f5b5dc0483a58510919b4b6dba0c79a044ff
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ca6ffa01d834bb55d7acf6069472f94b90bca9bdfc0241169e1593e9727379ff
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a9e4986410e8542f943cd8fe8306418a11afa83d411fd09355972e2c1e67ee0
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e72d408bae5c7a1d0236cef402c1b2537db6431fc2eff4d78d2140d1602dbc92
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3f2a6726d0d5d9f2f86cea3610741e3111e94bccd8a907447c3b71d32830a742
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ced7a4a87e1e242031cefdcad85ec74eb835af3a1660695277704343925e0682
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3c5175e7ac23e386589bcf5640d7f2992cbc15d6297fc259e511230229d3af25
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:366a5eae664470f1c8aeba741fccda5ea820933184f148a4e9162f76108f989e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:52e9d1f264c9e11eb01cb115ce2c0f1480ab35d565f5110e56a023dde7a8b5d6
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cc2b619474b934de06987d32629f91b013da2c094261cd43671a262a6089fb2d
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:36bfbbdd1351dda8c8b3fd9db7bcf835e3a311c364b90a6ed4b59ffa65e28ba1
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a24ea63c9be52e7709ffe6fff34fbb79aa17213eab5436b5cb415f68e747495b
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:194214e6d763f9e677bebccb1c05554541ceb4a6241679aaa1797ff8b48e07f3
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:423c185859677c378ecc0889de7a624dc0dee5660ba67a875fee8f9f482eb89e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bd4338e8011a8d66c882f15ed476f0224822bc520c92e797cadfe244cbb96dd8
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
+        - code: FAILED_CONSISTENCY_REQUIREMENT
+          component: driver-toolkit
+        - code: MISMATCHED_SIBLINGS
+          component: ose-gcp-pd-csi-driver-operator
+      members:
+        rpms: []
+        images:
+        - distgit_key: oc-mirror-plugin
+          why: Pin oc-mirror-plugin to payload and assembly NVR
+          metadata:
+            for_payload: true
+            is:
+              nvr: oc-mirror-plugin-container-v5.0.0-202606291200.p2.gc3552e2.assembly.stream.el9
+        - distgit_key: driver-toolkit
+          why: Pin driver-toolkit NVR to assembly
+          metadata:
+            is:
+              nvr: driver-toolkit-container-v5.0.0-202606290801.p2.g9e5bed0.assembly.stream.el9
+        - distgit_key: ose-gcp-pd-csi-driver-operator
+          why: Pin source repo to assembly
+          metadata:
+            content:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/gcp-pd-csi-driver-operator.git
+                  web: https://github.com/openshift/gcp-pd-csi-driver-operator
   ec.3:
     assembly:
       type: preview
