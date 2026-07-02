@@ -27,6 +27,7 @@ releases:
         dependencies:
           rpms:
             - el9: kernel-5.14.0-687.19.1.el9_8
+              non_gc_tag: rhaos-5.0-rhel-9
               why: Pin kernel to match RHCOS build 5.0.9.8.202606270721-0
       rhcos:
         rhel-coreos:
@@ -77,6 +78,7 @@ releases:
             is:
               nvr: driver-toolkit-container-v5.0.0-202606290801.p2.g9e5bed0.assembly.stream.el9
         - distgit_key: ose-gcp-pd-csi-driver-operator
+          why: Pin source repo to assembly
           metadata:
             content:
               source:
