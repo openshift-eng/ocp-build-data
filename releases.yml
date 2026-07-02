@@ -9,7 +9,7 @@ releases:
       group:
         advisories:
           rpm: 168422
-          rhcos: -1
+          rhcos: 169393
           microshift: 167863
         release_jira: ART-14755
         shipment:
@@ -66,25 +66,25 @@ releases:
       members:
         rpms: []
         images:
-        - distgit_key: oc-mirror-plugin
-          why: Pin oc-mirror-plugin to payload and assembly NVR
-          metadata:
-            for_payload: true
-            is:
-              nvr: oc-mirror-plugin-container-v5.0.0-202606291200.p2.gc3552e2.assembly.stream.el9
-        - distgit_key: driver-toolkit
-          why: Pin driver-toolkit NVR to assembly
-          metadata:
-            is:
-              nvr: driver-toolkit-container-v5.0.0-202606290801.p2.g9e5bed0.assembly.stream.el9
-        - distgit_key: ose-gcp-pd-csi-driver-operator
-          why: Pin source repo to assembly
-          metadata:
-            content:
-              source:
-                git:
-                  url: git@github.com:openshift-priv/gcp-pd-csi-driver-operator.git
-                  web: https://github.com/openshift/gcp-pd-csi-driver-operator
+          - distgit_key: oc-mirror-plugin
+            why: Pin oc-mirror-plugin to payload and assembly NVR
+            metadata:
+              for_payload: true
+              is:
+                nvr: oc-mirror-plugin-container-v5.0.0-202606291200.p2.gc3552e2.assembly.stream.el9
+          - distgit_key: driver-toolkit
+            why: Pin driver-toolkit NVR to assembly
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v5.0.0-202606290801.p2.g9e5bed0.assembly.stream.el9
+          - distgit_key: ose-gcp-pd-csi-driver-operator
+            why: Pin source repo to assembly
+            metadata:
+              content:
+                source:
+                  git:
+                    url: git@github.com:openshift-priv/gcp-pd-csi-driver-operator.git
+                    web: https://github.com/openshift/gcp-pd-csi-driver-operator
   ec.3:
     assembly:
       type: preview
