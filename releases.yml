@@ -38,7 +38,10 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c94b0553abfd242d8db564abf2321ce2cdad12f962ace82cb300971779b09e56
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: sriov-network-operator
+            why: "sriov-network-device-plugin 202606301915 build failed ITS, causing bundle/operand NVR mismatch"
+            exclude: true
   4.19.36:
     assembly:
       type: standard
