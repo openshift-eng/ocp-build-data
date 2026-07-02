@@ -38,7 +38,17 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c94b0553abfd242d8db564abf2321ce2cdad12f962ace82cb300971779b09e56
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: sriov-network-device-plugin
+            metadata:
+              is:
+                nvr: sriov-network-device-plugin-container-v4.19.0-202607010924.p2.ga1c45b0.assembly.stream.el9
+            why: Align SR-IOV device plugin operand with operator metadata bundle for 4.19.37 prepare-release
+          - distgit_key: sriov-network-operator
+            metadata:
+              is:
+                nvr: sriov-network-operator-container-v4.19.0-202607010924.p2.gd504a2f.assembly.stream.el9
+            why: Pin operator/metadata bundle with matching SR-IOV operand set
   4.19.36:
     assembly:
       type: standard
