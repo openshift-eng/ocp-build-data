@@ -35,9 +35,9 @@ Created as part of JIRA ticket [HYPBLD-847](https://redhat.atlassian.net/browse/
 
 ## Git Source URLs
 
-- **Decision**: Use `git@github.com:stolostron/<repo>.git` directly (no openshift-priv mirrors)
-- **Rationale**: ACM repos are already public under `github.com/stolostron/`. No private mirrors exist. Verified: `grep -r "openshift-priv"` in KRD ACM tenant returns zero hits.
-- **Consequence**: `public_upstreams` section omitted from `group.yml`.
+- **Decision**: Use `git@github.com:openshift-priv/stolostron-<repo>.git` with `public_upstreams` mapping to `stolostron`
+- **Rationale**: ART builds use `openshift-priv` mirrors for hermetic source resolution. The `public_upstreams` section maps `openshift-priv` -> `stolostron` so ART can locate public sources for advisories and CVE tracking.
+- **Updated**: Originally omitted `public_upstreams`; added after enabling hermetic builds.
 
 ## Distgit Component Naming
 
@@ -80,3 +80,40 @@ Created as part of JIRA ticket [HYPBLD-847](https://redhat.atlassian.net/browse/
 
 - **Decision**: Omitted from `group.yml`
 - **Rationale**: Optional field. Many products (OCP, AAP, Serverless) don't use it. Can be added later if ACM wants QE/DOCS sign-off on FBC release MRs.
+
+## Base RHEL 9 Image (Part 5)
+
+- **Decision**: Introduce `images/base-rhel9.yml` as a layered base image on top of `ubi-minimal`
+- **Rationale**: RPMs available through ART's enabled repositories are shipped sooner than RHEL. Without a managed base image that runs `yum update`, ACM would be stuck in rebuild loops waiting for RHEL updates. This pattern is standard across all ART-managed layered products (OCP, logging-6.5, MTA 8.1, OADP 1.6).
+- **Source**: Developer request (Ashwin), reference PR openshift-eng/ocp-build-data#11595
+
+### base-rhel9 Image Name
+
+- **Decision**: `name: art-core/base-rhel9` (not `rhacm2/base-rhel9`)
+- **Rationale**: This is a shared ART infrastructure image, not an ACM product image. The `art-core/` namespace is used by all layered products for this same base image (logging-6.5, MTA 8.1). It is not shipped to customers and has `for_release: false`.
+
+### base-rhel9 Source Branch
+
+- **Decision**: Source from `openshift-base-rhel9` branch of `ocp-build-data` (shared across all products)
+- **Rationale**: The Dockerfile, `microdnf-wrapper.sh`, and `ubi.repo` on this branch are maintained by ART and shared by all layered products. No ACM-specific fork needed.
+
+### public_upstreams Override for ocp-build-data
+
+- **Decision**: Added specific `public_upstreams` entry mapping `openshift-priv/ocp-build-data` -> `openshift-eng/ocp-build-data`
+- **Rationale**: ACM's generic mapping (`openshift-priv` -> `stolostron`) does not apply to the `ocp-build-data` repo, which lives under `openshift-eng`. Without this override, ART's source resolver would look for a non-existent `stolostron/ocp-build-data`. Same issue addressed in MTA 8.1 PR#11595 (commit "Fix public_upstreams mapping").
+
+### Runtime Base Image Replacement
+
+- **Decision**: All 47 component configs changed from `from: stream: rhel9` to `from: member: base-rhel9`
+- **Rationale**: Per developer guidance (A3): "Any job that uses the existing ubi-minimal image should be replaced: stream: rhel9 -> member: base-rhel9." This ensures all ACM images layer on the managed base, receiving timely RPM updates. Builder entries using `stream: rhel9` (only `multiclusterhub-operator`) also changed.
+- **Exception**: `base-rhel9.yml` itself retains `from: stream: rhel9` since it IS the layer on top of ubi-minimal.
+
+### base-rhel9 Lockfile RPMs
+
+- **Decision**: `konflux.cachi2.lockfile.rpms: [findutils]` with `inspect_parent: false`
+- **Rationale**: Matches logging-6.5 configuration. The shared Dockerfile uses `find` implicitly, and `inspect_parent: false` is correct for a base image (no parent lockfile to inherit). The `findutils` RPM ensures hermetic builds can resolve this dependency.
+
+### base-rhel9 Ownership
+
+- **Decision**: `owners: [aos-team-art@redhat.com]` (ART team, not ACM team)
+- **Rationale**: This is an ART-maintained infrastructure image shared across products. Matches the pattern in logging-6.5 and other layered products.
