@@ -51,7 +51,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bd4338e8011a8d66c882f15ed476f0224822bc520c92e797cadfe244cbb96dd8
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: oc-mirror-plugin
+          metadata:
+            for_payload: true
   ec.3:
     assembly:
       type: preview
