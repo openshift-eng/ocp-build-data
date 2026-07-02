@@ -10,6 +10,9 @@ content:
     - action: replace
       match: "COPY . ."
       replacement: "COPY . .\nRUN rm -rf unpacked_remote_sources"    # FIXME: Workaround for CLOUDBLD-8974
+    - action: replace
+      match: "RUN yum install -y --setopt=tsflags=nodocs --setopt=skip_missing_names_on_install=False iproute && yum clean all"
+      replacement: "RUN yum install -y --setopt=tsflags=nodocs --setopt=skip_missing_names_on_install=False iproute && yum clean all\nRUN yum upgrade -y openssl openssl-libs openssl-fips-provider openssl-fips-provider-so && yum clean all"
     ci_alignment:
       streams_prs:
         ci_build_root:
