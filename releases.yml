@@ -86,6 +86,11 @@ releases:
                   git:
                     url: git@github.com:openshift-priv/gcp-pd-csi-driver-operator.git
                     web: https://github.com/openshift/gcp-pd-csi-driver-operator
+          - distgit_key: local-storage-operator
+            metadata:
+              is:
+                nvr: local-storage-operator-container-v5.0.0-202606250141.p2.g154fc34.assembly.stream.el9
+            why: Pin to 202606250141 batch — mustgather failed in 202606291200 batch (build_error)
   ec.3:
     assembly:
       type: preview
