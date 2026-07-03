@@ -85,16 +85,8 @@ partner-rhel-9-golang-1.24:
   upstream_image_mirror:
     - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.24-openshift-{MAJOR}.{MINOR}
 
-rhel8:
-  # the most recent release at present. since we yum update this, it does not need to float.
-  # it is important that we not build from unreleased builds and publish them.
-  # ubi8-container-8.10-901.1717584420
-  image: registry-proxy.engineering.redhat.com/rh-osbs/ubi8@sha256:143123d85045df426c5bbafc6863659880ebe276eb02c77ee868b88d08dbd05d
-  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-openshift-{MAJOR}.{MINOR}.art
-  mirror: false
-
 rhel9:
-  image: registry.redhat.io/rhel9-6-els/rhel-minimal@sha256:3f6763c6ffd939fa097f3051dcddd86a62c2df5f4c9a8046435293dac3b0d72c
+  image: registry.redhat.io/rhel9-6-els/rhel-minimal:latest
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-minimal-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
