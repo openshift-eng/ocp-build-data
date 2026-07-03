@@ -1,5 +1,13 @@
+cachito:
+  packages:
+    pip:
+      - path: kai_mcp_solution_server
+        requirements_build_files:
+          - requirements-build.txt
 content:
   source:
+    pkg_managers:
+      - pip
     dockerfile: konflux.solution-server.Dockerfile
     git:
       branch:
@@ -19,6 +27,9 @@ enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
 - rhel-9-codeready-builder-rpms
+- rhel-98-baseos-rpms
+- rhel-98-appstream-rpms
+- rhel-98-codeready-builder-rpms
 from:
   builder:
     - stream: rhel9
@@ -31,4 +42,5 @@ dependents:
 konflux:
   network_mode: open
   cachi2:
-    enabled: false
+    enabled: true
+    prefetch_mode: permissive
