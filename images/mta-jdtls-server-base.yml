@@ -16,12 +16,12 @@ delivery:
   - mta/mta-jdtls-server-base-rhel9
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-98-appstream-rpms
+- rhel-98-baseos-rpms
 from:
   builder:
-    - stream: rhel9
-  stream: rhel9
+    - member: base-rhel9
+  member: base-rhel9
 name: mta/mta-jdtls-server-base-rhel9
 owners:
 - mta-devs@redhat.com
@@ -41,11 +41,11 @@ konflux:
     artifact_lockfile:
       enabled: true
       resources:
-        - url: https://download.eclipse.org/jdtls/milestones/1.51.0/jdt-language-server-1.51.0-202510022025.tar.gz
-          filename: jdt-language-server-1.51.0-202510022025.tar.gz
+        - url: https://download.eclipse.org/jdtls/milestones/1.60.0/jdt-language-server-1.60.0-202606262232.tar.gz
+          filename: jdtls-product.tar.gz
         - url: https://indy.corp.redhat.com/api/content/maven/hosted/pnc-builds/io/konveyor/tackle/java-analyzer-bundle.core/8.1.0.CR1-redhat-00003/java-analyzer-bundle.core-8.1.0.CR1-redhat-00003.jar
-          filename: java-analyzer-bundle.core-8.1.0.CR1-redhat-00003.jar
+          filename: java-analyzer-bundle.core.jar
         - url: https://indy.corp.redhat.com/api/content/maven/hosted/pnc-builds/org/jetbrains/java/decompiler/fernflower/8.1.0.GA-redhat-00001/fernflower-8.1.0.GA-redhat-00001.jar
-          filename: fernflower-8.1.0.GA-redhat-00001.jar
+          filename: fernflower.jar
         - url: https://github.com/konveyor/maven-search-index/releases/download/v2025-11-11/maven-index-data-v20251112021242.zip
-          filename: maven-index-data-v20251112021242.zip
+          filename: maven-index-data.zip

@@ -20,18 +20,15 @@ delivery:
   - mta/mta-hub-rhel9
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
-- rhel-9-codeready-builder-rpms
 - rhel-98-appstream-rpms
 - rhel-98-baseos-rpms
 - rhel-98-codeready-builder-rpms
 from:
   builder:
     - stream: rhel-9-golang
-    - stream: rhel9
+    - member: base-rhel9
     - member: mta-static-report
-  stream: rhel9
+  member: base-rhel9
 name: mta/mta-hub-rhel9
 owners:
 - mta-devs@redhat.com

@@ -35,7 +35,6 @@ konflux:
     enabled: true
     gomod_version_patch: true
     lockfile:
-      force: true
       backend: rpm-lockfile-prototype
   sast:
     enabled: true
@@ -73,6 +72,8 @@ mr_approvers:
     - vaashiro
 
 public_upstreams:
+- private: "https://github.com/openshift-priv/ocp-build-data"
+  public:  "https://github.com/openshift-eng/ocp-build-data"
 - private: "https://github.com/openshift-priv"
   public:  "https://github.com/migtools"
 
