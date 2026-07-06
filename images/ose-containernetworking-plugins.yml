@@ -6,6 +6,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/containernetworking-plugins.git
       web: https://github.com/openshift/containernetworking-plugins
+    modifications:
+    - action: replace
+      match: "RUN yum install -y dos2unix"
+      replacement: "RUN rpm -q dos2unix || yum install -y dos2unix"
     ci_alignment:
       streams_prs:
         # Label so that this PR automatically merges if tests pass.
@@ -33,10 +37,6 @@ from:
   member: openshift-enterprise-base-rhel9
 name: openshift/ose-container-networking-plugins-rhel9
 payload_name: container-networking-plugins
-konflux:
-  cachi2:
-    lockfile:
-      backend: art-internal
 owners:
 - nfvpe-container@redhat.com
 - dosmith@redhat.com
