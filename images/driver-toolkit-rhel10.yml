@@ -29,6 +29,7 @@ enabled_repos:
 - rhel-10-server-ose-rpms-embargoed
 - rhel-102-baseos
 - rhel-102-appstream
+- rhel-102-nfv
 for_payload: true
 from:
   member: openshift-enterprise-base-rhel10
@@ -42,6 +43,5 @@ konflux:
       backend: rpm-lockfile-prototype
   vm_override:
     aarch64: linux-d160-m2xlarge/arm64
-
 okd:
   mode: disabled
