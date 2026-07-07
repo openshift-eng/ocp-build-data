@@ -3,16 +3,12 @@ FROM brew.registry.redhat.io/rh-osbs/ubi9@sha256:08a8d763ab10280a510d12180363adb
 # Start Konflux-specific steps
 ENV ART_BUILD_ENGINE=konflux
 ENV ART_BUILD_DEPS_METHOD=cachi2
-ENV ART_BUILD_NETWORK=open
+ENV ART_BUILD_NETWORK=hermetic
 RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
-RUN mkdir -p /tmp/art/yum_temp; mv /etc/yum.repos.d/*.repo /tmp/art/yum_temp/ || true
-COPY .oit/art-unsigned.repo /etc/yum.repos.d/
-RUN curl https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem
-ADD https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem /tmp/art
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.9-20260521.190840 __doozer_version=v1.25.9 
+ENV __doozer=update __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.11-20260707.151458 __doozer_version=v1.25.11 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -26,7 +22,7 @@ ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
     GODEBUG="disablethp=1"
 
 
-RUN dnf update -y && \
+RUN \
     dnf install -y --nodocs \
         bc \
         diffutils \
@@ -59,10 +55,10 @@ RUN dnf update -y && \
         zip && \
     dnf install -y "golang-*$VERSION*" && \
     mkdir -p /go/src
-# provide a cross-compiler for windows/mac binaries (amd64 only)
+# provide a cross-compiler for windows/mac binaries (x86_64 only)
 RUN cp /cachi2/output/deps/generic/cross.tar.gz .
-RUN [ $(go env GOARCH) != "amd64" ] || (\
-    # only install cross-compiler dependencies on amd64
+RUN if [ "$(uname -m)" = "x86_64" ]; then \
+    # only install cross-compiler dependencies on x86_64
     yum install -y --setopt=tsflags=nodocs \
     # Required packages for mac cross-compilation
     llvm-toolset cmake3 gcc-c++ libxml2-devel \
@@ -79,7 +75,8 @@ RUN [ $(go env GOARCH) != "amd64" ] || (\
     cp -avr cross/osxcross/target/SDK /usr/local/SDK && \
     echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf && \
     /sbin/ldconfig && \
-    rm -rf cross)
+    rm -rf cross; \
+fi
 
 # above is conditional; clean up unconditionally
 RUN rm -f cross.tar.gz && yum clean all -y
@@ -88,29 +85,23 @@ RUN rm -f cross.tar.gz && yum clean all -y
 COPY go_wrapper.sh /tmp/go_wrapper.sh
 RUN GO_BIN_PATH=$(which go) && mv $GO_BIN_PATH $GO_BIN_PATH.real && mv /tmp/go_wrapper.sh $GO_BIN_PATH && chmod +x $GO_BIN_PATH
 
-# Start Konflux-specific steps
-USER 0
-RUN rm -f /etc/yum.repos.d/art-* && mv /tmp/art/yum_temp/* /etc/yum.repos.d/ || true
-RUN rm -rf /tmp/art
-
-# End Konflux-specific steps
-
 LABEL \
         summary="RHEL9 based Go builder image for OpenShift ART" \
         description="RHEL9 based Go builder image for OpenShift ART" \
         io.k8s.description="golang builder image for Red Hat internal builds (RHEL 9.6)" \
         io.k8s.display-name="Go Builder 1.25" \
         com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
-        version="v1.25.9" \
+        version="v1.25.11" \
         name="openshift/golang-builder" \
         vendor="Red Hat, Inc." \
         cpe="cpe:/a:redhat:openshift:1.25::el9" \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202605211908.p2.gdf787b0.el9" \
-        io.openshift.build.commit.id="df787b0f31e47ec8ca7abd12fbd90b91deae5d79" \
+        release="202607071514.p2.g661442f.el9" \
+        io.openshift.build.golang-nvr="golang-1.25.11-1.el9_8" \
+        io.openshift.build.commit.id="661442f10992b2cb757c5c94795abfc301f98522" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/df787b0f31e47ec8ca7abd12fbd90b91deae5d79" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/661442f10992b2cb757c5c94795abfc301f98522" \
         io.openshift.tags="Empty"
 
