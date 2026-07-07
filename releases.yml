@@ -65,7 +65,12 @@ releases:
         - code: MISMATCHED_SIBLINGS
           component: ose-gcp-pd-csi-driver-operator
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~ec.4-202607070920.p0.g3b84391.assembly.ec.4.el9
         images:
           - distgit_key: oc-mirror-plugin
             why: Pin oc-mirror-plugin to payload and assembly NVR
