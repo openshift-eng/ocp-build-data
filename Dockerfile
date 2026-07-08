@@ -8,7 +8,7 @@ RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
 # End Konflux-specific steps
-ENV __doozer=update __doozer_group=rhel-9-golang-1.26 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.26.3-20260610.074126 __doozer_version=v1.26.3 
+ENV __doozer=update __doozer_golang_nvr=golang-1.26.4-1.el9_8 __doozer_group=rhel-9-golang-1.26 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.26.4-20260708.184707 __doozer_version=v1.26.4 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -22,7 +22,7 @@ ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
     GODEBUG="disablethp=1"
 
 
-RUN dnf update -y && \
+RUN \
     dnf install -y --nodocs \
         bc \
         diffutils \
@@ -91,17 +91,17 @@ LABEL \
         io.k8s.description="golang builder image for Red Hat internal builds" \
         io.k8s.display-name="Go Builder 1.26" \
         com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI" \
-        version="v1.26.3" \
+        version="v1.26.4" \
         name="openshift/golang-builder" \
         vendor="Red Hat, Inc." \
         cpe="cpe:/a:redhat:openshift:1.26::el9" \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202606100741.p2.ged14a27.el9" \
-        io.openshift.build.golang-nvr="golang-1.26.3-1.el9_8" \
-        io.openshift.build.commit.id="ed14a2717b8249964a1792dea04bae11ec4f689a" \
+        release="202607081847.p2.g48af02f.el9" \
+        io.openshift.build.golang-nvr="golang-1.26.4-1.el9_8" \
+        io.openshift.build.commit.id="48af02f4f7fef2e8dcb00bf1578fbc2286dd2e56" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/ed14a2717b8249964a1792dea04bae11ec4f689a" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/48af02f4f7fef2e8dcb00bf1578fbc2286dd2e56" \
         io.openshift.tags="Empty"
 
