@@ -2,7 +2,7 @@
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.26.3-202606100741.p2.ged14a27.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.26.3-202606191459.p2.g0edc4e2.el8
 
 # Using floating tags to pickup the latest RPMs
 ose-cli-artifacts:
@@ -10,4 +10,4 @@ ose-cli-artifacts:
 
 rhel9:
   # To match OCP: https://github.com/openshift-eng/ocp-build-data/blob/7a86cf1525b49c3156e54884454a3a5964d6b832/releases.yml#L163
-  image: registry.redhat.io/ubi9-minimal@sha256:ae09ecc3d754bc1726cbda3e2599cc7839e09fe1cc547ce173cf669b645be3cc
+  image: registry.redhat.io/ubi9-minimal@sha256:463cae32c6f6f5594b11a5c22de275016bd8545ce58a6373388e8b24f13fc15c
