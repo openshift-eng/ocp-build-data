@@ -12,7 +12,7 @@ distgit:
 delivery:
   repo_name: ose-haproxy-router-haproxy32
   delivery_repo_names:
-  - openshift5/ose-haproxy-router-haproxy32-rhel9
+  - openshift4/ose-haproxy-router-haproxy32-rhel9
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -24,12 +24,10 @@ name: openshift/ose-haproxy-router-haproxy32
 payload_name: haproxy-router-haproxy32
 owners:
 - aos-network-edge-staff@redhat.com
-konflux:
-  cachi2:
-    lockfile:
-      backend: rpm-lockfile-prototype
 okd:
   distgit:
-    branch: rhaos-5.0-rhel-9
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  from:
+    stream: centos_stream9
   enabled_repos:
   - rhel-9-server-ose-rpms
