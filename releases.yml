@@ -38,7 +38,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c5ebe8538aadb996a5a9207fd28ef227e591bded7f0e36c530ecec379e42a3b4
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: dpu-operator
+            metadata:
+              is:
+                nvr: dpu-operator-container-v4.18.0-202607010747.p2.g99f3e30.assembly.stream.el9
+            why: Pin to stable stream NVR - assembly-specific build fails (prepare-release UNSTABLE #1078/#1079)
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
