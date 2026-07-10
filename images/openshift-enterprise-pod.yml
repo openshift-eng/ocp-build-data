@@ -9,6 +9,9 @@ content:
       url: git@github.com:openshift-priv/kubernetes.git
       web: https://github.com/openshift/kubernetes
     path: build/pause
+    ci_alignment:
+      streams_prs:
+        enabled: false
     okd_alignment:
       context_dir: build/pause
       dockerfile: Dockerfile.Rhel
