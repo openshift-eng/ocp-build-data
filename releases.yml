@@ -38,7 +38,17 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7441855123e6e4ff6b75604f393f62358c7d0bb940d13876d2a675a70963fd65
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-kubernetes-nmstate-operator
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.20.0-202607100353.p2.g6d395ee.assembly.stream.el9
+            why: "Fix deferred bundle failure - pin to 202607100353 batch where console-plugin is available"
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.20.0-202607100353.p2.g040c9b1.assembly.stream.el9
+            why: "Pin operand to match pinned operator batch (202607091530 batch missing this image)"
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
