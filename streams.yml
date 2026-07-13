@@ -7,8 +7,10 @@ rhel-9-golang:
 rhel-9-nodejs-18:
   image: registry.redhat.io/ubi9/nodejs-18:latest
 
-rhel-9-nodejs-20:
-  image: registry.redhat.io/ubi9/nodejs-20:9.7-1768870189
+# rhel-9-nodejs-20 removed: ubi9/nodejs-20 is deprecated in Red Hat Catalog
+# (causes deprecated-image-check Conforma failures). Use rhel-9-nodejs-22.
+rhel-9-nodejs-22:
+  image: registry.redhat.io/ubi9/nodejs-22:latest
 
 # See OCP to upstream SDK alignment in this repo:
 # https://github.com/openshift/ocp-release-operator-sdk/tree/main
