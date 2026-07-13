@@ -61,3 +61,15 @@ konflux:
         filename: coreos10-ppc64le.iso
       - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/rhel-10.2/builds/10.2.20260423-0/s390x/rhcos-10.2.20260423-0-live-iso.s390x.iso
         filename: coreos10-s390x.iso
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "ARG COREOS_VERSIONS=9,10"
+        replacement: "ARG COREOS_VERSIONS=10"
+      - action: replace
+        match: 'COPY fetch_image.sh /usr/local/bin/'
+        replacement: |
+          COPY fetch_image.sh /usr/local/bin/
+          RUN sed -i 's/echo "rhel-10"/echo "centos-10"/' /usr/local/bin/fetch_image.sh
