@@ -173,8 +173,8 @@ rpm_deliveries:
     target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
   - packages:
       - kernel
-    rhel_tag: rhel-10.2-candidate
-    integration_tag: rhel-10.2-pending
+    rhel_tag: rhel-{RHCOS_10_EL_MAJOR}.{RHCOS_10_EL_MINOR}.0-z-candidate
+    integration_tag: early-kernel-candidate
     stop_ship_tag: early-kernel-stop-ship
     ship_ok_tag: early-kernel-ship-ok
     target_tag: rhaos-{MAJOR}.{MINOR}-rhel-10-candidate
