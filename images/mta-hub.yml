@@ -27,9 +27,9 @@ enabled_repos:
 - rhel-98-codeready-builder-rpms
 from:
   builder:
+- stream: rhel-9-nodejs-22
     - stream: rhel-9-golang
-    - stream: rhel-9-nodejs-22
-    - member: base-rhel9
+- member: base-rhel9
     - member: mta-static-report
   member: base-rhel9
 name: mta/mta-hub-rhel9
