@@ -27,6 +27,8 @@ for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
+# ubi9/nodejs-20 is deprecated in Red Hat Catalog (deprecated-image-check).
+# Switched to nodejs-22 to align with mta-8.2 and clear Conforma failures.
 from:
   builder:
     - stream: rhel-9-nodejs-22
