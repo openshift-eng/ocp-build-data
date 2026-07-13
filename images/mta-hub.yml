@@ -2,6 +2,8 @@ cachito:
   packages:
     gomod:
       - path: .
+    npm:
+      - path: ./internal/frontend/auth/content
 content:
   source:
     dockerfile: konflux.Dockerfile
@@ -25,6 +27,7 @@ enabled_repos:
 - rhel-98-codeready-builder-rpms
 from:
   builder:
+    - stream: rhel-9-nodejs-22
     - stream: rhel-9-golang
     - member: base-rhel9
     - member: mta-static-report
