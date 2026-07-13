@@ -1,8 +1,8 @@
 freeze_automation: false
-name: logging-6.6
+name: logging-6.7
 csv_namespace: openshift-logging
 product: openshift-logging
-version: 6.6.0
+version: 6.7.0
 
 vars:
   # The go versions used by the various CI builder images.
@@ -17,18 +17,18 @@ vars:
   GO_LATEST: "1.25"
   GO_EXTRA: "1.25"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
-  MINOR: 22
+  MINOR: 23
 
   FBC_DISABLE_CHANNEL_SKIPS: true
 
 OCP_TARGET_VERSIONS: [
-  "4.20",
   "4.21",
   "4.22",
   "4.23",
+  "5.0",
 ]
 
-OCP_RELEASE_NOTES_VERSION: "4.22"
+OCP_RELEASE_NOTES_VERSION: "4.23"
 
 arches:
 - x86_64
