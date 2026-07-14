@@ -8,7 +8,7 @@ RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
 # End Konflux-specific steps
-ENV __doozer=update __doozer_golang_nvr=golang-1.25.11-1.el9_8 __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.11-20260714.133038 __doozer_version=v1.25.11 
+ENV __doozer=update __doozer_golang_nvr=golang-1.25.11-1.el9_8 __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.11-20260714.175832 __doozer_version=v1.25.11 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -73,7 +73,9 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
     # CXXFLAGS env var outright. CC/CXX aren't overridden that way, and CMake splits a
     # compiler-plus-args string in CC/CXX into the compiler + CMAKE_<LANG>_COMPILER_ARG1, so
     # embedding the -include flag there survives the CMAKE_CXX_FLAGS override.
-    export CC="cc -include stdint.h" CXX="c++ -include stdint.h" && \
+    # Must stay clang/clang++ (not generic cc/c++): this same build.sh later builds
+    # cctools-port, which refuses to configure with anything other than clang.
+    export CC="clang -include stdint.h" CXX="clang++ -include stdint.h" && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
     popd && \
@@ -105,10 +107,10 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202607141330.p2.g9bee879.el9" \
+        release="202607141758.p2.g5dfcab0.el9" \
         io.openshift.build.golang-nvr="golang-1.25.11-1.el9_8" \
-        io.openshift.build.commit.id="9bee879e454ebd9d5045f7dfadf169a2363bed79" \
+        io.openshift.build.commit.id="5dfcab0430b5ec70eb7514766de1202fe668c027" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/9bee879e454ebd9d5045f7dfadf169a2363bed79" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/5dfcab0430b5ec70eb7514766de1202fe668c027" \
         io.openshift.tags="Empty"
 
