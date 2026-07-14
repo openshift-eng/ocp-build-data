@@ -6,8 +6,10 @@ content:
     path: images
     dockerfile: openshift-golang-builder-rhel96.Dockerfile
     git:
+      # TEMPORARY: pointed at the PR branch to test the osxcross stdint fix end-to-end.
+      # REVERT to target: rhel-9-golang-1.25 / url: git@github.com:openshift-eng/ocp-build-data.git before merging.
       branch:
-        target: rhel-9-golang-1.25
+        target: fix-osxcross-stdint-include
       url: git@github.com:openshift-eng/ocp-build-data.git
     modifications:
     - &add_fips_wrapper

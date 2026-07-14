@@ -8,7 +8,7 @@ RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
 # End Konflux-specific steps
-ENV __doozer=update __doozer_golang_nvr=golang-1.25.11-1.el9_8 __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.11-20260713.152606 __doozer_version=v1.25.11 
+ENV __doozer=update __doozer_golang_nvr=golang-1.25.11-1.el9_8 __doozer_group=rhel-9-golang-1.25 __doozer_key=openshift-golang-builder __doozer_uuid_tag=golang-builder-v1.25.11-20260714.133038 __doozer_version=v1.25.11 
 
 ARG GOPATH
 ENV SUMMARY="RHEL9 based Go builder image for OpenShift ART" \
@@ -67,6 +67,13 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
     # compile macos cross-compilers
     tar zfx cross.tar.gz && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
+    # osxcross's vendored apple-libtapi headers (PackedVersion32.h, LinkerInterfaceFile.h) use
+    # bare uint32_t/uint8_t without including <stdint.h>. CFLAGS/CXXFLAGS don't work here: the
+    # apple-libtapi build.sh passes -DCMAKE_CXX_FLAGS explicitly to cmake, which overrides the
+    # CXXFLAGS env var outright. CC/CXX aren't overridden that way, and CMake splits a
+    # compiler-plus-args string in CC/CXX into the compiler + CMAKE_<LANG>_COMPILER_ARG1, so
+    # embedding the -include flag there survives the CMAKE_CXX_FLAGS override.
+    export CC="cc -include stdint.h" CXX="c++ -include stdint.h" && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
     popd && \
@@ -98,10 +105,10 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202607131526.p2.g661442f.el9" \
+        release="202607141330.p2.g9bee879.el9" \
         io.openshift.build.golang-nvr="golang-1.25.11-1.el9_8" \
-        io.openshift.build.commit.id="661442f10992b2cb757c5c94795abfc301f98522" \
+        io.openshift.build.commit.id="9bee879e454ebd9d5045f7dfadf169a2363bed79" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/661442f10992b2cb757c5c94795abfc301f98522" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/9bee879e454ebd9d5045f7dfadf169a2363bed79" \
         io.openshift.tags="Empty"
 
