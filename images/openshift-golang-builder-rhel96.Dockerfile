@@ -63,9 +63,11 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
     # compile macos cross-compilers
     tar zfx cross.tar.gz && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
-    # osxcross's vendored apple-libtapi headers use uint32_t/uint8_t without including
-    # <cstdint>/<stdint.h>; newer llvm-toolset no longer pulls those in transitively.
-    export CFLAGS="-include stdint.h" CXXFLAGS="-include cstdint" && \
+    # osxcross's vendored apple-libtapi headers use bare (global-namespace) uint32_t/uint8_t
+    # without including <stdint.h>; newer llvm-toolset no longer pulls those in transitively.
+    # Use stdint.h (not cstdint) for C++ too since cstdint only guarantees std::uint32_t,
+    # not the global-namespace name these headers actually reference.
+    export CFLAGS="-include stdint.h" CXXFLAGS="-include stdint.h" && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
     popd && \
