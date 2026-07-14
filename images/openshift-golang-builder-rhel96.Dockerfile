@@ -69,7 +69,9 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
     # CXXFLAGS env var outright. CC/CXX aren't overridden that way, and CMake splits a
     # compiler-plus-args string in CC/CXX into the compiler + CMAKE_<LANG>_COMPILER_ARG1, so
     # embedding the -include flag there survives the CMAKE_CXX_FLAGS override.
-    export CC="cc -include stdint.h" CXX="c++ -include stdint.h" && \
+    # Must stay clang/clang++ (not generic cc/c++): this same build.sh later builds
+    # cctools-port, which refuses to configure with anything other than clang.
+    export CC="clang -include stdint.h" CXX="clang++ -include stdint.h" && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
     popd && \
