@@ -63,11 +63,13 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
     # compile macos cross-compilers
     tar zfx cross.tar.gz && \
     export TP_OSXCROSS_DEV=$(pwd)/cross/deps && \
-    # osxcross's vendored apple-libtapi headers use bare (global-namespace) uint32_t/uint8_t
-    # without including <stdint.h>; newer llvm-toolset no longer pulls those in transitively.
-    # Use stdint.h (not cstdint) for C++ too since cstdint only guarantees std::uint32_t,
-    # not the global-namespace name these headers actually reference.
-    export CFLAGS="-include stdint.h" CXXFLAGS="-include stdint.h" && \
+    # osxcross's vendored apple-libtapi headers (PackedVersion32.h, LinkerInterfaceFile.h) use
+    # bare uint32_t/uint8_t without including <stdint.h>. CFLAGS/CXXFLAGS don't work here: the
+    # apple-libtapi build.sh passes -DCMAKE_CXX_FLAGS explicitly to cmake, which overrides the
+    # CXXFLAGS env var outright. CC/CXX aren't overridden that way, and CMake splits a
+    # compiler-plus-args string in CC/CXX into the compiler + CMAKE_<LANG>_COMPILER_ARG1, so
+    # embedding the -include flag there survives the CMAKE_CXX_FLAGS override.
+    export CC="cc -include stdint.h" CXX="c++ -include stdint.h" && \
     pushd cross/osxcross && \
     UNATTENDED=yes ./build.sh && \
     popd && \
