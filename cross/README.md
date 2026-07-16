@@ -4,6 +4,20 @@
 the OpenShift Golang builder images. The following workflow builds a candidate
 archive and publishes it to the OpenShift artifacts server for testing.
 
+## Why the bundle is needed
+
+`cross.tar.gz` provides the osxcross source used to build `o64-clang` and
+related tooling into the Golang builder image. This enables CGO
+cross-compilation for macOS, originally added so OLM could build `opm` for
+multiple platforms. The `operator-registry` and `ose-operator-framework-tools`
+payload image builds run `make cross`, which uses this toolchain to produce the
+`darwin-amd64-opm` binary distributed from those images.
+
+See [ART-1674](https://redhat.atlassian.net/browse/ART-1674) for the original
+cross-compilation requirement and
+[ART-14751](https://redhat.atlassian.net/browse/ART-14751) for the investigation
+confirming the archive's current consumers.
+
 ## Obtain the macOS SDK
 
 The builder requires `MacOSX10.15.sdk.tar.xz`. Bootstrap the local SDK input
