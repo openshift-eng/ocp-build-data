@@ -1,21 +1,10 @@
-# Draft for ART-21248 — create as images/oc-mirror.yml on branch oc-mirror-2.0
-# Delete leftover images/art-agent-installer-iso.yml from the installer-ove-ui bootstrap.
-#
-# BLOCKED on ART-21250:
-#   dockerfile and git.branch.target must match the upstream multi-arch Containerfile
-#   that writes /releases/oc-mirror-linux-{arch}.tar.gz
-#
-# Reference patterns:
-#   - images/art-agent-installer-iso.yml (installer-ove-ui-4.22) for for_payload:false + ocp-art-tenant naming
-#   - openshift-builds-client Konflux component (dockerfileUrl: .konflux/client/Dockerfile, /releases/*.tar.gz)
-
 content:
   source:
-    # TODO(ART-21250): confirm path once upstream Containerfile lands
+    # TODO(ART-21250): confirm dockerfile path once upstream Containerfile lands
     dockerfile: Containerfile
     git:
       branch:
-        # TODO(ART-21250): confirm release branch (main vs release-2.0 / similar)
+        # TODO(ART-21250): confirm git.branch.target (main vs release-2.0)
         target: main
       url: git@github.com:openshift-priv/oc-mirror.git
       web: https://github.com/openshift/oc-mirror
@@ -28,7 +17,6 @@ delivery:
   - ocp-art-tenant/oc-mirror-2-0
 for_payload: false
 from:
-  # Scratch final image; builders injected by upstream Containerfile / Konflux hermetic build
   stream: scratch
 name: ocp-art-tenant/oc-mirror-2-0
 owners:
@@ -36,5 +24,4 @@ owners:
 - dmesser@redhat.com
 - aflom@redhat.com
 konflux:
-  # Skip .oit-injected yum/shell steps — binary-only image, no RPM install layer
   no_shell: true

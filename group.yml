@@ -1,14 +1,3 @@
-# Draft for ART-21248 — replace contents on branch oc-mirror-2.0
-# Source of truth once applied: openshift-eng/ocp-build-data @ oc-mirror-2.0
-#
-# Notes:
-# - Branch already exists (bootstrapped from installer-ove-ui-4.22) but still has
-#   installer-ove-ui metadata; this file is the intended replacement.
-# - Dockerfile path / git branch target depend on ART-21250 (upstream Containerfile).
-# - For a single cross-compile image that drops all arch binaries under /releases/,
-#   konflux.arches may only need x86_64. Ticket asked for all four arches — kept here;
-#   revisit once Containerfile strategy is confirmed.
-
 freeze_automation: false
 
 name: oc-mirror-2.0
