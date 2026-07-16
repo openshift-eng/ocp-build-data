@@ -7,8 +7,8 @@ archive and publishes it to the OpenShift artifacts server for testing.
 ## Obtain the macOS SDK
 
 The builder requires `MacOSX10.15.sdk.tar.xz`. Bootstrap the local SDK input
-from the currently published cross-toolchain bundle. The download is roughly
-569 MB, but only the SDK member is extracted:
+from the currently published cross-toolchain bundle, extracting only the SDK
+member:
 
 ```console
 $ mkdir -p /tmp/openshift-golang-builder-cross-sdk
