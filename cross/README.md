@@ -183,3 +183,16 @@ $ sha256sum cross.tar.gz > sha256sum.txt
 $ sha256sum --check sha256sum.txt
 cross.tar.gz: OK
 ```
+
+## Update the Konflux release policy
+
+The Konflux release policy has an `sbom_spdx.allowed_package_sources`
+exception for this archive. After promoting a new `cross.tar.gz`, update the
+embedded SHA-256 digest in the relevant policy file in
+[`konflux-release-data`](https://gitlab.cee.redhat.com/releng/konflux-release-data).
+For the OCP ART production policy, the exception is in
+`config/kflux-ocp-p01.7ayg.p1/product/EnterpriseContractPolicy/registry-ocp-art-base-prod.yaml`.
+
+Open a merge request with the new digest. See
+[konflux-release-data MR #17453](https://gitlab.cee.redhat.com/releng/konflux-release-data/-/merge_requests/17453)
+for an example policy update.
