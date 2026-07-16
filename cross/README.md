@@ -160,3 +160,26 @@ Set **Doozer data Git ref** to the source branch of the test PR and set
 `test-cross-new-rhel9-golang-1.25`. Start the job, then confirm that the
 resulting Konflux build downloads the candidate archive and completes the
 cross-toolchain steps successfully.
+
+## Promote the verified archive
+
+After the test PR produces a green build and the result has been verified,
+promote the candidate on `ocp-artifacts`. Preserve the current published files
+with `-old` names, then replace them with the verified `-new` files:
+
+```console
+$ cd /mnt/data/pub/RHOCP/build-deps/openshift-golang-builder/
+$ mv cross.tar.gz cross-old.tar.gz
+$ mv sha256sum.txt sha256sum-old.txt
+$ mv cross-new.tar.gz cross.tar.gz
+$ mv sha256sum-new.txt sha256sum.txt
+```
+
+Regenerate the promoted checksum because a checksum file includes the archive
+filename as well as its digest:
+
+```console
+$ sha256sum cross.tar.gz > sha256sum.txt
+$ sha256sum --check sha256sum.txt
+cross.tar.gz: OK
+```
