@@ -8,7 +8,8 @@ set -euo pipefail
 # it is intentionally stable, not an exact timestamp recovered from its metadata.
 readonly DEFAULT_SDK_SHA256="05c98ed96b677dfba862356cba317cdcb7bfdff973150a60e0d1027da705c4cc"
 readonly DEFAULT_SOURCE_DATE_EPOCH="1598544000"
-readonly SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+readonly SCRIPT_DIR
 
 # These revisions reproduce the source versions in the legacy 2020 bundle.
 # Override any REF variable in the environment to intentionally update a source.
