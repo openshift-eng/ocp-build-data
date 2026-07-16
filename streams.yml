@@ -1,6 +1,5 @@
+# Minimal streams for binary-only Konflux build (no OCP builder streams required
+# if the upstream Containerfile pins its own builder images / uses hermetic prefetch).
 ---
-agent-preinstall-image-builder:
-  image: registry.ci.openshift.org/ocp/4.22:agent-preinstall-image-builder
-
 scratch:
   image: scratch

@@ -1,43 +1,51 @@
-freeze_automation: true
+# Draft for ART-21248 — replace contents on branch oc-mirror-2.0
+# Source of truth once applied: openshift-eng/ocp-build-data @ oc-mirror-2.0
+#
+# Notes:
+# - Branch already exists (bootstrapped from installer-ove-ui-4.22) but still has
+#   installer-ove-ui metadata; this file is the intended replacement.
+# - Dockerfile path / git branch target depend on ART-21250 (upstream Containerfile).
+# - For a single cross-compile image that drops all arch binaries under /releases/,
+#   konflux.arches may only need x86_64. Ticket asked for all four arches — kept here;
+#   revisit once Containerfile strategy is confirmed.
 
-name: installer-ove-ui-4.22
-product: installer-ove-ui
-version: "4.22"
+freeze_automation: false
+
+name: oc-mirror-2.0
+product: oc-mirror
+version: "2.0"
 
 vars:
-  MAJOR: 4
-  MINOR: 22
-
+  MAJOR: 2
+  MINOR: 0
 
 arches:
 - x86_64
-
+- aarch64
+- ppc64le
+- s390x
 
 konflux:
   arches:
   - x86_64
-  network_mode: open
-  image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-agent-installer-iso
-  privileged_nested: true
-  additional_secret: ove-ui-image-pull-secret
-  skip_tasks:
-  - clair-scan
-  build_step_resources:
-    memory: "8Gi"
-  build_args:
-  - "RELEASE_FLAG=--release-image-url"
-  - "RELEASE_VALUE=quay.io/openshift-release-dev/ocp-release:4.22.0-rc.0-x86_64"
-  - "MAJOR_MINOR_VERSION=4.22"
-  - "PATCH_VERSION=0"
-  - "ARCH=x86_64"
+  - aarch64
+  - ppc64le
+  - s390x
+  network_mode: hermetic
+  image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/oc-mirror-2-0
+  cachi2:
+    enabled: true
+    gomod_version_patch: true
+  sast:
+    enabled: true
+  build_attempts: 1
 
 assemblies:
   enabled: true
 
 public_upstreams:
 - private: "https://github.com/openshift-priv"
-  public:  "https://github.com/openshift"
-
+  public: "https://github.com/openshift"
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
