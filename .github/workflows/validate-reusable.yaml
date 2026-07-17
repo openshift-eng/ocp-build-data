@@ -1,0 +1,64 @@
+name: Validate ocp-build-data (reusable)
+
+on:
+  workflow_call:
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          set-safe-directory: ${{ env.GITHUB_WORKSPACE }}
+          persist-credentials: false
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libkrb5-dev
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{env.PYTHON_VERSION}}
+
+      - name: Clone art-tools
+        run: |
+          git clone https://github.com/openshift-eng/art-tools
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.26"
+          python-version: ${{env.PYTHON_VERSION}}
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
+
+      - name: Install validator
+        run: |
+          cd art-tools
+          ./install.sh
+
+      - name: Get all relevant files that have changed
+        id: changed-files
+        uses: tj-actions/changed-files@v37
+        with:
+          files_yaml: |
+            config:
+              - 'streams.yml'
+              - 'group.yml'
+              - 'releases.yml'
+              - 'bug.yml'
+              - 'rpms/**.yml'
+              - 'images/**.yml'
+
+      - name: Run validator
+        if: steps.changed-files.outputs.config_any_changed == 'true'
+        run: |
+          uv run --project ./art-tools validate-ocp-build-data \
+          --images-dir images ${{ steps.changed-files.outputs.config_all_changed_files }}
