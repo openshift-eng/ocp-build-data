@@ -3,13 +3,19 @@ name: Validate ocp-build-data (reusable)
 on:
   workflow_call:
 
+env:
+  PYTHON_VERSION: "3.11"
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v7
         with:
-          fetch-depth: "0"
+          fetch-depth: 0
+          set-safe-directory: ${{ env.GITHUB_WORKSPACE }}
+          persist-credentials: false
 
       - name: Install system dependencies
         run: |
@@ -17,9 +23,9 @@ jobs:
           sudo apt-get install -y libkrb5-dev
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: ${{env.PYTHON_VERSION}}
 
       - name: Clone art-tools
         run: |
@@ -28,7 +34,8 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.9.18"
+          version: "0.11.26"
+          python-version: ${{env.PYTHON_VERSION}}
           enable-cache: true
           cache-dependency-glob: "**/uv.lock"
 
