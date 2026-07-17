@@ -18,7 +18,10 @@ delivery:
   - openshift5/oc-mirror-2-0
 for_payload: false
 from:
-  stream: scratch
+  builder:
+  - stream: rhel-8-golang
+  - stream: rhel-9-golang
+  - stream: rhel9
 name: openshift5/oc-mirror-2-0
 owners:
 - jpower@redhat.com
