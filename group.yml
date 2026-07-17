@@ -1,43 +1,36 @@
 freeze_automation: true
 
-name: installer-ove-ui-4.22
-product: installer-ove-ui
-version: "4.22"
+name: oc-mirror-2.0
+product: oc-mirror
+version: "2.0"
 
 vars:
-  MAJOR: 4
-  MINOR: 22
-
+  MAJOR: 2
+  MINOR: 0
 
 arches:
 - x86_64
-
+- aarch64
+- ppc64le
+- s390x
 
 konflux:
   arches:
   - x86_64
-  network_mode: open
-  image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-agent-installer-iso
-  privileged_nested: true
-  additional_secret: ove-ui-image-pull-secret
-  skip_tasks:
-  - clair-scan
-  build_step_resources:
-    memory: "8Gi"
-  build_args:
-  - "RELEASE_FLAG=--release-image-url"
-  - "RELEASE_VALUE=quay.io/openshift-release-dev/ocp-release:4.22.0-rc.0-x86_64"
-  - "MAJOR_MINOR_VERSION=4.22"
-  - "PATCH_VERSION=0"
-  - "ARCH=x86_64"
+  - aarch64
+  - ppc64le
+  - s390x
+  network_mode: hermetic
+  cachi2:
+    enabled: true
+  build_attempts: 1
 
 assemblies:
   enabled: true
 
 public_upstreams:
 - private: "https://github.com/openshift-priv"
-  public:  "https://github.com/openshift"
-
+  public: "https://github.com/openshift"
 
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub

@@ -1,0 +1,25 @@
+content:
+  source:
+    # TODO(ART-21250): confirm dockerfile path once upstream Containerfile lands
+    dockerfile: Containerfile
+    git:
+      branch:
+        # TODO(ART-21250): confirm git.branch.target (main vs release-2.0)
+        target: main
+      url: git@github.com:openshift-priv/oc-mirror.git
+      web: https://github.com/openshift/oc-mirror
+distgit:
+  branch: oc-mirror-{MAJOR}.{MINOR}-rhel-9
+  component: oc-mirror-container
+delivery:
+  repo_name: oc-mirror
+  delivery_repo_names:
+  - openshift5/oc-mirror-2-0
+for_payload: false
+from:
+  stream: scratch
+name: openshift5/oc-mirror-2-0
+owners:
+- jpower@redhat.com
+- dmesser@redhat.com
+- aflom@redhat.com
