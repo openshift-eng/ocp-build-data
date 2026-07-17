@@ -1,7 +1,13 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+    - path: v1/
 content:
   source:
     # TODO(ART-21250): confirm dockerfile path once upstream Containerfile lands
-    dockerfile: Containerfile
+    dockerfile: images/cli/Dockerfile.konflux
     git:
       branch:
         # TODO(ART-21250): confirm git.branch.target (main vs release-2.0)
@@ -17,7 +23,10 @@ delivery:
   - openshift5/oc-mirror-2-0
 for_payload: false
 from:
-  stream: scratch
+  builder:
+  - stream: rhel-8-golang
+  - stream: rhel-9-golang
+  - stream: rhel9
 name: openshift5/oc-mirror-2-0
 owners:
 - jpower@redhat.com
