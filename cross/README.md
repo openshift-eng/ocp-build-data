@@ -175,35 +175,20 @@ Set **Doozer data Git ref** to the source branch of the test PR and set
 resulting Konflux build downloads the candidate archive and completes the
 cross-toolchain steps successfully.
 
-## Upload and test the archive in Brew
+## Upload the archive to Brew
 
-Brew obtains `cross.tar.gz` from its lookaside cache. After promoting the
-archive on `ocp-artifacts`, use the helper to verify the published SHA-256 and
-upload the archive:
+After promoting the archive on `ocp-artifacts`, use the helper to upload it to
+Brew lookaside:
 
 ```console
-$ ./cross/update-brew-cross-sources.sh --dry-run
 $ ./cross/update-brew-cross-sources.sh
 ```
 
-The real upload requires `rhpkg`, a valid Red Hat Kerberos ticket, and access
-to the Brew distgit repository. The script uses a temporary distgit clone only
-to provide the repository context required by `rhpkg new-sources`. It never
-commits or pushes to distgit. Repeated runs are safe: `rhpkg` detects when the
-same archive is already present in lookaside. `--dry-run` generates the source
-entry offline and performs no upload.
-
-Copy the generated `sources` entry into the source-context `sources` file,
-typically `images/sources`, in every relevant ocp-build-data branch and open a
-PR for those changes. This is the durable source of truth: doozer copies the
-source context during rebase and will overwrite a `sources` file changed only
-in Brew distgit.
-
-In Jenkins, run the Golang builder job with **Build system** set to `brew`.
-Confirm that the resulting Brew task builds from a distgit commit containing
-the new `sources` digest and that the macOS cross-toolchain compilation
-completes successfully. Updating the Konflux artifact URL or release policy
-does not change which lookaside object a Brew build consumes.
+The script prints the generated `sources` entry. Copy that entry into the
+source-context `sources` file, typically `images/sources`, in every relevant
+ocp-build-data branch and open a PR for each branch. See
+[ocp-build-data PR #11914](https://github.com/openshift-eng/ocp-build-data/pull/11914)
+for an example.
 
 ## Promote the verified archive
 
