@@ -175,38 +175,33 @@ Set **Doozer data Git ref** to the source branch of the test PR and set
 resulting Konflux build downloads the candidate archive and completes the
 cross-toolchain steps successfully.
 
-## Update and test the archive in Brew
+## Upload and test the archive in Brew
 
-Brew does not download the archive during the image build. The Brew distgit
-repository stores `cross.tar.gz` in its lookaside cache, and each distgit
-branch selects the archive through its committed `sources` file.
-
-After promoting the archive on `ocp-artifacts`, run the update script with
-every Brew distgit branch that should consume it. The real update requires
-`rhpkg`, a valid Red Hat Kerberos ticket, and permission to push to the distgit
-repository; dry-run uses the read-only HTTPS Git endpoint:
+Brew obtains `cross.tar.gz` from its lookaside cache. After promoting the
+archive on `ocp-artifacts`, use the helper to verify the published SHA-256 and
+upload the archive:
 
 ```console
-$ ./cross/update-brew-cross-sources.sh --dry-run \
-    rhaos-4.22-rhel-9 \
-    rhaos-4.22-rhel-8
-
-$ ./cross/update-brew-cross-sources.sh \
-    rhaos-4.22-rhel-9 \
-    rhaos-4.22-rhel-8
+$ ./cross/update-brew-cross-sources.sh --dry-run
+$ ./cross/update-brew-cross-sources.sh
 ```
 
-The script downloads `cross.tar.gz` and `sha256sum.txt`, verifies the published
-SHA-256 checksum, and uses `rhpkg new-sources` to upload the archive to the
-lookaside cache once. It then commits the generated `sources` file to each
-specified branch and pushes without force. Branches that already reference the
-archive are identified before the lookaside step and skipped; if all specified
-branches are current, the script exits without uploading, committing, or
-pushing. The `--dry-run` option performs the download, verification, clone,
-branch validation, and comparison without modifying the lookaside cache or
-distgit branches. Because `sources` is versioned independently, every active
-Brew distgit branch whose Dockerfile uses `COPY cross.tar.gz` must be passed to
-the script. Branches that do not install the cross toolchain need no update.
+The real upload requires `rhpkg`, a valid Red Hat Kerberos ticket, and access
+to the Brew distgit repository. The script uses a temporary distgit clone only
+to provide the repository context required by `rhpkg new-sources`. It never
+commits or pushes to distgit. Repeated runs are safe: `rhpkg` detects when the
+same archive is already present in lookaside. `--dry-run` generates the source
+entry offline and performs no upload.
+
+The default context branch is `rhaos-4.22-rhel-9`. Use `--branch` or set
+`BREW_DISTGIT_BRANCH` if that branch is unavailable. The selected branch is
+not modified.
+
+Copy the generated `sources` entry into the source-context `sources` file,
+typically `images/sources`, in every relevant ocp-build-data branch and open a
+PR for those changes. This is the durable source of truth: doozer copies the
+source context during rebase and will overwrite a `sources` file changed only
+in Brew distgit.
 
 In Jenkins, run the Golang builder job with **Build system** set to `brew`.
 Confirm that the resulting Brew task builds from a distgit commit containing
