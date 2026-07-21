@@ -175,6 +175,54 @@ Set **Doozer data Git ref** to the source branch of the test PR and set
 resulting Konflux build downloads the candidate archive and completes the
 cross-toolchain steps successfully.
 
+## Update and test the archive in Brew
+
+Brew does not download the archive from the OCP artifacts URL. The Brew
+distgit repository stores `cross.tar.gz` in its lookaside cache, and each
+distgit branch selects the archive through its committed `sources` file.
+
+Use `rhpkg new-sources` from one target distgit branch to upload the verified
+candidate and update that branch's `sources` file:
+
+```console
+$ distgit_branch=rhaos-4.22-rhel-9
+$ rhpkg clone -b "$distgit_branch" containers/openshift-golang-builder
+$ cd openshift-golang-builder
+$ cp /path/to/cross-new.tar.gz cross.tar.gz
+$ md5sum cross.tar.gz
+$ rhpkg new-sources cross.tar.gz
+$ cat sources
+$ cp sources /tmp/openshift-golang-builder-cross.sources
+$ git add sources
+$ git commit -m "Update cross.tar.gz"
+$ git push origin HEAD
+```
+
+Confirm that the digest written to `sources` matches the local archive. The
+lookaside object is content-addressed and only needs to be uploaded once, but
+`sources` is versioned independently on every distgit branch. To update another
+active branch, reuse the generated file and commit it on that branch:
+
+```console
+$ next_branch=rhaos-4.22-rhel-8
+$ git fetch origin "$next_branch"
+$ git switch --create "$next_branch" --track "origin/$next_branch"
+$ cp /tmp/openshift-golang-builder-cross.sources sources
+$ git add sources
+$ git commit -m "Update cross.tar.gz"
+$ git push origin HEAD
+```
+
+Repeat the branch update for every active Brew distgit branch whose Dockerfile
+uses `COPY cross.tar.gz`. Branches that do not install the cross toolchain do
+not need the source entry.
+
+In Jenkins, run the Golang builder job with **Build system** set to `brew`.
+Confirm that the resulting Brew task builds from a distgit commit containing
+the new `sources` digest and that the macOS cross-toolchain compilation
+completes successfully. Updating the Konflux artifact URL or release policy
+does not change which lookaside object a Brew build consumes.
+
 ## Promote the verified archive
 
 After the test PR produces a green build and the result has been verified,
@@ -204,8 +252,10 @@ The Konflux release policy has an `sbom_spdx.allowed_package_sources`
 exception for this archive. After promoting a new `cross.tar.gz`, update the
 embedded SHA-256 digest in the relevant policy file in
 [`konflux-release-data`](https://gitlab.cee.redhat.com/releng/konflux-release-data).
-For the OCP ART production policy, the exception is in
-`config/kflux-ocp-p01.7ayg.p1/product/EnterpriseContractPolicy/registry-ocp-art-base-prod.yaml`.
+The archive URL and its SHA-256 digest may appear in multiple policy files.
+Search the repository for `cross.tar.gz` or the previously published SHA-256
+digest to find every active reference, then replace each matching digest with
+the checksum of the promoted archive.
 
 Open a merge request with the new digest. See
 [konflux-release-data MR #17453](https://gitlab.cee.redhat.com/releng/konflux-release-data/-/merge_requests/17453)
