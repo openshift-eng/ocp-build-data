@@ -1,0 +1,19 @@
+content:
+  source:
+    git:
+      branch:
+        target: add-openshift-spec-v2
+      url: git@github.com:openshift-priv/cri-o.git
+      url_pull: git@github.com:bitoku/cri-o.git # TODO: remove once openshift/cri-o#31 merges
+      web: https://github.com/openshift/cri-o
+    specfile: cri-o.spec
+name: cri-o
+owners:
+- sgrunert@redhat.com
+- qiwan@redhat.com
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+- rhaos-{MAJOR}.{MINOR}-rhel-10-candidate
+hotfix_targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
+- rhaos-{MAJOR}.{MINOR}-rhel-10-hotfix
