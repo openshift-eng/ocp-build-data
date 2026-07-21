@@ -175,6 +175,21 @@ Set **Doozer data Git ref** to the source branch of the test PR and set
 resulting Konflux build downloads the candidate archive and completes the
 cross-toolchain steps successfully.
 
+## Upload the archive to Brew
+
+After promoting the archive on `ocp-artifacts`, use the helper to upload it to
+Brew lookaside:
+
+```console
+$ ./cross/update-brew-cross-sources.sh
+```
+
+The script prints the generated `sources` entry. Copy that entry into the
+source-context `sources` file, typically `images/sources`, in every relevant
+ocp-build-data branch and open a PR for each branch. See
+[ocp-build-data PR #11914](https://github.com/openshift-eng/ocp-build-data/pull/11914)
+for an example.
+
 ## Promote the verified archive
 
 After the test PR produces a green build and the result has been verified,
@@ -204,8 +219,10 @@ The Konflux release policy has an `sbom_spdx.allowed_package_sources`
 exception for this archive. After promoting a new `cross.tar.gz`, update the
 embedded SHA-256 digest in the relevant policy file in
 [`konflux-release-data`](https://gitlab.cee.redhat.com/releng/konflux-release-data).
-For the OCP ART production policy, the exception is in
-`config/kflux-ocp-p01.7ayg.p1/product/EnterpriseContractPolicy/registry-ocp-art-base-prod.yaml`.
+The archive URL and its SHA-256 digest may appear in multiple policy files.
+Search the repository for `cross.tar.gz` or the previously published SHA-256
+digest to find every active reference, then replace each matching digest with
+the checksum of the promoted archive.
 
 Open a merge request with the new digest. See
 [konflux-release-data MR #17453](https://gitlab.cee.redhat.com/releng/konflux-release-data/-/merge_requests/17453)
