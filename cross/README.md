@@ -193,10 +193,6 @@ commits or pushes to distgit. Repeated runs are safe: `rhpkg` detects when the
 same archive is already present in lookaside. `--dry-run` generates the source
 entry offline and performs no upload.
 
-The default context branch is `rhaos-4.22-rhel-9`. Use `--branch` or set
-`BREW_DISTGIT_BRANCH` if that branch is unavailable. The selected branch is
-not modified.
-
 Copy the generated `sources` entry into the source-context `sources` file,
 typically `images/sources`, in every relevant ocp-build-data branch and open a
 PR for those changes. This is the durable source of truth: doozer copies the

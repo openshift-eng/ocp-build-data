@@ -4,18 +4,16 @@ set -euo pipefail
 
 readonly DEFAULT_ARTIFACT_BASE_URL="https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-golang-builder"
 readonly DEFAULT_DISTGIT_REPO="containers/openshift-golang-builder"
-readonly DEFAULT_DISTGIT_BRANCH="rhaos-4.22-rhel-9"
 readonly DEFAULT_DISTGIT_GIT_URL="https://pkgs.devel.redhat.com/git/containers/openshift-golang-builder"
 
 artifact_base_url="${CROSS_ARTIFACT_BASE_URL:-$DEFAULT_ARTIFACT_BASE_URL}"
 distgit_repo="${BREW_DISTGIT_REPO:-$DEFAULT_DISTGIT_REPO}"
-distgit_branch="${BREW_DISTGIT_BRANCH:-$DEFAULT_DISTGIT_BRANCH}"
 distgit_git_url="${BREW_DISTGIT_GIT_URL:-$DEFAULT_DISTGIT_GIT_URL}"
 dry_run=false
 
 usage() {
   cat <<'EOF'
-Usage: update-brew-cross-sources.sh [--dry-run] [--branch DISTGIT_BRANCH]
+Usage: update-brew-cross-sources.sh [--dry-run]
 
 Download and verify the published cross.tar.gz, then upload it to the Brew
 lookaside cache. The distgit clone is temporary; this script never commits or
@@ -24,13 +22,11 @@ pushes to a distgit branch.
 Environment overrides:
   CROSS_ARTIFACT_BASE_URL  Directory containing cross.tar.gz and sha256sum.txt
   BREW_DISTGIT_REPO        Distgit repository (default: containers/openshift-golang-builder)
-  BREW_DISTGIT_BRANCH      Branch used only to establish an rhpkg context
   BREW_DISTGIT_GIT_URL     Read-only distgit URL used by --dry-run
 
 Options:
-  --branch BRANCH  Branch used only to establish an rhpkg context
-  --dry-run        Generate the sources entry offline without uploading
-  -h, --help       Show this help
+  --dry-run   Generate the sources entry offline without uploading
+  -h, --help  Show this help
 
 Copy the generated sources entry into the source-context sources file in each
 relevant ocp-build-data branch.
@@ -44,11 +40,6 @@ die() {
 
 while (($#)); do
   case "$1" in
-    --branch)
-      (($# >= 2)) || die "--branch requires a value"
-      distgit_branch=$2
-      shift 2
-      ;;
     --dry-run)
       dry_run=true
       shift
@@ -66,8 +57,6 @@ done
 for command in awk basename curl git mktemp rhpkg sha256sum; do
   command -v "$command" >/dev/null || die "required command not found: $command"
 done
-git check-ref-format --branch "$distgit_branch" >/dev/null ||
-  die "invalid branch name: $distgit_branch"
 
 work_dir=$(mktemp -d "${TMPDIR:-/tmp}/brew-cross-lookaside.XXXXXXXX")
 trap 'rm -rf "$work_dir"' EXIT
@@ -93,12 +82,12 @@ archive_sha256=$(sha256sum "$artifact_dir/cross.tar.gz" | awk '{print $1}')
 printf 'Verified SHA-256: %s\n' "$archive_sha256"
 
 if [[ $dry_run == true ]]; then
-  git clone --branch "$distgit_branch" "$distgit_git_url" \
+  git clone "$distgit_git_url" \
     "$work_dir/$(basename "$distgit_repo")"
 else
   (
     cd "$work_dir"
-    rhpkg clone -b "$distgit_branch" "$distgit_repo"
+    rhpkg clone "$distgit_repo"
   )
 fi
 
