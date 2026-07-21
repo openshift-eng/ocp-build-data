@@ -4,11 +4,14 @@ set -euo pipefail
 
 readonly DEFAULT_ARTIFACT_BASE_URL="https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-golang-builder"
 readonly DEFAULT_DISTGIT_REPO="containers/openshift-golang-builder"
+readonly DEFAULT_DISTGIT_GIT_URL="https://pkgs.devel.redhat.com/git/containers/openshift-golang-builder"
 readonly DEFAULT_COMMIT_MESSAGE="Update cross.tar.gz"
 
 artifact_base_url="${CROSS_ARTIFACT_BASE_URL:-$DEFAULT_ARTIFACT_BASE_URL}"
 distgit_repo="${BREW_DISTGIT_REPO:-$DEFAULT_DISTGIT_REPO}"
+distgit_git_url="${BREW_DISTGIT_GIT_URL:-$DEFAULT_DISTGIT_GIT_URL}"
 commit_message="${CROSS_DISTGIT_COMMIT_MESSAGE:-$DEFAULT_COMMIT_MESSAGE}"
+dry_run=false
 branches=()
 branches_to_update=()
 updated_count=0
@@ -16,7 +19,7 @@ declare -A seen_branches=()
 
 usage() {
   cat <<'EOF'
-Usage: update-brew-cross-sources.sh BRANCH [BRANCH ...]
+Usage: update-brew-cross-sources.sh [--dry-run] BRANCH [BRANCH ...]
 
 Download and verify the published cross.tar.gz, upload it to the Brew
 lookaside cache, and update each specified openshift-golang-builder distgit
@@ -25,7 +28,12 @@ branch to use it.
 Environment overrides:
   CROSS_ARTIFACT_BASE_URL       Directory containing cross.tar.gz and sha256sum.txt
   BREW_DISTGIT_REPO             Distgit repository (default: containers/openshift-golang-builder)
+  BREW_DISTGIT_GIT_URL          Read-only distgit URL used by --dry-run
   CROSS_DISTGIT_COMMIT_MESSAGE  Commit message (default: Update cross.tar.gz)
+
+Options:
+  --dry-run  Verify and compare the archive without uploading, committing, or pushing
+  -h, --help  Show this help
 
 The script commits and pushes directly to every specified distgit branch.
 EOF
@@ -38,6 +46,10 @@ die() {
 
 while (($#)); do
   case "$1" in
+    --dry-run)
+      dry_run=true
+      shift
+      ;;
     -h|--help)
       usage
       exit 0
@@ -57,9 +69,12 @@ done
 
 ((${#branches[@]} > 0)) || die "at least one distgit branch is required"
 
-for command in awk basename cmp curl git md5sum mktemp rhpkg sha256sum sha512sum; do
+for command in awk basename cmp curl git md5sum mktemp sha256sum sha512sum; do
   command -v "$command" >/dev/null || die "required command not found: $command"
 done
+if [[ $dry_run == false ]]; then
+  command -v rhpkg >/dev/null || die "required command not found: rhpkg"
+fi
 
 for branch in "${branches[@]}"; do
   git check-ref-format --branch "$branch" >/dev/null ||
@@ -74,10 +89,10 @@ mkdir -p "$artifact_dir"
 artifact_base_url=${artifact_base_url%/}
 
 printf 'Downloading cross.tar.gz and sha256sum.txt\n'
-curl --fail --location --retry 3 \
+curl --fail --silent --show-error --location --retry 3 \
   --output "$artifact_dir/cross.tar.gz" \
   "$artifact_base_url/cross.tar.gz"
-curl --fail --location --retry 3 \
+curl --fail --silent --show-error --location --retry 3 \
   --output "$artifact_dir/sha256sum.txt" \
   "$artifact_base_url/sha256sum.txt"
 
@@ -93,13 +108,18 @@ printf 'Verified SHA-256: %s\n' "$archive_sha256"
 printf 'Archive MD5: %s\n' "$archive_md5"
 
 first_branch=${branches[0]}
-(
-  cd "$work_dir"
-  rhpkg clone -b "$first_branch" "$distgit_repo"
-)
+if [[ $dry_run == true ]]; then
+  git clone --branch "$first_branch" "$distgit_git_url" \
+    "$work_dir/$(basename "$distgit_repo")"
+else
+  (
+    cd "$work_dir"
+    rhpkg clone -b "$first_branch" "$distgit_repo"
+  )
+fi
 
 distgit_dir="$work_dir/$(basename "$distgit_repo")"
-[[ -d "$distgit_dir/.git" ]] || die "rhpkg did not create $distgit_dir"
+[[ -d "$distgit_dir/.git" ]] || die "distgit clone did not create $distgit_dir"
 
 git -C "$distgit_dir" fetch origin
 for branch in "${branches[@]}"; do
@@ -138,6 +158,16 @@ done
 if ((${#branches_to_update[@]} == 0)); then
   printf 'All %s distgit branch(es) already reference the published archive.\n' \
     "${#branches[@]}"
+  exit 0
+fi
+
+if [[ $dry_run == true ]]; then
+  printf 'Dry run: would upload cross.tar.gz with MD5 %s to Brew lookaside.\n' \
+    "$archive_md5"
+  for branch in "${branches_to_update[@]}"; do
+    printf 'Dry run: would update %s.\n' "$branch"
+  done
+  printf 'Dry run: no lookaside upload, commit, or push was performed.\n'
   exit 0
 fi
 

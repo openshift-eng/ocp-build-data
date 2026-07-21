@@ -182,10 +182,15 @@ repository stores `cross.tar.gz` in its lookaside cache, and each distgit
 branch selects the archive through its committed `sources` file.
 
 After promoting the archive on `ocp-artifacts`, run the update script with
-every Brew distgit branch that should consume it. A valid Red Hat Kerberos
-ticket and permission to push to the distgit repository are required:
+every Brew distgit branch that should consume it. The real update requires
+`rhpkg`, a valid Red Hat Kerberos ticket, and permission to push to the distgit
+repository; dry-run uses the read-only HTTPS Git endpoint:
 
 ```console
+$ ./cross/update-brew-cross-sources.sh --dry-run \
+    rhaos-4.22-rhel-9 \
+    rhaos-4.22-rhel-8
+
 $ ./cross/update-brew-cross-sources.sh \
     rhaos-4.22-rhel-9 \
     rhaos-4.22-rhel-8
@@ -197,9 +202,11 @@ lookaside cache once. It then commits the generated `sources` file to each
 specified branch and pushes without force. Branches that already reference the
 archive are identified before the lookaside step and skipped; if all specified
 branches are current, the script exits without uploading, committing, or
-pushing. Because `sources` is versioned independently, every active Brew
-distgit branch whose Dockerfile uses `COPY cross.tar.gz` must be passed to the
-script. Branches that do not install the cross toolchain need no update.
+pushing. The `--dry-run` option performs the download, verification, clone,
+branch validation, and comparison without modifying the lookaside cache or
+distgit branches. Because `sources` is versioned independently, every active
+Brew distgit branch whose Dockerfile uses `COPY cross.tar.gz` must be passed to
+the script. Branches that do not install the cross toolchain need no update.
 
 In Jenkins, run the Golang builder job with **Build system** set to `brew`.
 Confirm that the resulting Brew task builds from a distgit commit containing
