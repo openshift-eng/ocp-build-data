@@ -177,45 +177,29 @@ cross-toolchain steps successfully.
 
 ## Update and test the archive in Brew
 
-Brew does not download the archive from the OCP artifacts URL. The Brew
-distgit repository stores `cross.tar.gz` in its lookaside cache, and each
-distgit branch selects the archive through its committed `sources` file.
+Brew does not download the archive during the image build. The Brew distgit
+repository stores `cross.tar.gz` in its lookaside cache, and each distgit
+branch selects the archive through its committed `sources` file.
 
-Use `rhpkg new-sources` from one target distgit branch to upload the verified
-candidate and update that branch's `sources` file:
-
-```console
-$ distgit_branch=rhaos-4.22-rhel-9
-$ rhpkg clone -b "$distgit_branch" containers/openshift-golang-builder
-$ cd openshift-golang-builder
-$ cp /path/to/cross-new.tar.gz cross.tar.gz
-$ md5sum cross.tar.gz
-$ rhpkg new-sources cross.tar.gz
-$ cat sources
-$ cp sources /tmp/openshift-golang-builder-cross.sources
-$ git add sources
-$ git commit -m "Update cross.tar.gz"
-$ git push origin HEAD
-```
-
-Confirm that the digest written to `sources` matches the local archive. The
-lookaside object is content-addressed and only needs to be uploaded once, but
-`sources` is versioned independently on every distgit branch. To update another
-active branch, reuse the generated file and commit it on that branch:
+After promoting the archive on `ocp-artifacts`, run the update script with
+every Brew distgit branch that should consume it. A valid Red Hat Kerberos
+ticket and permission to push to the distgit repository are required:
 
 ```console
-$ next_branch=rhaos-4.22-rhel-8
-$ git fetch origin "$next_branch"
-$ git switch --create "$next_branch" --track "origin/$next_branch"
-$ cp /tmp/openshift-golang-builder-cross.sources sources
-$ git add sources
-$ git commit -m "Update cross.tar.gz"
-$ git push origin HEAD
+$ ./cross/update-brew-cross-sources.sh \
+    rhaos-4.22-rhel-9 \
+    rhaos-4.22-rhel-8
 ```
 
-Repeat the branch update for every active Brew distgit branch whose Dockerfile
-uses `COPY cross.tar.gz`. Branches that do not install the cross toolchain do
-not need the source entry.
+The script downloads `cross.tar.gz` and `sha256sum.txt`, verifies the published
+SHA-256 checksum, and uses `rhpkg new-sources` to upload the archive to the
+lookaside cache once. It then commits the generated `sources` file to each
+specified branch and pushes without force. Branches that already reference the
+archive are identified before the lookaside step and skipped; if all specified
+branches are current, the script exits without uploading, committing, or
+pushing. Because `sources` is versioned independently, every active Brew
+distgit branch whose Dockerfile uses `COPY cross.tar.gz` must be passed to the
+script. Branches that do not install the cross toolchain need no update.
 
 In Jenkins, run the Golang builder job with **Build system** set to `brew`.
 Confirm that the resulting Brew task builds from a distgit commit containing
