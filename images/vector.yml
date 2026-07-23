@@ -38,3 +38,19 @@ konflux:
 jira:
   project: LOG
   component: vector-container
+scan_sources:
+  exempt_rpms:
+    - cargo
+    - clang*
+    - clippy
+    - compiler-rt
+    - git-clang-format
+    - libasan*
+    - liblsan*
+    - libomp*
+    - libtsan*
+    - lld*
+    - llvm*
+    - python3-clang
+    - python3-lldb
+    - rust*
