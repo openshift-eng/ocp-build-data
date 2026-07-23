@@ -19,7 +19,7 @@ content:
       mirror_manifest_list: true
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
       upstream_image_mirror:
-      - registry.ci.openshift.org/ocp-private/builder-priv:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
+      - registry.ci.openshift.org/ocp-priv/builder:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
     modifications:
     - action: replace
       match: "ENV CI_RPM_SVC=base-MAJOR-MINOR-rhelX.ocp.svc"
