@@ -40,19 +40,17 @@ jira:
   component: vector-container
 scan_sources:
   exempt_rpms:
-    # Rust toolset (pinned at 1.84.1)
-    - rust*
     - cargo
-    - clippy
-    # LLVM/Clang toolchain (pinned at 19.1.7)
-    - llvm*
     - clang*
-    - lld*
+    - clippy
     - compiler-rt
     - git-clang-format
+    - libasan*
+    - liblsan*
+    - libomp*
+    - libtsan*
+    - lld*
+    - llvm*
     - python3-clang
     - python3-lldb
-    - libomp*
-    # GCC sanitizer libs (pinned at 14.2.1)
-    - libasan*
-    - libtsan*
+    - rust*
