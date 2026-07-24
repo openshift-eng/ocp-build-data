@@ -4,8 +4,8 @@ releases:
       type: preview
       basis:
         time: "2026-07-20T03:35:37+00:00"
-        reference_releases:
-          x86_64: 5.0.0-0.nightly-2026-07-20-081439
+        # reference_releases:
+        #   x86_64: 5.0.0-0.nightly-2026-07-20-081439
       group:
         advisories:
           rpm: 168422
@@ -49,6 +49,15 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:54d399512634c397b43615beda78d66d59dddafe96e395e05b80d123b49843eb
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ac8f21d9b674819bd9d7d8630183cc8b05dfdbc51fe4d6fdee5c03ea269a784d
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bc30b36069d235fb9f64894d91b4c6b3789cd24e5b9ca8d00db2fdbd7d1608de
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
+        - code: FAILED_CONSISTENCY_REQUIREMENT
+          component: driver-toolkit
+        - code: MISMATCHED_SIBLINGS
+          component: ose-gcp-pd-csi-driver-operator
       members:
         rpms: []
         images:
