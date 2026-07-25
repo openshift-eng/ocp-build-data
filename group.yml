@@ -186,8 +186,6 @@ default_image_build_profile: unsigned
 default_rpm_build_profile: default
 
 # rpm_deliveries is mainly to support for "Weekly" kernel delivery through OCP (ART-6100)
-# WARNING: This is WRONG and needs to be re-adjusted after rhel9.8 and rhel10.2 go GA in May.
-# See ART-14597 for details.
 rpm_deliveries:
   - packages:
       - kernel
@@ -196,14 +194,13 @@ rpm_deliveries:
     stop_ship_tag: early-kernel-stop-ship
     ship_ok_tag: early-kernel-ship-ok
     target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
-  # I suspect we can't have multiple packages with the same name but different tags etc?
-  #- packages:
-  #    - kernel
-  #  rhel_tag: rhel-10.2-candidate
-  #  integration_tag: early-kernel-candidate
-  #  stop_ship_tag: early-kernel-stop-ship
-  #  ship_ok_tag: early-kernel-ship-ok
-  #  target_tag: rhaos-{MAJOR}.{MINOR}-rhel-10-candidate
+  - packages:
+      - kernel
+    rhel_tag: rhel-10.2-z-candidate
+    integration_tag: early-kernel-candidate
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
+    target_tag: rhaos-{MAJOR}.{MINOR}-rhel-10-candidate
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 name: openshift-{MAJOR}.{MINOR}
