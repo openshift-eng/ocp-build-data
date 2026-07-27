@@ -15,6 +15,15 @@ content:
       doozer_source: golang_builder_FIPS_wrapper.sh
       path: go_wrapper.sh
       overwriting: true
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-golang-builder-container
+  name: openshift-golang-builder
+
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
+
 enabled_repos:
 - rhel-9-6-baseos-rpms
 - rhel-9-golang-rpms
