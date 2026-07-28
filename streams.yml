@@ -36,12 +36,12 @@ rhel-8-golang:
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.25:
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604150744.p2.gf28329a.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.11-202607210212.p2.g6245b3b.el9
   mirror: true
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
 
 rhel-8-golang-1.25:
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604081607.p2.g2aa6a05.el8
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.11-202607131221.p2.g3c0977b.el8
   mirror: true
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
 
@@ -62,7 +62,7 @@ partner-rhel-9-golang-1.26:
     - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.26-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-8-golang-1.25:
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604081607.p2.g2aa6a05.el8
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.11-202607131221.p2.g3c0977b.el8
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.25-openshift-{MAJOR}.{MINOR}
@@ -70,7 +70,7 @@ partner-rhel-8-golang-1.25:
     - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.25-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-9-golang-1.25:
-  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.8-202604150744.p2.gf28329a.el9
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.25.11-202607210212.p2.g6245b3b.el9
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.25-openshift-{MAJOR}.{MINOR}
