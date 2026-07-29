@@ -27,6 +27,8 @@ releases:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
         - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: driver-toolkit
+        - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic-agent
@@ -57,12 +59,7 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e4bab1343c738ee67a34980026fa9f1c6469366ccdbb52a41515ae686fc1d2b0
       members:
         rpms: []
-        images:
-        - distgit_key: driver-toolkit
-          metadata:
-            is:
-              nvr: driver-toolkit-container-v4.17.0-202607290134.p2.g859518f.assembly.stream.el9
-          why: Pin driver-toolkit to build with kernel 5.14.0-427.141.1.el9_4 matching RHCOS
+        images: []
   4.17.55:
     assembly:
       type: standard
