@@ -58,7 +58,12 @@ releases:
         - code: MISMATCHED_SIBLINGS
           component: ose-gcp-pd-csi-driver-operator
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~ec.5-202607301601.p0.gfc2923d.assembly.ec.5.el9
         images:
           - distgit_key: driver-toolkit-rhel10
             why: Pin post-component-collision-fix build with kernel content matching the referenced nightly.
