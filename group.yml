@@ -197,13 +197,13 @@ rpm_deliveries:
     ship_ok_tag: early-kernel-ship-ok
     target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
   # I suspect we can't have multiple packages with the same name but different tags etc?
-  #- packages:
-  #    - kernel
-  #  rhel_tag: rhel-10.2-candidate
-  #  integration_tag: early-kernel-candidate
-  #  stop_ship_tag: early-kernel-stop-ship
-  #  ship_ok_tag: early-kernel-ship-ok
-  #  target_tag: rhaos-{MAJOR}.{MINOR}-rhel-10-candidate
+  - packages:
+      - kernel
+    rhel_tag: rhel-10.2-z-candidate
+    integration_tag: early-kernel-candidate
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
+    target_tag: rhaos-{MAJOR}.{MINOR}-rhel-10-candidate
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 name: openshift-{MAJOR}.{MINOR}
