@@ -47,7 +47,7 @@ RUN dnf update -y && \
         which \
         xz \
         zip && \
-    dnf install -y "golang-*$VERSION*" && \
+    dnf install -y "${__doozer_golang_nvr:-golang-*$VERSION*}" && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (x86_64 only)
 COPY cross.tar.gz .
