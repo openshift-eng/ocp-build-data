@@ -1,0 +1,25 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-coo-1.5
+      url: git@github.com:openshift-priv/perses-operator.git
+      web: https://github.com/rhobs/perses-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: perses-rhel9-operator-container
+delivery:
+  delivery_repo_names:
+  - cluster-observability-operator/perses-rhel9-operator
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: cluster-observability-operator/perses-rhel9-operator
+owners:
+- team-monitoring@redhat.com

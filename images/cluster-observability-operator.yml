@@ -1,0 +1,33 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-coo-1.5
+      url: git@github.com:openshift-priv/cluster-observability-operator.git
+      web: https://github.com/rhobs/observability-operator
+distgit:
+  bundle_component: cluster-observability-operator-bundle-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: cluster-observability-rhel9-operator-container
+delivery:
+  bundle_delivery_repo_name: cluster-observability-operator/cluster-observability-operator-bundle
+  delivery_repo_names:
+  - cluster-observability-operator/cluster-observability-rhel9-operator
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: cluster-observability-operator/cluster-observability-rhel9-operator
+name_in_bundle: cluster-observability-rhel9-operator
+owners:
+- team-monitoring@redhat.com
+update-csv:
+  bundle-dir: bundle/manifests/
+  manifests-dir: bundle/metadata/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'

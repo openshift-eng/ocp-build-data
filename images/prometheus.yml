@@ -1,0 +1,25 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-coo-1.5
+      url: git@github.com:openshift-priv/prometheus.git
+      web: https://github.com/openshift/prometheus
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: prometheus-rhel9-container
+delivery:
+  delivery_repo_names:
+  - cluster-observability-operator/prometheus-rhel9
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: cluster-observability-operator/prometheus-rhel9
+owners:
+- team-monitoring@redhat.com

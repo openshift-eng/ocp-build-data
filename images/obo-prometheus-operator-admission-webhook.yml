@@ -1,0 +1,25 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: cmd/admission-webhook/Dockerfile.art
+    git:
+      branch:
+        target: release-coo-1.5
+      url: git@github.com:openshift-priv/obo-prometheus-operator.git
+      web: https://github.com/rhobs/obo-prometheus-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: obo-prometheus-operator-admission-webhook-rhel9-container
+delivery:
+  delivery_repo_names:
+  - cluster-observability-operator/obo-prometheus-operator-admission-webhook-rhel9
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: cluster-observability-operator/obo-prometheus-operator-admission-webhook-rhel9
+owners:
+- team-monitoring@redhat.com

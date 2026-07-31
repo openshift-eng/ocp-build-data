@@ -1,0 +1,25 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-coo-1.5
+      url: git@github.com:openshift-priv/korrel8r.git
+      web: https://github.com/korrel8r/korrel8r
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: korrel8r-rhel9-container
+delivery:
+  delivery_repo_names:
+  - cluster-observability-operator/korrel8r-rhel9
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: cluster-observability-operator/korrel8r-rhel9
+owners:
+- team-monitoring@redhat.com
