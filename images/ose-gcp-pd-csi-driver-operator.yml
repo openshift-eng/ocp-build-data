@@ -2,10 +2,6 @@ arches:
 - x86_64
 - ppc64le
 - aarch64
-cachito:
-  packages:
-    gomod:
-    - path: legacy/gcp-pd-csi-driver-operator
 content:
   source:
     dockerfile: Dockerfile.gcp-pd
@@ -23,8 +19,6 @@ content:
         - lgtm
         - jira/valid-reference
         - verified
-    pkg_managers:
-    - gomod
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-gcp-pd-csi-driver-operator-container
