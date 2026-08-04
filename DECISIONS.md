@@ -46,8 +46,15 @@ Created as part of JIRA ticket [HYPBLD-847](https://redhat.atlassian.net/browse/
 
 ## Delivery Repo Names
 
-- **Decision**: `rhacm2/<component>-rhel9` pattern
-- **Rationale**: Matches existing ACM images in `registry.redhat.io/rhacm2/` namespace. Confirmed from ACM CSV OPERAND_IMAGE values and KRD ReleasePlanAdmission configs.
+- **Decision**: `name` and `delivery_repo_names` must exactly match the delivery repo name registered in the Konflux product registry (ReleasePlanAdmission).
+- **Source of truth**: `konflux-release-data/config/stone-prd-rh01.pg1f.p1/product/ReleasePlanAdmission/crt-redhat-acm/crt-redhat-acm-acm-2-16-rpa-stage.yaml`
+- **Rationale**: ART sets the `name` label on built container images from the `name` field in ocp-build-data. During stage release, Konflux validates this label against the registered delivery repo. A mismatch causes `LabelValidationError`.
+- **Naming patterns** (not uniform — must be looked up per component):
+  - Some components have `acm-` prefix: `acm-cluster-permission-rhel9`, `acm-grafana-rhel9`, `acm-must-gather-rhel9`, etc.
+  - Some components have `-rhel9-operator` suffix (not `-operator-rhel9`): `endpoint-monitoring-rhel9-operator`, `observatorium-rhel9-operator`
+  - Some have completely different names from their ocp-build-data filename: `prometheus-operator.yml` → `acm-prometheus-rhel9`, `search-v2-operator.yml` → `acm-search-v2-rhel9`
+- **Corrected**: Original decision applied a simplified `rhacm2/<component>-rhel9` pattern uniformly, which caused 18 LabelValidationErrors at stage release. Fixed by aligning all names with the authoritative Konflux RPA list.
+- **Lesson**: Never assume a naming pattern — always cross-reference against the Konflux ReleasePlanAdmission for the product version.
 
 ## RHEL 8 Builders
 
