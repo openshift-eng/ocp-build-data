@@ -6,23 +6,20 @@ cachito:
     - path: v1/
 content:
   source:
-    # TODO(ART-21250): confirm dockerfile path once upstream Containerfile lands
-    dockerfile: images/cli/Dockerfile.konflux
+    dockerfile: images/cli/Dockerfile.konflux.rhel9
     git:
       branch:
-        # TODO(ART-21250): confirm git.branch.target (main vs release-2.0)
         target: main
       url: git@github.com:openshift-priv/oc-mirror.git
       web: https://github.com/openshift/oc-mirror
 distgit:
   branch: oc-mirror-{MAJOR}.{MINOR}-rhel-9
-  component: oc-mirror-container
+  component: oc-mirror-rhel9-container
 from:
   builder:
-  - stream: rhel-8-golang
   - stream: rhel-9-golang
   - stream: rhel9
-name: openshift5/oc-mirror-2-0
+name: openshift5/oc-mirror-2-0-rhel9
 owners:
 - jpower@redhat.com
 - dmesser@redhat.com
