@@ -1,0 +1,26 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+    - path: v1/
+content:
+  source:
+    dockerfile: images/cli/Dockerfile.konflux.rhel8
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/oc-mirror.git
+      web: https://github.com/openshift/oc-mirror
+distgit:
+  branch: oc-mirror-{MAJOR}.{MINOR}-rhel-8
+  component: oc-mirror-rhel8-container
+from:
+  builder:
+  - stream: rhel-8-golang
+  - stream: rhel8
+name: openshift5/oc-mirror-2-0-rhel8
+owners:
+- jpower@redhat.com
+- dmesser@redhat.com
+- aflom@redhat.com
