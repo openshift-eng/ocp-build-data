@@ -215,6 +215,10 @@ okd:
   content:
     source:
       dockerfile: Dockerfile.scos
+      modifications:
+      - action: replace
+        match: "RUN update-crypto-policies --set DEFAULT:PQ"
+        replacement: ""
   from:
     builder:
     - member: openshift-enterprise-base-rhel9
