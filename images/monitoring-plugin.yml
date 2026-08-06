@@ -47,4 +47,9 @@ okd:
   content:
     source:
       dockerfile: Dockerfile
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN make build-frontend"
+        replacement: |-
+          ENV NODE_OPTIONS=--max-old-space-size=4096
+          RUN make build-frontend
