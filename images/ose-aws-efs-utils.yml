@@ -45,3 +45,11 @@ konflux:
     lockfile:
       rpms:
       - keyutils
+
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "RUN /src/install-python-deps-ocp.sh"
+        replacement: "RUN sed -i 's/ python3-wheel//' /src/install-python-deps-ocp.sh && sed -i '/yum clean all/i python3 -m pip install wheel' /src/install-python-deps-ocp.sh && /src/install-python-deps-ocp.sh"
