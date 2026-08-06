@@ -128,10 +128,14 @@ rhcos:
   - rhel-9-appstream-rpms
   - rhel-9-fast-datapath-rpms
   require_consistency:
-    driver-toolkit:
-    - kernel  # since 9.3, kernel-rt is merged into the kernel package.
-    ose-ovn-kubernetes:
-    - libreswan
+    rhel-coreos:
+      driver-toolkit:
+      - kernel  # since 9.3, kernel-rt is merged into the kernel package.
+      ose-ovn-kubernetes:
+      - libreswan
+    rhel-coreos-10:
+      driver-toolkit-rhel10:
+      - kernel
   exempt_rpms: # skip check these rpms as they will aligned with rhel base image in rhcos
   - crun-wasm
   - lld
