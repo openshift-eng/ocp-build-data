@@ -47,4 +47,25 @@ okd:
   content:
     source:
       dockerfile: Dockerfile
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN make install-frontend-ci"
+        replacement: |-
+          RUN for attempt in 1 2 3; do \
+                echo "Attempt $attempt: make install-frontend-ci"; \
+                make install-frontend-ci && break; \
+                echo "Attempt $attempt failed"; \
+                [ "$attempt" -lt 3 ] && sleep 30; \
+              done && \
+              if [ "$(uname -m)" = "aarch64" ]; then \
+                cd web && \
+                for attempt in 1 2 3; do \
+                  echo "Attempt $attempt: npm pack @esbuild/linux-arm64@0.27.2"; \
+                  npm pack @esbuild/linux-arm64@0.27.2 && break; \
+                  echo "Attempt $attempt failed"; \
+                  [ "$attempt" -lt 3 ] && sleep 30; \
+                done && \
+                mkdir -p node_modules/esbuild-loader/node_modules/@esbuild/linux-arm64 && \
+                tar xzf esbuild-linux-arm64-*.tgz -C node_modules/esbuild-loader/node_modules/@esbuild/linux-arm64 --strip-components=1 && \
+                rm -f esbuild-linux-arm64-*.tgz; \
+              fi
