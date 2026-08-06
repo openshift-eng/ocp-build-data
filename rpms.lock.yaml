@@ -3,6 +3,34 @@ lockfileVendor: redhat
 arches:
 - arch: aarch64
   packages:
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/aarch64/os/Packages/golang-1.23.10-16.el8__aarch64__00da75f2/golang-1.23.10-16.el8.aarch64.rpm
+    repoid: rhocp-4.19-for-rhel-8-aarch64-rpms
+    name: golang
+    evr: 1.23.10-16.el8
+    size: 782612
+    checksum: sha256:ba9d18947ec548a8e034894b9e33aeb4f3a0f9e0f67f8d5adc00e77171548edb
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/aarch64/os/Packages/golang-1.23.10-16.el8__aarch64__00da75f2/golang-bin-1.23.10-16.el8.aarch64.rpm
+    repoid: rhocp-4.19-for-rhel-8-aarch64-rpms
+    name: golang-bin
+    evr: 1.23.10-16.el8
+    size: 68885804
+    checksum: sha256:1d6b913f7f2f7f008c0301e7a654700cf95071b0f3b79136cbda5047d72d2aaa
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/aarch64/os/Packages/golang-1.23.10-16.el8__aarch64__00da75f2/golang-race-1.23.10-16.el8.aarch64.rpm
+    repoid: rhocp-4.19-for-rhel-8-aarch64-rpms
+    name: golang-race
+    evr: 1.23.10-16.el8
+    size: 183412
+    checksum: sha256:a3c89fb3bffd2c786ebdabd563caa8ca93f498dc0efd602a93edf5d5d9646742
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/aarch64/os/Packages/golang-1.23.10-16.el8__noarch__00da75f2/golang-src-1.23.10-16.el8.noarch.rpm
+    repoid: rhocp-4.19-for-rhel-8-aarch64-rpms
+    name: golang-src
+    evr: 1.23.10-16.el8
+    size: 11255272
+    checksum: sha256:f8258954159208de72984baa79f9e7352f69d0f415c024252803e0a9bed257f4
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
   - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/aarch64/os/Packages/goversioninfo-0.1-2.el8__aarch64__00da75f2/goversioninfo-0.1-2.el8.aarch64.rpm
     repoid: rhocp-4.19-for-rhel-8-aarch64-rpms
     name: goversioninfo
@@ -59,55 +87,6 @@ arches:
     size: 3216756
     checksum: sha256:09202aba03724180992d4cb6a3c617423ee25dc61f2c162990a25d7781977058
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.aarch64.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 1598746
-    checksum: sha256:557c826881fd6c3f3f0758b968b3ad7851e0779aa650e988c069abae9e782cc3
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-bin-1.26.5-1.module+el8.10.0+24506+6809f2d9.aarch64.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang-bin
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 44064078
-    checksum: sha256:cb60fcb02ab5debaa06349f79d97bc83318bf1dbb1f6f7a4b5ec37f6e7513288
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-docs-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang-docs
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 139002
-    checksum: sha256:4b5df62a685ad60e3ff460f12f2cf2b50ea011a793059cb93277302e5dd2f67d
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-misc-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang-misc
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 61454
-    checksum: sha256:79f40dba82efaace7f8268c727a04b42851b48945f8d0ae5460d0f6dc5c72b23
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-race-1.26.5-1.module+el8.10.0+24506+6809f2d9.aarch64.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang-race
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 705058
-    checksum: sha256:50cadc0f4b9ae3cb0763448587e2ff7ab67be29e490572714dfabedde71afeb9
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-src-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang-src
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 12830818
-    checksum: sha256:8baba7a8e38205bd86fe69bee4670eb2c6b36411ac371c5fe50bc3c121fb2f57
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/g/golang-tests-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-aarch64-appstream-rpms
-    name: golang-tests
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 11856974
-    checksum: sha256:21fe3c1661ff512c271a46a0801c3e221138c952aadb2c1f43f4529b2bcfd923
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/Packages/i/isl-0.16.1-6.el8.aarch64.rpm
     repoid: rhel-8-for-aarch64-appstream-rpms
     name: isl
@@ -521,13 +500,13 @@ arches:
     size: 32380
     checksum: sha256:7fc33f147b99749fdbae420ed51277cb99d9b6418b7f739fe51c7563945bc0d7
     sourcerpm: hostname-3.20-6.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/baseos/os/Packages/k/kernel-headers-4.18.0-553.151.1.el8_10.aarch64.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/baseos/os/Packages/k/kernel-headers-4.18.0-553.153.1.el8_10.aarch64.rpm
     repoid: rhel-8-for-aarch64-baseos-rpms
     name: kernel-headers
-    evr: 4.18.0-553.151.1.el8_10
-    size: 12503568
-    checksum: sha256:72f2c6a60746ada7ad73e575f00351ba17d4c01d5d0ae3e3d2a1de6517bf544e
-    sourcerpm: kernel-4.18.0-553.151.1.el8_10.src.rpm
+    evr: 4.18.0-553.153.1.el8_10
+    size: 12504232
+    checksum: sha256:1fe7981dde9bf28e4fd8385ce2821c6ce0d58da3c88410cfbe0bf70d61d43dd1
+    sourcerpm: kernel-4.18.0-553.153.1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/baseos/os/Packages/k/keyutils-libs-devel-1.5.10-9.el8.aarch64.rpm
     repoid: rhel-8-for-aarch64-baseos-rpms
     name: keyutils-libs-devel
@@ -1438,13 +1417,13 @@ arches:
     size: 59900
     checksum: sha256:8e7d8075ed36569f54a7b133a29131262cb0e31e260b8da208b7f6d664b7a67f
     sourcerpm: tree-1.7.0-15.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/baseos/os/Packages/t/tzdata-2026b-1.el8.noarch.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/baseos/os/Packages/t/tzdata-2026c-1.el8_10.noarch.rpm
     repoid: rhel-8-for-aarch64-baseos-rpms
     name: tzdata
-    evr: 2026b-1.el8
-    size: 562980
-    checksum: sha256:1fcff97620f44dd9750407def200e16d073285a2576a6581932822318d4788e9
-    sourcerpm: tzdata-2026b-1.el8.src.rpm
+    evr: 2026c-1.el8_10
+    size: 562628
+    checksum: sha256:83ec0ee7d288f82f0c9dfd04475596711bf0ed4e26aea37d6c0a020acdb32472
+    sourcerpm: tzdata-2026c-1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/baseos/os/Packages/u/unzip-6.0-48.el8_10.aarch64.rpm
     repoid: rhel-8-for-aarch64-baseos-rpms
     name: unzip
@@ -1517,12 +1496,40 @@ arches:
     sourcerpm: libassuan-2.5.1-3.el8.src.rpm
   source: []
   module_metadata:
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/repodata/957cb48e6b322a3d9c0664c58f72d9549dc5f1a69895d8d0888094d5e8337013-modules.yaml.gz
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/aarch64/appstream/os/repodata/23279b487486df2eadc2958dc749b1f318eba12885b54bb4ec5243b7a27cc204-modules.yaml.gz
     repoid: rhel-8-for-aarch64-appstream-rpms
     size: 824773
-    checksum: sha256:957cb48e6b322a3d9c0664c58f72d9549dc5f1a69895d8d0888094d5e8337013
+    checksum: sha256:23279b487486df2eadc2958dc749b1f318eba12885b54bb4ec5243b7a27cc204
 - arch: ppc64le
   packages:
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/ppc64le/os/Packages/golang-1.23.10-16.el8__noarch__00da75f2/golang-src-1.23.10-16.el8.noarch.rpm
+    repoid: rhocp-4.19-for-rhel-8-ppc64le-rpms
+    name: golang-src
+    evr: 1.23.10-16.el8
+    size: 11255272
+    checksum: sha256:f8258954159208de72984baa79f9e7352f69d0f415c024252803e0a9bed257f4
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/ppc64le/os/Packages/golang-1.23.10-16.el8__ppc64le__00da75f2/golang-1.23.10-16.el8.ppc64le.rpm
+    repoid: rhocp-4.19-for-rhel-8-ppc64le-rpms
+    name: golang
+    evr: 1.23.10-16.el8
+    size: 782644
+    checksum: sha256:eb74a04669d8391b195271ea84ece24ac1ef52fda28dbdf1c18152a9a9f16c9b
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/ppc64le/os/Packages/golang-1.23.10-16.el8__ppc64le__00da75f2/golang-bin-1.23.10-16.el8.ppc64le.rpm
+    repoid: rhocp-4.19-for-rhel-8-ppc64le-rpms
+    name: golang-bin
+    evr: 1.23.10-16.el8
+    size: 69983192
+    checksum: sha256:17b649abb99f56fb9c0cd0e95dc2536d6513689a9782a5b792a1a2d2005734f5
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/ppc64le/os/Packages/golang-1.23.10-16.el8__ppc64le__00da75f2/golang-race-1.23.10-16.el8.ppc64le.rpm
+    repoid: rhocp-4.19-for-rhel-8-ppc64le-rpms
+    name: golang-race
+    evr: 1.23.10-16.el8
+    size: 226416
+    checksum: sha256:fe68b74d135ab374e901ded3792ceaa7e9d7f084cced5076e263de8abbdfb0ce
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
   - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/ppc64le/os/Packages/goversioninfo-0.1-2.el8__ppc64le__00da75f2/goversioninfo-0.1-2.el8.ppc64le.rpm
     repoid: rhocp-4.19-for-rhel-8-ppc64le-rpms
     name: goversioninfo
@@ -1579,55 +1586,6 @@ arches:
     size: 3216756
     checksum: sha256:09202aba03724180992d4cb6a3c617423ee25dc61f2c162990a25d7781977058
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.ppc64le.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 1598870
-    checksum: sha256:e399d5690eae6ede6695774924052c27314ca7ce470290f7d43338acd2b94a9d
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-bin-1.26.5-1.module+el8.10.0+24506+6809f2d9.ppc64le.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang-bin
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 45164410
-    checksum: sha256:bb021507a294b9802e3047e1f780d368e26ab6e5ef1c6365d3b40826ee5a2337
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-docs-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang-docs
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 139002
-    checksum: sha256:4b5df62a685ad60e3ff460f12f2cf2b50ea011a793059cb93277302e5dd2f67d
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-misc-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang-misc
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 61454
-    checksum: sha256:79f40dba82efaace7f8268c727a04b42851b48945f8d0ae5460d0f6dc5c72b23
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-race-1.26.5-1.module+el8.10.0+24506+6809f2d9.ppc64le.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang-race
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 693682
-    checksum: sha256:80c391744a1f1b8e0408880f5d0a2ee0a17083b8490a08cd1136f2da79841f73
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-src-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang-src
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 12830818
-    checksum: sha256:8baba7a8e38205bd86fe69bee4670eb2c6b36411ac371c5fe50bc3c121fb2f57
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/g/golang-tests-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-ppc64le-appstream-rpms
-    name: golang-tests
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 11856974
-    checksum: sha256:21fe3c1661ff512c271a46a0801c3e221138c952aadb2c1f43f4529b2bcfd923
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/Packages/i/isl-0.16.1-6.el8.ppc64le.rpm
     repoid: rhel-8-for-ppc64le-appstream-rpms
     name: isl
@@ -2041,13 +1999,13 @@ arches:
     size: 33280
     checksum: sha256:090273fb5feb61c91755b41b0ade0fcce8ac222ed0f48c4a63f0f0253b1c12c2
     sourcerpm: hostname-3.20-6.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/baseos/os/Packages/k/kernel-headers-4.18.0-553.151.1.el8_10.ppc64le.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/baseos/os/Packages/k/kernel-headers-4.18.0-553.153.1.el8_10.ppc64le.rpm
     repoid: rhel-8-for-ppc64le-baseos-rpms
     name: kernel-headers
-    evr: 4.18.0-553.151.1.el8_10
-    size: 12523024
-    checksum: sha256:314ba58a071676685ade1233048ca572ff41d19896afe6a8de139a9b6a438b0f
-    sourcerpm: kernel-4.18.0-553.151.1.el8_10.src.rpm
+    evr: 4.18.0-553.153.1.el8_10
+    size: 12523444
+    checksum: sha256:afc98263056def313ba530644e86bef8c3177c51c0795f690d771abadfa06498
+    sourcerpm: kernel-4.18.0-553.153.1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/baseos/os/Packages/k/keyutils-libs-devel-1.5.10-9.el8.ppc64le.rpm
     repoid: rhel-8-for-ppc64le-baseos-rpms
     name: keyutils-libs-devel
@@ -2958,13 +2916,13 @@ arches:
     size: 66324
     checksum: sha256:ab3ba6a5427152c51975a3db666db28d1ece3f9f728f6b6c36b358283b93458a
     sourcerpm: tree-1.7.0-15.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/baseos/os/Packages/t/tzdata-2026b-1.el8.noarch.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/baseos/os/Packages/t/tzdata-2026c-1.el8_10.noarch.rpm
     repoid: rhel-8-for-ppc64le-baseos-rpms
     name: tzdata
-    evr: 2026b-1.el8
-    size: 562980
-    checksum: sha256:1fcff97620f44dd9750407def200e16d073285a2576a6581932822318d4788e9
-    sourcerpm: tzdata-2026b-1.el8.src.rpm
+    evr: 2026c-1.el8_10
+    size: 562628
+    checksum: sha256:83ec0ee7d288f82f0c9dfd04475596711bf0ed4e26aea37d6c0a020acdb32472
+    sourcerpm: tzdata-2026c-1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/baseos/os/Packages/u/unzip-6.0-48.el8_10.ppc64le.rpm
     repoid: rhel-8-for-ppc64le-baseos-rpms
     name: unzip
@@ -3037,12 +2995,40 @@ arches:
     sourcerpm: libassuan-2.5.1-3.el8.src.rpm
   source: []
   module_metadata:
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/repodata/e25655d1f366fb555f136c9070130016da42bb67110714397704837b2d9e4b36-modules.yaml.gz
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/ppc64le/appstream/os/repodata/758efb5e2b1843d1d3a4f5c5a32d5d61dae8bb7396915fa4162d6dd4cee2766d-modules.yaml.gz
     repoid: rhel-8-for-ppc64le-appstream-rpms
     size: 820094
-    checksum: sha256:e25655d1f366fb555f136c9070130016da42bb67110714397704837b2d9e4b36
+    checksum: sha256:758efb5e2b1843d1d3a4f5c5a32d5d61dae8bb7396915fa4162d6dd4cee2766d
 - arch: s390x
   packages:
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/s390x/os/Packages/golang-1.23.10-16.el8__noarch__00da75f2/golang-src-1.23.10-16.el8.noarch.rpm
+    repoid: rhocp-4.19-for-rhel-8-s390x-rpms
+    name: golang-src
+    evr: 1.23.10-16.el8
+    size: 11255272
+    checksum: sha256:f8258954159208de72984baa79f9e7352f69d0f415c024252803e0a9bed257f4
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/s390x/os/Packages/golang-1.23.10-16.el8__s390x__00da75f2/golang-1.23.10-16.el8.s390x.rpm
+    repoid: rhocp-4.19-for-rhel-8-s390x-rpms
+    name: golang
+    evr: 1.23.10-16.el8
+    size: 782428
+    checksum: sha256:43a04948806934d69eefe3e7b116179bb8ed0ce7c0caebbfe63303e905db07e1
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/s390x/os/Packages/golang-1.23.10-16.el8__s390x__00da75f2/golang-bin-1.23.10-16.el8.s390x.rpm
+    repoid: rhocp-4.19-for-rhel-8-s390x-rpms
+    name: golang-bin
+    evr: 1.23.10-16.el8
+    size: 72120600
+    checksum: sha256:ee70354cb544411257da5b3ebc12ca9e4c1ed0e709f52de2bb80a5f36cf37d55
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/s390x/os/Packages/golang-1.23.10-16.el8__s390x__00da75f2/golang-race-1.23.10-16.el8.s390x.rpm
+    repoid: rhocp-4.19-for-rhel-8-s390x-rpms
+    name: golang-race
+    evr: 1.23.10-16.el8
+    size: 229404
+    checksum: sha256:3cd1839ba76c687cea6903b6e8e126dd634ced08089051befebd30dcab85d7a4
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
   - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/s390x/os/Packages/goversioninfo-0.1-2.el8__s390x__00da75f2/goversioninfo-0.1-2.el8.s390x.rpm
     repoid: rhocp-4.19-for-rhel-8-s390x-rpms
     name: goversioninfo
@@ -3099,55 +3085,6 @@ arches:
     size: 3216756
     checksum: sha256:09202aba03724180992d4cb6a3c617423ee25dc61f2c162990a25d7781977058
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.s390x.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 1598830
-    checksum: sha256:403bccf56a4581a54b6218dd7261f511ee5422edd73a3ba4f7c523229a72bd6e
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-bin-1.26.5-1.module+el8.10.0+24506+6809f2d9.s390x.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang-bin
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 48002278
-    checksum: sha256:cf4a8611053d31f6fece320f5c8d4ff73f2e145fbe2f013f4d2721498ac68fac
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-docs-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang-docs
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 139002
-    checksum: sha256:4b5df62a685ad60e3ff460f12f2cf2b50ea011a793059cb93277302e5dd2f67d
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-misc-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang-misc
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 61454
-    checksum: sha256:79f40dba82efaace7f8268c727a04b42851b48945f8d0ae5460d0f6dc5c72b23
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-race-1.26.5-1.module+el8.10.0+24506+6809f2d9.s390x.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang-race
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 649994
-    checksum: sha256:62c47d6654d6dd33cdba0967b0dc5afb117e31a0b05a31663de1bb8072ae5729
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-src-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang-src
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 12830818
-    checksum: sha256:8baba7a8e38205bd86fe69bee4670eb2c6b36411ac371c5fe50bc3c121fb2f57
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/g/golang-tests-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-s390x-appstream-rpms
-    name: golang-tests
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 11856974
-    checksum: sha256:21fe3c1661ff512c271a46a0801c3e221138c952aadb2c1f43f4529b2bcfd923
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/Packages/i/isl-0.16.1-6.el8.s390x.rpm
     repoid: rhel-8-for-s390x-appstream-rpms
     name: isl
@@ -3561,13 +3498,13 @@ arches:
     size: 32380
     checksum: sha256:c34e6300e7c863eba8fc9ac5c43b01c5474e88d2246c6d0bc97b9f168611e53c
     sourcerpm: hostname-3.20-6.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.151.1.el8_10.s390x.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.153.1.el8_10.s390x.rpm
     repoid: rhel-8-for-s390x-baseos-rpms
     name: kernel-headers
-    evr: 4.18.0-553.151.1.el8_10
-    size: 12529988
-    checksum: sha256:461e6c946d221e15a2dddf84ab4fb2615122ad77e35c9ef84cb58cd57ff5521e
-    sourcerpm: kernel-4.18.0-553.151.1.el8_10.src.rpm
+    evr: 4.18.0-553.153.1.el8_10
+    size: 12530776
+    checksum: sha256:0fc3a6c776ccf22e13ccb7c1a78426222e3c3a494fc495738dba3988c8bd7e02
+    sourcerpm: kernel-4.18.0-553.153.1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/baseos/os/Packages/k/keyutils-libs-devel-1.5.10-9.el8.s390x.rpm
     repoid: rhel-8-for-s390x-baseos-rpms
     name: keyutils-libs-devel
@@ -4478,13 +4415,13 @@ arches:
     size: 61548
     checksum: sha256:d0b4d1e6623b9cf399c532712002589800237ca1629415386da7d49ec9eae2fb
     sourcerpm: tree-1.7.0-15.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/baseos/os/Packages/t/tzdata-2026b-1.el8.noarch.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/baseos/os/Packages/t/tzdata-2026c-1.el8_10.noarch.rpm
     repoid: rhel-8-for-s390x-baseos-rpms
     name: tzdata
-    evr: 2026b-1.el8
-    size: 562980
-    checksum: sha256:1fcff97620f44dd9750407def200e16d073285a2576a6581932822318d4788e9
-    sourcerpm: tzdata-2026b-1.el8.src.rpm
+    evr: 2026c-1.el8_10
+    size: 562628
+    checksum: sha256:83ec0ee7d288f82f0c9dfd04475596711bf0ed4e26aea37d6c0a020acdb32472
+    sourcerpm: tzdata-2026c-1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/baseos/os/Packages/u/unzip-6.0-48.el8_10.s390x.rpm
     repoid: rhel-8-for-s390x-baseos-rpms
     name: unzip
@@ -4557,12 +4494,40 @@ arches:
     sourcerpm: libassuan-2.5.1-3.el8.src.rpm
   source: []
   module_metadata:
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/repodata/96753f115d7861e9d6833e316cb700d07ca0c5077d7c3df879bdcad08004117b-modules.yaml.gz
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/s390x/appstream/os/repodata/dff4883c93c2a0783e6adb7a2c523b3b7497051dfa917f0ea81980fa46326445-modules.yaml.gz
     repoid: rhel-8-for-s390x-appstream-rpms
     size: 818497
-    checksum: sha256:96753f115d7861e9d6833e316cb700d07ca0c5077d7c3df879bdcad08004117b
+    checksum: sha256:dff4883c93c2a0783e6adb7a2c523b3b7497051dfa917f0ea81980fa46326445
 - arch: x86_64
   packages:
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/x86_64/os/Packages/golang-1.23.10-16.el8__noarch__00da75f2/golang-src-1.23.10-16.el8.noarch.rpm
+    repoid: rhocp-4.19-for-rhel-8-x86_64-rpms
+    name: golang-src
+    evr: 1.23.10-16.el8
+    size: 11255272
+    checksum: sha256:f8258954159208de72984baa79f9e7352f69d0f415c024252803e0a9bed257f4
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/x86_64/os/Packages/golang-1.23.10-16.el8__x86_64__00da75f2/golang-1.23.10-16.el8.x86_64.rpm
+    repoid: rhocp-4.19-for-rhel-8-x86_64-rpms
+    name: golang
+    evr: 1.23.10-16.el8
+    size: 782548
+    checksum: sha256:ebf4a5ec5649936b6480df89d1cc16c62b7ca41bb1d1242299fcfc10ca087396
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/x86_64/os/Packages/golang-1.23.10-16.el8__x86_64__00da75f2/golang-bin-1.23.10-16.el8.x86_64.rpm
+    repoid: rhocp-4.19-for-rhel-8-x86_64-rpms
+    name: golang-bin
+    evr: 1.23.10-16.el8
+    size: 76354068
+    checksum: sha256:8ff8018e7bfa35b154d425c81c422b8e302053cc6c18eb37d82ec6c7984870fb
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
+  - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/x86_64/os/Packages/golang-1.23.10-16.el8__x86_64__00da75f2/golang-race-1.23.10-16.el8.x86_64.rpm
+    repoid: rhocp-4.19-for-rhel-8-x86_64-rpms
+    name: golang-race
+    evr: 1.23.10-16.el8
+    size: 238632
+    checksum: sha256:33449eb7250eb9879cb936593f3f33799c0e667b7ea40b25402fee9e3ee63d2d
+    sourcerpm: golang-1.23.10-16.el8.src.rpm
   - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/4.19/stream/golang-el8/latest/x86_64/os/Packages/goversioninfo-0.1-2.el8__x86_64__00da75f2/goversioninfo-0.1-2.el8.x86_64.rpm
     repoid: rhocp-4.19-for-rhel-8-x86_64-rpms
     name: goversioninfo
@@ -4724,55 +4689,6 @@ arches:
     size: 3216756
     checksum: sha256:09202aba03724180992d4cb6a3c617423ee25dc61f2c162990a25d7781977058
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.x86_64.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 1598854
-    checksum: sha256:7b31c15a754302a88160ce6b10bc9d13acf45759ec3ca9e7e5f55ed3c1bf6c20
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-bin-1.26.5-1.module+el8.10.0+24506+6809f2d9.x86_64.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang-bin
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 49857150
-    checksum: sha256:af1dbdbff25ca84548bd3c74bd7dc9c8e699ad9e81ed74ef16044708b562b807
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-docs-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang-docs
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 139002
-    checksum: sha256:4b5df62a685ad60e3ff460f12f2cf2b50ea011a793059cb93277302e5dd2f67d
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-misc-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang-misc
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 61454
-    checksum: sha256:79f40dba82efaace7f8268c727a04b42851b48945f8d0ae5460d0f6dc5c72b23
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-race-1.26.5-1.module+el8.10.0+24506+6809f2d9.x86_64.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang-race
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 1329606
-    checksum: sha256:af86f4789d577b4cc12c0dc9e5646c0cc0af7ee324d7d5c2c274dbff7b0421d3
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-src-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang-src
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 12830818
-    checksum: sha256:8baba7a8e38205bd86fe69bee4670eb2c6b36411ac371c5fe50bc3c121fb2f57
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/g/golang-tests-1.26.5-1.module+el8.10.0+24506+6809f2d9.noarch.rpm
-    repoid: rhel-8-for-x86_64-appstream-rpms
-    name: golang-tests
-    evr: 1.26.5-1.module+el8.10.0+24506+6809f2d9
-    size: 11856974
-    checksum: sha256:21fe3c1661ff512c271a46a0801c3e221138c952aadb2c1f43f4529b2bcfd923
-    sourcerpm: golang-1.26.5-1.module+el8.10.0+24506+6809f2d9.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/Packages/i/isl-0.16.1-6.el8.x86_64.rpm
     repoid: rhel-8-for-x86_64-appstream-rpms
     name: isl
@@ -5298,13 +5214,13 @@ arches:
     size: 48556
     checksum: sha256:07ce753de89c0f6cc82ee926100777bdd0c91cb3d3ee9315cd8d93320875e66c
     sourcerpm: jansson-2.14-1.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/baseos/os/Packages/k/kernel-headers-4.18.0-553.151.1.el8_10.x86_64.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/baseos/os/Packages/k/kernel-headers-4.18.0-553.153.1.el8_10.x86_64.rpm
     repoid: rhel-8-for-x86_64-baseos-rpms
     name: kernel-headers
-    evr: 4.18.0-553.151.1.el8_10
-    size: 12535224
-    checksum: sha256:56cd8f851b003228d1cb6097d3a047a4fbf9fbfdbbe643e7626bf53350e2097f
-    sourcerpm: kernel-4.18.0-553.151.1.el8_10.src.rpm
+    evr: 4.18.0-553.153.1.el8_10
+    size: 12535908
+    checksum: sha256:131ad85a512ee812044cb5a08ba3101b61dcf5204c95c40ad85203d17f2db873
+    sourcerpm: kernel-4.18.0-553.153.1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/baseos/os/Packages/k/keyutils-libs-devel-1.5.10-9.el8.x86_64.rpm
     repoid: rhel-8-for-x86_64-baseos-rpms
     name: keyutils-libs-devel
@@ -6278,13 +6194,13 @@ arches:
     size: 60824
     checksum: sha256:edc62733d01a99bfac490ef1a27cfc8c458339f97ce9af03ef0c8c9cd66065dd
     sourcerpm: tree-1.7.0-15.el8.src.rpm
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/baseos/os/Packages/t/tzdata-2026b-1.el8.noarch.rpm
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/baseos/os/Packages/t/tzdata-2026c-1.el8_10.noarch.rpm
     repoid: rhel-8-for-x86_64-baseos-rpms
     name: tzdata
-    evr: 2026b-1.el8
-    size: 562980
-    checksum: sha256:1fcff97620f44dd9750407def200e16d073285a2576a6581932822318d4788e9
-    sourcerpm: tzdata-2026b-1.el8.src.rpm
+    evr: 2026c-1.el8_10
+    size: 562628
+    checksum: sha256:83ec0ee7d288f82f0c9dfd04475596711bf0ed4e26aea37d6c0a020acdb32472
+    sourcerpm: tzdata-2026c-1.el8_10.src.rpm
   - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/baseos/os/Packages/u/unzip-6.0-48.el8_10.x86_64.rpm
     repoid: rhel-8-for-x86_64-baseos-rpms
     name: unzip
@@ -6427,7 +6343,7 @@ arches:
     sourcerpm: mingw-winpthreads-5.0.2-2.el8.src.rpm
   source: []
   module_metadata:
-  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/repodata/33c7e5b4d3dc453012f9363c500310a963828edbce17281096c2c1b9921db281-modules.yaml.gz
+  - url: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8.10/x86_64/appstream/os/repodata/cb1f17d33bd0ea3af20b19874c5bd0e27f9ede6f3871717b0f1cca5fe250c9ed-modules.yaml.gz
     repoid: rhel-8-for-x86_64-appstream-rpms
     size: 846638
-    checksum: sha256:33c7e5b4d3dc453012f9363c500310a963828edbce17281096c2c1b9921db281
+    checksum: sha256:cb1f17d33bd0ea3af20b19874c5bd0e27f9ede6f3871717b0f1cca5fe250c9ed

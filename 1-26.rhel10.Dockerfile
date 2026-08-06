@@ -49,7 +49,7 @@ RUN dnf update -y && \
         which \
         xz \
         zip && \
-    dnf install -y "golang-*$VERSION*" && \
+    dnf install -y "${__doozer_golang_nvr:-golang-*$VERSION*}" && \
     mkdir -p /go/src
 RUN dnf clean all -y
 

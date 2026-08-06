@@ -8,7 +8,7 @@ RUN go clean -cache || true
 ENV ART_BUILD_DEPS_MODE=default
 USER 0
 # End Konflux-specific steps
-ENV __doozer=update __doozer_golang_nvr=golang-1.23.10-16.el8 __doozer_group=golang __doozer_key=openshift-golang-builder-1-23.rhel8 __doozer_uuid_tag=golang-builder-v1.23.10-20260805.193729 __doozer_version=v1.23.10 
+ENV __doozer=update __doozer_golang_nvr=golang-1.23.10-16.el8 __doozer_group=golang __doozer_key=openshift-golang-builder-1-23.rhel8 __doozer_uuid_tag=golang-builder-v1.23.10-20260806.213217 __doozer_version=v1.23.10 
 
 ARG GOPATH
 ENV SUMMARY="RHEL8 based Go builder image for OpenShift ART" \
@@ -51,7 +51,7 @@ RUN dnf update -y && \
         which \
         xz \
         zip && \
-    dnf install -y "golang-*$VERSION*" && \
+    dnf install -y "${__doozer_golang_nvr:-golang-*$VERSION*}" && \
     mkdir -p /go/src
 # provide a cross-compiler for windows/mac binaries (x86_64 only)
 RUN cp /cachi2/output/deps/generic/cross.tar.gz .
@@ -96,10 +96,10 @@ LABEL \
         com.redhat.component="openshift-golang-builder-container" \
         io.openshift.maintainer.project="OCPBUGS" \
         io.openshift.maintainer.component="Security" \
-        release="202608051937.p2.g5a9ab9d.el8" \
+        release="202608062132.p2.g5d91f1a.el8" \
         io.openshift.build.golang-nvr="golang-1.23.10-16.el8" \
-        io.openshift.build.commit.id="5a9ab9d60f3f59afb6f0206d94f26005bb25e276" \
+        io.openshift.build.commit.id="5d91f1a51fa9e1629ee19f02c2416cf5dd5fc226" \
         io.openshift.build.source-location="https://github.com/openshift-eng/ocp-build-data" \
-        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/5a9ab9d60f3f59afb6f0206d94f26005bb25e276" \
+        io.openshift.build.commit.url="https://github.com/openshift-eng/ocp-build-data/commit/5d91f1a51fa9e1629ee19f02c2416cf5dd5fc226" \
         io.openshift.tags="Empty"
 
