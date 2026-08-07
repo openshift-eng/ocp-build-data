@@ -43,4 +43,7 @@ okd:
   content:
     source:
       dockerfile: Dockerfile
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN npm ci && npm run build"
+        replacement: "RUN for i in 1 2 3; do npm ci && break || sleep 5; done && npm run build"
