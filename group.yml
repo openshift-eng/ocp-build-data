@@ -22,6 +22,9 @@ konflux:
 base_image_release:
   enabled: true
 
+assemblies:
+  enabled: true
+
 branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 
 urls:
@@ -52,10 +55,10 @@ repos:
         module_hotfixes: 1
         includepkgs: module-build-macros golang* goversioninfo
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el8/latest/aarch64/os/
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el8/latest/ppc64le/os/
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el8/latest/s390x/os/
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el8/latest/x86_64/os/
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el8/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el8/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el8/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el8/latest/x86_64/os/
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-8-x86_64-rpms
       aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-8-aarch64-rpms
@@ -160,10 +163,10 @@ repos:
         module_hotfixes: 1
         includepkgs: module-build-macros golang* goversioninfo
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el9/latest/aarch64/os/
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el9/latest/ppc64le/os/
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el9/latest/s390x/os/
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el9/latest/x86_64/os/
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el9/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el9/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el9/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el9/latest/x86_64/os/
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-9-x86_64-rpms
       aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-9-aarch64-rpms
@@ -316,10 +319,10 @@ repos:
         module_hotfixes: 1
         includepkgs: module-build-macros golang* goversioninfo
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el10/latest/aarch64/os/
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el10/latest/ppc64le/os/
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el10/latest/s390x/os/
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/stream/golang-el10/latest/x86_64/os/
+        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el10/latest/aarch64/os/
+        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el10/latest/ppc64le/os/
+        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el10/latest/s390x/os/
+        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/golang-el10/latest/x86_64/os/
     content_set:
       default: rhocp-{MAJOR}.{MINOR}-for-rhel-10-x86_64-rpms
       aarch64: rhocp-{MAJOR}.{MINOR}-for-rhel-10-aarch64-rpms
