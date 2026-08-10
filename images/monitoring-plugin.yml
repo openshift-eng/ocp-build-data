@@ -64,8 +64,8 @@ okd:
               if [ "$(uname -m)" = "aarch64" ]; then \
                 cd web && \
                 for attempt in 1 2 3 4 5; do \
-                  echo "Attempt $attempt: npm pack @esbuild/linux-arm64@0.27.2"; \
-                  npm pack @esbuild/linux-arm64@0.27.2 && break; \
+                  echo "Attempt $attempt: npm pack @esbuild/linux-arm64@0.28.1"; \
+                  npm pack @esbuild/linux-arm64@0.28.1 && break; \
                   echo "Attempt $attempt failed"; \
                   [ "$attempt" -lt 5 ] && sleep 60; \
                 done && \
