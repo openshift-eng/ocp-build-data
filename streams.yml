@@ -109,8 +109,6 @@ nodejs:
   mirror: true
 
 rhel-9-golang-1.21:
-  aliases:
-    - rhel-9-golang-1.21
   image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.21.13-202606092245.p2.gce417c9.el9
   mirror: true
   transform: rhel-9/golang
@@ -122,6 +120,4 @@ rhel-9-golang-1.21:
     - registry.ci.openshift.org/ocp-priv/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1-22:
-  aliases:
-    - rhel-9-golang-1.22
   image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.22.12-202605111509.p2.g6a298d3.el9
