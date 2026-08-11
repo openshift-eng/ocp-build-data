@@ -1349,3 +1349,15 @@ bug_mapping:
       issue_component: networking-ingress-commatrix
     ose-support-log-gather-operator-container:
       issue_component: must-gather
+    # CPAAS-built cnf-tests delivery repos (excluded from ART images/*.yml via
+    # group.yml exclude_components). ProdSec CVE trackers use these delivery
+    # names as pscomponent; without these entries they can be misrouted.
+    openshift4/cnf-tests-rhel8:
+      issue_component: Low latency validation tooling
+    openshift4/cnf-tests-rhel9:
+      issue_component: Low latency validation tooling
+    openshift5/cnf-tests-rhel9:
+      issue_component: Low latency validation tooling
+    redhat-user-workloads/cnf-tests-4-15:
+      issue_component: Low latency validation tooling
+
