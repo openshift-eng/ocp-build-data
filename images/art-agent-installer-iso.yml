@@ -4,8 +4,7 @@ content:
     dockerfile: Dockerfile
     git:
       branch:
-        # Temporary: pick up AGENT-1536 (mtv-operator release-v2.12) until backported to release-4.22
-        target: main
+        target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/agent-installer-utils.git
       web: https://github.com/openshift/agent-installer-utils
 distgit:
