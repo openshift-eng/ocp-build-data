@@ -2752,6 +2752,11 @@ releases:
           component: '*'
       members:
         images:
+          - distgit_key: agent-installer-ui
+            why: Newer builds failing - pin to latest released build
+            metadata:
+              is:
+                nvr: assisted-installer-ui-container-v4.21.0-202608051112.p2.ga5c154e.assembly.stream.el9
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
             metadata:
