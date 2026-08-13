@@ -49,6 +49,16 @@ releases:
               is:
                 nvr: container-networking-plugins-microshift-container-v4.18.0-202607311727.p2.g090b88c.assembly.stream.el9
             why: Pin sibling to matching batch to avoid MISMATCHED_SIBLINGS
+          - distgit_key: ose-kubernetes-nmstate-operator
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.18.0-202608130400.p2.g0fe75f4.assembly.stream.el9
+            why: Pin operator to 202608130400 batch — 202608121428 bundle references nmstate-console-plugin that failed ITS
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.18.0-202608130400.p2.g9f93ea4.assembly.stream.el9
+            why: Pin operand to working build (202608121428 build failed its_error)
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
