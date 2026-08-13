@@ -49,6 +49,13 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bb802b38581823625fe132e08c920a84366cac09bbc1f718f8a10b1808c22a83
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:adf7dbd92ba0c725a8799dd6e66e9a983a0c245dc9c6348b597386926ee4c0ee
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0469b8554850b5bbda72ef6df38098ae9a9594228e5d673ea680292d17272735
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: '*'
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
+        - code: IMPERMISSIBLE
+          component: reference-releases
       members:
         rpms: []
         images:
