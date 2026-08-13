@@ -217,7 +217,10 @@ okd:
       dockerfile: Dockerfile.scos
       modifications:
       - action: replace
-        match: "RUN update-crypto-policies --set DEFAULT:PQ"
+        match: |-
+          RUN if [ -f /usr/share/crypto-policies/policies/modules/PQ.pmod ]; then \
+                update-crypto-policies --set DEFAULT:PQ; \
+              fi
         replacement: ""
   from:
     builder:
