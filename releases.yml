@@ -34,7 +34,17 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2b76d7b3b2b33f1c8e915053dd87051cfbf784efbc9273e62f7d7cdac4fdb3fc
       members:
         rpms: []
-        images: []
+        images:
+        - distgit_key: ironic
+          metadata:
+            is:
+              nvr: ironic-container-v4.19.0-202607311600.p2.g28707d9.assembly.stream.el9
+          why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
+        - distgit_key: ironic-agent
+          metadata:
+            is:
+              nvr: ironic-agent-container-v4.19.0-202607311600.p2.g93cb0c2.assembly.stream.el9
+          why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
   4.19.42:
     assembly:
       type: standard
