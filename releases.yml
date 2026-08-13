@@ -34,7 +34,17 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:cfdf5adb7cb3276e4c395bef529747ed47418093351ec7b60edf1abbeb20548c
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: container-networking-plugins
+            metadata:
+              is:
+                nvr: ose-containernetworking-plugins-container-v4.18.0-202607311727.p2.g090b88c.assembly.stream.el9
+            why: Pin to 4.18.52 released build — nightly build used old prefetch-dependencies task, will fail conforma
+          - distgit_key: container-networking-plugins-microshift
+            metadata:
+              is:
+                nvr: container-networking-plugins-microshift-container-v4.18.0-202607311727.p2.g090b88c.assembly.stream.el9
+            why: Pin sibling to matching batch to avoid MISMATCHED_SIBLINGS
   4.18.52:
     assembly:
       type: standard
