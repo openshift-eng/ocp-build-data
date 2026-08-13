@@ -4,8 +4,8 @@ releases:
       type: standard
       basis:
         time: "2026-08-13T01:31:58+00:00"
-        reference_releases:
-          x86_64: 4.21.0-0.nightly-2026-08-13-042415
+        # x86_64: 4.21.0-0.nightly-2026-08-13-042415
+        reference_releases!: {}
       group:
         advisories:
           rpm: -1
@@ -46,7 +46,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f0e058833224a46a358cbc5bef803b448672e415ecdb989529e3350a99500627
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: assisted-installer-ui
+            metadata:
+              is:
+                nvr: assisted-installer-ui-container-v4.21.0-202608051112.p2.ga5c154e.assembly.stream.el9
+            why: Pin agent-installer-ui to the last released build to avoid issues with outdated prefetch-dependencies task
   4.21.28:
     assembly:
       type: standard
