@@ -1,4 +1,45 @@
 releases:
+  4.20.34:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-08-12T15:03:04+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2026-08-12-210918
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Aug-18
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.19.31,4.19.32,4.19.33,4.19.34,4.19.35,4.19.36,4.19.37,4.19.38,4.19.39,4.19.40,4.19.41,4.19.42,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.20.21,4.20.22,4.20.23,4.20.24,4.20.25,4.20.26,4.20.27,4.20.28,4.20.29,4.20.30,4.20.31,4.20.32,4.20.33
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5e725dc1d3a5f110681de23752d96cd1d3ca89cc14b3966b66ba9bee51d38850
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d8488f96b50177a82274ab720ee2a9864cd523e4dfb5524f9f07d9ae4dc7593f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:979b811db444d53463fc7915b0106db2c0646625740a17e980d630bfc32f5f58
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dbf2584967b41f7e13ae9eb788bb644d7ff1dfec16fcd851d40e206bd666b2c1
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bffe04a9a60917c77446c4595a8e0052c20b23661a6ab011fc1acdef959be927
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:559ad3230fceec6a1a692a0dd00c7156acd115f80f8738efb14d17c4826b5fac
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:55417b3704f7bdde11f46f40202c244e36a85bd9ed89fab8893a86dbc6f4b0e2
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:662a7e4654c78e386317291c0b46f6593f0852fb33e3645a17e4527a99714ac9
+      members:
+        rpms: []
+        images:
+          - distgit_key: agent-installer-ui
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: assisted-installer-ui-container-v4.20.0-202608111909.p2.g52f3224.assembly.stream.el9
   4.20.33:
     assembly:
       type: standard
