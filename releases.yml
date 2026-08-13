@@ -46,7 +46,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f0e058833224a46a358cbc5bef803b448672e415ecdb989529e3350a99500627
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: assisted-installer-ui
+            metadata:
+              is:
+                nvr: assisted-installer-ui-container-v4.21.0-202608051112.p2.ga5c154e.assembly.stream.el9
+            why: Pin assisted-installer-ui to specific NVR per ART team request
   4.21.28:
     assembly:
       type: standard
