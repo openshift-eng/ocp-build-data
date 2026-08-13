@@ -8,8 +8,8 @@ releases:
           # x86_64: 4.19.0-0.nightly-2026-08-12-132150
       group:
         advisories:
-          rpm: -1
-          rhcos: -1
+          rpm: 171267
+          rhcos: 171268
         release_jira: ART-0
         shipment:
           advisories:
@@ -35,19 +35,19 @@ releases:
       members:
         rpms: []
         images:
-        - distgit_key: ironic
-          metadata:
-            is:
-              nvr: ironic-container-v4.19.0-202607311600.p2.g28707d9.assembly.stream.el9
-          why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
-        - distgit_key: ironic-agent
-          metadata:
-            is:
-              nvr: ironic-agent-container-v4.19.0-202607311600.p2.g93cb0c2.assembly.stream.el9
-          why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
+          - distgit_key: ironic
+            metadata:
+              is:
+                nvr: ironic-container-v4.19.0-202607311600.p2.g28707d9.assembly.stream.el9
+            why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
+          - distgit_key: ironic-agent
+            metadata:
+              is:
+                nvr: ironic-agent-container-v4.19.0-202607311600.p2.g93cb0c2.assembly.stream.el9
+            why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
       permits:
-      - code: CONFLICTING_INHERITED_DEPENDENCY
-        component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
   4.19.42:
     assembly:
       type: standard
