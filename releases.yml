@@ -1,4 +1,53 @@
 releases:
+  4.19.43:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-08-12T10:34:18+00:00"
+        reference_releases!: {}
+          # x86_64: 4.19.0-0.nightly-2026-08-12-132150
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Aug-19
+        upgrades: 4.18.19,4.18.20,4.18.21,4.18.22,4.18.23,4.18.24,4.18.25,4.18.26,4.18.27,4.18.28,4.18.29,4.18.30,4.18.31,4.18.32,4.18.33,4.18.34,4.18.35,4.18.36,4.18.37,4.18.38,4.18.39,4.18.40,4.18.41,4.18.42,4.18.43,4.18.44,4.18.45,4.18.46,4.18.47,4.18.48,4.18.49,4.18.50,4.18.51,4.18.52,4.18.53,4.19.0,4.19.1,4.19.2,4.19.3,4.19.4,4.19.5,4.19.6,4.19.7,4.19.8,4.19.9,4.19.10,4.19.11,4.19.12,4.19.13,4.19.14,4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.19.31,4.19.32,4.19.33,4.19.34,4.19.35,4.19.36,4.19.37,4.19.38,4.19.39,4.19.40,4.19.41,4.19.42
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d3d29486c5b819ce2bf5f44895fa8aa55a52f517697a3613de43729e99bbbd65
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5ca64223cca535adefd11382ab1818a9448b2c3397c720fa24a399337d6ed3e1
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f1e67a3e1adf39d1efe248682df25164d0d610716a1526297be085118f6ab582
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:54a1e716840d28dec112f926ea9403fd431abd367136b8a0da071d5d3f646ba8
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8a9749541bcf9396206927ec72917eecde7a7450341e16087c3f8ac3af1a4948
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ea09482389d6805de2003ee66eefdfca8f934484e130fb810d74a54ef4d8e129
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4d2c01247d11b9c70c9184e4d7d639737a9f148746ec376d2c1fccc2a8d2de8c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2b76d7b3b2b33f1c8e915053dd87051cfbf784efbc9273e62f7d7cdac4fdb3fc
+      members:
+        rpms: []
+        images:
+        - distgit_key: ironic
+          metadata:
+            is:
+              nvr: ironic-container-v4.19.0-202607311600.p2.g28707d9.assembly.stream.el9
+          why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
+        - distgit_key: ironic-agent
+          metadata:
+            is:
+              nvr: ironic-agent-container-v4.19.0-202607311600.p2.g93cb0c2.assembly.stream.el9
+          why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
+      permits:
+      - code: CONFLICTING_INHERITED_DEPENDENCY
+        component: ironic
   4.19.42:
     assembly:
       type: standard
