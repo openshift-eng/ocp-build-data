@@ -55,6 +55,11 @@ releases:
               is:
                 nvr: ironic-agent-container-v4.19.0-202607311600.p2.g93cb0c2.assembly.stream.el9
             why: Pin to 4.19.42 released build — nightly build used old prefetch-dependencies task, will fail conforma
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.19-202608141922.p2.gcd3decf.assembly.4.19.43.el9
+            why: Pin microshift-bootc image to assembly
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic
