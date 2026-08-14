@@ -26,6 +26,14 @@ content:
     ci_alignment:
       streams_prs:
         enabled: false
+# Declare the base image via `from:` so doozer resolves it into downstream_parents
+# and generates the RPM lockfile in image mode (rpmdb-aware). Without this, the base
+# is only known via the Containerfile BASE_IMAGE_* ARGs, the lockfile resolves in
+# bare mode, and conditional deps of the base kernel (e.g. microshift's
+# `Requires: (kernel-modules-extra if kernel-core)`) are omitted from the prefetch,
+# breaking the hermetic build. Must match BASE_IMAGE_URL/BASE_IMAGE_TAG above.
+from:
+  image: registry.redhat.io/rhel9/rhel-bootc:9.8
 delivery:
   delivery_repo_names:
   - openshift5/microshift-bootc-rhel9
