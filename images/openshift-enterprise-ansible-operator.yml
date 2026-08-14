@@ -13,6 +13,12 @@ content:
           member: ci-openshift-build-root-latest.rhel9
     pkg_managers:
     - pip
+    modifications:
+    - action: command
+      command:
+      - sh
+      - -c
+      - echo 'calver==2025.10.20' >> openshift/requirements-build1.txt
 cachito:
   enabled: true
   packages:
