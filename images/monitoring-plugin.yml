@@ -47,4 +47,9 @@ okd:
   content:
     source:
       dockerfile: Dockerfile
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN make install-frontend-ci"
+        replacement: |
+          RUN npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 30000 && npm config set fetch-retry-maxtimeout 120000
+          RUN make install-frontend-ci || (echo 'Retrying npm install after 10s...' && sleep 10 && make install-frontend-ci) || (echo 'Retrying npm install (attempt 3) after 15s...' && sleep 15 && make install-frontend-ci)
