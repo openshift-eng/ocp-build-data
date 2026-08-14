@@ -56,7 +56,12 @@ releases:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~ec.6-202608140925.p0.gc60850e.assembly.ec.6.el9
         images:
           - distgit_key: oc-mirror-plugin
             why: Pin oc-mirror-plugin to payload and assembly NVR
