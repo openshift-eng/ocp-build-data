@@ -13,6 +13,12 @@ content:
           member: ci-openshift-build-root-latest.rhel9
     pkg_managers:
     - pip
+    modifications:
+    - action: command
+      command:
+      - sh
+      - -c
+      - "printf 'calver==2025.10.20\\n    # via trove-classifiers\\n' >> openshift/requirements-build.txt"
 cachito:
   enabled: true
   packages:
