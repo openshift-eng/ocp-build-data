@@ -7,11 +7,11 @@ content:
     dockerfile: konflux.Dockerfile
     git:
       branch:
-        target: release-v0.7
+        target: oadp-1.4
       url: git@github.com:openshift-priv/migtools-kubevirt-velero-plugin.git
       web: https://github.com/migtools/kubevirt-velero-plugin
     modifications:
-      # https://github.com/migtools/kubevirt-velero-plugin/blob/release-v0.7/konflux.Dockerfile#L9
+      # https://github.com/migtools/kubevirt-velero-plugin/blob/oadp-1.4/konflux.Dockerfile#L9
       - action: replace
         match: "dnf -y"
         replacement: "microdnf -y"
