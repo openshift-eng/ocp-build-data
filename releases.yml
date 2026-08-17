@@ -65,6 +65,11 @@ releases:
               is:
                 nvr: nmstate-console-plugin-container-v4.18.0-202608120952.p2.g9f93ea4.assembly.stream.el9
             why: Pin operand to 202608120952 batch — 202608121428 build failed ITS, 202608120952 succeeded
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.18-202608171004.p2.g8eb6c29.assembly.4.18.53.el9
+            why: Pin microshift-bootc image to assembly
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
