@@ -50,7 +50,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c6a5cf68a73c83eea05a39c4dfb3a4d56093dcd073f87b51d5d14ff70e81970f
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f0e058833224a46a358cbc5bef803b448672e415ecdb989529e3350a99500627
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.21.29-202608170915.p0.gbc6f556.assembly.4.21.29.el9
         images:
           - distgit_key: agent-installer-ui
             metadata:
