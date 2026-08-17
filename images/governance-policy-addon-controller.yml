@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-governance-policy-addon-controller.git
+      web: https://github.com/stolostron/governance-policy-addon-controller
+distgit:
+  component: acm-governance-policy-addon-controller-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/acm-governance-policy-addon-controller-rhel9
+dependents:
+- multiclusterhub-operator
+from:
+  builder:
+    - stream: rhel-9-golang-1.26
+  member: base-rhel9
+name: rhacm2/acm-governance-policy-addon-controller-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-governance-policy-addon-controller-container

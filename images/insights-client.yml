@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhtap
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-insights-client.git
+      web: https://github.com/stolostron/insights-client
+distgit:
+  component: acm-insights-client-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/insights-client-rhel9
+dependents:
+- multiclusterhub-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/insights-client-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-insights-client-container

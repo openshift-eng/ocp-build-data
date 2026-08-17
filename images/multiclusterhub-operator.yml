@@ -1,0 +1,40 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-multiclusterhub-operator.git
+      web: https://github.com/stolostron/multiclusterhub-operator
+distgit:
+  component: acm-multiclusterhub-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/multiclusterhub-rhel9
+  bundle_delivery_repo_name: rhacm2/acm-operator-bundle
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - member: base-rhel9
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/multiclusterhub-rhel9
+bundle_name_override: acm-operator-bundle
+update-csv:
+  name: advanced-cluster-management
+  manifests-dir: bundle
+  bundle-dir: manifests
+  registry: image-registry.openshift-image-registry.svc:5000
+  registry-target-namespace: open-cluster-management
+  valid-subscription-label: '["OpenShift Platform Plus", "Red Hat Advanced Cluster Management for Kubernetes"]'
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-multiclusterhub-operator-container
+konflux:
+  component:
+    bundle_name_override: acm-5-0-acm-operator-bundle

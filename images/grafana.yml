@@ -1,0 +1,33 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+content:
+  source:
+    pkg_managers:
+    - gomod
+    dockerfile: Containerfile.operator
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-grafana.git
+      web: https://github.com/stolostron/grafana
+distgit:
+  component: acm-grafana-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/acm-grafana-rhel9
+dependents:
+- multiclusterhub-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/acm-grafana-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-grafana-container

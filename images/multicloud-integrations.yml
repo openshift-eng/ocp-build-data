@@ -1,0 +1,29 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-multicloud-integrations.git
+      web: https://github.com/stolostron/multicloud-integrations
+distgit:
+  component: acm-multicloud-integrations-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/multicloud-integrations-rhel9
+dependents:
+- multiclusterhub-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/multicloud-integrations-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-multicloud-integrations-container
