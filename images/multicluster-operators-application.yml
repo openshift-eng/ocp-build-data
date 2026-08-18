@@ -1,0 +1,29 @@
+content:
+  source:
+    dockerfile: build/Dockerfile.rhtap
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-multicloud-operators-application.git
+      web: https://github.com/stolostron/multicloud-operators-application
+distgit:
+  component: acm-multicluster-operators-application-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/multicluster-operators-application-rhel9
+dependents:
+- multiclusterhub-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/multicluster-operators-application-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-multicluster-operators-application-container

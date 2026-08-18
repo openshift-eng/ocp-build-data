@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: Containerfile.operator
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-kube-state-metrics.git
+      web: https://github.com/stolostron/kube-state-metrics
+distgit:
+  component: acm-kube-state-metrics-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/kube-state-metrics-rhel9
+dependents:
+- multiclusterhub-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/kube-state-metrics-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-kube-state-metrics-container

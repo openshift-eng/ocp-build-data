@@ -1,0 +1,32 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+    - path: promu/
+content:
+  source:
+    dockerfile: Containerfile.operator
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/stolostron-node-exporter.git
+      web: https://github.com/stolostron/node-exporter
+distgit:
+  component: acm-node-exporter-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - rhacm2/node-exporter-rhel9
+dependents:
+- multiclusterhub-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: rhacm2/node-exporter-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-node-exporter-container
