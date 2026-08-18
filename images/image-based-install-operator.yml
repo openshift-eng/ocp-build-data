@@ -1,0 +1,34 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+content:
+  source:
+    dockerfile: Dockerfile.konflux
+    git:
+      branch:
+        target: backplane-5.0
+      url: git@github.com:openshift-priv/image-based-install-operator.git
+      web: https://github.com/openshift/image-based-install-operator
+distgit:
+  component: mce-image-based-install-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/image-based-install-rhel9
+dependents:
+- backplane-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: multicluster-engine/image-based-install-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-image-based-install-operator-container

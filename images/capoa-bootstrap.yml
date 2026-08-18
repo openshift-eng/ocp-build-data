@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: Dockerfile.bootstrap-provider
+    git:
+      branch:
+        target: backplane-5.0
+      url: git@github.com:openshift-priv/cluster-api-provider-openshift-assisted.git
+      web: https://github.com/openshift-assisted/cluster-api-provider-openshift-assisted
+distgit:
+  component: mce-capoa-bootstrap-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/capoa-bootstrap-rhel9
+dependents:
+- backplane-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: multicluster-engine/capoa-bootstrap-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-capoa-bootstrap-container

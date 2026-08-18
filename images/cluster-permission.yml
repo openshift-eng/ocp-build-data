@@ -1,0 +1,29 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhtap
+    git:
+      branch:
+        target: backplane-5.0
+      url: git@github.com:openshift-priv/stolostron-cluster-permission.git
+      web: https://github.com/stolostron/cluster-permission
+distgit:
+  component: mce-cluster-permission-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/cluster-permission-rhel9
+dependents:
+- backplane-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: multicluster-engine/cluster-permission-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-cluster-permission-container

@@ -1,0 +1,26 @@
+content:
+  source:
+    dockerfile: Dockerfile.rhtap
+    git:
+      branch:
+        target: backplane-5.0
+      url: git@github.com:openshift-priv/stolostron-hypershift-addon-operator.git
+      web: https://github.com/stolostron/hypershift-addon-operator
+distgit:
+  component: mce-hypershift-addon-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/hypershift-addon-rhel9-operator
+dependents:
+- backplane-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: multicluster-engine/hypershift-addon-rhel9-operator
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-hypershift-addon-operator-container
