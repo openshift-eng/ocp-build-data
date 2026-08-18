@@ -1,0 +1,36 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+content:
+  source:
+    pkg_managers:
+    - gomod
+    dockerfile: Dockerfile.rhtap
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/cluster-api-provider-kubevirt.git
+      web: https://github.com/openshift/cluster-api-provider-kubevirt
+distgit:
+  component: mce-cluster-api-provider-kubevirt-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/cluster-api-provider-kubevirt-rhel9
+dependents:
+- backplane-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: multicluster-engine/cluster-api-provider-kubevirt-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-cluster-api-provider-kubevirt-container

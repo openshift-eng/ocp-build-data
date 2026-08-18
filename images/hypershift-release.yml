@@ -1,0 +1,30 @@
+content:
+  source:
+    dockerfile: Containerfile.operator
+    git:
+      branch:
+        target: release-5.0
+      url: git@github.com:openshift-priv/hypershift.git
+      web: https://github.com/openshift/hypershift
+    modifications:
+      - action: replace
+        match: "COPY --chown=default . ."
+        replacement: "COPY . ."
+distgit:
+  component: mce-hypershift-release-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/hypershift-rhel9-operator
+dependents:
+- backplane-operator
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: multicluster-engine/hypershift-rhel9-operator
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-hypershift-release-container
