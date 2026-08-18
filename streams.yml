@@ -5,11 +5,15 @@ rhel-9-golang:
 rhel-9-golang-1.26:
   image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.26.5-202608111835.p2.g1c0e65f.el9
 
+rhel-8-golang-1.26:
+  image: registry.redhat.io/openshift/art-images-base:openshift-golang-builder-container-v1.26.3-202606191459.p2.g0edc4e2.el8
+
 rhel-9-nodejs-24:
   image: registry.redhat.io/ubi9/nodejs-24-minimal:latest
 
+# Interim until OCP 5 GA; target: registry.redhat.io/openshift5/ose-cli-rhel9:v5.0
 ose-cli:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v5.0
+  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.22
 
 rhel9:
   image: registry.redhat.io/ubi9/ubi-minimal:9.7
