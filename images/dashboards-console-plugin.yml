@@ -1,0 +1,31 @@
+cachito:
+  packages:
+    npm:
+    - path: web
+    gomod:
+    - path: .
+content:
+  source:
+    dockerfile: Dockerfile.art
+    git:
+      branch:
+        target: release-coo-1.5
+      url: git@github.com:openshift-priv/console-dashboards-plugin.git
+      web: https://github.com/openshift/console-dashboards-plugin
+    pkg_managers:
+    - npm
+    - gomod
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: dashboards-console-plugin-rhel9-container
+delivery:
+  delivery_repo_names:
+  - cluster-observability-operator/dashboards-console-plugin-rhel9
+from:
+  builder:
+  - stream: nodejs-rhel9
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: cluster-observability-operator/dashboards-console-plugin-rhel9
+owners:
+- team-monitoring@redhat.com
