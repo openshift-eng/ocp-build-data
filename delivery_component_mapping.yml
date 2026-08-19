@@ -3,8 +3,13 @@
 bug_mapping:
   default_issue_project: OCPBUGS
   active_versions: ['4.12', '4.13', '4.14', '4.15', '4.16', '4.17', '4.18', '4.19',
-    '4.20', '4.21', '4.22']
+    '4.20', '4.21', '4.22', '5.0']
   components:
+    openshift5/agentic-skills:
+      image_file: images/agentic-skills.yaml
+      internal_name: agentic-skills-container
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-ui-rhel9:
       image_file: images/agent-installer-ui.yaml
       internal_name: assisted-installer-ui-container
@@ -13,6 +18,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-agent-installer-ui-rhel9:
+      image_file: images/agent-installer-ui.yaml
+      internal_name: assisted-installer-ui-container
+      issue_component: Installer / Disconnected UI
+      versions:
+      - '5.0'
     openshift4/ose-cluster-autoscaler:
       image_file: images/atomic-openshift-cluster-autoscaler.yaml
       internal_name: atomic-openshift-cluster-autoscaler-container
@@ -34,6 +45,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-autoscaler-rhel9:
+      image_file: images/atomic-openshift-cluster-autoscaler.yaml
+      internal_name: atomic-openshift-cluster-autoscaler-container
+      issue_component: Cluster Autoscaler
+      versions:
+      - '5.0'
     openshift4/aws-karpenter-provider-aws-rhel9:
       image_file: images/aws-karpenter-provider-aws.yaml
       internal_name: aws-karpenter-provider-aws-container
@@ -43,6 +60,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/aws-karpenter-provider-aws-rhel9:
+      image_file: images/aws-karpenter-provider-aws.yaml
+      internal_name: aws-karpenter-provider-aws-container
+      issue_component: autoscaling / karpenter
+      versions:
+      - '5.0'
     openshift4/aws-kms-encryption-provider-rhel9:
       image_file: images/aws-kms-encryption-provider.yaml
       internal_name: aws-kms-encryption-provider-container
@@ -55,6 +78,24 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/aws-kms-encryption-provider-rhel9:
+      image_file: images/aws-kms-encryption-provider.yaml
+      internal_name: aws-kms-encryption-provider-container
+      issue_component: HyperShift
+      versions:
+      - '5.0'
+    openshift4/aws-node-termination-handler-rhel9:
+      image_file: images/aws-node-termination-handler.yaml
+      internal_name: aws-node-termination-handler-container
+      issue_component: HyperShift
+      versions:
+      - '4.22'
+    openshift5/aws-node-termination-handler-rhel9:
+      image_file: images/aws-node-termination-handler.yaml
+      internal_name: aws-node-termination-handler-container
+      issue_component: HyperShift
+      versions:
+      - '5.0'
     openshift4/azure-kms-encryption-provider-rhel9:
       image_file: images/azure-kms-encryption-provider.yaml
       internal_name: azure-kms-encryption-provider-container
@@ -67,6 +108,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/azure-kms-encryption-provider-rhel9:
+      image_file: images/azure-kms-encryption-provider.yaml
+      internal_name: azure-kms-encryption-provider-container
+      issue_component: HyperShift
+      versions:
+      - '5.0'
     openshift4/ose-baremetal-machine-controllers:
       image_file: images/baremetal-machine-controller.yaml
       internal_name: baremetal-machine-controller-container
@@ -88,6 +135,17 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-baremetal-machine-controllers-rhel9:
+      image_file: images/baremetal-machine-controller.yaml
+      internal_name: baremetal-machine-controller-container
+      issue_component: Bare Metal Hardware Provisioning / cluster-api-provider
+      versions:
+      - '5.0'
+    openshift4/ose-block-copyfail-rhel9:
+      image_file: images/block-copyfail.yaml
+      internal_name: block-copyfail-container
+      versions:
+      - '4.21'
     openshift4/cloud-event-proxy-rhel8:
       image_file: images/cloud-event-proxy.yaml
       internal_name: cloud-event-proxy-container
@@ -123,6 +181,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cloud-event-proxy-rhel9:
+      image_file: images/cloud-event-proxy.yaml
+      internal_name: cloud-event-proxy-container
+      issue_component: Cloud Native Events / Cloud Event Proxy
+      versions:
+      - '5.0'
     openshift4/ose-cluster-etcd-rhel8-operator:
       image_file: images/cluster-etcd-operator.yaml
       internal_name: cluster-etcd-operator-container
@@ -144,6 +208,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-etcd-rhel9-operator:
+      image_file: images/cluster-etcd-operator.yaml
+      internal_name: cluster-etcd-operator-container
+      issue_component: Etcd
+      versions:
+      - '5.0'
     openshift4/ose-cluster-monitoring-operator:
       image_file: images/cluster-monitoring-operator.yaml
       internal_name: cluster-monitoring-operator-container
@@ -165,6 +235,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-monitoring-rhel9-operator:
+      image_file: images/cluster-monitoring-operator.yaml
+      internal_name: cluster-monitoring-operator-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-cluster-network-operator:
       image_file: images/cluster-network-operator.yaml
       internal_name: cluster-network-operator-container
@@ -186,6 +262,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-network-rhel9-operator:
+      image_file: images/cluster-network-operator.yaml
+      internal_name: cluster-network-operator-container
+      issue_component: Networking / openshift-sdn
+      versions:
+      - '5.0'
     openshift4/ose-cluster-nfd-operator:
       image_file: images/cluster-nfd-operator.yaml
       internal_name: cluster-nfd-operator-container
@@ -207,6 +289,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-nfd-rhel9-operator:
+      image_file: images/cluster-nfd-operator.yaml
+      internal_name: cluster-nfd-operator-container
+      issue_component: Node Feature Discovery Operator
+      versions:
+      - '5.0'
     openshift4/ose-cluster-node-tuning-operator:
       image_file: images/cluster-node-tuning-operator.yaml
       internal_name: cluster-node-tuning-operator-container
@@ -229,6 +317,18 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-node-tuning-rhel9-operator:
+      image_file: images/cluster-node-tuning-operator.yaml
+      internal_name: cluster-node-tuning-operator-container
+      issue_component: Node Tuning Operator
+      versions:
+      - '5.0'
+    openshift5/ose-cluster-update-console-plugin-rhel9:
+      image_file: images/cluster-update-console-plugin.yaml
+      internal_name: cluster-update-console-plugin-container
+      issue_component: Management Console
+      versions:
+      - '5.0'
     openshift4/ose-cluster-version-operator:
       image_file: images/cluster-version-operator.yaml
       internal_name: cluster-version-operator-container
@@ -250,6 +350,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-version-rhel9-operator:
+      image_file: images/cluster-version-operator.yaml
+      internal_name: cluster-version-operator-container
+      issue_component: Cluster Version Operator
+      versions:
+      - '5.0'
     openshift4/ose-configmap-reloader:
       image_file: images/configmap-reload.yaml
       internal_name: configmap-reload-container
@@ -271,6 +377,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-configmap-reloader-rhel9:
+      image_file: images/configmap-reload.yaml
+      internal_name: configmap-reload-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/container-networking-plugins-microshift-rhel9:
       image_file: images/container-networking-plugins-microshift.yaml
       internal_name: container-networking-plugins-microshift-container
@@ -283,6 +395,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/container-networking-plugins-microshift-rhel9:
+      image_file: images/container-networking-plugins-microshift.yaml
+      internal_name: container-networking-plugins-microshift-container
+      issue_component: Microshift / Networking
+      versions:
+      - '5.0'
     openshift4/ose-coredns:
       image_file: images/coredns.yaml
       internal_name: coredns-container
@@ -304,6 +422,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-coredns-rhel9:
+      image_file: images/coredns.yaml
+      internal_name: coredns-container
+      issue_component: Networking / DNS
+      versions:
+      - '5.0'
     openshift4/ose-csi-external-attacher:
       image_file: images/csi-attacher.yaml
       internal_name: csi-attacher-container
@@ -333,6 +457,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-external-attacher-rhel9:
+      image_file: images/csi-attacher.yaml
+      internal_name: csi-attacher-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-csi-driver-manila-rhel8:
       image_file: images/csi-driver-manila.yaml
       internal_name: csi-driver-manila-container
@@ -354,6 +484,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-driver-manila-rhel9:
+      image_file: images/csi-driver-manila.yaml
+      internal_name: csi-driver-manila-container
+      issue_component: Installer / OpenShift on OpenStack
+      versions:
+      - '5.0'
     openshift4/ose-csi-driver-manila-rhel8-operator:
       image_file: images/csi-driver-manila-operator.yaml
       internal_name: csi-driver-manila-operator-container
@@ -375,6 +511,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-driver-manila-rhel9-operator:
+      image_file: images/csi-driver-manila-operator.yaml
+      internal_name: csi-driver-manila-operator-container
+      issue_component: Installer / OpenShift on OpenStack
+      versions:
+      - '5.0'
     openshift4/ose-csi-driver-nfs-rhel8:
       image_file: images/csi-driver-nfs.yaml
       internal_name: csi-driver-nfs-container
@@ -396,6 +538,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-driver-nfs-rhel9:
+      image_file: images/csi-driver-nfs.yaml
+      internal_name: csi-driver-nfs-container
+      issue_component: Installer / OpenShift on OpenStack
+      versions:
+      - '5.0'
     openshift4/ose-csi-external-snapshot-metadata-rhel9:
       image_file: images/csi-external-snapshot-metadata.yaml
       internal_name: csi-external-snapshot-metadata-container
@@ -404,6 +552,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-external-snapshot-metadata-rhel9:
+      image_file: images/csi-external-snapshot-metadata.yaml
+      internal_name: csi-external-snapshot-metadata-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/ose-csi-livenessprobe:
       image_file: images/csi-livenessprobe.yaml
       internal_name: csi-livenessprobe-container
@@ -425,15 +579,24 @@ bug_mapping:
     openshift4/ose-csi-livenessprobe-rhel9:
       image_file: images/csi-livenessprobe.yaml
       internal_name: csi-livenessprobe-container
-      issue_component: Storage
       versions:
       - '4.16'
+      - '4.16'
       - '4.17'
+      - '4.17'
+      - '4.18'
       - '4.18'
       - '4.19'
       - '4.20'
       - '4.21'
       - '4.22'
+      issue_component: Storage
+    openshift5/ose-csi-livenessprobe-rhel9:
+      image_file: images/csi-livenessprobe.yaml
+      internal_name: csi-livenessprobe-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-csi-node-driver-registrar:
       image_file: images/csi-node-driver-registrar.yaml
       internal_name: csi-node-driver-registrar-container
@@ -455,15 +618,24 @@ bug_mapping:
     openshift4/ose-csi-node-driver-registrar-rhel9:
       image_file: images/csi-node-driver-registrar.yaml
       internal_name: csi-node-driver-registrar-container
-      issue_component: Storage
       versions:
       - '4.16'
+      - '4.16'
       - '4.17'
+      - '4.17'
+      - '4.18'
       - '4.18'
       - '4.19'
       - '4.20'
       - '4.21'
       - '4.22'
+      issue_component: Storage
+    openshift5/ose-csi-node-driver-registrar-rhel9:
+      image_file: images/csi-node-driver-registrar.yaml
+      internal_name: csi-node-driver-registrar-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-csi-external-provisioner:
       image_file: images/csi-provisioner.yaml
       internal_name: csi-provisioner-container
@@ -488,12 +660,21 @@ bug_mapping:
       issue_component: Storage
       versions:
       - '4.16'
+      - '4.16'
       - '4.17'
+      - '4.17'
+      - '4.18'
       - '4.18'
       - '4.19'
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-external-provisioner-rhel9:
+      image_file: images/csi-provisioner.yaml
+      internal_name: csi-provisioner-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-dpu-cni-rhel9:
       image_file: images/dpu-cni.yaml
       internal_name: dpu-cni-container
@@ -506,6 +687,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-cni-rhel9:
+      image_file: images/dpu-cni.yaml
+      internal_name: dpu-cni-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-daemon-rhel9:
       image_file: images/dpu-daemon.yaml
       internal_name: dpu-daemon-container
@@ -518,6 +705,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-daemon-rhel9:
+      image_file: images/dpu-daemon.yaml
+      internal_name: dpu-daemon-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-intel-ipu-p4sdk-rhel9:
       image_file: images/dpu-intel-ipu-p4sdk.yaml
       internal_name: dpu-intel-ipu-p4sdk-container
@@ -527,6 +720,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-intel-ipu-p4sdk-rhel9:
+      image_file: images/dpu-intel-ipu-p4sdk.yaml
+      internal_name: dpu-intel-ipu-p4sdk-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-intel-ipu-vsp-rhel9:
       image_file: images/dpu-intel-ipu-vsp.yaml
       internal_name: dpu-intel-ipu-vsp-container
@@ -536,6 +735,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-intel-ipu-vsp-rhel9:
+      image_file: images/dpu-intel-ipu-vsp.yaml
+      internal_name: dpu-intel-ipu-vsp-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-intel-netsec-vsp-rhel9:
       image_file: images/dpu-intel-netsec-vsp.yaml
       internal_name: dpu-intel-netsec-vsp-container
@@ -543,6 +748,12 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-intel-netsec-vsp-rhel9:
+      image_file: images/dpu-intel-netsec-vsp.yaml
+      internal_name: dpu-intel-netsec-vsp-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-marvell-cp-agent-rhel9:
       image_file: images/dpu-marvell-cp-agent.yaml
       internal_name: dpu-marvell-cp-agent-container
@@ -550,6 +761,12 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-marvell-cp-agent-rhel9:
+      image_file: images/dpu-marvell-cp-agent.yaml
+      internal_name: dpu-marvell-cp-agent-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-marvell-vsp-rhel9:
       image_file: images/dpu-marvell-vsp.yaml
       internal_name: dpu-marvell-vsp-container
@@ -557,6 +774,12 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-marvell-vsp-rhel9:
+      image_file: images/dpu-marvell-vsp.yaml
+      internal_name: dpu-marvell-vsp-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-network-resources-injector-rhel9:
       image_file: images/dpu-network-resources-injector.yaml
       internal_name: dpu-network-resources-injector-container
@@ -564,6 +787,12 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-network-resources-injector-rhel9:
+      image_file: images/dpu-network-resources-injector.yaml
+      internal_name: dpu-network-resources-injector-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/ose-dpu-rhel9-operator:
       image_file: images/dpu-operator.yaml
       internal_name: dpu-operator-container
@@ -576,6 +805,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-dpu-rhel9-operator:
+      image_file: images/dpu-operator.yaml
+      internal_name: dpu-operator-container
+      issue_component: Networking / DPU
+      versions:
+      - '5.0'
     openshift4/driver-toolkit-rhel8:
       image_file: images/driver-toolkit.yaml
       internal_name: driver-toolkit-container
@@ -597,6 +832,17 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/driver-toolkit-rhel9:
+      image_file: images/driver-toolkit.yaml
+      internal_name: driver-toolkit-container
+      issue_component: Driver Toolkit
+      versions:
+      - '5.0'
+    openshift5/driver-toolkit-rhel10:
+      image_file: images/driver-toolkit-rhel10.yaml
+      internal_name: driver-toolkit-rhel10-container
+      versions:
+      - '5.0'
     openshift4/ose-gcp-workload-identity-federation-webhook-rhel9:
       image_file: images/gcp-workload-identity-federation-webhook.yaml
       internal_name: gcp-workload-identity-federation-webhook-container
@@ -608,6 +854,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-workload-identity-federation-webhook-rhel9:
+      image_file: images/gcp-workload-identity-federation-webhook.yaml
+      internal_name: gcp-workload-identity-federation-webhook-container
+      issue_component: Cloud Credential Operator
+      versions:
+      - '5.0'
     openshift4/ose-oauth-proxy:
       image_file: images/golang-github-openshift-oauth-proxy.yaml
       internal_name: golang-github-openshift-oauth-proxy-container
@@ -629,6 +881,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-oauth-proxy-rhel9:
+      image_file: images/golang-github-openshift-oauth-proxy.yaml
+      internal_name: golang-github-openshift-oauth-proxy-container
+      issue_component: apiserver-auth
+      versions:
+      - '5.0'
     openshift4/ose-prometheus-alertmanager:
       image_file: images/golang-github-prometheus-alertmanager.yaml
       internal_name: golang-github-prometheus-alertmanager-container
@@ -650,6 +908,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prometheus-alertmanager-rhel9:
+      image_file: images/golang-github-prometheus-alertmanager.yaml
+      internal_name: golang-github-prometheus-alertmanager-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-prometheus-node-exporter:
       image_file: images/golang-github-prometheus-node_exporter.yaml
       internal_name: golang-github-prometheus-node_exporter-container
@@ -671,6 +935,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prometheus-node-exporter-rhel9:
+      image_file: images/golang-github-prometheus-node_exporter.yaml
+      internal_name: golang-github-prometheus-node_exporter-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-prometheus:
       image_file: images/golang-github-prometheus-prometheus.yaml
       internal_name: golang-github-prometheus-prometheus-container
@@ -692,6 +962,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prometheus-rhel9:
+      image_file: images/golang-github-prometheus-prometheus.yaml
+      internal_name: golang-github-prometheus-prometheus-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-sriov-infiniband-cni:
       image_file: images/ib-sriov-cni.yaml
       internal_name: ib-sriov-cni-container
@@ -713,6 +989,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-sriov-infiniband-cni-rhel9:
+      image_file: images/ib-sriov-cni.yaml
+      internal_name: ib-sriov-cni-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-ibm-vpc-node-label-updater-rhel8:
       image_file: images/ibm-vpc-node-label-updater.yaml
       internal_name: ibm-vpc-node-label-updater-container
@@ -741,6 +1023,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ingress-node-firewall-rhel9:
+      image_file: images/ingress-node-firewall-daemon.yaml
+      internal_name: ingress-node-firewall-daemon-container
+      issue_component: Networking / ingress-node-firewall
+      versions:
+      - '5.0'
     openshift4/ingress-node-firewall-rhel8-operator:
       image_file: images/ingress-node-firewall-operator.yaml
       internal_name: ingress-node-firewall-operator-container
@@ -762,6 +1050,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ingress-node-firewall-rhel9-operator:
+      image_file: images/ingress-node-firewall-operator.yaml
+      internal_name: ingress-node-firewall-operator-container
+      issue_component: Networking / ingress-node-firewall
+      versions:
+      - '5.0'
     openshift4/ose-ironic-agent-rhel9:
       image_file: images/ironic-agent.yaml
       internal_name: ironic-agent-container
@@ -778,6 +1072,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ironic-agent-rhel9:
+      image_file: images/ironic-agent.yaml
+      internal_name: ironic-agent-container
+      issue_component: Bare Metal Hardware Provisioning / ironic
+      versions:
+      - '5.0'
     openshift4/ose-ironic-rhel9:
       image_file: images/ironic.yaml
       internal_name: ironic-container
@@ -794,6 +1094,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ironic-rhel9:
+      image_file: images/ironic.yaml
+      internal_name: ironic-container
+      issue_component: Bare Metal Hardware Provisioning / ironic
+      versions:
+      - '5.0'
     openshift4/ose-ironic-machine-os-downloader-rhel9:
       image_file: images/ironic-rhcos-downloader.yaml
       internal_name: ironic-rhcos-downloader-container
@@ -810,6 +1116,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ironic-machine-os-downloader-rhel9:
+      image_file: images/ironic-rhcos-downloader.yaml
+      internal_name: ironic-rhcos-downloader-container
+      issue_component: Bare Metal Hardware Provisioning / ironic
+      versions:
+      - '5.0'
     openshift4/ose-ironic-static-ip-manager-rhel9:
       image_file: images/ironic-static-ip-manager.yaml
       internal_name: ironic-static-ip-manager-container
@@ -826,6 +1138,17 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ironic-static-ip-manager-rhel9:
+      image_file: images/ironic-static-ip-manager.yaml
+      internal_name: ironic-static-ip-manager-container
+      issue_component: Bare Metal Hardware Provisioning / ironic
+      versions:
+      - '5.0'
+    openshift5/karpenter-operator-rhel9:
+      image_file: images/karpenter-operator.yaml
+      internal_name: karpenter-operator-container
+      versions:
+      - '5.0'
     openshift4/kube-compare-artifacts-rhel9:
       image_file: images/kube-compare-artifacts.yaml
       internal_name: kube-compare-artifacts-container
@@ -837,6 +1160,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/kube-compare-artifacts-rhel9:
+      image_file: images/kube-compare-artifacts.yaml
+      internal_name: kube-compare-artifacts-container
+      issue_component: oc / cluster-compare
+      versions:
+      - '5.0'
     openshift4/ose-kube-proxy:
       image_file: images/kube-proxy.yaml
       internal_name: kube-proxy-container
@@ -858,6 +1187,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-kube-proxy-rhel9:
+      image_file: images/kube-proxy.yaml
+      internal_name: kube-proxy-container
+      issue_component: Networking / openshift-sdn
+      versions:
+      - '5.0'
     openshift4/ose-kube-rbac-proxy:
       image_file: images/kube-rbac-proxy.yaml
       internal_name: kube-rbac-proxy-container
@@ -879,6 +1214,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-kube-rbac-proxy-rhel9:
+      image_file: images/kube-rbac-proxy.yaml
+      internal_name: kube-rbac-proxy-container
+      issue_component: apiserver-auth
+      versions:
+      - '5.0'
     openshift4/ose-kube-state-metrics:
       image_file: images/kube-state-metrics.yaml
       internal_name: kube-state-metrics-container
@@ -900,6 +1241,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-kube-state-metrics-rhel9:
+      image_file: images/kube-state-metrics.yaml
+      internal_name: kube-state-metrics-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-kuryr-cni-rhel8:
       image_file: images/kuryr-cni.yaml
       internal_name: kuryr-cni-container
@@ -916,19 +1263,14 @@ bug_mapping:
       - '4.12'
       - '4.13'
       - '4.14'
-    openshift4/ose-local-storage-diskmaker:
-      image_file: images/local-storage-diskmaker.yaml
-      internal_name: local-storage-diskmaker-container
-      issue_component: Storage / Local Storage Operator
-      versions:
-      - '4.12'
-      - '4.13'
-      - '4.14'
     openshift4/ose-local-storage-diskmaker-rhel9:
       image_file: images/local-storage-diskmaker.yaml
       internal_name: local-storage-diskmaker-container
       issue_component: Storage / Local Storage Operator
       versions:
+      - '4.12'
+      - '4.13'
+      - '4.14'
       - '4.15'
       - '4.16'
       - '4.17'
@@ -937,7 +1279,13 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift4/ose-local-storage-operator:
+    openshift5/ose-local-storage-diskmaker-rhel9:
+      image_file: images/local-storage-diskmaker.yaml
+      internal_name: local-storage-diskmaker-container
+      issue_component: Storage / Local Storage Operator
+      versions:
+      - '5.0'
+    openshift4/ose-local-storage-rhel9-operator:
       image_file: images/local-storage-operator.yaml
       internal_name: local-storage-operator-container
       issue_component: Storage / Local Storage Operator
@@ -945,11 +1293,6 @@ bug_mapping:
       - '4.12'
       - '4.13'
       - '4.14'
-    openshift4/ose-local-storage-rhel9-operator:
-      image_file: images/local-storage-operator.yaml
-      internal_name: local-storage-operator-container
-      issue_component: Storage / Local Storage Operator
-      versions:
       - '4.15'
       - '4.16'
       - '4.17'
@@ -958,6 +1301,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-local-storage-rhel9-operator:
+      image_file: images/local-storage-operator.yaml
+      internal_name: local-storage-operator-container
+      issue_component: Storage / Local Storage Operator
+      versions:
+      - '5.0'
     openshift4/ose-operator-marketplace:
       image_file: images/marketplace-operator.yaml
       internal_name: marketplace-operator-container
@@ -979,6 +1328,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-operator-marketplace-rhel9:
+      image_file: images/marketplace-operator.yaml
+      internal_name: marketplace-operator-container
+      issue_component: OLM / Registry
+      versions:
+      - '5.0'
     openshift4/microshift-bootc-rhel9:
       image_file: images/microshift-bootc.yaml
       internal_name: microshift-bootc-container
@@ -989,6 +1344,22 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/microshift-bootc-rhel9:
+      image_file: images/microshift-bootc.yaml
+      internal_name: microshift-bootc-container
+      issue_component: MicroShift
+      versions:
+      - '5.0'
+    openshift4/microshift-bootc-rhel10:
+      image_file: images/microshift-bootc-rhel10.yaml
+      internal_name: microshift-bootc-rhel10-container
+      versions:
+      - '4.22'
+    openshift5/microshift-bootc-rhel10:
+      image_file: images/microshift-bootc-rhel10.yaml
+      internal_name: microshift-bootc-rhel10-container
+      versions:
+      - '5.0'
     openshift4/ose-monitoring-plugin-rhel8:
       image_file: images/monitoring-plugin.yaml
       internal_name: monitoring-plugin-container
@@ -1008,6 +1379,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-monitoring-plugin-rhel9:
+      image_file: images/monitoring-plugin.yaml
+      internal_name: monitoring-plugin-container
+      issue_component: Observability UI
+      versions:
+      - '5.0'
     openshift4/ose-multus-cni:
       image_file: images/multus-cni.yaml
       internal_name: multus-cni-container
@@ -1029,6 +1406,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-multus-cni-rhel9:
+      image_file: images/multus-cni.yaml
+      internal_name: multus-cni-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-multus-cni-microshift-rhel9:
       image_file: images/multus-cni-container-microshift.yaml
       internal_name: multus-cni-container-microshift-container
@@ -1041,6 +1424,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-multus-cni-microshift-rhel9:
+      image_file: images/multus-cni-container-microshift.yaml
+      internal_name: multus-cni-container-microshift-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-networking-console-plugin-rhel9:
       image_file: images/networking-console-plugin.yaml
       internal_name: networking-console-plugin-container
@@ -1053,6 +1442,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-networking-console-plugin-rhel9:
+      image_file: images/networking-console-plugin.yaml
+      internal_name: networking-console-plugin-container
+      issue_component: Networking / networking-console-plugin
+      versions:
+      - '5.0'
     openshift4/nmstate-console-plugin-rhel8:
       image_file: images/nmstate-console-plugin.yaml
       internal_name: nmstate-console-plugin-container
@@ -1072,6 +1467,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/nmstate-console-plugin-rhel9:
+      image_file: images/nmstate-console-plugin.yaml
+      internal_name: nmstate-console-plugin-container
+      issue_component: Networking / nmstate-console-plugin
+      versions:
+      - '5.0'
     openshift4/ose-node-feature-discovery:
       image_file: images/node-feature-discovery.yaml
       internal_name: node-feature-discovery-container
@@ -1093,6 +1494,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-node-feature-discovery-rhel9:
+      image_file: images/node-feature-discovery.yaml
+      internal_name: node-feature-discovery-container
+      issue_component: Node Feature Discovery Operator
+      versions:
+      - '5.0'
     openshift4/ose-oauth-server-rhel8:
       image_file: images/oauth-server.yaml
       internal_name: oauth-server-container
@@ -1114,6 +1521,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-oauth-server-rhel9:
+      image_file: images/oauth-server.yaml
+      internal_name: oauth-server-container
+      issue_component: apiserver-auth
+      versions:
+      - '5.0'
     openshift4/oc-mirror-plugin-rhel8:
       image_file: images/oc-mirror-plugin.yaml
       internal_name: oc-mirror-plugin-container
@@ -1135,6 +1548,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/oc-mirror-plugin-rhel9:
+      image_file: images/oc-mirror-plugin.yaml
+      internal_name: oc-mirror-plugin-container
+      issue_component: oc-mirror
+      versions:
+      - '5.0'
     openshift4/ose-ansible-operator:
       image_file: images/openshift-enterprise-ansible-operator.yaml
       internal_name: openshift-enterprise-ansible-operator-container
@@ -1156,6 +1575,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ansible-rhel9-operator:
+      image_file: images/openshift-enterprise-ansible-operator.yaml
+      internal_name: openshift-enterprise-ansible-operator-container
+      issue_component: Operator SDK
+      versions:
+      - '5.0'
     openshift4/ose-docker-builder:
       image_file: images/openshift-enterprise-builder.yaml
       internal_name: openshift-enterprise-builder-container
@@ -1177,6 +1602,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-docker-builder-rhel9:
+      image_file: images/openshift-enterprise-builder.yaml
+      internal_name: openshift-enterprise-builder-container
+      issue_component: Build
+      versions:
+      - '5.0'
     openshift4/ose-cli:
       image_file: images/openshift-enterprise-cli.yaml
       internal_name: openshift-enterprise-cli-container
@@ -1198,6 +1629,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cli-rhel9:
+      image_file: images/openshift-enterprise-cli.yaml
+      internal_name: openshift-enterprise-cli-container
+      issue_component: oc
+      versions:
+      - '5.0'
     openshift4/ose-cluster-capacity:
       image_file: images/openshift-enterprise-cluster-capacity.yaml
       internal_name: openshift-enterprise-cluster-capacity-container
@@ -1219,6 +1656,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-capacity-rhel9:
+      image_file: images/openshift-enterprise-cluster-capacity.yaml
+      internal_name: openshift-enterprise-cluster-capacity-container
+      issue_component: kube-scheduler
+      versions:
+      - '5.0'
     openshift4/ose-console:
       image_file: images/openshift-enterprise-console.yaml
       internal_name: openshift-enterprise-console-container
@@ -1240,6 +1683,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-console-rhel9:
+      image_file: images/openshift-enterprise-console.yaml
+      internal_name: openshift-enterprise-console-container
+      issue_component: Management Console
+      versions:
+      - '5.0'
     openshift4/ose-console-operator:
       image_file: images/openshift-enterprise-console-operator.yaml
       internal_name: openshift-enterprise-console-operator-container
@@ -1261,6 +1710,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-console-rhel9-operator:
+      image_file: images/openshift-enterprise-console-operator.yaml
+      internal_name: openshift-enterprise-console-operator-container
+      issue_component: Management Console
+      versions:
+      - '5.0'
     openshift4/ose-deployer:
       image_file: images/openshift-enterprise-deployer.yaml
       internal_name: openshift-enterprise-deployer-container
@@ -1282,6 +1737,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-deployer-rhel9:
+      image_file: images/openshift-enterprise-deployer.yaml
+      internal_name: openshift-enterprise-deployer-container
+      issue_component: oc
+      versions:
+      - '5.0'
     openshift4/ose-egress-dns-proxy:
       image_file: images/openshift-enterprise-egress-dns-proxy.yaml
       internal_name: openshift-enterprise-egress-dns-proxy-container
@@ -1339,6 +1800,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-haproxy-router-rhel9:
+      image_file: images/openshift-enterprise-haproxy-router.yaml
+      internal_name: openshift-enterprise-haproxy-router-container
+      issue_component: Networking / router
+      versions:
+      - '5.0'
     openshift4/ose-helm-operator:
       image_file: images/openshift-enterprise-helm-operator.yaml
       internal_name: openshift-enterprise-helm-operator-container
@@ -1360,6 +1827,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-helm-rhel9-operator:
+      image_file: images/openshift-enterprise-helm-operator.yaml
+      internal_name: openshift-enterprise-helm-operator-container
+      issue_component: Operator SDK
+      versions:
+      - '5.0'
     openshift4/ose-hyperkube:
       image_file: images/openshift-enterprise-hyperkube.yaml
       internal_name: openshift-enterprise-hyperkube-container
@@ -1381,6 +1854,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-hyperkube-rhel9:
+      image_file: images/openshift-enterprise-hyperkube.yaml
+      internal_name: openshift-enterprise-hyperkube-container
+      issue_component: kube-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-keepalived-ipfailover:
       image_file: images/openshift-enterprise-keepalived-ipfailover.yaml
       internal_name: openshift-enterprise-keepalived-ipfailover-container
@@ -1402,6 +1881,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-keepalived-ipfailover-rhel9:
+      image_file: images/openshift-enterprise-keepalived-ipfailover.yaml
+      internal_name: openshift-enterprise-keepalived-ipfailover-container
+      issue_component: Release
+      versions:
+      - '5.0'
     openshift4/ose-operator-sdk-rhel8:
       image_file: images/openshift-enterprise-operator-sdk.yaml
       internal_name: openshift-enterprise-operator-sdk-container
@@ -1440,6 +1925,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-pod-rhel9:
+      image_file: images/openshift-enterprise-pod.yaml
+      internal_name: openshift-enterprise-pod-container
+      issue_component: Node / CRI-O
+      versions:
+      - '5.0'
     openshift4/ose-docker-registry:
       image_file: images/openshift-enterprise-registry.yaml
       internal_name: openshift-enterprise-registry-container
@@ -1461,6 +1952,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-docker-registry-rhel9:
+      image_file: images/openshift-enterprise-registry.yaml
+      internal_name: openshift-enterprise-registry-container
+      issue_component: Image Registry
+      versions:
+      - '5.0'
     openshift4/ose-tests:
       image_file: images/openshift-enterprise-tests.yaml
       internal_name: openshift-enterprise-tests-container
@@ -1482,6 +1979,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-tests-rhel9:
+      image_file: images/openshift-enterprise-tests.yaml
+      internal_name: openshift-enterprise-tests-container
+      issue_component: Test Framework
+      versions:
+      - '5.0'
     openshift4/ose-kubernetes-nmstate-handler-rhel8:
       image_file: images/openshift-kubernetes-nmstate-handler.yaml
       internal_name: openshift-kubernetes-nmstate-handler-rhel-8-container
@@ -1503,6 +2006,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-kubernetes-nmstate-handler-rhel9:
+      image_file: images/openshift-kubernetes-nmstate-handler.yaml
+      internal_name: openshift-kubernetes-nmstate-handler-rhel-9-container
+      issue_component: Networking / kubernetes-nmstate-operator
+      versions:
+      - '5.0'
     openshift4/ose-openshift-state-metrics-rhel8:
       image_file: images/openshift-state-metrics.yaml
       internal_name: openshift-state-metrics-container
@@ -1524,6 +2033,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openshift-state-metrics-rhel9:
+      image_file: images/openshift-state-metrics.yaml
+      internal_name: openshift-state-metrics-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-openstack-cluster-api-controllers-rhel8:
       image_file: images/openstack-cluster-api-controllers.yaml
       internal_name: openstack-cluster-api-controllers-container
@@ -1542,6 +2057,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openstack-cluster-api-controllers-rhel9:
+      image_file: images/openstack-cluster-api-controllers.yaml
+      internal_name: openstack-cluster-api-controllers-container
+      issue_component: Cloud Compute / OpenStack Provider
+      versions:
+      - '5.0'
     openshift4/openstack-resource-controller-rhel9:
       image_file: images/openstack-resource-controller.yaml
       internal_name: openstack-resource-controller-container
@@ -1551,6 +2072,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/openstack-resource-controller-rhel9:
+      image_file: images/openstack-resource-controller.yaml
+      internal_name: openstack-resource-controller-container
+      issue_component: Cloud Compute / OpenStack Provider
+      versions:
+      - '5.0'
     openshift4/ose-operator-lifecycle-manager:
       image_file: images/operator-lifecycle-manager.yaml
       internal_name: operator-lifecycle-manager-container
@@ -1572,6 +2099,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-operator-lifecycle-manager-rhel9:
+      image_file: images/operator-lifecycle-manager.yaml
+      internal_name: operator-lifecycle-manager-container
+      issue_component: OLM
+      versions:
+      - '5.0'
     openshift4/ose-operator-registry:
       image_file: images/operator-registry.yaml
       internal_name: operator-registry-container
@@ -1593,6 +2126,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-operator-registry-rhel9:
+      image_file: images/operator-registry.yaml
+      internal_name: operator-registry-container
+      issue_component: OLM / Registry
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-api-server-rhel8:
       image_file: images/ose-agent-installer-api-server.yaml
       internal_name: ose-agent-installer-api-server-container
@@ -1614,6 +2153,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-agent-installer-api-server-rhel9:
+      image_file: images/ose-agent-installer-api-server.yaml
+      internal_name: ose-agent-installer-api-server-container
+      issue_component: Installer / Agent based installation
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-csr-approver-rhel8:
       image_file: images/ose-agent-installer-csr-approver.yaml
       internal_name: ose-agent-installer-csr-approver-container
@@ -1635,6 +2180,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-agent-installer-csr-approver-rhel9:
+      image_file: images/ose-agent-installer-csr-approver.yaml
+      internal_name: ose-agent-installer-csr-approver-container
+      issue_component: Installer / Agent based installation
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-node-agent-rhel8:
       image_file: images/ose-agent-installer-node-agent.yaml
       internal_name: ose-agent-installer-node-agent-container
@@ -1656,6 +2207,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-agent-installer-node-agent-rhel9:
+      image_file: images/ose-agent-installer-node-agent.yaml
+      internal_name: ose-agent-installer-node-agent-container
+      issue_component: Installer / Agent based installation
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-orchestrator-rhel8:
       image_file: images/ose-agent-installer-orchestrator.yaml
       internal_name: ose-agent-installer-orchestrator-container
@@ -1677,6 +2234,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-agent-installer-orchestrator-rhel9:
+      image_file: images/ose-agent-installer-orchestrator.yaml
+      internal_name: ose-agent-installer-orchestrator-container
+      issue_component: Installer / Agent based installation
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-utils-rhel9:
       image_file: images/ose-agent-installer-utils.yaml
       internal_name: ose-agent-installer-utils-container
@@ -1691,6 +2254,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-agent-installer-utils-rhel9:
+      image_file: images/ose-agent-installer-utils.yaml
+      internal_name: ose-agent-installer-utils-container
+      issue_component: Installer / Agent based installation
+      versions:
+      - '5.0'
     openshift4/ose-alibaba-cloud-controller-manager-rhel8:
       image_file: images/ose-alibaba-cloud-controller-manager.yaml
       internal_name: ose-alibaba-cloud-controller-manager-container
@@ -1765,6 +2334,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-apiserver-network-proxy-rhel9:
+      image_file: images/ose-apiserver-network-proxy.yaml
+      internal_name: ose-apiserver-network-proxy-container
+      issue_component: openshift-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-aws-cloud-controller-manager-rhel8:
       image_file: images/ose-aws-cloud-controller-manager.yaml
       internal_name: ose-aws-cloud-controller-manager-container
@@ -1786,6 +2361,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-cloud-controller-manager-rhel9:
+      image_file: images/ose-aws-cloud-controller-manager.yaml
+      internal_name: ose-aws-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-aws-cluster-api-controllers-rhel8:
       image_file: images/ose-aws-cluster-api-controllers.yaml
       internal_name: ose-aws-cluster-api-controllers-container
@@ -1807,6 +2388,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-cluster-api-controllers-rhel9:
+      image_file: images/ose-aws-cluster-api-controllers.yaml
+      internal_name: ose-aws-cluster-api-controllers-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-aws-ebs-csi-driver-rhel8:
       image_file: images/ose-aws-ebs-csi-driver.yaml
       internal_name: ose-aws-ebs-csi-driver-container
@@ -1828,6 +2415,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-ebs-csi-driver-rhel9:
+      image_file: images/ose-aws-ebs-csi-driver.yaml
+      internal_name: ose-aws-ebs-csi-driver-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-aws-ebs-csi-driver-rhel8-operator:
       image_file: images/ose-aws-ebs-csi-driver-operator.yaml
       internal_name: ose-aws-ebs-csi-driver-operator-container
@@ -1849,6 +2442,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-ebs-csi-driver-rhel9-operator:
+      image_file: images/ose-aws-ebs-csi-driver-operator.yaml
+      internal_name: ose-aws-ebs-csi-driver-operator-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-aws-efs-csi-driver-container-rhel8:
       image_file: images/ose-aws-efs-csi-driver.yaml
       internal_name: ose-aws-efs-csi-driver-container
@@ -1870,6 +2469,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-efs-csi-driver-container-rhel9:
+      image_file: images/ose-aws-efs-csi-driver.yaml
+      internal_name: ose-aws-efs-csi-driver-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-aws-efs-csi-driver-rhel8-operator:
       image_file: images/ose-aws-efs-csi-driver-operator.yaml
       internal_name: ose-aws-efs-csi-driver-operator-container
@@ -1891,6 +2496,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-efs-csi-driver-rhel9-operator:
+      image_file: images/ose-aws-efs-csi-driver-operator.yaml
+      internal_name: ose-aws-efs-csi-driver-operator-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-aws-pod-identity-webhook-rhel8:
       image_file: images/ose-aws-pod-identity-webhook.yaml
       internal_name: ose-aws-pod-identity-webhook-container
@@ -1912,6 +2523,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-aws-pod-identity-webhook-rhel9:
+      image_file: images/ose-aws-pod-identity-webhook.yaml
+      internal_name: ose-aws-pod-identity-webhook-container
+      issue_component: Cloud Credential Operator
+      versions:
+      - '5.0'
     openshift4/ose-azure-cloud-controller-manager-rhel8:
       image_file: images/ose-azure-cloud-controller-manager.yaml
       internal_name: ose-azure-cloud-controller-manager-container
@@ -1933,6 +2550,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-cloud-controller-manager-rhel9:
+      image_file: images/ose-azure-cloud-controller-manager.yaml
+      internal_name: ose-azure-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-azure-cloud-node-manager-rhel8:
       image_file: images/ose-azure-cloud-node-manager.yaml
       internal_name: ose-azure-cloud-node-manager-container
@@ -1954,6 +2577,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-cloud-node-manager-rhel9:
+      image_file: images/ose-azure-cloud-node-manager.yaml
+      internal_name: ose-azure-cloud-node-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-azure-cluster-api-controllers-rhel8:
       image_file: images/ose-azure-cluster-api-controllers.yaml
       internal_name: ose-azure-cluster-api-controllers-container
@@ -1975,6 +2604,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-cluster-api-controllers-rhel9:
+      image_file: images/ose-azure-cluster-api-controllers.yaml
+      internal_name: ose-azure-cluster-api-controllers-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-azure-disk-csi-driver-rhel8:
       image_file: images/ose-azure-disk-csi-driver.yaml
       internal_name: ose-azure-disk-csi-driver-container
@@ -1996,6 +2631,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-disk-csi-driver-rhel9:
+      image_file: images/ose-azure-disk-csi-driver.yaml
+      internal_name: ose-azure-disk-csi-driver-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/ose-azure-disk-csi-driver-rhel8-operator:
       image_file: images/ose-azure-disk-csi-driver-operator.yaml
       internal_name: ose-azure-disk-csi-driver-operator-container
@@ -2017,6 +2658,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-disk-csi-driver-rhel9-operator:
+      image_file: images/ose-azure-disk-csi-driver-operator.yaml
+      internal_name: ose-azure-disk-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/ose-azure-file-csi-driver-rhel8:
       image_file: images/azure-file-csi-driver.yaml
       internal_name: ose-azure-file-csi-driver-container
@@ -2038,6 +2685,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-file-csi-driver-rhel9:
+      image_file: images/azure-file-csi-driver.yaml
+      internal_name: ose-azure-file-csi-driver-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/ose-azure-file-csi-driver-operator-rhel8:
       image_file: images/azure-file-csi-driver-operator.yaml
       internal_name: ose-azure-file-csi-driver-operator-container
@@ -2059,6 +2712,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-file-csi-driver-operator-rhel9:
+      image_file: images/azure-file-csi-driver-operator.yaml
+      internal_name: ose-azure-file-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/azure-service-rhel9-operator:
       image_file: images/ose-azure-service-operator.yaml
       internal_name: ose-azure-service-operator-container
@@ -2069,6 +2728,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/azure-service-rhel9-operator:
+      image_file: images/ose-azure-service-operator.yaml
+      internal_name: ose-azure-service-operator-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-azure-workload-identity-webhook-rhel8:
       image_file: images/ose-azure-workload-identity-webhook.yaml
       internal_name: ose-azure-workload-identity-webhook-container
@@ -2088,6 +2753,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-azure-workload-identity-webhook-rhel9:
+      image_file: images/ose-azure-workload-identity-webhook.yaml
+      internal_name: ose-azure-workload-identity-webhook-container
+      issue_component: Cloud Credential Operator
+      versions:
+      - '5.0'
     openshift4/ose-baremetal-cluster-api-controllers-rhel9:
       image_file: images/ose-baremetal-cluster-api-controllers.yaml
       internal_name: ose-baremetal-cluster-api-controllers-container
@@ -2101,6 +2772,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-baremetal-cluster-api-controllers-rhel9:
+      image_file: images/ose-baremetal-cluster-api-controllers.yaml
+      internal_name: ose-baremetal-cluster-api-controllers-container
+      issue_component: Bare Metal Hardware Provisioning / cluster-api-provider
+      versions:
+      - '5.0'
     openshift4/ose-baremetal-installer-rhel8:
       image_file: images/ose-baremetal-installer.yaml
       internal_name: ose-baremetal-installer-container
@@ -2122,6 +2799,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-baremetal-installer-rhel9:
+      image_file: images/ose-baremetal-installer.yaml
+      internal_name: ose-baremetal-installer-container
+      issue_component: Installer / openshift-installer
+      versions:
+      - '5.0'
     openshift4/ose-baremetal-rhel8-operator:
       image_file: images/ose-baremetal-operator.yaml
       internal_name: ose-baremetal-operator-container
@@ -2143,6 +2826,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-baremetal-rhel9-operator:
+      image_file: images/ose-baremetal-operator.yaml
+      internal_name: ose-baremetal-operator-container
+      issue_component: Bare Metal Hardware Provisioning / baremetal-operator
+      versions:
+      - '5.0'
     openshift4/ose-baremetal-runtimecfg-rhel8:
       image_file: images/baremetal-runtimecfg.yaml
       internal_name: ose-baremetal-runtimecfg-container
@@ -2164,6 +2853,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-baremetal-runtimecfg-rhel9:
+      image_file: images/baremetal-runtimecfg.yaml
+      internal_name: ose-baremetal-runtimecfg-container
+      issue_component: Networking / runtime-cfg
+      versions:
+      - '5.0'
     openshift4/ose-cli-artifacts:
       image_file: images/ose-cli-artifacts.yaml
       internal_name: ose-cli-artifacts-container
@@ -2185,6 +2880,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cli-artifacts-rhel9:
+      image_file: images/ose-cli-artifacts.yaml
+      internal_name: ose-cli-artifacts-container
+      issue_component: oc
+      versions:
+      - '5.0'
     openshift4/ose-cloud-credential-operator:
       image_file: images/ose-cloud-credential-operator.yaml
       internal_name: ose-cloud-credential-operator-container
@@ -2206,6 +2907,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cloud-credential-rhel9-operator:
+      image_file: images/ose-cloud-credential-operator.yaml
+      internal_name: ose-cloud-credential-operator-container
+      issue_component: Cloud Credential Operator
+      versions:
+      - '5.0'
     openshift4/cloud-network-config-controller-rhel8:
       image_file: images/ose-cloud-network-config-controller.yaml
       internal_name: ose-cloud-network-config-controller-container
@@ -2227,6 +2934,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/cloud-network-config-controller-rhel9:
+      image_file: images/ose-cloud-network-config-controller.yaml
+      internal_name: ose-cloud-network-config-controller-container
+      issue_component: Networking / ovn-kubernetes
+      versions:
+      - '5.0'
     openshift4/ose-cluster-api-rhel8:
       image_file: images/ose-cluster-api.yaml
       internal_name: ose-cluster-api-container
@@ -2248,6 +2961,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-api-rhel9:
+      image_file: images/ose-cluster-api.yaml
+      internal_name: ose-cluster-api-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-cluster-authentication-operator:
       image_file: images/ose-cluster-authentication-operator.yaml
       internal_name: ose-cluster-authentication-operator-container
@@ -2269,6 +2988,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-authentication-rhel9-operator:
+      image_file: images/ose-cluster-authentication-operator.yaml
+      internal_name: ose-cluster-authentication-operator-container
+      issue_component: apiserver-auth
+      versions:
+      - '5.0'
     openshift4/ose-cluster-autoscaler-operator:
       image_file: images/ose-cluster-autoscaler-operator.yaml
       internal_name: ose-cluster-autoscaler-operator-container
@@ -2290,6 +3015,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-autoscaler-rhel9-operator:
+      image_file: images/ose-cluster-autoscaler-operator.yaml
+      internal_name: ose-cluster-autoscaler-operator-container
+      issue_component: Cluster Autoscaler
+      versions:
+      - '5.0'
     openshift4/ose-cluster-baremetal-operator-rhel8:
       image_file: images/ose-cluster-baremetal-operator.yaml
       internal_name: ose-cluster-baremetal-operator-container
@@ -2313,6 +3044,13 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-baremetal-operator-rhel9:
+      image_file: images/ose-cluster-baremetal-operator.yaml
+      internal_name: ose-cluster-baremetal-operator-container
+      issue_component: Bare Metal Hardware Provisioning / 
+        cluster-baremetal-operator
+      versions:
+      - '5.0'
     openshift4/ose-cluster-bootstrap:
       image_file: images/ose-cluster-bootstrap.yaml
       internal_name: ose-cluster-bootstrap-container
@@ -2334,6 +3072,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-bootstrap-rhel9:
+      image_file: images/ose-cluster-bootstrap.yaml
+      internal_name: ose-cluster-bootstrap-container
+      issue_component: kube-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-cluster-capi-operator-container-rhel8:
       image_file: images/ose-cluster-capi-operator.yaml
       internal_name: ose-cluster-capi-operator-container
@@ -2363,6 +3107,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-capi-rhel9-operator:
+      image_file: images/ose-cluster-capi-operator.yaml
+      internal_name: ose-cluster-capi-operator-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-cluster-cloud-controller-manager-operator-rhel8:
       image_file: images/ose-cluster-cloud-controller-manager-operator.yaml
       internal_name: ose-cluster-cloud-controller-manager-operator-container
@@ -2384,6 +3134,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-cloud-controller-manager-rhel9-operator:
+      image_file: images/ose-cluster-cloud-controller-manager-operator.yaml
+      internal_name: ose-cluster-cloud-controller-manager-operator-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-cluster-config-api-rhel9:
       image_file: images/ose-cluster-config-api.yaml
       internal_name: ose-cluster-config-api-container
@@ -2397,6 +3153,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-config-api-rhel9:
+      image_file: images/ose-cluster-config-api.yaml
+      internal_name: ose-cluster-config-api-container
+      issue_component: config-operator
+      versions:
+      - '5.0'
     openshift4/ose-cluster-config-operator:
       image_file: images/ose-cluster-config-operator.yaml
       internal_name: ose-cluster-config-operator-container
@@ -2418,6 +3180,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-config-rhel9-operator:
+      image_file: images/ose-cluster-config-operator.yaml
+      internal_name: ose-cluster-config-operator-container
+      issue_component: config-operator
+      versions:
+      - '5.0'
     openshift4/ose-cluster-control-plane-machine-set-operator-rhel8:
       image_file: images/ose-cluster-control-plane-machine-set-operator.yaml
       internal_name: ose-cluster-control-plane-machine-set-operator-container
@@ -2439,6 +3207,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-control-plane-machine-set-rhel9-operator:
+      image_file: images/ose-cluster-control-plane-machine-set-operator.yaml
+      internal_name: ose-cluster-control-plane-machine-set-operator-container
+      issue_component: Cloud Compute / ControlPlaneMachineSet
+      versions:
+      - '5.0'
     openshift4/ose-cluster-csi-snapshot-controller-rhel8-operator:
       image_file: images/ose-cluster-csi-snapshot-controller-operator.yaml
       internal_name: ose-cluster-csi-snapshot-controller-operator-container
@@ -2460,6 +3234,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-csi-snapshot-controller-rhel9-operator:
+      image_file: images/ose-cluster-csi-snapshot-controller-operator.yaml
+      internal_name: ose-cluster-csi-snapshot-controller-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/ose-cluster-dns-operator:
       image_file: images/ose-cluster-dns-operator.yaml
       internal_name: ose-cluster-dns-operator-container
@@ -2481,6 +3261,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-dns-rhel9-operator:
+      image_file: images/ose-cluster-dns-operator.yaml
+      internal_name: ose-cluster-dns-operator-container
+      issue_component: Networking / DNS
+      versions:
+      - '5.0'
     openshift4/ose-cluster-image-registry-operator:
       image_file: images/ose-cluster-image-registry-operator.yaml
       internal_name: ose-cluster-image-registry-operator-container
@@ -2502,6 +3288,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-image-registry-rhel9-operator:
+      image_file: images/ose-cluster-image-registry-operator.yaml
+      internal_name: ose-cluster-image-registry-operator-container
+      issue_component: Image Registry
+      versions:
+      - '5.0'
     openshift4/ose-cluster-ingress-operator:
       image_file: images/ose-cluster-ingress-operator.yaml
       internal_name: ose-cluster-ingress-operator-container
@@ -2523,6 +3315,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-ingress-rhel9-operator:
+      image_file: images/ose-cluster-ingress-operator.yaml
+      internal_name: ose-cluster-ingress-operator-container
+      issue_component: Networking / router
+      versions:
+      - '5.0'
     openshift4/ose-cluster-kube-apiserver-operator:
       image_file: images/ose-cluster-kube-apiserver-operator.yaml
       internal_name: ose-cluster-kube-apiserver-operator-container
@@ -2544,6 +3342,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-kube-apiserver-rhel9-operator:
+      image_file: images/ose-cluster-kube-apiserver-operator.yaml
+      internal_name: ose-cluster-kube-apiserver-operator-container
+      issue_component: kube-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-cluster-kube-cluster-api-rhel8-operator:
       image_file: images/ose-cluster-kube-cluster-api-operator.yaml
       internal_name: ose-cluster-kube-cluster-api-operator-container
@@ -2584,6 +3388,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-kube-controller-manager-rhel9-operator:
+      image_file: images/ose-cluster-kube-controller-manager-operator.yaml
+      internal_name: ose-cluster-kube-controller-manager-operator-container
+      issue_component: kube-controller-manager
+      versions:
+      - '5.0'
     openshift4/ose-cluster-kube-scheduler-operator:
       image_file: images/ose-cluster-kube-scheduler-operator.yaml
       internal_name: ose-cluster-kube-scheduler-operator-container
@@ -2605,6 +3415,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-kube-scheduler-rhel9-operator:
+      image_file: images/ose-cluster-kube-scheduler-operator.yaml
+      internal_name: ose-cluster-kube-scheduler-operator-container
+      issue_component: kube-scheduler
+      versions:
+      - '5.0'
     openshift4/ose-cluster-kube-storage-version-migrator-rhel8-operator:
       image_file: images/ose-cluster-kube-storage-version-migrator-operator.yaml
       internal_name: 
@@ -2628,6 +3444,13 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-kube-storage-version-migrator-rhel9-operator:
+      image_file: images/ose-cluster-kube-storage-version-migrator-operator.yaml
+      internal_name: 
+        ose-cluster-kube-storage-version-migrator-operator-container
+      issue_component: kube-storage-version-migrator
+      versions:
+      - '5.0'
     openshift4/ose-cluster-machine-approver:
       image_file: images/ose-cluster-machine-approver.yaml
       internal_name: ose-cluster-machine-approver-container
@@ -2649,6 +3472,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-machine-approver-rhel9:
+      image_file: images/ose-cluster-machine-approver.yaml
+      internal_name: ose-cluster-machine-approver-container
+      issue_component: Cloud Compute / Machine CSR Approver
+      versions:
+      - '5.0'
     openshift4/ose-cluster-olm-operator-rhel8:
       image_file: images/ose-cluster-olm-operator.yaml
       internal_name: ose-cluster-olm-operator-container
@@ -2668,6 +3497,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-olm-rhel9-operator:
+      image_file: images/ose-cluster-olm-operator.yaml
+      internal_name: ose-cluster-olm-operator-container
+      issue_component: OLM
+      versions:
+      - '5.0'
     openshift4/ose-cluster-openshift-apiserver-operator:
       image_file: images/ose-cluster-openshift-apiserver-operator.yaml
       internal_name: ose-cluster-openshift-apiserver-operator-container
@@ -2689,6 +3524,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-openshift-apiserver-rhel9-operator:
+      image_file: images/ose-cluster-openshift-apiserver-operator.yaml
+      internal_name: ose-cluster-openshift-apiserver-operator-container
+      issue_component: openshift-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-cluster-openshift-controller-manager-operator:
       image_file: images/ose-cluster-openshift-controller-manager-operator.yaml
       internal_name: ose-cluster-openshift-controller-manager-operator-container
@@ -2710,6 +3551,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-openshift-controller-manager-rhel9-operator:
+      image_file: images/ose-cluster-openshift-controller-manager-operator.yaml
+      internal_name: ose-cluster-openshift-controller-manager-operator-container
+      issue_component: openshift-controller-manager / controller-manager
+      versions:
+      - '5.0'
     openshift4/ovirt-csi-driver-rhel8-operator:
       image_file: images/ose-cluster-ovirt-csi-operator.yaml
       internal_name: ose-cluster-ovirt-csi-operator-container
@@ -2764,6 +3611,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-policy-controller-rhel9:
+      image_file: images/cluster-policy-controller.yaml
+      internal_name: ose-cluster-policy-controller-container
+      issue_component: kube-controller-manager
+      versions:
+      - '5.0'
     openshift4/ose-cluster-samples-operator:
       image_file: images/ose-cluster-samples-operator.yaml
       internal_name: ose-cluster-samples-operator-container
@@ -2785,6 +3638,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-samples-rhel9-operator:
+      image_file: images/ose-cluster-samples-operator.yaml
+      internal_name: ose-cluster-samples-operator-container
+      issue_component: Samples Operator
+      versions:
+      - '5.0'
     openshift4/ose-cluster-storage-operator:
       image_file: images/cluster-storage-operator.yaml
       internal_name: ose-cluster-storage-operator-container
@@ -2806,6 +3665,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-storage-rhel9-operator:
+      image_file: images/cluster-storage-operator.yaml
+      internal_name: ose-cluster-storage-operator-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-cluster-update-keys:
       image_file: images/ose-cluster-update-keys.yaml
       internal_name: ose-cluster-update-keys-container
@@ -2827,6 +3692,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-cluster-update-keys-rhel9:
+      image_file: images/ose-cluster-update-keys.yaml
+      internal_name: ose-cluster-update-keys-container
+      issue_component: Release
+      versions:
+      - '5.0'
     openshift4/ose-clusterresourceoverride-rhel8:
       image_file: images/clusterresourceoverride.yaml
       internal_name: ose-clusterresourceoverride-container
@@ -2848,6 +3719,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-clusterresourceoverride-rhel9:
+      image_file: images/clusterresourceoverride.yaml
+      internal_name: ose-clusterresourceoverride-container
+      issue_component: Cluster Resource Override Admission Operator
+      versions:
+      - '5.0'
     openshift4/ose-clusterresourceoverride-rhel8-operator:
       image_file: images/clusterresourceoverride-operator.yaml
       internal_name: ose-clusterresourceoverride-operator-container
@@ -2869,6 +3746,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-clusterresourceoverride-rhel9-operator:
+      image_file: images/clusterresourceoverride-operator.yaml
+      internal_name: ose-clusterresourceoverride-operator-container
+      issue_component: Cluster Resource Override Admission Operator
+      versions:
+      - '5.0'
     openshift4/ose-container-networking-plugins-rhel8:
       image_file: images/ose-containernetworking-plugins.yaml
       internal_name: ose-containernetworking-plugins-container
@@ -2890,6 +3773,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-container-networking-plugins-rhel9:
+      image_file: images/ose-containernetworking-plugins.yaml
+      internal_name: ose-containernetworking-plugins-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-contour-rhel8:
       image_file: images/ose-contour.yaml
       internal_name: ose-contour-container
@@ -2990,6 +3879,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-external-resizer-rhel9:
+      image_file: images/ose-csi-external-resizer.yaml
+      internal_name: ose-csi-external-resizer-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-csi-external-snapshotter:
       image_file: images/ose-csi-external-snapshotter.yaml
       internal_name: ose-csi-external-snapshotter-container
@@ -3019,6 +3914,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-external-snapshotter-rhel9:
+      image_file: images/ose-csi-external-snapshotter.yaml
+      internal_name: ose-csi-external-snapshotter-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-csi-snapshot-controller:
       image_file: images/ose-csi-snapshot-controller.yaml
       internal_name: ose-csi-snapshot-controller-container
@@ -3048,6 +3949,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-csi-snapshot-controller-rhel9:
+      image_file: images/ose-csi-snapshot-controller.yaml
+      internal_name: ose-csi-snapshot-controller-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-csi-snapshot-validation-webhook-rhel8:
       image_file: images/csi-snapshot-validation-webhook.yaml
       internal_name: ose-csi-snapshot-validation-webhook-container
@@ -3104,6 +4011,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/egress-router-cni-rhel9:
+      image_file: images/egress-router-cni.yaml
+      internal_name: ose-egress-router-cni-container
+      issue_component: Networking / ovn-kubernetes
+      versions:
+      - '5.0'
     openshift4/ose-etcd:
       image_file: images/ose-etcd.yaml
       internal_name: ose-etcd-container
@@ -3125,6 +4038,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-etcd-rhel9:
+      image_file: images/ose-etcd.yaml
+      internal_name: ose-etcd-container
+      issue_component: Etcd
+      versions:
+      - '5.0'
     openshift4/frr-rhel8:
       image_file: images/ose-frr.yaml
       internal_name: ose-frr-container
@@ -3146,6 +4065,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/frr-rhel9:
+      image_file: images/ose-frr.yaml
+      internal_name: ose-frr-container
+      issue_component: Networking / Metal LB
+      versions:
+      - '5.0'
     openshift4/ose-gcp-cloud-controller-manager-rhel8:
       image_file: images/ose-gcp-cloud-controller-manager.yaml
       internal_name: ose-gcp-cloud-controller-manager-container
@@ -3167,6 +4092,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-cloud-controller-manager-rhel9:
+      image_file: images/ose-gcp-cloud-controller-manager.yaml
+      internal_name: ose-gcp-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-gcp-cluster-api-controllers-rhel8:
       image_file: images/ose-gcp-cluster-api-controllers.yaml
       internal_name: ose-gcp-cluster-api-controllers-container
@@ -3188,6 +4119,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-cluster-api-controllers-rhel9:
+      image_file: images/ose-gcp-cluster-api-controllers.yaml
+      internal_name: ose-gcp-cluster-api-controllers-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-gcp-filestore-csi-driver-rhel8:
       image_file: images/ose-gcp-filestore-csi-driver.yaml
       internal_name: ose-gcp-filestore-csi-driver-container
@@ -3209,6 +4146,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-filestore-csi-driver-rhel9:
+      image_file: images/ose-gcp-filestore-csi-driver.yaml
+      internal_name: ose-gcp-filestore-csi-driver-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-gcp-filestore-csi-driver-rhel8-operator:
       image_file: images/ose-gcp-filestore-csi-driver-operator.yaml
       internal_name: ose-gcp-filestore-csi-driver-operator-container
@@ -3230,6 +4173,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-filestore-csi-driver-rhel9-operator:
+      image_file: images/ose-gcp-filestore-csi-driver-operator.yaml
+      internal_name: ose-gcp-filestore-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/ose-gcp-pd-csi-driver-rhel8:
       image_file: images/ose-gcp-pd-csi-driver.yaml
       internal_name: ose-gcp-pd-csi-driver-container
@@ -3251,6 +4200,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-pd-csi-driver-rhel9:
+      image_file: images/ose-gcp-pd-csi-driver.yaml
+      internal_name: ose-gcp-pd-csi-driver-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/ose-gcp-pd-csi-driver-operator-rhel8:
       image_file: images/ose-gcp-pd-csi-driver-operator.yaml
       internal_name: ose-gcp-pd-csi-driver-operator-container
@@ -3272,6 +4227,22 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-gcp-pd-csi-driver-operator-rhel9:
+      image_file: images/ose-gcp-pd-csi-driver-operator.yaml
+      internal_name: ose-gcp-pd-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
+    openshift5/ose-haproxy-router-haproxy28-rhel9:
+      image_file: images/ose-haproxy-router-haproxy28.yaml
+      internal_name: ose-haproxy-router-haproxy28-container
+      versions:
+      - '5.0'
+    openshift5/ose-haproxy-router-haproxy32-rhel9:
+      image_file: images/ose-haproxy-router-haproxy32.yaml
+      internal_name: ose-haproxy-router-haproxy32-container
+      versions:
+      - '5.0'
     openshift4/ose-hypershift-rhel8:
       image_file: images/hypershift.yaml
       internal_name: ose-hypershift-container
@@ -3293,6 +4264,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-hypershift-rhel9:
+      image_file: images/hypershift.yaml
+      internal_name: ose-hypershift-container
+      issue_component: HyperShift
+      versions:
+      - '5.0'
     openshift4/ose-ibm-cloud-controller-manager-rhel8:
       image_file: images/ose-ibm-cloud-controller-manager.yaml
       internal_name: ose-ibm-cloud-controller-manager-container
@@ -3314,6 +4291,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ibm-cloud-controller-manager-rhel9:
+      image_file: images/ose-ibm-cloud-controller-manager.yaml
+      internal_name: ose-ibm-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-ibm-vpc-block-csi-driver-rhel8:
       image_file: images/ose-ibm-vpc-block-csi-driver.yaml
       internal_name: ose-ibm-vpc-block-csi-driver-container
@@ -3335,6 +4318,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ibm-vpc-block-csi-driver-rhel9:
+      image_file: images/ose-ibm-vpc-block-csi-driver.yaml
+      internal_name: ose-ibm-vpc-block-csi-driver-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/ose-ibm-vpc-block-csi-driver-operator-rhel8:
       image_file: images/ose-ibm-vpc-block-csi-driver-operator.yaml
       internal_name: ose-ibm-vpc-block-csi-driver-operator-container
@@ -3356,6 +4345,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ibm-vpc-block-csi-driver-rhel9-operator:
+      image_file: images/ose-ibm-vpc-block-csi-driver-operator.yaml
+      internal_name: ose-ibm-vpc-block-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/ose-ibmcloud-cluster-api-controllers-rhel8:
       image_file: images/ose-ibmcloud-cluster-api-controllers.yaml
       internal_name: ose-ibmcloud-cluster-api-controllers-container
@@ -3377,6 +4372,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ibmcloud-cluster-api-controllers-rhel9:
+      image_file: images/ose-ibmcloud-cluster-api-controllers.yaml
+      internal_name: ose-ibmcloud-cluster-api-controllers-container
+      issue_component: Cloud Compute / IBM Provider
+      versions:
+      - '5.0'
     openshift4/ose-ibmcloud-machine-controllers-rhel8:
       image_file: images/ose-ibmcloud-machine-controllers.yaml
       internal_name: ose-ibmcloud-machine-controllers-container
@@ -3398,6 +4399,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ibmcloud-machine-controllers-rhel9:
+      image_file: images/ose-ibmcloud-machine-controllers.yaml
+      internal_name: ose-ibmcloud-machine-controllers-container
+      issue_component: Cloud Compute / IBM Provider
+      versions:
+      - '5.0'
     openshift4/ose-image-customization-controller-rhel8:
       image_file: images/ose-image-customization-controller.yaml
       internal_name: ose-image-customization-controller-container
@@ -3419,6 +4426,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-image-customization-controller-rhel9:
+      image_file: images/ose-image-customization-controller.yaml
+      internal_name: ose-image-customization-controller-container
+      issue_component: Bare Metal Hardware Provisioning / OS Image Provider
+      versions:
+      - '5.0'
     openshift4/ose-insights-rhel8-operator:
       image_file: images/ose-insights-operator.yaml
       internal_name: ose-insights-operator-container
@@ -3440,6 +4453,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-insights-rhel9-operator:
+      image_file: images/ose-insights-operator.yaml
+      internal_name: ose-insights-operator-container
+      issue_component: Insights Operator
+      versions:
+      - '5.0'
     openshift4/insights-runtime-exporter-rhel9:
       image_file: images/ose-insights-runtime-exporter.yaml
       internal_name: ose-insights-runtime-exporter-container
@@ -3450,6 +4469,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/insights-runtime-exporter-rhel9:
+      image_file: images/ose-insights-runtime-exporter.yaml
+      internal_name: ose-insights-runtime-exporter-container
+      issue_component: insights-runtime-extractor
+      versions:
+      - '5.0'
     openshift4/insights-runtime-extractor-rhel9:
       image_file: images/ose-insights-runtime-extractor.yaml
       internal_name: ose-insights-runtime-extractor-container
@@ -3460,6 +4485,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/insights-runtime-extractor-rhel9:
+      image_file: images/ose-insights-runtime-extractor.yaml
+      internal_name: ose-insights-runtime-extractor-container
+      issue_component: insights-runtime-extractor
+      versions:
+      - '5.0'
     openshift4/ose-installer-altinfra-rhel8:
       image_file: images/ose-installer-altinfra.yaml
       internal_name: ose-installer-altinfra-container
@@ -3495,6 +4526,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-installer-artifacts-rhel9:
+      image_file: images/ose-installer-artifacts.yaml
+      internal_name: ose-installer-artifacts-container
+      issue_component: Installer / openshift-installer
+      versions:
+      - '5.0'
     openshift4/ose-installer:
       image_file: images/ose-installer.yaml
       internal_name: ose-installer-container
@@ -3516,6 +4553,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-installer-rhel9:
+      image_file: images/ose-installer.yaml
+      internal_name: ose-installer-container
+      issue_component: Installer / openshift-installer
+      versions:
+      - '5.0'
     openshift4/kube-metrics-server-rhel8:
       image_file: images/ose-kube-metrics-server.yaml
       internal_name: ose-kube-metrics-server-container
@@ -3534,6 +4577,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/kube-metrics-server-rhel9:
+      image_file: images/ose-kube-metrics-server.yaml
+      internal_name: ose-kube-metrics-server-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-kube-storage-version-migrator-rhel8:
       image_file: images/ose-kube-storage-version-migrator.yaml
       internal_name: ose-kube-storage-version-migrator-container
@@ -3555,6 +4604,17 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-kube-storage-version-migrator-rhel9:
+      image_file: images/ose-kube-storage-version-migrator.yaml
+      internal_name: ose-kube-storage-version-migrator-container
+      issue_component: kube-storage-version-migrator
+      versions:
+      - '5.0'
+    openshift5/ose-kube-vip-rhel9:
+      image_file: images/ose-kube-vip.yaml
+      internal_name: ose-kube-vip-container
+      versions:
+      - '5.0'
     openshift4/kubernetes-nmstate-rhel8-operator:
       image_file: images/openshift-kubernetes-nmstate-operator.yaml
       internal_name: ose-kubernetes-nmstate-operator-container
@@ -3576,6 +4636,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/kubernetes-nmstate-rhel9-operator:
+      image_file: images/openshift-kubernetes-nmstate-operator.yaml
+      internal_name: ose-kubernetes-nmstate-operator-container
+      issue_component: Networking / kubernetes-nmstate-operator
+      versions:
+      - '5.0'
     openshift4/ose-kubevirt-cloud-controller-manager-rhel8:
       image_file: images/ose-kubevirt-cloud-controller-manager.yaml
       internal_name: ose-kubevirt-cloud-controller-manager-container
@@ -3597,6 +4663,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-kubevirt-cloud-controller-manager-rhel9:
+      image_file: images/ose-kubevirt-cloud-controller-manager.yaml
+      internal_name: ose-kubevirt-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/kubevirt-csi-driver-rhel8:
       image_file: images/ose-kubevirt-csi-driver-rhel8.yaml
       internal_name: ose-kubevirt-csi-driver-container
@@ -3618,6 +4690,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/kubevirt-csi-driver-rhel9:
+      image_file: images/ose-kubevirt-csi-driver-rhel8.yaml
+      internal_name: ose-kubevirt-csi-driver-container
+      issue_component: Cloud Compute / KubeVirt Provider
+      versions:
+      - '5.0'
     openshift4/ose-libvirt-machine-controllers:
       image_file: images/ose-libvirt-machine-controllers.yaml
       internal_name: ose-libvirt-machine-controllers-container
@@ -3636,9 +4714,6 @@ bug_mapping:
       - '4.17'
       - '4.18'
       - '4.19'
-      - '4.20'
-      - '4.21'
-      - '4.22'
     openshift4/ose-ptp:
       image_file: images/linuxptp-daemon.yaml
       internal_name: ose-linuxptp-daemon-container
@@ -3660,7 +4735,13 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift4/ose-local-storage-mustgather-rhel8:
+    openshift5/ose-ptp-rhel9:
+      image_file: images/linuxptp-daemon.yaml
+      internal_name: ose-linuxptp-daemon-container
+      issue_component: Networking / ptp
+      versions:
+      - '5.0'
+    openshift4/ose-local-storage-mustgather-rhel9:
       image_file: images/local-storage-mustgather.yaml
       internal_name: ose-local-storage-mustgather-container
       issue_component: Storage / Local Storage Operator
@@ -3668,11 +4749,6 @@ bug_mapping:
       - '4.12'
       - '4.13'
       - '4.14'
-    openshift4/ose-local-storage-mustgather-rhel9:
-      image_file: images/local-storage-mustgather.yaml
-      internal_name: ose-local-storage-mustgather-container
-      issue_component: Storage / Local Storage Operator
-      versions:
       - '4.15'
       - '4.16'
       - '4.17'
@@ -3681,6 +4757,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-local-storage-mustgather-rhel9:
+      image_file: images/local-storage-mustgather.yaml
+      internal_name: ose-local-storage-mustgather-container
+      issue_component: Storage / Local Storage Operator
+      versions:
+      - '5.0'
     openshift4/ose-machine-api-operator:
       image_file: images/ose-machine-api-operator.yaml
       internal_name: ose-machine-api-operator-container
@@ -3702,6 +4784,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-api-rhel9-operator:
+      image_file: images/ose-machine-api-operator.yaml
+      internal_name: ose-machine-api-operator-container
+      issue_component: Cloud Compute / Machine API Providers
+      versions:
+      - '5.0'
     openshift4/ose-machine-api-provider-aws-rhel8:
       image_file: images/ose-machine-api-provider-aws.yaml
       internal_name: ose-machine-api-provider-aws-container
@@ -3723,6 +4811,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-api-provider-aws-rhel9:
+      image_file: images/ose-machine-api-provider-aws.yaml
+      internal_name: ose-machine-api-provider-aws-container
+      issue_component: Cloud Compute / Machine API Providers
+      versions:
+      - '5.0'
     openshift4/ose-machine-api-provider-azure-rhel8:
       image_file: images/ose-machine-api-provider-azure.yaml
       internal_name: ose-machine-api-provider-azure-container
@@ -3744,6 +4838,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-api-provider-azure-rhel9:
+      image_file: images/ose-machine-api-provider-azure.yaml
+      internal_name: ose-machine-api-provider-azure-container
+      issue_component: Cloud Compute / Machine API Providers
+      versions:
+      - '5.0'
     openshift4/ose-machine-api-provider-gcp-rhel8:
       image_file: images/ose-machine-api-provider-gcp.yaml
       internal_name: ose-machine-api-provider-gcp-container
@@ -3765,6 +4865,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-api-provider-gcp-rhel9:
+      image_file: images/ose-machine-api-provider-gcp.yaml
+      internal_name: ose-machine-api-provider-gcp-container
+      issue_component: Cloud Compute / Machine API Providers
+      versions:
+      - '5.0'
     openshift4/ose-machine-api-provider-openstack-rhel8:
       image_file: images/ose-machine-api-provider-openstack.yaml
       internal_name: ose-machine-api-provider-openstack-container
@@ -3786,6 +4892,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-api-provider-openstack-rhel9:
+      image_file: images/ose-machine-api-provider-openstack.yaml
+      internal_name: ose-machine-api-provider-openstack-container
+      issue_component: Cloud Compute / OpenStack Provider
+      versions:
+      - '5.0'
     openshift4/ose-machine-config-operator:
       image_file: images/ose-machine-config-operator.yaml
       internal_name: ose-machine-config-operator-container
@@ -3807,6 +4919,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-config-rhel9-operator:
+      image_file: images/ose-machine-config-operator.yaml
+      internal_name: ose-machine-config-operator-container
+      issue_component: Machine Config Operator
+      versions:
+      - '5.0'
     openshift4/ose-machine-os-images-rhel8:
       image_file: images/ose-machine-os-images.yaml
       internal_name: ose-machine-os-images-container
@@ -3828,6 +4946,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-machine-os-images-rhel9:
+      image_file: images/ose-machine-os-images.yaml
+      internal_name: ose-machine-os-images-container
+      issue_component: Bare Metal Hardware Provisioning / OS Image Provider
+      versions:
+      - '5.0'
     openshift4/metallb-rhel8:
       image_file: images/ose-metallb.yaml
       internal_name: ose-metallb-container
@@ -3849,6 +4973,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/metallb-rhel9:
+      image_file: images/ose-metallb.yaml
+      internal_name: ose-metallb-container
+      issue_component: Networking / Metal LB
+      versions:
+      - '5.0'
     openshift4/metallb-rhel8-operator:
       image_file: images/ose-metallb-operator.yaml
       internal_name: ose-metallb-operator-container
@@ -3870,6 +5000,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/metallb-rhel9-operator:
+      image_file: images/ose-metallb-operator.yaml
+      internal_name: ose-metallb-operator-container
+      issue_component: Networking / Metal LB
+      versions:
+      - '5.0'
     openshift4/ose-multus-admission-controller:
       image_file: images/ose-multus-admission-controller.yaml
       internal_name: ose-multus-admission-controller-container
@@ -3891,6 +5027,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-multus-admission-controller-rhel9:
+      image_file: images/ose-multus-admission-controller.yaml
+      internal_name: ose-multus-admission-controller-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-multus-networkpolicy-rhel8:
       image_file: images/multus-networkpolicy.yaml
       internal_name: ose-multus-networkpolicy-container
@@ -3912,6 +5054,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-multus-networkpolicy-rhel9:
+      image_file: images/multus-networkpolicy.yaml
+      internal_name: ose-multus-networkpolicy-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-multus-route-override-cni-rhel8:
       image_file: images/ose-multus-route-override-cni.yaml
       internal_name: ose-multus-route-override-cni-container
@@ -3933,6 +5081,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-multus-route-override-cni-rhel9:
+      image_file: images/ose-multus-route-override-cni.yaml
+      internal_name: ose-multus-route-override-cni-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-multus-whereabouts-ipam-cni-rhel8:
       image_file: images/ose-multus-whereabouts-ipam-cni.yaml
       internal_name: ose-multus-whereabouts-ipam-cni-container
@@ -3954,6 +5108,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-multus-whereabouts-ipam-cni-rhel9:
+      image_file: images/ose-multus-whereabouts-ipam-cni.yaml
+      internal_name: ose-multus-whereabouts-ipam-cni-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-must-gather:
       image_file: images/ose-must-gather.yaml
       internal_name: ose-must-gather-container
@@ -3975,6 +5135,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-must-gather-rhel9:
+      image_file: images/ose-must-gather.yaml
+      internal_name: ose-must-gather-container
+      issue_component: oc
+      versions:
+      - '5.0'
     openshift4/ose-network-interface-bond-cni-rhel8:
       image_file: images/ose-network-interface-bond-cni.yaml
       internal_name: ose-network-interface-bond-cni-container
@@ -3996,6 +5162,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-network-interface-bond-cni-rhel9:
+      image_file: images/ose-network-interface-bond-cni.yaml
+      internal_name: ose-network-interface-bond-cni-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/ose-network-metrics-daemon-rhel8:
       image_file: images/ose-network-metrics-daemon.yaml
       internal_name: ose-network-metrics-daemon-container
@@ -4017,6 +5189,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-network-metrics-daemon-rhel9:
+      image_file: images/ose-network-metrics-daemon.yaml
+      internal_name: ose-network-metrics-daemon-container
+      issue_component: Networking / multus
+      versions:
+      - '5.0'
     openshift4/network-tools-rhel8:
       image_file: images/ose-network-tools.yaml
       internal_name: ose-network-tools-container
@@ -4038,6 +5216,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/network-tools-rhel9:
+      image_file: images/ose-network-tools.yaml
+      internal_name: ose-network-tools-container
+      issue_component: Networking / network-tools
+      versions:
+      - '5.0'
     openshift4/ose-sdn-rhel8:
       image_file: images/ose-sdn.yaml
       internal_name: ose-node-container
@@ -4073,6 +5257,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-nutanix-cloud-controller-manager-rhel9:
+      image_file: images/ose-nutanix-cloud-controller-manager.yaml
+      internal_name: ose-nutanix-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-nutanix-machine-controllers-rhel8:
       image_file: images/ose-nutanix-machine-controllers.yaml
       internal_name: ose-nutanix-machine-controllers-container
@@ -4094,6 +5284,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-nutanix-machine-controllers-rhel9:
+      image_file: images/ose-nutanix-machine-controllers.yaml
+      internal_name: ose-nutanix-machine-controllers-container
+      issue_component: Cloud Compute / Nutanix Provider
+      versions:
+      - '5.0'
     openshift4/ose-oauth-apiserver-rhel8:
       image_file: images/ose-oauth-apiserver.yaml
       internal_name: ose-oauth-apiserver-container
@@ -4115,6 +5311,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-oauth-apiserver-rhel9:
+      image_file: images/ose-oauth-apiserver.yaml
+      internal_name: ose-oauth-apiserver-container
+      issue_component: oauth-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-olm-catalogd-rhel8:
       image_file: images/ose-olm-catalogd.yaml
       internal_name: ose-olm-catalogd-container
@@ -4134,6 +5336,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-olm-catalogd-rhel9:
+      image_file: images/ose-olm-catalogd.yaml
+      internal_name: ose-olm-catalogd-container
+      issue_component: OLM / Registry
+      versions:
+      - '5.0'
     openshift4/ose-olm-operator-controller-rhel8:
       image_file: images/ose-olm-operator-controller.yaml
       internal_name: ose-olm-operator-controller-container
@@ -4153,6 +5361,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-olm-operator-controller-rhel9:
+      image_file: images/ose-olm-operator-controller.yaml
+      internal_name: ose-olm-operator-controller-container
+      issue_component: OLM
+      versions:
+      - '5.0'
     openshift4/ose-olm-rukpak-rhel8:
       image_file: images/ose-olm-rukpak.yaml
       internal_name: ose-olm-rukpak-container
@@ -4189,6 +5403,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openshift-apiserver-rhel9:
+      image_file: images/ose-openshift-apiserver.yaml
+      internal_name: ose-openshift-apiserver-container
+      issue_component: openshift-apiserver
+      versions:
+      - '5.0'
     openshift4/ose-openshift-controller-manager-rhel8:
       image_file: images/ose-openshift-controller-manager.yaml
       internal_name: ose-openshift-controller-manager-container
@@ -4210,6 +5430,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openshift-controller-manager-rhel9:
+      image_file: images/ose-openshift-controller-manager.yaml
+      internal_name: ose-openshift-controller-manager-container
+      issue_component: openshift-controller-manager / controller-manager
+      versions:
+      - '5.0'
     openshift4/ose-openstack-cinder-csi-driver-rhel8:
       image_file: images/ose-openstack-cinder-csi-driver.yaml
       internal_name: ose-openstack-cinder-csi-driver-container
@@ -4231,6 +5457,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openstack-cinder-csi-driver-rhel9:
+      image_file: images/ose-openstack-cinder-csi-driver.yaml
+      internal_name: ose-openstack-cinder-csi-driver-container
+      issue_component: Installer / OpenShift on OpenStack
+      versions:
+      - '5.0'
     openshift4/ose-openstack-cinder-csi-driver-rhel8-operator:
       image_file: images/ose-openstack-cinder-csi-driver-operator.yaml
       internal_name: ose-openstack-cinder-csi-driver-operator-container
@@ -4252,6 +5484,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openstack-cinder-csi-driver-rhel9-operator:
+      image_file: images/ose-openstack-cinder-csi-driver-operator.yaml
+      internal_name: ose-openstack-cinder-csi-driver-operator-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-openstack-cloud-controller-manager-rhel8:
       image_file: images/ose-openstack-cloud-controller-manager.yaml
       internal_name: ose-openstack-cloud-controller-manager-container
@@ -4273,6 +5511,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-openstack-cloud-controller-manager-rhel9:
+      image_file: images/ose-openstack-cloud-controller-manager.yaml
+      internal_name: ose-openstack-cloud-controller-manager-container
+      issue_component: Installer / OpenShift on OpenStack
+      versions:
+      - '5.0'
     openshift4/ose-openstack-machine-controllers:
       image_file: images/ose-openstack-machine-controllers.yaml
       internal_name: ose-openstack-machine-controllers-container
@@ -4291,6 +5535,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-operator-framework-tools-rhel9:
+      image_file: images/ose-operator-framework-tools.yaml
+      internal_name: ose-operator-framework-tools-container
+      issue_component: OLM
+      versions:
+      - '5.0'
     openshift4/ovirt-csi-driver-rhel8:
       image_file: images/ose-ovirt-csi-driver.yaml
       internal_name: ose-ovirt-csi-driver-container
@@ -4341,6 +5591,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ovn-kubernetes-rhel9:
+      image_file: images/ose-ovn-kubernetes.yaml
+      internal_name: ose-ovn-kubernetes-container
+      issue_component: Networking / ovn-kubernetes
+      versions:
+      - '5.0'
     openshift4/ose-powervs-block-csi-driver-rhel8:
       image_file: images/ose-powervs-block-csi-driver.yaml
       internal_name: ose-powervs-block-csi-driver-container
@@ -4362,6 +5618,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-powervs-block-csi-driver-rhel9:
+      image_file: images/ose-powervs-block-csi-driver.yaml
+      internal_name: ose-powervs-block-csi-driver-container
+      issue_component: Multi-Arch / IBM P and Z
+      versions:
+      - '5.0'
     openshift4/ose-powervs-block-csi-driver-operator-rhel8:
       image_file: images/ose-powervs-block-csi-driver-operator.yaml
       internal_name: ose-powervs-block-csi-driver-operator-container
@@ -4383,6 +5645,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-powervs-block-csi-driver-rhel9-operator:
+      image_file: images/ose-powervs-block-csi-driver-operator.yaml
+      internal_name: ose-powervs-block-csi-driver-operator-container
+      issue_component: Multi-Arch / IBM P and Z
+      versions:
+      - '5.0'
     openshift4/ose-powervs-cloud-controller-manager-rhel8:
       image_file: images/ose-powervs-cloud-controller-manager.yaml
       internal_name: ose-powervs-cloud-controller-manager-container
@@ -4404,6 +5672,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-powervs-cloud-controller-manager-rhel9:
+      image_file: images/ose-powervs-cloud-controller-manager.yaml
+      internal_name: ose-powervs-cloud-controller-manager-container
+      issue_component: Multi-Arch / IBM P and Z
+      versions:
+      - '5.0'
     openshift4/ose-powervs-machine-controllers-rhel8:
       image_file: images/ose-powervs-machine-controllers.yaml
       internal_name: ose-powervs-machine-controllers-container
@@ -4425,6 +5699,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-powervs-machine-controllers-rhel9:
+      image_file: images/ose-powervs-machine-controllers.yaml
+      internal_name: ose-powervs-machine-controllers-container
+      issue_component: Cloud Compute / IBM Provider
+      versions:
+      - '5.0'
     openshift4/ose-k8s-prometheus-adapter:
       image_file: images/ose-prometheus-adapter.yaml
       internal_name: ose-prometheus-adapter-container
@@ -4461,6 +5741,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ptp-rhel9-operator:
+      image_file: images/ptp-operator.yaml
+      internal_name: ose-ptp-operator-container
+      issue_component: Networking / ptp
+      versions:
+      - '5.0'
     openshift4/openshift-route-controller-manager-rhel8:
       image_file: images/ose-route-controller-manager.yaml
       internal_name: ose-route-controller-manager-container
@@ -4482,6 +5768,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/openshift-route-controller-manager-rhel9:
+      image_file: images/ose-route-controller-manager.yaml
+      internal_name: ose-route-controller-manager-container
+      issue_component: route-controller-manager
+      versions:
+      - '5.0'
     openshift4/ose-secrets-store-csi-driver-rhel8:
       image_file: images/ose-secrets-store-csi-driver.yaml
       internal_name: ose-secrets-store-csi-driver-container
@@ -4501,6 +5793,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-secrets-store-csi-driver-rhel9:
+      image_file: images/ose-secrets-store-csi-driver.yaml
+      internal_name: ose-secrets-store-csi-driver-container
+      issue_component: Secrets Store CSI driver
+      versions:
+      - '5.0'
     openshift4/ose-secrets-store-csi-driver-rhel8-operator:
       image_file: images/ose-secrets-store-csi-driver-operator.yaml
       internal_name: ose-secrets-store-csi-driver-operator-container
@@ -4520,6 +5818,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-secrets-store-csi-driver-rhel9-operator:
+      image_file: images/ose-secrets-store-csi-driver-operator.yaml
+      internal_name: ose-secrets-store-csi-driver-operator-container
+      issue_component: Secrets Store CSI driver
+      versions:
+      - '5.0'
     openshift4/ose-secrets-store-csi-mustgather-rhel8:
       image_file: images/ose-secrets-store-csi-mustgather.yaml
       internal_name: ose-secrets-store-csi-mustgather-container
@@ -4539,6 +5843,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-secrets-store-csi-mustgather-rhel9:
+      image_file: images/ose-secrets-store-csi-mustgather.yaml
+      internal_name: ose-secrets-store-csi-mustgather-container
+      issue_component: Secrets Store CSI driver
+      versions:
+      - '5.0'
     openshift4/ose-service-ca-operator:
       image_file: images/ose-service-ca-operator.yaml
       internal_name: ose-service-ca-operator-container
@@ -4560,6 +5870,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-service-ca-rhel9-operator:
+      image_file: images/ose-service-ca-operator.yaml
+      internal_name: ose-service-ca-operator-container
+      issue_component: service-ca
+      versions:
+      - '5.0'
     openshift4/ose-smb-csi-driver-rhel9:
       image_file: images/ose-smb-csi-driver.yaml
       internal_name: ose-smb-csi-driver-container
@@ -4572,6 +5888,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-smb-csi-driver-rhel9:
+      image_file: images/ose-smb-csi-driver.yaml
+      internal_name: ose-smb-csi-driver-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-smb-csi-driver-rhel9-operator:
       image_file: images/ose-smb-csi-driver-operator.yaml
       internal_name: ose-smb-csi-driver-operator-container
@@ -4584,6 +5906,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-smb-csi-driver-rhel9-operator:
+      image_file: images/ose-smb-csi-driver-operator.yaml
+      internal_name: ose-smb-csi-driver-operator-container
+      issue_component: Storage
+      versions:
+      - '5.0'
     openshift4/ose-sriov-network-metrics-exporter-rhel9:
       image_file: images/ose-sriov-network-metrics-exporter.yaml
       internal_name: ose-sriov-network-metrics-exporter-container
@@ -4604,6 +5932,12 @@ bug_mapping:
       - '4.16'
       - '4.17'
       - '4.18'
+    openshift5/ose-sriov-network-metrics-exporter-rhel9:
+      image_file: images/ose-sriov-network-metrics-exporter.yaml
+      internal_name: ose-sriov-network-metrics-exporter-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-sriov-rdma-cni-rhel9:
       image_file: images/ose-sriov-rdma-cni.yaml
       internal_name: ose-sriov-rdma-cni-container
@@ -4622,14 +5956,26 @@ bug_mapping:
       versions:
       - '4.17'
       - '4.18'
+    openshift5/ose-sriov-rdma-cni-rhel9:
+      image_file: images/ose-sriov-rdma-cni.yaml
+      internal_name: ose-sriov-rdma-cni-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-support-log-gather-rhel9-operator:
       image_file: images/ose-support-log-gather-operator.yaml
       internal_name: ose-support-log-gather-operator-container
-      issue_component: oc
+      issue_component: must-gather
       versions:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-support-log-gather-rhel9-operator:
+      image_file: images/ose-support-log-gather-operator.yaml
+      internal_name: ose-support-log-gather-operator-container
+      issue_component: must-gather
+      versions:
+      - '5.0'
     openshift4/ose-thanos-rhel8:
       image_file: images/thanos.yaml
       internal_name: ose-thanos-container
@@ -4651,6 +5997,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-thanos-rhel9:
+      image_file: images/thanos.yaml
+      internal_name: ose-thanos-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-tools-rhel8:
       image_file: images/ose-tools.yaml
       internal_name: ose-tools-container
@@ -4672,6 +6024,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-tools-rhel9:
+      image_file: images/ose-tools.yaml
+      internal_name: ose-tools-container
+      issue_component: oc
+      versions:
+      - '5.0'
     openshift4/ose-vertical-pod-autoscaler-rhel8:
       image_file: images/vertical-pod-autoscaler.yaml
       internal_name: ose-vertical-pod-autoscaler-container
@@ -4693,6 +6051,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vertical-pod-autoscaler-rhel9:
+      image_file: images/vertical-pod-autoscaler.yaml
+      internal_name: ose-vertical-pod-autoscaler-container
+      issue_component: Pod Autoscaler
+      versions:
+      - '5.0'
     openshift4/ose-vertical-pod-autoscaler-rhel8-operator:
       image_file: images/vertical-pod-autoscaler-operator.yaml
       internal_name: ose-vertical-pod-autoscaler-operator-container
@@ -4714,6 +6078,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vertical-pod-autoscaler-rhel9-operator:
+      image_file: images/vertical-pod-autoscaler-operator.yaml
+      internal_name: ose-vertical-pod-autoscaler-operator-container
+      issue_component: Pod Autoscaler
+      versions:
+      - '5.0'
     openshift4/ose-vmware-vsphere-csi-driver-rhel8:
       image_file: images/ose-vmware-vsphere-csi-driver.yaml
       internal_name: ose-vmware-vsphere-csi-driver-container
@@ -4756,6 +6126,18 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vmware-vsphere-csi-driver-rhel9:
+      image_file: images/ose-vmware-vsphere-csi-driver.yaml
+      internal_name: ose-vmware-vsphere-csi-driver-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
+    openshift5/ose-vsphere-csi-driver-rhel9:
+      image_file: images/ose-vmware-vsphere-csi-driver.yaml
+      internal_name: ose-vmware-vsphere-csi-driver-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/ose-vmware-vsphere-csi-driver-operator-rhel8:
       image_file: images/ose-vmware-vsphere-csi-driver-operator.yaml
       internal_name: ose-vmware-vsphere-csi-driver-operator-container
@@ -4798,6 +6180,18 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vmware-vsphere-csi-driver-rhel9-operator:
+      image_file: images/ose-vmware-vsphere-csi-driver-operator.yaml
+      internal_name: ose-vmware-vsphere-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
+    openshift5/ose-vsphere-csi-driver-rhel9-operator:
+      image_file: images/ose-vmware-vsphere-csi-driver-operator.yaml
+      internal_name: ose-vmware-vsphere-csi-driver-operator-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/ose-vsphere-cloud-controller-manager-rhel8:
       image_file: images/ose-vsphere-cloud-controller-manager.yaml
       internal_name: ose-vsphere-cloud-controller-manager-container
@@ -4819,6 +6213,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vsphere-cloud-controller-manager-rhel9:
+      image_file: images/ose-vsphere-cloud-controller-manager.yaml
+      internal_name: ose-vsphere-cloud-controller-manager-container
+      issue_component: Cloud Compute / Cloud Controller Manager
+      versions:
+      - '5.0'
     openshift4/ose-vsphere-cluster-api-controllers-rhel8:
       image_file: images/ose-vsphere-cluster-api-controllers.yaml
       internal_name: ose-vsphere-cluster-api-controllers-container
@@ -4840,6 +6240,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vsphere-cluster-api-controllers-rhel9:
+      image_file: images/ose-vsphere-cluster-api-controllers.yaml
+      internal_name: ose-vsphere-cluster-api-controllers-container
+      issue_component: Cloud Compute / Cluster API Providers
+      versions:
+      - '5.0'
     openshift4/ose-vsphere-problem-detector-rhel8:
       image_file: images/vsphere-problem-detector.yaml
       internal_name: ose-vsphere-problem-detector-container
@@ -4861,6 +6267,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vsphere-problem-detector-rhel9:
+      image_file: images/vsphere-problem-detector.yaml
+      internal_name: ose-vsphere-problem-detector-container
+      issue_component: Storage / Operators
+      versions:
+      - '5.0'
     openshift4/ose-ovn-kubernetes-microshift-rhel8:
       image_file: images/ovn-kubernetes-microshift.yaml
       internal_name: ovn-kubernetes-microshift-container
@@ -4882,6 +6294,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-ovn-kubernetes-microshift-rhel9:
+      image_file: images/ovn-kubernetes-microshift.yaml
+      internal_name: ovn-kubernetes-microshift-container
+      issue_component: MicroShift / Networking
+      versions:
+      - '5.0'
     openshift4/pf-status-relay-rhel9:
       image_file: images/pf-status-relay.yaml
       internal_name: pf-status-relay-container
@@ -4893,6 +6311,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/pf-status-relay-rhel9:
+      image_file: images/pf-status-relay.yaml
+      internal_name: pf-status-relay-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/pf-status-relay-rhel9-operator:
       image_file: images/pf-status-relay-operator.yaml
       internal_name: pf-status-relay-operator-container
@@ -4903,6 +6327,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/pf-status-relay-rhel9-operator:
+      image_file: images/pf-status-relay-operator.yaml
+      internal_name: pf-status-relay-operator-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-prom-label-proxy:
       image_file: images/prom-label-proxy.yaml
       internal_name: prom-label-proxy-container
@@ -4924,6 +6354,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prom-label-proxy-rhel9:
+      image_file: images/prom-label-proxy.yaml
+      internal_name: prom-label-proxy-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-prometheus-config-reloader:
       image_file: images/prometheus-config-reloader.yaml
       internal_name: prometheus-config-reloader-container
@@ -4945,6 +6381,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prometheus-config-reloader-rhel9:
+      image_file: images/prometheus-config-reloader.yaml
+      internal_name: prometheus-config-reloader-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-prometheus-operator-admission-webhook-rhel8:
       image_file: images/prometheus-operator-admission-webhook.yaml
       internal_name: prometheus-operator-admission-webhook-container
@@ -4966,6 +6408,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prometheus-operator-admission-webhook-rhel9:
+      image_file: images/prometheus-operator-admission-webhook.yaml
+      internal_name: prometheus-operator-admission-webhook-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-prometheus-operator:
       image_file: images/prometheus-operator.yaml
       internal_name: prometheus-operator-container
@@ -4987,6 +6435,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-prometheus-rhel9-operator:
+      image_file: images/prometheus-operator.yaml
+      internal_name: prometheus-operator-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ptp-must-gather-rhel8:
       image_file: images/ptp-operator-must-gather.yaml
       internal_name: ptp-operator-must-gather-container
@@ -5008,6 +6462,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ptp-must-gather-rhel9:
+      image_file: images/ptp-operator-must-gather.yaml
+      internal_name: ptp-operator-must-gather-container
+      issue_component: Networking / ptp
+      versions:
+      - '5.0'
     openshift4/ose-sriov-cni:
       image_file: images/sriov-cni.yaml
       internal_name: sriov-cni-container
@@ -5029,6 +6489,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/sriov-cni-rhel9:
+      image_file: images/sriov-cni.yaml
+      internal_name: sriov-cni-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-sriov-dp-admission-controller:
       image_file: images/sriov-dp-admission-controller.yaml
       internal_name: sriov-dp-admission-controller-container
@@ -5050,6 +6516,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-sriov-dp-admission-controller-rhel9:
+      image_file: images/sriov-dp-admission-controller.yaml
+      internal_name: sriov-dp-admission-controller-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-sriov-network-config-daemon:
       image_file: images/sriov-network-config-daemon.yaml
       internal_name: sriov-network-config-daemon-container
@@ -5071,6 +6543,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-sriov-network-config-daemon-rhel9:
+      image_file: images/sriov-network-config-daemon.yaml
+      internal_name: sriov-network-config-daemon-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-sriov-network-device-plugin:
       image_file: images/sriov-network-device-plugin.yaml
       internal_name: sriov-network-device-plugin-container
@@ -5092,6 +6570,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-sriov-network-device-plugin-rhel9:
+      image_file: images/sriov-network-device-plugin.yaml
+      internal_name: sriov-network-device-plugin-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-sriov-network-operator:
       image_file: images/sriov-network-operator.yaml
       internal_name: sriov-network-operator-container
@@ -5113,6 +6597,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-sriov-network-rhel9-operator:
+      image_file: images/sriov-network-operator.yaml
+      internal_name: sriov-network-operator-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-sriov-network-webhook:
       image_file: images/sriov-network-webhook.yaml
       internal_name: sriov-network-webhook-container
@@ -5134,6 +6624,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-sriov-network-webhook-rhel9:
+      image_file: images/sriov-network-webhook.yaml
+      internal_name: sriov-network-webhook-container
+      issue_component: Networking / SR-IOV
+      versions:
+      - '5.0'
     openshift4/ose-telemeter:
       image_file: images/telemeter.yaml
       internal_name: telemeter-container
@@ -5155,6 +6651,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-telemeter-rhel9:
+      image_file: images/telemeter.yaml
+      internal_name: telemeter-container
+      issue_component: Monitoring
+      versions:
+      - '5.0'
     openshift4/ose-vsphere-csi-driver-syncer-rhel8:
       image_file: images/vmware-vsphere-syncer.yaml
       internal_name: vmware-vsphere-syncer-container
@@ -5176,6 +6678,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/ose-vsphere-csi-driver-syncer-rhel9:
+      image_file: images/vmware-vsphere-syncer.yaml
+      internal_name: vmware-vsphere-syncer-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     openshift4/volume-data-source-validator-rhel9:
       image_file: images/volume-data-source-validator.yaml
       internal_name: volume-data-source-validator-container
@@ -5184,6 +6692,12 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+    openshift5/volume-data-source-validator-rhel9:
+      image_file: images/volume-data-source-validator.yaml
+      internal_name: volume-data-source-validator-container
+      issue_component: Storage / Kubernetes External Components
+      versions:
+      - '5.0'
     ansible-asb-modules:
       issue_component: Service Broker
     ansible-kubernetes-modules:
@@ -5206,8 +6720,6 @@ bug_mapping:
       issue_component: Node / Node Problem Detector
     atomic-openshift-service-idler:
       issue_component: Networking / openshift-sdn
-    aws-node-termination-handler-container:
-      issue_component: HyperShift
     bare-metal-event-relay-operator-bundle-container:
       issue_component: Cloud Native Events / Hardware Event Proxy
     bare-metal-event-relay-operator-container:
@@ -5980,6 +7492,8 @@ bug_mapping:
       issue_component: GitOps ZTP
     ose-aws-ecr-image-credential-provider:
       issue_component: Cloud Compute / Cloud Controller Manager
+    commatrix:
+      issue_component: networking-ingress-commatrix
     openshift4/cnf-tests-rhel8:
       issue_component: Low latency validation tooling
     openshift4/cnf-tests-rhel9:
