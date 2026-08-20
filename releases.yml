@@ -59,6 +59,9 @@ releases:
               is:
                 nvr: openshift-enterprise-tests-container-v4.16.0-202607081903.p2.g3a9e376.assembly.stream.el9
             why: Pin to 4.16.68 build to avoid conforma violations (OCPBUGS-105460)
+      promotion_permits:
+        - code: BLOCKER_BUGS
+          why: waiting for an action to be done on openshift-test build
   4.16.68:
     assembly:
       type: standard
