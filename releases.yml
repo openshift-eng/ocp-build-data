@@ -1,32 +1,4 @@
 releases:
-  4.21.30:
-    assembly:
-      type: standard
-      basis:
-        assembly: 4.21.29
-      group:
-        advisories:
-          microshift: 171616
-        shipment:
-          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/748
-      members:
-        rpms:
-          - distgit_key: microshift
-            why: Pin microshift to commit 919341c for 4.21.30
-            metadata:
-              content:
-                source:
-                  git:
-                    branch:
-                      target: 919341c9a08b43919eaf0c41bda1e4bf9c750cde
-              is:
-                el9: microshift-4.21.30-202608191707.p0.g919341c.assembly.4.21.30.el9
-        images:
-          - distgit_key: microshift-bootc
-            metadata:
-              is:
-                nvr: microshift-bootc-container-v4.21-202608191743.p2.g919341c.assembly.4.21.30.el9
-            why: Pin microshift-bootc image to assembly
   4.21.29:
     assembly:
       type: standard
