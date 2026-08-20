@@ -103,6 +103,9 @@ releases:
         include:
           - id: OCPBUGS-87128
           - id: OCPBUGS-87129
+        exclude:
+          - id: OCPBUGS-83829
+          # why: MCE component (multicluster-engine/hypershift-rhel9-operator), not built as part of OCP
   4.20.33:
     assembly:
       type: standard
