@@ -47,10 +47,8 @@ releases:
       members:
         rpms:
           - distgit_key: cri-o
-            metadata:
-              is:
-                el10: cri-o-1.35.5-2.rhaos4.21.git83ee25b.el10
-            why: Pin cri-o el10 to 1.35.5 - Errata blocks lower versions after 1.35.5 was previously shipped on advisory 169606
+            exclude: true
+            why: Exclude cri-o el10 RPM - Errata blocks versions older than 1.35.5 which was previously shipped on advisory 169606
         images: []
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
