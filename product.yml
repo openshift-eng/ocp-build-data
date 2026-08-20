@@ -1,5 +1,5 @@
 bug_mapping:
-  active_versions: ["4.12", "4.13", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "4.20", "4.21", "4.22"]
+  active_versions: ["4.12", "4.13", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "4.20", "4.21", "4.22", "5.0"]
   default_issue_project: OCPBUGS
   components:
     ansible-asb-modules:
@@ -257,6 +257,11 @@ bug_mapping:
       issue_component: Networking / kuryr
     libreswan:
       issue_component: Networking / ovn-kubernetes
+    # Konflux component name. ProdSec strips openshift4/ from the pscomponent
+    # label and looks up this key; the brew name below has a -container suffix
+    # that does not match, so trackers fall back to Security.
+    lifecycle-agent-operator-bundle:
+      issue_component: LCA Operator
     lifecycle-agent-operator-bundle-container:
       issue_component: LCA Operator
     local-storage-diskmaker-container:
@@ -1360,4 +1365,20 @@ bug_mapping:
       issue_component: Low latency validation tooling
     redhat-user-workloads/cnf-tests-4-15:
       issue_component: Low latency validation tooling
+
+    # New components introduced in openshift-5.0
+    agentic-skills-container:
+      issue_component: Cluster Update Lightspeed Skills
+    driver-toolkit-rhel10-container:
+      issue_component: Driver Toolkit
+    karpenter-operator-container:
+      issue_component: autoscaling / karpenter
+    microshift-bootc-rhel10-container:
+      issue_component: MicroShift
+    ose-haproxy-router-haproxy28-container:
+      issue_component: Networking / router
+    ose-haproxy-router-haproxy32-container:
+      issue_component: Networking / router
+    ose-kube-vip-container:
+      issue_component: Networking / On-Prem Host Networking
 
