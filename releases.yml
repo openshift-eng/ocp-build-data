@@ -39,6 +39,10 @@ releases:
       members:
         rpms: []
         images: []
+      issues:
+        exclude:
+          - id: OCPBUGS-83829
+          # why: MCE component (multicluster-engine/hypershift-rhel9-operator), not built as part of OCP
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
