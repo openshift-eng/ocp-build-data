@@ -259,6 +259,11 @@ bug_mapping:
       issue_component: Networking / ovn-kubernetes
     lifecycle-agent-operator-bundle-container:
       issue_component: LCA Operator
+    # Konflux component name. ProdSec strips openshift4/ from the pscomponent
+    # label and looks up this key; the brew name above has a -container suffix
+    # that does not match, so trackers fall back to Security.
+    lifecycle-agent-operator-bundle:
+      issue_component: LCA Operator
     local-storage-diskmaker-container:
       issue_component: Storage / Local Storage Operator
     local-storage-operator-container:
