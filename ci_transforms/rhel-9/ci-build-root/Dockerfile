@@ -45,13 +45,12 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 # Install common go tools upstream devs are expecting in CI.
 # Pure cargo culting from https://github.com/openshift/release/blob/51d92eb6a6d730e932a5daf68829ca7936739904/projects/origin-release/golang-1.13/Dockerfile#L41
 # Clear GOFLAGS temporarily for 1.12  bug:https://github.com/golang/go/issues/32502
-RUN GOFLAGS='' GO111MODULE=on go install golang.org/x/tools/cmd/cover@latest && \
-    GOFLAGS='' GO111MODULE=on go install golang.org/x/tools/cmd/goimports@latest && \
-    GOFLAGS='' GO111MODULE=on go install github.com/tools/godep@latest && \
-    GOFLAGS='' GO111MODULE=on go install golang.org/x/lint/golint@latest && \
-    GOFLAGS='' GO111MODULE=on go install gotest.tools/gotestsum@v1.12.2 && \
-    GOFLAGS='' GO111MODULE=on go install github.com/openshift/release/tools/gotest2junit@latest && \
-    GOFLAGS='' GO111MODULE=on go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
+RUN GOFLAGS='' go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
+    GOFLAGS='' go install gotest.tools/gotestsum@v1.12.2 && \
+    GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.15 && \
+    git clone --filter=blob:none --no-checkout --depth 1 https://github.com/openshift/release.git /tmp/release && \
+    cd /tmp/release && git sparse-checkout set tools/gotest2junit && git checkout && \
+    go install ./tools/gotest2junit/... && cd / && rm -rf /tmp/release && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
