@@ -23,7 +23,6 @@ RUN GOFLAGS='' go install golang.org/x/tools/cmd/cover@latest && \
     GOFLAGS='' go install github.com/tools/godep@latest && \
     GOFLAGS='' go install golang.org/x/lint/golint@latest && \
     GOFLAGS='' go install gotest.tools/gotestsum@latest && \
-    GOFLAGS='' go install github.com/openshift/release/tools/gotest2junit@latest && \
     GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@latest && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
