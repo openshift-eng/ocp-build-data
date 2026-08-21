@@ -48,9 +48,6 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 RUN GOFLAGS='' go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
     GOFLAGS='' go install gotest.tools/gotestsum@v1.12.2 && \
     GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.15 && \
-    git clone --filter=blob:none --no-checkout --depth 1 https://github.com/openshift/release.git /tmp/release && \
-    cd /tmp/release && git sparse-checkout set tools/gotest2junit go.mod go.sum && git checkout && \
-    go install ./tools/gotest2junit/... && cd / && rm -rf /tmp/release && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
