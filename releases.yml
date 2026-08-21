@@ -68,6 +68,10 @@ releases:
           component: ose-network-tools
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ose-tools
+      promotion_permits:
+      - code: BLOCKER_BUGS
+        why: "OCPBUGS-112496 filed after assembly cutoff (2026-08-19); fix not included
+          in this release. To be shipped in next z-stream."
   4.22.10:
     assembly:
       type: standard
