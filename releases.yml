@@ -53,6 +53,14 @@ releases:
           - distgit_key: cri-o
             exclude: true
             why: Exclude cri-o el10 RPM - Errata blocks versions older than 1.35.5 which was previously shipped on advisory 169606
+          - distgit_key: microshift
+            why: Pin microshift RPM to specified commit per team request
+            metadata:
+              content:
+                source:
+                  git:
+                    branch:
+                      target: 919341c9a08b43919eaf0c41bda1e4bf9c750cde
         images: []
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
