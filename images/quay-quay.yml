@@ -1,3 +1,5 @@
+arches:
+- x86_64
 cachito:
   enabled: true
   packages:
@@ -16,6 +18,8 @@ cachito:
         py_version: '312'
     cargo:
     - path: rust-builddeps
+    rpm:
+    - path: .
 content:
   source:
     dockerfile: Containerfile.art
@@ -55,9 +59,23 @@ name: quay/quay-rhel9
 owners:
 - quay-devel@redhat.com
 konflux:
+  arches:
+  - x86_64
+  cachi2:
+    lockfile:
+      enabled: true
+      dnf_modules_enable: true
+      modules: []
+      inspect_parent: false
+    artifact_lockfile:
+      enabled: true
+      path: .
+      resources:
+      - url: https://index.crates.io/config.json
+      - url: https://github.com/prometheus/pushgateway/releases/download/v1.11.1/pushgateway-1.11.1.linux-amd64.tar.gz
+        filename: pushgateway-1.11.1.linux-amd64.tar.gz
   build_step_resources:
     memory: 32Gi
     cpu: 8000m
   vm_override:
-    aarch64: linux-m2xlarge/arm64
     x86_64: linux-m2xlarge/amd64
