@@ -1,11 +1,35 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: config-tool
+    - path: pushgateway
+    npm:
+    - path: web
+    - path: .
+    pip:
+    - path: .
+      requirements_files:
+      - requirements.txt
+      - pip-build-constraints.txt
+      binary:
+        py_version: '312'
+    cargo:
+    - path: rust-builddeps
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.16
-      url: git@github.com:openshift-priv/quay.git
+        target: redhat-3.17
+      url: git@github.com:openshift-priv/quay-quay.git
+      url_pull: https://github.com/shruti-rh/quay.git
       web: https://github.com/quay/quay
+    pkg_managers:
+    - gomod
+    - npm
+    - pip
+    - cargo
 jira:
   project: PROJQUAY
   component: Quay
@@ -18,8 +42,22 @@ for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
+- rhel-9-codeready-builder-rpms
 from:
-  stream: rhel9
+  builder:
+  - stream: rhel9-minimal
+  - stream: rhel9-nodejs-22-minimal
+  - stream: rhel9-nodejs-22-minimal
+  - stream: rhel-9-golang
+  - stream: rhel-9-golang
+  - stream: rhel9-minimal
 name: quay/quay-rhel9
 owners:
 - quay-devel@redhat.com
+konflux:
+  build_step_resources:
+    memory: 32Gi
+    cpu: 8000m
+  vm_override:
+    aarch64: linux-m2xlarge/arm64
+    x86_64: linux-m2xlarge/amd64

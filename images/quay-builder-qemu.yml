@@ -1,10 +1,32 @@
+cachito:
+  enabled: true
+konflux:
+  cachi2:
+    lockfile:
+      enabled: true
+      dnf_modules_enable: true
+      modules: []
+      inspect_parent: false
+    artifact_lockfile:
+      enabled: true
+      path: .
+      resources:
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.12/builds/412.86.202305030814-0/x86_64/rhcos-412.86.202305030814-0-qemu.x86_64.qcow2.gz
+        filename: rhcos-qemu.x86_64.qcow2.gz
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.12/builds/412.86.202305030814-0/aarch64/rhcos-412.86.202305030814-0-qemu.aarch64.qcow2.gz
+        filename: rhcos-qemu.aarch64.qcow2.gz
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.12/builds/412.86.202305030814-0/ppc64le/rhcos-412.86.202305030814-0-qemu.ppc64le.qcow2.gz
+        filename: rhcos-qemu.ppc64le.qcow2.gz
+      - url: https://rhcos.mirror.openshift.com/art/storage/prod/streams/4.12/builds/412.86.202305030814-0/s390x/rhcos-412.86.202305030814-0-qemu.s390x.qcow2.gz
+        filename: rhcos-qemu.s390x.qcow2.gz
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.16
-      url: git@github.com:openshift-priv/quay-builder-qemu.git
+        target: redhat-3.17
+      url: git@github.com:openshift-priv/quay-quay-builder-qemu.git
+      url_pull: https://github.com/shruti-rh/quay-builder-qemu.git
       web: https://github.com/quay/quay-builder-qemu
 jira:
   project: PROJQUAY
@@ -16,11 +38,11 @@ delivery:
   - quay/quay-builder-qemu-rhcos-rhel8
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel9
   stream: rhel8
 name: quay/quay-builder-qemu-rhcos-rhel8
 owners:

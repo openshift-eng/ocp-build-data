@@ -1,10 +1,13 @@
+cachito:
+  enabled: true
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: contrib/Containerfile.art
     git:
       branch:
-        target: release-4.7
-      url: git@github.com:openshift-priv/clair.git
+        target: release-4.8
+      url: git@github.com:openshift-priv/quay-clair.git
+      url_pull: https://github.com/shruti-rh/clair.git
       web: https://github.com/quay/clair
 jira:
   project: PROJQUAY

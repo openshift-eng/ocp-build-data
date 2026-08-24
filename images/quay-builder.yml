@@ -1,10 +1,13 @@
+cachito:
+  enabled: true
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.16
-      url: git@github.com:openshift-priv/quay-builder.git
+        target: redhat-3.17
+      url: git@github.com:openshift-priv/quay-quay-builder.git
+      url_pull: https://github.com/shruti-rh/quay-builder.git
       web: https://github.com/quay/quay-builder
 jira:
   project: PROJQUAY
@@ -21,7 +24,7 @@ enabled_repos:
 from:
   builder:
   - stream: rhel-9-golang
-  stream: rhel9-minimal
+  stream: rhel9-podman
 name: quay/quay-builder-rhel9
 owners:
 - quay-devel@redhat.com

@@ -1,10 +1,13 @@
+cachito:
+  enabled: true
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.16
-      url: git@github.com:openshift-priv/quay-bridge-operator.git
+        target: redhat-3.17
+      url: git@github.com:openshift-priv/quay-quay-bridge-operator.git
+      url_pull: https://github.com/shruti-rh/quay-bridge-operator.git
       web: https://github.com/quay/quay-bridge-operator
 jira:
   project: PROJQUAY
@@ -27,5 +30,7 @@ name: quay/quay-bridge-operator-rhel9
 owners:
 - quay-devel@redhat.com
 update-csv:
-  bundle-dir: manifests/
+  bundle-dir: downstream/manifests/
   manifests-dir: bundle/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
