@@ -8,15 +8,20 @@ content:
       url: git@github.com:openshift-priv/ocp-build-data.git
       web: https://github.com/openshift-eng/ocp-build-data
 distgit:
-  component: base-rhel9-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: base-rhel9-container
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
-for_payload: false
 for_release: false
 from:
   stream: rhel9
 name: art-core/base-rhel9
 owners:
 - aos-team-art@redhat.com
+konflux:
+  cachi2:
+    lockfile:
+      rpms:
+      - ca-certificates
+      - findutils
