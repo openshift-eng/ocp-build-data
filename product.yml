@@ -1260,6 +1260,16 @@ bug_mapping:
       issue_component: RHCOS
     rhcos-x86_64:
       issue_component: RHCOS
+    # lib-newtopia 1.1.9 / SECDATA-1309: RHCOS node-image parent PURL is now
+    # pkg:oci/ose-rhel-coreos-{N}; OSIDB ps_component is
+    # openshift/ose-rhel-coreos-{N}. Keep rhcos above so ART can still match
+    # Downstream Component Name on in-flight trackers.
+    openshift/ose-rhel-coreos-8:
+      issue_component: RHCOS
+    openshift/ose-rhel-coreos-9:
+      issue_component: RHCOS
+    openshift/ose-rhel-coreos-10:
+      issue_component: RHCOS
     rpm-ostree:
       issue_component: RHCOS
     runc:
