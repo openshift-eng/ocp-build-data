@@ -17,7 +17,7 @@ distgit:
 delivery:
   bundle_delivery_repo_name: quay/quay-bridge-operator-bundle
   delivery_repo_names:
-  - quay/quay-bridge-operator-rhel9
+  - quay/quay-bridge-rhel9-operator
 for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
@@ -26,8 +26,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: base-rhel9
-name: quay/quay-bridge-operator-rhel9
-name_in_bundle: quay-bridge-operator-rhel9
+name: quay/quay-bridge-rhel9-operator
 owners:
 - quay-devel@redhat.com
 update-csv:
