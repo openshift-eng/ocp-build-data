@@ -1,3 +1,5 @@
+base_image_release:
+  force: true
 cachito:
   packages:
     gomod:
@@ -20,7 +22,7 @@ content:
         replacement: "# go mod download removed - deps pre-fetched by cachi2"
       - action: replace
         match: 'curl -fsSL "https://github.com/block/goose/releases/download/${GOOSE_VERSION}/goose-${GOOSE_ARCH}.tar.bz2" -o /tmp/goose.tar.bz2'
-        replacement: "cp /cachi2/output/deps/generic/goose.tar.bz2 /tmp/goose.tar.bz2"
+        replacement: "cp /cachi2/output/deps/generic/goose-${GOOSE_ARCH}.tar.bz2 /tmp/goose.tar.bz2"
       - action: replace
         match: "python3 -m pip install --no-cache-dir graphifyy==0.7.17"
         replacement: "python3 -m pip install --no-cache-dir --no-index --find-links /cachi2/output/deps/pip/ graphifyy==0.7.17"
@@ -61,4 +63,6 @@ konflux:
       enabled: true
       resources:
         - url: https://github.com/block/goose/releases/download/v1.45.0/goose-x86_64-unknown-linux-gnu.tar.bz2
-          filename: goose.tar.bz2
+          filename: goose-x86_64-unknown-linux-gnu.tar.bz2
+        - url: https://github.com/block/goose/releases/download/v1.45.0/goose-aarch64-unknown-linux-gnu.tar.bz2
+          filename: goose-aarch64-unknown-linux-gnu.tar.bz2
