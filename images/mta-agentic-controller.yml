@@ -1,0 +1,37 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+      - path: api/
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/migtools-mta-agentic-controller.git
+      web: https://github.com/migtools/mta-agentic-controller
+    modifications:
+      - action: replace
+        match: "RUN go mod download"
+        replacement: "# go mod download removed - deps pre-fetched by cachi2"
+jira:
+  project: MTA
+  component: Analysis
+distgit:
+  component: mta-agentic-controller-container
+delivery:
+  delivery_repo_names:
+  - mta/mta-agentic-controller-rhel9
+enabled_repos:
+- rhel-98-appstream-rpms
+- rhel-98-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  member: base-rhel9
+name: mta/mta-agentic-controller-rhel9
+owners:
+- mta-devs@redhat.com
+dependents:
+  - mta-operator
