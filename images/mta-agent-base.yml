@@ -18,9 +18,6 @@ content:
       web: https://github.com/migtools/mta-agentic-controller
     modifications:
       - action: replace
-        match: "RUN go mod download"
-        replacement: "# go mod download removed - deps pre-fetched by cachi2"
-      - action: replace
         match: 'curl -fsSL "https://github.com/block/goose/releases/download/${GOOSE_VERSION}/goose-${GOOSE_ARCH}.tar.bz2" -o /tmp/goose.tar.bz2'
         replacement: "cp /cachi2/output/deps/generic/goose-${GOOSE_ARCH}.tar.bz2 /tmp/goose.tar.bz2"
     pkg_managers:
