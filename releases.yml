@@ -38,7 +38,17 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1b3831190c392a11a9998675503748fed7385ba9bafbf5016a32b3a3ed2cfc2e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.20.0-202608271228.p2.g6ecae5d.assembly.stream.el9
+            why: Pin to build with fixed nmstate-console-plugin and kube-rbac-proxy matching nightly
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.20.0-202608271228.p2.g587f7b6.assembly.stream.el9
+            why: Pin to fixed build (commit 587f7b6, js-yaml dependency resolved)
   4.20.35:
     assembly:
       type: standard
