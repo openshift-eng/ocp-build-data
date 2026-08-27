@@ -12,9 +12,6 @@ cachito:
           packages: ":all:"
           arch: "x86_64,aarch64"
           py_version: 311
-    generic:
-      - path: "."
-        lockfile: "artifacts.lock.yaml"
 content:
   source:
     dockerfile: images/agent-base/Containerfile
@@ -31,7 +28,6 @@ content:
     pkg_managers:
     - gomod
     - pip
-    - generic
 jira:
   project: MTA
   component: Analysis
