@@ -20,7 +20,7 @@
 golang:
   aliases:
     - rhel-8-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.20-rhel8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.20.12-202608271630.p2.gedd1cdd.assembly.stream.el8
   mirror: true
   transform: rhel-8/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -32,7 +32,7 @@ golang:
 
 ibm-rhel-8-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.20-rhel8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.20.12-202608271630.p2.gedd1cdd.assembly.stream.el8
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.20-openshift-{MAJOR}.{MINOR}
@@ -40,7 +40,7 @@ ibm-rhel-8-golang-1.20:
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.20-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.20.12-202608271630.p2.gedd1cdd.assembly.stream.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -52,7 +52,7 @@ rhel-9-golang:
 
 # Go 1.19 on RHEL 9 (pinned); matches openshift-4.12 rhel-9-golang art-images-base image.
 rhel-9-golang-1.19:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.19-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.19.13-202608271629.p2.gedd1cdd.assembly.stream.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -64,7 +64,7 @@ rhel-9-golang-1.19:
 
 ibm-rhel-9-golang-1.20:
   # Mirror non-embargoed golang builders for IBM
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.20-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.20.12-202608271630.p2.gedd1cdd.assembly.stream.el9
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-9-golang-1.20-openshift-{MAJOR}.{MINOR}
@@ -109,7 +109,7 @@ nodejs:
   mirror: true
 
 rhel-9-golang-1.21:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.21-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.21.13-202608260704.p2.gedd1cdd.assembly.stream.el9
   mirror: true
   transform: rhel-9/golang
   # Leave this upstream information in place even if mirror/transform is disabled. Test Platform read the data.
@@ -120,4 +120,4 @@ rhel-9-golang-1.21:
     - registry.ci.openshift.org/ocp-priv/builder:rhel-9-golang-1.21-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1-22:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.22-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.22.12-202608131106.p2.g7d3050a.assembly.stream.el9
