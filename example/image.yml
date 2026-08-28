@@ -23,6 +23,14 @@
 # Refers to the name on Comet (Red Hat container catalog).
 # Format: "namespace/image-name" (e.g. "openshift/ose-cluster-version-rhel9-operator")
 # Supports template variables from group.yml vars.
+# OCP example: "openshift/ose-myimage-rhel9"
+# Layered product examples:
+#   "openshift-logging/cluster-logging-rhel9-operator" (logging)
+#   "rhacm2/acm-cli-rhel9" (acm)
+#   "quay/quay-bridge-rhel9-operator" (quay)
+#   "oadp/oadp-cli-binaries-rhel9" (oadp)
+#   "mta/mta-agent-base-rhel9" (mta)
+#   "art-core/base-rhel9" (shared base images)
 name: openshift/ose-myimage-rhel9
 
 # ---------------------------------------------------------------------------
@@ -33,7 +41,7 @@ name: openshift/ose-myimage-rhel9
 #   "disabled" — skip this image entirely (not built, not released)
 #   "wip"      — work in progress; built but not released
 # Default: not set (treated as "auto")
-# mode: disabled
+mode: auto
 
 # ---------------------------------------------------------------------------
 # from — Base image and builder images for Dockerfile FROM lines (REQUIRED).
@@ -56,10 +64,9 @@ from:
   # --- Builder images (non-final stage FROMs) ---
   # For multi-stage builds, list builder images in the same order as
   # the FROM lines in the Dockerfile (excluding the final FROM).
+  # Each entry uses one of: stream, member, or image.
   builder:
   - stream: rhel-9-golang
-  # - member: some-builder-image
-  # - image: registry.example.com/builder:tag
 
 # ---------------------------------------------------------------------------
 # content — Image content: source code location and build configuration.
@@ -69,7 +76,7 @@ content:
     # The Dockerfile to use (relative to path). Default: "Dockerfile"
     dockerfile: Dockerfile.rhel9
     # Fallback Dockerfile if the primary one doesn't exist
-    # dockerfile_fallback: Dockerfile
+    dockerfile_fallback: Dockerfile
 
     # Git repository containing the upstream source code
     git:
@@ -83,32 +90,32 @@ content:
         # Fallback branch if target doesn't exist yet
         fallback: master
         # Stage branch for staging builds (rarely used)
-        # stage: stage-release-{MAJOR}.{MINOR}
+        stage: stage-release-{MAJOR}.{MINOR}
       # Allow builds from branches without branch protection enabled.
       # Use for onboarding, hotfixes, or emergency situations.
-      # allow_unprotected_branch: false
+      allow_unprotected_branch: false
 
     # Subdirectory within the git repo to use as the Docker build context.
     # Default: repository root
-    # path: images/myimage
+    path: images/myimage
 
     # Source alias (DEPRECATED — use git section instead)
-    # alias: enterprise-images-upstream-example
+    alias: enterprise-images-upstream-example
 
     # If true, this image is excluded from sibling commit comparison in
     # find_mismatched_siblings during build-sync
-    # allow_mismatched_siblings: false
+    allow_mismatched_siblings: false
 
     # Package managers used for Cachito dependency prefetching.
     # Valid values: gomod, pip, npm, yarn, git-submodule
-    # pkg_managers:
-    # - gomod
+    pkg_managers:
+    - gomod
 
     # External artifacts to fetch during OSBS build.
-    # artifacts:
-    #   from_urls:
-    #   - url: https://example.com/artifact.tar.gz
-    #     md5: abc123
+    artifacts:
+      from_urls:
+      - url: https://example.com/artifact.tar.gz
+        md5: abc123def456
 
     # Source modifications: operations to perform on the upstream Dockerfile
     # during rebase to distgit. Applied in order.
@@ -119,43 +126,43 @@ content:
         replacement: "atomic-openshift-package-name"
 
       # Add a file from an external URL to distgit
-      # - action: add
-      #   source: https://example.com/path/file.yaml
-      #   path: file.yaml           # destination relative to distgit root
-      #   overwriting: true         # overwrite if file exists
-      #   why: "Required for build"  # explanation for audit trail
+      - action: add
+        source: https://example.com/path/file.yaml
+        path: file.yaml           # destination relative to distgit root
+        overwriting: true         # overwrite if file exists
+        why: "Required for build"  # explanation for audit trail
 
       # Run a shell command in the distgit directory
-      # - action: command
-      #   command:
-      #   - sed
-      #   - -i
-      #   - "s/old/new/g"
-      #   - Dockerfile
+      - action: command
+        command:
+        - sed
+        - -i
+        - "s/old/new/g"
+        - Dockerfile
 
       # Remove files matching a glob pattern
-      # - action: remove
-      #   glob: "*.bak"
+      - action: remove
+        glob: "*.bak"
 
     # --- CI Alignment ---
     # Configuration for aligning upstream CI Dockerfiles with ART-managed images.
     ci_alignment:
       # Whether to mirror this image for CI to use. Default: true for payload images
-      # mirror: true
+      mirror: true
       # Mirror the entire manifest list instead of just arch-specific manifests
-      # mirror_manifest_list: false
+      mirror_manifest_list: false
 
       # When mirroring a base image for CI, the transform Dockerfile adds a
       # layer (typically to add repos). Only used for base images.
-      # transform: "Dockerfile.ci"
+      transform: "Dockerfile.ci"
 
       # Landing point for the transformed upstream image
-      # upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9
       # Source image before transformation
-      # upstream_image_base: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9-untransformed
+      upstream_image_base: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9-untransformed
       # Additional locations to push the CI image to
-      # upstream_image_mirror:
-      # - registry.ci.openshift.org/ocp-{MAJOR}.{MINOR}:base-rhel9
+      upstream_image_mirror:
+      - registry.ci.openshift.org/ocp-{MAJOR}.{MINOR}:base-rhel9
 
       # Configuration for creating PRs to align upstream Dockerfiles w/ ART
       streams_prs:
@@ -168,47 +175,45 @@ content:
         # CI build root override for upstream CI tests
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
-          # stream: rhel-9-golang
         # Explicit FROM overrides for upstream Dockerfiles
-        # from:
-        # - "registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9"
+        from:
+        - "registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:base-rhel9"
         # If true, child images won't get PRs until this image's PR merges.
         # Useful for base images to avoid cascading PR references.
-        # merge_first: false
+        merge_first: false
         # Prefix added to commit messages in alignment PRs
-        # commit_prefix: "UPSTREAM: <carry>: "
+        commit_prefix: "UPSTREAM: <carry>: "
         # User to set in the final stage (for the transform Dockerfile)
-        # final_user: 1001
+        final_user: 1001
 
     # --- OKD Alignment ---
     # Configuration for OKD (community Kubernetes) CI operator.
-    # okd_alignment:
-    #   # Override the tag name in the OKD imagestream
-    #   tag_name: base-stream9
-    #   # Override skip_if_only_changed for ci-operator config
-    #   skip_if_only_changed: "^docs/|^test/"
-    #   # Override Dockerfile used by OKD builds
-    #   dockerfile: Dockerfile.okd
-    #   # Override Dockerfile path for OKD builds
-    #   path: ""
-    #   # Generate ci-operator config with context_dir
-    #   context_dir: images/myimage
-    #   # Resource overrides for ci-operator
-    #   resources:
-    #     requests:
-    #       memory: 4Gi
-    #   # Inject RPM repositories into OKD builds
-    #   inject_rpm_repositories:
-    #   - id: rhel-9-server-ose
-    #     baseurl: http://base-{MAJOR}-{MINOR}-rhel9.ocp.svc/rhel-9-server-ose
-    #   # Build args for ci-operator
-    #   build_args:
-    #   - name: MY_ARG
-    #     value: my_value
-    #   # Resolve this image from an external source instead of building
-    #   resolve_as:
-    #     image: "quay.io/openshift/okd-content:latest"
-    #     # OR: stream: "some-stream-name"
+    okd_alignment:
+      # Override the tag name in the OKD imagestream
+      tag_name: base-stream9
+      # Override skip_if_only_changed for ci-operator config
+      skip_if_only_changed: "^docs/|^test/"
+      # Override Dockerfile used by OKD builds
+      dockerfile: Dockerfile.okd
+      # Override Dockerfile path for OKD builds
+      path: ""
+      # Generate ci-operator config with context_dir
+      context_dir: images/myimage
+      # Resource overrides for ci-operator
+      resources:
+        requests:
+          memory: 4Gi
+      # Inject RPM repositories into OKD builds
+      inject_rpm_repositories:
+      - id: rhel-9-server-ose
+        baseurl: http://base-{MAJOR}-{MINOR}-rhel9.ocp.svc/rhel-9-server-ose
+      # Build args for ci-operator
+      build_args:
+      - name: MY_ARG
+        value: my_value
+      # Resolve this image from an external source instead of building
+      resolve_as:
+        image: "quay.io/openshift/okd-content:latest"
 
 # ---------------------------------------------------------------------------
 # distgit — Dist-git (midstream) repository configuration.
@@ -222,9 +227,9 @@ distgit:
   # Distgit branch. Default: group.yml branch value
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   # Override distgit repo name (rarely needed)
-  # name: my-component
+  name: my-component
   # Component name for the OLM bundle distgit repo (operators only)
-  # bundle_component: my-operator-metadata-container
+  bundle_component: my-operator-metadata-container
 
 # ---------------------------------------------------------------------------
 # delivery — Image delivery and registry configuration.
@@ -237,7 +242,7 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-myimage-rhel9
   # Bundle delivery repository name (for operators with OLM bundles)
-  # bundle_delivery_repo_name: openshift4/ose-myimage-operator-bundle
+  bundle_delivery_repo_name: openshift4/ose-myimage-operator-bundle
 
 # ---------------------------------------------------------------------------
 # enabled_repos — RPM repositories enabled during image build.
@@ -253,15 +258,15 @@ enabled_repos:
 # ---------------------------------------------------------------------------
 # For security accounting, declare repos whose RPMs should not appear in
 # the final image layer. Used for build-only dependencies.
-# non_shipping_repos:
-# - rhel-9-buildroot-rpms
+non_shipping_repos:
+- rhel-9-buildroot-rpms
 
 # ---------------------------------------------------------------------------
 # non_shipping_rpms — RPMs installed at build time but not in final layer.
 # ---------------------------------------------------------------------------
 # RPMs that should not appear in the final image layer (security accounting).
-# non_shipping_rpms:
-# - golang-bin
+non_shipping_rpms:
+- golang-bin
 
 # ---------------------------------------------------------------------------
 # for_payload — Whether this image is included in the OCP payload.
@@ -275,7 +280,7 @@ for_payload: true
 # ---------------------------------------------------------------------------
 # If false, the image is not attached to errata advisories.
 # Default: true (unless mode is "disabled")
-# for_release: true
+for_release: true
 
 # ---------------------------------------------------------------------------
 # base_only — Mark this image as a base image only.
@@ -283,22 +288,22 @@ for_payload: true
 # If true, the image is not included in the release image list.
 # Typical for images that only serve as FROM targets for other images.
 # Default: false
-# base_only: false
+base_only: false
 
 # ---------------------------------------------------------------------------
 # payload_name — Override the image name used in the release payload.
 # ---------------------------------------------------------------------------
 # May differ from the Comet name. Used as the tag in the release imageStream.
-# payload_name: cluster-version-operator
+payload_name: cluster-version-operator
 
 # ---------------------------------------------------------------------------
 # arches — Architecture override for this image.
 # ---------------------------------------------------------------------------
 # Overrides the group-level arches list. Use when this image should only
 # be built for a subset of architectures.
-# arches:
-# - x86_64
-# - aarch64
+arches:
+- x86_64
+- aarch64
 
 # ---------------------------------------------------------------------------
 # labels — Labels injected into the Dockerfile during rebase.
@@ -312,35 +317,35 @@ labels:
   io.k8s.description: "Description of what this image provides."
   io.openshift.tags: "openshift,myimage"
   # Mark this image as an operator (makes it part of operator index)
-  # io.openshift.release.operator: "true"
-  # summary: "Short summary of the image"
+  io.openshift.release.operator: "true"
+  summary: "Short summary of the image"
   # Appregistry label for legacy OLM
-  # com.redhat.delivery.appregistry: "true"
+  com.redhat.delivery.appregistry: "true"
   # Hotfix label
-  # com.redhat.hotfix: "OCPBUGS-12345"
+  com.redhat.hotfix: "OCPBUGS-12345"
   # Pre-release label
-  # com.redhat.prerelease: true
+  com.redhat.prerelease: true
 
 # ---------------------------------------------------------------------------
 # envs — Environment variables injected into the Dockerfile during rebase.
 # ---------------------------------------------------------------------------
-# envs:
-#   MY_ENV_VAR: "my_value"
-#   OS_GIT_MAJOR: "{MAJOR}"
+envs:
+  MY_ENV_VAR: "my_value"
+  OS_GIT_MAJOR: "{MAJOR}"
 
 # ---------------------------------------------------------------------------
 # final_stage_user — User to set after yum update injection.
 # ---------------------------------------------------------------------------
 # When doozer injects USER 0 for yum updates, this restores the original
 # user in the final stage. Can be a username string or numeric UID.
-# final_stage_user: 1001
+final_stage_user: 1001
 
 # ---------------------------------------------------------------------------
 # el_minor — RHEL minor version for NVR release suffix.
 # ---------------------------------------------------------------------------
 # When set, the NVR release includes the minor version (e.g. .el9_6).
 # When omitted, only the major version is used (e.g. .el9).
-# el_minor: 6
+el_minor: 6
 
 # ---------------------------------------------------------------------------
 # owners — Email addresses notified on build events.
@@ -349,32 +354,48 @@ owners:
 - team-name@redhat.com
 
 # ---------------------------------------------------------------------------
-# maintainer — Jira component ownership metadata.
+# maintainer — Jira component ownership metadata (OCP-style).
 # ---------------------------------------------------------------------------
+# Used by OCP images to specify Jira product/component for bug filing.
+# For layered products, prefer the "jira" field instead.
 maintainer:
   # Jira product
   product: "OpenShift Container Platform"
   # Jira component (REQUIRED if maintainer is present)
   component: "My Component"
   # Jira subcomponent
-  # subcomponent: "Sub Component"
+  subcomponent: "Sub Component"
+
+# ---------------------------------------------------------------------------
+# jira — Jira project/component for bug tracking (layered product style).
+# ---------------------------------------------------------------------------
+# Used by layered product images (logging, acm, quay, oadp, mta, mtc, etc.)
+# to specify Jira project and component for bug filing.
+# Overrides product_config-based component mapping.
+# Examples from layered products:
+#   project: LOG, component: ose-cluster-logging-operator-container (logging)
+#   project: ACM, component: acm-cli-container (acm)
+#   project: PROJQUAY, component: quay-container-security-operator-container (quay)
+jira:
+  project: OCPBUGS
+  component: my-component-container
 
 # ---------------------------------------------------------------------------
 # dependents — Images that must rebuild when this image builds.
 # ---------------------------------------------------------------------------
 # Typically, operands list their operators here so that operator bundles
 # get rebuilt when operand images change.
-# dependents:
-# - my-operator
+dependents:
+- my-operator
 
 # ---------------------------------------------------------------------------
 # additional_tags — Extra tags for the built image in Brew registry.
 # ---------------------------------------------------------------------------
 # Floating tags under which the image can be pulled from
 # registry-proxy.engineering.redhat.com
-# additional_tags:
-# - "latest"
-# - "v{MAJOR}.{MINOR}"
+additional_tags:
+- "latest"
+- "v{MAJOR}.{MINOR}"
 
 # ---------------------------------------------------------------------------
 # scan_sources — Build trigger configuration.
@@ -383,189 +404,191 @@ maintainer:
 scan_sources:
   # Additional packages to monitor for changes (beyond auto-detected ones).
   # Useful when images consume RPMs in non-standard ways.
-  # extra_packages:
-  # - name: rhosp-director-images
-  #   tag: rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+  extra_packages:
+  - name: rhosp-director-images
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
 
   # RPMs to ignore when determining if a rebuild is needed.
   # Use when RPMs like tzdata cause unnecessary rebuilds, or when
   # RPMs are pinned in the Dockerfile.
-  # exempt_rpms:
-  # - tzdata
+  exempt_rpms:
+  - tzdata
 
 # ---------------------------------------------------------------------------
 # update-csv — Operator ClusterServiceVersion (CSV) configuration.
 # ---------------------------------------------------------------------------
 # For operators only. Configures where to find operator metadata including
 # the clusterserviceversion.yaml file.
-# update-csv:
-#   # Directory containing operator manifests (relative to source root)
-#   manifests-dir: manifests/        # REQUIRED if update-csv is present
-#   # Directory containing the operator bundle
-#   bundle-dir: stable/manifests/    # REQUIRED if update-csv is present
-#   # Registry for operator image references
-#   registry: image-registry.openshift-image-registry.svc:5000  # REQUIRED
-#   # Label for valid subscriptions
-#   valid-subscription-label: '["OpenShift Container Platform"]'  # REQUIRED
-#   # OLM channel name
-#   channel: stable
-#   # Manual image name mapping overrides
-#   # image-map:
-#   #   upstream-name: downstream-name
+update-csv:
+  # Directory containing operator manifests (relative to source root)
+  manifests-dir: manifests/
+  # Directory containing the operator bundle
+  bundle-dir: stable/manifests/
+  # Registry for operator image references
+  registry: image-registry.openshift-image-registry.svc:5000
+  # Label for valid subscriptions
+  valid-subscription-label: '["OpenShift Container Platform"]'
+  # OLM channel name
+  channel: stable
+  # Manual image name mapping overrides
+  image-map:
+    upstream-name: downstream-name
 
 # ---------------------------------------------------------------------------
 # name_in_bundle — Operand name as referenced in operator CSV.
 # ---------------------------------------------------------------------------
 # How the upstream operator references this operand image in the
 # clusterserviceversion.yaml. Used for CSV update processing.
-# name_in_bundle: my-operand
+name_in_bundle: my-operand
 
 # ---------------------------------------------------------------------------
 # bundle_name_override — Override the default OLM bundle short name.
 # ---------------------------------------------------------------------------
 # Normally '{distgit_key}-bundle'. Affects the Dockerfile name label,
 # Konflux component name, and DB record name.
-# bundle_name_override: my-custom-bundle-name
+bundle_name_override: my-custom-bundle-name
 
 # ---------------------------------------------------------------------------
 # cachito — Cachito configuration for OSBS builds (per-image override).
 # ---------------------------------------------------------------------------
-# cachito:
-#   enabled: true
-#   # Cachito flags (see https://github.com/containerbuildsystem/cachito#flags)
-#   flags:
-#   - gomod-vendor
-#   # Custom package manager configuration
-#   packages:
-#     gomod:
-#     - path: .
-#     pip:
-#     - path: .
-#       requirements_files:
-#       - requirements.txt
-#     npm:
-#     - path: .
-#     yarn:
-#     - path: .
-#     git-submodule:
-#     - path: vendor/submodule
+cachito:
+  enabled: true
+  # Cachito flags (see https://github.com/containerbuildsystem/cachito#flags)
+  flags:
+  - gomod-vendor
+  # Custom package manager configuration
+  packages:
+    gomod:
+    - path: .
+    pip:
+    - path: .
+      requirements_files:
+      - requirements.txt
+    npm:
+    - path: .
+    yarn:
+    - path: .
+    git-submodule:
+    - path: vendor/submodule
 
 # ---------------------------------------------------------------------------
 # canonical_builders_from_upstream — Per-image upstream builder alignment.
 # ---------------------------------------------------------------------------
 # Overrides the group-level setting. When true, uses the golang builder
 # detected from upstream CI rather than the ART-configured one.
-# canonical_builders_from_upstream: false
+canonical_builders_from_upstream: false
 
 # ---------------------------------------------------------------------------
 # alternative_upstream — Config overrides for different RHEL versions.
 # ---------------------------------------------------------------------------
 # When canonical_builders_from_upstream detects upstream uses a different
 # RHEL version, these overrides are applied.
-# alternative_upstream:
-# - when: el10  # Apply when upstream RHEL version matches
-#   distgit:
-#     branch: rhaos-{MAJOR}.{MINOR}-rhel-10
-#   enabled_repos:
-#   - rhel-10-baseos-rpms
-#   - rhel-10-appstream-rpms
-#   from:
-#     builder:
-#     - stream: rhel-10-golang
-#     stream: rhel-10-base
-#   name: openshift/ose-myimage-rhel10
+alternative_upstream:
+- when: el10  # Apply when upstream RHEL version matches
+  distgit:
+    branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  enabled_repos:
+  - rhel-10-baseos-rpms
+  - rhel-10-appstream-rpms
+  from:
+    builder:
+    - stream: rhel-10-golang
+    stream: rhel-10-base
+  name: openshift/ose-myimage-rhel10
 
 # ---------------------------------------------------------------------------
 # base_image_release — Per-image snapshot-to-release behavior.
 # ---------------------------------------------------------------------------
 # Controls Konflux base-image snapshot-to-release for this specific image.
 # Overrides group-level base_image_release setting.
-# base_image_release:
-#   # If false, disables snapshot-to-release. Default: inherit group or true.
-#   enabled: true
-#   # When true, always run base-image release regardless of qualification.
-#   force: false
+base_image_release:
+  # If false, disables snapshot-to-release. Default: inherit group or true.
+  enabled: true
+  # When true, always run base-image release regardless of qualification.
+  force: false
 
 # ---------------------------------------------------------------------------
 # bridge_release — Per-image bridge release overrides.
 # ---------------------------------------------------------------------------
-# bridge_release:
-#   bug_mirroring:
-#     enabled: true
+bridge_release:
+  bug_mirroring:
+    enabled: true
 
 # ---------------------------------------------------------------------------
 # image_build_method — OSBS build method override.
 # ---------------------------------------------------------------------------
 # Overrides group-level default_image_build_method.
 # Valid values: "osbs2"
-# image_build_method: osbs2
+image_build_method: osbs2
 
 # ---------------------------------------------------------------------------
 # container_yaml — container.yaml configuration for OSBS builds.
 # ---------------------------------------------------------------------------
 # Free-form object merged into the generated container.yaml.
-# container_yaml:
-#   platforms:
-#     only:
-#     - x86_64
+container_yaml:
+  platforms:
+    only:
+    - x86_64
 
 # ---------------------------------------------------------------------------
 # odcs — On-Demand Content Sets configuration.
 # ---------------------------------------------------------------------------
 # Alternative method for making RPMs available to builds via ODCS.
-# odcs:
-#   packages:
-#     # "auto" = detect from Dockerfile + list; "manual" = list only
-#     mode: auto
-#     list:
-#     - package1
-#     - package2
-#     # Packages to exclude from auto-detection
-#     exclude:
-#     - unwanted-package
+odcs:
+  packages:
+    # "auto" = detect from Dockerfile + list; "manual" = list only
+    mode: auto
+    list:
+    - package1
+    - package2
+    # Packages to exclude from auto-detection
+    exclude:
+    - unwanted-package
 
 # ---------------------------------------------------------------------------
 # is — Assembly pinning (NVR pin).
 # ---------------------------------------------------------------------------
 # Used in assembly definitions to pin this image to a specific build.
-# is:
-#   nvr: my-component-container-v4.18.0-202401010000.p0.el9
+is:
+  nvr: my-component-container-v4.18.0-202401010000.p0.el9
 
 # ---------------------------------------------------------------------------
 # dependencies — Assembly-level dependency overrides for this image.
 # ---------------------------------------------------------------------------
-# dependencies: {}
+dependencies: {}
 
 # ---------------------------------------------------------------------------
 # check_external_packages — Per-image external package checks.
 # ---------------------------------------------------------------------------
-# check_external_packages:
-# - name: some-package
-#   tag: rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
-#   condition: match
+check_external_packages:
+- name: some-package
+  tag: rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+  condition: match
 
 # ---------------------------------------------------------------------------
 # external_scanners — Per-image external scanning configuration.
 # ---------------------------------------------------------------------------
-# external_scanners:
-#   sast_scanning:
-#     jira_integration:
-#       enabled: true
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true
 
 # ---------------------------------------------------------------------------
 # okd — OKD-specific configuration for this image.
 # ---------------------------------------------------------------------------
-# okd:
-#   # Architectures for OKD builds (overrides group okd.arches)
-#   arches:
-#   - x86_64
+okd:
+  # Architectures for OKD builds (overrides group okd.arches)
+  arches:
+  - x86_64
 
 # ---------------------------------------------------------------------------
 # mr_approvers — Per-image GitLab MR approval rules.
 # ---------------------------------------------------------------------------
-# mr_approvers:
-#   art-team:
-#   - username1
+# Maps approval group names to lists of GitLab usernames.
+# Same schema as group.yml mr_approvers, but per-image scope.
+mr_approvers:
+  art-team:
+  - username1
 
 # ---------------------------------------------------------------------------
 # set_build_variables — Control build variable injection.
@@ -574,134 +597,132 @@ scan_sources:
 # Dockerfile. Necessary for images like golang builder where env vars would
 # pollute the environment for code establishing its own commit hash.
 # Default: true
-# set_build_variables: true
+set_build_variables: true
 
 # ---------------------------------------------------------------------------
 # konflux — Konflux build system configuration (per-image).
 # ---------------------------------------------------------------------------
 # Overrides or extends group-level Konflux settings for this image.
-# konflux:
-#   # Enable/disable this image for Konflux builds
-#   mode: enabled  # "enabled" or "disabled"
-#
-#   # How to handle Cachito references during Konflux/cachi2 builds:
-#   #   "default" = no Dockerfile changes
-#   #   "removal" = remove lines with REMOTE_SOURCES_DIR
-#   #   "emulation" = inject expected env vars
-#   cachito:
-#     mode: default
-#
-#   # Cachi2 settings (overrides group-level)
-#   cachi2:
-#     enabled: true
-#     prefetch_mode: strict  # "strict" or "permissive"
-#     lockfile:
-#       enabled: true
-#       # RPM package names to include in lockfile
-#       rpms:
-#       - specific-rpm
-#       # Module names for lockfile
-#       modules:
-#       - nodejs:20
-#       # Auto-inject DNF module enable commands (default: true)
-#       dnf_modules_enable: true
-#       # Include RPMs from all architectures (default: false)
-#       cross_arch: false
-#       # Backend: "art-internal" or "rpm-lockfile-prototype"
-#       backend: rpm-lockfile-prototype
-#     # Artifact lockfile for non-RPM dependencies
-#     artifact_lockfile:
-#       enabled: true
-#       resources:
-#       - https://example.com/artifact.tar.gz
-#       - url: https://example.com/other.zip
-#         filename: custom-name.zip
-#       path: "."  # default
-#
-#   # Network mode for this image's builds
-#   network_mode: hermetic
-#
-#   # VM override for build environment
-#   vm_override: "large"
-#   # OR per-arch overrides:
-#   # vm_override:
-#   #   x86_64: "large"
-#   #   aarch64: "xlarge"
-#
-#   # Tagging mode: "enabled" or "legacy"
-#   tagging_mode: enabled
-#
-#   # Build timeout in minutes
-#   build_timeout: 120
-#
-#   # Build retry count (minimum: 1)
-#   build_attempts: 1
-#
-#   # Override the default Konflux image repository
-#   image_repo: quay.io/my-org/my-repo
-#
-#   # Tekton tasks to skip
-#   skip_tasks:
-#   - some-task
-#
-#   # Build args (KEY=VALUE format)
-#   build_args:
-#   - "MY_ARG=value"
-#
-#   # Kubernetes secret for build
-#   additional_secret: my-secret
-#
-#   # Enable PRIVILEGED_NESTED on build-images task
-#   privileged_nested: false
-#
-#   # Enable symlink check (default: true)
-#   enable_symlink_check: true
-#
-#   # Enable package registry proxy (default: true)
-#   enable_package_registry_proxy: true
-#
-#   # Fetch git tags during clone (default: true)
-#   clone_git_tags: true
-#
-#   # K8s resource requests/limits for build step
-#   build_step_resources:
-#     memory: "8Gi"
-#     ephemeral-storage: "50Gi"
-#
-#   # K8s resources for SBOM steps
-#   sbom_step_resources:
-#     memory: "4Gi"
-#
-#   # PVC storage size
-#   workspace_storage: "100Gi"
-#
-#   # Konflux Component resource name overrides (for k8s 63-char limit)
-#   component:
-#     name_override: short-component-name
-#     bundle_name_override: short-bundle-name
-#
-#   # Konflux-specific content overrides (same schema as top-level content)
-#   # content:
-#   #   source:
-#   #     dockerfile: Dockerfile.konflux
+konflux:
+  # Enable/disable this image for Konflux builds
+  # Valid values: "enabled", "disabled"
+  mode: enabled
+
+  # How to handle Cachito references during Konflux/cachi2 builds:
+  #   "default" = no Dockerfile changes
+  #   "removal" = remove lines with REMOTE_SOURCES_DIR
+  #   "emulation" = inject expected env vars
+  cachito:
+    mode: default
+
+  # Cachi2 settings (overrides group-level)
+  cachi2:
+    enabled: true
+    prefetch_mode: strict  # "strict" or "permissive"
+    lockfile:
+      enabled: true
+      # RPM package names to include in lockfile
+      rpms:
+      - specific-rpm
+      # Module names for lockfile
+      modules:
+      - nodejs:20
+      # Auto-inject DNF module enable commands (default: true)
+      dnf_modules_enable: true
+      # Include RPMs from all architectures (default: false)
+      cross_arch: false
+      # Backend: "art-internal" or "rpm-lockfile-prototype"
+      backend: rpm-lockfile-prototype
+    # Artifact lockfile for non-RPM dependencies
+    artifact_lockfile:
+      enabled: true
+      resources:
+      - https://example.com/artifact.tar.gz
+      - url: https://example.com/other.zip
+        filename: custom-name.zip
+      path: "."
+
+  # Network mode for this image's builds
+  network_mode: hermetic
+
+  # VM override for build environment
+  # Can be a string for all arches or a per-arch mapping
+  vm_override: "large"
+
+  # Tagging mode: "enabled" or "legacy"
+  tagging_mode: enabled
+
+  # Build timeout in minutes
+  build_timeout: 120
+
+  # Build retry count (minimum: 1)
+  build_attempts: 1
+
+  # Override the default Konflux image repository
+  image_repo: quay.io/my-org/my-repo
+
+  # Tekton tasks to skip
+  skip_tasks:
+  - some-task
+
+  # Build args (KEY=VALUE format)
+  build_args:
+  - "MY_ARG=value"
+
+  # Kubernetes secret for build
+  additional_secret: my-secret
+
+  # Enable PRIVILEGED_NESTED on build-images task
+  privileged_nested: false
+
+  # Enable symlink check (default: true)
+  enable_symlink_check: true
+
+  # Enable package registry proxy (default: true)
+  enable_package_registry_proxy: true
+
+  # Fetch git tags during clone (default: true)
+  clone_git_tags: true
+
+  # K8s resource requests/limits for build step
+  build_step_resources:
+    memory: "8Gi"
+    ephemeral-storage: "50Gi"
+
+  # K8s resources for SBOM steps
+  sbom_step_resources:
+    memory: "4Gi"
+
+  # PVC storage size
+  workspace_storage: "100Gi"
+
+  # Konflux Component resource name overrides (for k8s 63-char limit)
+  component:
+    name_override: short-component-name
+    bundle_name_override: short-bundle-name
+
+  # Konflux-specific content overrides (same schema as top-level content)
+  content:
+    source:
+      dockerfile: Dockerfile.konflux
 
 # ---------------------------------------------------------------------------
 # DEPRECATED FIELDS (kept for backwards compatibility)
 # ---------------------------------------------------------------------------
 
 # push — Push configuration (deprecated after 3.11/4.6; use delivery instead)
-# push:
-#   late: false
-#   repos:
-#   - openshift3/myutil
-#   additional_tags:
-#   - "2.4"
+push:
+  late: false
+  repos:
+  - openshift3/myutil
+  additional_tags:
+  - "2.4"
 
 # required — Currently unused (deprecated)
-# required: false
+required: false
 
 # wait_for — Wait for another image before building (deprecated, 3.11 only)
-# wait_for: other-image-distgit-key
+wait_for: other-image-distgit-key
 
 # no_oit_comments — Suppress OIT comments (deprecated, 3.11/4.6 only)
-# no_oit_comments: false
+no_oit_comments: false

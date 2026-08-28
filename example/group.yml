@@ -3,7 +3,8 @@
 # =============================================================================
 #
 # This file documents ALL available fields for an ocp-build-data group.yml.
-# A group represents a single OCP release version (e.g. openshift-4.18).
+# A group represents a single product release version (e.g. openshift-4.18,
+# logging-6.7, acm-2.16, quay-3.17, oadp-1.6, mtc-1.8, mta-8.3, mce-2.11).
 #
 # Field values shown here are representative examples or defaults.
 # Fields suffixed with !, ?, or - are assembly merge operators:
@@ -14,6 +15,36 @@
 # Validated by: ocp-build-data-validator/validator/json_schemas/assembly_group_config.schema.json
 # Parsed by:    doozer (doozerlib/runtime.py) and elliott (elliottlib/runtime.py)
 # =============================================================================
+
+# ---------------------------------------------------------------------------
+# name — The logical name of this group.
+# ---------------------------------------------------------------------------
+# Used to identify the group in doozer/elliott commands (--group openshift-4.18).
+# Supports template variables.
+# OCP example: "openshift-{MAJOR}.{MINOR}"
+# Layered product examples: "logging-6.7", "acm-2.16", "quay-3.17",
+#   "oadp-1.6", "mtc-1.8", "mta-8.3", "mce-2.11", "cert-manager-1.19",
+#   "coo-1.5", "external-secrets-1.1", "oc-mirror-2.0", "zero-trust-1.1"
+name: openshift-{MAJOR}.{MINOR}
+
+# ---------------------------------------------------------------------------
+# product — Product identifier for layered products.
+# ---------------------------------------------------------------------------
+# Identifies which product this group belongs to. Defaults to "ocp" when
+# not set. Used in doozer/elliott to select product-specific workflows.
+# Examples: "openshift-logging", "rhacm2", "mta", "rhmtc", "oadp", "quay",
+#   "multicluster-engine", "cert-manager", "cluster-observability-operator",
+#   "external-secrets-operator", "oc-mirror", "zero-trust-workload-identity-manager"
+product: ocp
+
+# ---------------------------------------------------------------------------
+# version — Product version string for layered products.
+# ---------------------------------------------------------------------------
+# The product release version. For OCP this is derived from vars (MAJOR.MINOR),
+# but layered products set it explicitly.
+# Examples: "6.7.0" (logging), "2.16.4" (acm), "3.17.5" (quay), "1.6.2" (oadp),
+#   "1.8.17" (mtc), "8.3.0" (mta), "1.19.0" (cert-manager), "2.0" (oc-mirror)
+version: "4.18.0"
 
 # ---------------------------------------------------------------------------
 # freeze_automation — Controls when scheduled/manual builds are permitted.
@@ -49,12 +80,30 @@ vars:
   GO_LATEST: "1.22"
   GO_EXTRA: "1.21"
 
+  # FBC (file-based catalog) channel skip control.
+  # Used by layered products (logging, mta, etc.) to control OLM channel behavior.
+  # When true, disables channel skips in file-based catalogs.
+  FBC_DISABLE_CHANNEL_SKIPS: true
+
 # ---------------------------------------------------------------------------
-# name — The logical name of this group.
+# OCP_TARGET_VERSIONS — Target OCP versions for layered product operator bundles.
 # ---------------------------------------------------------------------------
-# Used to identify the group in doozer/elliott commands (--group openshift-4.18).
-# Supports template variables.
-name: openshift-{MAJOR}.{MINOR}
+# Lists which OCP versions this layered product can be installed on.
+# Used in operator index generation and bundle annotations.
+# This field is specific to layered products (logging, acm, quay, oadp, etc.)
+# and is not used by OCP itself.
+# Examples: ["4.21", "4.22", "4.23"] or ["5.0", "5.1"]
+OCP_TARGET_VERSIONS:
+- "4.17"
+- "4.18"
+
+# ---------------------------------------------------------------------------
+# OCP_RELEASE_NOTES_VERSION — OCP version for release notes alignment.
+# ---------------------------------------------------------------------------
+# Specifies which OCP version to use for release notes and documentation.
+# Used by layered products to align release notes with a specific OCP release.
+# Not used by OCP branches themselves.
+OCP_RELEASE_NOTES_VERSION: "4.18"
 
 # ---------------------------------------------------------------------------
 # branch — Default distgit branch for all images/RPMs in this group.
@@ -99,21 +148,22 @@ new_payload_versioning_scheme: false
 # operator_image_ref_mode — How operator images reference operand images.
 # ---------------------------------------------------------------------------
 # Controls whether operators use manifest-list or arch-specific image refs.
+# Used by both OCP and all layered products (logging, acm, quay, oadp, etc.)
 # Typical value: "manifest-list"
 operator_image_ref_mode: manifest-list
 
 # ---------------------------------------------------------------------------
 # operator_channel_stable — Stable channel name for operator bundles.
 # ---------------------------------------------------------------------------
-# Optional. Sets the channel name used for stable operator updates.
-# operator_channel_stable: stable
+# Sets the channel name used for stable operator updates in OLM bundles.
+operator_channel_stable: stable
 
 # ---------------------------------------------------------------------------
 # operator_index_mode — Release lifecycle stage for operator index.
 # ---------------------------------------------------------------------------
 # Controls which operator index format to use.
 # Valid values: "pre-release", "pre-ga", "ga"
-# operator_index_mode: pre-release
+operator_index_mode: pre-release
 
 # ---------------------------------------------------------------------------
 # signing_advisory — Errata advisory ID used for RPM signing.
@@ -123,7 +173,14 @@ signing_advisory: 136879
 # ---------------------------------------------------------------------------
 # csv_namespace — Namespace for ClusterServiceVersion (CSV) in OLM bundles.
 # ---------------------------------------------------------------------------
-# Default: "openshift"
+# Default: "openshift" for OCP.
+# Layered product examples:
+#   "openshift-logging" (logging), "open-cluster-management" (acm),
+#   "rhmtc" (mtc), "mta" (mta), "oadp" (oadp), "quay" (quay),
+#   "multicluster-engine" (mce), "cert-manager" (cert-manager),
+#   "cluster-observability-operator" (coo),
+#   "external-secrets-operator" (external-secrets),
+#   "zero-trust-workload-identity-manager" (zero-trust)
 csv_namespace: openshift
 
 # ---------------------------------------------------------------------------
@@ -199,11 +256,11 @@ konflux:
     # Whether to patch Go module versions
     gomod_version_patch: true
     # Prefetch mode: "strict" (fail on unresolved) or "permissive" (warn only)
-    # prefetch_mode: strict
+    prefetch_mode: strict
     # RPM lockfile generation settings
     lockfile:
       # Force lockfile regeneration even if one exists
-      # force: true
+      force: true
       # Backend: "art-internal" or "rpm-lockfile-prototype"
       backend: rpm-lockfile-prototype
 
@@ -215,58 +272,56 @@ konflux:
   network_mode: hermetic
 
   # Tekton task names to remove from PipelineRuns
-  # skip_tasks:
-  # - task-name
+  skip_tasks: []
 
   # KEY=VALUE strings passed as build-args pipeline param
-  # build_args:
-  # - "MY_ARG=value"
+  build_args: []
 
   # Kubernetes secret set as ADDITIONAL_SECRET on build-images task
-  # additional_secret: my-secret
+  additional_secret: ""
 
   # Enable PRIVILEGED_NESTED on the build-images task
-  # privileged_nested: false
+  privileged_nested: false
 
   # Enable symlink check in the build pipeline (default: true)
-  # enable_symlink_check: true
+  enable_symlink_check: true
 
   # Enable the package registry proxy (default: true)
-  # enable_package_registry_proxy: true
+  enable_package_registry_proxy: true
 
   # Whether clone-repository task fetches git tags (default: true)
-  # clone_git_tags: true
+  clone_git_tags: true
 
   # K8s resource requests/limits for the build step
-  # build_step_resources:
-  #   memory: "8Gi"
-  #   ephemeral-storage: "50Gi"
+  build_step_resources:
+    memory: "8Gi"
+    ephemeral-storage: "50Gi"
 
   # K8s resource requests/limits for SBOM generation steps
-  # sbom_step_resources:
-  #   memory: "4Gi"
+  sbom_step_resources:
+    memory: "4Gi"
 
   # PVC storage size for workspace volume
-  # workspace_storage: "100Gi"
+  workspace_storage: "100Gi"
 
   # Build retry count before giving up (minimum: 1)
   build_attempts: 1
 
   # Git commit-ish for the Pipeline Run template repository
-  # plr_template_commitish: main
+  plr_template_commitish: main
 
 # ---------------------------------------------------------------------------
 # okd — OKD (community Kubernetes) configuration.
 # ---------------------------------------------------------------------------
 okd:
   # Enable OKD builds
-  # enabled: true
+  enabled: true
   # Branch for OKD source repos
-  # branch: release-{MAJOR}.{MINOR}
+  branch: release-{MAJOR}.{MINOR}
   # Architectures for OKD builds
-  # arches:
-  # - x86_64
-  # - aarch64
+  arches:
+  - x86_64
+  - aarch64
   # Konflux-specific OKD settings
   konflux:
     build_priority: 8
@@ -274,24 +329,24 @@ okd:
       enabled: false
       lockfile:
         force: false
-      # prefetch_mode: permissive
+      prefetch_mode: permissive
 
 # ---------------------------------------------------------------------------
 # bridge_release — Cross-version bridge release configuration.
 # ---------------------------------------------------------------------------
 # Enables building a release that bridges two OCP versions.
-# bridge_release:
-#   basis_group: "openshift-5.0"
-#   bug_mirroring:
-#     enabled: true
+bridge_release:
+  basis_group: "openshift-5.0"
+  bug_mirroring:
+    enabled: true
 
 # ---------------------------------------------------------------------------
 # base_image_release — Default base-image snapshot-to-release behavior.
 # ---------------------------------------------------------------------------
 # Controls Konflux snapshot-to-release for qualifying base images.
 # Per-image settings override this.
-# base_image_release:
-#   enabled: true  # default
+base_image_release:
+  enabled: true
 
 # ---------------------------------------------------------------------------
 # rhcos — Red Hat CoreOS (RHCOS) configuration.
@@ -370,8 +425,9 @@ urls:
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
   cgit: https://pkgs.devel.redhat.com/cgit
-  # rhcos_release_base:
-  #   multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/releases
+  # RHCOS release base URL for multi-arch releases
+  rhcos_release_base:
+    multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/releases
 
 # ---------------------------------------------------------------------------
 # dist_git_ignore — Files to preserve in distgit during rebase.
@@ -384,12 +440,14 @@ dist_git_ignore:
 # ---------------------------------------------------------------------------
 push:
   registries: []
-    # - registry.reg-aws.openshift.com:443
 
 # ---------------------------------------------------------------------------
 # public_upstreams — Private-to-public upstream repo URL mapping.
 # ---------------------------------------------------------------------------
 # Translates openshift-priv URLs to their public equivalents for CI.
+# OCP maps openshift-priv -> openshift.
+# ACM maps openshift-priv -> stolostron.
+# Logging maps openshift-priv -> ViaQ for some repos.
 public_upstreams:
 - private: "https://github.com/openshift-priv"
   public:  "https://github.com/openshift"
@@ -399,23 +457,31 @@ public_upstreams:
 # ---------------------------------------------------------------------------
 # repos — Inline RPM repository definitions (old style).
 # ---------------------------------------------------------------------------
-# Modern branches use the repos/ directory with individual YAML files.
-# This inline format is still supported for backwards compatibility.
-# repos:
-#   rhel-9-server-ose-rpms:
-#     conf:
-#       baseurl:
-#         signed: https://download.example.com/signed/{MAJOR}.{MINOR}/rpms
-#         unsigned: https://download.example.com/unsigned/{MAJOR}.{MINOR}/rpms
-#       enabled: 1
-#       ci_alignment:
-#         localdev:
-#           enabled: true
-#         profiles:
-#           - el9
-#     content_set:
-#       default: rhel-9-server-ose-{MAJOR}.{MINOR}-rpms
-#       ppc64le: rhel-9-for-power-le-server-ose-{MAJOR}.{MINOR}-rpms
+# Modern OCP branches use the repos/ directory with individual YAML files.
+# Layered product branches (logging, acm, quay, etc.) still use inline repos.
+# This inline format is supported for all branches.
+repos:
+  rhel-9-server-ose-rpms:
+    conf:
+      baseurl:
+        signed: https://download.example.com/signed/{MAJOR}.{MINOR}/rpms
+        unsigned: https://download.example.com/unsigned/{MAJOR}.{MINOR}/rpms
+      enabled: 1
+      # Extra yum repo options (e.g. gpgcheck, module_hotfixes)
+      extra_options:
+        gpgcheck: "1"
+      # CI alignment configuration for this repo
+      ci_alignment:
+        localdev:
+          enabled: true
+        profiles:
+          - el9
+    content_set:
+      default: rhel-9-server-ose-{MAJOR}.{MINOR}-rpms
+      ppc64le: rhel-9-for-power-le-server-ose-{MAJOR}.{MINOR}-rpms
+    # Reposync configuration for local mirroring
+    reposync:
+      enabled: false
 
 # ---------------------------------------------------------------------------
 # image_build_log_scanner — Detect known build failures in logs.
@@ -455,6 +521,7 @@ check_golang_versions: "x.y"
 # ---------------------------------------------------------------------------
 # When true, prefer the golang builder used by upstream CI.
 # Can be overridden per-image. Default: false
+# Used by both OCP and layered products (cert-manager, external-secrets, zero-trust).
 canonical_builders_from_upstream: false
 
 # ---------------------------------------------------------------------------
@@ -477,88 +544,99 @@ external_scanners:
   sast_scanning:
     jira_integration:
       enabled: true
-      # exclude_components:
-      # - some-container
+      # Components to exclude from SAST scanning
+      exclude_components:
+      - some-container
 
 # ---------------------------------------------------------------------------
 # mr_approvers — GitLab MR approval rules.
 # ---------------------------------------------------------------------------
-# mr_approvers:
-#   art-team:
-#   - username1
+# Maps approval group names to lists of GitLab usernames that can approve
+# merge requests targeting this group's branch in the midstream repo.
+# Used by both OCP and layered products (logging, mta, mtc, oadp, mce, external-secrets).
+mr_approvers:
+  QE:
+  - username1
+  DOCS:
+  - username2
 
 # ---------------------------------------------------------------------------
 # advisories — Errata advisory IDs (set in assembly definitions).
 # ---------------------------------------------------------------------------
-# advisories:
-#   image: 123456
-#   rpm: 123457
-#   extras: 123458
-#   metadata: 123459
-#   microshift: 123460
-#   silentops: 123461
-#   prerelease: 123462
-#   advance: 123463
-#   rhcos: 123464
+# Maps advisory types to their Errata IDs. Populated by elliott when
+# creating assemblies, or manually set in releases.yml assembly definitions.
+advisories:
+  image: 123456
+  rpm: 123457
+  extras: 123458
+  metadata: 123459
+  microshift: 123460
+  silentops: 123461
+  prerelease: 123462
+  advance: 123463
+  rhcos: 123464
 
 # ---------------------------------------------------------------------------
 # dependencies — Build dependency overrides (set in assembly definitions).
 # ---------------------------------------------------------------------------
-# dependencies: {}
+# Allows pinning specific dependency versions in assembly definitions.
+dependencies: {}
 
 # ---------------------------------------------------------------------------
 # release_jira — Jira issue for tracking this release.
 # ---------------------------------------------------------------------------
-# release_jira: "ART-12345"
+release_jira: "ART-12345"
 
 # ---------------------------------------------------------------------------
 # release_date — Target GA date.
 # ---------------------------------------------------------------------------
-# release_date: "2025-03-01"
+release_date: "2025-03-01"
 
 # ---------------------------------------------------------------------------
 # upgrades — Versions that can upgrade TO this release.
 # ---------------------------------------------------------------------------
-# upgrades: "4.17.0,4.17.1,4.17.2"
+# Comma-separated list of prior versions that can upgrade to this release.
+upgrades: "4.17.0,4.17.1,4.17.2"
 
 # ---------------------------------------------------------------------------
 # upgrades_next — Versions for the "next" upgrade channel.
 # ---------------------------------------------------------------------------
-# upgrades_next: "4.17.0"
+# Comma-separated list of versions for the next (fast/candidate) upgrade channel.
+upgrades_next: "4.17.0"
 
 # ---------------------------------------------------------------------------
 # shipment — Shipment tracking for advisory workflow.
 # ---------------------------------------------------------------------------
-# shipment:
-#   url: "https://shipment.example.com/api/v1"
-#   env: prod  # "stage" or "prod"
-#   advisories:
-#   - kind: image
-#     live_id: 123456
+shipment:
+  url: "https://shipment.example.com/api/v1"
+  env: prod  # "stage" or "prod"
+  advisories:
+  - kind: image
+    live_id: 123456
 
 # ---------------------------------------------------------------------------
 # microshift_bootc_shipment — MicroShift bootc shipment configuration.
 # ---------------------------------------------------------------------------
-# microshift_bootc_shipment:
-#   url: "https://shipment.example.com/api/v1"
+microshift_bootc_shipment:
+  url: "https://shipment.example.com/api/v1"
 
 # ---------------------------------------------------------------------------
 # non_release — Images/RPMs excluded from default release actions.
 # ---------------------------------------------------------------------------
 # Modern usage prefers for_release: false per image config.
-# non_release:
-#   images:
-#   - some-image-distgit-key
-#   rpms:
-#   - some-rpm-distgit-key
+non_release:
+  images:
+  - some-image-distgit-key
+  rpms:
+  - some-rpm-distgit-key
 
 # ---------------------------------------------------------------------------
 # sources — Source alias definitions (DEPRECATED).
 # ---------------------------------------------------------------------------
 # Use inline git config in each image/rpm YAML instead.
-# sources:
-#   enterprise-images-upstream-example:
-#     url: git@github.com:OpenShiftART/image-upstream-example.git
-#     branch:
-#       target: release-{MAJOR}.{MINOR}
-#       fallback: master
+sources:
+  enterprise-images-upstream-example:
+    url: git@github.com:OpenShiftART/image-upstream-example.git
+    branch:
+      target: release-{MAJOR}.{MINOR}
+      fallback: master
