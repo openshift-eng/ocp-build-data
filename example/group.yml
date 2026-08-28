@@ -1,97 +1,564 @@
-# vars is for special templating where {VAL} in any other
-# text below will be replaced by the same value under `vars`
-# uses standard python str.format(**dict) replacement
+# =============================================================================
+# group.yml — Comprehensive reference for ocp-build-data group configuration
+# =============================================================================
+#
+# This file documents ALL available fields for an ocp-build-data group.yml.
+# A group represents a single OCP release version (e.g. openshift-4.18).
+#
+# Field values shown here are representative examples or defaults.
+# Fields suffixed with !, ?, or - are assembly merge operators:
+#   key!  — force-override (replaces parent value even if set)
+#   key?  — set-if-missing (only applies if parent has no value)
+#   key-  — remove (deletes this key from merged result)
+#
+# Validated by: ocp-build-data-validator/validator/json_schemas/assembly_group_config.schema.json
+# Parsed by:    doozer (doozerlib/runtime.py) and elliott (elliottlib/runtime.py)
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# freeze_automation — Controls when scheduled/manual builds are permitted.
+# ---------------------------------------------------------------------------
+# Possible values:
+#   false | "no"       — always allow builds
+#   true  | "yes"      — never allow builds (full freeze)
+#   "scheduled"        — only allow manual builds (block scheduled)
+#   "weekdays"         — allow manual builds always; block scheduled Mon-Fri
+# Note: ocp4 builds are always permitted for non-stream assemblies.
+# Default: false
+freeze_automation: false
+
+# ---------------------------------------------------------------------------
+# vars — Template variables for string interpolation.
+# ---------------------------------------------------------------------------
+# Any {VAR_NAME} reference in this file or image/rpm YAML files will be
+# replaced with the corresponding value using Python str.format(**vars).
 vars:
-  MAJOR: 3
-  MINOR: 8
+  MAJOR: 4
+  MINOR: 18
+  # CVE impact level for advisory metadata (e.g. Low, Moderate, Important, Critical)
+  IMPACT: Low
+  # CVE IDs associated with this release, or "None"
+  CVES: None
+  # RHEL version used for RHCOS builds
+  RHCOS_EL_MAJOR: 9
+  RHCOS_EL_MINOR: 6
 
-name: example
+  # The Go versions used by the various CI builder images.
+  # WARNING: When updating GO_* vars, also update streams.yml so that streams
+  #          referencing {GO_*} vars point to images that provide that Go version.
+  GO_LATEST: "1.22"
+  GO_EXTRA: "1.21"
 
-# Distgit branch to use with this group
-branch: rhaos-3.8-rhel-7
+# ---------------------------------------------------------------------------
+# name — The logical name of this group.
+# ---------------------------------------------------------------------------
+# Used to identify the group in doozer/elliott commands (--group openshift-4.18).
+# Supports template variables.
+name: openshift-{MAJOR}.{MINOR}
 
+# ---------------------------------------------------------------------------
+# branch — Default distgit branch for all images/RPMs in this group.
+# ---------------------------------------------------------------------------
+# Individual image/rpm configs can override this with distgit.branch.
+# Supports template variables.
+branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 
-# Sources contains a mapping of source alias (found in <package>.yml) to
-# github sources. While supported this is DEPRECATED. Please put this
-# information in the image/rpm yml file.
-sources:
-  # An alias which can be used to reference this source in the config yamls of this group.
-  enterprise-images-upstream-example:
-    url: git@github.com:OpenShiftART/image-upstream-example.git
-    branch:
-      target: release-3.8
-      # Fallback branch is used if release-3.8 does not exist yet
-      fallback: master
-
-# If an image or RPM is set to "non_release", it will not show up by default in images:print or be
-# included in elliott actions. This allows us to build images without tempting people
-# to attach it to errata.
-non_release:
-  images:
-  - some-image-distgit_key
-  rpms:
-  - some-rpm-distgit_key
-
-# Specify the arches to be built
+# ---------------------------------------------------------------------------
+# arches — CPU architectures to build for.
+# ---------------------------------------------------------------------------
+# All images inherit this list unless they override it per-image.
+# Valid values: x86_64, aarch64, ppc64le, s390x, multi
 arches:
 - x86_64
 - ppc64le
+- s390x
+- aarch64
 
-# Advanced. In general, developers do not need to worry with this section unless, for some reason, your
-# image needs non-OCP rpms to be installed.
-repos:
-  rhel-server-ose-rpms:
-    conf:
-      baseurl: # can either be a string or a dict with signed/unsigned. Correct version will be retrieved either way.
-        signed: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-signed/{MAJOR}.{MINOR}/building/RH7-RHAOS-{MAJOR}.{MINOR}/x86_64/os
-        unsigned: http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/{MAJOR}.{MINOR}/building/x86_64/os
-      ci_alignment: # used to instruct how to expose these RPMs in upstream ART equivalent images (see streams.yml)
-        # By default, ART equivalent images will pull from repos that only resolve in the CI cluster. When
-        # a developer tries to build them with a local 'docker build', they will fail because the repo
-        # URLs cannot be resolved. If localdev is enabled, images:streams will attempt to populate a repo
-        # which will resolve on a developer's laptop if they are behind the firewall.
-        localdev:
-          enabled: true
-        profiles:
-          - el7  # vs el8; el7 based images will receive this localdev repo.
-    content_set:
-      default: rhel-7-server-ose-{MAJOR}.{MINOR}-rpms
-  rhel-server-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os/
-      # enable by default in generated .repo file
-      enabled: 1
-    content_set:
-      # content set names to be added to content_sets.yml
-      # will use entry for current arch, otherwise default.
-      # must provide default unless all arches specified.
-      default: rhel-7-server-rpms
-      ppc64le: rhel-7-server-ppc64le-rpms
-  rhel-server-rhscl-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/rhscl/1/os/
-    content_set:
-      default: rhel-server-rhscl-7-rpms
-  rhel-server-extras-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os/
-    content_set:
-      default: rhel-7-server-extras-rpms
-  rhel-fast-datapath-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-rpms
-  rhel-fast-datapath-htb-rpms:
-    conf:
-      baseurl: http://pulp.dist.prod.ext.phx2.redhat.com/content/htb/rhel/server/7/x86_64/fast-datapath/os/
-    content_set:
-      default: rhel-7-fast-datapath-htb-rpms
+# ---------------------------------------------------------------------------
+# compliance — Compliance and security policy configuration.
+# ---------------------------------------------------------------------------
+compliance:
+  rpm_shim:
+    # Whether to enable the RPM shim for compliance scanning
+    enabled: true
 
-# Registries to which images will be pushed 'by default' after being build in brew.
-# The registry name may also include a namespace which will overrides the image's standard
-# namespace.
-# Each image can also specify registries as well.
+# ---------------------------------------------------------------------------
+# multi_arch — Multi-architecture build configuration.
+# ---------------------------------------------------------------------------
+multi_arch:
+  enabled: true
+
+# ---------------------------------------------------------------------------
+# new_payload_versioning_scheme — Payload version format toggle.
+# ---------------------------------------------------------------------------
+# When true, release versions use format like 4.18.0-0 instead of 4.18.
+# Default: false
+new_payload_versioning_scheme: false
+
+# ---------------------------------------------------------------------------
+# operator_image_ref_mode — How operator images reference operand images.
+# ---------------------------------------------------------------------------
+# Controls whether operators use manifest-list or arch-specific image refs.
+# Typical value: "manifest-list"
+operator_image_ref_mode: manifest-list
+
+# ---------------------------------------------------------------------------
+# operator_channel_stable — Stable channel name for operator bundles.
+# ---------------------------------------------------------------------------
+# Optional. Sets the channel name used for stable operator updates.
+# operator_channel_stable: stable
+
+# ---------------------------------------------------------------------------
+# operator_index_mode — Release lifecycle stage for operator index.
+# ---------------------------------------------------------------------------
+# Controls which operator index format to use.
+# Valid values: "pre-release", "pre-ga", "ga"
+# operator_index_mode: pre-release
+
+# ---------------------------------------------------------------------------
+# signing_advisory — Errata advisory ID used for RPM signing.
+# ---------------------------------------------------------------------------
+signing_advisory: 136879
+
+# ---------------------------------------------------------------------------
+# csv_namespace — Namespace for ClusterServiceVersion (CSV) in OLM bundles.
+# ---------------------------------------------------------------------------
+# Default: "openshift"
+csv_namespace: openshift
+
+# ---------------------------------------------------------------------------
+# default_image_build_method — Build method for container images.
+# ---------------------------------------------------------------------------
+# Valid values: "osbs2"
+default_image_build_method: osbs2
+
+# ---------------------------------------------------------------------------
+# default_image_build_profile — Default build profile for image builds.
+# ---------------------------------------------------------------------------
+# References a profile defined under build_profiles.image.
+default_image_build_profile: unsigned
+
+# ---------------------------------------------------------------------------
+# default_rpm_build_profile — Default build profile for RPM builds.
+# ---------------------------------------------------------------------------
+# References a profile defined under build_profiles.rpm.
+default_rpm_build_profile: default
+
+# ---------------------------------------------------------------------------
+# build_profiles — Named build configurations for images and RPMs.
+# ---------------------------------------------------------------------------
+# Profiles control signing intent, repo types, and build targets.
+build_profiles:
+  image:
+    unsigned:
+      signing_intent: unsigned
+      repo_type: unsigned
+    signed:
+      signing_intent: release
+      repo_type: signed
+  rpm:
+    default:
+      targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-9-candidate
+      hotfix_targets:
+      - rhaos-{MAJOR}.{MINOR}-rhel-9-hotfix
+
+# ---------------------------------------------------------------------------
+# assemblies — Assembly system configuration.
+# ---------------------------------------------------------------------------
+# Assemblies are named releases (e.g. 4.18.1, 4.18.0-ec.3).
+# The "stream" assembly represents latest ongoing development.
+# Detailed assembly definitions go in releases.yml.
+assemblies:
+  enabled: true
+
+# ---------------------------------------------------------------------------
+# cachito — Cachito/Cachi2 integration for hermetic builds (OSBS).
+# ---------------------------------------------------------------------------
+# Manages dependency prefetching for reproducible builds.
+cachito:
+  enabled: true
+  # Cachito API version (1 or 2)
+  version: 2
+
+# ---------------------------------------------------------------------------
+# konflux — Konflux build system configuration.
+# ---------------------------------------------------------------------------
+# Konflux is the Tekton-based build system that runs alongside OSBS.
+konflux:
+  # Architectures to build in Konflux (may differ from group-level arches)
+  arches:
+  - x86_64
+  - aarch64
+  - s390x
+  - ppc64le
+
+  # Cachi2 dependency management for Konflux builds
+  cachi2:
+    enabled: true
+    # Whether to patch Go module versions
+    gomod_version_patch: true
+    # Prefetch mode: "strict" (fail on unresolved) or "permissive" (warn only)
+    # prefetch_mode: strict
+    # RPM lockfile generation settings
+    lockfile:
+      # Force lockfile regeneration even if one exists
+      # force: true
+      # Backend: "art-internal" or "rpm-lockfile-prototype"
+      backend: rpm-lockfile-prototype
+
+  # SAST (Static Application Security Testing) scanning in Konflux pipelines
+  sast:
+    enabled: false
+
+  # Network mode for builds (e.g. "hermetic" for isolated builds)
+  network_mode: hermetic
+
+  # Tekton task names to remove from PipelineRuns
+  # skip_tasks:
+  # - task-name
+
+  # KEY=VALUE strings passed as build-args pipeline param
+  # build_args:
+  # - "MY_ARG=value"
+
+  # Kubernetes secret set as ADDITIONAL_SECRET on build-images task
+  # additional_secret: my-secret
+
+  # Enable PRIVILEGED_NESTED on the build-images task
+  # privileged_nested: false
+
+  # Enable symlink check in the build pipeline (default: true)
+  # enable_symlink_check: true
+
+  # Enable the package registry proxy (default: true)
+  # enable_package_registry_proxy: true
+
+  # Whether clone-repository task fetches git tags (default: true)
+  # clone_git_tags: true
+
+  # K8s resource requests/limits for the build step
+  # build_step_resources:
+  #   memory: "8Gi"
+  #   ephemeral-storage: "50Gi"
+
+  # K8s resource requests/limits for SBOM generation steps
+  # sbom_step_resources:
+  #   memory: "4Gi"
+
+  # PVC storage size for workspace volume
+  # workspace_storage: "100Gi"
+
+  # Build retry count before giving up (minimum: 1)
+  build_attempts: 1
+
+  # Git commit-ish for the Pipeline Run template repository
+  # plr_template_commitish: main
+
+# ---------------------------------------------------------------------------
+# okd — OKD (community Kubernetes) configuration.
+# ---------------------------------------------------------------------------
+okd:
+  # Enable OKD builds
+  # enabled: true
+  # Branch for OKD source repos
+  # branch: release-{MAJOR}.{MINOR}
+  # Architectures for OKD builds
+  # arches:
+  # - x86_64
+  # - aarch64
+  # Konflux-specific OKD settings
+  konflux:
+    build_priority: 8
+    cachi2:
+      enabled: false
+      lockfile:
+        force: false
+      # prefetch_mode: permissive
+
+# ---------------------------------------------------------------------------
+# bridge_release — Cross-version bridge release configuration.
+# ---------------------------------------------------------------------------
+# Enables building a release that bridges two OCP versions.
+# bridge_release:
+#   basis_group: "openshift-5.0"
+#   bug_mirroring:
+#     enabled: true
+
+# ---------------------------------------------------------------------------
+# base_image_release — Default base-image snapshot-to-release behavior.
+# ---------------------------------------------------------------------------
+# Controls Konflux snapshot-to-release for qualifying base images.
+# Per-image settings override this.
+# base_image_release:
+#   enabled: true  # default
+
+# ---------------------------------------------------------------------------
+# rhcos — Red Hat CoreOS (RHCOS) configuration.
+# ---------------------------------------------------------------------------
+rhcos:
+  payload_tags:
+    - name: rhel-coreos
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_build_id_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_version: "{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}"
+      # Metadata type: "commitmeta" for primary, "meta" for extensions
+      meta_type: commitmeta
+      primary: true
+    - name: rhel-coreos-extensions
+      rhcos_index_tag: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image-extensions
+      rhel_build_id_index: quay.io/openshift-release-dev/ocp-v4.0-art-dev:{MAJOR}.{MINOR}-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}-node-image
+      rhel_version: "{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}"
+      meta_type: meta
+
+  # Repos enabled for RHCOS builds
+  enabled_repos:
+  - rhel-9-fast-datapath-rpms
+  - rhel-9-server-ose-rpms
+  - rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+
+  # RPMs that must have consistent versions between RHCOS and specific images
+  require_consistency:
+    driver-toolkit:
+    - kernel
+    ose-ovn-kubernetes:
+    - libreswan
+
+  # RPMs exempt from consistency checks (aligned via RHEL base image)
+  exempt_rpms:
+  - crun-wasm
+
+  # Allow RHCOS to contain RPMs not found in Brew
+  allow_missing_brew_rpms: false
+
+  # Whether RHCOS uses layered image builds
+  layered_rhcos: true
+
+# ---------------------------------------------------------------------------
+# check_external_packages — External RPMs to verify at release assembly time.
+# ---------------------------------------------------------------------------
+check_external_packages:
+  - name: cri-o
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    # "match" = exact NVR match; "greater_equal" = >= comparison
+    condition: match
+  - name: kernel
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: match
+  - name: NetworkManager
+    tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+    condition: greater_equal
+
+# ---------------------------------------------------------------------------
+# rpm_deliveries — RPM delivery pipeline configuration (e.g. weekly kernel).
+# ---------------------------------------------------------------------------
+rpm_deliveries:
+  - packages:
+      - kernel
+    rhel_tag: rhel-{RHCOS_EL_MAJOR}.{RHCOS_EL_MINOR}.0-z-candidate
+    integration_tag: early-kernel-candidate
+    stop_ship_tag: early-kernel-stop-ship
+    ship_ok_tag: early-kernel-ship-ok
+    target_tag: rhaos-{MAJOR}.{MINOR}-rhel-{RHCOS_EL_MAJOR}-candidate
+
+# ---------------------------------------------------------------------------
+# urls — Service endpoint URLs used by build tooling.
+# ---------------------------------------------------------------------------
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
+  cgit: https://pkgs.devel.redhat.com/cgit
+  # rhcos_release_base:
+  #   multi: https://releases-rhcos-art.apps.ocp-virt.prod.psi.redhat.com/storage/releases
+
+# ---------------------------------------------------------------------------
+# dist_git_ignore — Files to preserve in distgit during rebase.
+# ---------------------------------------------------------------------------
+dist_git_ignore:
+  - gating.yaml
+
+# ---------------------------------------------------------------------------
+# push — Push configuration for built images.
+# ---------------------------------------------------------------------------
 push:
-  registries:
-    - registry.reg-aws.openshift.com:443
+  registries: []
+    # - registry.reg-aws.openshift.com:443
+
+# ---------------------------------------------------------------------------
+# public_upstreams — Private-to-public upstream repo URL mapping.
+# ---------------------------------------------------------------------------
+# Translates openshift-priv URLs to their public equivalents for CI.
+public_upstreams:
+- private: "https://github.com/openshift-priv"
+  public:  "https://github.com/openshift"
+- private: "https://github.com/openshift-priv/ocp-build-data"
+  public: "https://github.com/openshift-eng/ocp-build-data"
+
+# ---------------------------------------------------------------------------
+# repos — Inline RPM repository definitions (old style).
+# ---------------------------------------------------------------------------
+# Modern branches use the repos/ directory with individual YAML files.
+# This inline format is still supported for backwards compatibility.
+# repos:
+#   rhel-9-server-ose-rpms:
+#     conf:
+#       baseurl:
+#         signed: https://download.example.com/signed/{MAJOR}.{MINOR}/rpms
+#         unsigned: https://download.example.com/unsigned/{MAJOR}.{MINOR}/rpms
+#       enabled: 1
+#       ci_alignment:
+#         localdev:
+#           enabled: true
+#         profiles:
+#           - el9
+#     content_set:
+#       default: rhel-9-server-ose-{MAJOR}.{MINOR}-rpms
+#       ppc64le: rhel-9-for-power-le-server-ose-{MAJOR}.{MINOR}-rpms
+
+# ---------------------------------------------------------------------------
+# image_build_log_scanner — Detect known build failures in logs.
+# ---------------------------------------------------------------------------
+image_build_log_scanner:
+  matches:
+  - "No package .* available"
+  - "Error: Unable to find a match"
+  - "Failed component comparison for components:.*"
+  - "is not a valid repository/tag: invalid reference format"
+  - "plugins.imagebuilder.*lstat.*no such file or directory"
+  - "bump_release: BuildError.'Unable to increment release value:"
+  - "not in list for tag rhaos-.*-candidate"
+  files:
+  - x86_64.log
+  - s390x.log
+  - ppc64le.log
+  - aarch64.log
+  - task_failed.log
+  - orchestrator.log
+
+# ---------------------------------------------------------------------------
+# scan_freshness — Build staleness detection.
+# ---------------------------------------------------------------------------
+scan_freshness:
+  release_regex: '(?x) ^ (\d\d\d\d) (\d\d) (\d\d) (\d\d)'
+  threshold_hours: 1
+
+# ---------------------------------------------------------------------------
+# check_golang_versions — Golang compiler version consistency.
+# ---------------------------------------------------------------------------
+# "x.y" (default): major.minor must match; "exact": full x.y.z; "no"/false: skip
+check_golang_versions: "x.y"
+
+# ---------------------------------------------------------------------------
+# canonical_builders_from_upstream — Use upstream CI golang builders.
+# ---------------------------------------------------------------------------
+# When true, prefer the golang builder used by upstream CI.
+# Can be overridden per-image. Default: false
+canonical_builders_from_upstream: false
+
+# ---------------------------------------------------------------------------
+# reconciliation_prs — Upstream Dockerfile alignment PR creation.
+# ---------------------------------------------------------------------------
+reconciliation_prs:
+  enabled: false
+
+# ---------------------------------------------------------------------------
+# software_lifecycle — Release lifecycle phase.
+# ---------------------------------------------------------------------------
+# Phases: "pre-release", "signing", "release", "eol"
+software_lifecycle:
+  phase: pre-release
+
+# ---------------------------------------------------------------------------
+# external_scanners — External security scanning.
+# ---------------------------------------------------------------------------
+external_scanners:
+  sast_scanning:
+    jira_integration:
+      enabled: true
+      # exclude_components:
+      # - some-container
+
+# ---------------------------------------------------------------------------
+# mr_approvers — GitLab MR approval rules.
+# ---------------------------------------------------------------------------
+# mr_approvers:
+#   art-team:
+#   - username1
+
+# ---------------------------------------------------------------------------
+# advisories — Errata advisory IDs (set in assembly definitions).
+# ---------------------------------------------------------------------------
+# advisories:
+#   image: 123456
+#   rpm: 123457
+#   extras: 123458
+#   metadata: 123459
+#   microshift: 123460
+#   silentops: 123461
+#   prerelease: 123462
+#   advance: 123463
+#   rhcos: 123464
+
+# ---------------------------------------------------------------------------
+# dependencies — Build dependency overrides (set in assembly definitions).
+# ---------------------------------------------------------------------------
+# dependencies: {}
+
+# ---------------------------------------------------------------------------
+# release_jira — Jira issue for tracking this release.
+# ---------------------------------------------------------------------------
+# release_jira: "ART-12345"
+
+# ---------------------------------------------------------------------------
+# release_date — Target GA date.
+# ---------------------------------------------------------------------------
+# release_date: "2025-03-01"
+
+# ---------------------------------------------------------------------------
+# upgrades — Versions that can upgrade TO this release.
+# ---------------------------------------------------------------------------
+# upgrades: "4.17.0,4.17.1,4.17.2"
+
+# ---------------------------------------------------------------------------
+# upgrades_next — Versions for the "next" upgrade channel.
+# ---------------------------------------------------------------------------
+# upgrades_next: "4.17.0"
+
+# ---------------------------------------------------------------------------
+# shipment — Shipment tracking for advisory workflow.
+# ---------------------------------------------------------------------------
+# shipment:
+#   url: "https://shipment.example.com/api/v1"
+#   env: prod  # "stage" or "prod"
+#   advisories:
+#   - kind: image
+#     live_id: 123456
+
+# ---------------------------------------------------------------------------
+# microshift_bootc_shipment — MicroShift bootc shipment configuration.
+# ---------------------------------------------------------------------------
+# microshift_bootc_shipment:
+#   url: "https://shipment.example.com/api/v1"
+
+# ---------------------------------------------------------------------------
+# non_release — Images/RPMs excluded from default release actions.
+# ---------------------------------------------------------------------------
+# Modern usage prefers for_release: false per image config.
+# non_release:
+#   images:
+#   - some-image-distgit-key
+#   rpms:
+#   - some-rpm-distgit-key
+
+# ---------------------------------------------------------------------------
+# sources — Source alias definitions (DEPRECATED).
+# ---------------------------------------------------------------------------
+# Use inline git config in each image/rpm YAML instead.
+# sources:
+#   enterprise-images-upstream-example:
+#     url: git@github.com:OpenShiftART/image-upstream-example.git
+#     branch:
+#       target: release-{MAJOR}.{MINOR}
+#       fallback: master
