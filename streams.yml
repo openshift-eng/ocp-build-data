@@ -20,7 +20,7 @@
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.24-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.24.13-202608271630.p2.gedd1cdd.assembly.stream.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -29,7 +29,7 @@ rhel-9-golang:
 rhel-8-golang:
   aliases:
     - rhel-8-golang-{GO_LATEST}
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.24-rhel8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.24.13-202608271630.p2.gedd1cdd.assembly.stream.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -38,7 +38,7 @@ rhel-8-golang:
 rhel-9-golang-1.25:
   aliases:
     - rhel-9-golang-{GO_EXTRA}
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.25-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.12-202608271548.p2.gedd1cdd.assembly.stream.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -47,19 +47,19 @@ rhel-9-golang-1.25:
 rhel-8-golang-1.25:
   aliases:
     - rhel-8-golang-{GO_EXTRA}
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.25-rhel8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.11-202608271541.p2.gedd1cdd.assembly.stream.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-{GO_EXTRA}-openshift-{MAJOR}.{MINOR}
 
 rhel-9-golang-1.26:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.26.7-202608270918.p2.gedd1cdd.assembly.stream.el9
   mirror: false
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.26-openshift-{MAJOR}.{MINOR}
 
 rhel-8-golang-1.26:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.26.7-202608270918.p2.gedd1cdd.assembly.stream.el8
   mirror: false
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.26-openshift-{MAJOR}.{MINOR}
 
