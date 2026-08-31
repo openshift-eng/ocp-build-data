@@ -54,6 +54,9 @@ releases:
               is:
                 nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.20.0-202608261738.p2.g6ecae5d.assembly.stream.el9
             why: Pin handler to match bundle operand reference (after basis.time)
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: "OCPBUGS-113536 is a stream-specific 4.20 bootimage bump tracker. Its parent OCPBUGS-113535 (4.21 bootimage bump) is Verified but not yet attached to any advisory. This is not a cross-stream regression — each stream has independent RHCOS bootimage metadata."
   4.20.35:
     assembly:
       type: standard
