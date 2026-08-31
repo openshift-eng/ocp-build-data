@@ -51,7 +51,13 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a55130efe5ad6fe32bf690a0db6f92d0cbeee97391bd566a7208990f7318b19e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: oc-mirror-plugin
+            why: Pin oc-mirror-plugin to payload and assembly NVR
+            metadata:
+              for_payload: true
+              is:
+                nvr: oc-mirror-plugin-container-v5.0.0-202606091635.p2.g9054b9a.assembly.stream.el9
   ec.6:
     assembly:
       type: preview
