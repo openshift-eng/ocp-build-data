@@ -4,10 +4,15 @@ cachito:
   packages:
     gomod:
       - path: harness/
+      - path: api/
     pip:
-      - path: hack/cachi2
+      - path: "."
         requirements_files:
         - requirements.txt
+        binary:
+          packages: ":all:"
+          arch: "x86_64,aarch64"
+          py_version: 311
 content:
   source:
     dockerfile: images/agent-base/Containerfile
@@ -18,14 +23,8 @@ content:
       web: https://github.com/migtools/mta-agentic-controller
     modifications:
       - action: replace
-        match: "RUN go mod download"
-        replacement: "# go mod download removed - deps pre-fetched by cachi2"
-      - action: replace
         match: 'curl -fsSL "https://github.com/block/goose/releases/download/${GOOSE_VERSION}/goose-${GOOSE_ARCH}.tar.bz2" -o /tmp/goose.tar.bz2'
         replacement: "cp /cachi2/output/deps/generic/goose-${GOOSE_ARCH}.tar.bz2 /tmp/goose.tar.bz2"
-      - action: replace
-        match: "python3 -m pip install --no-cache-dir graphifyy==0.7.17"
-        replacement: "python3 -m pip install --no-cache-dir --no-index --find-links /cachi2/output/deps/pip/ graphifyy==0.7.17"
     pkg_managers:
     - gomod
     - pip
@@ -52,13 +51,6 @@ dependents:
   - mta-operator
 konflux:
   cachi2:
-    lockfile:
-      rpms:
-      - gcc
-      - gcc-c++
-      - python3-devel
-      - libffi-devel
-      - pkg-config
     artifact_lockfile:
       enabled: true
       resources:
