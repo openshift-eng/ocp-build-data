@@ -43,3 +43,33 @@ owners:
 konflux:
   cachito:
     mode: emulation
+okd:
+  content:
+    source:
+      dockerfile: Dockerfile
+      modifications:
+      - action: replace
+        match: "RUN make install-frontend-ci"
+        replacement: |-
+          RUN npm config set fetch-timeout 600000 && \
+              npm config set fetch-retries 5 && \
+              npm config set fetch-retry-mintimeout 30000 && \
+              npm config set fetch-retry-maxtimeout 120000 && \
+              for attempt in 1 2 3 4 5; do \
+                echo "Attempt $attempt: make install-frontend-ci"; \
+                make install-frontend-ci && break; \
+                echo "Attempt $attempt failed"; \
+                [ "$attempt" -lt 5 ] && sleep 60; \
+              done && \
+              if [ "$(uname -m)" = "aarch64" ]; then \
+                cd web && \
+                for attempt in 1 2 3 4 5; do \
+                  echo "Attempt $attempt: npm pack @esbuild/linux-arm64@0.28.1"; \
+                  npm pack @esbuild/linux-arm64@0.28.1 && break; \
+                  echo "Attempt $attempt failed"; \
+                  [ "$attempt" -lt 5 ] && sleep 60; \
+                done && \
+                mkdir -p node_modules/esbuild-loader/node_modules/@esbuild/linux-arm64 && \
+                tar xzf esbuild-linux-arm64-*.tgz -C node_modules/esbuild-loader/node_modules/@esbuild/linux-arm64 --strip-components=1 && \
+                rm -f esbuild-linux-arm64-*.tgz; \
+              fi
