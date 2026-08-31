@@ -13,6 +13,8 @@ cachito:
           packages: ":all:"
           arch: "x86_64,aarch64"
           py_version: 311
+    cargo:
+      - path: images/agent-base/goose/
 content:
   source:
     dockerfile: images/agent-base/Containerfile
@@ -23,11 +25,44 @@ content:
       web: https://github.com/migtools/mta-agentic-controller
     modifications:
       - action: replace
-        match: 'curl -fsSL "https://github.com/block/goose/releases/download/${GOOSE_VERSION}/goose-${GOOSE_ARCH}.tar.bz2" -o /tmp/goose.tar.bz2'
-        replacement: "cp /cachi2/output/deps/generic/goose-${GOOSE_ARCH}.tar.bz2 /tmp/goose.tar.bz2"
+        match: "RUN go mod download"
+        replacement: "# go mod download removed - deps pre-fetched by cachi2"
+      - action: replace
+        match: |-
+          RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+              && apt-get update && apt-get install -y \
+                  build-essential \
+                  git \
+                  cmake \
+                  pkg-config \
+                  libssl-dev \
+                  libclang-dev \
+                  clang \
+                  libdbus-1-dev \
+                  libxcb1-dev \
+                  perl \
+              && rm -rf /var/lib/apt/lists/*
+        replacement: |-
+          RUN dnf install -y \
+              gcc gcc-c++ git cmake pkgconfig openssl-devel clang clang-devel dbus-devel libxcb-devel perl \
+              rust cargo \
+              && dnf clean all
+      - action: replace
+        match: 'ENV PATH="/root/.cargo/bin:${PATH}"'
+        replacement: "# cargo from rpm is already on PATH"
+      - action: replace
+        match: |-
+          RUN git clone https://github.com/aaif-goose/goose.git . \
+              && git checkout ${GOOSE_VERSION} \
+        replacement: |-
+          RUN tar -xzf /cachi2/output/deps/generic/goose-v1.45.0.tar.gz --strip-components=1 \
+      - action: replace
+        match: '&& cargo build --release -p goose-cli --bin goose \'
+        replacement: '&& rm -f .cargo/config.toml && cargo build --release -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - pip
+    - cargo
 jira:
   project: MTA
   component: Analysis
@@ -39,6 +74,7 @@ delivery:
 enabled_repos:
 - rhel-98-appstream-rpms
 - rhel-98-baseos-rpms
+- rhel-98-codeready-builder-rpms
 from:
   builder:
     - stream: rhel-9-golang
@@ -51,10 +87,22 @@ dependents:
   - mta-operator
 konflux:
   cachi2:
+    lockfile:
+      rpms:
+        - cargo
+        - clang
+        - clang-devel
+        - cmake
+        - dbus-devel
+        - gcc
+        - gcc-c++
+        - git
+        - libxcb-devel
+        - openssl-devel
+        - perl
+        - rust
     artifact_lockfile:
       enabled: true
       resources:
-        - url: https://github.com/block/goose/releases/download/v1.45.0/goose-x86_64-unknown-linux-gnu.tar.bz2
-          filename: goose-x86_64-unknown-linux-gnu.tar.bz2
-        - url: https://github.com/block/goose/releases/download/v1.45.0/goose-aarch64-unknown-linux-gnu.tar.bz2
-          filename: goose-aarch64-unknown-linux-gnu.tar.bz2
+        - url: https://github.com/aaif-goose/goose/archive/refs/tags/v1.45.0.tar.gz
+          filename: goose-v1.45.0.tar.gz
