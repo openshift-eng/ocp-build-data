@@ -51,7 +51,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8a5efc5e4a43b88f9f8f02e6cb99b713affd901c0bcd5f5c58fb10bbf4f92f25
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a55130efe5ad6fe32bf690a0db6f92d0cbeee97391bd566a7208990f7318b19e
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~rc.0-202609010159.p0.ged0aa10.assembly.rc.0.el9
         images:
           - distgit_key: oc-mirror-plugin
             why: Pin oc-mirror-plugin to payload and assembly NVR
