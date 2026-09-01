@@ -1,5 +1,15 @@
 cachito:
   enabled: true
+konflux:
+  cachi2:
+    artifact_lockfile:
+      enabled: true
+      path: .
+      resources:
+      - url: https://www.redhat.com/security/data/metrics/repository-to-cpe.json
+        filename: repository-to-cpe.json
+      - url: https://www.redhat.com/security/data/metrics/container-name-repos-map.json
+        filename: container-name-repos-map.json
 dependents:
 - quay-operator
 content:
