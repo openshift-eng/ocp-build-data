@@ -43,9 +43,12 @@ content:
                   perl \
               && rm -rf /var/lib/apt/lists/*
         replacement: |-
+          # rust-toolset (AppStream) provides Rust 1.92.0 on RHEL 9.8, which is the
+          # highest available via RPM. goose declares rust-version = "1.94.1" but we
+          # override the MSRV gate with --ignore-rust-version (see cargo build step below).
           RUN dnf install -y \
               gcc gcc-c++ git cmake pkgconfig openssl-devel clang clang-devel dbus-devel libxcb-devel perl \
-              rust cargo \
+              rust-toolset \
               && dnf clean all
       - action: replace
         match: 'ENV PATH="/root/.cargo/bin:${PATH}"'
@@ -58,7 +61,13 @@ content:
           RUN tar -xzf /cachi2/output/deps/generic/goose-v1.45.0.tar.gz --strip-components=1 \
       - action: replace
         match: '&& cargo build --release -p goose-cli --bin goose \'
-        replacement: '&& rm -f .cargo/config.toml && cargo build --release -p goose-cli --bin goose \'
+        # --ignore-rust-version bypasses the MSRV gate (goose declares rust-version = "1.94.1"
+        # but RHEL 9.8 tops out at 1.92.0 via rust-toolset). The build will still fail if goose
+        # actually uses a language feature introduced after 1.92.0, which surfaces a clear error.
+        # rm -f .cargo/config.toml removes any config shipped by the goose source tarball that
+        # would conflict with cachi2's offline vendor settings (cachi2 injects its own config
+        # via CARGO_HOME rather than the source tree).
+        replacement: '&& rm -f .cargo/config.toml && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - pip
@@ -89,7 +98,9 @@ konflux:
   cachi2:
     lockfile:
       rpms:
-        - cargo
+        # rust-toolset (AppStream) is used instead of the plain rust/cargo CRB packages
+        # because it ships Rust 1.92.0 on RHEL 9.8, versus ~1.75.x from CRB.
+        - rust-toolset
         - clang
         - clang-devel
         - cmake
@@ -100,7 +111,6 @@ konflux:
         - libxcb-devel
         - openssl-devel
         - perl
-        - rust
     artifact_lockfile:
       enabled: true
       resources:
