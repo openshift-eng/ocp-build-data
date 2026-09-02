@@ -42,8 +42,9 @@ releases:
         exclude:
           - id: OCPBUGS-105202
           # why: we don't deliver openshift-golang-builder RPM
-          - id: OCPBUGS-98737
-          - id: OCPBUGS-81779
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: "permit cri-o bugs (OCPBUGS-98737, OCPBUGS-81779) whose 4.17.z backports are not yet on any advisory"
       rhcos:
         rhel-coreos:
           images:
