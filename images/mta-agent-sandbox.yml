@@ -1,0 +1,40 @@
+base_image_release:
+  force: true
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-0.5
+      url: git@github.com:openshift-priv/migtools-agent-sandbox.git
+      web: https://github.com/migtools/agent-sandbox
+    modifications:
+      - action: replace
+        match: "RUN go mod download"
+        replacement: "# go mod download removed - deps pre-fetched by cachi2"
+    pkg_managers:
+    - gomod
+jira:
+  project: MTA
+  component: Analysis
+distgit:
+  component: mta-agent-sandbox-container
+delivery:
+  delivery_repo_names:
+  - mta/mta-agent-sandbox-rhel9
+enabled_repos:
+- rhel-98-appstream-rpms
+- rhel-98-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-golang
+  stream: rhel9
+name: mta/mta-agent-sandbox-rhel9
+owners:
+- mta-devs@redhat.com
+dependents:
+  - mta-operator
