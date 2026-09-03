@@ -8,7 +8,6 @@ content:
       web: https://github.com/openshift/cluster-logging-operator
     # Temporary: import Red Hat GPG key into the empty installroot before dnf install.
     # Hermetic Hermeto repos have gpgcheck=1 but /mnt/rootfs starts with an empty rpmdb.
-    # Remove when Dockerfile.art imports the key upstream.
     modifications:
     - action: replace
       match: "mkdir -p /mnt/rootfs && \\"
