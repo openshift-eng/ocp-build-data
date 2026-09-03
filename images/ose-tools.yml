@@ -46,5 +46,5 @@ okd:
     source:
       modifications:
       - action: replace
-        match: 'RUN if yum install -y iotop >/dev/null 2>&1; then IOTOP_PKG="iotop"; else IOTOP_PKG="iotop-c"; fi &&'
+        match: 'RUN if yum install -y iotop-c >/dev/null 2>&1; then IOTOP_PKG="iotop-c"; else IOTOP_PKG="iotop"; fi &&'
         replacement: 'RUN IOTOP_PKG="iotop-c" &&'
