@@ -6,18 +6,10 @@ content:
         target: master
       url: git@github.com:openshift-priv/cluster-logging-operator.git
       web: https://github.com/openshift/cluster-logging-operator
-    # Temporary: rpm-lockfile-prototype treats spaced dnf option arguments as package
-    # names (--installroot /mnt/rootfs, --releasever 9). Remove when Dockerfile.art
-    # uses --flag=value form (openshift/cluster-logging-operator#3453).
-    # Import Red Hat GPG key into the empty installroot before dnf install; hermetic
-    # Hermeto repos have gpgcheck=1 and the staging rpmdb starts empty.
+    # Temporary: import Red Hat GPG key into the empty installroot before dnf install.
+    # Hermetic Hermeto repos have gpgcheck=1 but /mnt/rootfs starts with an empty rpmdb.
+    # Remove when Dockerfile.art imports the key upstream.
     modifications:
-    - action: replace
-      match: "--installroot /mnt/rootfs"
-      replacement: "--installroot=/mnt/rootfs"
-    - action: replace
-      match: "--releasever 9"
-      replacement: "--releasever=9"
     - action: replace
       match: "mkdir -p /mnt/rootfs && \\"
       replacement: "mkdir -p /mnt/rootfs && \\\n    rpm --root=/mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \\"
