@@ -43,4 +43,22 @@ canonical_builders_from_upstream: false
 konflux:
   network_mode: open
 okd:
-  mode: disabled
+  mode: enabled
+  from:
+    builder:
+      - member: rhcos-node-image
+      - member: openshift-enterprise-base-rhel9
+    member: openshift-enterprise-base-rhel9
+  enabled_repos: []
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "ARG STREAM_CLASS"
+        replacement: "ARG STREAM_CLASS=centos-10"
+      - action: replace
+        match: "RUN --mount=type=secret,id=yumrepos,target=/os/secret.repo extensions/build.sh"
+        replacement: |
+          RUN rm -f /os/c10s.repo && touch /os/empty.repo && \
+              sed -e 's/--repo="${repo_list}"//' extensions/build.sh | bash
+  payload_name: stream-coreos-extensions

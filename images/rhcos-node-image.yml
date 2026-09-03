@@ -55,4 +55,39 @@ canonical_builders_from_upstream: false
 konflux:
   network_mode: open
 okd:
-  mode: disabled
+  mode: enabled
+  from:
+    stream: scos_coreos
+  enabled_repos: []
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "ARG OPENSHIFT_VERSION=overridden"
+        replacement: "ARG OPENSHIFT_VERSION=5.0"
+      - action: replace
+        match: "ARG STREAM_CLASS"
+        replacement: "ARG STREAM_CLASS=centos-10"
+      - action: replace
+        match: "ARG IMAGE_NAME"
+        replacement: "ARG IMAGE_NAME=openshift/scos-node-image"
+      - action: replace
+        match: "ARG IMAGE_CPE"
+        replacement: "ARG IMAGE_CPE=cpe:/a:redhat:openshift:5.0::el10"
+      - action: replace
+        match: "ARG TARGETARCH"
+        replacement: "ARG TARGETARCH=amd64"
+      - action: replace
+        match: "LABEL name=${IMAGE_NAME}"
+        replacement: ""
+      - action: replace
+        match: "LABEL architecture=${TARGETARCH}"
+        replacement: ""
+      - action: replace
+        match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo /run/src/build-node-image.sh'
+        replacement: |
+          RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo \
+              sed -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
+                  -e '/cat \/run\/src\/\*\.repo >> \/etc\/yum\.repos\.d\/git\.repo/a sed -i "s/enabled=1/enabled=0/g" /etc/yum.repos.d/git.repo' \
+                  /run/src/build-node-image.sh | bash
+  payload_name: stream-coreos
