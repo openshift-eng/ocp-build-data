@@ -1,5 +1,20 @@
 base_image_release:
   force: true
+# TODO: ART auto-detects requirements.txt from the repo and runs pip prefetch
+# for every component sourcing from this repo, even ones that don't install
+# Python packages. Mirroring the binary config from mta-agent-base makes the
+# prefetch succeed (tree-sitter-php==0.24.1 has no sdist, only wheels).
+# Remove once ART's pip detection scope is clarified / scoped per image.
+cachito:
+  packages:
+    pip:
+      - path: "."
+        requirements_files:
+        - requirements.txt
+        binary:
+          packages: ":all:"
+          arch: "x86_64,aarch64"
+          py_version: 311
 content:
   source:
     dockerfile: catalog/Containerfile
