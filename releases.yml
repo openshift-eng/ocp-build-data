@@ -4,8 +4,8 @@ releases:
       type: preview
       basis:
         time: "2026-09-01T16:02:54+00:00"
-        reference_releases:
-          x86_64: 5.1.0-0.nightly-2026-09-01-192803
+        # reference_releases:
+        #   x86_64: 5.1.0-0.nightly-2026-09-01-192803
       group:
         advisories:
           rpm: -1
@@ -20,6 +20,11 @@ releases:
             - kind: fbc
           env: stage
         release_date: 2027-Feb-01
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.42.1.el9_8
+              why: Pin kernel to match pinned RHCOS (kernel-5.14.0-687.42.1.el9_8)
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
@@ -46,20 +51,16 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6849aaff77599f4c2e79f8df2a2c4b4849da5c1fd825410d2307e9dc0ec66cfa
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d748fe8212c9fc0c653d8ab855ddac793da78791e2e0f1a91b9484dae6bb28f3
       members:
-        rpms:
-          - distgit_key: kernel
-            why: Pin the EC.0 kernel to match the fixed RHCOS payload
+        rpms: []
+        images:
+          - distgit_key: driver-toolkit-rhel10
+            why: Pin DTK-10 to match RHCOS kernel kernel-modules-extra-6.12.0-211.49.1.el10_2
             metadata:
               is:
-                el9: kernel-5.14.0-687.42.1.el9_8
-        images: []
+                nvr: driver-toolkit-rhel10-container-v5.1.0-202608311541.p2.gb63b175.assembly.stream.el10
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: driver-toolkit
-        - code: FAILED_CONSISTENCY_REQUIREMENT
-          component: driver-toolkit-rhel10
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic
         - code: CONFLICTING_INHERITED_DEPENDENCY
