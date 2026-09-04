@@ -6,12 +6,6 @@ content:
         target: master
       url: git@github.com:openshift-priv/cluster-logging-operator.git
       web: https://github.com/openshift/cluster-logging-operator
-    # Temporary: import Red Hat GPG key into the empty installroot before dnf install.
-    # Hermetic Hermeto repos have gpgcheck=1 but /mnt/rootfs starts with an empty rpmdb.
-    modifications:
-    - action: replace
-      match: "mkdir -p /mnt/rootfs && \\"
-      replacement: "mkdir -p /mnt/rootfs && \\\n    rpm --root=/mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \\"
 distgit:
   component: ose-cluster-logging-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
