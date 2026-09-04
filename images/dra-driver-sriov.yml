@@ -1,0 +1,43 @@
+content:
+  source:
+    dockerfile: Dockerfile.ocp
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/dra-driver-sriov.git
+      web: https://github.com/openshift/dra-driver-sriov
+    ci_alignment:
+      streams_prs:
+        auto_label:
+        - approved
+        - lgtm
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+dependents:
+- sriov-network-operator
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: dra-driver-sriov-container
+delivery:
+  # Maps to honeybadger repo_name
+  repo_name: dra-driver-sriov
+  delivery_repo_names:
+  - openshift5/dra-driver-sriov-rhel9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift/dra-driver-sriov-rhel9
+name_in_bundle: dra-driver-sriov
+owners:
+- wizhao@redhat.com
+- anbhat@redhat.com
+- danwinship@redhat.com
+- datucker@redhat.com
+- ljouin@redhat.com
+- sscheink@redhat.com
+- bpickard@redhat.com
