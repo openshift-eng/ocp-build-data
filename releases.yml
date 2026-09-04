@@ -38,7 +38,12 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a220f652bb033147439ecde370585666750bc27bdb6d8b5da2da24e665584e34
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2054d286c647ce6391734a66dcd24f37574402860b7790cff07f694208f63d8b
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.19.46-202609041024.p0.g59e34c7.assembly.4.19.46.el9
         images: []
   4.19.45:
     assembly:
