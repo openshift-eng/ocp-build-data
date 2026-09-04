@@ -5,14 +5,6 @@ cachito:
     gomod:
       - path: harness/
       - path: api/
-    pip:
-      - path: "."
-        requirements_files:
-        - requirements.txt
-        binary:
-          packages: ":all:"
-          arch: "x86_64,aarch64"
-          py_version: 311
     cargo:
       - path: images/agent-base/goose-src/
 content:
@@ -54,7 +46,6 @@ content:
         replacement: '&& rm -f .cargo/config.toml && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
-    - pip
     - cargo
 jira:
   project: MTA
