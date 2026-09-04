@@ -46,7 +46,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6849aaff77599f4c2e79f8df2a2c4b4849da5c1fd825410d2307e9dc0ec66cfa
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d748fe8212c9fc0c653d8ab855ddac793da78791e2e0f1a91b9484dae6bb28f3
       members:
-        rpms: []
+        rpms:
+          - distgit_key: kernel
+            why: Pin the EC.0 kernel to match the fixed RHCOS payload
+            metadata:
+              is:
+                el9: kernel-5.14.0-687.42.1.el9_8
         images: []
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
