@@ -60,8 +60,66 @@ releases:
               is:
                 nvr: driver-toolkit-rhel10-container-v5.1.0-202608311541.p2.gb63b175.assembly.stream.el10
           - distgit_key: dra-driver-sriov
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: dra-driver-sriov-container-v5.1.0-202609041259.p2.gcbfa89a.assembly.stream.el9
+          - distgit_key: clusterresourceoverride-operator
             exclude: true
-            why: Image added after ec.0 nightly basis time
+            why: "Bundle builds have never succeeded for 5.1 (persistent ITS/EC verification failure)"
+          - distgit_key: vertical-pod-autoscaler-operator
+            exclude: true
+            why: "Bundle builds have never succeeded for 5.1 (persistent ITS/EC verification failure)"
+          - distgit_key: sriov-network-operator
+            why: "Pin to Sep 4 build - Aug 31 NVR has bundle NVR collision"
+            metadata:
+              is:
+                nvr: sriov-network-operator-container-v5.1.0-202609041259.p2.gad3161c.assembly.stream.el9
+          - distgit_key: ib-sriov-cni
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: ib-sriov-cni-container-v5.1.0-202609011727.p2.g2d3ee3b.assembly.stream.el9
+          - distgit_key: kube-rbac-proxy
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: kube-rbac-proxy-container-v5.1.0-202609021612.p2.g15f06dc.assembly.stream.el9
+          - distgit_key: ose-sriov-network-metrics-exporter
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: ose-sriov-network-metrics-exporter-container-v5.1.0-202609011727.p2.g1996598.assembly.stream.el9
+          - distgit_key: ose-sriov-rdma-cni
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: ose-sriov-rdma-cni-container-v5.1.0-202609011727.p2.gcc95a6e.assembly.stream.el9
+          - distgit_key: sriov-cni
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: sriov-cni-container-v5.1.0-202609021238.p2.g1d22ec9.assembly.stream.el9
+          - distgit_key: sriov-dp-admission-controller
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: sriov-dp-admission-controller-container-v5.1.0-202609011727.p2.gdbe3484.assembly.stream.el9
+          - distgit_key: sriov-network-config-daemon
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: sriov-network-config-daemon-container-v5.1.0-202609031741.p2.gad3161c.assembly.stream.el9
+          - distgit_key: sriov-network-device-plugin
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: sriov-network-device-plugin-container-v5.1.0-202609011727.p2.gdb03401.assembly.stream.el9
+          - distgit_key: sriov-network-webhook
+            why: "Pin operand to match sriov-network-operator Sep 4 bundle"
+            metadata:
+              is:
+                nvr: sriov-network-webhook-container-v5.1.0-202609031741.p2.gad3161c.assembly.stream.el9
       permits:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
