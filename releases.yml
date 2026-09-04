@@ -7,7 +7,7 @@ releases:
         # reference_releases:
         #   x86_64: 5.1.0-0.nightly-2026-09-01-192803
       group:
-        release_jira: ART-0
+        release_jira: ART-23288
         shipment:
           advisories:
             - kind: image
@@ -59,6 +59,9 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-rhel10-container-v5.1.0-202608311541.p2.gb63b175.assembly.stream.el10
+          - distgit_key: dra-driver-sriov
+            exclude: true
+            why: Image added after ec.0 nightly basis time
       permits:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
