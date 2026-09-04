@@ -46,12 +46,6 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bfb9141e0f00deadbf08165b25a320c6a448dc6343c6af4100c660d058c5f0b3
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:85a82f14d19f60dcc8feb8b0c3604f21a232377240487b16b88f32e3f0a9e273
       permits:
-        - code: FAILED_CONSISTENCY_REQUIREMENT
-          component: driver-toolkit
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: ironic-agent
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: rhcos
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
       members:
@@ -142,6 +136,16 @@ releases:
             metadata:
               is:
                 nvr: ose-agent-installer-utils-container-v4.23.0-202608180204.p2.g974f3f6.assembly.stream.el9
+          - distgit_key: driver-toolkit
+            why: Pin to build with kernel 687.42.1 to match RHCOS
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.23.0-202608310938.p3.gb63b175.assembly.stream.el9
+          - distgit_key: ironic-agent
+            why: Pin to build with kernel 687.42.1 to match RHCOS
+            metadata:
+              is:
+                nvr: ironic-agent-container-v4.23.0-202609011730.p3.g601c9bf.assembly.stream.el9
   stream:
     assembly:
       type: stream
