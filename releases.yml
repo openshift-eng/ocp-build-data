@@ -25,11 +25,6 @@ releases:
             tag: rhaos-4.23-rhel-9-candidate
             condition: greater_equal
       rhcos:
-        dependencies:
-          rpms:
-            - el9: kernel-5.14.0-687.42.1.el9_8
-              why: Pin RHCOS kernel dependency to match actual RHCOS build
-              non_gc_tag: rhaos-4.23-rhel-9-candidate
         rhel-coreos:
           images:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:834aa080cb798a6de4b2f826619ec575d0e53116c39bc7142d94cc50757d8ca1
