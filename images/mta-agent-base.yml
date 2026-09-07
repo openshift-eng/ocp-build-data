@@ -41,13 +41,12 @@ content:
         # --ignore-rust-version bypasses the MSRV gate (goose declares rust-version = "1.94.1"
         # but RHEL 9.8 tops out at 1.92.0 via rust-toolset). The build will still fail if goose
         # actually uses a language feature introduced after 1.92.0, which surfaces a clear error.
-        # rm -f .cargo/config.toml removes any .cargo/config.toml from the goose source that
-        # would conflict with cachi2's offline vendor settings (cachi2 injects its own config
-        # via CARGO_HOME rather than the source tree).
+        # NOTE: do NOT rm .cargo/config.toml — cachi2 overwrites it during prefetch to set
+        # up the offline registry. Removing it would break hermetic cargo builds.
         # AWS_LC_SYS_NO_ASM=1 disables nasm/GAS assembly in the aws-lc-sys build
         # (pulled in by jsonwebtoken v11 → aws-lc-rs → aws-lc-sys unconditionally).
         # Without this, the build fails on both x86_64 (missing nasm) and aarch64.
-        replacement: 'RUN export AWS_LC_SYS_NO_ASM=1 && rm -f .cargo/config.toml && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
+        replacement: 'RUN export AWS_LC_SYS_NO_ASM=1 && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - cargo
