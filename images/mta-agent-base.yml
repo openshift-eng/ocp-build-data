@@ -43,10 +43,13 @@ content:
         # actually uses a language feature introduced after 1.92.0, which surfaces a clear error.
         # NOTE: do NOT rm .cargo/config.toml — cachi2 overwrites it during prefetch to set
         # up the offline registry. Removing it would break hermetic cargo builds.
-        # AWS_LC_SYS_NO_ASM=1 disables nasm/GAS assembly in the aws-lc-sys build
-        # (pulled in by jsonwebtoken v11 → aws-lc-rs → aws-lc-sys unconditionally).
-        # Without this, the build fails on both x86_64 (missing nasm) and aarch64.
-        replacement: 'RUN export AWS_LC_SYS_NO_ASM=1 && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
+        # AWS_LC_SYS_CMAKE_BUILDER=0 forces aws-lc-sys to use the cc crate builder
+        # instead of CMake. The build environment sets CMAKE=cmake3, which triggers
+        # CMake mode in aws-lc-sys 0.44.0; CMake mode requires nasm on x86_64 and
+        # panics if AWS_LC_SYS_NO_ASM=1 is set for release builds.
+        # The cc builder compiles the AWS-LC C library directly with gcc/g++ —
+        # no nasm required, works on both x86_64 and aarch64, no release restriction.
+        replacement: 'RUN export AWS_LC_SYS_CMAKE_BUILDER=0 && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - cargo
