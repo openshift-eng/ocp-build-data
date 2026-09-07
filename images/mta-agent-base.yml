@@ -47,8 +47,10 @@ content:
         # deno_core → v8-goose. The v8-goose build script downloads V8 native binaries at
         # compile time, which is blocked in hermetic Konflux builds. code-mode is not needed
         # for MTA's use of goose. AWS_LC_SYS_CMAKE_BUILDER=0 uses the cc builder (gcc/g++)
-        # instead of CMake, avoiding nasm on x86_64.
-        replacement: 'RUN export AWS_LC_SYS_CMAKE_BUILDER=0 && cargo build --release --no-default-features --ignore-rust-version -p goose-cli --bin goose \'
+        # instead of CMake, avoiding nasm on x86_64. --features list re-enables what MTA
+        # needs: TLS, AWS Bedrock, telemetry/tracing — but NOT nostr/system-keyring/update
+        # which are irrelevant in containers and would add unnecessary build complexity.
+        replacement: 'RUN export AWS_LC_SYS_CMAKE_BUILDER=0 && cargo build --release --no-default-features --features aws-providers,telemetry,otel,rustls-tls --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - cargo
