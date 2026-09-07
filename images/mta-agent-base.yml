@@ -50,7 +50,9 @@ content:
         # instead of CMake, avoiding nasm on x86_64. --features list re-enables what MTA
         # needs: TLS, AWS Bedrock, telemetry/tracing — but NOT nostr/system-keyring/update
         # which are irrelevant in containers and would add unnecessary build complexity.
-        replacement: 'RUN export AWS_LC_SYS_CMAKE_BUILDER=0 && cargo build --release --no-default-features --features aws-providers,telemetry,otel,rustls-tls --ignore-rust-version -p goose-cli --bin goose \'
+        # portable-default = rustls-tls + aws-providers + telemetry + otel + tui;
+        # drops code-mode (v8/deno) and local-inference (llama.cpp).
+        replacement: 'RUN export AWS_LC_SYS_CMAKE_BUILDER=0 && cargo build --release --no-default-features --features portable-default --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - cargo
