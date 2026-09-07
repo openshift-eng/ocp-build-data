@@ -36,6 +36,13 @@ content:
         match: 'ENV PATH="/root/.cargo/bin:${PATH}"'
         replacement: "# cargo from rpm is already on PATH"
       - action: replace
+        # FROM ${GOOSE_IMAGE} is ARG-based; doozer cannot resolve ARGs statically
+        # and counts it as an external FROM, breaking the parent-image count check.
+        # Replacing it with the concrete stage name lets doozer recognise it as an
+        # internal stage reference.
+        match: 'FROM ${GOOSE_IMAGE} AS goose'
+        replacement: 'FROM goose-dist AS goose'
+      - action: replace
         match: 'RUN cargo build --release -p goose-cli --bin goose \'
         # --ignore-rust-version bypasses the MSRV gate (goose declares rust-version = "1.94.1"
         # but RHEL 9.8 tops out at 1.92.0 via rust-toolset). The build will still fail if goose
@@ -61,7 +68,8 @@ enabled_repos:
 - rhel-98-codeready-builder-rpms
 from:
   builder:
-    - stream: rhel-9-golang
+    - stream: rhel-9-golang  # goose-builder stage
+    - stream: rhel-9-golang  # builder (harness) stage
   member: base-rhel9
 name: mta/mta-agent-base-rhel9
 owners:
