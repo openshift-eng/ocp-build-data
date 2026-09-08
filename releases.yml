@@ -181,10 +181,8 @@ releases:
               is:
                 nvr: driver-toolkit-container-v4.23.0-202608310938.p3.gb63b175.assembly.stream.el9
           - distgit_key: ingress-node-firewall-operator
+            exclude: true
             why: "Bundle build ITS error - persistent Konflux EC verification failure (failed in prepare-release #1243 and #1244)"
-            metadata:
-              is:
-                mode: exclude
   stream:
     assembly:
       type: stream
