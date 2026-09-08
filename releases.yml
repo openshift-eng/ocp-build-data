@@ -24,6 +24,11 @@ releases:
           - name: kernel
             tag: rhaos-4.23-rhel-9-candidate
             condition: greater_equal
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.42.1.el9_8
+              why: Pin kernel to match pinned RHCOS
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
@@ -166,6 +171,11 @@ releases:
             metadata:
               is:
                 nvr: ose-agent-installer-utils-container-v4.23.0-202608180204.p2.g974f3f6.assembly.stream.el9
+          - distgit_key: driver-toolkit
+            why: Pin DTK to match RHCOS kernel 687.42.1
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.23.0-202608310938.p3.gb63b175.assembly.stream.el9
   stream:
     assembly:
       type: stream
