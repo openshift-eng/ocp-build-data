@@ -17,6 +17,11 @@ content:
       web: https://github.com/migtools/mta-agentic-controller
     modifications:
       - action: replace
+        match: 'FROM ${GOOSE_IMAGE} AS goose'
+        # Doozer rebaser counts ${GOOSE_IMAGE} as an external parent (not a stage ref),
+        # causing "expected 4 parent images, but found 5". ARG default is goose-dist.
+        replacement: 'FROM goose-dist AS goose'
+      - action: replace
         match: "RUN go mod download"
         replacement: "# go mod download removed - deps pre-fetched by cachi2"
       - action: replace
