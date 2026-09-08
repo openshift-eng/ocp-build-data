@@ -1394,9 +1394,10 @@ bug_mapping:
     ose-kube-vip-container:
       issue_component: Networking / On-Prem Host Networking
 
-    # --- ACM (Advanced Cluster Management) ---
-    # Mappings sourced from stolostron/acm-operator-bundle component-registry-acm.yaml
-    # and verified against the ACM Jira project's component list.
+    # --- ACM/MCE (generated) ---
+    # Generated from https://github.com/stolostron/acm-config
+    # Do not edit this block by hand. Regenerate with:
+    #   python3 product/generate_ocp_build_data_product_yml.py
     acm-cert-policy-controller-container:
       issue_project: ACM
       issue_component: GRC
@@ -1414,7 +1415,7 @@ bug_mapping:
       issue_component: Console
     acm-endpoint-monitoring-operator-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-governance-policy-addon-controller-container:
       issue_project: ACM
       issue_component: GRC
@@ -1426,10 +1427,10 @@ bug_mapping:
       issue_component: GRC
     acm-grafana-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-grafana-dashboard-loader-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-insights-client-container:
       issue_project: ACM
       issue_component: Search
@@ -1441,16 +1442,16 @@ bug_mapping:
       issue_component: Server Foundation
     acm-kube-rbac-proxy-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-kube-state-metrics-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-memcached-exporter-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-metrics-collector-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-mtv-integrations-container:
       issue_project: ACM
       issue_component: "CNV[int]"
@@ -1459,10 +1460,10 @@ bug_mapping:
       issue_component: Application Lifecycle
     acm-multicluster-observability-addon-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-multicluster-observability-operator-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-multicluster-operators-application-container:
       issue_project: ACM
       issue_component: Application Lifecycle
@@ -1483,31 +1484,31 @@ bug_mapping:
       issue_component: GRC
     acm-node-exporter-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-obo-prometheus-operator-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-observatorium-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-observatorium-operator-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-prometheus-alertmanager-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-prometheus-config-reloader-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-prometheus-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-prometheus-operator-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-rbac-query-proxy-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-search-collector-container:
       issue_project: ACM
       issue_component: Search
@@ -1522,17 +1523,121 @@ bug_mapping:
       issue_component: Search
     acm-siteconfig-container:
       issue_project: ACM
-      issue_component: SiteConfig Operator
+      issue_component: "SiteConfig Operator[ext]"
     acm-submariner-addon-container:
       issue_project: ACM
-      issue_component: Multicluster Networking
+      issue_component: "Multicluster Networking[ext]"
     acm-thanos-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-thanos-receive-controller-container:
       issue_project: ACM
-      issue_component: Observability
+      issue_component: "Observability[ext]"
     acm-volsync-addon-controller-container:
       issue_project: ACM
-      issue_component: Business Continuity
-
+      issue_component: VolSync
+    mce-addon-manager-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-azure-service-operator-container:
+      issue_project: ACM
+      issue_component: "CAPI[ext]"
+    mce-backplane-must-gather-container:
+      issue_project: ACM
+      issue_component: Installer
+    mce-backplane-operator-container:
+      issue_project: ACM
+      issue_component: Installer
+    mce-capoa-bootstrap-container:
+      issue_project: ACM
+      issue_component: "CAPOA[ext]"
+    mce-capoa-control-plane-container:
+      issue_project: ACM
+      issue_component: "CAPOA[ext]"
+    mce-cloudevents-conductor-container:
+      issue_project: ACM
+      issue_component: Maestro
+    mce-cluster-api-provider-agent-container:
+      issue_project: ACM
+      issue_component: "HyperShift[int]"
+    mce-cluster-api-provider-aws-container:
+      issue_project: ACM
+      issue_component: "CAPA[ext]"
+    mce-cluster-api-provider-azure-container:
+      issue_project: ACM
+      issue_component: "HyperShift[int]"
+    mce-cluster-api-provider-kubevirt-container:
+      issue_project: ACM
+      issue_component: "HyperShift[int]"
+    mce-cluster-api-webhook-config-container:
+      issue_project: ACM
+      issue_component: "CAPI[ext]"
+    mce-cluster-curator-controller-container:
+      issue_project: ACM
+      issue_component: Cluster Lifecycle
+    mce-cluster-image-set-controller-container:
+      issue_project: ACM
+      issue_component: Cluster Lifecycle
+    mce-cluster-permission-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-cluster-proxy-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-clusterclaims-controller-container:
+      issue_project: ACM
+      issue_component: Cluster Lifecycle
+    mce-clusterlifecycle-state-metrics-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-console-mce-container:
+      issue_project: ACM
+      issue_component: Console
+    mce-discovery-operator-container:
+      issue_project: ACM
+      issue_component: Installer
+    mce-hive-container:
+      issue_project: ACM
+      issue_component: "Hive[ext]"
+    mce-hypershift-addon-operator-container:
+      issue_project: ACM
+      issue_component: "HyperShift[int]"
+    mce-hypershift-cli-container:
+      issue_project: ACM
+      issue_component: "HyperShift[int]"
+    mce-hypershift-release-container:
+      issue_project: ACM
+      issue_component: "HyperShift[int]"
+    mce-image-based-install-operator-container:
+      issue_project: ACM
+      issue_component: "Image Based Install Operator[ext]"
+    mce-kube-rbac-proxy-container:
+      issue_project: ACM
+      issue_component: "Observability[ext]"
+    mce-maestro-container:
+      issue_project: ACM
+      issue_component: Maestro
+    mce-managed-serviceaccount-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-managedcluster-import-controller-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-multicloud-manager-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-placement-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-provider-credential-controller-container:
+      issue_project: ACM
+      issue_component: Cluster Lifecycle
+    mce-registration-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-registration-operator-container:
+      issue_project: ACM
+      issue_component: Server Foundation
+    mce-work-container:
+      issue_project: ACM
+      issue_component: Server Foundation
