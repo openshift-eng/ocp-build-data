@@ -40,10 +40,18 @@ content:
         # --ignore-rust-version bypasses the MSRV gate (goose declares rust-version = "1.94.1"
         # but RHEL 9.8 tops out at 1.92.0 via rust-toolset). The build will still fail if goose
         # actually uses a language feature introduced after 1.92.0, which surfaces a clear error.
-        # rm -f .cargo/config.toml removes any .cargo/config.toml from the goose source that
-        # would conflict with cachi2's offline vendor settings (cachi2 injects its own config
-        # via CARGO_HOME rather than the source tree).
-        replacement: 'RUN rm -f .cargo/config.toml && cargo build --release --ignore-rust-version -p goose-cli --bin goose \'
+        # NOTE: do NOT rm .cargo/config.toml — cachi2 overwrites it during prefetch to set
+        # up the offline registry. Removing it would break hermetic cargo builds.
+        # --no-default-features drops the code-mode feature, which pulls in pctx_executor →
+        # deno_core → v8-goose. The v8-goose build script downloads V8 native binaries at
+        # compile time, which is blocked in hermetic Konflux builds. code-mode is not needed
+        # for MTA's use of goose. AWS_LC_SYS_CMAKE_BUILDER=0 uses the cc builder (gcc/g++)
+        # instead of CMake, avoiding nasm on x86_64. --features list re-enables what MTA
+        # needs: TLS, AWS Bedrock, telemetry/tracing — but NOT nostr/system-keyring/update
+        # which are irrelevant in containers and would add unnecessary build complexity.
+        # portable-default = rustls-tls + aws-providers + telemetry + otel + tui;
+        # drops code-mode (v8/deno) and local-inference (llama.cpp).
+        replacement: 'RUN export AWS_LC_SYS_CMAKE_BUILDER=0 && cargo build --release --no-default-features --features portable-default --ignore-rust-version -p goose-cli --bin goose \'
     pkg_managers:
     - gomod
     - cargo
@@ -61,6 +69,8 @@ enabled_repos:
 - rhel-98-codeready-builder-rpms
 from:
   builder:
+    - stream: rhel-9-golang
+    - stream: rhel9
     - stream: rhel-9-golang
   member: base-rhel9
 name: mta/mta-agent-base-rhel9
