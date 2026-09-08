@@ -61,6 +61,11 @@ releases:
       members:
         rpms: []
         images:
+          - distgit_key: ose-tools
+            why: Pin the public tools build referenced by the EC.0 AWS EFS CSI operator bundle.
+            metadata:
+              is:
+                nvr: ose-tools-container-v4.23.0-202608180204.p2.g4b0a124.assembly.stream.el9
           - distgit_key: ose-aws-efs-csi-driver-operator
             why: Use the public operator build referenced by the EC.0 bundle metadata instead of the embargoed latest build.
             metadata:
