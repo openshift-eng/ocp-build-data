@@ -25,6 +25,30 @@ payload_name: haproxy-router-haproxy28
 owners:
 - aos-network-edge-staff@redhat.com
 okd:
+  content:
+    source:
+      modifications:
+        - action: replace
+          match: |
+            RUN INSTALL_PKGS="socat haproxy28" && \
+                yum install -y --setopt=install_weak_deps=0 $INSTALL_PKGS && \
+                rpm -V $INSTALL_PKGS && \
+                yum clean all && \
+                setcap 'cap_net_bind_service=ep' /usr/sbin/haproxy && \
+                sed -i 's/SECLEVEL=2/SECLEVEL=1/g' /etc/crypto-policies/back-ends/opensslcnf.config
+          replacement: |
+            RUN HAPROXY_VERSION=2.8.15 && \
+                BUILD_PKGS="gcc make pcre2-devel openssl-devel systemd-devel" && \
+                yum install -y --setopt=install_weak_deps=0 socat $BUILD_PKGS && \
+                curl -fsSL "https://www.haproxy.org/download/${HAPROXY_VERSION%.*}/src/haproxy-${HAPROXY_VERSION}.tar.gz" -o /tmp/haproxy.tar.gz && \
+                mkdir -p /usr/src/haproxy && tar -xzf /tmp/haproxy.tar.gz -C /usr/src/haproxy --strip-components=1 && \
+                make -C /usr/src/haproxy -j"$(nproc)" TARGET=linux-glibc USE_OPENSSL=1 USE_PCRE2=1 USE_SYSTEMD=1 && \
+                make -C /usr/src/haproxy install-bin PREFIX=/usr && \
+                rm -rf /usr/src/haproxy /tmp/haproxy.tar.gz && \
+                yum remove -y $BUILD_PKGS && \
+                yum clean all; \
+                setcap 'cap_net_bind_service=ep' /usr/sbin/haproxy && \
+                sed -i 's/SECLEVEL=2/SECLEVEL=1/g' /etc/crypto-policies/back-ends/opensslcnf.config
   distgit:
     branch: rhaos-5.0-rhel-9
   enabled_repos:
