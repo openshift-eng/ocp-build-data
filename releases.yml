@@ -59,127 +59,25 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bfb9141e0f00deadbf08165b25a320c6a448dc6343c6af4100c660d058c5f0b3
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:85a82f14d19f60dcc8feb8b0c3604f21a232377240487b16b88f32e3f0a9e273
       permits:
-        - code: FAILED_CONSISTENCY_REQUIREMENT
-          component: driver-toolkit
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: ironic-agent
-        - code: CONFLICTING_INHERITED_DEPENDENCY
-          component: driver-toolkit
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
       members:
         rpms: []
         images:
-          - distgit_key: ose-tools
-            why: Pin the public tools build referenced by the EC.0 AWS EFS CSI operator bundle.
-            metadata:
-              is:
-                nvr: ose-tools-container-v4.23.0-202608180204.p2.g4b0a124.assembly.stream.el9
-          - distgit_key: ose-aws-efs-csi-driver-operator
-            why: Use the public operator build referenced by the EC.0 bundle metadata instead of the embargoed latest build.
-            metadata:
-              is:
-                nvr: ose-aws-efs-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: ose-secrets-store-csi-driver-operator
-            why: Use the public operator build referenced by the EC.0 bundle metadata instead of the embargoed latest build.
-            metadata:
-              is:
-                nvr: ose-secrets-store-csi-driver-operator-container-v4.23.0-202608180204.p2.g4f4745c.assembly.stream.el9
-          - distgit_key: ose-smb-csi-driver-operator
-            why: Use the public operator build referenced by the EC.0 bundle metadata instead of the embargoed latest build.
-            metadata:
-              is:
-                nvr: ose-smb-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: ose-openstack-cinder-csi-driver-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-openstack-cinder-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: networking-console-plugin
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: networking-console-plugin-container-v4.23.0-202608180204.p2.g7d9d46b.assembly.stream.el9
-          - distgit_key: cluster-network-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: cluster-network-operator-container-v4.23.0-202608180204.p2.gc27dc71.assembly.stream.el9
-          - distgit_key: cluster-storage-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-cluster-storage-operator-container-v4.23.0-202608180204.p2.gb75f14a.assembly.stream.el9
-          - distgit_key: cluster-etcd-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: cluster-etcd-operator-container-v4.23.0-202608180204.p2.g6b88b76.assembly.stream.el9
-          - distgit_key: ose-machine-config-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-machine-config-operator-container-v4.23.0-202608180204.p2.gc7aecba.assembly.stream.el9
-          - distgit_key: openshift-enterprise-console
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: openshift-enterprise-console-container-v4.23.0-202608180204.p2.g68185f4.assembly.stream.el9
-          - distgit_key: azure-file-csi-driver-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-azure-file-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: ose-cluster-samples-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-cluster-samples-operator-container-v4.23.0-202608180204.p2.g88b9454.assembly.stream.el9
-          - distgit_key: csi-driver-manila-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: csi-driver-manila-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: monitoring-plugin
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: monitoring-plugin-container-v4.23.0-202608180204.p2.gdf674f0.assembly.stream.el9
-          - distgit_key: ose-cluster-ingress-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-cluster-ingress-operator-container-v4.23.0-202608180204.p2.g5b9c7ad.assembly.stream.el9
-          - distgit_key: ose-gcp-pd-csi-driver-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-gcp-pd-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: ose-cluster-kube-apiserver-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-cluster-kube-apiserver-operator-container-v4.23.0-202608180204.p2.g57553b1.assembly.stream.el9
-          - distgit_key: ose-aws-ebs-csi-driver-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-aws-ebs-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: ose-azure-disk-csi-driver-operator
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-azure-disk-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
-          - distgit_key: ose-agent-installer-utils
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
-            metadata:
-              is:
-                nvr: ose-agent-installer-utils-container-v4.23.0-202608180204.p2.g974f3f6.assembly.stream.el9
           - distgit_key: driver-toolkit
-            why: Pin DTK to match RHCOS kernel 687.42.1
+            why: Pin DTK to NVR matching the fixed ec.0 reference nightly payload
             metadata:
               is:
-                nvr: driver-toolkit-container-v4.23.0-202608310938.p3.gb63b175.assembly.stream.el9
+                nvr: driver-toolkit-container-v4.23.0-202608201748.p2.gb63b175.assembly.stream.el9
+          - distgit_key: ose-aws-efs-csi-driver-operator
+            exclude: true
+            why: "Exclude: bundle references operand NVR not in release (bundle-operand mismatch)"
+          - distgit_key: ose-secrets-store-csi-driver-operator
+            exclude: true
+            why: "Exclude: bundle references operand NVR not in release (bundle-operand mismatch)"
+          - distgit_key: ose-smb-csi-driver-operator
+            exclude: true
+            why: "Exclude: bundle references operand NVR not in release (bundle-operand mismatch)"
           - distgit_key: ingress-node-firewall-operator
             exclude: true
             why: "Bundle build ITS error - persistent Konflux EC verification failure (failed in prepare-release #1243 and #1244)"
