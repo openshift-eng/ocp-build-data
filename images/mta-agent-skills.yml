@@ -2,6 +2,7 @@ base_image_release:
   force: true
 content:
   source:
+    pkg_managers: []
     dockerfile: catalog/Containerfile
     git:
       branch:
@@ -19,6 +20,8 @@ delivery:
 enabled_repos:
 - rhel-98-appstream-rpms
 - rhel-98-baseos-rpms
+konflux:
+  no_shell: true
 name: mta/mta-agent-skills-rhel9
 owners:
 - mta-devs@redhat.com
