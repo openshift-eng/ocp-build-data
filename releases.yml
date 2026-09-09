@@ -171,6 +171,9 @@ releases:
             metadata:
               is:
                 nvr: ose-agent-installer-utils-container-v4.23.0-202608180204.p2.g974f3f6.assembly.stream.el9
+          - distgit_key: ingress-node-firewall-operator
+            exclude: true
+            why: Assembly-selected build built before https://github.com/openshift/ingress-node-firewall/pull/784 merged making it impossible to stage release it
   stream:
     assembly:
       type: stream
