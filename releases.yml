@@ -19,6 +19,11 @@ releases:
             - kind: fbc
           env: stage
         release_date: 2027-Jan-05
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.42.1.el9_8
+              why: Pin kernel to match pinned RHCOS
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
@@ -49,8 +54,15 @@ releases:
         # does not contain embargoed content; it was falsely marked as embargoed.
         - code: EMBARGOED_CONTENT
           component: driver-toolkit
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
       members:
-        rpms: []
+        rpms:
+          - distgit_key: cri-o
+            why: Match the version in RHCOS
+            metadata:
+              is:
+                el9: cri-o-4.23.0-202608260945.p2.gd1cfe81.assembly.stream.el9
         images:
           - distgit_key: driver-toolkit
             why: Pin DTK to match RHCOS kernel 687.42.1
