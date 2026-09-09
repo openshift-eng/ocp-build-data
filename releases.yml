@@ -7,17 +7,21 @@ releases:
         reference_releases!: {} # x86_64: 4.23.0-0.nightly-2026-08-28-182051
       group:
         advisories:
-          rpm: -1
-          rhcos: -1
-          microshift: -1
-        release_jira: ART-0
+          rpm: 172620
+          rhcos: 172621
+          microshift: 172622
+        release_jira: ART-23337
         shipment:
           advisories:
             - kind: image
+              live_id: 65564
             - kind: extras
+              live_id: 65565
             - kind: metadata
+              live_id: 65566
             - kind: fbc
           env: stage
+          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/815
         release_date: 2027-Jan-05
         dependencies:
           rpms:
