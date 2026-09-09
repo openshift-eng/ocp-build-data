@@ -43,6 +43,14 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 RUN GOFLAGS='' go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
     GOFLAGS='' go install gotest.tools/gotestsum@v1.12.2 && \
     GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.15 && \
+    git clone --filter=blob:none --sparse --depth=1 https://github.com/openshift/release.git /tmp/openshift-release && \
+    cd /tmp/openshift-release && \
+    git fetch --depth=1 origin cb964bf35961bc626e0839c3908ef754d8ff7caf && \
+    git checkout cb964bf35961bc626e0839c3908ef754d8ff7caf && \
+    git sparse-checkout set tools/gotest2junit && \
+    printf 'module github.com/openshift/release\n\ngo 1.21\n' > go.mod && \
+    GOFLAGS='' GOTOOLCHAIN=local go install ./tools/gotest2junit && \
+    cd / && rm -rf /tmp/openshift-release && \
     mv $GOPATH/bin/* /usr/bin/ && \
     rm -rf $GOPATH/* $GOPATH/.cache && \
     mkdir $GOPATH/bin && \
