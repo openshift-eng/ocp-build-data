@@ -35,7 +35,12 @@ releases:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9b66b1a993258000037f2207edde64ed85b6226864008d0eb3dd9fdbfe21360e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: local-storage-mustgather
+            why: Pin mustgather to the 202609090401 batch so it is included in the release and matches the local-storage-operator bundle (its build started after basis.time 04:39:30 and was otherwise excluded)
+            metadata:
+              is:
+                nvr: ose-local-storage-mustgather-container-v4.12.0-202609090401.p2.g1284973.assembly.stream.el9
   4.12.97:
     assembly:
       type: standard
