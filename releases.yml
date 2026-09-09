@@ -29,13 +29,11 @@ releases:
         rhel-coreos-8-extensions:
           images:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:15dd8abbfd30eb77a57872bacd7bc58d085a2be095335d615ef37f372f217879
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: rhcos
       members:
-        rpms:
-          - distgit_key: cri-o
-            why: Pin cri-o to -35; the -36 build has not yet landed in any CoreOS/RHCOS build, so shipping -35 keeps the RPM advisory accurate and resolves the CONFLICTING_INHERITED_DEPENDENCY
-            metadata:
-              is:
-                el8: cri-o-1.25.5-35.rhaos4.12.gitce3b6fb.el8
+        rpms: []
         images: []
   4.12.97:
     assembly:
