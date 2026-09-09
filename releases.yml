@@ -56,13 +56,10 @@ releases:
           component: driver-toolkit
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic-agent
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
       members:
-        rpms:
-          - distgit_key: cri-o
-            why: Match the version in RHCOS
-            metadata:
-              is:
-                el9: cri-o-4.23.0-202608260945.p2.gd1cfe81.assembly.stream.el9
+        rpms: []
         images:
           - distgit_key: driver-toolkit
             why: Pin DTK to match RHCOS kernel 687.42.1
