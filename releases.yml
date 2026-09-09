@@ -86,6 +86,19 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.23.0-202608310938.p3.gb63b175.assembly.stream.el9
+          - distgit_key: ose-aws-efs-csi-driver-operator
+            exclude: true
+            why: Exclude operator with bundle and payload operands mismatch.
+          - distgit_key: ose-secrets-store-csi-driver-operator
+            why: Pin the operator build referenced by the EC.0 bundle metadata.
+            metadata:
+              is:
+                nvr: ose-secrets-store-csi-driver-operator-container-v4.23.0-202608180204.p2.g4f4745c.assembly.stream.el9
+          - distgit_key: ose-smb-csi-driver-operator
+            why: Pin the operator build referenced by the EC.0 bundle metadata.
+            metadata:
+              is:
+                nvr: ose-smb-csi-driver-operator-container-v4.23.0-202608180204.p2.g9ce1841.assembly.stream.el9
           - distgit_key: ose-openstack-cinder-csi-driver-operator
             why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
             metadata:
