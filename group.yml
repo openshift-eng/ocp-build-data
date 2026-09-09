@@ -126,11 +126,14 @@ repos:
         # i.e. modules mask traditional rpms unless this flag is provided.
         module_hotfixes: 1
       baseurl:
-        aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/aarch64/os/
-        ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/ppc64le/os/
-        s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/s390x/os/
-        x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el9/latest/x86_64/os/
-    content_set:  # keep empty to avoid being used in ART build or confusing elliott redundant content_set check
-      optional: true
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/aarch64/rhocp/4.17/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/ppc64le/rhocp/4.17/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/s390x/rhocp/4.17/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/rhocp/4.17/os/
+    content_set:
+      default: rhocp-4.17-for-rhel-9-x86_64-rpms
+      aarch64: rhocp-4.17-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-4.17-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-4.17-for-rhel-9-s390x-rpms
     reposync:
       enabled: false
