@@ -80,7 +80,12 @@ releases:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.23.0~ec.0-202609091638.p0.g2f4cbe9.assembly.ec.0.el9
         images:
           - distgit_key: driver-toolkit
             why: Pin DTK to match RHCOS kernel 687.42.1
