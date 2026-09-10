@@ -78,6 +78,16 @@ releases:
           - distgit_key: sriov-network-operator
             exclude: true
             why: "Exclude due to bundle NVR collision; pinning operands causes verify_attached_operators failures across 5 other bundles"
+          - distgit_key: microshift-bootc-rhel10
+            metadata:
+              is:
+                nvr: microshift-bootc-rhel10-container-v5.1-202609100744.p2.g4b58d80.assembly.ec.0.el10
+            why: Pin microshift-bootc-rhel10 image to assembly
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v5.1-202609100744.p2.g4b58d80.assembly.ec.0.el9
+            why: Pin microshift-bootc image to assembly
       permits:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
