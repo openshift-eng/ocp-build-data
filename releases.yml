@@ -50,7 +50,15 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0a6cbd664d70f86894f50ebe55de5088ff55d364b0b8036f45df33b54cba9918
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: local-storage-operator
+            metadata:
+              is:
+                nvr: local-storage-operator-container-v4.21.0-202609090902.p2.g5aca58b.assembly.stream.el9
+            why: >-
+              Fix bundle/operand mismatch — 202609090243 build failed (build_error),
+              pin to 202609090902 retry whose bundle references 202609090243 operands
+              matching the assembly's natural selection.
   4.21.32:
     assembly:
       type: standard
