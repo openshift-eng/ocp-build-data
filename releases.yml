@@ -738,3 +738,32 @@ releases:
                   # - libgcrypt
                   # - "openssl*"
                   # - "*libc*"
+  art23398:
+    assembly:
+      type: stream
+      basis:
+        assembly: stream
+      group:
+        rhcos:
+          payload_tags!:
+            - name: rhel-coreos
+              rhcos_index_tag: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-9.8-node-image
+              rhel_build_id_index: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-9.8-node-image
+              rhel_version: "9.8"
+              meta_type: commitmeta
+              primary: true
+            - name: rhel-coreos-extensions
+              rhcos_index_tag: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-9.8-node-image-extensions
+              rhel_build_id_index: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-9.8-node-image
+              rhel_version: "9.8"
+              meta_type: meta
+            - name: rhel-coreos-10
+              rhcos_index_tag: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-10.2-node-image
+              rhel_build_id_index: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-10.2-node-image
+              rhel_version: "10.2"
+              meta_type: commitmeta
+            - name: rhel-coreos-10-extensions
+              rhcos_index_tag: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-10.2-node-image-extensions
+              rhel_build_id_index: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:5.0-10.2-node-image
+              rhel_version: "10.2"
+              meta_type: meta
