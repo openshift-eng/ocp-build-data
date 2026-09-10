@@ -1,3 +1,4 @@
+mode: disabled
 content:
   source:
     dockerfile: Dockerfile.rhel
@@ -23,11 +24,6 @@ name: openshift/ose-dpu-rhel9-operator
 name_in_bundle: dpu-operator
 owners:
 - multus-dev@redhat.com
-update-csv:
-  bundle-dir: 'stable/'
-  manifests-dir: manifests
-  registry: image-registry.openshift-image-registry.svc:5000
-  valid-subscription-label: '["OpenShift Container Platform", "OpenShift Platform Plus"]'
 delivery:
   # Maps to honeybadger repo_name
   repo_name: ose-dpu-operator
