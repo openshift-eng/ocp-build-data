@@ -1,0 +1,27 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: rhosdt-3.11
+      url: git@github.com:openshift-priv/redhat-opentelemetry-collector.git
+      web: https://github.com/os-observability/redhat-opentelemetry-collector
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: opentelemetry-collector-rhel9-container
+delivery:
+  delivery_repo_names:
+  - rhosdt/opentelemetry-collector-rhel9
+for_payload: false
+for_release: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: rhosdt/opentelemetry-collector-rhel9
+owners:
+- aos-team-art@redhat.com
+- mwringe@redhat.com
+- ploffay@redhat.com
+- bbongart@redhat.com
+canonical_builders_from_upstream: false
