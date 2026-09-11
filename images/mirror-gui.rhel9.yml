@@ -1,0 +1,24 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/mirror-gui.git
+      web: https://github.com/openshift/mirror-gui
+distgit:
+  branch: mirror-gui-{MAJOR}.{MINOR}-rhel-9
+  component: mirror-gui-rhel9-container
+delivery:
+  delivery_repo_names:
+  - mirror-gui/mirror-gui-rhel9
+from:
+  builder:
+  - stream: nodejs-22-minimal
+  - stream: nodejs-22-minimal
+  stream: nodejs-22-minimal
+name: mirror-gui/mirror-gui-rhel9
+owners:
+- ybeder@redhat.com
+for_payload: false
+for_release: true
