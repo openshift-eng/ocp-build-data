@@ -1,3 +1,8 @@
+cachito:
+  enabled: true
+  packages:
+    npm:
+    - path: .
 content:
   source:
     dockerfile: Dockerfile
@@ -6,6 +11,8 @@ content:
         target: main
       url: git@github.com:openshift-priv/mirror-gui.git
       web: https://github.com/openshift/mirror-gui
+    pkg_managers:
+    - npm
 distgit:
   branch: mirror-gui-{MAJOR}.{MINOR}-rhel-9
   component: mirror-gui-rhel9-container
