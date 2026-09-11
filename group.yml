@@ -1,0 +1,93 @@
+name: rhosdt-3.11
+csv_namespace: openshift-opentelemetry-operator
+product: openshift-opentelemetry-operator
+version: 0.158.1
+
+vars:
+  GO_LATEST: "1.26"
+  GO_EXTRA: "1.26"
+  MAJOR: 4
+  MINOR: 22
+
+arches:
+- x86_64
+- aarch64
+- ppc64le
+- s390x
+
+operator_image_ref_mode: manifest-list
+konflux:
+  arches:
+  - x86_64
+  - aarch64
+  - ppc64le
+  - s390x
+  cachi2:
+    enabled: true
+  network_mode: hermetic
+
+OCP_TARGET_VERSIONS: [
+  "4.12",
+  "4.13",
+  "4.14",
+  "4.15",
+  "4.16",
+  "4.17",
+  "4.18",
+  "4.19",
+  "4.20",
+  "4.21",
+  "4.22",
+  "4.23",
+  "5.0",
+]
+
+assemblies:
+  enabled: true
+
+public_upstreams:
+# Global mapping for openshift org repos
+- private: "https://github.com/openshift-priv"
+  public: "https://github.com/openshift"
+# ocp-build-data itself
+- private: "https://github.com/openshift-priv/ocp-build-data"
+  public: "https://github.com/openshift-eng/ocp-build-data"
+# os-observability org repos
+- private: "https://github.com/openshift-priv/redhat-opentelemetry-collector"
+  public: "https://github.com/os-observability/redhat-opentelemetry-collector"
+
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs
+
+repos:
+  rhel-9-baseos-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/x86_64/baseos/os/
+    content_set:
+      default: rhel-9-for-x86_64-baseos-rpms
+      aarch64: rhel-9-for-aarch64-baseos-rpms
+      ppc64le: rhel-9-for-ppc64le-baseos-rpms
+      s390x: rhel-9-for-s390x-baseos-rpms
+    reposync:
+      enabled: false
+
+  rhel-9-appstream-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.7/x86_64/appstream/os/
+    content_set:
+      default: rhel-9-for-x86_64-appstream-rpms
+      aarch64: rhel-9-for-aarch64-appstream-rpms
+      ppc64le: rhel-9-for-ppc64le-appstream-rpms
+      s390x: rhel-9-for-s390x-appstream-rpms
+    reposync:
+      enabled: false
