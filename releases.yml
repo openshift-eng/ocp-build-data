@@ -744,8 +744,6 @@ releases:
         upgrades: ""
       permits:
         - code: MISMATCHED_NETWORK_MODE
-          component: dpu-intel-ipu-vsp
-        - code: MISMATCHED_NETWORK_MODE
           component: ironic
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: rhcos
@@ -778,12 +776,7 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a9ae47d7790df88dc8ec22cdf7772d0b655ff3e41f8f4914219964aab4f7064
       members:
         rpms: []
-        images:
-          - distgit_key: dpu-operator
-            why: Pin build to assembly
-            metadata:
-              is:
-                nvr: dpu-operator-container-v5.0.0-202603190603.p2.g1ab76b5.assembly.ec.0.el9
+        images: []
   stream:
     assembly:
       type: stream
