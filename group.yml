@@ -1,0 +1,38 @@
+freeze_automation: false
+
+name: mirror-gui-1.0
+product: mirror-gui
+version: "1.0"
+
+vars:
+  MAJOR: 1
+  MINOR: 0
+
+arches:
+- x86_64
+- aarch64
+- ppc64le
+- s390x
+
+konflux:
+  arches:
+  - x86_64
+  - aarch64
+  - ppc64le
+  - s390x
+  network_mode: hermetic
+  cachi2:
+    enabled: true
+  build_attempts: 1
+
+assemblies:
+  enabled: true
+
+public_upstreams:
+- private: "https://github.com/openshift-priv"
+  public: "https://github.com/openshift"
+
+urls:
+  brewhub: https://brewhub.engineering.redhat.com/brewhub
+  brew_image_host: registry-proxy.engineering.redhat.com
+  brew_image_namespace: rh-osbs

@@ -1,0 +1,19 @@
+content:
+  source:
+    dockerfile: Dockerfile.catalog-sync
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/mirror-gui.git
+      web: https://github.com/openshift/mirror-gui
+distgit:
+  branch: mirror-gui-{MAJOR}.{MINOR}-rhel-9
+  component: mirror-gui-rhel9-container
+from:
+  stream: nodejs-22-minimal
+name: mirror-gui/mirror-gui-rhel9
+owners:
+- ybeder@redhat.com
+for_payload: false
+for_release: false
+canonical_builders_from_upstream: false
