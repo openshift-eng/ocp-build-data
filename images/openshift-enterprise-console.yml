@@ -16,7 +16,10 @@ cachito:
 okd:
   content:
     source:
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN container-entrypoint ./build-frontend.sh"
+        replacement: "RUN YARN_NPM_REGISTRY_SERVER=https://repository.engineering.redhat.com/nexus/repository/registry.npmjs.org NODE_EXTRA_CA_CERTS=/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem container-entrypoint ./build-frontend.sh"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-console-container
