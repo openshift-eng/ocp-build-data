@@ -45,5 +45,5 @@ okd:
       dockerfile: Dockerfile
       modifications:
       - action: replace
-        match: "RUN npm ci && npm run build"
-        replacement: "RUN for i in 1 2 3; do npm ci && break || sleep 5; done && npm run build"
+        match: "RUN npm clean-install --ignore-scripts --no-audit && npm run build"
+        replacement: "RUN for i in 1 2 3; do npm clean-install --ignore-scripts --no-audit && break || sleep 5; done && npm run build"

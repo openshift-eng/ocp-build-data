@@ -16,7 +16,10 @@ cachito:
 okd:
   content:
     source:
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN container-entrypoint ./build-frontend.sh"
+        replacement: "RUN for i in 1 2 3; do container-entrypoint ./build-frontend.sh && break || sleep 15; done"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-console-container
