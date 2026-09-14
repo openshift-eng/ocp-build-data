@@ -828,6 +828,9 @@ releases:
       basis:
         assembly: stream
       group:
+        vars:
+          # Reuse stream plashets without changing the assembly identity.
+          plashet_download_runtime_assembly: stream
         rhcos:
           payload_tags!:
             - name: rhel-coreos
