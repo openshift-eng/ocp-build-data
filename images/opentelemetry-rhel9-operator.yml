@@ -1,0 +1,31 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: rhosdt-3.11
+      url: git@github.com:openshift-priv/open-telemetry-opentelemetry-operator.git
+      web: https://github.com/openshift/open-telemetry-opentelemetry-operator
+distgit:
+  bundle_component: opentelemetry-operator-bundle-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: opentelemetry-rhel9-operator-container
+delivery:
+  bundle_delivery_repo_name: rhosdt/opentelemetry-operator-bundle
+  delivery_repo_names:
+  - rhosdt/opentelemetry-rhel9-operator
+for_release: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: rhosdt/opentelemetry-rhel9-operator
+name_in_bundle: opentelemetry-rhel9-operator
+owners:
+- aos-team-art@redhat.com
+- ocp-observability-collection-team@redhat.com
+update-csv:
+  bundle-dir: bundle/openshift/manifests/
+  manifests-dir: bundle/openshift/metadata/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["opentelemetry-product"]'
