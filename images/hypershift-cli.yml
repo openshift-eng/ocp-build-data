@@ -3,7 +3,7 @@ content:
     dockerfile: Containerfile.cli
     git:
       branch:
-        target: release-4.21
+        target: release-4.22
       url: git@github.com:openshift-priv/hypershift.git
       web: https://github.com/openshift/hypershift
 distgit:
@@ -16,7 +16,7 @@ dependents:
 - backplane-operator
 from:
   builder:
-    - stream: rhel-9-golang-1.25
+    - stream: rhel-9-golang
   member: base-rhel9
 name: multicluster-engine/hypershift-cli-rhel9
 owners:

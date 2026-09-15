@@ -1,16 +1,22 @@
+---
 rhel-9-golang:
   image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel9
-rhel-9-golang-1.25:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.25-rhel9
-rhel-8-golang-1.26:
-  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel8
+
 rhel-9-golang-1.26:
   image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel9
+
+rhel-8-golang-1.26:
+  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel8
+
+# A16b compromise: :latest for nodejs; ubi-minimal stays release-specific (:9.8).
 rhel-9-nodejs-24:
-  image: registry.redhat.io/ubi9/nodejs-24-minimal@sha256:920a22bf794c1e3806b1279a26337ba02d18af7370df18045f5ffd5bf5d54dbc
+  image: registry.redhat.io/ubi9/nodejs-24-minimal:latest
+
 ose-cli-artifacts:
-  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.21
+  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.22
+
 ose-cli-rhel9:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.21
+  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.22
+
 rhel9:
   image: registry.redhat.io/ubi9/ubi-minimal:9.8

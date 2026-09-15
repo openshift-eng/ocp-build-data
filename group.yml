@@ -2,17 +2,23 @@ freeze_automation: false
 name: mce-2.17
 csv_namespace: multicluster-engine
 product: multicluster-engine
-version: 2.17.0
+version: 2.17.3
 
 vars:
   GO_LATEST: "1.26"
   GO_EXTRA: "1.26"
-  MAJOR: 2
-  MINOR: 17
+  MAJOR: 4
+  MINOR: 22
 
-OCP_TARGET_VERSIONS: ["4.20","4.21","4.22","5.0"]
+# Hub N-2 through CSV maxOpenShiftVersion 5.0 (no OCP 4.23). Source: HYPBLD-873 A2b.
+OCP_TARGET_VERSIONS: [
+  "4.20",
+  "4.21",
+  "4.22",
+  "5.0",
+]
 
-OCP_RELEASE_NOTES_VERSION: "4.21"
+OCP_RELEASE_NOTES_VERSION: "4.22"
 
 arches:
 - x86_64

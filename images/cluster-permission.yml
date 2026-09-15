@@ -1,17 +1,17 @@
 content:
   source:
-    dockerfile: Containerfile.operator
+    dockerfile: Dockerfile.rhtap
     git:
       branch:
         target: backplane-2.17
-      url: git@github.com:openshift-priv/stolostron-kube-rbac-proxy.git
-      web: https://github.com/stolostron/kube-rbac-proxy
+      url: git@github.com:openshift-priv/stolostron-cluster-permission.git
+      web: https://github.com/stolostron/cluster-permission
 distgit:
-  component: mce-kube-rbac-proxy-container
+  component: mce-cluster-permission-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 delivery:
   delivery_repo_names:
-  - multicluster-engine/kube-rbac-proxy-mce-rhel9
+  - multicluster-engine/cluster-permission-rhel9
 dependents:
 - backplane-operator
 enabled_repos:
@@ -21,9 +21,9 @@ from:
   builder:
     - stream: rhel-9-golang
   member: base-rhel9
-name: multicluster-engine/kube-rbac-proxy-mce-rhel9
+name: multicluster-engine/cluster-permission-rhel9
 owners:
 - acm-cicd@redhat.com
 jira:
   project: ACM
-  component: mce-kube-rbac-proxy-container
+  component: mce-cluster-permission-container
