@@ -39,4 +39,7 @@ okd:
   content:
     source:
       dockerfile: Dockerfile
-      modifications: []
+      modifications:
+      - action: replace
+        match: "RUN npm clean-install --ignore-scripts --no-audit && npm run build"
+        replacement: "RUN for i in 1 2 3; do npm clean-install --ignore-scripts --no-audit && break || sleep 5; done && npm run build"
