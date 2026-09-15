@@ -1,0 +1,42 @@
+cachito:
+  enabled: true
+  packages:
+    rpm:
+    - path: ./hack/hermetic
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift-priv/hive.git
+      web: https://github.com/openshift/hive
+    modifications:
+      - action: replace
+        match: "ARG CONTAINER_SUB_MANAGER_OFF=0"
+        replacement: "ARG CONTAINER_SUB_MANAGER_OFF=1"
+distgit:
+  component: mce-hive-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+delivery:
+  delivery_repo_names:
+  - multicluster-engine/hive-rhel9
+dependents:
+- backplane-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+from:
+  builder:
+    - stream: rhel-8-golang-1.26
+    - stream: rhel-9-golang-1.26
+  member: base-rhel9
+name: multicluster-engine/hive-rhel9
+owners:
+- acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: mce-hive-container
+konflux:
+  vm_override:
+    aarch64: linux-mxlarge/arm64
