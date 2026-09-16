@@ -54,6 +54,10 @@ releases:
           - distgit_key: local-storage-operator
             why: "verify_attached_operators: mustgather operand NVR mismatch — basis.time cutoff selected different build"
             exclude: true
+      issues:
+        exclude:
+          # Exclude bug from 4.15.69 assembly
+          - id: OCPBUGS-102684
   4.15.68:
     assembly:
       type: standard
