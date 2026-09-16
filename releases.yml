@@ -48,6 +48,12 @@ releases:
           - distgit_key: ingress-node-firewall-operator
             why: "verify_attached_operators: daemon operand NVR mismatch — basis.time cutoff selected different daemon build than what operator bundle references"
             exclude: true
+          - distgit_key: cluster-nfd-operator
+            why: "bundle build failed: operand image ose-node-feature-discovery not found in registry"
+            exclude: true
+          - distgit_key: local-storage-operator
+            why: "verify_attached_operators: mustgather operand NVR mismatch — basis.time cutoff selected different build"
+            exclude: true
   4.15.68:
     assembly:
       type: standard
