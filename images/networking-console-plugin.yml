@@ -8,10 +8,6 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/networking-console-plugin.git
       web: https://github.com/openshift/networking-console-plugin
-    modifications:
-    - action: replace
-      match: "./artifacts/yarn-${YARN_VERSION}.tar.gz"
-      replacement: "/cachi2/output/deps/generic/yarn-${YARN_VERSION}.tar.gz"
     pkg_managers:
     - npm
     okd_alignment:
