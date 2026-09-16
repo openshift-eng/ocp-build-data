@@ -66,13 +66,6 @@ konflux:
       enabled: true
       dnf_modules_enable: true
       inspect_parent: false
-    artifact_lockfile:
-      enabled: true
-      path: .
-      resources:
-      - url: https://index.crates.io/config.json
-      - url: https://github.com/prometheus/pushgateway/releases/download/v1.11.1/pushgateway-1.11.1.linux-amd64.tar.gz
-        filename: pushgateway-1.11.1.linux-amd64.tar.gz
   build_step_resources:
     memory: 32Gi
     cpu: 8000m
