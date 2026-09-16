@@ -6,7 +6,7 @@ cachito:
     - path: v1/
 content:
   source:
-    dockerfile: images/cli/Dockerfile.konflux.rhel9
+    dockerfile: images/cli/Dockerfile.konflux
     git:
       branch:
         target: main
@@ -14,12 +14,13 @@ content:
       web: https://github.com/openshift/oc-mirror
 distgit:
   branch: oc-mirror-{MAJOR}.{MINOR}-rhel-9
-  component: oc-mirror-rhel9-container
+  component: oc-mirror-container
 from:
   builder:
+  - stream: rhel-8-golang
   - stream: rhel-9-golang
   - stream: rhel9
-name: openshift5/oc-mirror-2-0-rhel9
+name: openshift5/oc-mirror-2-0
 owners:
 - jpower@redhat.com
 - dmesser@redhat.com
