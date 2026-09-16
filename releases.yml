@@ -44,7 +44,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c464d4ce1432147b5959318fc31bc103692354e5541cb0c29ce29f1b8a6e939a
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ingress-node-firewall-operator
+            why: "verify_attached_operators: daemon operand NVR mismatch — basis.time cutoff selected different daemon build than what operator bundle references"
+            exclude: true
   4.15.68:
     assembly:
       type: standard
