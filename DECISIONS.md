@@ -121,3 +121,25 @@ Suggested tool improvements:
 - Support adding image configs that exist on a reference branch (`--add-images-from mce-5.0`).
 - Preserve `streams.yml` comments (`ruamel.yaml`) and do not collapse `OCP_TARGET_VERSIONS` formatting unless asked.
 - Optional `--version` for `group.yml` z-stream instead of always `{new}.0`.
+
+## Appendix: first ART builds (not ocp-build-data decisions)
+
+These are **operand git issues** found on the first hermetic Konflux builds of `mce-2-17`. They are outside a typical ART migration (group.yml, image YAMLs, streams, KRD, `aos-cd-jobs`). The 2.17 image configs already matched the 2.11 pattern; nothing in `ocp-build-data` needed to change.
+
+Recorded here so the next non-sequential jump does not treat “tool ran + YAML patched” as “builds are green.” `art-migration` does not inspect upstream `.dockerignore`, Docker `COPY` vs context, or whether `go mod vendor` matches the git tree under hermeto STRICT.
+
+### azure-service-operator — `.dockerignore` vs ART `COPY v2/`
+
+- **Symptom:** `go: no modules specified (see 'go help mod download')` in `build-images` after `COPY v2/ ./`.
+- **Cause:** `backplane-2.17` `.dockerignore` listed `v2` (only `!v2/boilerplate.go.txt` excepted), so `v2/go.mod` never entered the build context. ART’s Dockerfile replace (`COPY ./ ./` → `COPY v2/ ./`) applied; dockerignore still stripped the module.
+- **2.11 / 5.0:** 2.11 never excluded `v2`. 5.0 already has a comment that ART/Konflux needs `v2/` in context.
+- **Fix:** operand PR, not image YAML. [stolostron/azure-service-operator#566](https://github.com/stolostron/azure-service-operator/pull/566)
+- **Playbook:** after scaffold, diff operand `.dockerignore` on the new `backplane-*` branch against both the previous ART version **and** a later reference (here 5.0). Check that every ART `COPY` path is still in the Docker context.
+
+### managed-serviceaccount — gitignored file that `go mod vendor` copies
+
+- **Symptom:** hermeto STRICT prefetch: `vendor directory changed after vendoring: A vendor/github.com/santhosh-tekuri/jsonschema/v6/.swp`
+- **Cause:** `github.com/santhosh-tekuri/jsonschema/v6` **v6.0.2** ships a vim `.swp`. `go mod vendor` copies it; MSA `.gitignore` has `*.swp`, so the committed `vendor/` does not match. Fails in **prefetch** on the cloned git tree; Dockerfile/image YAML cannot fix it.
+- **2.11 / 5.0:** neither branch tracks that `.swp` either. 2.11 uses `v6.0.3-0.20260305…`, 5.0 uses `v6.0.3`. They may share the latent bug on a rebuild; 2.17 is pinned to v6.0.2, which definitely contains the file.
+- **Fix:** operand PR (`git add --force` the vendored file / gitignore exception). [stolostron/managed-serviceaccount#610](https://github.com/stolostron/managed-serviceaccount/pull/610)
+- **Playbook:** first hermetic prefetch failures that mention `vendor directory changed` are operand content (gitignore vs `go mod vendor`), not ART config. Do not paper over them by disabling hermetic/cachi2.
