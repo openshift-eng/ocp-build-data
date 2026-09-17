@@ -49,6 +49,19 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:79659b50769e3ba1db1e27cc06221d6922f2ba0ea7c17fef80cb85250e219264
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b8ef0b1a03554a0006fc48266a74cbb26511cd2c6d7cff8c6fd54718f7becc30
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d6739ad693f1226069d6b28583dbb047d66246a39b30c457b232b8158d7d9796
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-ansible-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
       members:
         rpms: []
         images: []
