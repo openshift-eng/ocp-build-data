@@ -35,10 +35,15 @@ content:
     - action: replace
       match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo /run/src/build-node-image.sh'
       replacement: |
+        COPY build-node-image.sh /tmp/art-build-node-image.sh
         RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo \
-            sed -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
-                -e '/cat \/run\/src\/\*\.repo >> \/etc\/yum\.repos\.d\/git\.repo/a sed -i "s/enabled=1/enabled=0/g" /etc/yum.repos.d/git.repo' \
-                /run/src/build-node-image.sh | bash
+            sed -i \
+                -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
+                -e '/cat \/run\/src\/\*\.repo >> \/etc\/yum\.repos\.d\/git\.repo/a sed -i -E '\''/^\\[(c10s-[^]]+|rhel-[0-9]+\\.[0-9]+-server-ose-5\\.0)\\]$/,/^$/ s/^enabled=1/enabled=0/'\'' /etc/yum.repos.d/git.repo' \
+                /tmp/art-build-node-image.sh && \
+            rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
+            bash /tmp/art-build-node-image.sh && \
+            rm -f /tmp/art-build-node-image.sh
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: rhcos-node-image-container
@@ -56,7 +61,6 @@ owners:
 - aos-team-art@redhat.com
 canonical_builders_from_upstream: false
 konflux:
-  network_mode: open
   image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-rhcos-images
   skip_validate_slsa: true
 okd:
