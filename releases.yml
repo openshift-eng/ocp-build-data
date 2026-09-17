@@ -56,6 +56,26 @@ releases:
             metadata:
               is:
                 nvr: openshift-enterprise-console-container-v4.21.0-202609132155.p2.gc4707af.assembly.stream.el9
+          - distgit_key: ose-aws-efs-csi-driver-operator
+            metadata:
+              is:
+                nvr: ose-aws-efs-csi-driver-operator-container-v4.21.0-202609161813.p2.ga52a578.assembly.stream.el9
+            why: "Pin to 202609161813 batch where operand image also built successfully"
+          - distgit_key: ose-aws-efs-csi-driver
+            metadata:
+              is:
+                nvr: ose-aws-efs-csi-driver-container-v4.21.0-202609161813.p2.gc6eef3c.assembly.stream.el9
+            why: "Pin operand to 202609161813 batch (earlier 131859 batch image was missing from registry)"
+          - distgit_key: ose-kubernetes-nmstate-operator
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.21.0-202609162010.p2.g3af39b8.assembly.stream.el9
+            why: "Pin to 202609162010 batch where operand image also built successfully"
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.21.0-202609162010.p2.g5f47a81.assembly.stream.el9
+            why: "Pin operand to 202609162010 batch (earlier 131859 batch image was missing from registry)"
   4.21.33:
     assembly:
       type: standard
