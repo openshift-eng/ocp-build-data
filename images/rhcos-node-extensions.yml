@@ -17,51 +17,9 @@ content:
     - action: replace
       match: "RUN --mount=type=secret,id=yumrepos,target=/os/secret.repo extensions/build.sh"
       replacement: |
-        RUN if false; then \
-                dnf install -y \
-                    libreswan \
-                    NetworkManager-libreswan \
-                    openvswitch3.5-ipsec \
-                    usbguard \
-                    krb5-workstation \
-                    libkadm5 \
-                    kernel-devel \
-                    kernel-headers \
-                    kernel \
-                    kernel-core \
-                    kernel-modules \
-                    kernel-modules-core \
-                    kernel-modules-extra \
-                    sysstat \
-                    pacemaker \
-                    pcs \
-                    fence-agents-all; \
-                if [ "$(uname -m)" = "x86_64" ]; then \
-                    dnf install -y \
-                        kernel-rt-core \
-                        kernel-rt-modules \
-                        kernel-rt-modules-core \
-                        kernel-rt-modules-extra \
-                        kernel-rt-devel; \
-                fi; \
-                if [ "$(uname -m)" = "x86_64" ] || [ "$(uname -m)" = "s390x" ]; then \
-                    dnf install -y kata-containers; \
-                fi; \
-                if [ "$(uname -m)" = "aarch64" ]; then \
-                    dnf install -y \
-                        kernel-64k-core \
-                        kernel-64k-modules \
-                        kernel-64k-modules-core \
-                        kernel-64k-modules-extra; \
-                fi; \
-            fi && \
-            rm -f /os/c10s.repo && touch /os/empty.repo && \
+        RUN rm -f /os/c10s.repo && touch /os/empty.repo && \
             rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
-            sed -e 's/--repo="${repo_list}"//' \
-                -e '/^kernel_evr=/,/^echo "kernel-devel-/d' \
-                -e "s/for subcommand in 'install' 'reinstall'; do/for subcommand in 'install'; do/" \
-                -e '/^# Clear the versionlock/s|^|installed_kernel_packages=; for package in kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-devel kernel-headers kernel-rt-core kernel-rt-modules kernel-rt-modules-core kernel-rt-modules-extra kernel-rt-devel kernel-64k-core kernel-64k-modules kernel-64k-modules-core kernel-64k-modules-extra; do if rpm -q "$package" >/dev/null 2>\&1; then installed_kernel_packages="$installed_kernel_packages $package"; fi; done; if [ -n "$installed_kernel_packages" ]; then if ! dnf --disableplugin=versionlock reinstall --assumeyes --nobest --downloadonly --setopt=skip_if_unavailable=True --destdir="$destdir" $installed_kernel_packages; then dnf --disableplugin=versionlock upgrade --assumeyes --nobest --downloadonly --setopt=skip_if_unavailable=True --destdir="$destdir" $installed_kernel_packages; fi; fi\n|' \
-                extensions/build.sh | bash
+            sed -e 's/--repo="${repo_list}"//' extensions/build.sh | bash
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: rhcos-node-extensions-container
