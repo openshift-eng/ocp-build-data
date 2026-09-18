@@ -6,6 +6,10 @@ content:
         target: release-{MAJOR}.{MINOR}
       url: git@github.com:openshift-priv/frr.git
       web: https://github.com/openshift/frr
+    modifications:
+    - action: replace
+      match: "${FRR_PKG}"
+      replacement: "frr10"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-frr-container
