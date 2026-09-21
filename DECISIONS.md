@@ -121,12 +121,19 @@ Suggested tool improvements:
 - Support adding image configs that exist on a reference branch (`--add-images-from mce-5.0`).
 - Preserve `streams.yml` comments (`ruamel.yaml`) and do not collapse `OCP_TARGET_VERSIONS` formatting unless asked.
 - Optional `--version` for `group.yml` z-stream instead of always `{new}.0`.
+- Treat missing operator `bundle/image-references` as a **pre-build** check whenever `update-csv` is set. `branch-setup` neither copies the file nor warns; `run` lists `bundle-image-references` as remaining work **after** merge, but the first layered-products rebase already needs it. The file uses `:latest` placeholders — it does not wait on real pullspecs.
+- For non-sequential jumps, do not only copy `image-references` from `--current-version`. Merge in delivery names that exist on a reference branch / in the new image set (2.17 needed `cloudevents-conductor`, `cluster-permission`, `maestro` from 5.0; a 2.11 copy would have missed them).
+- Make `bundle-cross-check` bidirectional: flag ART-built delivery names absent from `image-references`, not only names in the file that lack an `images/*.yml` or `art.yaml` mapping.
+- Carry `bundle/art.yaml` with `image-references` (2.17 still has neither from the scaffold).
 
 ## Appendix: first ART builds (not ocp-build-data decisions)
 
-These are **operand git issues** found on the first hermetic Konflux builds of `mce-2-17`. They are outside a typical ART migration (group.yml, image YAMLs, streams, KRD, `aos-cd-jobs`). The 2.17 image configs already matched the 2.11 pattern; nothing in `ocp-build-data` needed to change.
+Recorded here so the next non-sequential jump does not treat “tool ran + YAML patched” as “builds are green.”
 
-Recorded here so the next non-sequential jump does not treat “tool ran + YAML patched” as “builds are green.” `art-migration` does not inspect upstream `.dockerignore`, Docker `COPY` vs context, or whether `go mod vendor` matches the git tree under hermeto STRICT.
+Two classes of first-build failure showed up on `mce-2-17`:
+
+1. **Operand git** (ASO, MSA) — outside a typical ART migration. `art-migration` does not inspect upstream `.dockerignore`, Docker `COPY` vs context, or whether `go mod vendor` matches the git tree under hermeto STRICT.
+2. **Operator bundle mapping** (`image-references`) — **in** the tool’s stated scope (`bundle-image-references`), but sequenced too late and incomplete for a non-sequential jump. Nothing in `ocp-build-data` needed to change.
 
 ### azure-service-operator — `.dockerignore` vs ART `COPY v2/`
 
@@ -143,3 +150,11 @@ Recorded here so the next non-sequential jump does not treat “tool ran + YAML 
 - **2.11 / 5.0:** neither branch tracks that `.swp` either. 2.11 uses `v6.0.3-0.20260305…`, 5.0 uses `v6.0.3`. They may share the latent bug on a rebuild; 2.17 is pinned to v6.0.2, which definitely contains the file.
 - **Fix:** operand PR (`git add --force` the vendored file / gitignore exception). [stolostron/managed-serviceaccount#610](https://github.com/stolostron/managed-serviceaccount/pull/610)
 - **Playbook:** first hermetic prefetch failures that mention `vendor directory changed` are operand content (gitignore vs `go mod vendor`), not ART config. Do not paper over them by disabling hermetic/cachi2.
+
+### backplane-operator — missing `bundle/image-references` (layered-products 19398)
+
+- **Symptom:** doozer Konflux rebase: `FileNotFoundError: backplane-operator: image-references file not found` under `bundle/manifests/`, `bundle/`, or `manifests/`. Operator excluded from the build. Hive `subscription-manager` lockfile lines in the same job were warnings; the later Jenkins `FlowNode 92` crash was durability, not the root cause.
+- **Cause:** `backplane-2.17` never had `bundle/image-references` (or `bundle/art.yaml`). `backplane-operator.yml` already had `update-csv` pointing at `bundle`, so rebase requires that file on the **first** operator build. `art-migration.sh bundle-image-references` copies it from the current version’s operator branch, but (a) `branch-setup` does not run it, (b) `run` lists it after merge as remaining work, and (c) a verbatim copy from `backplane-2.11` would still miss the three 2.17-only images.
+- **2.11 / 5.0:** both branches have the file. 5.0 also lists `cloudevents-conductor-rhel9`, `cluster-permission-rhel9`, `maestro-rhel9`.
+- **Fix:** operand PR, not image YAML. Copied the 5.0 mapping onto `backplane-2.17` (placeholders stay `:latest`). [stolostron/backplane-operator compare](https://github.com/stolostron/backplane-operator/compare/backplane-2.17...HYPBLD-873-bundle-image-references?expand=1)
+- **Playbook:** as soon as the new operator branch exists, ensure `bundle/image-references` covers every ART-built delivery name **plus** externals. Do not wait for pullspecs. For a non-sequential jump, start from current_version then merge names from the reference branch / new image set; `bundle-cross-check` only catches extras in the file, not missing ART images. `bundle/art.yaml` is still absent on 2.17 (externals); that did not fail 19398.
