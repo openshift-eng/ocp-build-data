@@ -46,3 +46,15 @@ labels:
 name: openshift/openshift-enterprise-base-rhel9
 owners:
 - lmeyer@redhat.com
+okd:
+  # CentOS Stream keeps /var/lock as a symlink to /run/lock, but does not
+  # provide the target directory in the base image.
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: |
+          # OKD-specific changes
+        replacement: |
+          # OKD-specific changes
+          RUN install -d -m 0755 /run/lock
