@@ -10,6 +10,11 @@ content:
         target: release-0.9
       url: git@github.com:openshift-priv/migtools-mta-kantra.git
       web: https://github.com/migtools/mta-kantra
+    modifications:
+      # Remove FIPS flags from linux build; the golang-builder handles FIPS natively
+      - action: replace
+        match: "CGO_ENABLED=0 GOOS=linux GOEXPERIMENT=strictfipsruntime go build -tags strictfipsruntime"
+        replacement: "CGO_ENABLED=0 GOOS=linux go build"
 jira:
   project: MTA
   component: MTA CLI
@@ -21,6 +26,8 @@ delivery:
 enabled_repos:
 - rhel-9-appstream-rpms
 - rhel-9-baseos-rpms
+envs:
+  GOFLAGS: "-mod=mod"
 from:
   builder:
     - stream: rhel-9-golang
