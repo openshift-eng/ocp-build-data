@@ -6,6 +6,13 @@ content:
         target: v0.54.0-rh
       url: git@github.com:openshift-priv/vector.git
       web: https://github.com/ViaQ/vector
+    modifications:
+      - action: replace
+        match: "dnf install -y --installroot=/mnt/rootfs"
+        replacement: "dnf install -y --installroot=/mnt/rootfs --config /etc/dnf/dnf.conf --noplugins --setopt=cachedir=/var/cache/dnf --setopt=reposdir=/etc/yum.repos.d --setopt=varsdir=/etc/dnf/vars"
+      - action: replace
+        match: "dnf --installroot=/mnt/rootfs clean all"
+        replacement: "dnf --installroot=/mnt/rootfs --config /etc/dnf/dnf.conf --noplugins --setopt=cachedir=/var/cache/dnf --setopt=reposdir=/etc/yum.repos.d --setopt=varsdir=/etc/dnf/vars clean all"
     pkg_managers:
       - cargo
 cachito:
