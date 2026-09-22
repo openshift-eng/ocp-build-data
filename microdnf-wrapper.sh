@@ -14,6 +14,8 @@ ALLOWED_SETOPTS=(
     "keepcache"
     "install_weak_deps"
     "reposdir"
+    "cachedir"     # Required for --installroot companion args
+    "varsdir"      # Required for --installroot companion args
 )
 
 # Normalize boolean values (false/False => 0, true/True => 1)
