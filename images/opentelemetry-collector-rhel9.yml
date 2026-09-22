@@ -1,6 +1,10 @@
 content:
   source:
     dockerfile: Dockerfile
+    modifications:
+    - action: replace
+      match: "microdnf -y install which golang make"
+      replacement: "dnf -y install which"
     git:
       branch:
         target: rhosdt-3.11
