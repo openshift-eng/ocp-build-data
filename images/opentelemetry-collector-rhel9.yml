@@ -12,11 +12,14 @@ distgit:
 delivery:
   delivery_repo_names:
   - rhosdt/opentelemetry-collector-rhel9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 for_release: true
 from:
   builder:
   - stream: rhel-9-golang
-  stream: rhel9-micro
+  stream: rhel9
 name: rhosdt/opentelemetry-collector-rhel9
 owners:
 - aos-team-art@redhat.com
