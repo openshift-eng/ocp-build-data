@@ -36,6 +36,9 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e1873d00229a5c43909b1a3ae23d7820aefa1161623badd393543da83610f1dc
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:412eaf2240c442666fa48083d8fcde3320d34aefb1f79674e4f0b6bd33c7c02e
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:60a5521c76155f7a76f4eb2048352ac3040a9ffcad9c05ce6f55829b1727ec09
+      issues:
+        exclude:
+          - id: OCPBUGS-76288 # MCE/ACM-delivered CVE tracker, not shipped in OCP advisory
       members:
         rpms: []
         images: []
