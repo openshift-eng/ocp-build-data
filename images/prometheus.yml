@@ -20,6 +20,14 @@ from:
   builder:
   - stream: rhel-9-golang
   member: base-rhel9
+konflux:
+  cachi2:
+    artifact_lockfile:
+      enabled: true
+      path: .
+      resources:
+      - url: https://github.com/prometheus/prometheus/releases/download/v3.14.0/prometheus-web-ui-3.14.0.tar.gz
+        filename: prometheus-web-ui.tar.gz
 name: cluster-observability-operator/prometheus-rhel9
 owners:
 - team-monitoring@redhat.com
