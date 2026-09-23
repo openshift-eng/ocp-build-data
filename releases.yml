@@ -24,6 +24,11 @@ releases:
           env: stage
         release_date: 2026-Oct-01
         upgrades: 4.22.0-rc.0,4.22.0-rc.1,4.22.0-rc.2,4.22.0-rc.3,4.22.0-rc.4,4.22.0-rc.5,4.22.0,4.22.1,4.22.2,4.22.3,4.22.4,4.22.5,4.22.6,4.22.7,4.22.8,4.22.9,4.22.10,4.22.11,4.22.12,4.22.13,4.22.14,4.22.15,4.22.16,5.0.0-ec.0,5.0.0-ec.1,5.0.0-ec.2,5.0.0-ec.3,5.0.0-ec.4,5.0.0-ec.5,5.0.0-ec.6,5.0.0-rc.0,5.0.0-rc.1,5.0.0-rc.2,5.0.0-rc.3
+        dependencies:
+          rpms:
+            - el9: cri-tools-1.36.0-2.el9
+              non_gc_tag: rhaos-5.0-rhel-9
+              why: Pin cri-tools to match nightly RHCOS build 5.0.9.8.202609211805-0
       rhcos:
         rhel-coreos:
           images:
@@ -49,6 +54,9 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b7b22ef758858646305f02c3528be922b89c7c336840eb41c029cca472c52379
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a5a65a72caf766a6bfa63c1de834ca4a67df1be569aefcf5d93653a78a9d8f15
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5797451f31bf2c0e4eeec1d86f6f34017aa98fc4acd9647bc2587217fe4e0588
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
       members:
         rpms: []
         images: []
