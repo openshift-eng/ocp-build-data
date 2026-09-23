@@ -24,7 +24,10 @@ for_release: true
 from:
   builder:
   - stream: rhel-9-golang
-  stream: rhel9
+  - stream: rhel-9-golang
+  - stream: rhel9-micro
+  - stream: rhel9-ubi
+  stream: rhel9-micro
 name: rhosdt/opentelemetry-collector-rhel9
 name_in_bundle: opentelemetry-collector-rhel9
 dependents:
