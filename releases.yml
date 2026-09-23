@@ -33,6 +33,9 @@ releases:
         rhel-coreos-8-extensions:
           images:
             x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d1ac6bef8294ea33f39d6d2b7a94e50957cfea4f236e93a298207992e9a8698c
+      issues:
+        exclude:
+          - id: OCPBUGS-121985  # flaw:bz#2517889 - restricted tracker, flaw bug unfetchable/private
       members:
         rpms: []
         images: []
