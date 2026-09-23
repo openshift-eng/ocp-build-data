@@ -18,7 +18,10 @@ content:
       match: "RUN --mount=type=secret,id=yumrepos,target=/os/secret.repo extensions/build.sh"
       replacement: |
         RUN rm -f /os/c10s.repo && touch /os/empty.repo && \
-            sed -e 's/--repo="${repo_list}"//' extensions/build.sh | bash
+            sed \
+            -e 's/--repo="${repo_list}"//' \
+            -e '/^kernel_evr=/,/^echo "kernel-devel-/d' \
+            extensions/build.sh | bash
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: rhcos-node-extensions-container
