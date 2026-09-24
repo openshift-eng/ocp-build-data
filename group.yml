@@ -24,7 +24,7 @@ konflux:
   - aarch64
   - ppc64le
   - s390x
-  network_mode: open
+  network_mode: hermetic
 
 OCP_TARGET_VERSIONS: [
   "4.14",
@@ -40,13 +40,11 @@ OCP_TARGET_VERSIONS: [
 assemblies:
   enabled: true
 
-mr_approvers:
-  QE: []
-  DOCS: []
-
 public_upstreams:
 - private: "https://github.com/openshift-priv"
   public:  "https://github.com/quay"
+- private: "https://github.com/openshift-priv/ocp-build-data"
+  public:  "https://github.com/openshift-eng/ocp-build-data"
 
 branch: rhaos-{MAJOR}.{MINOR}-rhel-9
 
@@ -83,5 +81,50 @@ repos:
       aarch64: rhel-9-for-aarch64-appstream-rpms
       ppc64le: rhel-9-for-ppc64le-appstream-rpms
       s390x: rhel-9-for-s390x-appstream-rpms
+    reposync:
+      enabled: false
+
+  rhel-9-codeready-builder-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/aarch64/codeready-builder/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/ppc64le/codeready-builder/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/s390x/codeready-builder/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.6/x86_64/codeready-builder/os/
+    content_set:
+      default: codeready-builder-for-rhel-9-x86_64-rpms
+      aarch64: codeready-builder-for-rhel-9-aarch64-rpms
+      ppc64le: codeready-builder-for-rhel-9-ppc64le-rpms
+      s390x: codeready-builder-for-rhel-9-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-baseos-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
+    content_set:
+      default: rhel-8-for-x86_64-baseos-rpms
+      aarch64: rhel-8-for-aarch64-baseos-rpms
+      ppc64le: rhel-8-for-ppc64le-baseos-rpms
+      s390x: rhel-8-for-s390x-baseos-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-appstream-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/appstream/os/
+    content_set:
+      default: rhel-8-for-x86_64-appstream-rpms
+      aarch64: rhel-8-for-aarch64-appstream-rpms
+      ppc64le: rhel-8-for-ppc64le-appstream-rpms
+      s390x: rhel-8-for-s390x-appstream-rpms
     reposync:
       enabled: false

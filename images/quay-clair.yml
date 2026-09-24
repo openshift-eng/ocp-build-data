@@ -1,10 +1,24 @@
+cachito:
+  enabled: true
+konflux:
+  cachi2:
+    artifact_lockfile:
+      enabled: true
+      path: .
+      resources:
+      - url: https://www.redhat.com/security/data/metrics/repository-to-cpe.json
+        filename: repository-to-cpe.json
+      - url: https://www.redhat.com/security/data/metrics/container-name-repos-map.json
+        filename: container-name-repos-map.json
+dependents:
+- quay-operator
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: contrib/art/Containerfile.art
     git:
       branch:
-        target: release-4.7
-      url: git@github.com:openshift-priv/clair.git
+        target: release-4.9
+      url: git@github.com:openshift-priv/quay-clair.git
       web: https://github.com/quay/clair
 jira:
   project: PROJQUAY
@@ -21,7 +35,7 @@ enabled_repos:
 from:
   builder:
   - stream: rhel-9-golang
-  stream: rhel9-minimal
+  stream: rhel9
 name: quay/clair-rhel9
 owners:
 - quay-devel@redhat.com

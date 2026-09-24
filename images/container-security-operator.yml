@@ -1,20 +1,26 @@
+bundle_name_override: quay-container-security-operator-bundle
+cachito:
+  enabled: true
 content:
   source:
-    dockerfile: Dockerfile
+    dockerfile: Containerfile.art
     git:
       branch:
         target: redhat-3.16
-      url: git@github.com:openshift-priv/container-security-operator.git
+      url: git@github.com:openshift-priv/quay-container-security-operator.git
       web: https://github.com/quay/container-security-operator
 jira:
   project: PROJQUAY
   component: Container Security Operator
 distgit:
   component: container-security-operator-container
+konflux:
+  component:
+    bundle_name_override: container-security-operator-bundle
 delivery:
   bundle_delivery_repo_name: quay/quay-container-security-operator-bundle
   delivery_repo_names:
-  - quay/quay-container-security-operator-rhel9
+  - quay/quay-container-security-rhel9-operator
 for_payload: false
 enabled_repos:
 - rhel-9-appstream-rpms
@@ -22,10 +28,12 @@ enabled_repos:
 from:
   builder:
   - stream: rhel-9-golang
-  stream: rhel9-minimal
-name: quay/quay-container-security-operator-rhel9
+  stream: rhel9
+name: quay/quay-container-security-rhel9-operator
 owners:
 - quay-devel@redhat.com
 update-csv:
   bundle-dir: manifests/
   manifests-dir: bundle/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'

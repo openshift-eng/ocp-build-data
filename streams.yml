@@ -5,10 +5,19 @@ rhel-9-golang:
   image: registry.redhat.io/ubi9/go-toolset:1.22
 
 rhel9:
-  image: registry.redhat.io/ubi9/ubi:latest
+  image: registry.redhat.io/ubi9/ubi-minimal:9.8
 
-rhel9-minimal:
-  image: registry.redhat.io/ubi9/ubi-minimal:latest
+rhel9-nodejs-22-minimal:
+  image: registry.redhat.io/ubi9/nodejs-22-minimal:9.8
 
 rhel8:
-  image: registry.redhat.io/ubi8/ubi:latest
+  image: registry.redhat.io/ubi8/ubi:8.10
+
+rhel8-golang:
+  image: registry.redhat.io/ubi8/go-toolset:1.22
+
+rhel8-podman:
+  image: registry.redhat.io/ubi8/podman:8
+
+rhel9-podman:
+  image: registry.redhat.io/ubi9/podman:9.8
