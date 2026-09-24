@@ -658,7 +658,6 @@ bug_mapping:
     openshift4/ose-csi-external-provisioner-rhel9:
       image_file: images/csi-provisioner.yaml
       internal_name: csi-provisioner-container
-      issue_component: Storage
       versions:
       - '4.16'
       - '4.16'
@@ -670,6 +669,7 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
+      issue_component: Storage
     openshift5/ose-csi-external-provisioner-rhel9:
       image_file: images/csi-provisioner.yaml
       internal_name: csi-provisioner-container
@@ -688,12 +688,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-cni-rhel9:
-      image_file: images/dpu-cni.yaml
-      internal_name: dpu-cni-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-daemon-rhel9:
       image_file: images/dpu-daemon.yaml
       internal_name: dpu-daemon-container
@@ -706,12 +700,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-daemon-rhel9:
-      image_file: images/dpu-daemon.yaml
-      internal_name: dpu-daemon-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-intel-ipu-p4sdk-rhel9:
       image_file: images/dpu-intel-ipu-p4sdk.yaml
       internal_name: dpu-intel-ipu-p4sdk-container
@@ -721,12 +709,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-intel-ipu-p4sdk-rhel9:
-      image_file: images/dpu-intel-ipu-p4sdk.yaml
-      internal_name: dpu-intel-ipu-p4sdk-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-intel-ipu-vsp-rhel9:
       image_file: images/dpu-intel-ipu-vsp.yaml
       internal_name: dpu-intel-ipu-vsp-container
@@ -736,12 +718,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-intel-ipu-vsp-rhel9:
-      image_file: images/dpu-intel-ipu-vsp.yaml
-      internal_name: dpu-intel-ipu-vsp-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-intel-netsec-vsp-rhel9:
       image_file: images/dpu-intel-netsec-vsp.yaml
       internal_name: dpu-intel-netsec-vsp-container
@@ -749,12 +725,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-intel-netsec-vsp-rhel9:
-      image_file: images/dpu-intel-netsec-vsp.yaml
-      internal_name: dpu-intel-netsec-vsp-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-marvell-cp-agent-rhel9:
       image_file: images/dpu-marvell-cp-agent.yaml
       internal_name: dpu-marvell-cp-agent-container
@@ -762,12 +732,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-marvell-cp-agent-rhel9:
-      image_file: images/dpu-marvell-cp-agent.yaml
-      internal_name: dpu-marvell-cp-agent-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-marvell-vsp-rhel9:
       image_file: images/dpu-marvell-vsp.yaml
       internal_name: dpu-marvell-vsp-container
@@ -775,12 +739,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-marvell-vsp-rhel9:
-      image_file: images/dpu-marvell-vsp.yaml
-      internal_name: dpu-marvell-vsp-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-network-resources-injector-rhel9:
       image_file: images/dpu-network-resources-injector.yaml
       internal_name: dpu-network-resources-injector-container
@@ -788,12 +746,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-network-resources-injector-rhel9:
-      image_file: images/dpu-network-resources-injector.yaml
-      internal_name: dpu-network-resources-injector-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-rhel9-operator:
       image_file: images/dpu-operator.yaml
       internal_name: dpu-operator-container
@@ -806,10 +758,10 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-rhel9-operator:
-      image_file: images/dpu-operator.yaml
-      internal_name: dpu-operator-container
-      issue_component: Networking / DPU
+    openshift5/dra-driver-sriov-rhel9:
+      image_file: images/dra-driver-sriov.yaml
+      internal_name: dra-driver-sriov-container
+      issue_component: Networking / SR-IOV
       versions:
       - '5.0'
     openshift4/driver-toolkit-rhel8:
@@ -3569,18 +3521,6 @@ bug_mapping:
       versions:
       - '4.12'
       - '4.13'
-      - '4.14'
-      - '4.15'
-    openshift4/ovirt-csi-driver-rhel9-operator:
-      image_file: images/ose-cluster-ovirt-csi-operator.yaml
-      internal_name: ose-cluster-ovirt-csi-operator-container
-      issue_component: Storage / oVirt CSI Driver
-      versions:
-      - '4.16'
-      - '4.17'
-      - '4.18'
-      - '4.19'
-      - '4.20'
     openshift4/ose-cluster-platform-operators-manager-rhel8:
       image_file: images/ose-cluster-platform-operators-manager.yaml
       internal_name: ose-cluster-platform-operators-manager-container
@@ -5556,18 +5496,6 @@ bug_mapping:
       versions:
       - '4.12'
       - '4.13'
-      - '4.14'
-    openshift4/ovirt-csi-driver-rhel9:
-      image_file: images/ose-ovirt-csi-driver.yaml
-      internal_name: ose-ovirt-csi-driver-container
-      issue_component: Storage / oVirt CSI Driver
-      versions:
-      - '4.15'
-      - '4.16'
-      - '4.17'
-      - '4.18'
-      - '4.19'
-      - '4.20'
     openshift4/ose-ovirt-machine-controllers-rhel8:
       image_file: images/ose-ovirt-machine-controllers.yaml
       internal_name: ose-ovirt-machine-controllers-container
@@ -7518,3 +7446,165 @@ bug_mapping:
       issue_component: Low latency validation tooling
     redhat-user-workloads/cnf-tests-4-15:
       issue_component: Low latency validation tooling
+    acm-cert-policy-controller-container:
+      issue_component: GRC
+    acm-cli-container:
+      issue_component: GRC
+    acm-cluster-backup-controller-container:
+      issue_component: Business Continuity
+    acm-config-policy-controller-container:
+      issue_component: GRC
+    acm-console-container:
+      issue_component: Console
+    acm-endpoint-monitoring-operator-container:
+      issue_component: Observability[ext]
+    acm-governance-policy-addon-controller-container:
+      issue_component: GRC
+    acm-governance-policy-framework-addon-container:
+      issue_component: GRC
+    acm-governance-policy-propagator-container:
+      issue_component: GRC
+    acm-grafana-container:
+      issue_component: Observability[ext]
+    acm-grafana-dashboard-loader-container:
+      issue_component: Observability[ext]
+    acm-insights-client-container:
+      issue_component: Search
+    acm-insights-metrics-container:
+      issue_component: Search
+    acm-klusterlet-addon-controller-container:
+      issue_component: Server Foundation
+    acm-kube-rbac-proxy-container:
+      issue_component: Observability[ext]
+    acm-kube-state-metrics-container:
+      issue_component: Observability[ext]
+    acm-memcached-exporter-container:
+      issue_component: Observability[ext]
+    acm-metrics-collector-container:
+      issue_component: Observability[ext]
+    acm-mtv-integrations-container:
+      issue_component: CNV[int]
+    acm-multicloud-integrations-container:
+      issue_component: Application Lifecycle
+    acm-multicluster-observability-addon-container:
+      issue_component: Observability[ext]
+    acm-multicluster-observability-operator-container:
+      issue_component: Observability[ext]
+    acm-multicluster-operators-application-container:
+      issue_component: Application Lifecycle
+    acm-multicluster-operators-channel-container:
+      issue_component: Application Lifecycle
+    acm-multicluster-operators-subscription-container:
+      issue_component: Application Lifecycle
+    acm-multicluster-role-assignment-container:
+      issue_component: CNV[int]
+    acm-multiclusterhub-operator-container:
+      issue_component: Installer
+    acm-must-gather-container:
+      issue_component: GRC
+    acm-node-exporter-container:
+      issue_component: Observability[ext]
+    acm-obo-prometheus-operator-container:
+      issue_component: Observability[ext]
+    acm-observatorium-container:
+      issue_component: Observability[ext]
+    acm-observatorium-operator-container:
+      issue_component: Observability[ext]
+    acm-prometheus-alertmanager-container:
+      issue_component: Observability[ext]
+    acm-prometheus-config-reloader-container:
+      issue_component: Observability[ext]
+    acm-prometheus-container:
+      issue_component: Observability[ext]
+    acm-prometheus-operator-container:
+      issue_component: Observability[ext]
+    acm-rbac-query-proxy-container:
+      issue_component: Observability[ext]
+    acm-search-collector-container:
+      issue_component: Search
+    acm-search-indexer-container:
+      issue_component: Search
+    acm-search-v2-api-container:
+      issue_component: Search
+    acm-search-v2-operator-container:
+      issue_component: Search
+    acm-siteconfig-container:
+      issue_component: SiteConfig Operator[ext]
+    acm-submariner-addon-container:
+      issue_component: Multicluster Networking[ext]
+    acm-thanos-container:
+      issue_component: Observability[ext]
+    acm-thanos-receive-controller-container:
+      issue_component: Observability[ext]
+    acm-volsync-addon-controller-container:
+      issue_component: VolSync
+    mce-addon-manager-container:
+      issue_component: Server Foundation
+    mce-azure-service-operator-container:
+      issue_component: CAPI[ext]
+    mce-backplane-must-gather-container:
+      issue_component: Installer
+    mce-backplane-operator-container:
+      issue_component: Installer
+    mce-capoa-bootstrap-container:
+      issue_component: CAPOA[ext]
+    mce-capoa-control-plane-container:
+      issue_component: CAPOA[ext]
+    mce-cloudevents-conductor-container:
+      issue_component: Maestro
+    mce-cluster-api-provider-agent-container:
+      issue_component: HyperShift[int]
+    mce-cluster-api-provider-aws-container:
+      issue_component: CAPA[ext]
+    mce-cluster-api-provider-azure-container:
+      issue_component: HyperShift[int]
+    mce-cluster-api-provider-kubevirt-container:
+      issue_component: HyperShift[int]
+    mce-cluster-api-webhook-config-container:
+      issue_component: CAPI[ext]
+    mce-cluster-curator-controller-container:
+      issue_component: Cluster Lifecycle
+    mce-cluster-image-set-controller-container:
+      issue_component: Cluster Lifecycle
+    mce-cluster-permission-container:
+      issue_component: Server Foundation
+    mce-cluster-proxy-container:
+      issue_component: Server Foundation
+    mce-clusterclaims-controller-container:
+      issue_component: Cluster Lifecycle
+    mce-clusterlifecycle-state-metrics-container:
+      issue_component: Server Foundation
+    mce-console-mce-container:
+      issue_component: Console
+    mce-discovery-operator-container:
+      issue_component: Installer
+    mce-hive-container:
+      issue_component: Hive[ext]
+    mce-hypershift-addon-operator-container:
+      issue_component: HyperShift[int]
+    mce-hypershift-cli-container:
+      issue_component: HyperShift[int]
+    mce-hypershift-release-container:
+      issue_component: HyperShift[int]
+    mce-image-based-install-operator-container:
+      issue_component: Image Based Install Operator[ext]
+    mce-kube-rbac-proxy-container:
+      issue_component: Observability[ext]
+    mce-maestro-container:
+      issue_component: Maestro
+    mce-managed-serviceaccount-container:
+      issue_component: Server Foundation
+    mce-managedcluster-import-controller-container:
+      issue_component: Server Foundation
+    mce-multicloud-manager-container:
+      issue_component: Server Foundation
+    mce-placement-container:
+      issue_component: Server Foundation
+    mce-provider-credential-controller-container:
+      issue_component: Cluster Lifecycle
+    mce-registration-container:
+      issue_component: Server Foundation
+    mce-registration-operator-container:
+      issue_component: Server Foundation
+    mce-work-container:
+      issue_component: Server Foundation

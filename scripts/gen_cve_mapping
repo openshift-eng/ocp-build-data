@@ -12,9 +12,16 @@ from pathlib import Path
 from subprocess import run
 from sys import exit
 
+
+def git(*args):
+    proc = run(['git', *args], capture_output=True)
+    if proc.returncode != 0:
+        raise RuntimeError(f'git {" ".join(args)} failed:\n{proc.stderr.decode("utf-8")}')
+    return proc
+
 yml = YAML()
 
-repo = Path(run(['git', 'rev-parse', '--show-toplevel'], capture_output=True).stdout.decode('utf-8').strip())
+repo = Path(git('rev-parse', '--show-toplevel').stdout.decode('utf-8').strip())
 
 mapping = yml.load(repo / 'product.yml')
 
@@ -28,13 +35,15 @@ result['default_issue_project'] = 'OCPBUGS'
 result['active_versions'] = versions
 
 components = dict()
+warned = set()
 
 for version in versions:
+    branch = f'openshift-{version}'
+    print(f'Looking at branch {branch}...')
     wt = worktrees / version
     if wt.is_dir():
-        print('removing worktree', wt)
-        run(['git', 'worktree', 'remove', '--force', wt])
-    run(['git', 'worktree', 'add', wt, f'origin/openshift-{version}'])
+        git('worktree', 'remove', '--force', wt)
+    git('worktree', 'add', wt, f'origin/{branch}')
 
     for imagefile in wt.glob('images/*.yml'):
         image = yml.load(imagefile)
@@ -54,13 +63,13 @@ for version in versions:
             try:
                 components[delivery_repo]['issue_component'] = mapping['bug_mapping']['components'][internal_name]['issue_component']
             except KeyError:
-                print(f'File: images/{imagefile.stem}.yaml\nInternal Name Not Found: {internal_name}\nExternal: {delivery_repo}\n')
-                pass
+                warn_key = (imagefile.stem, internal_name, delivery_repo)
+                if warn_key not in warned:
+                    warned.add(warn_key)
+                    print(f'  WARNING: internal name {internal_name!r} (images/{imagefile.stem}.yaml, external {delivery_repo}) has no issue_component in product.yml')
             components[delivery_repo].setdefault('versions', []).append(version)
 
-
-
-    run(['git', 'worktree', 'remove', '--force', wt])
+    git('worktree', 'remove', '--force', wt)
 
 components = {a[0]: a[1] for a in sorted(components.items(), key=lambda x: (x[1]['internal_name'], x[0]))}
 
