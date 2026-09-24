@@ -1,4 +1,53 @@
 releases:
+  4.20.40:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-09-22T23:24:06+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2026-09-23-003715
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Sep-29
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.19.31,4.19.32,4.19.33,4.19.34,4.19.35,4.19.36,4.19.37,4.19.38,4.19.39,4.19.40,4.19.41,4.19.42,4.19.43,4.19.44,4.19.45,4.19.46,4.19.47,4.19.48,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.20.21,4.20.22,4.20.23,4.20.24,4.20.25,4.20.26,4.20.27,4.20.28,4.20.29,4.20.30,4.20.31,4.20.32,4.20.33,4.20.34,4.20.35,4.20.36,4.20.37,4.20.38,4.20.39
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dac677c41a31a0f7efd8199c31ae0b8a3bb5fb16ecf89c7aec98c5643e64537f
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f03bab61bfaaaf5ae0b5aeeb550bb79346395395059d1233a60a3383d7b66050
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b2e8ab5c489ed3d80f8ea2bc9f797244b99502df334f4b0239066d500c044b1a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7c5d9a9b47b1de4ac81370819a12176880dfd4fe45a0d2060d7f779bcadb4840
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ffcbd4ca74285119406e328ca851b4a79de2f33d565235a7e7f41dba3bc3a4d
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1fdd9fad21f46996617367adcf710fe21b79195a3fbf529be0cd43e050d08d3c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:035c8165f38e5095c79c8e1e85c2a594088acfcbaa7a7e49043a5f8b24315034
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2a404ddaa40bb8ae0e3513bed23e7280562e96fea3ba3564afa7fdefb8e16620
+      members:
+        rpms: []
+        images: []
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-ansible-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
   4.20.39:
     assembly:
       type: standard
