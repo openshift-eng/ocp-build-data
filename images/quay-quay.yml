@@ -1,5 +1,3 @@
-arches:
-- x86_64
 dependents:
 - quay-operator
 cachito:
@@ -58,8 +56,6 @@ name: quay/quay-rhel9
 owners:
 - quay-devel@redhat.com
 konflux:
-  arches:
-  - x86_64
   cachi2:
     lockfile:
       enabled: true
@@ -70,3 +66,4 @@ konflux:
     cpu: 8000m
   vm_override:
     x86_64: linux-m2xlarge/amd64
+    aarch64: linux-m2xlarge/arm64
