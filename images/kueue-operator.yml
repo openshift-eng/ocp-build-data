@@ -1,0 +1,31 @@
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: release-1.4
+      url: git@github.com:openshift-priv/kueue-operator.git
+      web: https://github.com/openshift/kueue-operator
+distgit:
+  bundle_component: kueue-operator-bundle
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: kueue-operator-container
+delivery:
+  repo_name: kueue/kueue-rhel9-operator
+  bundle_delivery_repo_name: kueue/kueue-operator-bundle
+  delivery_repo_names:
+  - kueue/kueue-rhel9-operator
+for_payload: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: kueue/kueue-rhel9-operator
+owners:
+- aos-node@redhat.com
+update-csv:
+  bundle-dir: 'stable/'
+  manifests-dir: manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: kueue-operator
+canonical_builders_from_upstream: false
