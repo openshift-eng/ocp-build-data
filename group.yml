@@ -1,71 +1,46 @@
-name: coo-1.5
-csv_namespace: cluster-observability-operator
-product: cluster-observability-operator
-version: 1.5.2
-
+name: kueue-1.4
+csv_namespace: kueue-operator
+product: kueue-operator
+version: 1.4.3
 vars:
-  GO_LATEST: "1.26"
-  GO_EXTRA: "1.26"
+  GO_LATEST: '1.26'
+  GO_EXTRA: '1.26'
   MAJOR: 4
-  MINOR: 22
-
+  MINOR: 18
 arches:
-- x86_64
-- aarch64
-- ppc64le
-- s390x
-
-operator_image_ref_mode: manifest-list
-konflux:
-  arches:
   - x86_64
   - aarch64
   - ppc64le
   - s390x
+operator_image_ref_mode: manifest-list
+konflux:
+  arches:
+    - x86_64
+    - aarch64
+    - ppc64le
+    - s390x
   cachi2:
     enabled: true
   network_mode: hermetic
-
-OCP_TARGET_VERSIONS: [
-  "4.12",
-  "4.14",
-  "4.16",
-  "4.18",
-  "4.19",
-  "4.20",
-  "4.21",
-  "4.22",
-  "5.0",
-]
-
+OCP_TARGET_VERSIONS:
+  - '4.18'
+  - '4.19'
+  - '4.20'
+  - '4.21'
+  - '4.22'
+  - '4.23'
+  - '5.0'
 assemblies:
   enabled: true
-
 public_upstreams:
-# Global mapping for openshift org repos (majority of components)
-- private: "https://github.com/openshift-priv"
-  public: "https://github.com/openshift"
-# ocp-build-data itself
-- private: "https://github.com/openshift-priv/ocp-build-data"
-  public: "https://github.com/openshift-eng/ocp-build-data"
-# rhobs org repos
-- private: "https://github.com/openshift-priv/rhobs-observability-operator"
-  public: "https://github.com/rhobs/observability-operator"
-- private: "https://github.com/openshift-priv/rhobs-obo-prometheus-operator"
-  public: "https://github.com/rhobs/obo-prometheus-operator"
-- private: "https://github.com/openshift-priv/rhobs-perses"
-  public: "https://github.com/rhobs/perses"
-- private: "https://github.com/openshift-priv/rhobs-perses-operator"
-  public: "https://github.com/rhobs/perses-operator"
-# korrel8r org
-- private: "https://github.com/openshift-priv/korrel8r-korrel8r"
-  public: "https://github.com/korrel8r/korrel8r"
-
+  - private: https://github.com/openshift-priv
+    public: https://github.com/openshift
+  - private: https://github.com/openshift-priv/ocp-build-data
+    public: https://github.com/openshift-eng/ocp-build-data
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
   brew_image_namespace: rh-osbs
-
 repos:
   rhel-9-baseos-rpms:
     conf:
@@ -81,7 +56,6 @@ repos:
       s390x: rhel-9-for-s390x-baseos-rpms
     reposync:
       enabled: false
-
   rhel-9-appstream-rpms:
     conf:
       baseurl:
