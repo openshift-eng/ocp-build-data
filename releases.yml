@@ -52,7 +52,61 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e9cf91ecb42805e73296c0fddcd799e828bbfb5ae2dd05d4b0d7eed4539479c5
       members:
         rpms: []
-        images: []
+        images:
+          # --- cluster-nfd-operator ---
+          - distgit_key: cluster-nfd-operator
+            metadata:
+              is:
+                nvr: cluster-nfd-operator-container-v4.23.0-202609241726.p2.g34d2d3f.assembly.stream.el9
+            why: Fix bundle/operand mismatch - pin to 202609241726 batch
+          - distgit_key: node-feature-discovery
+            metadata:
+              is:
+                nvr: node-feature-discovery-container-v4.23.0-202609241726.p2.gfd403a6.assembly.stream.el9
+            why: Pin operand to match bundle (basis.time excluded 202609200935 build)
+          # --- ingress-node-firewall-operator ---
+          - distgit_key: ingress-node-firewall-operator
+            metadata:
+              is:
+                nvr: ingress-node-firewall-operator-container-v4.23.0-202609241726.p2.gf2edcc9.assembly.stream.el9
+            why: Fix bundle/operand mismatch - pin to 202609241726 batch
+          - distgit_key: ingress-node-firewall-daemon
+            metadata:
+              is:
+                nvr: ingress-node-firewall-daemon-container-v4.23.0-202609241726.p2.gf2edcc9.assembly.stream.el9
+            why: Pin operand to match bundle (basis.time excluded 202609200935 build)
+          # --- metallb-operator ---
+          - distgit_key: ose-metallb-operator
+            metadata:
+              is:
+                nvr: ose-metallb-operator-container-v4.23.0-202609241726.p2.gf10b3f7.assembly.stream.el9
+            why: Fix bundle/operand mismatch - pin to 202609241726 batch
+          - distgit_key: ose-frr
+            metadata:
+              is:
+                nvr: ose-frr-container-v4.23.0-202609241726.p2.g54a6ea4.assembly.stream.el9
+            why: Pin operand to match bundle (basis.time excluded 202609200935 build)
+          - distgit_key: ose-metallb
+            metadata:
+              is:
+                nvr: ose-metallb-container-v4.23.0-202609241726.p2.g6995e46.assembly.stream.el9
+            why: Pin operand to match bundle (basis.time excluded 202609200935 build)
+          # --- kubernetes-nmstate-operator ---
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.23.0-202609241726.p2.gfffb76d.assembly.stream.el9
+            why: Fix bundle/operand mismatch - pin to 202609241726 batch
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.23.0-202609241726.p2.gc5a1971.assembly.stream.el9
+            why: Pin operand to match bundle (202609210921 build failed its_error)
+          - distgit_key: openshift-kubernetes-nmstate-handler-rhel-9
+            metadata:
+              is:
+                nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.23.0-202609241726.p2.gfffb76d.assembly.stream.el9
+            why: Pin operand to match bundle for consistency
   ec.0:
     assembly:
       type: preview
