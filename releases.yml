@@ -59,7 +59,12 @@ releases:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ose-insights-runtime-extractor
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~rc.4-202609250720.p0.g7bb0103.assembly.rc.4.el9
         images: []
   rc.3:
     assembly:
