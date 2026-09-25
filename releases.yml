@@ -107,6 +107,10 @@ releases:
               is:
                 nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.23.0-202609241726.p2.gfffb76d.assembly.stream.el9
             why: Pin operand to match bundle for consistency
+      permits:
+        - code: IMPERMISSIBLE
+          component: ose-frr
+          why: Intentional pin to 202609241726 batch to fix metallb-operator bundle/operand mismatch
   ec.0:
     assembly:
       type: preview
