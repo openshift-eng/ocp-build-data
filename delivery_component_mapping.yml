@@ -5,6 +5,12 @@ bug_mapping:
   active_versions: ['4.12', '4.13', '4.14', '4.15', '4.16', '4.17', '4.18', '4.19',
     '4.20', '4.21', '4.22', '5.0']
   components:
+    openshift5/agentic-skills:
+      image_file: images/agentic-skills.yaml
+      internal_name: agentic-skills-container
+      issue_component: Cluster Update Lightspeed Skills
+      versions:
+      - '5.0'
     openshift4/ose-agent-installer-ui-rhel9:
       image_file: images/agent-installer-ui.yaml
       internal_name: assisted-installer-ui-container
@@ -608,6 +614,7 @@ bug_mapping:
     openshift4/ose-csi-node-driver-registrar-rhel9:
       image_file: images/csi-node-driver-registrar.yaml
       internal_name: csi-node-driver-registrar-container
+      issue_component: Storage
       versions:
       - '4.16'
       - '4.16'
@@ -619,7 +626,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-      issue_component: Storage
     openshift5/ose-csi-node-driver-registrar-rhel9:
       image_file: images/csi-node-driver-registrar.yaml
       internal_name: csi-node-driver-registrar-container
@@ -677,12 +683,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-cni-rhel9:
-      image_file: images/dpu-cni.yaml
-      internal_name: dpu-cni-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-daemon-rhel9:
       image_file: images/dpu-daemon.yaml
       internal_name: dpu-daemon-container
@@ -695,12 +695,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-daemon-rhel9:
-      image_file: images/dpu-daemon.yaml
-      internal_name: dpu-daemon-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-intel-ipu-p4sdk-rhel9:
       image_file: images/dpu-intel-ipu-p4sdk.yaml
       internal_name: dpu-intel-ipu-p4sdk-container
@@ -710,12 +704,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-intel-ipu-p4sdk-rhel9:
-      image_file: images/dpu-intel-ipu-p4sdk.yaml
-      internal_name: dpu-intel-ipu-p4sdk-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-intel-ipu-vsp-rhel9:
       image_file: images/dpu-intel-ipu-vsp.yaml
       internal_name: dpu-intel-ipu-vsp-container
@@ -725,12 +713,6 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-intel-ipu-vsp-rhel9:
-      image_file: images/dpu-intel-ipu-vsp.yaml
-      internal_name: dpu-intel-ipu-vsp-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-intel-netsec-vsp-rhel9:
       image_file: images/dpu-intel-netsec-vsp.yaml
       internal_name: dpu-intel-netsec-vsp-container
@@ -738,12 +720,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-intel-netsec-vsp-rhel9:
-      image_file: images/dpu-intel-netsec-vsp.yaml
-      internal_name: dpu-intel-netsec-vsp-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-marvell-cp-agent-rhel9:
       image_file: images/dpu-marvell-cp-agent.yaml
       internal_name: dpu-marvell-cp-agent-container
@@ -751,12 +727,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-marvell-cp-agent-rhel9:
-      image_file: images/dpu-marvell-cp-agent.yaml
-      internal_name: dpu-marvell-cp-agent-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-marvell-vsp-rhel9:
       image_file: images/dpu-marvell-vsp.yaml
       internal_name: dpu-marvell-vsp-container
@@ -764,12 +734,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-marvell-vsp-rhel9:
-      image_file: images/dpu-marvell-vsp.yaml
-      internal_name: dpu-marvell-vsp-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-network-resources-injector-rhel9:
       image_file: images/dpu-network-resources-injector.yaml
       internal_name: dpu-network-resources-injector-container
@@ -777,12 +741,6 @@ bug_mapping:
       versions:
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-network-resources-injector-rhel9:
-      image_file: images/dpu-network-resources-injector.yaml
-      internal_name: dpu-network-resources-injector-container
-      issue_component: Networking / DPU
-      versions:
-      - '5.0'
     openshift4/ose-dpu-rhel9-operator:
       image_file: images/dpu-operator.yaml
       internal_name: dpu-operator-container
@@ -795,10 +753,10 @@ bug_mapping:
       - '4.20'
       - '4.21'
       - '4.22'
-    openshift5/ose-dpu-rhel9-operator:
-      image_file: images/dpu-operator.yaml
-      internal_name: dpu-operator-container
-      issue_component: Networking / DPU
+    openshift5/dra-driver-sriov-rhel9:
+      image_file: images/dra-driver-sriov.yaml
+      internal_name: dra-driver-sriov-container
+      issue_component: Networking / SR-IOV
       versions:
       - '5.0'
     openshift4/driver-toolkit-rhel8:
@@ -825,6 +783,12 @@ bug_mapping:
     openshift5/driver-toolkit-rhel9:
       image_file: images/driver-toolkit.yaml
       internal_name: driver-toolkit-container
+      issue_component: Driver Toolkit
+      versions:
+      - '5.0'
+    openshift5/driver-toolkit-rhel10:
+      image_file: images/driver-toolkit-rhel10.yaml
+      internal_name: driver-toolkit-rhel10-container
       issue_component: Driver Toolkit
       versions:
       - '5.0'
@@ -1129,6 +1093,12 @@ bug_mapping:
       issue_component: Bare Metal Hardware Provisioning / ironic
       versions:
       - '5.0'
+    openshift5/karpenter-operator-rhel9:
+      image_file: images/karpenter-operator.yaml
+      internal_name: karpenter-operator-container
+      issue_component: autoscaling / karpenter
+      versions:
+      - '5.0'
     openshift4/kube-compare-artifacts-rhel9:
       image_file: images/kube-compare-artifacts.yaml
       internal_name: kube-compare-artifacts-container
@@ -1327,6 +1297,12 @@ bug_mapping:
     openshift5/microshift-bootc-rhel9:
       image_file: images/microshift-bootc.yaml
       internal_name: microshift-bootc-container
+      issue_component: MicroShift
+      versions:
+      - '5.0'
+    openshift5/microshift-bootc-rhel10:
+      image_file: images/microshift-bootc-rhel10.yaml
+      internal_name: microshift-bootc-rhel10-container
       issue_component: MicroShift
       versions:
       - '5.0'
@@ -4203,6 +4179,18 @@ bug_mapping:
       issue_component: Storage / Operators
       versions:
       - '5.0'
+    openshift5/ose-haproxy-router-haproxy28-rhel9:
+      image_file: images/ose-haproxy-router-haproxy28.yaml
+      internal_name: ose-haproxy-router-haproxy28-container
+      issue_component: Networking / router
+      versions:
+      - '5.0'
+    openshift5/ose-haproxy-router-haproxy32-rhel9:
+      image_file: images/ose-haproxy-router-haproxy32.yaml
+      internal_name: ose-haproxy-router-haproxy32-container
+      issue_component: Networking / router
+      versions:
+      - '5.0'
     openshift4/ose-hypershift-rhel8:
       image_file: images/hypershift.yaml
       internal_name: ose-hypershift-container
@@ -4568,6 +4556,12 @@ bug_mapping:
       image_file: images/ose-kube-storage-version-migrator.yaml
       internal_name: ose-kube-storage-version-migrator-container
       issue_component: kube-storage-version-migrator
+      versions:
+      - '5.0'
+    openshift5/ose-kube-vip-rhel9:
+      image_file: images/ose-kube-vip.yaml
+      internal_name: ose-kube-vip-container
+      issue_component: Networking / On-Prem Host Networking
       versions:
       - '5.0'
     openshift4/kubernetes-nmstate-rhel8-operator:
@@ -6707,17 +6701,17 @@ bug_mapping:
       issue_component: Node Feature Discovery Operator
     cluster-policy-controller-container:
       issue_component: kube-apiserver
-    cluster-power-manager-node-agent-rhel9:
-      issue_component: Cluster Power Manager Operator
-    cluster-power-manager-node-agent-rhel9-container:
-      issue_component: Cluster Power Manager Operator
     cluster-power-manager-operator-bundle:
       issue_component: Cluster Power Manager Operator
     cluster-power-manager-operator-bundle-container:
       issue_component: Cluster Power Manager Operator
-    cluster-power-manager-rhel9-operator:
+    cluster-power-manager-rhel9-controller:
       issue_component: Cluster Power Manager Operator
-    cluster-power-manager-rhel9-operator-container:
+    cluster-power-manager-rhel9-controller-container:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-rhel9-node-agent:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-rhel9-node-agent-container:
       issue_component: Cluster Power Manager Operator
     cluster-storage-operator-container:
       issue_component: Storage
@@ -6754,8 +6748,6 @@ bug_mapping:
     dpu-network-operator-bundle-container:
       issue_component: Networking / SR-IOV
     dpu-network-operator-container:
-      issue_component: Networking / SR-IOV
-    dra-driver-sriov-container:
       issue_component: Networking / SR-IOV
     dumb-init:
       issue_component: Containers
@@ -7481,20 +7473,6 @@ bug_mapping:
       issue_component: Low latency validation tooling
     redhat-user-workloads/cnf-tests-4-15:
       issue_component: Low latency validation tooling
-    agentic-skills-container:
-      issue_component: Cluster Update Lightspeed Skills
-    driver-toolkit-rhel10-container:
-      issue_component: Driver Toolkit
-    karpenter-operator-container:
-      issue_component: autoscaling / karpenter
-    microshift-bootc-rhel10-container:
-      issue_component: MicroShift
-    ose-haproxy-router-haproxy28-container:
-      issue_component: Networking / router
-    ose-haproxy-router-haproxy32-container:
-      issue_component: Networking / router
-    ose-kube-vip-container:
-      issue_component: Networking / On-Prem Host Networking
     acm-cert-policy-controller-container:
       issue_component: GRC
     acm-cli-container:
