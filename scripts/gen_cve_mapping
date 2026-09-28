@@ -16,7 +16,7 @@ from sys import exit
 def git(*args):
     proc = run(['git', *args], capture_output=True)
     if proc.returncode != 0:
-        raise RuntimeError(f'git {" ".join(args)} failed:\n{proc.stderr.decode("utf-8")}')
+        raise RuntimeError(f'git {" ".join(str(a) for a in args)} failed:\n{proc.stderr.decode("utf-8")}')
     return proc
 
 yml = YAML()
