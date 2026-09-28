@@ -62,6 +62,14 @@ releases:
             metadata:
               is:
                 nvr: ose-powervs-machine-controllers-container-v5.1.0-202609020505.p2.g28c928f.assembly.stream.el9
+          - distgit_key: driver-toolkit-rhel10
+            why: Pin DTK to match RHCOS kernel 6.12.0-211.56.1
+            metadata:
+              is:
+                nvr: driver-toolkit-rhel10-container-v5.1.0-202609210459.p2.gb63b175.assembly.stream.el10
+      permits:
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
   ec.0:
     assembly:
       type: preview
