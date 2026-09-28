@@ -65,6 +65,15 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-rhel10-container-v5.1.0-202609210459.p2.gb63b175.assembly.stream.el10
+          - distgit_key: clusterresourceoverride-operator
+            exclude: true
+            why: "Bundle builds have never succeeded for 5.1 (persistent ITS/EC verification failure)"
+          - distgit_key: vertical-pod-autoscaler-operator
+            exclude: true
+            why: "Bundle builds have never succeeded for 5.1 (persistent ITS/EC verification failure)"
+          - distgit_key: pf-status-relay-operator
+            exclude: true
+            why: "embargoed"
       permits:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
