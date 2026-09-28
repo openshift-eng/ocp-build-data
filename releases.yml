@@ -79,6 +79,11 @@ releases:
           - distgit_key: pf-status-relay-operator
             exclude: true
             why: "embargoed"
+          - distgit_key: microshift-bootc-rhel10
+            metadata:
+              is:
+                nvr: microshift-bootc-rhel10-container-v5.1-202609282100.p2.gda69f3a.assembly.ec.1.el10
+            why: Pin microshift-bootc-rhel10 image to assembly
       permits:
         - code: CONFLICTING_GROUP_RPM_INSTALLED
           component: rhcos
