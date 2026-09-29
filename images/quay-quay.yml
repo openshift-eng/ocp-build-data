@@ -1,5 +1,3 @@
-# Temporarily disabled
-mode: disabled
 arches:
 - x86_64
 dependents:
@@ -17,9 +15,7 @@ cachito:
     - path: .
       requirements_files:
       - requirements.txt
-      - pip-build-constraints.txt
-      binary:
-        py_version: '312'
+      - requirements-build.txt
     cargo:
     - path: rust-builddeps
     rpm:
@@ -62,20 +58,11 @@ name: quay/quay-rhel9
 owners:
 - quay-devel@redhat.com
 konflux:
-  arches:
-  - x86_64
   cachi2:
     lockfile:
       enabled: true
       dnf_modules_enable: true
       inspect_parent: false
-    artifact_lockfile:
-      enabled: true
-      path: .
-      resources:
-      - url: https://index.crates.io/config.json
-      - url: https://github.com/prometheus/pushgateway/releases/download/v1.11.1/pushgateway-1.11.1.linux-amd64.tar.gz
-        filename: pushgateway-1.11.1.linux-amd64.tar.gz
   build_step_resources:
     memory: 32Gi
     cpu: 8000m
