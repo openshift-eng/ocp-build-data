@@ -31,9 +31,9 @@ Scaffolded from `acm-2.16` (the ART config landed under [HYPBLD-847](https://red
 
 ## RHEL Version and Repos Configuration
 
-- **Decision**: Inline pulp URLs `rhel9/9.7` with `rhel-9-*` repo names. `streams.yml` `rhel9` is `registry.access.redhat.com/ubi9/ubi-minimal:9.7` (pinned minor, not `:latest`).
-- **Rationale**: RHEL major (`rhel-9` in distgit, repos, builders, UBI) must stay aligned. Pulp is 9.7; a floating `:latest` UBI that moves to 9.8 would fail RPM install against these repos. 2.15 Konflux `Dockerfile.rhtap` files use the `registry.access.redhat.com` host and `:latest`; ART rewrites `FROM` from this stream, so the pin is the ocp-build-data contract. 2.16 uses `registry.redhat.io/ubi9/ubi-minimal:9.7` — same minor, different host.
-- **Revisit**: If ART wants the `registry.redhat.io` host, a 4.20-matched E4S minor, or migration to the `repos/` folder pattern.
+- **Decision**: Inline pulp URLs `rhel9/9.7` with `rhel-9-*` repo names. `streams.yml` `rhel9` is `registry.redhat.io/ubi9/ubi-minimal:9.7` (pinned minor, not `:latest`).
+- **Rationale**: RHEL major (`rhel-9` in distgit, repos, builders, UBI) must stay aligned. Pulp is 9.7; a floating `:latest` UBI that moves to 9.8 would fail RPM install against these repos. 2.15 Konflux `Dockerfile.rhtap` files currently spell `registry.access.redhat.com` and `:latest`, but ART rewrites `FROM` from this stream, so the stream pullspec controls the final base image. The selected stream uses the same `registry.redhat.io/ubi9/ubi-minimal:9.7` pullspec as 2.16.
+- **Revisit**: If ART wants a 4.20-matched E4S minor or migration to the `repos/` folder pattern.
 
 ## Network Mode
 
