@@ -162,10 +162,11 @@ Suggested tool improvements:
 
 Recorded here so the next non-sequential jump does not treat “tool ran + YAML patched” as “builds are green.”
 
-Two classes of first-build failure showed up on `mce-2-17`:
+Three classes of first-build failure showed up on `mce-2-17`:
 
 1. **Operand git** (ASO, MSA) — outside a typical ART migration. `art-migration` does not inspect upstream `.dockerignore`, Docker `COPY` vs context, or whether `go mod vendor` matches the git tree under hermeto STRICT.
 2. **Operator bundle mapping** (`image-references`, `*package.yaml`, `art.yaml`) — **in** the tool’s stated scope, but `bundle-image-references` only copies one of three files, is sequenced after first rebase, and a 2.11 copy is incomplete for a non-sequential jump. Nothing in `ocp-build-data` needed to change.
+3. **After a green bundle** — community CSV pullspec vs `image-references` `from.name` (FBC/EC), and a first-image `.p3` that was priv/public SHA divergence rather than a CVE embargo. Neither is an `ocp-build-data` YAML change.
 
 ### azure-service-operator — `.dockerignore` vs ART `COPY v2/`
 
@@ -206,3 +207,20 @@ Two classes of first-build failure showed up on `mce-2-17`:
 - **2.11 / 5.0:** 2.11 `art.yaml` declares assisted (unsuffixed names) + ose `v4.21` + `postgresql-13`. 5.0 declares ose (stage `openshift5`) + `postgresql-15`/`16` and **omits** assisted even though 5.0 `image-references` lists them.
 - **Fix:** operand PR, not image YAML. `name:` must match 2.17 `image-references` (`assisted-*-rhel9`, not 2.11’s unsuffixed names). OSE `replace` is `openshift4` `v4.22`. Assisted digests are 2.11 placeholders; postgres pins match 5.0. [stolostron/backplane-operator compare](https://github.com/stolostron/backplane-operator/compare/backplane-2.17...HYPBLD-873-bundle-art-yaml?expand=1)
 - **Playbook:** for every `image-references` name with no `images/*.yml`, require an `external-images` entry whose `name` equals that tag. After merge, rebuild **backplane-operator** then bundle; do not re-run `olm_bundle_konflux` against the previous operator NVR (`rebase_commitish` will not include `art.yaml`).
+
+### backplane-operator — community CSV pullspec vs `image-references` (olm_bundle 36390; FBC EC)
+
+- **Symptom:** `olm_bundle_konflux` 36390 itself succeeded, but logged `Found 0 images in the bundle, but 44 in image-references` / `Found operands: {}`. FBC `fbc-fips-check-oci-ta` then **ERROR**d on `quay.io/stolostron/backplane-operator:latest` (`manifest unknown`). Snapshot EC `fbc-mce-2-17-ec-fbc-1` **FAILURE**: `olm.allowed_registries_related` and `test.no_erred_tests` (10 violations = those two rules × four arches + index).
+- **Cause:** Doozer Konflux bundler only replaces the `image-references` `from.name` string (in-cluster `image-registry.openshift-image-registry.svc:5000/multicluster-engine/backplane-operator:latest`) in the CSV. The community CSV still has `image: quay.io/stolostron/backplane-operator:latest` (`createdAt: 2026-02-05`, no `relatedImages`). Those strings do not match, so ART never writes product `relatedImages`. FIPS/EC then see the community related image, which is not `registry.redhat.io`.
+- **Not the cause:** the operator **is** already in `image-references` as tag `backplane-rhel9-operator`. Adding it again does nothing. Do not rewrite the community CSV to in-cluster specs without a plan — that breaks community/Konflux on `backplane-2.17`.
+- **2.11 / 5.0:** 5.0 productized the CSV (Gus) so `from.name` already appears in the CSV. 2.17 still uses the community CSV on `backplane-2.17`.
+- **Fix (unresolved on 2.17):** do **not** point the community CSV at the in-cluster registry. Options: **(a)** set `image-references` `from.name` to the pullspec that is actually in the CSV (`quay.io/stolostron/backplane-operator:latest`) so bundle rebase can replace it; or **(b)** a product CSV like 5.0. (a) is ART-file-only and does not break community; it still will not put the other operands into `relatedImages` unless they also appear in the CSV.
+- **Playbook:** after the bundle trio exists, confirm every `from.name` **appears as a substring of the CSV** (deployment image and/or `relatedImages`). `Found 0 images in the bundle` on a green `olm_bundle_konflux` is a FBC/EC time bomb, not success. Do not add a duplicate operator tag to “fix” EC.
+
+### capoa — first-build `.p3` was not a CVE embargo (olm_bundle 35650)
+
+- **Symptom:** `Operand mce-capoa-bootstrap-container-…p3.ga7e8d9e… is embargoed, and no public (non-embargoed) build of 'capoa-bootstrap' is available to substitute.` Bundler refuses `.p3` with no `.p2` substitute. Same repo as `capoa-control-plane`.
+- **Cause:** Konflux `.p3` means the priv source SHA is not an ancestor of public `backplane-2.17`. NVR `ga7e8d9e` was priv HEAD: `OWNERS_ALIASES` add `jianzzha`, 2026-04-15, last commit on priv. Public has the **same content** as [`8549bca`](https://github.com/openshift-assisted/cluster-api-provider-openshift-assisted/commit/8549bca) (`add jianzzha as owner (#609)`), then months of mintmaker (HEAD [`091fac4`](https://github.com/openshift-assisted/cluster-api-provider-openshift-assisted/commit/091fac4), 2026-09-23). `a7e8d9e` is not in the public object store (GitHub 422). DPTP “commit forwarding” (public → `openshift-priv` via `openshift/release` `core-services/openshift-priv/_whitelist.yaml`) was enabled **after** `backplane-2.17` already existed, so priv stayed a April snapshot with a different SHA.
+- **Not the cause:** ART “Reconciled … with public upstream” merge. HEAD was not that commit. “DPTP reconciliation from upstream” commits in history are CI private-org-sync, not doozer. Comparing priv 2.17 to `backplane-2.11` is the wrong check; compare to **public** `backplane-2.17`.
+- **Fix:** CAPOA developers resynced priv `backplane-2.17` to public (not force-pushing `a7e8d9e` onto public). Rebuild produced `…p2.ga2fb760…` (2026-09-28). `olm_bundle_konflux` 36390 then resolved both capoa images as `.p2`.
+- **Playbook:** if the first ART NVR is `.p3`, open the priv commit from the `g` SHA. If it is not `Reconciled … with public upstream`, it is not Ashwin’s first-onboard merge. If content matches public under a **different** SHA, ask maintainers to reset/sync **priv to public**. New branches created after whitelist/forwarding is on should fast-forward; old branches need a one-time sync. We cannot force-push `openshift-priv` or protected public branches from this workflow.
