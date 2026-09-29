@@ -19,7 +19,7 @@ content:
       replacement: |
         RUN rm -f /os/c10s.repo && touch /os/empty.repo && \
           sed \
-          -e 's/--repo="${repo_list}"//' \
+          -e 's/--repo="${repo_list}"/--nogpgcheck/' \
           -e '/^kernel_evr=/,/^echo "kernel-devel-/d' \
           extensions/build.sh | bash
 distgit:
