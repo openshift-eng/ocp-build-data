@@ -35,10 +35,9 @@ content:
         COPY build-node-image.sh /tmp/art-build-node-image.sh
         RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo \
             sed -i \
-                -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
+                -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf --nogpgcheck/' \
                 -e '/cat \/run\/src\/\*\.repo >> \/etc\/yum\.repos\.d\/git\.repo/a sed -i -E '\''/^\\[(c10s-[^]]+|rhel-[0-9]+\\.[0-9]+-server-ose-5\\.0)\\]$/,/^$/ s/^enabled=1/enabled=0/'\'' /etc/yum.repos.d/git.repo' \
                 /tmp/art-build-node-image.sh && \
-            rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
             bash /tmp/art-build-node-image.sh && \
             rm -f /tmp/art-build-node-image.sh
 distgit:
