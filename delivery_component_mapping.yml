@@ -142,11 +142,6 @@ bug_mapping:
       issue_component: Bare Metal Hardware Provisioning / cluster-api-provider
       versions:
       - '5.0'
-    openshift4/ose-block-copyfail-rhel9:
-      image_file: images/block-copyfail.yaml
-      internal_name: block-copyfail-container
-      versions:
-      - '4.21'
     openshift4/cloud-event-proxy-rhel8:
       image_file: images/cloud-event-proxy.yaml
       internal_name: cloud-event-proxy-container
@@ -1305,12 +1300,6 @@ bug_mapping:
       issue_component: MicroShift
       versions:
       - '5.0'
-    openshift4/microshift-bootc-rhel10:
-      image_file: images/microshift-bootc-rhel10.yaml
-      internal_name: microshift-bootc-rhel10-container
-      issue_component: MicroShift
-      versions:
-      - '4.22'
     openshift5/microshift-bootc-rhel10:
       image_file: images/microshift-bootc-rhel10.yaml
       internal_name: microshift-bootc-rhel10-container
@@ -3521,6 +3510,18 @@ bug_mapping:
       versions:
       - '4.12'
       - '4.13'
+      - '4.14'
+      - '4.15'
+    openshift4/ovirt-csi-driver-rhel9-operator:
+      image_file: images/ose-cluster-ovirt-csi-operator.yaml
+      internal_name: ose-cluster-ovirt-csi-operator-container
+      issue_component: Storage / oVirt CSI Driver
+      versions:
+      - '4.16'
+      - '4.17'
+      - '4.18'
+      - '4.19'
+      - '4.20'
     openshift4/ose-cluster-platform-operators-manager-rhel8:
       image_file: images/ose-cluster-platform-operators-manager.yaml
       internal_name: ose-cluster-platform-operators-manager-container
@@ -4662,6 +4663,8 @@ bug_mapping:
       - '4.17'
       - '4.18'
       - '4.19'
+      - '4.20'
+      - '4.21'
     openshift4/ose-ptp:
       image_file: images/linuxptp-daemon.yaml
       internal_name: ose-linuxptp-daemon-container
@@ -5496,6 +5499,18 @@ bug_mapping:
       versions:
       - '4.12'
       - '4.13'
+      - '4.14'
+    openshift4/ovirt-csi-driver-rhel9:
+      image_file: images/ose-ovirt-csi-driver.yaml
+      internal_name: ose-ovirt-csi-driver-container
+      issue_component: Storage / oVirt CSI Driver
+      versions:
+      - '4.15'
+      - '4.16'
+      - '4.17'
+      - '4.18'
+      - '4.19'
+      - '4.20'
     openshift4/ose-ovirt-machine-controllers-rhel8:
       image_file: images/ose-ovirt-machine-controllers.yaml
       internal_name: ose-ovirt-machine-controllers-container
@@ -6686,6 +6701,18 @@ bug_mapping:
       issue_component: Node Feature Discovery Operator
     cluster-policy-controller-container:
       issue_component: kube-apiserver
+    cluster-power-manager-operator-bundle:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-operator-bundle-container:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-rhel9-controller:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-rhel9-controller-container:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-rhel9-node-agent:
+      issue_component: Cluster Power Manager Operator
+    cluster-power-manager-rhel9-node-agent-container:
+      issue_component: Cluster Power Manager Operator
     cluster-storage-operator-container:
       issue_component: Storage
     cnf-tests-container:
