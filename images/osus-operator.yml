@@ -1,0 +1,35 @@
+canonical_builders_from_upstream: false
+content:
+  source:
+    dockerfile: Dockerfile
+    git:
+      branch:
+        target: konflux-release
+      url: git@github.com:openshift-priv/cincinnati-operator.git
+      web: https://github.com/openshift/cincinnati-operator
+dependents:
+- osus-operand
+distgit:
+  bundle_component: cincinnati-operator-bundle-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: cincinnati-operator-container
+delivery:
+  repo_name: openshift-update-service/openshift-update-service-rhel8-operator
+  bundle_delivery_repo_name: openshift-update-service/cincinnati-operator-bundle
+  delivery_repo_names:
+  - openshift-update-service/openshift-update-service-rhel8-operator
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: base-rhel9
+name: osus/update-service-operator
+owners:
+- aos-team-art@redhat.com
+update-csv:
+  manifests-dir: manifests/
+  valid-subscription-label: openshift-update-service
