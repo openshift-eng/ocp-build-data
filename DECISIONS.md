@@ -85,9 +85,9 @@ Scaffolded from `acm-2.16` (the ART config landed under [HYPBLD-847](https://red
 
 ## Bundle / `update-csv`
 
-- **Decision**: Images-first. `update-csv` on `multiclusterhub-operator.yml` is commented until ART bundle metadata exists on `multiclusterhub-operator` `release-2.15`. `bundle_name_override: acm-operator-bundle` and Konflux `bundle_name_override: acm-2-15-acm-operator-bundle` stay so re-enabling is a small uncomment.
-- **Rationale**: `update-csv` is the switch that turns on bundle and catalog production. 2.15 MCH still has the operator-sdk CSV (`multiclusterhub-operator.clusterserviceversion.yaml`, `0.0.1`) and no `bundle/art.yaml` / `bundle/image-references`. 2.16 has `advanced-cluster-management.clusterserviceversion.yaml` with `relatedImages`, `OPERAND_IMAGE_*`, and `features.operators.openshift.io/*`. Enabling `update-csv` without those inputs fails Conforma (`olm.feature_annotations_format`, `olm.unmapped_references`) and disconnected install.
-- **Revisit**: After the 2.15 MCH ART bundle PR merges, uncomment `update-csv` (and keep `name: advanced-cluster-management` matching that CSV filename).
+- **Decision**: Enable `update-csv` on `multiclusterhub-operator.yml`, keeping `name: advanced-cluster-management` aligned with the bundle CSV. Keep `bundle_name_override: acm-operator-bundle` and Konflux `bundle_name_override: acm-2-15-acm-operator-bundle`.
+- **Rationale**: ACM 2.15 images are now building, so bundle and catalog production is being enabled. Successful generation still depends on ART bundle metadata being present on `multiclusterhub-operator` `release-2.15` (`bundle/art.yaml`, `bundle/image-references`, and the `advanced-cluster-management` CSV). Without those inputs, Conforma (`olm.feature_annotations_format`, `olm.unmapped_references`) and disconnected install fail.
+- **Revisit**: Confirm the MCH ART bundle change has landed on `release-2.15` before running bundle and catalog production.
 
 ## Dependents
 
