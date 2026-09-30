@@ -24,6 +24,9 @@ content:
       match: "ARG TARGETARCH"
       replacement: "ARG TARGETARCH=amd64"
     - action: replace
+      match: "ARG STREAM_CLASS"
+      replacement: "ARG STREAM_CLASS=rhel-10"
+    - action: replace
       match: "LABEL name=${IMAGE_NAME}"
       replacement: ""
     - action: replace
