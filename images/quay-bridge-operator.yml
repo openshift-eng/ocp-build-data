@@ -5,7 +5,7 @@ content:
     dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.17
+        target: redhat-3.19
       url: git@github.com:openshift-priv/quay-quay-bridge-operator.git
       web: https://github.com/quay/quay-bridge-operator
 jira:
@@ -24,7 +24,7 @@ enabled_repos:
 from:
   builder:
   - stream: rhel-9-golang
-  stream: rhel9
+  member: base-rhel9
 name: quay/quay-bridge-rhel9-operator
 owners:
 - quay-devel@redhat.com
