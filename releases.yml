@@ -38,7 +38,22 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3e5e88f85061ec15ee9d65e032fde88dd5c97e9a198816dd6a9e268485d4e74f
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-kubernetes-nmstate-operator
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.20.0-202609291520.p2.g6ecae5d.assembly.stream.el9
+            why: Pin operator to 202609291520 batch with working bundle
+          - distgit_key: nmstate-console-plugin
+            metadata:
+              is:
+                nvr: nmstate-console-plugin-container-v4.20.0-202609291520.p2.g08f0fae.assembly.stream.el9
+            why: "Pin operand — 202609301701 build missing from quay"
+          - distgit_key: openshift-kubernetes-nmstate-handler-rhel-9
+            metadata:
+              is:
+                nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.20.0-202609291520.p2.g6ecae5d.assembly.stream.el9
+            why: Pin operand to match bundle from 202609291520 batch
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
