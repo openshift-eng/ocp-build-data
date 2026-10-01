@@ -1,0 +1,27 @@
+canonical_builders_from_upstream: false
+content:
+  source:
+    dockerfile: dist/Dockerfile.deploy/Dockerfile
+    git:
+      branch:
+        target: konflux-release
+      url: git@github.com:openshift-priv/cincinnati.git
+      web: https://github.com/openshift/cincinnati
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: cincinnati-container
+delivery:
+  repo_name: openshift-update-service/openshift-update-service-rhel8
+  delivery_repo_names:
+  - openshift-update-service/openshift-update-service-rhel8
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
+for_payload: false
+for_release: false
+from:
+  member: base-rhel9
+name: osus/update-service-operand
+name_in_bundle: update-service-operand
+owners:
+- aos-team-art@redhat.com
