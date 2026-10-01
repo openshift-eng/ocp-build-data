@@ -49,7 +49,4 @@ okd:
       modifications:
       - action: replace
         match: "RUN dnf install -y glibc-static"
-        replacement: "# glibc-static not available in OKD; dynamic linking used instead"
-      - action: replace
-        match: "gcc -Os -Wall -Werror -static -o /tree/pause"
-        replacement: "gcc -Os -Wall -Werror -o /tree/pause"
+        replacement: "RUN dnf --enablerepo=crb install -y glibc-static"
