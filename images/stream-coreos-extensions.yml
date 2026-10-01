@@ -1,0 +1,43 @@
+mode: disabled
+content:
+  source:
+    dockerfile: extensions/Containerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/os.git
+      web: https://github.com/openshift/os
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+    modifications:
+    - action: replace
+      match: "ARG STREAM_CLASS"
+      replacement: "ARG STREAM_CLASS=centos-10"
+    - action: replace
+      match: "RUN --mount=type=secret,id=yumrepos,target=/os/secret.repo extensions/build.sh"
+      replacement: |
+        RUN touch /os/empty.repo && \
+          sed \
+          -e 's/--repo="${repo_list}"//' \
+          -e '/^kernel_evr=/,/^echo "kernel-devel-/d' \
+          extensions/build.sh | bash
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: stream-coreos-extensions-container
+for_payload: false
+for_release: false
+from:
+  builder:
+    - member: stream-coreos
+    - member: openshift-enterprise-base-rhel10
+  member: openshift-enterprise-base-rhel10
+name: openshift/stream-coreos-extensions
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+okd:
+  enabled_repos:
+  - rhel-10-server-ose-rpms
+  mode: enabled
