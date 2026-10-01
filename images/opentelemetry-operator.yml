@@ -29,3 +29,5 @@ update-csv:
   bundle-dir: openshift/manifests/
   manifests-dir: bundle/
   registry: image-registry.openshift-image-registry.svc:5000
+  # This needs to be there even though it's defined in the CSV
+  valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
