@@ -60,6 +60,11 @@ releases:
               is:
                 nvr: openshift-kubernetes-nmstate-handler-rhel-9-container-v4.20.0-202609291520.p2.g6ecae5d.assembly.stream.el9
             why: Pin operand to match bundle from 202609291520 batch
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.20-202610020100.p2.gdad0307.assembly.4.20.41.el9
+            why: Pin microshift-bootc image to assembly
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
