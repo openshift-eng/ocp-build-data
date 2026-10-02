@@ -14,10 +14,6 @@ content:
         target: release-2.16
       url: git@github.com:openshift-priv/stolostron-acm-cli.git
       web: https://github.com/stolostron/acm-cli
-    modifications:
-      - action: replace
-        match: "make sync-build-package"
-        replacement: "make build-and-package"
 distgit:
   component: acm-cli-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
