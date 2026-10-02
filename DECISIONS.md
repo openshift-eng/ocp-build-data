@@ -33,6 +33,7 @@ only as a reference for the three components added in 2.17.
   - `stolostron/*` → `backplane-2.17`
   - `openshift/hypershift`, `cluster-api-provider-kubevirt` → `release-4.22`
   - `cluster-api-provider-agent` → `release-ocm-2.17`
+  - `assisted-service`, `assisted-image-service`, `assisted-installer`, `assisted-installer-agent` → `release-ocm-2.17`
   - `hive` → `master`
   - `base-rhel9` → `openshift-base-rhel9`
   - `image-based-install-operator` → `backplane-2.17`
@@ -41,19 +42,24 @@ only as a reference for the three components added in 2.17.
 
 ## New Components (vs mce-2.11)
 
-Added from `mce-5.0` templates with `backplane-2.17` (A5/A8):
+Added from `mce-5.0` templates (A5/A8); assisted uses `release-ocm-2.17`, the rest `backplane-2.17`:
 
 | Component | Upstream repo | Dockerfile |
 |-----------|---------------|------------|
 | cloudevents-conductor | [stolostron/cloudevents-conductor](https://github.com/stolostron/cloudevents-conductor) | `Dockerfile.rhtap` |
 | cluster-permission | [stolostron/cluster-permission](https://github.com/stolostron/cluster-permission) | `Dockerfile.rhtap` |
 | maestro | [stolostron/maestro](https://github.com/stolostron/maestro) | `Dockerfile.rhtap` |
+| assisted-image-service | [openshift/assisted-image-service](https://github.com/openshift/assisted-image-service) | `Dockerfile.image-service-mce` |
+| assisted-installer | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-mce` |
+| assisted-installer-agent | [openshift/assisted-installer-agent](https://github.com/openshift/assisted-installer-agent) | `Dockerfile.assisted_installer_agent-mce` |
+| assisted-installer-controller | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-controller-mce` |
+| assisted-service-9 | [openshift/assisted-service](https://github.com/openshift/assisted-service) | `Dockerfile.assisted-service-rhel9-mce` |
 
-`cluster-proxy-addon` remains excluded. `assisted-*` is deferred (Gus: fine to start without them). They stay in `bundle/image-references` as **external** images (see art.yaml below), not as `images/*.yml`.
+`cluster-proxy-addon` remains excluded. `assisted-*` was deferred at bootstrap (Gus: fine to start without them) and is now added from the mce-5.0 ART templates ([#12764](https://github.com/openshift-eng/ocp-build-data/pull/12764)), with git `release-ocm-2.17` (Y-stream assisted branches; there is no `backplane-2.17` on those repos).
 
 ## Image scope
 
-36 configs: 33 carried from mce-2.11 + 3 new. Bundle still excluded from `images/*.yml` (same as 2.11/5.0).
+41 configs: 33 carried from mce-2.11 + 3 new (cloudevents-conductor, cluster-permission, maestro) + 5 assisted. Bundle still excluded from `images/*.yml` (same as 2.11/5.0).
 
 ## Console Dockerfile
 
