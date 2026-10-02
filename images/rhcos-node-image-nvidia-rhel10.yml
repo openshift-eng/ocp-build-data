@@ -1,0 +1,32 @@
+content:
+  source:
+    dockerfile: Containerfile
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/off-layering.git
+      web: https://github.com/ravanelli/off-layering
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: rhcos-node-image-nvidia-container
+for_payload: false
+for_release: false
+from:
+  stream: rhel_coreos_nv
+labels:
+  distribution-scope: public
+  url: "https://access.redhat.com/errata"
+name: openshift/rhcos-node-image-nvidia-rhel10
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+konflux:
+  image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-rhcos-images
+  network_mode: open
+  skip_validate_slsa: true
+okd:
+  mode: disabled
