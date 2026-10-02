@@ -69,6 +69,14 @@ public_upstreams:
   public:  "https://github.com/openshift/image-based-install-operator"
 - private: "https://github.com/openshift-priv/cluster-api-provider-agent"
   public:  "https://github.com/openshift/cluster-api-provider-agent"
+- private: "https://github.com/openshift-priv/assisted-service"
+  public:  "https://github.com/openshift/assisted-service"
+- private: "https://github.com/openshift-priv/assisted-image-service"
+  public:  "https://github.com/openshift/assisted-image-service"
+- private: "https://github.com/openshift-priv/assisted-installer"
+  public:  "https://github.com/openshift/assisted-installer"
+- private: "https://github.com/openshift-priv/assisted-installer-agent"
+  public:  "https://github.com/openshift/assisted-installer-agent"
 - private: "https://github.com/openshift-priv/ocp-build-data"
   public: "https://github.com/openshift-eng/ocp-build-data"
 
@@ -120,5 +128,24 @@ repos:
       aarch64: codeready-builder-for-rhel-9-aarch64-eus-rpms__9_DOT_6
       ppc64le: codeready-builder-for-rhel-9-ppc64le-eus-rpms__9_DOT_6
       s390x: codeready-builder-for-rhel-9-s390x-eus-rpms__9_DOT_6
+    reposync:
+      enabled: false
+
+  rhocp-4.17-rhel9-rpms:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/aarch64/rhocp/4.17/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/ppc64le/rhocp/4.17/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/s390x/rhocp/4.17/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/rhocp/4.17/os/
+    content_set:
+      default: rhocp-4.17-for-rhel-9-x86_64-rpms
+      aarch64: rhocp-4.17-for-rhel-9-aarch64-rpms
+      ppc64le: rhocp-4.17-for-rhel-9-ppc64le-rpms
+      s390x: rhocp-4.17-for-rhel-9-s390x-rpms
     reposync:
       enabled: false

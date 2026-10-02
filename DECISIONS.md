@@ -35,6 +35,7 @@ marked Gus are from the HYPBLD-888 spec.
   - `stolostron/*` → `backplane-2.10` (includes `kube-rbac-proxy`; Konflux `release-2.15` is the same commit today)
   - `openshift/hypershift`, `cluster-api-provider-kubevirt` → `release-4.20`
   - `cluster-api-provider-agent` → `release-ocm-2.15`
+  - `assisted-service`, `assisted-image-service`, `assisted-installer`, `assisted-installer-agent` → `release-ocm-2.15`
   - `hive` → `master`
   - `base-rhel9` → `openshift-base-rhel9`
   - `image-based-install-operator` → `backplane-2.10`
@@ -43,14 +44,26 @@ marked Gus are from the HYPBLD-888 spec.
 
 ## Image scope
 
-31 operand configs carried from mce-2.11, minus two images that Konflux 2.10 does not build, plus one image removed after 2.10. Bundle stays out of `images/*.yml` (same as 2.11/2.17/5.0). `base-rhel9` is included.
+36 operand configs: the original 2.10 set plus five assisted images. Bundle stays out of `images/*.yml` (same as 2.11/2.17/5.0). `base-rhel9` is included.
 
 Dropped (new in 2.11; Konflux 2.10 deletes them):
 
 - `azure-service-operator`
 - `cluster-api-provider-azure`
 
-Not copied from 2.17/5.0: `maestro`, `cluster-permission`, `cloudevents-conductor`, `assisted-*`.
+Not copied from 2.17/5.0: `maestro`, `cluster-permission`, `cloudevents-conductor`.
+
+### Assisted images
+
+Added from the mce-5.0 ART templates, with git `release-ocm-2.15`. Those repositories have no `backplane-2.10` branch. `release-ocm-2.15` is the ACM 2.15 branch, the same mapping MCE 2.10 already uses for `cluster-api-provider-agent`.
+
+| Component | Upstream repo | Dockerfile | Branch |
+|-----------|---------------|------------|--------|
+| assisted-image-service | [openshift/assisted-image-service](https://github.com/openshift/assisted-image-service) | `Dockerfile.image-service-mce` | `release-ocm-2.15` |
+| assisted-installer | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-mce` | `release-ocm-2.15` |
+| assisted-installer-agent | [openshift/assisted-installer-agent](https://github.com/openshift/assisted-installer-agent) | `Dockerfile.assisted_installer_agent-mce` | `release-ocm-2.15` |
+| assisted-installer-controller | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-controller-mce` | `release-ocm-2.15` |
+| assisted-service-9 | [openshift/assisted-service](https://github.com/openshift/assisted-service) | `Dockerfile.assisted-service-rhel9-mce` | `release-ocm-2.15` |
 
 ### cluster-proxy-addon
 
