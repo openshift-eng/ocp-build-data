@@ -307,6 +307,22 @@ konflux:
   # Build retry count before giving up (minimum: 1)
   build_attempts: 1
 
+  # Existing IntegrationTestScenarios to run after successful builds.
+  # image applies to single image builds (such as ISO); fbc applies to each
+  # newly built catalog for a target OCP version. Bundle builds are tested
+  # through their FBCs. The ITS resource's optional setting controls whether
+  # a failed test blocks the build.
+  integration_test_scenarios:
+    image:
+    - example-image-test
+    fbc:
+    - example-fbc-test
+
+  # Extra annotations on snapshots created for image IntegrationTestScenarios.
+  # FBC snapshots receive art.openshift.io/ocp-target-version automatically.
+  integration_test_snapshot_annotations:
+    pac.test.appstudio.openshift.io/branch: release-{MAJOR}.{MINOR}
+
   # Git commit-ish for the Pipeline Run template repository
   plr_template_commitish: main
 
