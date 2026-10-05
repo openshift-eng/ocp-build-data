@@ -21,8 +21,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: golang-github-prometheus-node_exporter-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-prometheus-node-exporter
   delivery_repo_names:
   - openshift4/ose-prometheus-node-exporter-rhel9
 enabled_repos:
@@ -39,12 +37,7 @@ labels:
   io.k8s.description: Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors
   io.k8s.display-name: Node Exporter
   io.openshift.tags: openshift,node
-name: openshift/ose-prometheus-node-exporter-rhel9
+name: openshift4/ose-prometheus-node-exporter-rhel9
 payload_name: prometheus-node-exporter
 owners:
 - team-monitoring@redhat.com
-konflux:
-  cachi2:
-    lockfile:
-      rpms:
-      - openshift-prometheus-promu

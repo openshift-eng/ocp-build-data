@@ -17,8 +17,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: dpu-cni-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-dpu-cni
   delivery_repo_names:
   - openshift4/ose-dpu-cni-rhel9
 for_payload: false
@@ -26,7 +24,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-dpu-cni-rhel9
+name: openshift4/ose-dpu-cni-rhel9
 name_in_bundle: dpu-cni
 owners:
 - wizhao@redhat.com

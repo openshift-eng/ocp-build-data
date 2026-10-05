@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: aws-kms-encryption-provider-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: aws-kms-encryption-provider
   delivery_repo_names:
   - openshift4/aws-kms-encryption-provider-rhel9
 for_payload: true
@@ -23,7 +21,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/aws-kms-encryption-provider-rhel9
+name: openshift4/aws-kms-encryption-provider-rhel9
 payload_name: aws-kms-encryption-provider
 owners:
 - sjenning@redhat.com

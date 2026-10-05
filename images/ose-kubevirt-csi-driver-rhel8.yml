@@ -16,8 +16,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-kubevirt-csi-driver-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: kubevirt-csi-driver
   delivery_repo_names:
   - openshift4/kubevirt-csi-driver-rhel9
 enabled_repos:
@@ -28,7 +26,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/kubevirt-csi-driver-rhel9
+name: openshift4/kubevirt-csi-driver-rhel9
 payload_name: kubevirt-csi-driver
 owners:
 - ydayagi@redhat.com

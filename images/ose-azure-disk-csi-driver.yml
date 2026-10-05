@@ -21,8 +21,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-azure-disk-csi-driver-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-azure-disk-csi-driver
   delivery_repo_names:
   - openshift4/ose-azure-disk-csi-driver-rhel9
 enabled_repos:
@@ -33,7 +31,7 @@ from:
   builder:
   - stream: rhel-9-golang-1.23
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-azure-disk-csi-driver-rhel9
+name: openshift4/ose-azure-disk-csi-driver-rhel9
 payload_name: azure-disk-csi-driver
 owners:
 - aos-storage-staff@redhat.com

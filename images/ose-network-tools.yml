@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-network-tools-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: network-tools
   delivery_repo_names:
   - openshift4/network-tools-rhel9
 enabled_repos:
@@ -27,12 +25,7 @@ from:
   - stream: rhel-9-golang
   - member: ose-ovn-kubernetes
   member: ose-tools
-name: openshift/network-tools-rhel9
+name: openshift4/network-tools-rhel9
 payload_name: network-tools
 owners:
 - aos-networking-staff@redhat.com
-konflux:
-  cachi2:
-    lockfile:
-      modules:
-      - nginx:1.24

@@ -20,8 +20,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: nmstate-console-plugin-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: nmstate-console-plugin
   delivery_repo_names:
   - openshift4/nmstate-console-plugin-rhel9
 enabled_repos:
@@ -32,7 +30,7 @@ from:
   builder:
   - member: openshift-base-nodejs.rhel9
   member: openshift-enterprise-base-rhel9
-name: openshift/nmstate-console-plugin-rhel9
+name: openshift4/nmstate-console-plugin-rhel9
 name_in_bundle: nmstate-console-plugin-rhel8
 owners:
 - upalatuc@redhat.com
@@ -45,7 +43,3 @@ konflux:
     mode: removal
   vm_override:
     aarch64: linux-d160-m2xlarge/arm64
-  cachi2:
-    lockfile:
-      modules:
-      - nginx:1.24

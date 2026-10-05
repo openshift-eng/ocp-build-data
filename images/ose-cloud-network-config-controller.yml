@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cloud-network-config-controller-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: cloud-network-config-controller
   delivery_repo_names:
   - openshift4/cloud-network-config-controller-rhel9
 for_payload: true
@@ -23,7 +21,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/cloud-network-config-controller-rhel9
+name: openshift4/cloud-network-config-controller-rhel9
 payload_name: cloud-network-config-controller
 owners:
 - aos-networking-staff@redhat.com

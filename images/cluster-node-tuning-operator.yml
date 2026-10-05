@@ -18,8 +18,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: cluster-node-tuning-operator-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-cluster-node-tuning-operator
   delivery_repo_names:
   - openshift4/ose-cluster-node-tuning-rhel9-operator
 enabled_repos:
@@ -31,7 +29,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-cluster-node-tuning-rhel9-operator
+name: openshift4/ose-cluster-node-tuning-rhel9-operator
 payload_name: cluster-node-tuning-operator
 owners:
 - openshift-psap@redhat.com

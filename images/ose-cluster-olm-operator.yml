@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-olm-operator-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-cluster-olm-operator
   delivery_repo_names:
   - openshift4/ose-cluster-olm-rhel9-operator
 for_payload: true
@@ -23,7 +21,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-cluster-olm-rhel9-operator
+name: openshift4/ose-cluster-olm-rhel9-operator
 payload_name: cluster-olm-operator
 owners:
 - angoldst@redhat.com

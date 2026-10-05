@@ -20,8 +20,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: sriov-dp-admission-controller-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-sriov-dp-admission-controller
   delivery_repo_names:
   - openshift4/ose-sriov-dp-admission-controller-rhel9
 for_payload: false
@@ -29,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-sriov-dp-admission-controller-rhel9
+name: openshift4/ose-sriov-dp-admission-controller-rhel9
 name_in_bundle: sriov-dp-admission-controller
 owners:
 - multus-dev@redhat.com

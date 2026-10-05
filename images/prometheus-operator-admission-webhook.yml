@@ -21,8 +21,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: prometheus-operator-admission-webhook-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-prometheus-operator-admission-webhook
   delivery_repo_names:
   - openshift4/ose-prometheus-operator-admission-webhook-rhel9
 for_payload: true
@@ -30,7 +28,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-prometheus-operator-admission-webhook-rhel9
+name: openshift4/ose-prometheus-operator-admission-webhook-rhel9
 payload_name: prometheus-operator-admission-webhook
 owners:
 - team-monitoring@redhat.com

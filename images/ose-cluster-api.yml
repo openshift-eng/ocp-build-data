@@ -15,8 +15,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-api-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-cluster-api
   delivery_repo_names:
   - openshift4/ose-cluster-api-rhel9
 for_payload: true
@@ -24,7 +22,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-cluster-api-rhel9
+name: openshift4/ose-cluster-api-rhel9
 payload_name: cluster-capi-controllers
 owners:
 - aos-cloud@redhat.com

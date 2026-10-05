@@ -22,8 +22,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-state-metrics-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-openshift-state-metrics
   delivery_repo_names:
   - openshift4/ose-openshift-state-metrics-rhel9
 for_payload: true
@@ -31,7 +29,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-openshift-state-metrics-rhel9
+name: openshift4/ose-openshift-state-metrics-rhel9
 payload_name: openshift-state-metrics
 owners:
 - team-monitoring@redhat.com

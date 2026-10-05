@@ -20,8 +20,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: csi-driver-manila-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-csi-driver-manila
   delivery_repo_names:
   - openshift4/ose-csi-driver-manila-rhel9
 for_payload: true
@@ -29,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-csi-driver-manila-rhel9
+name: openshift4/ose-csi-driver-manila-rhel9
 payload_name: csi-driver-manila
 owners:
 - osasinfra-dev@redhat.com

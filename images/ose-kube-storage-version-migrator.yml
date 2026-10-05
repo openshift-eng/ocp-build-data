@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-kube-storage-version-migrator-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-kube-storage-version-migrator
   delivery_repo_names:
   - openshift4/ose-kube-storage-version-migrator-rhel9
 for_payload: true
@@ -23,7 +21,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-kube-storage-version-migrator-rhel9
+name: openshift4/ose-kube-storage-version-migrator-rhel9
 payload_name: kube-storage-version-migrator
 owners:
 - aos-master@redhat.com

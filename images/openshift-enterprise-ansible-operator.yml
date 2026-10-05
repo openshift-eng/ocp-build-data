@@ -28,8 +28,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: openshift-enterprise-ansible-operator-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-ansible-operator
   delivery_repo_names:
   - openshift4/ose-ansible-rhel9-operator
 enabled_repos:
@@ -43,7 +41,7 @@ from:
   member: openshift-enterprise-base-rhel9
 maintainer:
   component: Operator SDK
-name: openshift/ose-ansible-rhel9-operator
+name: openshift4/ose-ansible-rhel9-operator
 owners:
 - aos-operator-sdk@redhat.com
 - jlanford@redhat.com
@@ -51,22 +49,3 @@ owners:
 - tgeer@redhat.com
 - ckyal@redhat.com
 - arsen@redhat.com
-konflux:
-  cachi2:
-    lockfile:
-      rpms:
-      - binutils
-      - binutils-gold
-      - cpp
-      - elfutils-debuginfod-client
-      - gcc
-      - glibc
-      - glibc-headers
-      - glibc-devel
-      - kernel-headers
-      - libasan
-      - libatomic
-      - libmpc
-      - libubsan
-      - libxcrypt-devel
-      - make

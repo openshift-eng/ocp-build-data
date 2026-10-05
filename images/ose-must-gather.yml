@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-must-gather-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-must-gather
   delivery_repo_names:
   - openshift4/ose-must-gather-rhel9
 enabled_repos:
@@ -28,7 +26,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-cli
-name: openshift/ose-must-gather-rhel9
+name: openshift4/ose-must-gather-rhel9
 payload_name: must-gather
 owners:
 - aos-master@redhat.com

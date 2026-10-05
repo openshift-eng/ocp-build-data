@@ -17,8 +17,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ironic-rhcos-downloader-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-ironic-machine-os-downloader
   delivery_repo_names:
   - openshift4/ose-ironic-machine-os-downloader-rhel9
 enabled_repos:
@@ -30,13 +28,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-base-rhel9
-name: openshift/ose-ironic-machine-os-downloader-rhel9
+name: openshift4/ose-ironic-machine-os-downloader-rhel9
 payload_name: ironic-machine-os-downloader
 owners:
 - ironic-osp-owners@redhat.com
-konflux:
-  cachi2:
-    lockfile:
-      rpms:
-      - edk2-aarch64
-      - edk2-ovmf

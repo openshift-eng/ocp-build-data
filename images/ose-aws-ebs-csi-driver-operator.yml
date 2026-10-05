@@ -20,8 +20,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-aws-ebs-csi-driver-operator-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-aws-ebs-csi-driver-operator
   delivery_repo_names:
   - openshift4/ose-aws-ebs-csi-driver-rhel9-operator
 for_payload: true
@@ -29,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-aws-ebs-csi-driver-rhel9-operator
+name: openshift4/ose-aws-ebs-csi-driver-rhel9-operator
 payload_name: aws-ebs-csi-driver-operator
 owners:
 - aos-storage-staff@redhat.com

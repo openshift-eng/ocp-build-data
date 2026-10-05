@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-installer-altinfra-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-installer-altinfra
   delivery_repo_names:
   - openshift4/ose-installer-altinfra-rhel9
 for_payload: true
@@ -25,7 +23,7 @@ from:
   - member: ose-installer-etcd-artifacts
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-installer-altinfra-rhel9
+name: openshift4/ose-installer-altinfra-rhel9
 payload_name: installer-altinfra
 owners:
 - aos-install@redhat.com

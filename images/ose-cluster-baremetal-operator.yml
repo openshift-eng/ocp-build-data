@@ -13,8 +13,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-baremetal-operator-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-cluster-baremetal-operator
   delivery_repo_names:
   - openshift4/ose-cluster-baremetal-operator-rhel9
 for_payload: true
@@ -22,7 +20,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-cluster-baremetal-operator-rhel9
+name: openshift4/ose-cluster-baremetal-operator-rhel9
 payload_name: cluster-baremetal-operator
 owners:
 - metal-platform@redhat.com

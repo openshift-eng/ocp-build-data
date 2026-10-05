@@ -17,8 +17,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: dpu-daemon-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-dpu-daemon
   delivery_repo_names:
   - openshift4/ose-dpu-daemon-rhel9
 enabled_repos:
@@ -29,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-dpu-daemon-rhel9
+name: openshift4/ose-dpu-daemon-rhel9
 name_in_bundle: dpu-daemon
 owners:
 - wizhao@redhat.com
@@ -37,24 +35,3 @@ owners:
 - bnemeth@redhat.com
 - sdaniele@redhat.com
 - vpunj@redhat.com
-konflux:
-  cachi2:
-    lockfile:
-      rpms:
-      - binutils
-      - binutils-gold
-      - cpp
-      - elfutils-debuginfod-client
-      - gcc
-      - gcc-c++
-      - libstdc++-devel
-      - glibc
-      - glibc-headers
-      - glibc-devel
-      - kernel-headers
-      - libasan
-      - libatomic
-      - libmpc
-      - libubsan
-      - libxcrypt-devel
-      - make

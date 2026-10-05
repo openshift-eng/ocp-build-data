@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-cluster-machine-approver-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-cluster-machine-approver
   delivery_repo_names:
   - openshift4/ose-cluster-machine-approver-rhel9
 for_payload: true
@@ -23,7 +21,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-cluster-machine-approver-rhel9
+name: openshift4/ose-cluster-machine-approver-rhel9
 payload_name: cluster-machine-approver
 owners:
 - aos-apiserver@redhat.com

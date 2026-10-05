@@ -20,8 +20,6 @@ distgit:
   component: ose-ptp-operator-container
   bundle_component: ose-ptp-operator-metadata-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-ptp-operator
   bundle_delivery_repo_name: openshift4/ose-ptp-operator-bundle
   delivery_repo_names:
   - openshift4/ose-ptp-rhel9-operator
@@ -30,7 +28,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-ptp-rhel9-operator
+name: openshift4/ose-ptp-rhel9-operator
 name_in_bundle: ptp-operator
 labels:
   summary: Operator that manages PTP (Precision Time Protocol) configuration on an openshift cluster

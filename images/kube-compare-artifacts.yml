@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: kube-compare-artifacts-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: kube-compare-artifacts
   delivery_repo_names:
   - openshift4/kube-compare-artifacts-rhel9
 for_payload: false
@@ -24,7 +22,7 @@ from:
   - stream: rhel-8-golang-1.25
   - stream: rhel-9-golang-1.25
   member: openshift-enterprise-cli
-name: openshift/kube-compare-artifacts-rhel9
+name: openshift4/kube-compare-artifacts-rhel9
 payload_name: kube-compare-artifacts
 owners:
 - jramsay@redhat.com

@@ -10,8 +10,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-frr-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: frr
   delivery_repo_names:
   - openshift4/frr-rhel9
 enabled_repos:
@@ -25,7 +23,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-base-rhel9
-name: openshift/frr-rhel9
+name: openshift4/frr-rhel9
 name_in_bundle: metallb-frr-rhel9
 payload_name: metallb-frr
 owners:

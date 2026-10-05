@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-baremetal-installer-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-baremetal-installer
   delivery_repo_names:
   - openshift4/ose-baremetal-installer-rhel9
 enabled_repos:
@@ -31,7 +29,7 @@ from:
   - member: openshift-enterprise-hyperkube
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-baremetal-installer-rhel9
+name: openshift4/ose-baremetal-installer-rhel9
 payload_name: baremetal-installer
 owners:
 - kni-devel-deployment@redhat.com

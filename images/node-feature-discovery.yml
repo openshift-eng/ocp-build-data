@@ -16,8 +16,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: node-feature-discovery-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-node-feature-discovery
   delivery_repo_names:
   - openshift4/ose-node-feature-discovery-rhel9
 for_payload: false
@@ -25,7 +23,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-node-feature-discovery-rhel9
+name: openshift4/ose-node-feature-discovery-rhel9
 name_in_bundle: node-feature-discovery
 owners:
 - edge-kmm@redhat.com

@@ -16,8 +16,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-image-customization-controller-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-image-customization-controller
   delivery_repo_names:
   - openshift4/ose-image-customization-controller-rhel9
 enabled_repos:
@@ -29,7 +27,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-image-customization-controller-rhel9
+name: openshift4/ose-image-customization-controller-rhel9
 payload_name: machine-image-customization-controller
 owners:
 - metal-platform@redhat.com

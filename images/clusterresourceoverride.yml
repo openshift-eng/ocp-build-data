@@ -16,8 +16,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-clusterresourceoverride-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-clusterresourceoverride
   delivery_repo_names:
   - openshift4/ose-clusterresourceoverride-rhel9
 for_payload: false
@@ -25,7 +23,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-clusterresourceoverride-rhel9
+name: openshift4/ose-clusterresourceoverride-rhel9
 name_in_bundle: clusterresourceoverride-rhel8
 owners:
 - jkyros@redhat.com

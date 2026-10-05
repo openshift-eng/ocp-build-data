@@ -14,8 +14,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: kube-proxy-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-kube-proxy
   delivery_repo_names:
   - openshift4/ose-kube-proxy-rhel9
 enabled_repos:
@@ -26,7 +24,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-kube-proxy-rhel9
+name: openshift4/ose-kube-proxy-rhel9
 payload_name: kube-proxy
 owners:
 - aos-networking-staff@redhat.com

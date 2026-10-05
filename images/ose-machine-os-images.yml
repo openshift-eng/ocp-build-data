@@ -13,8 +13,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-machine-os-images-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-machine-os-images
   delivery_repo_names:
   - openshift4/ose-machine-os-images-rhel9
 enabled_repos:
@@ -26,7 +24,7 @@ from:
   builder:
   - member: ose-installer
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-machine-os-images-rhel9
+name: openshift4/ose-machine-os-images-rhel9
 payload_name: machine-os-images
 owners:
 - metal-platform@redhat.com
@@ -36,8 +34,6 @@ konflux:
     # can be removed after whilelist is in
     x86_64: linux/amd64
   cachi2:
-    lockfile:
-      backend: rpm-lockfile-prototype
     artifact_lockfile:
       # RHCOS ISO URLs sourced from openshift/installer repo:
       # data/data/coreos/rhcos.json

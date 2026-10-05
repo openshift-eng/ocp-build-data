@@ -21,8 +21,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-ibm-vpc-block-csi-driver-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-ibm-vpc-block-csi-driver
   delivery_repo_names:
   - openshift4/ose-ibm-vpc-block-csi-driver-rhel9
 enabled_repos:
@@ -33,7 +31,7 @@ from:
   builder:
   - stream: rhel-9-golang
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-ibm-vpc-block-csi-driver-rhel9
+name: openshift4/ose-ibm-vpc-block-csi-driver-rhel9
 payload_name: ibm-vpc-block-csi-driver
 owners:
 - aos-storage-staff@redhat.com

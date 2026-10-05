@@ -20,8 +20,6 @@ distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: networking-console-plugin-container
 delivery:
-  # Maps to honeybadger repo_name
-  repo_name: ose-networking-console-plugin
   delivery_repo_names:
   - openshift4/ose-networking-console-plugin-rhel9
 enabled_repos:
@@ -32,7 +30,7 @@ from:
   builder:
   - member: openshift-base-nodejs-22.rhel9
   member: openshift-enterprise-base-rhel9
-name: openshift/ose-networking-console-plugin-rhel9
+name: openshift4/ose-networking-console-plugin-rhel9
 owners:
 - upalatuc@redhat.com
 - yzamir@redhat.com
@@ -42,9 +40,6 @@ konflux:
   cachito:
     mode: removal
   cachi2:
-    lockfile:
-      modules:
-      - nginx:1.24
     artifact_lockfile:
       resources:
       - url: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/build-deps/openshift-enterprise-console/yarn-v1.22.19.tar.gz
