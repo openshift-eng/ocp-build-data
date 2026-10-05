@@ -25,7 +25,7 @@ content:
     dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.18
+        target: redhat-3.14
       url: git@github.com:openshift-priv/quay-quay.git
       web: https://github.com/quay/quay
     pkg_managers:
@@ -40,21 +40,21 @@ distgit:
   component: quay-quay-container
 delivery:
   delivery_repo_names:
-  - quay/quay-rhel9
+  - quay/quay-rhel8
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
-- rhel-9-codeready-builder-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
+- rhel-8-codeready-builder-rpms
 from:
   builder:
-  - stream: rhel9
-  - stream: rhel9-nodejs-22-minimal
-  - stream: rhel9-nodejs-22-minimal
-  - stream: rhel-9-golang
-  - stream: rhel-9-golang
-  - stream: rhel9
-name: quay/quay-rhel9
+  - stream: rhel8
+  - stream: rhel8-nodejs-22-minimal
+  - stream: rhel8-nodejs-22-minimal
+  - stream: rhel8-golang
+  - stream: rhel8-golang
+  - stream: rhel8
+name: quay/quay-rhel8
 owners:
 - quay-devel@redhat.com
 konflux:

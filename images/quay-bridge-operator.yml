@@ -5,7 +5,7 @@ content:
     dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.18
+        target: redhat-3.14
       url: git@github.com:openshift-priv/quay-quay-bridge-operator.git
       web: https://github.com/quay/quay-bridge-operator
 jira:
@@ -16,16 +16,16 @@ distgit:
 delivery:
   bundle_delivery_repo_name: quay/quay-bridge-operator-bundle
   delivery_repo_names:
-  - quay/quay-bridge-rhel9-operator
+  - quay/quay-bridge-rhel8-operator
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
-  stream: rhel9
-name: quay/quay-bridge-rhel9-operator
+  - stream: rhel8-golang
+  stream: rhel8
+name: quay/quay-bridge-rhel8-operator
 owners:
 - quay-devel@redhat.com
 update-csv:
