@@ -1,5 +1,5 @@
 bug_mapping:
-  active_versions: ["4.12", "4.13", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "4.20", "4.21", "4.22", "5.0"]
+  active_versions: ["4.12", "4.13", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "4.20", "4.21", "4.22", "5.0", "5.1"]
   default_issue_project: OCPBUGS
   components:
     ansible-asb-modules:
@@ -1403,6 +1403,10 @@ bug_mapping:
       issue_component: Networking / router
     ose-kube-vip-container:
       issue_component: Networking / On-Prem Host Networking
+
+    # New components introduced in openshift-5.1
+    azure-karpenter-provider-azure-container:
+      issue_component: autoscaling / karpenter
 
     # --- ACM/MCE (generated) ---
     # Generated from https://github.com/stolostron/acm-config
