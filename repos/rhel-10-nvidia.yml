@@ -1,0 +1,15 @@
+- conf:
+    baseurl: # only arm is available for NVIDIA driver toolkit, but we need to define all arches to avoid build errors
+      x86_64:  https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/aarch64/nvidia/os/
+      aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/aarch64/nvidia/os/
+      ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/aarch64/nvidia/os/
+      s390x:   https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel10/aarch64/nvidia/os/
+    extra_options:
+      gpgcheck: '1'
+      priority: '10' # force kernels to come from NVIDIA instead of appstream
+  content_set:
+    optional: true
+  name: rhel-10-nvidia
+  reposync:
+    enabled: false
+  type: external
