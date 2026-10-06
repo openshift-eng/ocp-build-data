@@ -116,7 +116,7 @@ Merge that pull request after this `mce-2.9` branch contains the five assisted i
 
 ## Tide branch inclusion (openshift/release)
 
-- **Decision**: Add `mce-2.9` to `tide.queries[].includedBranches` in [openshift/release `core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml`](https://github.com/openshift/release/blob/master/core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml), immediately before `mce-2.10`. `branch-protection` stays `unmanaged: true`.
+- **Decision**: Add `mce-2.9` to `tide.queries[].includedBranches` in [openshift/release `core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml`](https://github.com/openshift/release/blob/master/core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml). The list is sorted as plain strings, so `mce-2.9` goes after `mce-2.17` and before `mce-5.0`. `branch-protection` stays `unmanaged: true`. The commit must be signed with a GPG or SSH key GitHub can verify (`git commit -S`); DCO `Signed-off-by` is not that check.
 - **Rationale**: Tide only merges ocp-build-data pull requests whose target branch is listed there. Pattern is [#86320](https://github.com/openshift/release/pull/86320). Open that pull request from a fork of `openshift/release`. `branch-setup` does not edit this file.
 - **Follow-up for later migrations**: Repeat this for every new `<product>-<version>` branch. The list already has `mce-2.10`, `mce-2.11`, `mce-2.17`, and `mce-5.0`.
 
