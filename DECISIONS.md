@@ -23,9 +23,9 @@ only as a reference for the three components added in 2.17.
 
 ## group.yml version
 
-- **Decision**: `version: 2.17.3`
-- **Rationale**: Latest unreleased z-stream so FBCs can build (A10/A11). Konflux 2.17 CSV is currently 2.17.3.
-- **Tool patch**: tool wrote `2.17.0`.
+- **Decision**: `version: 2.17.4`
+- **Rationale**: Product Z for MCE 2.17 is 2.17.4 (Gus: no MCE 2.16; skip from 2.10). Same field as `mce-2.10` `2.10.8` / `mce-2.11` `2.11.5`. Matches Konflux 2.17 advisory notes (`v2.17.4`) and backplane-operator CSV/`art.yaml` on #4098.
+- **Tool patch**: tool wrote `2.17.0`. First patched to `2.17.3` (then-current Konflux CSV); bumped to `2.17.4` after product confirmation.
 
 ## Git Source Branches
 
@@ -141,7 +141,7 @@ What the tool got right:
 
 What was patched after (non-sequential / OCP-aligned product):
 1. `vars.MAJOR`/`MINOR` `2`/`17` → `4`/`22` (tool assumes product version == OCP version)
-2. `version: 2.17.0` → `2.17.3`
+2. `version: 2.17.0` → `2.17.3` (later `2.17.4`; Gus)
 3. `OCP_RELEASE_NOTES_VERSION` `4.21` → `4.22` (not rewritten)
 4. `release-4.21` → `release-4.22` on hypershift-cli, hypershift-release, cluster-api-provider-kubevirt
 5. `release-ocm-2.16` → `release-ocm-2.17` on cluster-api-provider-agent
