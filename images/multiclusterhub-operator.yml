@@ -3,7 +3,7 @@ content:
     dockerfile: build/Dockerfile.rhtap
     git:
       branch:
-        target: release-2.15
+        target: release-2.14
       url: git@github.com:openshift-priv/stolostron-multiclusterhub-operator.git
       web: https://github.com/stolostron/multiclusterhub-operator
 distgit:
@@ -24,7 +24,7 @@ from:
 name: rhacm2/multiclusterhub-rhel9
 bundle_name_override: acm-operator-bundle
 update-csv:
-  name: advanced-cluster-management
+  name: multiclusterhub-operator
   manifests-dir: bundle
   bundle-dir: manifests
   registry: image-registry.openshift-image-registry.svc:5000
@@ -34,4 +34,4 @@ owners:
 - acm-cicd@redhat.com
 konflux:
   component:
-    bundle_name_override: acm-2-15-acm-operator-bundle
+    bundle_name_override: acm-2-14-acm-operator-bundle
