@@ -11,15 +11,15 @@ rhel-8-golang-1.26:
 rhel-9-golang-1.26:
   image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel9
 
-# Initial bootstrap: floating nodejs tag. ubi-minimal is also :latest (Gus, HYPBLD-888 A3).
+# Floating nodejs tag. ubi-minimal is also :latest (same as mce-2.10). ose-cli follows OCP 4.19.
 rhel-9-nodejs-24:
   image: registry.redhat.io/ubi9/nodejs-24-minimal:latest
 
 ose-cli-artifacts:
-  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.20
+  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.19
 
 ose-cli-rhel9:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.20
+  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.19
 
 rhel9:
   image: registry.redhat.io/ubi9/ubi-minimal:latest
