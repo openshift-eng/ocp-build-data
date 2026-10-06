@@ -88,9 +88,8 @@ Aligned with lessons from the operating `acm-2.15` ART branch after reopen onto
 
 ## Bundle / `update-csv`
 
-- **Decision**: Enable `update-csv` on `multiclusterhub-operator.yml` with `name: multiclusterhub-operator` (not `advanced-cluster-management`). Keep `bundle_name_override: acm-operator-bundle` and Konflux `bundle_name_override: acm-2-14-acm-operator-bundle`.
-- **Rationale**: On `release-2.14`, the CSV file, package annotation, and `bundle/art.yaml` still use `multiclusterhub-operator`. Operating 2.15 renamed the package to `advanced-cluster-management`; that rename must not be copied onto 2.14.
-- **Revisit**: If/when MCH `release-2.14` adopts the `advanced-cluster-management` CSV name, update `update-csv.name` to match.
+- **Decision**: Enable `update-csv` on `multiclusterhub-operator.yml` with `name: advanced-cluster-management`. Keep `bundle_name_override: acm-operator-bundle` and Konflux `bundle_name_override: acm-2-14-acm-operator-bundle`.
+- **Rationale**: Same OLM package name as operating 2.15/2.16/2.17 (`advanced-cluster-management`). MCH `release-2.14` ART scaffolding renames the CSV/package/annotations/`art.yaml` path to match; doozer/`update-csv.name` must agree. (2.17 lesson: do not leave the package as `multiclusterhub-operator`.)
 
 ## Dependents
 
