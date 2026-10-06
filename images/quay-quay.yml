@@ -1,5 +1,3 @@
-arches:
-- x86_64
 dependents:
 - quay-operator
 cachito:
@@ -25,7 +23,7 @@ content:
     dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.18
+        target: redhat-3.9
       url: git@github.com:openshift-priv/quay-quay.git
       web: https://github.com/quay/quay
     pkg_managers:
@@ -58,8 +56,6 @@ name: quay/quay-rhel9
 owners:
 - quay-devel@redhat.com
 konflux:
-  arches:
-  - x86_64
   cachi2:
     lockfile:
       enabled: true
