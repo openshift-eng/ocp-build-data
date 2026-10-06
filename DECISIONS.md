@@ -114,6 +114,12 @@ Merge that pull request after this `mce-2.9` branch contains the five assisted i
 
 - **Decision**: `network_mode: hermetic`, `cachi2.enabled: true` with `rpm-lockfile-prototype` (carried from 2.10).
 
+## Tide branch inclusion (openshift/release)
+
+- **Decision**: Add `mce-2.9` to `tide.queries[].includedBranches` in [openshift/release `core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml`](https://github.com/openshift/release/blob/master/core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml), immediately before `mce-2.10`. `branch-protection` stays `unmanaged: true`.
+- **Rationale**: Tide only merges ocp-build-data pull requests whose target branch is listed there. Pattern is [#86320](https://github.com/openshift/release/pull/86320). Open that pull request from a fork of `openshift/release`. `branch-setup` does not edit this file.
+- **Follow-up for later migrations**: Repeat this for every new `<product>-<version>` branch. The list already has `mce-2.10`, `mce-2.11`, `mce-2.17`, and `mce-5.0`.
+
 ## Tool patch report (art-migration branch-setup mce 2.10 2.9)
 
 Command:
@@ -160,3 +166,4 @@ Suggested tool improvements (same class as the 2.11 → 2.10 run):
 - Preserve `streams.yml` comments (`ruamel.yaml`) and do not collapse `OCP_TARGET_VERSIONS` formatting unless asked.
 - Rewrite `OCP_RELEASE_NOTES_VERSION` and `ose-cli` tags when `--ocp-major-minor` is set.
 - Do not set the new branch's upstream to `origin/<current>` when the landing branch is a new `<product>-<version>` branch.
+- Emit a follow-up change for `openshift/release` `core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml`: add the new branch to `tide.queries[].includedBranches`. Without that entry, Tide will not merge pull requests that target the new branch. See openshift/release#86320.
