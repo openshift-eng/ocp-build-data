@@ -7,7 +7,7 @@ content:
     dockerfile: Containerfile.art
     git:
       branch:
-        target: redhat-3.18
+        target: redhat-3.12
       url: git@github.com:openshift-priv/quay-quay-builder.git
       web: https://github.com/quay/quay-builder
 jira:
@@ -17,15 +17,16 @@ distgit:
   component: quay-builder-container
 delivery:
   delivery_repo_names:
-  - quay/quay-builder-rhel9
+  - quay/quay-builder-rhel8
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
-  - stream: rhel9-podman
-name: quay/quay-builder-rhel9
+  - stream: rhel8-golang
+  - stream: rhel8-podman
+name: quay/quay-builder-rhel8
 owners:
 - quay-devel@redhat.com
+canonical_builders_from_upstream: false
