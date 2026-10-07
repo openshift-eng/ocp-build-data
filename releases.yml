@@ -1,4 +1,60 @@
 releases:
+  4.17.59:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-10-06T00:45:29+00:00"
+        reference_releases:
+          x86_64: 4.17.0-0.nightly-2026-10-06-031249
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Oct-15
+        upgrades: 4.16.8,4.16.9,4.16.10,4.16.11,4.16.12,4.16.13,4.16.14,4.16.15,4.16.16,4.16.17,4.16.18,4.16.19,4.16.20,4.16.21,4.16.22,4.16.23,4.16.24,4.16.25,4.16.26,4.16.27,4.16.28,4.16.29,4.16.30,4.16.31,4.16.32,4.16.33,4.16.34,4.16.35,4.16.36,4.16.37,4.16.38,4.16.39,4.16.40,4.16.41,4.16.42,4.16.43,4.16.44,4.16.45,4.16.46,4.16.47,4.16.48,4.16.49,4.16.50,4.16.51,4.16.52,4.16.53,4.16.54,4.16.55,4.16.56,4.16.57,4.16.58,4.16.59,4.16.60,4.16.61,4.16.62,4.16.63,4.16.64,4.16.65,4.16.66,4.16.67,4.16.68,4.16.69,4.16.70,4.16.71,4.16.72,4.16.73,4.17.0,4.17.1,4.17.2,4.17.3,4.17.4,4.17.5,4.17.6,4.17.7,4.17.8,4.17.9,4.17.10,4.17.11,4.17.12,4.17.13,4.17.14,4.17.15,4.17.16,4.17.17,4.17.18,4.17.19,4.17.20,4.17.21,4.17.22,4.17.23,4.17.24,4.17.25,4.17.26,4.17.27,4.17.28,4.17.29,4.17.30,4.17.31,4.17.32,4.17.33,4.17.34,4.17.35,4.17.36,4.17.37,4.17.38,4.17.39,4.17.40,4.17.41,4.17.42,4.17.43,4.17.44,4.17.45,4.17.46,4.17.47,4.17.48,4.17.49,4.17.50,4.17.51,4.17.52,4.17.53,4.17.54,4.17.55,4.17.56,4.17.57,4.17.58
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-ansible-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-operator-sdk
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f317ee961be4b4c2105c066e2b58913bd16dbe6380bb5b6b2c06bfe34bfcc8ce
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:27f433da23cd517420b3ba9ae717ffaf6355c2180cdc73aa7f32b3383138bd2f
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7ee7ff5fb5209b7ca08511827cb792a897356edb37b2d4c5acfff41ec98ec41b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:38c982e7774360c3405bf6de5bcb5e38c47b6bc86d6e730b81c22fc19e9ffb3c
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9ab868cfdb0c448298ab7bb21fbaa388d871fc212d3d32f3f1cfca7c017df1d7
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:657158d9c8608833bd0e25a1e5d83c3908b562a26012de7f74db3f3bf0a17bf5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ee5b1c5e583863ab4779ea6ee5ffefebc8f9533c17aee98347d694049b2c6720
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c5d3e83fe6acfadb58ee0698d742986b509d77e95e6feb7608f17287e70aa1ce
+      members:
+        rpms: []
+        images:
+          - distgit_key: ose-insights-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-insights-operator-container-v4.17.0-202610010231.p2.g2e91ecb.assembly.stream.el9
   4.17.58:
     assembly:
       type: standard
