@@ -4,9 +4,6 @@ FROM rhel8
 # rhel8-2-els/rhel from rhel-els-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=77439)
 # ubi8 from ubi8-container(https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=71187)
 
-RUN microdnf update -y \
- && microdnf clean all
-
 # ubi based images have the ubi repositories available. EUS / ELS images do not have their repositories
 # configured, and these repositories are not publicly accessible without an enabled subscription.
 # Making ubi8 repo available for all base images for the end user.
