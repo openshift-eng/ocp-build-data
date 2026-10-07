@@ -37,9 +37,21 @@ konflux:
       resources:
         - url: https://download.eclipse.org/jdtls/milestones/1.60.0/jdt-language-server-1.60.0-202606262232.tar.gz
           filename: jdtls-product.tar.gz
-        - url: https://indy.corp.redhat.com/api/content/maven/hosted/pnc-builds/io/konveyor/tackle/java-analyzer-bundle.core/8.1.0.CR1-redhat-00003/java-analyzer-bundle.core-8.1.0.CR1-redhat-00003.jar
+        - type: maven
           filename: java-analyzer-bundle.core.jar
-        - url: https://indy.corp.redhat.com/api/content/maven/hosted/pnc-builds/org/jetbrains/java/decompiler/fernflower/8.1.0.GA-redhat-00001/fernflower-8.1.0.GA-redhat-00001.jar
+          attributes:
+            repository_url: https://indy.corp.redhat.com/api/content/maven/hosted/pnc-builds
+            group_id: io.konveyor.tackle
+            artifact_id: java-analyzer-bundle.core
+            version: 8.1.0.CR1-redhat-00003
+            type: jar
+        - type: maven
           filename: fernflower.jar
+          attributes:
+            repository_url: https://indy.corp.redhat.com/api/content/maven/hosted/pnc-builds
+            group_id: org.jetbrains.java.decompiler
+            artifact_id: fernflower
+            version: 8.1.0.GA-redhat-00001
+            type: jar
         - url: https://github.com/konveyor/maven-search-index/releases/download/v2025-11-11/maven-index-data-v20251112021242.zip
           filename: maven-index-data.zip
