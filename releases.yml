@@ -41,6 +41,9 @@ releases:
             metadata:
               is:
                 nvr: ose-insights-operator-container-v4.13.0-202609302028.p2.g162554e.assembly.stream.el8
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: "OCPBUGS-93036 backports OCPBUGS-93070 (4.14.z) which is Verified but not yet attached to a 4.14 advisory"
   4.13.71:
     assembly:
       type: standard
