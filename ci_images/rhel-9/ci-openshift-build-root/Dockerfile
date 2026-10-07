@@ -41,12 +41,10 @@ RUN INSTALL_PKGS="glibc libatomic libsemanage annobin go-srpm-macros kernel-srpm
     git config --system user.email origin-release@redhat.com
 
 # Notes:
-# - brew will not be able to access go modules outside RH, setting GOPROXY allows them to be sourced from ocp-artifacts
 # - brew will not be able to connect to https://sum.golang.org/ . GOSUMDB='off' disables this check.
 # - brew temporarily injects a trust store at /tmp/tls-ca-bundle.pem. Setting SSL_CERT_FILE allows go install to use it.
 #   this is important because the system trust store does not trust Red Hat IT certificates.
-RUN export GOPROXY="https://ocp-artifacts.engineering.redhat.com/goproxy/" && \
-    export GOSUMDB='off' && \
+RUN export GOSUMDB='off' && \
     export GOFLAGS='' && export GO111MODULE=on && \
     export SSL_CERT_FILE=`test -f /tmp/tls-ca-bundle.pem && echo /tmp/tls-ca-bundle.pem || echo /tmp/Current-IT-Root-CAs.pem` && cat $SSL_CERT_FILE && \
     go install golang.org/x/tools/cmd/cover@latest && \
