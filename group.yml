@@ -3,6 +3,8 @@ csv_namespace: openshift-opentelemetry-operator
 product: openshift-opentelemetry-operator
 version: 0.158.0
 ignore_incorrect_nvr: true
+# Allow FBC NVRs on the same major/minor release train to differ by patch version.
+ignore_patch_version: true
 
 vars:
   GO_LATEST: "1.26"
