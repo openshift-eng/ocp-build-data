@@ -8,7 +8,7 @@ content:
     dockerfile: Dockerfile.assisted-service-rhel9-mce
     git:
       branch:
-        target: release-ocm-2.14
+        target: release-ocm-2.13
       url: git@github.com:openshift-priv/assisted-service.git
       web: https://github.com/openshift/assisted-service
 distgit:
@@ -26,7 +26,7 @@ enabled_repos:
 - rhocp-4.17-rhel9-rpms
 from:
   builder:
-    - stream: rhel-9-golang
+    - stream: rhel-9-golang-1.25
   member: base-rhel9
 name: multicluster-engine/assisted-service-9-rhel9
 owners:
