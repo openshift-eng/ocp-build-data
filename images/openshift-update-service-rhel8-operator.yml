@@ -1,4 +1,3 @@
-canonical_builders_from_upstream: false
 content:
   source:
     dockerfile: Dockerfile
@@ -8,11 +7,9 @@ content:
       url: git@github.com:openshift-priv/cincinnati-operator.git
       web: https://github.com/openshift/cincinnati-operator
 distgit:
-  bundle_component: cincinnati-operator-bundle-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-  component: cincinnati-operator-container
+  component: openshift-update-service-rhel8-operator-container
 delivery:
-  repo_name: openshift-update-service/openshift-update-service-rhel8-operator
   bundle_delivery_repo_name: openshift-update-service/cincinnati-operator-bundle
   delivery_repo_names:
   - openshift-update-service/openshift-update-service-rhel8-operator

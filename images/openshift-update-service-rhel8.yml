@@ -1,4 +1,3 @@
-canonical_builders_from_upstream: false
 content:
   source:
     dockerfile: dist/Dockerfile.deploy/Dockerfile
@@ -9,9 +8,8 @@ content:
       web: https://github.com/openshift/cincinnati
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-  component: cincinnati-container
+  component: openshift-update-service-rhel8-container
 delivery:
-  repo_name: openshift-update-service/openshift-update-service-rhel8
   delivery_repo_names:
   - openshift-update-service/openshift-update-service-rhel8
 enabled_repos:
@@ -23,6 +21,5 @@ dependents:
 from:
   member: rhel9
 name: openshift-update-service/openshift-update-service-rhel8
-name_in_bundle: update-service-operand
 owners:
 - wking@redhat.com
