@@ -8,7 +8,7 @@ content:
     dockerfile: Dockerfile.assisted-installer-mce
     git:
       branch:
-        target: release-ocm-2.14
+        target: release-ocm-2.13
       url: git@github.com:openshift-priv/assisted-installer.git
       web: https://github.com/openshift/assisted-installer
 distgit:
@@ -24,7 +24,7 @@ enabled_repos:
 - rhel-9-appstream-rpms
 from:
   builder:
-    - stream: rhel-9-golang
+    - stream: rhel-9-golang-1.25
   member: base-rhel9
 name: multicluster-engine/assisted-installer-rhel9
 owners:
