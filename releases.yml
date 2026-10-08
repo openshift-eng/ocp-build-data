@@ -52,7 +52,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84d293ef012f53826920920396c958004347c1017ba74fda352c51072c0a4d9e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: support-log-gather-operator
+            exclude: true
+            why: "not a PLCC approved operator (yet)"
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
