@@ -31,7 +31,9 @@ content:
       replacement: ""
     - action: replace
       match: "LABEL architecture=${TARGETARCH}"
-      replacement: ""
+      replacement: |
+        LABEL distribution-scope="public"
+        LABEL url="https://access.redhat.com/errata"
     - action: replace
       match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo /run/src/build-node-image.sh'
       replacement: |
