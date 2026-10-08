@@ -78,6 +78,11 @@ The AWS chart on `backplane-2.9` still deploys `ose_aws_cluster_api_controllers_
 - **Decision**: `Dockerfile.konflux`
 - **Rationale**: Same as mce-2.10 ART. The repository `Dockerfile` points at `registry.ci.openshift.org` 4.21 builders.
 
+## backplane-must-gather parents
+
+- **Decision**: `backplane-must-gather.yml` builders are `ose-cli-rhel9`, then `rhel-9-golang-1.25`, with member `base-rhel9`.
+- **Rationale**: `build/Dockerfile.rhtap` on `backplane-2.9` has three parent `FROM` lines after ACM-36080 (`85f96098`): `ose-cli-rhel9`, `ubi9/go-toolset` (compiles the vendored hypershift CLI), and `ubi-minimal`. Doozer counts those non-stage parents and refuses the rebase when metadata lists two. The go-toolset stage uses the same 1.25 builder as `hypershift-cli`, which builds `release-4.19` hypershift (submodule `go 1.23.6`). Same parent-count pattern as mce-5.0 console and [#12654](https://github.com/openshift-eng/ocp-build-data/pull/12654). This is not the image-references name mismatch fixed in backplane-operator [#3808](https://github.com/stolostron/backplane-operator/pull/3808).
+
 ## Streams
 
 - **Go**: keep mce-2.10's mix. Floating `rhel-9-golang` is `golang-builder-v1.26-rhel9`. Per-image `rhel-9-golang-1.25` builders were not retargeted. Gus (A3): leave images on their current builder minor when it is an ART golang builder. No operand Go bumps in this pass.
