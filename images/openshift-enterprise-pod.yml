@@ -41,3 +41,10 @@ name: openshift5/ose-pod-rhel9
 payload_name: pod
 owners:
 - aos-pod@redhat.com
+okd:
+  content:
+    source:
+      modifications:
+      - action: add
+        command:
+        - dnf config-manager --set-enabled crb
