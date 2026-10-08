@@ -1,24 +1,18 @@
 freeze_automation: false
-name: mce-2.9
+name: mce-2.8
 csv_namespace: multicluster-engine
 product: multicluster-engine
-version: 2.9.9
+version: 2.8.0
 
 vars:
   GO_LATEST: "1.26"
   GO_EXTRA: "1.26"
-  MAJOR: 4
-  MINOR: 19
+  MAJOR: 2
+  MINOR: 8
 
 # Publish window is N-3 through N+1 (Gus, HYPBLD-886 A1): 4.16–4.20.
 # Alignment (MAJOR/MINOR, distgit, ose-cli) is OCP 4.19.
-OCP_TARGET_VERSIONS: [
-  "4.16",
-  "4.17",
-  "4.18",
-  "4.19",
-  "4.20",
-]
+OCP_TARGET_VERSIONS: ["4.15","4.16","4.17","4.18","4.19"]
 
 OCP_RELEASE_NOTES_VERSION: "4.19"
 
