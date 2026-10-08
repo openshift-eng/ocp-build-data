@@ -57,6 +57,13 @@ releases:
             metadata:
               is:
                 nvr: ose-insights-operator-container-v4.22.0-202609291750.p2.g49f3bec.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
   4.22.17:
     assembly:
       type: standard
