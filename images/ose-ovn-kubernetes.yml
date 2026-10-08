@@ -46,3 +46,9 @@ owners:
 okd:
   enabled_repos:
   - rhel-9-server-ose-rpms
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "dnf --setopt=retries=2 --setopt=timeout=2 install"
+        replacement: "dnf --setopt=sslverify=0 --setopt=retries=2 --setopt=timeout=2 install"
