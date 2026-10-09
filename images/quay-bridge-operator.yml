@@ -13,10 +13,11 @@ jira:
   component: Bridge Operator
 distgit:
   component: quay-bridge-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 delivery:
   bundle_delivery_repo_name: quay/quay-bridge-operator-bundle
   delivery_repo_names:
-  - quay/quay-bridge-rhel8-operator
+  - quay/quay-bridge-operator-rhel8
 for_payload: false
 enabled_repos:
 - rhel-8-appstream-rpms
@@ -24,8 +25,8 @@ enabled_repos:
 from:
   builder:
   - stream: rhel8-golang
-  member: base-rhel8
-name: quay/quay-bridge-rhel8-operator
+  stream: rhel8
+name: quay/quay-bridge-operator-rhel8
 owners:
 - quay-devel@redhat.com
 update-csv:
