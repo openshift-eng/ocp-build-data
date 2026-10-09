@@ -14,22 +14,23 @@ jira:
   component: Container Security Operator
 distgit:
   component: container-security-operator-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 konflux:
   component:
     bundle_name_override: container-security-operator-bundle
 delivery:
   bundle_delivery_repo_name: quay/quay-container-security-operator-bundle
   delivery_repo_names:
-  - quay/quay-container-security-rhel9-operator
+  - quay/quay-container-security-operator-rhel8
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
-  member: base-rhel9
-name: quay/quay-container-security-rhel9-operator
+  - stream: rhel8-golang
+  stream: rhel8
+name: quay/quay-container-security-operator-rhel8
 owners:
 - quay-devel@redhat.com
 update-csv:
