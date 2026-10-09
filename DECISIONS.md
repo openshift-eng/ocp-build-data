@@ -68,7 +68,9 @@ Not copied from 2.17/5.0: `maestro`, `cluster-permission`, `cloudevents-conducto
 
 The AWS chart on `backplane-2.8` still deploys `ose_aws_cluster_api_controllers_rhel9`. That image is external in `bundle/art.yaml`, not an `images/*.yml`. `cluster-api-provider-aws` is not an ART image on 2.8.
 
-`Dockerfile.image-service-mce` on `release-ocm-2.13` installs `cpio` and `squashfs-tools` and does not install `gzip` or `tar`. `release-ocm-2.14` added those in assisted-image-service #1197 because Doozer rewrites `FROM` to minimal `base-rhel9`. That operand change is still required before the first 2.8 assisted-image-service build.
+`Dockerfile.image-service-mce` on `release-ocm-2.13` has two `FROM` lines (go-toolset, then `rhel:9.4`). The extra builder `member: base-rhel9` copied from mce-2.9 matches the `AS packages` stage that assisted-image-service #1197 added on `release-ocm-2.14`. That parent is omitted here so the declared parent count matches this Dockerfile. The runtime stage still installs only `cpio` and `squashfs-tools` with `dnf`. After rebase, rewriting that `FROM` to minimal `base-rhel9` can fail the same way #1197 addressed.
+
+`Containerfile.operator` on `release-4.18` already has `COPY . .`. The mce-2.9 replace of `COPY --chown=default . .` is omitted because it matches nothing on this branch. `release-4.19` still has `--chown=default`, the same golang-builder failure that backplane-must-gather #797 fixes on `backplane-2.9`.
 
 ## Console Dockerfile
 
