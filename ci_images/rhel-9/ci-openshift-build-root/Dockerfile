@@ -52,9 +52,12 @@ RUN export GOFLAGS='' && export GO111MODULE=on && \
 
 # make go related directories writeable since builds in CI will run as non-root. go install
 # may have created new directories.
-RUN mkdir -p $GOPATH && \
-    chmod g+xw -R $GOPATH && \
-    chmod g+xw -R $(go env GOROOT)
+# Resolve GOROOT before the chmod: when GOFIPS140 defaults to "certified"
+# (e.g. golang-1.26.7-2.el9_8), any go invocation extracts the FIPS module
+# snapshot into $GOPATH/pkg/mod, which must also be made group-writable.
+RUN GOROOT_DIR=$(go env GOROOT) && \
+    mkdir -p $GOPATH && \
+    chmod g+xw -R $GOPATH $GOROOT_DIR
 
 # Some image building tools don't create a missing WORKDIR
 RUN mkdir -p /go/src/github.com/openshift/origin
