@@ -24,18 +24,19 @@ jira:
   project: PROJQUAY
   component: Clair
 distgit:
-  component: quay-clair-container
+  component: clair-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 delivery:
   delivery_repo_names:
-  - quay/clair-rhel9
+  - quay/clair-rhel8
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
 from:
   builder:
-  - stream: rhel-9-golang
-  member: base-rhel9
-name: quay/clair-rhel9
+  - stream: rhel8-golang
+  stream: rhel8-minimal
+name: quay/clair-rhel8
 owners:
 - quay-devel@redhat.com

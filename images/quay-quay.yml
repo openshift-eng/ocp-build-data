@@ -1,3 +1,5 @@
+arches:
+- x86_64
 dependents:
 - quay-operator
 cachito:
@@ -35,27 +37,30 @@ jira:
   project: PROJQUAY
   component: Quay
 distgit:
-  component: quay-quay-container
+  component: quay-registry-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 delivery:
   delivery_repo_names:
-  - quay/quay-rhel9
+  - quay/quay-rhel8
 for_payload: false
 enabled_repos:
-- rhel-9-appstream-rpms
-- rhel-9-baseos-rpms
-- rhel-9-codeready-builder-rpms
+- rhel-8-appstream-rpms
+- rhel-8-baseos-rpms
+- rhel-8-codeready-builder-rpms
 from:
   builder:
-  - stream: rhel9
-  - stream: rhel9-nodejs-22-minimal
-  - stream: rhel9-nodejs-22-minimal
-  - stream: rhel-9-golang
-  - stream: rhel-9-golang
-  - stream: rhel9
-name: quay/quay-rhel9
+  - stream: rhel8-minimal
+  - stream: rhel8-nodejs-22
+  - stream: rhel8-nodejs-22
+  - stream: rhel8-golang
+  - stream: rhel8-golang
+  - stream: rhel8-minimal
+name: quay/quay-rhel8
 owners:
 - quay-devel@redhat.com
 konflux:
+  arches:
+  - x86_64
   cachi2:
     lockfile:
       enabled: true
