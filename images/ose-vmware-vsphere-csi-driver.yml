@@ -39,3 +39,10 @@ name: openshift/ose-vsphere-csi-driver-rhel9
 payload_name: vsphere-csi-driver
 owners:
 - aos-storage-staff@redhat.com
+okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "RUN make build"
+        replacement: "ENV GOFIPS140=off\nRUN make build"
