@@ -27,9 +27,9 @@ Aligned with lessons from the operating `acm-2.15` ART branch after reopen onto
 
 ## OCP Target Versions
 
-- **Decision**: `OCP_TARGET_VERSIONS: ["4.16", "4.17", "4.18", "4.19", "4.20"]`
-- **Rationale**: Catalog/FBC window for ACM 2.14 (one step behind operating 2.15’s 4.17–4.21). Originally derived from `acm-redhat-operators-config.yaml` / catalog config for 2.14.
-- **Revisit**: If catalog targets change, or if ART wants this list trimmed to the lifecycle "Supported OpenShift versions" column only.
+- **Decision**: `OCP_TARGET_VERSIONS: ["4.17", "4.18", "4.19", "4.20"]`
+- **Rationale**: Catalog/FBC / hub-cluster support window for ACM 2.14. 4.16 was removed — it is outside ACM 2.14’s supported OCP range (confirmed with ACM; 4.16 was also the last catalog on `olm.bundle.object` before `olm.csv.metadata`).
+- **Revisit**: If catalog targets change, or if ART wants this list expanded when a new OCP y-stream is added to the support matrix.
 
 ## RHEL Version and Repos Configuration
 
