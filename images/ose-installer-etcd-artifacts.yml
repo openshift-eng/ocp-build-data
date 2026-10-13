@@ -26,9 +26,8 @@ content:
     - gomod
     ci_alignment:
       streams_prs:
+        # openshift-4.16 has no active build/transform/publish path for a Go 1.19 CI root.
         enabled: false
-        ci_build_root:
-          member: ci-openshift-build-root-1.19.rhel9
     okd_alignment:
       dockerfile: Dockerfile.installer
 distgit:
