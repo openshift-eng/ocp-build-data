@@ -67,6 +67,12 @@ releases:
               is:
                 nvr: microshift-bootc-container-v5.0-202610131149.p2.g1cec096.assembly.rc.6.el9
             why: Pin microshift-bootc image to assembly
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0~rc.6-202610131349.p0.g152edb7.assembly.rc.6.el9
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
