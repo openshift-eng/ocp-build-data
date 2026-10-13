@@ -176,3 +176,11 @@ centos_stream9:
   image: quay.io/centos/centos:stream9
   upstream_image: registry.ci.openshift.org/ocp/builder:stream9
   mirror: false # it gets mirrored from the tip, currently 4.19
+
+# Version-pinned CI roots for components that use a different Go toolchain.
+rhel-9-golang-1.19-ci-build-root:
+  image: not_applicable
+  mirror: false
+  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.19-openshift-{MAJOR}.{MINOR}
+  upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.19-openshift-{MAJOR}.{MINOR}
+  transform: rhel-9/ci-build-root

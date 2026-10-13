@@ -40,15 +40,18 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 # Install common go tools upstream devs are expecting in CI.
 # Pure cargo culting from https://github.com/openshift/release/blob/51d92eb6a6d730e932a5daf68829ca7936739904/projects/origin-release/golang-1.13/Dockerfile#L41
 # Clear GOFLAGS temporarily for 1.12  bug:https://github.com/golang/go/issues/32502
-RUN GOFLAGS='' go install golang.org/x/tools/cmd/goimports@v0.24.0 && \
-    GOFLAGS='' go install gotest.tools/gotestsum@v1.12.2 && \
-    GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@v1.2.15 && \
+RUN GOIMPORTS_VERSION=v0.24.0 && GOTESTSUM_VERSION=v1.12.2 && IMAGEBUILDER_VERSION=v1.2.15 && JUNIT_GO_VERSION=1.21 && \
+    case "$(go env GOVERSION)" in go1.19.*) \
+        GOIMPORTS_VERSION=v0.20.0; GOTESTSUM_VERSION=v1.10.1; IMAGEBUILDER_VERSION=v1.2.12; JUNIT_GO_VERSION=1.19 ;; esac && \
+    GOFLAGS='' go install golang.org/x/tools/cmd/goimports@${GOIMPORTS_VERSION} && \
+    GOFLAGS='' go install gotest.tools/gotestsum@${GOTESTSUM_VERSION} && \
+    GOFLAGS='' go install github.com/openshift/imagebuilder/cmd/imagebuilder@${IMAGEBUILDER_VERSION} && \
     git clone --filter=blob:none --sparse --depth=1 https://github.com/openshift/release.git /tmp/openshift-release && \
     cd /tmp/openshift-release && \
     git fetch --depth=1 origin cb964bf35961bc626e0839c3908ef754d8ff7caf && \
     git checkout cb964bf35961bc626e0839c3908ef754d8ff7caf && \
     git sparse-checkout set tools/gotest2junit && \
-    printf 'module github.com/openshift/release\n\ngo 1.21\n' > go.mod && \
+    printf 'module github.com/openshift/release\n\ngo %s\n' "$JUNIT_GO_VERSION" > go.mod && \
     GOFLAGS='' GOTOOLCHAIN=local go install ./tools/gotest2junit && \
     cd / && rm -rf /tmp/openshift-release && \
     mv $GOPATH/bin/* /usr/bin/ && \
