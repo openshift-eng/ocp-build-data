@@ -121,13 +121,3 @@ rhel-9-golang-1.21:
 
 rhel-9-golang-1-22:
   image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.22.12-202609041653.p2.gedd1cdd.assembly.stream.el9
-
-# Version-pinned CI roots for components that use a different Go toolchain.
-rhel-9-golang-1.21-ci-build-root:
-  image: not_applicable
-  mirror: false
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.21-openshift-{MAJOR}.{MINOR}
-rhel-9-golang-1.19-ci-build-root:
-  image: not_applicable
-  mirror: false
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.19-openshift-{MAJOR}.{MINOR}
