@@ -3,7 +3,7 @@ content:
     dockerfile: Containerfile.operator
     git:
       branch:
-        target: release-2.14
+        target: release-2.13
       url: git@github.com:openshift-priv/stolostron-observatorium.git
       web: https://github.com/stolostron/observatorium
 distgit:
@@ -21,3 +21,6 @@ from:
 name: rhacm2/observatorium-rhel9
 owners:
 - acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-observatorium-container
