@@ -100,9 +100,3 @@ centos_stream10:
   upstream_image: registry.ci.openshift.org/ocp/builder:stream10
   mirror: true
   mirror_manifest_list: true
-
-# Version-pinned CI roots for components that use a different Go toolchain.
-rhel-9-golang-1.26-ci-build-root:
-  image: not_applicable
-  mirror: false
-  upstream_image: registry.ci.openshift.org/openshift/release:rhel-9-release-golang-1.26-openshift-{MAJOR}.{MINOR}
