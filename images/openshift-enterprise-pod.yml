@@ -42,9 +42,11 @@ payload_name: pod
 owners:
 - aos-pod@redhat.com
 okd:
-  content:
-    source:
-      modifications:
-      - action: add
-        command:
-        - dnf config-manager --set-enabled crb
+  enabled_repos:
+  - rhel-9-baseos-rpms
+  - rhel-9-appstream-rpms
+  - rhel-9-codeready-builder-rpms
+  from:
+    builder:
+    - stream: rhel-9-golang
+    member: openshift-enterprise-base-rhel9
