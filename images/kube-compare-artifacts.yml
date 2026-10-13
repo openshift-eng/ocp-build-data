@@ -8,8 +8,8 @@ content:
       web: https://github.com/openshift/kube-compare
     ci_alignment:
       streams_prs:
-        ci_build_root:
-          member: ci-openshift-build-root-1.25.rhel9
+        # openshift-4.18 has no active build/transform/publish path for a Go 1.25 CI root.
+        enabled: false
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: kube-compare-artifacts-container
