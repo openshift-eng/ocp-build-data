@@ -10,7 +10,7 @@ content:
     dockerfile: Containerfile.operator
     git:
       branch:
-        target: release-2.14
+        target: release-2.13
       url: git@github.com:openshift-priv/stolostron-grafana.git
       web: https://github.com/stolostron/grafana
 distgit:
@@ -28,3 +28,6 @@ from:
 name: rhacm2/acm-grafana-rhel9
 owners:
 - acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-grafana-container

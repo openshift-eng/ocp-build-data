@@ -3,7 +3,7 @@ content:
     dockerfile: Containerfile.operator
     git:
       branch:
-        target: release-2.14
+        target: release-2.13
       url: git@github.com:openshift-priv/stolostron-kube-state-metrics.git
       web: https://github.com/stolostron/kube-state-metrics
 distgit:
@@ -21,3 +21,6 @@ from:
 name: rhacm2/kube-state-metrics-rhel9
 owners:
 - acm-cicd@redhat.com
+jira:
+  project: ACM
+  component: acm-kube-state-metrics-container
