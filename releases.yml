@@ -1,4 +1,13 @@
 releases:
+  test:
+    assembly:
+      type: stream
+      group:
+        canonical_builders_from_upstream: false
+      streams:
+        rhel-9-golang:
+          image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.25.14-202610141450.p2.gedd1cdd.assembly.test.el9
+          upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
   4.22.18:
     assembly:
       type: standard
