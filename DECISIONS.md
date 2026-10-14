@@ -57,10 +57,10 @@ Kept from mce-2.9. Konflux 2.8's operand kustomization does not build these five
 | Component | Upstream repo | Dockerfile | Branch | Go |
 |-----------|---------------|------------|--------|----|
 | assisted-image-service | [openshift/assisted-image-service](https://github.com/openshift/assisted-image-service) | `Dockerfile.image-service-mce` | `release-ocm-2.13` | 1.26 |
-| assisted-installer | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-mce` | `release-ocm-2.13` | 1.25 |
+| assisted-installer | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-mce` | `release-ocm-2.13` | 1.26 |
 | assisted-installer-agent | [openshift/assisted-installer-agent](https://github.com/openshift/assisted-installer-agent) | `Dockerfile.assisted_installer_agent-mce` | `release-ocm-2.13` | 1.26 |
-| assisted-installer-controller | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-controller-mce` | `release-ocm-2.13` | 1.25 |
-| assisted-service-9 | [openshift/assisted-service](https://github.com/openshift/assisted-service) | `Dockerfile.assisted-service-rhel9-mce` | `release-ocm-2.13` | 1.25 |
+| assisted-installer-controller | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-controller-mce` | `release-ocm-2.13` | 1.26 |
+| assisted-service-9 | [openshift/assisted-service](https://github.com/openshift/assisted-service) | `Dockerfile.assisted-service-rhel9-mce` | `release-ocm-2.13` | 1.26 |
 
 `assisted-service-9` and `assisted-installer-controller` keep `rhocp-4.17-rhel9-rpms`, the same pin mce-2.9 carried. Not retargeted to 4.18.
 
@@ -85,7 +85,7 @@ The AWS chart on `backplane-2.8` still deploys `ose_aws_cluster_api_controllers_
 ## Streams
 
 - **Go**: floating `rhel-9-golang` stays `golang-builder-v1.26-rhel9` because the 2.8 stolostron Dockerfiles use that tag. A3: do not retarget a builder to 1.26 unless that Dockerfile uses it. Per-image changes from the 2.9 mix:
-  - `assisted-installer`, `assisted-installer-controller`, `assisted-service-9`: floating 1.26 → `rhel-9-golang-1.25` (`go-toolset:1.25`)
+  - `assisted-installer`, `assisted-installer-controller`, `assisted-service-9`: `rhel-9-golang-1.26`. `release-ocm-2.13` `go.mod` requires `go 1.26.0` (assisted-service #11122, assisted-installer #2435) and the MCE Dockerfiles use `go-toolset:1.26`
   - `hypershift-cli`: `rhel-9-golang-1.25` → `rhel-9-golang-1.26` (`rhel_9_1.26`)
   - `hypershift-release`: `rhel-9-golang-1.25` → `rhel-9-golang-1.22` (`rhel_9_1.22`)
   - `cluster-api-provider-kubevirt`: `rhel-9-golang-1.25` → `rhel-9-golang-1.23` (`rhel_9_1.23`)
