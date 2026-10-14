@@ -17,9 +17,9 @@ Created as part of JIRA ticket [HYPBLD-847](https://redhat.atlassian.net/browse/
 
 ## OCP Target Versions
 
-- **Decision**: `OCP_TARGET_VERSIONS: ["4.18", "4.19", "4.20", "4.21", "4.22"]`
-- **Rationale**: Derived from `acm-mce-operator-catalogs/config/acm-redhat-operators-config.yaml` which defines ACM 2.16 catalogs.
-- **Revisit**: If catalog targets change before GA.
+- **Decision**: `OCP_TARGET_VERSIONS: ["4.19", "4.20", "4.21", "4.22"]`
+- **Rationale**: Catalog/FBC / hub-cluster support window for ACM 2.16. 4.18 was removed — it is outside ACM 2.16’s supported OCP range (4.19–4.22).
+- **Revisit**: If catalog targets change, or if ART wants this list expanded when a new OCP y-stream is added to the support matrix.
 
 ## RHEL Version and Repos Configuration
 
