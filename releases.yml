@@ -1,4 +1,65 @@
 releases:
+  4.22.19:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-10-14T17:03:11+00:00"
+        reference_releases:
+          x86_64: 4.22.0-0.nightly-2026-10-14-193612
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Oct-20
+        upgrades: 4.21.6,4.21.7,4.21.8,4.21.9,4.21.10,4.21.11,4.21.12,4.21.13,4.21.14,4.21.15,4.21.16,4.21.17,4.21.18,4.21.19,4.21.20,4.21.21,4.21.22,4.21.23,4.21.24,4.21.25,4.21.26,4.21.27,4.21.28,4.21.29,4.21.30,4.21.31,4.21.32,4.21.33,4.21.34,4.21.35,4.21.36,4.21.37,4.21.38,4.22.0,4.22.1,4.22.2,4.22.3,4.22.4,4.22.5,4.22.6,4.22.7,4.22.8,4.22.9,4.22.10,4.22.11,4.22.12,4.22.13,4.22.14,4.22.15,4.22.16,4.22.17,4.22.18
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.57.1.el9_8
+              why: Pin kernel to match RHCOS build (kernel-5.14.0-687.57.1.el9_8)
+              non_gc_tag: hotfix
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f7a8b08fab44c31a7202eef3ec7862e0e97267f49d05256e1973a383483eb925
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:23343e950eed5c935fee1cb45510010ce4732c3541c04031fd708f2968185125
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:24a9a3e70c4a1b079ac8c5c012eb325ca43b971723df5a251799f8f22baa98fc
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6ebbf0483ac02792f764bf7482711b212d3dbbed36ca8b6e0279f4f9cc50e527
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:70e5a0e6ab1375af2025865ea36db0f2745d42ba845639a5d4dba229a6dc4c87
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:843d18620c327dcff428ad4419ffeff1af788f256c838b8e50c266fa4586d843
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f29f9118f2477ffb40a295a1df320ae9230267ec26480283d3b4f1f61b579541
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:31df2b407204e999fb1ac39c1e4398e476e1988b242abc4798b672550f795ad5
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:524f3d907ef04b8b8496a0eda2a6585678959d998cb4b5bf1b0f4a6d496d6d05
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:94c4a1979a2ec0769cfc73c24d7c70a20b082788841a752d9d37a69dc1fc782c
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:160574307f059e82f49b1f94d812c30fd2a72d514a3749189c7ff03a0c6a6fb6
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ee9222b1323b5f9848394f131a9766f91b672a05e1b67b8ab5935226dee18d8
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:13555b2622105bf3a134a1e46b6e9cc8c60899ddce1b32241cb172c0150c3822
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cdaa1fb41de79c34ebb0291bf124866afb91c89e05dfd7df0d55c4ea482d8c9
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3b9b35f9b80ad064d94547a472a1055bd18704af3edc1c041742da55fd255116
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:6849de4c5d95b23459152b8d1694b551d88a550d0e1a3f47ea215f31a44d22dd
+      members:
+        rpms: []
+        images:
+          - distgit_key: ose-insights-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-insights-operator-container-v4.22.0-202609291750.p2.g49f3bec.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
   4.22.18:
     assembly:
       type: standard
