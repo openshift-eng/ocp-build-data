@@ -15,7 +15,8 @@ konflux:
   arches:
   - x86_64
   integration_test_scenarios:
-  - abi-qe-prow-compact
+    image:
+    - abi-qe-prow-compact
   integration_test_snapshot_annotations:
     pac.test.appstudio.openshift.io/branch: release-4.22
   network_mode: open
