@@ -2,19 +2,26 @@ freeze_automation: false
 name: mce-2.6
 csv_namespace: multicluster-engine
 product: multicluster-engine
-version: 2.6.0
+version: 2.6.17
 
 vars:
   GO_LATEST: "1.26"
   GO_EXTRA: "1.26"
-  MAJOR: 2
-  MINOR: 6
+  MAJOR: 4
+  MINOR: 16
 
-# Publish window is N-3 through N+1 (HYPBLD-884 A1): 4.15–4.19.
-# Alignment (MAJOR/MINOR, distgit, ose-cli) is OCP 4.18.
-OCP_TARGET_VERSIONS: ["4.12","4.13","4.14","4.15","4.16","4.17"]
+# Hub support range is 4.12–4.17 (HYPBLD-880 A1). 4.12 is a required support exception.
+# Alignment (MAJOR/MINOR, distgit, ose-cli) is OCP 4.16.
+OCP_TARGET_VERSIONS: [
+  "4.12",
+  "4.13",
+  "4.14",
+  "4.15",
+  "4.16",
+  "4.17",
+]
 
-OCP_RELEASE_NOTES_VERSION: "4.18"
+OCP_RELEASE_NOTES_VERSION: "4.16"
 
 arches:
 - x86_64
@@ -140,5 +147,54 @@ repos:
       aarch64: rhocp-4.17-for-rhel-9-aarch64-rpms
       ppc64le: rhocp-4.17-for-rhel-9-ppc64le-rpms
       s390x: rhocp-4.17-for-rhel-9-s390x-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-baseos-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/baseos/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/baseos/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/baseos/os/
+    content_set:
+      default: rhel-8-for-x86_64-baseos-rpms
+      aarch64: rhel-8-for-aarch64-baseos-rpms
+      ppc64le: rhel-8-for-ppc64le-baseos-rpms
+      s390x: rhel-8-for-s390x-baseos-rpms
+    reposync:
+      enabled: false
+
+  rhel-8-appstream-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/aarch64/appstream/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/ppc64le/appstream/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/s390x/appstream/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/appstream/os/
+    content_set:
+      default: rhel-8-for-x86_64-appstream-rpms
+      aarch64: rhel-8-for-aarch64-appstream-rpms
+      ppc64le: rhel-8-for-ppc64le-appstream-rpms
+      s390x: rhel-8-for-s390x-appstream-rpms
+    reposync:
+      enabled: false
+
+  rhocp-4.16-rhel8-rpms:
+    conf:
+      extra_options:
+        # Required to enable RPMs with higher NVRs to show up as installable options in the presence of modules from another repo.
+        # i.e. modules mask traditional rpms unless this flag is provided.
+        module_hotfixes: 1
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/aarch64/rhocp/4.16/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/ppc64le/rhocp/4.16/os/
+        s390x: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/s390x/rhocp/4.16/os/
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/x86_64/rhocp/4.16/os/
+    content_set:
+      default: rhocp-4.16-for-rhel-8-x86_64-rpms
+      aarch64: rhocp-4.16-for-rhel-8-aarch64-rpms
+      ppc64le: rhocp-4.16-for-rhel-8-ppc64le-rpms
+      s390x: rhocp-4.16-for-rhel-8-s390x-rpms
     reposync:
       enabled: false
