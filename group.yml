@@ -1,20 +1,21 @@
 freeze_automation: false
-name: acm-2.13
+name: acm-2.11
 csv_namespace: open-cluster-management
 product: rhacm2
-version: 2.13.14
+version: 2.11.14
 
 vars:
   GO_LATEST: "1.26"
   GO_EXTRA: "1.26"
   MAJOR: 4
-  MINOR: 18
+  MINOR: 16
 
 OCP_TARGET_VERSIONS: [
+  "4.12",
+  "4.14",
+  "4.15",
   "4.16",
   "4.17",
-  "4.18",
-  "4.19",
 ]
 
 arches:
@@ -33,6 +34,8 @@ konflux:
   - s390x
   cachi2:
     enabled: true
+    lockfile:
+      backend: rpm-lockfile-prototype
   sast:
     enabled: true
   network_mode: hermetic
