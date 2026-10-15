@@ -174,17 +174,21 @@ if [[ "${GO_COMPLIANCE_POLICY}" == *"exempt_windows"* ]]; then
   fi
 fi
 
+# Work around golang-1.26.7-2 toolchain bug where GOFIPS140 defaults to
+# 'certified' instead of being unset. When GOEXPERIMENT=boringcrypto is set
+# in the environment (common in upstream projects), Go 1.26+ rejects the
+# combination with GOFIPS140 enabled. Set GOFIPS140="${GOFIPS140:-off}" to
+# work around the bug for all builds (exempt or not), while respecting any
+# user-set value. For non-exempt builds using the built-in FIPS module, this
+# will be overridden to "v1.26.0" later in the script.
+export GOFIPS140="${GOFIPS140:-off}"
+
 if [[ "${SHIM_TEST}" == "1" ]]; then
   FOUND_HOST_ARCH="amd64"
   FOUND_GO_VERSION="${SHIM_TEST_GO_VERSION:-go1.24.0}"
 else
-  # Work around golang-1.26.7-2 toolchain bug where GOFIPS140 defaults to
-  # 'certified' instead of being unset. When GOEXPERIMENT=boringcrypto is set
-  # in the environment (common in upstream projects), Go 1.26+ rejects the
-  # combination with GOFIPS140 enabled. Override with GOFIPS140=off for these
-  # early `go env` calls so we can detect the version.
-  FOUND_HOST_ARCH="$(GOFIPS140=off go.real env GOHOSTARCH)"
-  FOUND_GO_VERSION="$(GOFIPS140=off go.real env GOVERSION)"
+  FOUND_HOST_ARCH="$(go.real env GOHOSTARCH)"
+  FOUND_GO_VERSION="$(go.real env GOVERSION)"
 fi
 
 # Go 1.26 ships a built-in, FIPS 140-3 validated cryptographic module, selected
@@ -529,8 +533,17 @@ if [[ "${EXEMPT}" != "1" ]]; then
   # Companion of the no_openssl tag: together they select the built-in module.
   if [[ "${GO_BUILTIN_FIPS}" == "1" ]]; then
     export GOFIPS140="v1.26.0"
-    echoerr "setting GOFIPS140=${GOFIPS140}"
+  else
+    if [[ -n "${GOFIPS140}" && "${GOFIPS140}" != "off" ]]; then
+      echoerr "non-compliant: GOFIPS140=${GOFIPS140} is not compatible with openssl backend"
+      if [[ "${STRICT_MODE_BASIC}" == "1" ]]; then
+        stricterror
+        exit 1
+      fi
+    fi
+    export GOFIPS140="off"
   fi
+  echoerr "setting GOFIPS140=${GOFIPS140}"
 
 fi
 
