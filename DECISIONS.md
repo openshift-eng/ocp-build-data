@@ -106,9 +106,10 @@ Merge that pull request after this `mce-2.6` branch contains the five assisted i
 
 - **Decision**: `network_mode: hermetic`, `cachi2.enabled: true` with `rpm-lockfile-prototype` (carried from 2.8).
 
-## aos-cd-jobs group lists
+## Layered-product scan schedule
 
-Upstream `pipeline-scripts/commonlib.groovy` on `master` has an empty `nonOCPGroups`. `schedule-layered-products-scan` requires `--group`, and the Jenkins job still builds those flags from `nonOCPGroups`, so an empty list does not schedule a scan. Sibling MCE versions already live in `LPClusterGroups` (image-health unions both lists). `mce-2.6` is added to `nonOCPGroups` so the scan job receives `--group=mce-2.6`, and inserted immediately before `mce-2.8` in `LPClusterGroups` so the version-ordered sibling list and image-health include it.
+- **Decision**: `mce-2.6` is added to the art-tools ACM tenant scan pipeline, immediately before `mce-2.8` (version order): `art-cluster/pipelines/config/argocd/project/art-acm-tenant/18_pipeline-schedule-layered-products-scan.yaml`.
+- **Rationale**: That scheduled-scan job is the source of truth for which ACM and MCE groups `schedule-layered-products-scan` runs. `aos-cd-jobs` `nonOCPGroups` / `LPClusterGroups` no longer drives this automation. An earlier branch on `smithbw88/aos-cd-jobs` (`HYPBLD-880`) added `mce-2.6` there; do not merge that pull request.
 
 ## Tide branch inclusion (openshift/release)
 
@@ -169,4 +170,4 @@ Suggested tool improvements (same class as the 2.8 → 2.6 backward jump):
 - Do not set the new branch's upstream to `origin/<current>` when the landing branch is a new `<product>-<version>` branch.
 - When `origin/<current>` is behind `openshift-eng/<current>`, scaffold from the openshift-eng commit.
 - `release-bootstrap` should rewrite dotted synopsis versions inside tenant ReleasePlans, insert the new kustomization block before the source version when the new version sorts first, and add the shared `base-rhel9` component to `acm-base-images-silent-prod-rhel9.yaml`.
-- Emit a follow-up change for `openshift/release` Tide `includedBranches` and for `aos-cd-jobs` `nonOCPGroups`.
+- Emit a follow-up change for `openshift/release` Tide `includedBranches` and for the art-tools ACM tenant scan schedule `art-cluster/pipelines/config/argocd/project/art-acm-tenant/18_pipeline-schedule-layered-products-scan.yaml`. Do not add the group to `aos-cd-jobs` `nonOCPGroups`; that list is no longer the scan source of truth.
