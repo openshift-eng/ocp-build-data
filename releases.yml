@@ -52,7 +52,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d77b47f4d430cc7c4d1675c9a29dc8503db015cfbd5caf1bc39767cb4a39925e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: driver-toolkit-nv-rhel10
+            exclude: true
+            why: "Image failing with its_error since Oct 13; not in RPA"
   rc.6:
     assembly:
       type: candidate
