@@ -41,6 +41,52 @@ releases:
             metadata:
               is:
                 nvr: ose-insights-operator-container-v4.12.0-202609251218.p2.g6b54388.assembly.stream.el8
+  4.12.101:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.12.100
+      group:
+        arches:
+        - x86_64
+        - aarch64
+        - ppc64le
+        - s390x
+        multi_arch:
+          enabled: true
+        konflux:
+          arches:
+          - x86_64
+          - aarch64
+          - ppc64le
+          - s390x
+      members:
+        images:
+          - distgit_key: openshift-base-rhel8
+            why: "Multi-arch rebuild for grading fix"
+            metadata:
+              is:
+                nvr: openshift-base-rhel8-container-v4.12.0-202610171148.p2.gf020942.assembly.4.12.101.el8
+          - distgit_key: openshift-enterprise-base
+            why: "Multi-arch rebuild for grading fix"
+            metadata:
+              is:
+                nvr: openshift-enterprise-base-container-v4.12.0-202610171148.p2.g7e8a010.assembly.4.12.101.el8
+          - distgit_key: ose-openstack-machine-controllers
+            why: "Multi-arch rebuild for grading fix"
+            metadata:
+              is:
+                nvr: ose-openstack-machine-controllers-container-v4.12.0-202610171148.p2.gf13e381.assembly.4.12.101.el8
+          - distgit_key: sriov-cni
+            why: "Override per-image arch restriction for multi-arch grading fix rebuild"
+            metadata:
+              arches:
+              - x86_64
+              - aarch64
+              - ppc64le
+              - s390x
+              is:
+                nvr: sriov-cni-container-v4.12.0-202610171148.p2.gf566294.assembly.4.12.101.el8
   4.12.99:
     assembly:
       type: standard
