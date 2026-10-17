@@ -1,181 +1,173 @@
-# DECISIONS.md — MCE 2.8 ocp-build-data Branch
+# DECISIONS.md — MCE 2.6 ocp-build-data Branch
 
-Product decisions for the `mce-2.8` branch (HYPBLD-884).
-Scaffolded from merged `mce-2.9` (`2d3d19e`, openshift-eng squash of HYPBLD-886) with `art-migration.sh branch-setup`, then patched.
-`mce-2.10`, `mce-2.11`, `mce-2.17`, and `mce-5.0` were references only. Standard Konflux 2.8
+Product decisions for the `mce-2.6` branch (HYPBLD-880).
+Scaffolded from openshift-eng `mce-2.8` (`1cbbdf1`) with `art-migration.sh branch-setup`, then patched.
+`mce-2.9`, `mce-2.10`, `mce-2.11`, `mce-2.17`, and `mce-5.0` were references only. Standard Konflux 2.6
 (`crt-redhat-acm-tenant`) is the component authority, except the five assisted
-images, which 2.9 ART builds and this branch builds too. Answers marked A1–A3
-are from the HYPBLD-884 spec.
+images, which Konflux 2.6 does not build and this branch builds the same way 2.8 does.
+Answers marked A1–A3 are from the HYPBLD-880 spec.
 
 ## Product Identity
 
-- **Decision**: `product: multicluster-engine`, `name: mce-2.8`, `csv_namespace: multicluster-engine`
-- **Rationale**: Same as mce-2.9 / mce-2.10 / mce-2.11 / mce-2.17 / mce-5.0. The tool rewrote `name:`.
+- **Decision**: `product: multicluster-engine`, `name: mce-2.6`, `csv_namespace: multicluster-engine`
+- **Rationale**: Same as mce-2.8 through mce-5.0. The tool rewrote `name:`.
 
 ## OCP Version Alignment
 
-- **Decision**: `MAJOR: 4`, `MINOR: 18` (distgit template `rhaos-{MAJOR}.{MINOR}-rhel-9`, which expands to `rhaos-4.18-rhel-9`)
-- **Rationale**: Konflux 2.8 `openshift-branch-patch.yaml` sets the OpenShift git revision to `release-4.18`. A1 confirmed that alignment. `OCP_RELEASE_NOTES_VERSION` is `4.18`. `ose-cli` is `v4.18`.
-- **Tool patch**: `branch-setup` set MAJOR/MINOR from the product version (`2`/`8`). Corrected to OCP 4.18.
+- **Decision**: `MAJOR: 4`, `MINOR: 16` (distgit template `rhaos-{MAJOR}.{MINOR}-rhel-9`, which expands to `rhaos-4.16-rhel-9`)
+- **Rationale**: Konflux 2.6 `openshift-branch-patch.yaml` sets the OpenShift git revision to `release-4.16`. A1 confirmed that alignment. `OCP_RELEASE_NOTES_VERSION` is `4.16`. `ose-cli` is `v4.16`.
+- **Tool patch**: `branch-setup` set MAJOR/MINOR from the product version (`2`/`6`). Corrected to OCP 4.16.
 
 ## OCP Target Versions
 
-- **Decision**: `OCP_TARGET_VERSIONS: ["4.15", "4.16", "4.17", "4.18", "4.19"]`
-- **Rationale**: A1. For 2.x, catalogs are published N-3 through N+1. MCE 2.8's publish range is 4.15–4.19. `olm.maxOpenShiftVersion` on the product CSV is `4.19`.
+- **Decision**: `OCP_TARGET_VERSIONS: ["4.12", "4.13", "4.14", "4.15", "4.16", "4.17"]`
+- **Rationale**: A1. 4.16 is the associated release and 4.12–4.17 is the supported hub range. 4.12 is a required support exception for MCE 2.6, not a formula error. `olm.maxOpenShiftVersion` on the product CSV is `4.17`.
 
 ## group.yml version
 
-- **Decision**: `version: 2.8.13`
-- **Rationale**: Next unreleased z-stream. ReleasePlan synopsis uses `v2.8.13`.
-- **Tool patch**: tool wrote `2.8.0`.
+- **Decision**: `version: 2.6.17`
+- **Rationale**: Next unreleased z-stream. ReleasePlan synopsis uses `v2.6.17`.
+- **Tool patch**: tool wrote `2.6.0`.
 
 ## Git Source Branches
 
 - **Decision**:
-  - `stolostron/*` → `backplane-2.8` (includes `kube-rbac-proxy` and `image-based-install-operator`)
-  - `openshift/hypershift`, `cluster-api-provider-kubevirt` → `release-4.18`
-  - `cluster-api-provider-agent` → `release-ocm-2.13`
-  - `assisted-service`, `assisted-image-service`, `assisted-installer`, `assisted-installer-agent` → `release-ocm-2.13`
+  - `stolostron/*` → `backplane-2.6` (includes `kube-rbac-proxy` and `image-based-install-operator`)
+  - `openshift/hypershift`, `cluster-api-provider-kubevirt` → `release-4.16`
+  - `cluster-api-provider-agent` → `release-ocm-2.11`
+  - five assisted repos → `release-ocm-2.11`
   - `hive` → `master`
   - `base-rhel9` → `openshift-base-rhel9`
-  - `console-mce` → `backplane-2.8`, dockerfile `Containerfile.mce.konflux` (2.8 does not override that shared base)
-- **Rationale**: Spec branch map. Assisted repositories have no `backplane-2.8` branch. `release-ocm-2.13` is the ACM 2.13 branch. The `*-mce` Dockerfiles exist on `release-ocm-2.13`.
-- **Tool patch**: bumped `backplane-2.9` → `backplane-2.8` only. Left `release-4.19`, `release-ocm-2.14`, `master`, and `openshift-base-rhel9` unchanged.
+  - `console-mce` → `backplane-2.6`, dockerfile `Containerfile.mce.konflux` (2.6 does not override that shared base)
+- **Rationale**: Spec branch map. `hypershift-branch-patch.yaml` contains `hypershift-release-416` and is not applied; the live revision is `release-4.16`.
+- **Tool patch**: bumped `backplane-2.8` → `backplane-2.6` only. Left `release-4.18`, `release-ocm-2.13`, `master`, and `openshift-base-rhel9` unchanged.
 
 ## Image scope
 
-33 configs: the merged mce-2.9 set, minus the three components Konflux 2.8 deletes. Bundle stays out of `images/*.yml`. `base-rhel9` is included. `cluster-proxy-addon` stays. Nothing 2.8-only was added.
+33 configs: the same names as ART 2.8 (operand names, five assisted images, and `base-rhel9`). Nothing was dropped and nothing 2.6-only was added. Bundle stays out of `images/*.yml`.
 
-Dropped (present on mce-2.9, deleted by Konflux 2.8 `component-removal.yaml`):
+The four rhel8 assisted Dockerfiles on `release-ocm-2.11` are ubi8. Their delivery names, distgit branch suffix, builders, and runtimes are rhel8. `assisted-service-9` stays on `Dockerfile.assisted-service-rhel9-mce` and `base-rhel9`.
 
-- `capoa-bootstrap`
-- `capoa-control-plane`
-- `cluster-api-webhook-config`
+| Component | Dockerfile | Branch | Builder | Runtime |
+|-----------|------------|--------|---------|---------|
+| assisted-image-service | `Dockerfile.image-service-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.25` | `ubi8/ubi:8.10` |
+| assisted-installer | `Dockerfile.assisted-installer-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.26` | `ubi8/ubi:8.10` |
+| assisted-installer-agent | `Dockerfile.assisted_installer_agent-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.26` | `ubi8/ubi:8.10` |
+| assisted-installer-controller | `Dockerfile.assisted-installer-controller-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.26` | `ubi8/ubi:8.10` |
+| assisted-service-9 | `Dockerfile.assisted-service-rhel9-mce` | `release-ocm-2.11` | `rhel-9-golang-1.26` | `base-rhel9` |
 
-Kept from mce-2.9. Konflux 2.8's operand kustomization does not build these five; ART does, so Doozer can substitute them instead of treating them as external images:
+`assisted-image-service` has two `FROM` lines and no packages stage, so there is no extra `base-rhel9` parent and no 2.14 gzip/tar change. `assisted-installer-controller` installs `openshift-clients` with `dnf` on ubi8, so it uses `rhocp-4.16-rhel8-rpms` instead of 2.8's `rhocp-4.17-rhel9-rpms` pin. `assisted-service-9` still installs `openshift-clients` on rhel9 and keeps `rhocp-4.17-rhel9-rpms`.
 
-| Component | Upstream repo | Dockerfile | Branch | Go |
-|-----------|---------------|------------|--------|----|
-| assisted-image-service | [openshift/assisted-image-service](https://github.com/openshift/assisted-image-service) | `Dockerfile.image-service-mce` | `release-ocm-2.13` | 1.26 |
-| assisted-installer | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-mce` | `release-ocm-2.13` | 1.26 |
-| assisted-installer-agent | [openshift/assisted-installer-agent](https://github.com/openshift/assisted-installer-agent) | `Dockerfile.assisted_installer_agent-mce` | `release-ocm-2.13` | 1.26 |
-| assisted-installer-controller | [openshift/assisted-installer](https://github.com/openshift/assisted-installer) | `Dockerfile.assisted-installer-controller-mce` | `release-ocm-2.13` | 1.26 |
-| assisted-service-9 | [openshift/assisted-service](https://github.com/openshift/assisted-service) | `Dockerfile.assisted-service-rhel9-mce` | `release-ocm-2.13` | 1.26 |
-
-`assisted-service-9` and `assisted-installer-controller` keep `rhocp-4.17-rhel9-rpms`, the same pin mce-2.9 carried. Not retargeted to 4.18.
-
-Not copied from 2.17/5.0: `maestro`, `cluster-permission`, `cloudevents-conductor`. PQC ubi-minimal stays 5.0+.
-
-The AWS chart on `backplane-2.8` still deploys `ose_aws_cluster_api_controllers_rhel9`. That image is external in `bundle/art.yaml`, not an `images/*.yml`. `cluster-api-provider-aws` is not an ART image on 2.8.
-
-`Dockerfile.image-service-mce` on `release-ocm-2.13` has two `FROM` lines (go-toolset, then `rhel:9.4`). The extra builder `member: base-rhel9` copied from mce-2.9 matches the `AS packages` stage that assisted-image-service #1197 added on `release-ocm-2.14`. That parent is omitted here so the declared parent count matches this Dockerfile. The runtime stage still installs only `cpio` and `squashfs-tools` with `dnf`. After rebase, rewriting that `FROM` to minimal `base-rhel9` can fail the same way #1197 addressed.
-
-`Containerfile.operator` on `release-4.18` already has `COPY . .`. The mce-2.9 replace of `COPY --chown=default . .` is omitted because it matches nothing on this branch. `release-4.19` still has `--chown=default`, the same golang-builder failure that backplane-must-gather #797 fixes on `backplane-2.9`.
-
-## Console Dockerfile
-
-- **Decision**: `Containerfile.mce.konflux` with two `rhel-9-nodejs-24` parents
-- **Rationale**: Matches Konflux 2.8 and ART 2.9. Not 2.17's `Containerfile.mce`.
-
-## image-based-install-operator
-
-- **Decision**: `Dockerfile.konflux`, builder `rhel-9-golang-1.25`
-- **Rationale**: Same dockerfile as mce-2.9 ART. The 2.8 dockerfile `FROM` is `golang-builder-v1.25-rhel9`.
+Not copied from 2.9 and up: `maestro`, `cluster-permission`, `cloudevents-conductor`, PQC ubi-minimal.
 
 ## Streams
 
-- **Go**: floating `rhel-9-golang` stays `golang-builder-v1.26-rhel9` because the 2.8 stolostron Dockerfiles use that tag. A3: do not retarget a builder to 1.26 unless that Dockerfile uses it. Per-image changes from the 2.9 mix:
-  - `assisted-installer`, `assisted-installer-controller`, `assisted-service-9`: `rhel-9-golang-1.26`. `release-ocm-2.13` `go.mod` requires `go 1.26.0` (assisted-service #11122, assisted-installer #2435) and the MCE Dockerfiles use `go-toolset:1.26`
-  - `hypershift-cli`: `rhel-9-golang-1.25` → `rhel-9-golang-1.26` (`rhel_9_1.26`)
-  - `hypershift-release`: `rhel-9-golang-1.25` → `rhel-9-golang-1.22` (`rhel_9_1.22`)
-  - `cluster-api-provider-kubevirt`: `rhel-9-golang-1.25` → `rhel-9-golang-1.23` (`rhel_9_1.23`)
-  - left on 1.26: discovery, backplane-operator, managed-serviceaccount, hive, and every image whose Dockerfile `FROM` is `golang-builder-v1.26-rhel9` or `go-toolset:1.26`
-  - left on 1.25: `cluster-api-provider-agent`, `kube-rbac-proxy`, `image-based-install-operator`
-- **1.22 / 1.23 streams**: added as `registry.redhat.io/openshift/golang-builder:golang-builder-v1.22-rhel9` and `golang-builder-v1.23-rhel9`, the same short-tag form 2.9 uses for 1.25 and 1.26. Registry auth was not available here to confirm those two tags are published.
+- **Go**: floating `rhel-9-golang` stays `golang-builder-v1.26-rhel9`. A3: the backplane-2.6 stolostron Dockerfiles use that tag, so `--golang-version 1.26` does not retarget them. Per-image changes from the 2.8 mix:
+  - four rhel8 assisted images: `ubi8-go-toolset-1.25` or `ubi8-go-toolset-1.26`, runtime stream `ubi8` (`ubi8/ubi:8.10`). Not `rhel-9-golang` and not `base-rhel9`
+  - `cluster-api-provider-agent`: `rhel-9-golang-1.25` → `rhel-9-golang-1.24` (`rhel_9_1.24` on `release-ocm-2.11`)
+  - `hypershift-cli`: `rhel-9-golang-1.26` → `rhel-9-golang-1.24` (`rhel_9_golang_1.24` on `release-4.16`)
+  - `hypershift-release`: `rhel-9-golang-1.22` → `ubi9-go-toolset-9.5` (`ubi9/go-toolset:9.5-1739267472`). `Containerfile.operator` already has `COPY . .`, so the 2.9 `--chown=default` replace is not applied
+  - `cluster-api-provider-kubevirt` stays `rhel-9-golang-1.23`
+  - `image-based-install-operator` stays `rhel-9-golang-1.25` (`golang-builder-v1.25-rhel9`)
+  - `kube-rbac-proxy` stays `rhel-9-golang-1.25`
+  - hive stays `rhel-8-golang-1.26` plus `rhel-9-golang-1.26`. Its Dockerfile default base is `ubi-minimal-pqc`; the member is still `base-rhel9`, and the `rhel9` stream is standard `ubi-minimal:latest`
+- **1.22 stream**: removed. Nothing on this branch references it after the hypershift-release retarget.
 - **nodejs**: `ubi9/nodejs-24-minimal:latest`
-- **ubi-minimal**: `registry.redhat.io/ubi9/ubi-minimal:latest`, not PQC.
-- **ose-cli**: `v4.18`.
+- **ubi-minimal**: `registry.redhat.io/ubi9/ubi-minimal:latest`, not PQC
+- **ose-cli**: `v4.16`
 
-## group.yml extras from 2.9
+## group.yml extras from 2.8
 
-- **Decision**: Keep `cachi2.lockfile.backend`, `mr_approvers`, and per-image `jira:` blocks. `OCP_RELEASE_NOTES_VERSION` is `4.18`.
+- **Decision**: Keep `cachi2.lockfile.backend`, `mr_approvers`, and per-image `jira:` blocks. `OCP_RELEASE_NOTES_VERSION` is `4.16`. Added `rhel-8-baseos-rpms`, `rhel-8-appstream-rpms`, and `rhocp-4.16-rhel8-rpms` for the ubi8 assisted images.
 
 ## Owners
 
-- **Decision**: `acm-cicd@redhat.com` (same bootstrap as 2.9).
+- **Decision**: unchanged from openshift-eng `mce-2.8`, including the `adobes1` OWNERS update (`1cbbdf1`). The scaffold commit is rebased onto that commit. The fork tip (`e138708`) was one OWNERS commit behind.
 
 ## Operator bundle files
 
-Separate `stolostron/backplane-operator` pull request on `backplane-2.8`. The product CSV is the community `backplane-2.8` CSV transformed in place. The merged 2.9 product CSV is only the metadata template. CRDs are not copied across.
+Separate `stolostron/backplane-operator` pull request branched from `backplane-2.6`. The product CSV is the community `backplane-2.6` CSV transformed in place. The merged 2.8 product CSV is only the metadata template. CRDs are not copied across.
 
-- package channel `stable-2.8`, `currentCSV: multicluster-engine.v2.8.0`
-- annotation channels `stable-2.8` (the package file does not set those)
-- CSV name, `spec.version`, `OPERATOR_VERSION`, and `olm.skipRange` use `2.8.13` (`>=2.7.0 <2.8.13`)
-- `art.yaml` updates search and replace `2.8.13`
-- `olm.maxOpenShiftVersion` is `4.19`
-- drop `cluster_api_provider_openshift_assisted_bootstrap`, `cluster_api_provider_openshift_assisted_control_plane`, `mce_capi_webhook_config_rhel9`, `cluster_api_provider_aws_rhel9`, `postgresql_13`, Azure, and `ip_address_manager`
-- include `assisted_service_8`, the five assisted keys, `ose_aws_cluster_api_controllers_rhel9`, and `postgresql_12`
-- OSE replace tags are `v4.18`
-- `assisted-service-el8` replace is the digest in `stolostron/mce-operator-bundle` `backplane-2.8` `config/mce-manifest-gen-config.json`
-- `postgresql-12` replace stays `registry.redhat.io/rhel8/postgresql-12:latest`
+- package channel `stable-2.6`, `currentCSV: multicluster-engine.v2.6.0`
+- annotation channels `stable-2.6` (the package file does not set those)
+- CSV name, `spec.version`, `OPERATOR_VERSION`, and `olm.skipRange` use `2.6.17` (`>=2.5.0 <2.6.17`)
+- `art.yaml` updates search and replace `2.6.17`
+- `olm.maxOpenShiftVersion` is `4.17`
+- include `assisted_service_8`, the five assisted keys, `cluster_api` (chart key for ose-cluster-api), and `postgresql_12`
+- leave out `cluster_api_provider_aws`, Azure, `postgresql_13`, `ip_address_manager`, and the 2.8 ose-aws / ose-baremetal external images
+- OSE replace tag is `v4.16`
+- `postgresql-12` replace is `registry.redhat.io/rhel8/postgresql-12:1-1789954358`
+- `assisted-service-el8` replace is the digest in `stolostron/mce-operator-bundle` `backplane-2.6` `config/mce-manifest-gen-config.json` (`sha256:4f94b0e0…`)
+- four assisted image-references tags are the rhel8 delivery names
 
-Merge that pull request after this `mce-2.8` branch contains the five assisted image configs.
+Merge that pull request after this `mce-2.6` branch contains the five assisted image configs.
 
 ## Konflux
 
-- **Decision**: `network_mode: hermetic`, `cachi2.enabled: true` with `rpm-lockfile-prototype` (carried from 2.9).
+- **Decision**: `network_mode: hermetic`, `cachi2.enabled: true` with `rpm-lockfile-prototype` (carried from 2.8).
+
+## Layered-product scan schedule
+
+- **Decision**: `mce-2.6` is added to the art-tools ACM tenant scan pipeline, immediately before `mce-2.8` (version order): `art-cluster/pipelines/config/argocd/project/art-acm-tenant/18_pipeline-schedule-layered-products-scan.yaml`.
+- **Rationale**: That scheduled-scan job is the source of truth for which ACM and MCE groups `schedule-layered-products-scan` runs. `aos-cd-jobs` `nonOCPGroups` / `LPClusterGroups` no longer drives this automation. An earlier branch on `smithbw88/aos-cd-jobs` (`HYPBLD-880`) added `mce-2.6` there; do not merge that pull request.
 
 ## Tide branch inclusion (openshift/release)
 
-- **Decision**: Add `mce-2.8` to `tide.queries[].includedBranches` in [openshift/release `core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml`](https://github.com/openshift/release/blob/master/core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml). The list is sorted as plain strings, so `mce-2.8` goes after `mce-2.17` and before `mce-2.9`. `branch-protection` stays `unmanaged: true`. The commit must be signed with a GPG or SSH key GitHub can verify (`git commit -S`); DCO `Signed-off-by` is not that check.
-- **Rationale**: Tide only merges ocp-build-data pull requests whose target branch is listed there. Pattern is [#86320](https://github.com/openshift/release/pull/86320).
+- **Decision**: Add `mce-2.6` to `tide.queries[].includedBranches`. String sort places it after `mce-2.17` and before `mce-2.8`. The commit is signed with `git commit -S`. DCO `Signed-off-by` is a different check.
 
-## Tool patch report (art-migration branch-setup mce 2.9 2.8)
+## Tool patch report (art-migration branch-setup mce 2.8 2.6)
 
 Command:
 
 ```
-./art-migration.sh branch-setup mce 2.9 2.8 \
-  --ocp-target-versions "4.15,4.16,4.17,4.18,4.19" \
+./art-migration.sh branch-setup mce 2.8 2.6 \
+  --ocp-target-versions "4.12,4.13,4.14,4.15,4.16,4.17" \
   --rhel-stream "registry.redhat.io/ubi9/ubi-minimal:latest" \
   --golang-version "1.26"
 ```
 
-The tool checks out `origin/mce-2.9`. On this machine `origin` is the smithbw88 fork, whose `mce-2.9` tip (`b768915`) has the same tree as openshift-eng `mce-2.9` (`2d3d19e`, the squash of #13522). The scaffold commit was rebased onto `upstream/mce-2.9` so the new branch's parent is the merged branch, not the pre-squash fork history. Upstream tracking of `origin/mce-2.9` was unset.
+The tool checks out `origin/mce-2.8`. On this machine `origin` is the smithbw88 fork (`e138708`). openshift-eng `mce-2.8` (`1cbbdf1`) is that commit plus the OWNERS update. The scaffold commit was rebased onto `upstream/mce-2.8`. Upstream tracking of `origin/mce-2.8` was unset before pushing `HEAD:mce-2.6`.
+
+`release-bootstrap mce 2.6 2.8` copied the four MCE 2.8 ART RPAs and five tenant ReleasePlans. It rewrote hyphenated `2-8` names and RPA `product_version` / `v2.8` tags to `2.6` / `v2.6`. It did not rewrite the dotted synopsis inside tenant ReleasePlans (`v2.8.13` left in place), appended every new kustomization entry after the 2.8 stage block, and did not edit `acm-base-images-silent-prod-rhel9.yaml`.
 
 What the tool got right:
 
-- Created `mce-2.8` from the mce-2.9 tree
-- `name: mce-2.8`
-- `GO_LATEST`/`GO_EXTRA` stayed `1.26` (the flag matched the existing floating builder; it did not retarget per-image builders)
+- Created `mce-2.6` from the mce-2.8 tree
+- `name: mce-2.6`
+- `GO_LATEST`/`GO_EXTRA` stayed `1.26`
 - `OCP_TARGET_VERSIONS` values (collapsed to one line; reformatted)
-- `backplane-2.9` → `backplane-2.8` on stolostron image configs, including `kube-rbac-proxy` and `image-based-install-operator`
-- `rhel9.image` stayed `ubi-minimal:latest`
+- `backplane-2.8` → `backplane-2.6` on stolostron image configs, including `kube-rbac-proxy`, `image-based-install-operator`, and `console-mce`
+- `rhel9.image` stayed `ubi-minimal:latest` (ruamel.yaml dropped the leading `---`; restored)
 - Did not touch hive `master` or `openshift-base-rhel9`
+- KRD component lists, application `mce-2-6`, and FBC application `fbc-mce-2-6`
 
-What was patched after (backward / OCP-4.18-aligned product):
+What was patched after:
 
-1. `vars.MAJOR`/`MINOR` `2`/`8` → `4`/`18` (tool assumes product version == OCP version)
-2. `version: 2.8.0` → `2.8.13`
-3. `OCP_RELEASE_NOTES_VERSION` `4.19` → `4.18` (not rewritten)
-4. `release-4.19` → `release-4.18` on hypershift-cli, hypershift-release, cluster-api-provider-kubevirt
-5. `release-ocm-2.14` → `release-ocm-2.13` on cluster-api-provider-agent and the five assisted images
-6. Removed capoa-bootstrap, capoa-control-plane, and cluster-api-webhook-config (tool does not drop components)
-7. ose-cli `v4.19` → `v4.18`
-8. Restored `streams.yml` `---` / blank-line formatting lost by the PyYAML fallback (no ruamel.yaml), and added `rhel-9-golang-1.22` and `rhel-9-golang-1.23`
-9. Retargeted the five builder streams listed under Streams so they match the 2.8 Dockerfiles
-10. `branch-setup` set upstream to `origin/mce-2.9`. Unset before pushing `HEAD:mce-2.8`. Rebased the scaffold commit onto `upstream/mce-2.9`.
+1. `vars.MAJOR`/`MINOR` `2`/`6` → `4`/`16`
+2. `version: 2.6.0` → `2.6.17`
+3. `OCP_RELEASE_NOTES_VERSION` `4.18` → `4.16`
+4. `release-4.18` → `release-4.16` on hypershift-cli, hypershift-release, cluster-api-provider-kubevirt
+5. `release-ocm-2.13` → `release-ocm-2.11` on cluster-api-provider-agent and the five assisted images
+6. ose-cli `v4.18` → `v4.16`
+7. Four assisted images retargeted to ubi8 builders, `ubi8` runtime, rhel8 delivery names, and `rhaos-{MAJOR}.{MINOR}-rhel-8`
+8. Builder streams retargeted for capi-agent (1.24), hypershift-cli (1.24), and hypershift-release (go-toolset 9.5). Removed unused `rhel-9-golang-1.22`
+9. Added rhel8 baseos, appstream, and rhocp-4.16 repos
+10. KRD synopsis `v2.8.13` → `v2.6.17`, solution URL ACM `2.13` → `2.11`
+11. KRD kustomization: 2.6 section placed before 2.8; base-silent entry placed with the other base ReleasePlans
+12. `mce-2-6-base-rhel9` added to `acm-base-images-silent-prod-rhel9.yaml`
+13. Advisory RPA delivery URLs for the four assisted images changed from rhel9 to rhel8
+14. Rebased the KRD branch onto `origin/main` before push
 
-`base-rhel9.yml` has no `dependents:` entry. That matches 2.9 (base image, not an operand).
+`base-rhel9.yml` has no `dependents:` entry. That matches 2.8 (base image, not an operand).
 
-Suggested tool improvements (same class as the 2.10 → 2.9 run):
+Suggested tool improvements (same class as the 2.8 → 2.6 backward jump):
 
-- Do not derive `vars.MAJOR`/`MINOR` from the product version for layered products; take an `--ocp-major-minor 4.18` flag.
-- Bump or retarget OCP-aligned `release-X.Y` and `release-ocm-X.Y` separately from product `backplane-` versions. A backward jump must be able to move `release-4.19` to `release-4.18` and `release-ocm-2.14` to `release-ocm-2.13`.
-- Support `--drop-images` so a scaffold can remove components that do not exist on the older release.
+- Do not derive `vars.MAJOR`/`MINOR` from the product version for layered products; take an `--ocp-major-minor 4.16` flag.
+- Bump or retarget OCP-aligned `release-X.Y` and `release-ocm-X.Y` separately from product `backplane-` versions. A backward jump must be able to move `release-4.18` to `release-4.16` and `release-ocm-2.13` to `release-ocm-2.11`.
 - Optional `--version` for `group.yml` z-stream instead of always `{new}.0`.
-- Preserve `streams.yml` comments (`ruamel.yaml`) and do not collapse `OCP_TARGET_VERSIONS` formatting unless asked.
+- Preserve `streams.yml` `---` and do not collapse `OCP_TARGET_VERSIONS` formatting unless asked.
 - Rewrite `OCP_RELEASE_NOTES_VERSION` and `ose-cli` tags when `--ocp-major-minor` is set.
 - Do not set the new branch's upstream to `origin/<current>` when the landing branch is a new `<product>-<version>` branch.
-- When `origin/<current>` is a fork tip with the same tree as `openshift-eng/<current>` but a different history, scaffold from the openshift-eng commit.
-- Emit a follow-up change for `openshift/release` `core-services/prow/02_config/openshift-eng/ocp-build-data/_prowconfig.yaml`: add the new branch to `tide.queries[].includedBranches`.
+- When `origin/<current>` is behind `openshift-eng/<current>`, scaffold from the openshift-eng commit.
+- `release-bootstrap` should rewrite dotted synopsis versions inside tenant ReleasePlans, insert the new kustomization block before the source version when the new version sorts first, and add the shared `base-rhel9` component to `acm-base-images-silent-prod-rhel9.yaml`.
+- Emit a follow-up change for `openshift/release` Tide `includedBranches` and for the art-tools ACM tenant scan schedule `art-cluster/pipelines/config/argocd/project/art-acm-tenant/18_pipeline-schedule-layered-products-scan.yaml`. Do not add the group to `aos-cd-jobs` `nonOCPGroups`; that list is no longer the scan source of truth.
