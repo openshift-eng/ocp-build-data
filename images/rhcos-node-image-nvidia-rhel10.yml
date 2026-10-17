@@ -1,0 +1,45 @@
+content:
+  source:
+    dockerfile: Containerfile
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/os.git
+      url_pull: git@github.com:locriandev/off-layering.git
+      web: https://github.com/locriandev/off-layering
+    ci_alignment:
+      streams_prs:
+        enabled: false
+      mirror: false
+    modifications:
+    - action: replace
+      match: "COPY voyager.repo  /etc/yum.repos.d/"
+      replacement: ""
+    - action: replace
+      match: "dnf install --assumeyes --disablerepo=* --enablerepo=voyager $kernel_name"
+      replacement: "dnf install --assumeyes $kernel_name"
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: rhcos-node-image-nvidia-container
+enabled_repos:
+- rhel-10-server-ose-rpms
+- rhel-102-baseos
+- rhel-102-appstream
+- rhel-102-fast-datapath
+- rhel-10-nvidia
+for_payload: false
+for_release: false
+from:
+  member: rhcos-node-image-rhel10
+labels:
+  distribution-scope: public
+  url: "https://access.redhat.com/errata"
+name: openshift/rhcos-node-image-nvidia-rhel10
+owners:
+- aos-team-art@redhat.com
+canonical_builders_from_upstream: false
+konflux:
+  image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-rhcos-images
+  skip_validate_slsa: true
+okd:
+  mode: disabled
