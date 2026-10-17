@@ -28,6 +28,9 @@
 # You should see a successful attempt to install CI repository data but UNSUCCESSFUL attempts to download repo data:
 # e.g. "Status code: 400 for http://api.ci.l2s4.p1.openshiftapps.com:6443/rhel-9-openstack-17-rpms/repodata/repomd.xml"
 # This is just a side effect of using "oc proxy" instead of being an actual pod in the cluster.
+# 4. Run "podman run --network=host -e CI_RPM_SVC=http://localhost:8001/api/v1/namespaces/ocp/services/base-4-17-rhel9:80/proxy/ --rm <built-image-id> dnf repolist".
+# The enabled repositories should have only the current container architecture
+# suffix (for example, x86_64); generic repositories remain enabled.
 
 # Testing different wrapper policies.
 
