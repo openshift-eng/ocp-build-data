@@ -61,6 +61,16 @@ releases:
           - distgit_key: driver-toolkit-nv-rhel10
             exclude: true
             why: "Image failing with its_error since Oct 13; not in RPA"
+          - distgit_key: microshift-bootc-rhel10
+            metadata:
+              is:
+                nvr: microshift-bootc-rhel10-container-v5.0-202610171628.p2.g32d9c3c.assembly.rc.7.el10
+            why: Pin microshift-bootc-rhel10 image to assembly
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v5.0-202610171628.p2.g32d9c3c.assembly.rc.7.el9
+            why: Pin microshift-bootc image to assembly
   rc.6:
     assembly:
       type: candidate
