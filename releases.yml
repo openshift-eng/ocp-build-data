@@ -60,6 +60,9 @@ releases:
               is:
                 el9: microshift-5.0.0~rc.7-202610171600.p0.g32d9c3c.assembly.rc.7.el9
         images:
+          - distgit_key: ose-support-log-gather-operator
+            exclude: true
+            why: "not a PLCC approved operator (yet)"
           - distgit_key: driver-toolkit-nv-rhel10
             exclude: true
             why: "Image failing with its_error since Oct 13; not in RPA"
