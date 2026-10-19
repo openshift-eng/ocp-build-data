@@ -8,8 +8,6 @@ content:
       web: https://github.com/openshift/networking-console-plugin
     pkg_managers:
     - npm
-    okd_alignment:
-      dockerfile: Dockerfile
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: networking-console-plugin-container
@@ -26,17 +24,9 @@ from:
   member: openshift-enterprise-base-rhel9
 name: openshift5/ose-networking-console-plugin-rhel9
 owners:
-- upalatuc@redhat.com
-- yzamir@redhat.com
-- mschatzm@redhat.com
+- phbailey@redhat.com
+- rlavi@redhat.com
 payload_name: networking-console-plugin
 konflux:
   vm_override:
     aarch64: linux-d160-c4xlarge/arm64
-okd:
-  content:
-    source:
-      modifications:
-      - action: replace
-        match: "RUN npm clean-install --ignore-scripts --no-audit && npm run build"
-        replacement: "RUN for i in 1 2 3; do npm clean-install --ignore-scripts --no-audit && break || sleep 5; done && npm run build"
