@@ -8,8 +8,6 @@ content:
       web: https://github.com/openshift/networking-console-plugin
     pkg_managers:
     - npm
-    okd_alignment:
-      dockerfile: Dockerfile
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: networking-console-plugin-container
@@ -26,9 +24,8 @@ from:
   member: openshift-enterprise-base-rhel9
 name: openshift5/ose-networking-console-plugin-rhel9
 owners:
-- upalatuc@redhat.com
-- yzamir@redhat.com
-- mschatzm@redhat.com
+- phbailey@redhat.com
+- rlavi@redhat.com
 payload_name: networking-console-plugin
 konflux:
   vm_override:
