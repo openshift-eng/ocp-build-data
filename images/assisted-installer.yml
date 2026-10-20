@@ -8,25 +8,22 @@ content:
     dockerfile: Dockerfile.assisted-installer-mce
     git:
       branch:
-        target: release-ocm-2.13
+        target: release-ocm-2.11
       url: git@github.com:openshift-priv/assisted-installer.git
       web: https://github.com/openshift/assisted-installer
 distgit:
   component: mce-assisted-installer-container
-  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-8
 delivery:
   delivery_repo_names:
-  - multicluster-engine/assisted-installer-rhel9
+  - multicluster-engine/assisted-installer-rhel8
 dependents:
 - backplane-operator
-enabled_repos:
-- rhel-9-baseos-rpms
-- rhel-9-appstream-rpms
 from:
   builder:
-    - stream: rhel-9-golang-1.26
-  member: base-rhel9
-name: multicluster-engine/assisted-installer-rhel9
+    - stream: ubi8-go-toolset-1.26
+  stream: ubi8
+name: multicluster-engine/assisted-installer-rhel8
 owners:
 - acm-cicd@redhat.com
 jira:
