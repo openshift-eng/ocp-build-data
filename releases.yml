@@ -1,4 +1,72 @@
 releases:
+  3.17.7:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.14':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:37652e7dbf9e4e4155770dcb039c324e239de87f13761b39d16370161fcfaccb
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:2d2cd6b9cebc26e2c68243e0583f4701c60b03d51b131379a74f8672099fb405
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:72e4319246d62d95408a3be4bdfbc4d30060986311a658d48ae5d99dab82c0a6
+          '4.15':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:f9df8ad62a74758a09afdb4603bf9d24f8e9bce367d5f2c87271bc9439bed9b7
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:10b9babd6678f1b1c8c4c0a5c514e5764f04e0af754e2ecc7e9866acaf3c504c
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:38f27252b122fc8a4667783d9c0cfa13fcaa27f3822034e77a0ca24f7f980c84
+          '4.16':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:97506e480c18d5b8e6deb80dbeeda6de6ec944c755f3dc850a4a8c9d1fc28536
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1cc1f2c38346c8a172d2b60695b91700dfcd0a68f581fb251066cf52c4d540b7
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:f3595437b6c8dc42a657c250271fff8fab6483e733ed80757231a9f89ea3ac9d
+          '4.17':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:5e5057dd172f27a5c9167ec232ac265d0295e365e3989521945a0010f8e93edc
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1545ae7e6604fb3b067b9738317d36d9cc89916df90d1ae29841798c4eeada45
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:91572c94645a95f75e63f17461c956b8fbfa77b590bcf7fd584b101528dc44a9
+          '4.18':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:cf10081822f500d9052082fb2c00dd7bd297e34d9ddb936dfb7762bb22fba32f
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:0e428afe9158be29061e840a234bef7720d23952815002dd2be21e6fa744d227
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:7be605b0e554ecb3cd5ccb45ee00fc2d926959bd4b62fc2b9f45dca13abcd24c
+          '4.19':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:bb2871e3c6f146784fd4cda0f01ee445e87ef85ae3ea00392d1bc5817c189467
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:87bb5b5c05965dfbe0c1d46db6cd608c0b5d2daee5d4114dfa53e0f96c0b3ff6
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:25e04eea686d06bee35217e875cbdaab194a81ed6aeebaba0c747955af60c3c4
+          '4.20':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:c3de0def26773b7236ba8826f7e74f01f8573ad20bd70397acc76dd0b452fc91
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:52525d4111ee55d4b7e7a0073f93d8637d664be89bacc0384ec4dd431ae8c25f
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:2ecd03fe4280f74d7ef998ed474f964b2684717492a04efb1a512d1b983c4621
+          '4.21':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:26820b28c30edfb858577185831f13784d73f013b4801d32a48ace8336ce1f17
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:b5ffbf2110db3e5edfffc32d6a131fb3e683bdf999941f30a9dcc351959de1d4
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:9923bef606c1c28a7bf326108428c1f700b5238c9b889515ad4c12998a6a4f91
+          '4.22':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:50f0873a79b98c7876a482de2828769199e4fbc044fc908d4ae4bff666c24e91
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:a9c708a13a823abe835d205b27b8bb6bafe47a8ef498d3bb278dd4a5bbea2aa6
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:89ad2c11491caf2a41d7d30fa48dcd5044a8f6b94a1cbefb4555c0ed6cd43e13
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+      members:
+        images:
+          - distgit_key: container-security-operator
+            metadata:
+              is:
+                nvr: container-security-operator-container-3.17.6-202610141838.p2.g7729f96.assembly.stream.el9
+          - distgit_key: quay-bridge-operator
+            metadata:
+              is:
+                nvr: quay-bridge-operator-container-3.17.6-202610122317.p2.gd1cf63c.assembly.stream.el9
+          - distgit_key: quay-builder-qemu
+            metadata:
+              is:
+                nvr: quay-builder-qemu-container-3.17.6-202610191728.p2.gae37082.assembly.stream.el9
+          - distgit_key: quay-operator
+            metadata:
+              is:
+                nvr: quay-operator-container-3.17.6-202610191728.p2.g3c4984a.assembly.stream.el9
+          - distgit_key: quay-quay
+            metadata:
+              is:
+                nvr: quay-quay-container-3.17.6-202610201502.p3.gc2cec9e.assembly.stream.el9
   3.17.6:
     assembly:
       type: stream
