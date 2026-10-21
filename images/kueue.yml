@@ -1,6 +1,7 @@
 content:
   source:
     dockerfile: Dockerfile.kueue
+    pkg_managers: []
     git:
       branch:
         target: release-1.4
@@ -22,8 +23,4 @@ name: kueue/kueue-rhel9
 name_in_bundle: kueue-rhel9
 owners:
 - aos-node@redhat.com
-cachito:
-  packages:
-    gomod:
-      - path: upstream/kueue/src
 canonical_builders_from_upstream: false
