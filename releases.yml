@@ -1,4 +1,46 @@
 releases:
+  3.10.28:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.12': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:53dfa02bccc35d0cfed2e7ca7a25cf9e26a092e9cc7c23e3bc4a46805b062878
+          '4.13': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:17a8037a10fbb288248878b8dcb6d7d8eeb8bb257129286c9212ad374a0b2f6c
+          '4.14': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:551151367b77fbfcdf815f2dae040ec597d9ec8707568c85c5474b1099b9e7b5
+          '4.15': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:e57fcdc930256e288847871fc900088f4265993df1af95317d6c514b2d8f62c9
+          '4.16': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:2427842dd238a36594741e3c6caf9b7b2a72a630ac70fb69c93e56ce6087df84
+          '4.17': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:82896494d47a4739d0c9e35c72f0f60bc92422c2b4c2c68a05253bec33e7d378
+          '4.18': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:831c11b9fbe6fe58deeb46b53d4552b5be63f0d2cb262f70e4876985173b905c
+          '4.19': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:83d6d8a7faa56b574ca2baa3751a24c226f12625c1767c7cfb9142b407017118
+          '4.20': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:b72354e6d289237f5db9cc931f4c33f1aa8c1e80377693bea2c94b9b6757ec8a
+          '4.21': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:6a29c1171bce375db7b94e61d8a62c835e4e9adfca9ddd8e32e44f42c34cf656
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+      members:
+        images:
+          - distgit_key: quay-builder
+            metadata:
+              is:
+                nvr: quay-builder-container-3.10.28-202610150815.p2.g44295dc.assembly.stream.el8
+          - distgit_key: quay-builder-qemu
+            metadata:
+              is:
+                nvr: quay-builder-qemu-rhcos-container-3.10.28-202610201620.p2.gc5d7378.assembly.stream.el8
+          - distgit_key: quay-clair
+            metadata:
+              is:
+                nvr: clair-container-3.10.28-202610201431.p2.g752611c.assembly.stream.el8
+          - distgit_key: quay-operator
+            metadata:
+              is:
+                nvr: quay-operator-container-3.10.28-202610201620.p2.g99297d2.assembly.stream.el8
+          - distgit_key: quay-quay
+            metadata:
+              is:
+                nvr: quay-registry-container-3.10.28-202610201620.p3.g9f41eed.assembly.stream.el8
   3.18.2:
     assembly:
       type: stream
