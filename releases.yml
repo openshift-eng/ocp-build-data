@@ -38,7 +38,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bff227f9c11124f09bfdde48140953c756b7f1674a01f8b907708c01f687de8e
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ingress-node-firewall-operator
+            why: "ingress-node-firewall-operator build has been failing continuously since Oct 18 (commit b39f37e). Bundle references stale kube-rbac-proxy NVR not in release."
+            exclude: true
   4.18.57:
     assembly:
       type: standard
