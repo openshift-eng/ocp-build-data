@@ -7,7 +7,7 @@
 # Doozer rewrites every FROM at rebase time from from.builder (per-arch digests of the members
 # ose-installer, ose-installer-artifacts and ose-baremetal-installer) and from.stream (rhel9). The
 # literal digests below are the 4.22.18 images, only for local validation builds.
-# The build args are set by the installer-cdn-release job from the promoted release payloads.
+# The build args are set by the binaries-cdn-release job from the promoted release payloads.
 
 FROM --platform=linux/amd64 quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ac852ceb358abe9c7dc62412fd1c7e37dece2291624b8464f030fb89c1681268 AS inst_amd64
 FROM --platform=linux/arm64 quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:941589e9bd111fdc31faa9ef9c64e0f7c7ec2fe27c09db58138871db21bd9023 AS inst_arm64
@@ -50,10 +50,10 @@ RUN ln -s /usr/share/openshift /in/amd64/artifacts && bash /work/package.sh
 
 FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 COPY --from=packer /releases/ /releases/
-ENTRYPOINT ["sh", "-c", "echo 'openshift-install delivery container; not runnable' && exit 1"]
+ENTRYPOINT ["sh", "-c", "echo 'openshift-install binaries container; not runnable' && exit 1"]
 CMD []
-LABEL summary="OpenShift installer delivery container" \
-      description="Transport image carrying openshift-install tarballs under /releases for CDN delivery. Not a runtime image." \
-      io.k8s.display-name="OpenShift installer delivery container" \
-      io.k8s.description="Transport image carrying openshift-install tarballs under /releases for CDN delivery. Not a runtime image." \
-      io.openshift.tags="openshift,installer,delivery"
+LABEL summary="OpenShift installer binaries container" \
+      description="Transport image carrying the openshift-install binaries tarballs under /releases for the CDN. Not a runtime image." \
+      io.k8s.display-name="OpenShift installer binaries container" \
+      io.k8s.description="Transport image carrying the openshift-install binaries tarballs under /releases for the CDN. Not a runtime image." \
+      io.openshift.tags="openshift,installer,binaries"
