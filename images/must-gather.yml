@@ -1,8 +1,3 @@
-cachito:
-  enabled: true
-  packages:
-    gomod:
-    - path: external/hypershift
 content:
   source:
     dockerfile: build/Dockerfile.rhtap
@@ -29,7 +24,6 @@ enabled_repos:
 from:
   builder:
     - stream: ose-cli
-    - stream: rhel-9-golang
   member: base-rhel9
 name: rhacm2/acm-must-gather-rhel9
 owners:
