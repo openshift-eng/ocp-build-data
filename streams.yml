@@ -38,7 +38,7 @@ rhel-8-golang:
 rhel-9-golang-1.25:
   aliases:
     - rhel-9-golang-{GO_EXTRA}
-  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.14-202609021839.p2.gedd1cdd.assembly.stream.el9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.14-202610221430.p2.gedd1cdd.assembly.stream.el9
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -47,7 +47,7 @@ rhel-9-golang-1.25:
 rhel-8-golang-1.25:
   aliases:
     - rhel-8-golang-{GO_EXTRA}
-  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.14-202609021839.p2.gedd1cdd.assembly.stream.el8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.14-202610221430.p2.gedd1cdd.assembly.stream.el8
   mirror: false
   # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
   # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
@@ -55,7 +55,7 @@ rhel-8-golang-1.25:
 
 
 partner-rhel-8-golang-1.24:
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.24.13-202604221752.p2.gcb9763d.el8
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.24.13-202610221206.p2.gedd1cdd.assembly.stream.el8
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-8-golang-1.24-openshift-{MAJOR}.{MINOR}
@@ -63,7 +63,7 @@ partner-rhel-8-golang-1.24:
     - quay.io/openshift-release-dev/golang-builder--ibm-share:rhel-8-golang-1.24-openshift-{MAJOR}.{MINOR}
 
 partner-rhel-9-golang-1.24:
-  image: quay.io/redhat-user-workloads/ocp-art-tenant/art-images:golang-builder-v1.24.13-202604241621.p2.g867eb73.el9
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.24.13-202610221206.p2.gedd1cdd.assembly.stream.el9
   mirror: true
   mirror_manifest_list: true
   upstream_image: quay.io/openshift-release-dev/golang-builder--partner-share:rhel-9-golang-1.24-openshift-{MAJOR}.{MINOR}
