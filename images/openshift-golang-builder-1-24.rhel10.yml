@@ -1,0 +1,48 @@
+content:
+  set_build_variables: false
+  source:
+    path: Dockerfiles
+    dockerfile: 1-24.rhel10.Dockerfile
+    git:
+      branch:
+        target: golang
+      url: git@github.com:openshift-eng/ocp-build-data.git
+    modifications:
+    - &add_fips_wrapper
+      action: add
+      doozer_source: golang_builder_FIPS_wrapper.sh
+      path: go_wrapper.sh
+      overwriting: true
+
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: openshift-golang-builder-container
+  name: openshift-golang-builder
+
+targets:
+- rhaos-{MAJOR}.{MINOR}-rhel-10-hotfix
+
+enabled_repos:
+- rhel-10-baseos-rpms
+- rhel-10-golang-rpms
+# for clang
+- rhel-10-appstream-rpms
+- rhel-10-codeready-builder-rpms
+
+from:
+  stream: rhel10
+
+labels:
+  io.k8s.description: golang builder image for Red Hat internal builds
+
+name: openshift/golang-builder
+
+owners:
+- aos-team-art@redhat.com
+
+# for CPaaS
+additional_tags:
+- 'rhel_10_golang_1.24'
+- 'rhel_10_1.24'
+maintainer:
+  component: Release
