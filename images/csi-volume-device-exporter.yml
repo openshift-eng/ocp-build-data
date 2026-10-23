@@ -1,0 +1,29 @@
+content:
+  source:
+    dockerfile: Dockerfile.openshift
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/csi-volume-device-exporter.git
+      web: https://github.com/openshift/csi-volume-device-exporter
+    ci_alignment:
+      streams_prs:
+        ci_build_root:
+          member: ci-openshift-build-root-latest.rhel9
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: csi-volume-device-exporter-container
+delivery:
+  delivery_repo_names:
+    - openshift5/ose-csi-volume-device-exporter-rhel9
+enabled_repos:
+- rhel-9-appstream-rpms
+- rhel-9-baseos-rpms
+for_payload: true
+from:
+  builder:
+  - stream: rhel-9-golang
+  member: openshift-enterprise-base-rhel9
+name: openshift5/csi-volume-device-exporter-rhel9
+owners:
+- aos-storage-staff@redhat.com
