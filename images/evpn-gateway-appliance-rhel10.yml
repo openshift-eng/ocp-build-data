@@ -1,0 +1,43 @@
+arches:
+- x86_64
+- aarch64
+content:
+  source:
+    dockerfile: Containerfile
+    modifications:
+    - action: replace
+      match: "ARG BOOTC_BASE=registry.redhat.io/rhel10/rhel-bootc"
+      replacement: "ARG BOOTC_BASE=registry.redhat.io/rhel10/rhel-bootc:10.2"
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/evpn-gateway-appliance.git
+      web: https://github.com/openshift/evpn-gateway-appliance
+    path: image/rhel10
+    ci_alignment:
+      streams_prs:
+        enabled: false
+# Declare the base via from so doozer resolves downstream_parents and writes
+# the RPM lockfile in image mode. Without from, the base is only BOOTC_BASE,
+# the lockfile resolves in bare mode, and conditional deps of the base kernel
+# drop out of the prefetch. The BOOTC_BASE replacement must name this pullspec.
+from:
+  image: registry.redhat.io/rhel10/rhel-bootc:10.2
+delivery:
+  delivery_repo_names:
+  - openshift5/evpn-gateway-appliance-rhel10
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-10
+  component: evpn-gateway-appliance-container
+for_release: false
+for_payload: false
+enabled_repos:
+- rhel-102-baseos
+- rhel-102-appstream
+name: openshift5/evpn-gateway-appliance-rhel10
+canonical_builders_from_upstream: false
+owners:
+- jcaamano@redhat.com
+- rbrattai@redhat.com
+- dfarrell@redhat.com
+- vpalmier@redhat.com
