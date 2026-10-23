@@ -10,26 +10,34 @@ releases:
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1012
       members:
         images:
+          - distgit_key: container-security-operator
+            metadata:
+              is:
+                nvr: container-security-operator-container-3.18.3-202610231924.p2.g9c7385b.assembly.stream.el9
+          - distgit_key: quay-bridge-operator
+            metadata:
+              is:
+                nvr: quay-bridge-operator-container-3.18.3-202610231924.p2.gfe48dd9.assembly.stream.el9
           - distgit_key: quay-builder
             metadata:
               is:
-                nvr: quay-builder-container-3.18.2-202610150042.p2.g54cfebf.assembly.stream.el9
+                nvr: quay-builder-container-3.18.3-202610231531.p2.g54cfebf.assembly.stream.el9
           - distgit_key: quay-builder-qemu
             metadata:
               is:
-                nvr: quay-builder-qemu-container-3.18.2-202610130038.p2.g3397937.assembly.stream.el9
+                nvr: quay-builder-qemu-container-3.18.3-202610231531.p2.g3397937.assembly.stream.el9
           - distgit_key: quay-clair
             metadata:
               is:
-                nvr: quay-clair-container-3.18.2-202610122226.p2.g6bc3daf.assembly.stream.el9
+                nvr: quay-clair-container-3.18.3-202610231531.p2.g6bc3daf.assembly.stream.el9
           - distgit_key: quay-operator
             metadata:
               is:
-                nvr: quay-operator-container-3.18.3-202610202230.p2.g198abc8.assembly.stream.el9
+                nvr: quay-operator-container-3.18.3-202610231924.p2.ga410e2d.assembly.stream.el9
           - distgit_key: quay-quay
             metadata:
               is:
-                nvr: quay-quay-container-3.18.2-202610201426.p3.g16cba93.assembly.stream.el9
+                nvr: quay-quay-container-3.18.3-202610222036.p3.g0e98fed.assembly.stream.el9
   3.18.2:
     assembly:
       type: stream
