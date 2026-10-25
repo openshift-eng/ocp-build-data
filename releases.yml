@@ -48,6 +48,9 @@ releases:
             aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:648d27431531ac83af0fdf95400a0ea17df30d5a365708b9ca3e0d2ac54359a7
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9ab981b0842cd75ab610b8f202ced72fb05cfc89cbacdda1a2cd739f394b146e
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:69765e31bb7a8e4b9c766bb9abeba9f269617592755edbf1635910f21ca6081a
+      promotion_permits:
+        - code: BLOCKER_BUGS
+          why: "OCPBUGS-132190 and OCPBUGS-132310 filed after assembly cutoff; fixes in progress but not included in this z-stream."
       members:
         rpms: []
         images: []
