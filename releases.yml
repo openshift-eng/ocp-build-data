@@ -45,7 +45,10 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d22cd132e035a157db121707a9760dfc79f764c5aa216c5df49cba2505dde140
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff8f17bfcbfb73b9a438469dd3e6da2f1ed4c0fcbb564c0c0ecddb6d306b721b
       members:
-        rpms: []
+        rpms:
+          - distgit_key: cri-o
+            exclude: true
+            why: Exclude cri-o el10 RPM - Errata blocks versions older than 1.35.5 which was previously shipped on advisory 169606
         images: []
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
