@@ -54,6 +54,11 @@ releases:
           - distgit_key: cri-o
             exclude: true
             why: Exclude cri-o el10 RPM - Errata blocks versions older than 1.35.5 which was previously shipped on advisory 169606
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.21.40-202610260627.p0.g728ad5e.assembly.4.21.40.el9
         images: []
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
