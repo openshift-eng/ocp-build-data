@@ -38,7 +38,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:86501538b52aeca7be8a844f4920be6d820063c9f1d01c1d46c55c67652f4c9e
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:10db361bcc402dce626b4bc6c74e34d8944e51ea9141ecf44a3ce6c3a84e98ac
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.20.44-202610271817.p0.ge0d31e5.assembly.4.20.44.el9
         images: []
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
