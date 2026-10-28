@@ -15,10 +15,12 @@ delivery:
 from:
   builder:
     - stream: rhel-9-golang
-  member: base-rhel9
+  stream: rhel9-micro
 name: openshift-logging/eventrouter-rhel9
 owners:
 - jcantril@redhat.com
 jira:
   project: LOG
   component: ose-logging-eventrouter-container
+konflux:
+  stage_release: true
