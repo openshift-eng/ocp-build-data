@@ -1,0 +1,35 @@
+- conf:
+    ci_alignment:
+      localdev:
+        enabled: true
+      profiles:
+      - el10
+    extra_options:
+      module_hotfixes: 1
+  content_set:
+    aarch64: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-10-aarch64-rpms
+    default: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-10-x86_64-rpms
+    optional: true
+    ppc64le: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-10-ppc64le-rpms
+    s390x: rhocp-ironic-{MAJOR}.{MINOR}-for-rhel-10-s390x-rpms
+  name: rhel-10-server-ironic-rpms
+  plashet:
+    assembly_aware: true
+    embargo_aware: true
+    include_previous_packages:
+    - openstack-ironic
+    - openstack-ironic-inspector
+    - openstack-ironic-python-agent
+    - python-ironic-lib
+    - python-sushy
+    slug: ironic-el10
+    source:
+      from_tags:
+      - name: rhaos-{MAJOR}.{MINOR}-ironic-rhel-10-candidate
+        product_version: OSE-IRONIC-{MAJOR}.{MINOR}-RHEL-10
+        release_tag: rhaos-{MAJOR}.{MINOR}-ironic-rhel-10
+      type: brew
+  reposync:
+    latest_only: false
+    enabled: true
+  type: plashet
