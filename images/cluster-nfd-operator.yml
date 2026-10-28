@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   bundle_component: cluster-nfd-operator-metadata-container
@@ -21,7 +21,7 @@ delivery:
 for_payload: false
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.25
   member: openshift-enterprise-base-rhel9
 name: openshift4/ose-cluster-nfd-rhel9-operator
 name_in_bundle: cluster-nfd-operator

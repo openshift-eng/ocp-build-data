@@ -15,7 +15,7 @@ content:
       streams_prs:
         enabled: true
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ptp-operator-must-gather-container
@@ -28,7 +28,7 @@ delivery:
 for_payload: false
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.25
   member: ose-must-gather
 name: openshift4/ptp-must-gather-rhel9
 owners:
