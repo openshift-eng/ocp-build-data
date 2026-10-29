@@ -1,23 +1,18 @@
 freeze_automation: false
-name: mce-5.0
+name: mce-5.1
 csv_namespace: multicluster-engine
 product: multicluster-engine
-version: 5.0.0
+version: 5.1.0
 
 vars:
   GO_LATEST: "1.26"
   GO_EXTRA: "1.26"
   MAJOR: 5
-  MINOR: 0
+  MINOR: 1
 
 # Aligned to OCP 5.x line. Source: mce-operator-bundle release-5.0 annotation
 # com.redhat.openshift.versions="v5.0-v5.1".
-OCP_TARGET_VERSIONS: [
-  "4.22",
-  "4.23",
-  "5.0",
-  "5.1",
-]
+OCP_TARGET_VERSIONS: ["4.22","4.23","5.0","5.1","5.2"]
 
 arches:
 - x86_64
