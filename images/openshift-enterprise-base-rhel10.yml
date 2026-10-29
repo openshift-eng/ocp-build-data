@@ -47,5 +47,11 @@ name: openshift/openshift-enterprise-base-rhel10
 owners:
 - lmeyer@redhat.com
 okd:
+  content:
+    source:
+      modifications:
+      - action: replace
+        match: "dnf --disablerepo='*' --enablerepo="
+        replacement: "dnf -y --disablerepo='*' --enablerepo="
   distgit:
     branch: rhaos-{MAJOR}.{MINOR}-rhel-10
