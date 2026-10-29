@@ -1,120 +1,90 @@
-# DECISIONS.md — MCE 5.0 ocp-build-data Branch
+# DECISIONS.md — MCE 5.1 ocp-build-data Branch
 
-Product decisions and rationale for the `mce-5.0` branch configuration.
-Derived from `mce-2.11` (HYPBLD-844) and `acm-5.0` (eemurphy PR #12366).
-Created as part of JIRA ticket [HYPBLD-862](https://redhat.atlassian.net/browse/HYPBLD-862).
+Product decisions and rationale for the `mce-5.1` branch configuration.
+Scaffolded from `mce-5.0` by `art-migration` `branch-setup`, then corrected
+where that copy-forward does not match the 5.1 sources.
+Created as part of JIRA ticket [HYPBLD-894](https://redhat.atlassian.net/browse/HYPBLD-894).
 
 ## Product Identity
 
-- **Decision**: `product: multicluster-engine`, `name: mce-5.0`, `csv_namespace: multicluster-engine`
-- **Rationale**: Continues MCE 2.x naming pattern with 5.0 product versioning aligned to OCP 5.x.
-
-## OCP Version Alignment
-
-- **Decision**: `MAJOR: 5`, `MINOR: 0` (OCP 5.0 infrastructure)
-- **Rationale**: MCE 5.0 aligns with OCP 5.0; distgit branch `rhaos-5.0-rhel-9`.
+- **Decision**: `product: multicluster-engine`, `name: mce-5.1`, `csv_namespace: multicluster-engine`, `version: 5.1.0`, `MAJOR: 5`, `MINOR: 1`
+- **Rationale**: MCE 5.1 tracks `release-5.1`. Distgit branch pattern remains `rhaos-{MAJOR}.{MINOR}-rhel-9`.
 
 ## OCP Target Versions
 
-- **Decision**: `OCP_TARGET_VERSIONS: ["5.0", "5.1"]`
-- **Rationale**: From MCE operator bundle `com.redhat.openshift.versions="v5.0-v5.1"`.
+- **Decision**: `OCP_TARGET_VERSIONS: ["4.22", "4.23", "5.0", "5.1", "5.2"]`
+- **Rationale**: 5.1 is the associated release. The supported hub range is the list above, from `acm-mce-operator-catalogs` `config/mce-redhat-operators-config.yaml` on `mce-redhat-operators`. This is not the 5.0 tool invocation's target list.
 
 ## Git Source Branches
 
-- **Decision**: `backplane-5.0` for stolostron/MCE components; `release-5.0` for openshift org repos (hypershift, capi-kubevirt)
-- **Rationale**: Matches Konflux `.tekton` configs on `backplane-5.0` branches in upstream repos.
+- **Decision**:
+  - stolostron images, including `image-based-install-operator`, `cluster-api-provider-agent`, and the five `assisted-*` repos: `backplane-5.1`
+  - `hypershift-cli`, `hypershift-release`, `cluster-api-provider-kubevirt`: `release-5.1`
+  - `hive`: `master`
+  - `kube-rbac-proxy`: `backplane-5.1`
+  - `base-rhel9`: `openshift-base-rhel9`
+- **Rationale**: Matches the 5.0 ART branch map, moved forward one y-stream. Konflux 5.1 still pins some of these to `main` or `master` until release cut; ART builds the release branches, as 5.0 did. `branch-setup` rewrites `images/*.yml` only, so the `assisted-*.yaml` targets were bumped by hand.
 
-## New Components (vs mce-2.11)
+## Removed Components
 
-Added for MCE 5.0 per component migration map:
+- **Decision**: Drop `maestro` and `cloudevents-conductor`. Leave `cluster-proxy-addon` out.
+- **Rationale**: Konflux `mce/5.1/operands/component-removal.yaml` deletes maestro and cloudevents-conductor. `cluster-proxy-addon` was already absent from ART 5.0. No components are added in 5.1. The shared Konflux base images that ART 5.0 already omitted (`cluster-api`, `cluster-api-aws-controller`, `apiserver-network-proxy`, `aws-encryption-provider`, `postgresql-12-centos7`, discovery test images) stay omitted.
 
-| Component | Upstream repo | Dockerfile | Notes |
-|-----------|---------------|------------|-------|
-| cluster-permission | [stolostron/cluster-permission](https://github.com/stolostron/cluster-permission) | `Dockerfile.rhtap` | Moved from ACM to MCE (same container/repo) |
-| maestro | [stolostron/maestro](https://github.com/stolostron/maestro) | `Dockerfile.rhtap` | New since MCE 2.17; present in 5.0, removed in 5.1 |
-| cloudevents-conductor | [stolostron/cloudevents-conductor](https://github.com/stolostron/cloudevents-conductor) | `Dockerfile.rhtap` | New since MCE 2.17; present in 5.0, removed in 5.1 |
+## PQC Base Images and Go
 
-## Image scope
+- **Decision**: Keep the 5.0 streams. `rhel9` is `registry.redhat.io/ubi9/ubi-minimal-pqc:latest`. `rhel-9-golang` and `GO_LATEST` stay on Go 1.26. `ose-cli` stays `registry.redhat.io/openshift4/ose-cli-rhel9:v4.22` until `openshift5/ose-cli-rhel9:v5.0` is published.
+- **Rationale**: 5.1 Dockerfiles that name a Go builder name `rhel_9_golang_1.26`. Do not switch any image back to standard `ubi-minimal`.
 
-27 components on `backplane-5.0` (24 carried forward from mce-2.11 + 3 new).
-`cluster-proxy-addon` remains excluded (removed in MCE 2.11).
+## Console Parents
 
-## Console Dockerfile
+- **Decision**: `console-mce.yml` builders are `rhel-9-nodejs-24` then `rhel-9-golang`, and the final stage is stream `rhel9`. The `rhel9-ubi` stream is removed.
+- **Rationale**: `backplane-5.1` `Containerfile.mce` no longer has the 5.0 `ubi9/ubi` crypto-policy stage. Its three non-stage parents are `nodejs-24-minimal`, `golang-builder` 1.26, and `ubi-minimal-pqc`, in that order. `FROM build-base` is a same-stage reference and is not a fourth parent.
 
-- **Decision**: `Containerfile.mce` (not `Containerfile.mce.konflux`)
-- **Rationale**: Parallel to ACM 5.0 change from `Containerfile.acm.konflux` → `Containerfile.acm`.
+## Hypershift-cli Parents
 
-## Console Parent Image Count
+- **Decision**: Keep the 5.0 parent list: builder `rhel-9-golang`, builder `rhel9`, final stream `rhel-9-nginx-124`. Do not use `member: base-rhel9`.
+- **Rationale**: `release-5.1` `Containerfile.cli` has those three parents: the Go 1.26 builder, `ubi-minimal-pqc` as the policy stage, and `nginx-124` as the final stage.
 
-- **Decision**: `console-mce.yml` defines 3 builder entries: `rhel9-ubi`, `rhel-9-nodejs-24`, and final `rhel-9-nodejs-24`
-- **Rationale**: The upstream `Containerfile.mce` has a `FROM registry.redhat.io/ubi9/ubi:latest AS crypto-policy` stage plus two `FROM ${NODE_BASE}` entries (build-base + final). Doozer counts non-stage FROM directives and must match `ocp-build-data`. The `rhel9-ubi` stream was added to `streams.yml` for this purpose.
-- **Issue**: Initial builds failed with "expected 2 parent images, but found 3" until the third builder was added.
+## Must-gather Parents
 
-## Hypershift-cli PQC Parent Image
+- **Decision**: Builders `ose-cli` and `rhel-9-golang`, final stream `rhel9` (not `member: base-rhel9`).
+- **Rationale**: `backplane-5.1` `build/Dockerfile.rhtap` has those three parents, and the final stage is `ubi-minimal-pqc`. The go-toolset stage still has `COPY --chown=default`. ART replaces that stage with `openshift/golang-builder`, which has no user `default`, so the upstream Dockerfile needs `USER 0` before `COPY`. That edit is on `backplane-must-gather`, not in this image config. The 5.0 Dockerfile already has the fix; `backplane-5.1` does not.
 
-- **Decision**: `hypershift-cli.yml` includes `rhel9` as a second builder entry
-- **Rationale**: The `release-5.0` `Containerfile.cli` added a `FROM ubi-minimal-pqc AS policy` stage, increasing non-stage FROM directives from 2 to 3. Same pattern as console fix.
+## Backplane-operator Parents
 
-## PQC Base Images
+- **Decision**: Keep builder `rhel9`, builder `rhel-9-golang-1.26`, and final `member: base-rhel9`.
+- **Rationale**: `backplane-5.1` `build/Dockerfile.rhtap` still has three non-stage `FROM` lines (cloner, Go 1.26 builder, `ubi-minimal-pqc`). The cloner line in git names standard `ubi-minimal`; Doozer substitutes the `rhel9` PQC stream for that parent.
 
-- **Decision**: `streams.yml` defines `rhel9` stream as `registry.redhat.io/ubi9/ubi-minimal-pqc:latest`; upstream stolostron Dockerfiles migrated from `ubi-minimal` to `ubi-minimal-pqc`
-- **Rationale**: 5.0 is the first release to adopt Post-Quantum Cryptography images. Both the `streams.yml` stream definition and the upstream Dockerfiles were updated.
-- **Scope**: Only applies to 5.0+. Earlier releases (2.11, 2.17) use standard `ubi-minimal`.
+## Assisted Images
 
-## Stream: rhel9-ubi
+- **Decision**: The five assisted images stay in the ART image set and stay out of `bundle/art.yaml` `external-images`.
+- **Rationale**: ART 5.0 builds them and Konflux 5.1 still has them. Doozer fills those references from the ART builds. `postgresql_16` is an external digest pin. `ip_address_manager` is a chart key, not an image pin. The baremetal OSE image is an external pin.
 
-- **Decision**: Added `rhel9-ubi` stream (`registry.redhat.io/ubi9/ubi:latest`) to `streams.yml`
-- **Rationale**: Needed for the console `crypto-policy` stage which uses the full UBI 9 image (not ubi-minimal). Named `rhel9-ubi` per developer preference (Ashwin).
-- **Note**: Original name was `rhel-9-ubi`; renamed to `rhel9-ubi` at developer request.
+## External OSE Images
 
-## Bundle Component
+- **Decision**: Pin both OSE images on the stage registry at the 5.1 tags: `registry.stage.redhat.io/openshift5/ose-cluster-api-rhel9:v5.1` and `registry.stage.redhat.io/openshift5/ose-baremetal-cluster-api-controllers-rhel9:v5.1`.
+- **Rationale**: Same registry and `openshift5` namespace as the 5.0 stage pins, with the tag bumped to `v5.1`, until OCP 5 is published on the production registry.
 
-- **Decision**: MCE operator bundle excluded from `images/*.yml`
-- **Rationale**: Same as mce-2.11 and acm-5.0 — defer bundle complexity until individual images build.
+## Bundle Metadata
 
-## Stage-only Components in KRD RPAs
+- **Decision**: Package channel and `defaultChannel` are `stable-5.1`, `currentCSV` is `multicluster-engine.v5.1.0`. `bundle/metadata/annotations.yaml` channels and the default channel are also `stable-5.1`. `OPERATOR_VERSION` is `5.1.0`. `olm.maxOpenShiftVersion` is `5.2`. `olm.skipRange` is `>=2.17.0-0 <5.1.0`. The `art.yaml` updates entry searches `5.1.0` and replaces `5.1.0`.
+- **Rationale**: The package file does not set the annotation channels. The updates block exists so the FBC build can move the channel head. The community CSV on `backplane-5.1` is still `multicluster-engine.v0.0.1`; product metadata is applied in place and the 5.1 CRDs are kept. `relatedImages` and `OPERAND_IMAGE_*` follow the 5.1 chart keys plus the operator images ART still builds, without `maestro`, `cloudevents_conductor`, or `postgresql_15`.
 
-- **Decision**: `mce-operator-bundle` is in the stage RPA but not the prod RPA
-- **Rationale**: The bundle is released to prod through the separate FBC (file-based catalog) pipeline, not the advisory pipeline.
+## Operator Bundle in Advisory RPAs
 
-## External Images in backplane-operator art.yaml
+- **Decision**: `mce-operator-bundle` is in both the stage and prod advisory RPAs.
+- **Rationale**: Live ART 2.9 through 5.0 put it in both. Prod delivery of the catalog still also goes through the FBC pipeline. The FBC stage ReleasePlan is `mce-advisory-stage-auto-5-1`, admitting through `mce-advisory-stage-5-1`.
 
-- **Decision**: `assisted-*` images (5 total) and `ose-cluster-api-*` images (2 total) use placeholder digests/tags from MCE 2.11
-- **Rationale**: These are external images not built by MCE. The 5.0 digests were stale/nonexistent at initial build time. MCE 2.11 digests were used as temporary placeholders with `TODO` comments.
-- **Revisit**: Replace with actual 5.0 digests once the assisted-installer and OCP 5.0 teams publish them.
+## Scan Schedule
 
-## azure-service-operator Dockerfile Modifications
+- **Decision**: `--group=mce-5.1` is added immediately after `--group=mce-5.0` in the layered-products scan schedule.
+- **Rationale**: That schedule now lives in GitLab `art-config` (`argocd/project/art-acm-tenant/18_pipeline-schedule-layered-products-scan.yaml`) after ART-24826 moved the Argo CD config out of `art-tools`. `aos-cd-jobs` `nonOCPGroups` is not the scan source. The same art-config FBC release pipeline allowlist includes `mce-5.1` next to `mce-5.0`, or `release-from-fbc` rejects the group.
 
-- **Decision**: `ocp-build-data` config includes `modifications:` to rewrite `COPY ./ ./` → `COPY v2/ ./` and `COPY stolostron/crds ./crds` → `COPY v2/stolostron/crds ./crds`
-- **Rationale**: The Go module lives in the `v2/` subdirectory. The ART Dockerfile uses `COPY ./ ./` generically, but doozer needs to scope it to `v2/`.
-- **Issue**: The upstream `.dockerignore` excludes `v2/` from the Docker build context, conflicting with the `COPY v2/ ./` rewrite. Fixed by removing `v2` from `.dockerignore` upstream ([PR #536](https://github.com/stolostron/azure-service-operator/pull/536)).
+## What branch-setup did not get right
 
-## CSV Feature Annotations (verify-conforma)
-
-- **Decision**: `backplane-operator` CSV requires all 10 `features.operators.openshift.io/*` annotations
-- **Rationale**: The 5.0 CSV was regenerated from operator-sdk scaffolding and lost these annotations. `verify-conforma`'s `olm.feature_annotations_format` policy blocks stage releases without them.
-- **Fix**: [PR #4000](https://github.com/stolostron/backplane-operator/pull/4000) — added annotations matching MCE 2.11 values.
-
-## CSV relatedImages and OPERAND_IMAGE_* Environment Variables
-
-- **Decision**: The operator CSV must include `relatedImages` section and `OPERAND_IMAGE_*` env vars
-- **Rationale**: Required for disconnected/air-gapped mirroring support. The 5.0 CSV initially lacked both because it was regenerated from scaffolding.
-- **Note**: Developer Alec's [PR #4730](https://github.com/stolostron/multiclusterhub-operator/pull/4730) (ACM equivalent) was the authoritative fix; our initial PR #4731 contained extra entries for images no longer in 5.0.
-
-## aos-cd-jobs Pipeline Activation
-
-- **Decision**: `"mce-5.0"` must be added to `nonOCPGroups` in `aos-cd-jobs/pipeline-scripts/commonlib.groovy`
-- **Rationale**: The ART build pipeline only triggers for groups listed in `nonOCPGroups`. Without this entry, MCE 5.0 builds won't run.
-- **Reference**: [aos-cd-jobs PR](https://github.com/openshift-eng/aos-cd-jobs/pull/4793) (ACM 5.0 was the model).
-
-## KRD build-manifests.sh
-
-- **Decision**: After editing KRD tenant configs, must run `tenants-config/build-manifests.sh` with kustomize v5.7.1
-- **Rationale**: The Gitlab CI rejects MRs where `auto-generated/` content doesn't match the kustomization sources. This script regenerates those files.
-- **Lesson**: First MR attempt failed until this step was discovered.
-
-## DCO Signoff
-
-- **Decision**: All commits to `stolostron/*` repos require `git commit --signoff`
-- **Rationale**: stolostron repos enforce the Developer Certificate of Origin (DCO) check. PRs without signed-off commits fail the `dco` CI check.
-- **Lesson**: Multiple PRs had to be amended and force-pushed to add signoffs.
+- It rewrites only `images/*.yml`, so `assisted-*.yaml` stayed on `backplane-5.0` until patched.
+- It copied `maestro` and `cloudevents-conductor` forward.
+- It kept the 5.0 console parents (`rhel9-ubi` plus two Node streams) and the must-gather `member: base-rhel9` final stage.
+- `ruamel` dropped the leading `---` in `streams.yml`; that marker was restored. `rhel9.image` was already the PQC pullspec, so the `--rhel-stream` write did not change the image.
+- It collapsed `OCP_TARGET_VERSIONS` onto one line and left the 5.0 version comment in place. The list is `4.22, 4.23, 5.0, 5.1, 5.2`, restored as a multi-line array.
+- It does not edit Konflux release data, `backplane-operator`, Tide, or `art-tools`.

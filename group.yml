@@ -10,9 +10,15 @@ vars:
   MAJOR: 5
   MINOR: 1
 
-# Aligned to OCP 5.x line. Source: mce-operator-bundle release-5.0 annotation
-# com.redhat.openshift.versions="v5.0-v5.1".
-OCP_TARGET_VERSIONS: ["4.22","4.23","5.0","5.1","5.2"]
+# Associated release is 5.1. Supported hub range from
+# acm-mce-operator-catalogs mce-redhat-operators-config.yaml.
+OCP_TARGET_VERSIONS: [
+  "4.22",
+  "4.23",
+  "5.0",
+  "5.1",
+  "5.2",
+]
 
 arches:
 - x86_64
