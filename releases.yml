@@ -1,4 +1,33 @@
 releases:
+  5.0.0:
+    assembly:
+      type: standard
+      basis:
+        assembly: rc.8
+        reference_releases!: {}
+      group:
+        release_jira: ART-14755
+        operator_index_mode: ga
+        release_date: 2026-Nov-03
+        upgrades: 4.22.17,4.22.18,4.22.19,4.22.20,4.22.21,5.0.0-ec.0,5.0.0-ec.1,5.0.0-ec.2,5.0.0-ec.3,5.0.0-ec.4,5.0.0-ec.5,5.0.0-ec.6,5.0.0-rc.0,5.0.0-rc.1,5.0.0-rc.2,5.0.0-rc.3,5.0.0-rc.4,5.0.0-rc.5,5.0.0-rc.6,5.0.0-rc.7,5.0.0-rc.8
+        microshift_bootc_shipment!: {}
+        shipment!:
+          advisories:
+            - kind: image
+              live_id: 4893
+            - kind: extras
+              live_id: 4894
+            - kind: metadata
+              live_id: 4895
+            - kind: fbc
+          env: prod
+        advisories!:
+          rpm: 168422
+          rhcos: 169393
+          microshift: 167863
+      members:
+        rpms: []
+        images: []
   rc.8:
     assembly:
       type: candidate
