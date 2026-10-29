@@ -9,7 +9,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: kube-compare-artifacts-container
@@ -19,8 +19,8 @@ delivery:
 for_payload: false
 from:
   builder:
-  - stream: rhel-8-golang
-  - stream: rhel-9-golang
+  - stream: rhel-8-golang-1.25
+  - stream: rhel-9-golang-1.25
   member: openshift-enterprise-cli
 name: openshift4/kube-compare-artifacts-rhel9
 payload_name: kube-compare-artifacts
