@@ -7,6 +7,11 @@ releases:
         reference_releases:
           x86_64: 4.22.0-0.nightly-2026-10-28-171417
       group:
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.61.1.el9_8
+              why: Pin kernel to match RHCOS build
+              non_gc_tag: hotfix
         advisories:
           rpm: -1
           rhcos: -1
