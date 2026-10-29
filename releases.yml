@@ -27,7 +27,12 @@ releases:
           rhcos: 169393
           microshift: 167863
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.0.0-202610291612.p0.g0f0de24.assembly.5.0.0.el9
         images: []
   rc.8:
     assembly:
