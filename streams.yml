@@ -17,6 +17,15 @@
 #
 ##############################################################################################
 
+rhel-10-golang:
+  aliases:
+    - rhel-10-golang-{GO_LATEST}
+  image: registry.redhat.io/openshift/golang-builder:openshift-golang-builder-container-v1.25.14-202610231156.p2.gfa5e690.assembly.stream.el10
+  mirror: false
+  # Since mirror: false, an images/ci-openshift-golang-builder* metadata must push to this location.
+  # upstream_image informs reconciliation PRs which upstream image to use for CI when this stream is referenced.
+  upstream_image: registry.ci.openshift.org/ocp/builder:rhel-10-golang-{GO_LATEST}-openshift-{MAJOR}.{MINOR}
+
 rhel-9-golang:
   aliases:
     - rhel-9-golang-{GO_LATEST}
