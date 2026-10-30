@@ -10,8 +10,7 @@ content:
       streams_prs:
         enabled: false
       mirror: true
-      transform: rhel-9/base-repos
-      upstream_image_base: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}.art
+      mirror_manifest_list: true
       upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-base-nodejs-openshift-{MAJOR}.{MINOR}
     okd_alignment:
       resolve_as:
