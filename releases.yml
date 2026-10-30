@@ -1,4 +1,99 @@
 releases:
+  art2026103001:
+    assembly:
+      type: custom
+      basis:
+        patch_version: 2026103001
+        time: '2026-10-30T19:49:59Z'
+      group:
+        arches!: &id001
+        - x86_64
+        - aarch64
+        - ppc64le
+        - s390x
+        konflux:
+          arches!: *id001
+        multi_arch:
+          enabled: true
+        use_source_fallback_branch: never
+        cachito:
+          enabled: false
+        public_upstreams!:
+        - private: git@github.com:openshift-priv/cluster-api-provider-openstack.git
+          public: https://github.com/redhat-chai-bot/openshift-eng_ocp-build-data
+          public_branch: catalog-repair-scratch-20261030
+        - private: git@github.com:openshift-priv/ovn-kubernetes.git
+          public: https://github.com/redhat-chai-bot/openshift-eng_ocp-build-data
+          public_branch: catalog-repair-scratch-20261030
+        - private: git@github.com:openshift-priv/sriov-cni.git
+          public: https://github.com/redhat-chai-bot/openshift-eng_ocp-build-data
+          public_branch: catalog-repair-scratch-20261030
+      streams:
+        scratch!:
+          image: scratch
+          upstream_image: scratch
+      members:
+        images:
+        - distgit_key: ose-openstack-machine-controllers
+          why: Build an isolated scratch placeholder from frozen source commit f11ad8e2ff220fb5c89aaa76fc0ca8eceffb07dc; verify
+            the source branch SHA before building.
+          metadata:
+            arches!: *id001
+            from!:
+              stream: scratch
+            dependents!: []
+            enabled_repos!: []
+            update-csv-: null
+            for_payload: false
+            content!:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/cluster-api-provider-openstack.git
+                  url_pull: https://github.com/redhat-chai-bot/openshift-eng_ocp-build-data
+                  branch:
+                    target: catalog-repair-scratch-20261030
+                path: catalog-repair/ose-openstack-machine-controllers
+                dockerfile: Dockerfile
+        - distgit_key: ovn-kubernetes-microshift
+          why: Build an isolated scratch placeholder from frozen source commit f11ad8e2ff220fb5c89aaa76fc0ca8eceffb07dc; verify
+            the source branch SHA before building.
+          metadata:
+            arches!: *id001
+            from!:
+              stream: scratch
+            dependents!: []
+            enabled_repos!: []
+            update-csv-: null
+            for_payload: false
+            content!:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/ovn-kubernetes.git
+                  url_pull: https://github.com/redhat-chai-bot/openshift-eng_ocp-build-data
+                  branch:
+                    target: catalog-repair-scratch-20261030
+                path: catalog-repair/ovn-kubernetes-microshift
+                dockerfile: Dockerfile
+        - distgit_key: sriov-cni
+          why: Build an isolated scratch placeholder from frozen source commit f11ad8e2ff220fb5c89aaa76fc0ca8eceffb07dc; verify
+            the source branch SHA before building.
+          metadata:
+            arches!: *id001
+            from!:
+              stream: scratch
+            dependents!: []
+            enabled_repos!: []
+            update-csv-: null
+            for_payload: false
+            content!:
+              source:
+                git:
+                  url: git@github.com:openshift-priv/sriov-cni.git
+                  url_pull: https://github.com/redhat-chai-bot/openshift-eng_ocp-build-data
+                  branch:
+                    target: catalog-repair-scratch-20261030
+                path: catalog-repair/sriov-cni
+                dockerfile: Dockerfile
   4.12.102:
     assembly:
       type: standard
