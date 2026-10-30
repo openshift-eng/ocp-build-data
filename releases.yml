@@ -45,7 +45,10 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5a3643763c3a903eb18863e35fbc7e6469926468fe83a1bc758e21ed015c5c1b
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e8bef1c640677a99de4be6e26c25e1ec3bf1649f4c0308d36ce4e9d38abca12
       members:
-        rpms: []
+        rpms:
+          - distgit_key: cri-o
+            exclude: true
+            why: Exclude cri-o el10 RPM - Errata blocks versions older than 1.35.5 which was previously shipped on advisory 169606
         images: []
   4.21.40:
     assembly:
