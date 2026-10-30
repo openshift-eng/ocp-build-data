@@ -561,15 +561,15 @@ repos:
         includepkgs: "kernel-rt*"
       baseurl:
         # RT doesn't do EUS, and TUS isn't around yet. get from dist
-        x86_64: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
+        x86_64: "https://rhsm-pulp.corp.redhat.com/content/e6s/rhel9/9.2/x86_64/rt/os/"
         # Kernel RT is x86 only, so use same repo as a dummy for other arches.
         # The driver-toolkit Dockerfile only installs the kernel-rt for x86_64.
-        aarch64: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
-        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
-        s390x: "https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9.2/x86_64/rt/os/"
+        aarch64: "https://rhsm-pulp.corp.redhat.com/content/e6s/rhel9/9.2/x86_64/rt/os/"
+        ppc64le: "https://rhsm-pulp.corp.redhat.com/content/e6s/rhel9/9.2/x86_64/rt/os/"
+        s390x: "https://rhsm-pulp.corp.redhat.com/content/e6s/rhel9/9.2/x86_64/rt/os/"
 
     content_set:
-      default: rhel-9-for-x86_64-rt-rpms
+      default: rhel-9-for-x86_64-rt-e6s-rpms__9_DOT_2
       # don't have content set for other arches since they don't exist
       optional: true
     reposync:
