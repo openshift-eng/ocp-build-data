@@ -93,7 +93,7 @@ RH_IT_ROOT_CA_CERT_URL="https://certs.corp.redhat.com/certs/${RH_IT_ROOT_CA_CERT
 RH_IT_ROOT_CA_CERT_TMP_PATH="/tmp/art/${RH_IT_ROOT_CA_CERT_FILENAME}"
 RH_IT_ROOT_CA_CERT_SYSTEM_PATH="/etc/pki/ca-trust/source/anchors/IT-Root-CAs.pem"
 
-EXTRA_DNF_ARGS=""
+EXTRA_DNF_ARGS=()
 
 if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
   WRAPPER_MODE="unknown"
@@ -159,12 +159,40 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
       # If any ART repos files were populated and we are ignoring
       # base image repos, eliminate extraneous warnings by
       # disabling RH subscription manager plugin.
-      EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --disableplugin=subscription-manager"
+      EXTRA_DNF_ARGS+=(--disableplugin=subscription-manager)
     fi
 
     # Set the repo file search path for DNF
-    EXTRA_DNF_ARGS="${EXTRA_DNF_ARGS} --setopt=reposdir=${DNF_OPTS_REPOSDIR}"
+    EXTRA_DNF_ARGS+=("--setopt=reposdir=${DNF_OPTS_REPOSDIR}")
     echoerr "DNF will search for repo files in: ${DNF_OPTS_REPOSDIR}"
+
+    # The CI and local development repo definitions contain a copy of each
+    # repository for every supported architecture. DNF refreshes metadata for
+    # every enabled repository, including architectures it cannot install.
+    # Disable only the known non-target architecture suffixes, leaving generic
+    # repositories enabled. An explicit --forcearch takes precedence so a
+    # caller intentionally installing another architecture keeps working.
+    DNF_TARGET_ARCH="$(rpm --eval '%{_arch}')"
+    DNF_ARGS=("$@")
+    for (( arg_index=0; arg_index < ${#DNF_ARGS[@]}; arg_index++ )); do
+      case "${DNF_ARGS[arg_index]}" in
+        --forcearch=*)
+          DNF_TARGET_ARCH="${DNF_ARGS[arg_index]#--forcearch=}"
+          ;;
+        --forcearch)
+          if (( arg_index + 1 < ${#DNF_ARGS[@]} )); then
+            DNF_TARGET_ARCH="${DNF_ARGS[arg_index + 1]}"
+          fi
+          ;;
+      esac
+    done
+
+    for repo_arch in x86_64 aarch64 ppc64le s390x; do
+      if [[ "${repo_arch}" != "${DNF_TARGET_ARCH}" ]]; then
+        EXTRA_DNF_ARGS+=("--disablerepo=*-${repo_arch}")
+      fi
+    done
+    echoerr "Disabling CI repositories that do not match ${DNF_TARGET_ARCH}."
 
     # List configured repositories so they are visible in build logs,
     # since microdnf does not display repo names during metadata download.
@@ -186,4 +214,4 @@ if [[ "${SKIP_REPO_INSTALL}" == "0" ]]; then
 
 fi
 
-$0.real ${EXTRA_DNF_ARGS} "$@"
+"$0.real" "${EXTRA_DNF_ARGS[@]}" "$@"
