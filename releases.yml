@@ -57,6 +57,9 @@ releases:
                     target: catalog-repair-scratch-20261030
                 path: catalog-repair/ose-metallb
                 dockerfile: Dockerfile
+            labels:
+              distribution-scope: public
+              url: https://access.redhat.com/containers/#/registry.access.redhat.com/openshift/metallb-rhel8
         - distgit_key: ose-metallb-operator
           why: Build an isolated scratch placeholder from frozen source commit f11ad8e2ff220fb5c89aaa76fc0ca8eceffb07dc; verify
             the source branch SHA before building.
@@ -77,6 +80,9 @@ releases:
                     target: catalog-repair-scratch-20261030
                 path: catalog-repair/ose-metallb-operator
                 dockerfile: Dockerfile
+            labels:
+              distribution-scope: public
+              url: https://access.redhat.com/containers/#/registry.access.redhat.com/openshift/metallb-rhel8-operator
         - distgit_key: ose-ovirt-csi-driver
           why: Build an isolated scratch placeholder from frozen source commit f11ad8e2ff220fb5c89aaa76fc0ca8eceffb07dc; verify
             the source branch SHA before building.
@@ -97,6 +103,9 @@ releases:
                     target: catalog-repair-scratch-20261030
                 path: catalog-repair/ose-ovirt-csi-driver
                 dockerfile: Dockerfile
+            labels:
+              distribution-scope: public
+              url: https://access.redhat.com/containers/#/registry.access.redhat.com/openshift/ose-ovirt-csi-driver
         - distgit_key: ose-cluster-ovirt-csi-operator
           why: Build an isolated scratch placeholder from frozen source commit f11ad8e2ff220fb5c89aaa76fc0ca8eceffb07dc; verify
             the source branch SHA before building.
@@ -117,6 +126,9 @@ releases:
                     target: catalog-repair-scratch-20261030
                 path: catalog-repair/ose-cluster-ovirt-csi-operator
                 dockerfile: Dockerfile
+            labels:
+              distribution-scope: public
+              url: https://access.redhat.com/containers/#/registry.access.redhat.com/openshift/ose-ovirt-csi-driver-operator
   4.13.72:
     assembly:
       type: standard
