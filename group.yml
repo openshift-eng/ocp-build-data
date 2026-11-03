@@ -1,14 +1,14 @@
 freeze_automation: false
-name: acm-5.0
+name: acm-5.1
 csv_namespace: open-cluster-management
 product: rhacm2
-version: 5.0.0  # This value doesn't need to be modified for future acm-5.0 z-streams
+version: auto  # Derive 5.1.0 from the group name, including z-stream builds
 
 vars:
   GO_LATEST: "1.26"
   GO_EXTRA: "1.26"  # ACM convention: both pinned to latest (diverges from OCP's 1.26/1.25 split)
   MAJOR: 5
-  MINOR: 0
+  MINOR: 1
 
 # Aligned to OCP 5.x line. Source: acm-operator-bundle release-5.0 annotation
 # com.redhat.openshift.versions="v5.0-v5.1" + acm-config CI DESTINATION_VERSIONS "5.0 5.1".
@@ -27,7 +27,7 @@ arches:
 
 operator_image_ref_mode: manifest-list
 operator_channel_stable: extra
-operator_stable_channel_name: stable-5.0
+operator_stable_channel_name: stable-5.1
 
 konflux:
   arches:
