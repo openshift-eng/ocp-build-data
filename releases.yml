@@ -1,4 +1,109 @@
 releases:
+  5.0.1:
+    assembly:
+      type: standard
+      basis:
+        assembly: 5.0.0
+        reference_releases!: {}
+      group:
+        advisories!:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment!:
+          advisories:
+            - kind: image
+        release_date: 2026-Nov-05
+        upgrades: 4.22.17,4.22.18,4.22.19,4.22.20,4.22.21,4.22.22,5.0.0-ec.0,5.0.0-ec.1,5.0.0-ec.2,5.0.0-ec.3,5.0.0-ec.4,5.0.0-ec.5,5.0.0-ec.6,5.0.0-rc.0,5.0.0-rc.1,5.0.0-rc.2,5.0.0-rc.3,5.0.0-rc.4,5.0.0-rc.5,5.0.0-rc.6,5.0.0-rc.7,5.0.0-rc.8,5.0.0
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.65.1.el9_8
+              why: CVE fix for CVE-2026-98432
+              non_gc_tag: hotfix
+            - el10: kernel-6.12.0-211.73.1.el10_2
+              why: CVE fix for CVE-2026-98432
+              non_gc_tag: hotfix
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0d187b188d5c3b89b0a3c09f72eef295585185fe88354858f8f7c0a445bb45ba
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fa89d6f31aae2816d2b7b745c966d7bc51bc84f97f43f15f34876801f3078f13
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8c96405400d3648e38a2f2cb8db37849d2b17bb0f8da2d1e42bda6fbdc046b12
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f847616a12bbdd9e2b256d7b929144a9f3f8b344fb41411cf648a64eb06bd3d9
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:18b0120f6aac923a90b89e1598a9ee82897bdc5c1903eb101b59083516d8563d
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d69f31f7b394334bcd3cc5a243bff338e018e100307813fd5bb7f544ba1a1755
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:086183a812ca32f84e95e7c4cb87ef0be50011414aca1788360b1bdf29f8d518
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1433323cf9f7e49b366303bc6519e887a7d202948ec9b8e94c61b47ea65dd6b5
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:686dd69a35512cae552633cfd0674734e48feff293d53af14aa1e77ec3cad197
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b37599963e89bd8239258523287638cf83caed19477a0c9084cc159b2dd64edf
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:740a1d06619c32f3bd39a9061fbd3671f300cdd1229d8f567d700eb4dc61a24f
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f56748b50e5e167c204990ccaa87a2e2c37b5375a6ff921261a6612fcf678ad0
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b7952baf3cca9c8e537b301ef17489421b7de9691aa644a0278e7e45c5f8050c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9070115bb6280dcd2ac1db614e591dc0ad7bb180180b6016620f6140c882562a
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:190bab6993d8f58d2e7a6d8db462ac9767d8e1003dd4515c0f86fef5a03d6c31
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8df4df7c886c7d4bca9afda800828cc17ce99d7ff545b1c1519397a8a27505c6
+      members:
+        rpms:
+          - distgit_key: cri-o
+            why: Match ART-managed RPM builds installed in the selected RHCOS images
+            metadata:
+              is:
+                el9: cri-o-5.0.0-202610292257.p2.g9186725.assembly.stream.el9
+                el10: cri-o-5.0.0-202610292257.p2.g9186725.assembly.stream.el10
+        images:
+          - distgit_key: driver-toolkit
+            why: CVE fix for CVE-2026-98432
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v5.0.0-202611030132.p2.gb63b175.assembly.stream.el9
+          - distgit_key: driver-toolkit-rhel10
+            why: CVE fix for CVE-2026-98432
+            metadata:
+              is:
+                nvr: driver-toolkit-rhel10-container-v5.0.0-202611030132.p2.gb63b175.assembly.stream.el10
+      issues:
+        targeted_fixes_only: true
+        include:
+          - id: OCPBUGS-135021
+          - id: OCPBUGS-109653
+          - id: OCPBUGS-112999
+          - id: OCPBUGS-113207
+          - id: OCPBUGS-114026
+          - id: OCPBUGS-114143
+          - id: OCPBUGS-114340
+          - id: OCPBUGS-114425
+          - id: OCPBUGS-122827
+          - id: OCPBUGS-126719
+          - id: OCPBUGS-128369
+          - id: OCPBUGS-129570
+          - id: OCPBUGS-130466
+          - id: OCPBUGS-130469
+          - id: OCPBUGS-134361
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-ansible-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
   5.0.0:
     assembly:
       type: standard
