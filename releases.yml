@@ -55,6 +55,25 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e16a1dff317d64b6cf5ba29880c036f65f28bd0fec3780b466a2f21f7dbfbf5d
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f569930bdc0fec1134f930814fc994dd9031291d9b041ff7f7b04158546f0d5b
       members:
+        permits:
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: cluster-node-tuning-operator
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: ironic
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: ironic-agent
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: ironic-rhcos-downloader
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: openshift-enterprise-ansible-operator
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: openshift-enterprise-tests
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: ose-network-tools
+          - code: CONFLICTING_INHERITED_DEPENDENCY
+            component: ose-tools
+          - code: CONFLICTING_GROUP_RPM_INSTALLED
+            component: rhcos
         rpms: []
         images:
           - distgit_key: ose-insights-runtime-exporter
