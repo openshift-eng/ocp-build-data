@@ -66,6 +66,21 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.22.0-202611030127.p2.g7aa4007.assembly.stream.el9
+          - distgit_key: kube-proxy
+            why: Match the source commit of the openshift RPM installed in RHCOS
+            metadata:
+              is:
+                nvr: kube-proxy-container-v4.22.0-202611021221.p2.gc253e21.assembly.stream.el9
+          - distgit_key: openshift-enterprise-hyperkube
+            why: Match the source commit of the openshift RPM installed in RHCOS
+            metadata:
+              is:
+                nvr: openshift-enterprise-hyperkube-container-v4.22.0-202611021221.p2.gc253e21.assembly.stream.el9
+          - distgit_key: openshift-enterprise-pod
+            why: Match the source commit of the openshift RPM installed in RHCOS
+            metadata:
+              is:
+                nvr: openshift-enterprise-pod-container-v4.22.0-202611021221.p2.gc253e21.assembly.stream.el9
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
