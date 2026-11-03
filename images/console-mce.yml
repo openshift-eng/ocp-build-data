@@ -3,10 +3,14 @@ cachito:
   packages:
     npm:
     - path: .
-    - path: backend
     - path: frontend
+    gomod:
+    - path: backend
 content:
   source:
+    pkg_managers:
+    - npm
+    - gomod
     dockerfile: Containerfile.mce
     git:
       branch:

@@ -39,6 +39,8 @@ Created as part of JIRA ticket [HYPBLD-894](https://redhat.atlassian.net/browse/
 
 - **Decision**: `console-mce.yml` builders are `rhel-9-nodejs-24` then `rhel-9-golang`, and the final stage is stream `rhel9`. The `rhel9-ubi` stream is removed.
 - **Rationale**: `backplane-5.1` `Containerfile.mce` no longer has the 5.0 `ubi9/ubi` crypto-policy stage. Its three non-stage parents are `nodejs-24-minimal`, `golang-builder` 1.26, and `ubi-minimal-pqc`, in that order. `FROM build-base` is a same-stage reference and is not a fourth parent.
+- **Decision**: Cachito npm paths are `.` and `frontend`. The Go module at `backend` is a `gomod` package, and `pkg_managers` lists `npm` and `gomod`.
+- **Rationale**: `backplane-5.1` replaced the npm backend with `backend/go.mod`. Prefetch still looked for `backend/package-lock.json`. Package-manager detection only inspects the repository root, so the backend module has to be declared.
 
 ## Hypershift-cli Parents
 
@@ -54,6 +56,11 @@ Created as part of JIRA ticket [HYPBLD-894](https://redhat.atlassian.net/browse/
 
 - **Decision**: Keep builder `rhel9`, builder `rhel-9-golang-1.26`, and final `member: base-rhel9`.
 - **Rationale**: `backplane-5.1` `build/Dockerfile.rhtap` still has three non-stage `FROM` lines (cloner, Go 1.26 builder, `ubi-minimal-pqc`). The cloner line in git names standard `ubi-minimal`; Doozer substitutes the `rhel9` PQC stream for that parent.
+
+## Azure Service Operator Dockerfile
+
+- **Decision**: `azure-service-operator.yml` no longer rewrites `COPY` lines.
+- **Rationale**: `backplane-5.1` `stolostron/Dockerfile.stolostron` already copies `v2/` and `stolostron/crds`. The 5.0 replacements do not match `COPY v2/ ./`, which fails the rebase, and `v2/stolostron/crds` does not exist. The Go module path stays `v2`.
 
 ## Assisted Images
 

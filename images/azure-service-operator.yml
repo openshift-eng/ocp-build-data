@@ -13,13 +13,6 @@ content:
         target: backplane-5.1
       url: git@github.com:openshift-priv/stolostron-azure-service-operator.git
       web: https://github.com/stolostron/azure-service-operator
-    modifications:
-      - action: replace
-        match: "COPY ./ ./"
-        replacement: "COPY v2/ ./"
-      - action: replace
-        match: "COPY stolostron/crds ./crds"
-        replacement: "COPY v2/stolostron/crds ./crds"
 distgit:
   component: mce-azure-service-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
