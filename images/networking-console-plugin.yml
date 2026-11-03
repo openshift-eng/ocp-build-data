@@ -31,20 +31,9 @@ konflux:
   vm_override:
     aarch64: linux-d160-c4xlarge/arm64
 okd:
+  konflux:
+    network_mode: hermetic
+    cachi2: {enabled: true, lockfile: {enabled: true, force: true}}
   content:
     source:
-      modifications:
-      - action: replace
-        match: "RUN npm clean-install --ignore-scripts --no-audit && npm run build"
-        replacement: |-
-          RUN npm config set fetch-timeout 600000 && \
-              npm config set fetch-retries 5 && \
-              npm config set fetch-retry-mintimeout 30000 && \
-              npm config set fetch-retry-maxtimeout 120000 && \
-              for attempt in 1 2 3 4 5; do \
-                echo "Attempt $attempt: npm clean-install"; \
-                npm clean-install --ignore-scripts --no-audit && break; \
-                echo "Attempt $attempt failed"; \
-                [ "$attempt" -lt 5 ] && sleep 60; \
-              done && \
-              npm run build
+      modifications: []
