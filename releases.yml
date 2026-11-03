@@ -1,4 +1,71 @@
 releases:
+  4.22.22:
+    assembly:
+      type: standard
+      basis:
+        assembly: 4.22.21
+        reference_releases!: {}
+      group:
+        advisories!:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment!:
+          advisories:
+            - kind: image
+        release_date: ''
+        upgrades: 4.21.6,4.21.7,4.21.8,4.21.9,4.21.10,4.21.11,4.21.12,4.21.13,4.21.14,4.21.15,4.21.16,4.21.17,4.21.18,4.21.19,4.21.20,4.21.21,4.21.22,4.21.23,4.21.24,4.21.25,4.21.26,4.21.27,4.21.28,4.21.29,4.21.30,4.21.31,4.21.32,4.21.33,4.21.34,4.21.35,4.21.36,4.21.37,4.21.38,4.21.39,4.21.40,4.21.41,4.22.0,4.22.1,4.22.2,4.22.3,4.22.4,4.22.5,4.22.6,4.22.7,4.22.8,4.22.9,4.22.10,4.22.11,4.22.12,4.22.13,4.22.14,4.22.15,4.22.16,4.22.17,4.22.18,4.22.19,4.22.20,4.22.21
+        dependencies:
+          rpms!:
+            - el9: kernel-5.14.0-687.65.1.el9_8
+              why: CVE fix for CVE-2026-98432
+              non_gc_tag: hotfix
+            - el10: kernel-6.12.0-211.73.1.el10_2
+              why: CVE fix for CVE-2026-98432
+              non_gc_tag: hotfix
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:45d2aaded3be66c70f3ad63fd7990edd7e60695689f8e486123acc8c1b8c747a
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c51f448e2927e268114b6a5e5e1f600203c70370ef843b5bb4be647c02b7b9e0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:149bf60784fa15bba0a7ea1dbcb02c7bf74f9e580a8d22f632428e55115f3744
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3776e124bbf3c889ae06a6790391fa5a4dcc5832b59870debd3fab09b2a4084a
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5a8c64356478a0abdf085d1e68b95fd5a7a52867c50fe124ab44827e530bca3e
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:551e58b98409eecd3ea2b89773648b0ae6f89fc448d554adf5d2831a0b0d6a42
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3f72624028b6f6987243a1bfd3c6d60b2d577422d10801e187cc4f66f38ae810
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e1fbf2be92ab7798b4653c4c4647ceb026afedd762eb80ad23ea06dc498c8b5c
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0fe4829cfdf8893b55306f8bc121fc32ee7593c5d77d78bdbdfb840058f54f6c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d81148298fe11f701ba387799105b94a7fd1b98d19fceacd17d9b63228760480
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:549029ac53ed46266d3ceafc953b93233bdfadbf2fba4470d88ec57188f94f01
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f7b2d98234ce085134ffa9111873f6086dbee9133a1d04b8cde945b9db7a9cf6
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ac47716eebf4ac4981c48c7bd8149275a10ef7d0ec27556b04293c4d900ec78d
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:39c56ec956102cc4f7e7a84cb0009a5f810868f45832b923943b517af66c7711
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:47bd0e293926d0dd1537b923f0c53242e65dcdf26a0a6428835796c04022b30e
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9de9dec3ad6941692b9a5f590999afeb50160ee887bf368092b5dbbfff4d1b50
+      members:
+        rpms:
+          - distgit_key: kernel
+            why: CVE fix for CVE-2026-98432
+            metadata:
+              is:
+                el9: kernel-5.14.0-687.65.1.el9_8
+                el10: kernel-6.12.0-211.73.1.el10_2
+        images:
+          - distgit_key: driver-toolkit
+            why: CVE fix for CVE-2026-98432
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v4.22.0-202611030127.p2.g7aa4007.assembly.stream.el9
+      issues:
+        targeted_fixes_only: true
+        include:
+          - id: OCPBUGS-135019
   4.22.21:
     assembly:
       type: standard
