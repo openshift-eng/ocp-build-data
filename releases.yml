@@ -23,6 +23,9 @@ releases:
             - el10: kernel-6.12.0-211.73.1.el10_2
               why: CVE fix for CVE-2026-98432
               non_gc_tag: hotfix
+            - el9: cri-o-1.35.10-4.rhaos4.22.git9943eab.el9
+              why: Match CRI-O installed in the selected RHCOS images
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
@@ -49,13 +52,37 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:47bd0e293926d0dd1537b923f0c53242e65dcdf26a0a6428835796c04022b30e
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9de9dec3ad6941692b9a5f590999afeb50160ee887bf368092b5dbbfff4d1b50
       members:
-        rpms: []
+        rpms:
+          - distgit_key: openshift
+            why: Match ART-managed RPM builds installed in the selected RHCOS images
+            metadata:
+              is:
+                el8: openshift-4.22.0-202610292101.p2.gc253e21.assembly.stream.el8
+                el9: openshift-4.22.0-202610292101.p2.gc253e21.assembly.stream.el9
+                el10: openshift-4.22.0-202610292101.p2.gc253e21.assembly.stream.el10
         images:
           - distgit_key: driver-toolkit
             why: CVE fix for CVE-2026-98432
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.22.0-202611030127.p2.g7aa4007.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-ansible-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
       issues:
         targeted_fixes_only: true
         include:
