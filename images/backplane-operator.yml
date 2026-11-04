@@ -24,11 +24,9 @@ from:
 name: multicluster-engine/backplane-rhel9-operator
 bundle_name_override: mce-operator-bundle
 update-csv:
-  name: multicluster-engine
   manifests-dir: bundle
   bundle-dir: manifests
   registry: image-registry.openshift-image-registry.svc:5000
-  registry-target-namespace: multicluster-engine
   valid-subscription-label: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
 owners:
 - acm-cicd@redhat.com
