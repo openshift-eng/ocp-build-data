@@ -24,11 +24,9 @@ from:
 name: rhacm2/multiclusterhub-rhel9
 bundle_name_override: acm-operator-bundle
 update-csv:
-  name: advanced-cluster-management
   manifests-dir: bundle
   bundle-dir: manifests
   registry: image-registry.openshift-image-registry.svc:5000
-  registry-target-namespace: open-cluster-management
   valid-subscription-label: '["OpenShift Platform Plus", "Red Hat Advanced Cluster Management for Kubernetes"]'
 owners:
 - acm-cicd@redhat.com
