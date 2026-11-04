@@ -50,7 +50,17 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1433323cf9f7e49b366303bc6519e887a7d202948ec9b8e94c61b47ea65dd6b5
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ose-gcp-filestore-csi-driver-operator
+            metadata:
+              is:
+                nvr: ose-gcp-filestore-csi-driver-operator-container-v5.0.0-202611031145.p2.gb10ba12.assembly.stream.el9
+            why: "202611030132 driver operand build was cancelled (missing from registry); pin operator to 202611031145 whose bundle references operands present in nightly 5.0.0-0.nightly-2026-11-03-123514"
+          - distgit_key: ose-gcp-filestore-csi-driver
+            metadata:
+              is:
+                nvr: ose-gcp-filestore-csi-driver-container-v5.0.0-202611031145.p2.g7545da1.assembly.stream.el9
+            why: "Pin driver operand to 202611031145 (202611030132 build was cancelled); referenced by the pinned operator bundle"
   5.0.0:
     assembly:
       type: standard
