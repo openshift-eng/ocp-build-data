@@ -233,11 +233,74 @@ repos:
         - el8
         localdev:
           enabled: true
+      # === PROTOTYPE / FOR-DISCUSSION (proto-4.12-dtk-kernel-pin) ===
+      # Exclude ALL kernel* packages from this repo.
+      #
+      # Why this is needed: driver-toolkit (DTK) must ship the EXACT SAME kernel
+      # build as RHCOS (the el8_6 kernel, 4.18.0-372.227.1.el8_6). This is
+      # enforced by build-sync-konflux's require_consistency check
+      # (driver-toolkit: kernel). If DTK's kernel does not match RHCOS, that
+      # consistency check fails, build-sync-konflux goes UNVIABLE, and 4.12
+      # nightlies freeze.
+      #
+      # This repo (rhel-8-baseos-rpms) now points at RHEL 8-latest (8.10) content
+      # (baseurl content/dist/rhel8/8/.../baseos) so that the shared base image
+      # picks up the emudhra ca-certificates fix. But 8.10 also carries a much
+      # newer kernel (4.18.0-553.x.el8_10). Without this guard, dnf version
+      # comparison would pick the 8.10 kernel over the pinned el8_6 kernel
+      # (553 > 372), DTK would no longer match RHCOS, and the consistency check
+      # would break.
+      #
+      # excludepkgs: kernel* blocks every kernel* package from this 8.10 repo, so
+      # ALL kernel* packages instead resolve from the 8.6 E4S repo
+      # (rhel-8.6-baseos-e4s-rpms, added for driver-toolkit) and thus match
+      # RHCOS. Non-kernel content -- including the emudhra-fixed ca-certificates
+      # -- still comes from this 8.10 repo, so the emudhra fix is retained.
+      #
+      # This pairs with the KERNEL_VERSION pin in images/driver-toolkit.yml.
+      # (Reference OCPBUGS-63597 is about kernel-rt removal and is not needed
+      # here.)
+      #
+      # PROTOTYPE: part of proto-4.12-dtk-kernel-pin, pending validation by a
+      # real driver-toolkit build.
+      extra_options:
+        excludepkgs: kernel*
     content_set:
       default: rhel-8-for-x86_64-baseos-rpms
       aarch64: rhel-8-for-aarch64-baseos-rpms
       ppc64le: rhel-8-for-ppc64le-baseos-rpms
       s390x: rhel-8-for-s390x-baseos-rpms
+    reposync:
+      enabled: false
+
+  # === PROTOTYPE / FOR-DISCUSSION (proto-4.12-dtk-kernel-pin) ===
+  # This repo exists SOLELY to supply the el8_6 kernel
+  # (kernel-4.18.0-372.227.1.el8_6) to the driver-toolkit image, so DTK can be
+  # pinned to el8_6 while the shared rhel-8-baseos-rpms above stays on 8-latest
+  # (8.10) content. It points at the 8.6 E4S (Extended Update Support) baseos
+  # content. Do NOT add this to general image repo lists; only driver-toolkit.yml
+  # consumes it.
+  # TODO(CoreOS / edge-sro): CONFIRM that 4.18.0-372.227.1.el8_6 is actually
+  # present in this 8.6 E4S baseos repo and not only in the ART weekly-kernel
+  # candidate tag (rhaos-4.12-rhel-8-candidate).
+  rhel-8.6-baseos-e4s-rpms:
+    conf:
+      baseurl:
+        aarch64: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.6/aarch64/baseos/os/
+        ppc64le: https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.6/ppc64le/baseos/os/
+        s390x:   https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.6/s390x/baseos/os/
+        x86_64:  https://rhsm-pulp.corp.redhat.com/content/e4s/rhel8/8.6/x86_64/baseos/os/
+      ci_alignment:
+        profiles:
+        - el8
+        localdev:
+          enabled: true
+    content_set:
+      default: rhel-8-for-x86_64-baseos-e4s-rpms__8_DOT_6
+      aarch64: rhel-8-for-aarch64-baseos-e4s-rpms__8_DOT_6
+      ppc64le: rhel-8-for-ppc64le-baseos-e4s-rpms__8_DOT_6
+      s390x: rhel-8-for-s390x-baseos-e4s-rpms__8_DOT_6
+      optional: true
     reposync:
       enabled: false
 

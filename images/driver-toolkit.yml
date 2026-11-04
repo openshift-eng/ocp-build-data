@@ -6,12 +6,22 @@ content:
       match: "ARG RHEL_VERSION=''"
       replacement: "ARG RHEL_VERSION='8.6'"
 
-    # Uncomment the following sections to pin specific kernel versions
+    # === PROTOTYPE / FOR-DISCUSSION (proto-4.12-dtk-kernel-pin) ===
+    # Pin DTK's kernel to the el8_6 weekly kernel so driver-toolkit stays on the
+    # RHCOS 4.12 el8_6 (372.x) kernel, while group.yml's shared baseos/appstream
+    # repos remain on 8-latest (8.10) content (which carries the emudhra
+    # ca-certificates fix). This keeps require_consistency (driver-toolkit:kernel)
+    # happy without reverting the shared repos.
+    #
+    # Standard kernel pin for this week: kernel-4.18.0-372.227.1.el8_6
+    - action: replace
+      match: "ARG KERNEL_VERSION=''"
+      replacement: "ARG KERNEL_VERSION='4.18.0-372.227.1.el8_6'"
 
-    # - action: replace
-    #   match: "ARG KERNEL_VERSION=''"
-    #   replacement: "ARG KERNEL_VERSION='1.2.3'"
-
+    # NOTE: no RT_KERNEL_VERSION pin. kernel-rt was REMOVED from OCP 4.12
+    # (OCPBUGS-63597, shipped in 4.12.83): driver-toolkit no longer installs
+    # kernel-rt and no kernel-rt build exists for 4.18.0-372.227.1.el8_6, so
+    # there is nothing to pin. Left as the upstream commented-out default.
     # - action: replace
     #   match: "ARG RT_KERNEL_VERSION=''"
     #   replacement: "ARG RT_KERNEL_VERSION='1.2.3'"
@@ -27,6 +37,9 @@ enabled_repos:
 - rhel-8-baseos-rpms
 - rhel-8-appstream-rpms
 - rhel-8-rt-rpms
+# PROTOTYPE: el8_6 baseos repo added so the pinned el8_6 kernel
+# (4.18.0-372.227.1.el8_6) is resolvable. Defined in group.yml.
+- rhel-8.6-baseos-e4s-rpms
 for_payload: true
 from:
   member: openshift-enterprise-base
