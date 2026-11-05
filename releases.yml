@@ -50,7 +50,10 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:16250bdab7bbac1de88b84aaa32bb511659ba0976eb6cff40a3f55684b8180ea
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: sriov-network-operator
+            why: "sriov-dp-admission-controller 202611041433 build never completed; the sriov-network-operator bundle references an operand NVR not in the release, failing verify_attached_operators. Excluding SR-IOV from the 4.21.42 shipment to unblock the release; SR-IOV update to ship in a later z-stream."
+            exclude: true
   4.21.41:
     assembly:
       type: standard
