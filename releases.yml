@@ -11,6 +11,9 @@ releases:
           component: openshift-enterprise-operator-sdk
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: openshift-enterprise-tests
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: "OCPBUGS-136163 (CVE-2026-92092, 4.16.z) is a backport of OCPBUGS-135356 (4.17.z), which is Verified but not yet attached to a 4.17.z advisory. Ref ART-25286"
       group:
         advisories:
           rpm: 176573
