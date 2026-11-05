@@ -3,6 +3,8 @@ releases:
     assembly:
       type: standard
       issues:
+        include:
+          - id: OCPBUGS-135019  # CVE-2026-98432 RHCOS kernel tracker
         exclude:
           - id: OCPBUGS-102049  # CVE fix already shipped in advisory 175387
       basis:
