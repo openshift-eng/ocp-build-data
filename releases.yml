@@ -24,6 +24,11 @@ releases:
           env: stage
         release_date: 2027-Feb-01
         upgrades: 5.0.0,5.0.1,5.0.9,5.1.0-ec.0,5.1.0-ec.1
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.61.1.el9_8
+              why: Pin kernel to resolve inconsistent kernel versions across stream images
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
