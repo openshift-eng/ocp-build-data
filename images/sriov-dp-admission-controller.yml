@@ -12,7 +12,7 @@ content:
         - approved
         - lgtm
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
 dependents:
 - sriov-network-operator
 distgit:
@@ -24,7 +24,7 @@ delivery:
 for_payload: false
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.25
   member: openshift-enterprise-base-rhel9
 name: openshift4/ose-sriov-dp-admission-controller-rhel9
 name_in_bundle: sriov-dp-admission-controller

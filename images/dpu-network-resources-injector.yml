@@ -13,7 +13,7 @@ content:
     ci_alignment:
       streams_prs:
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
 dependents:
 - dpu-operator
 distgit:
@@ -25,7 +25,7 @@ delivery:
 for_payload: false
 from:
   builder:
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.25
   member: openshift-enterprise-base-rhel9
 name: openshift4/ose-dpu-network-resources-injector-rhel9
 name_in_bundle: dpu-network-resources-injector

@@ -27,7 +27,7 @@ content:
       streams_prs:
         enabled: false
         ci_build_root:
-          member: ci-openshift-build-root-latest.rhel9
+          member: ci-openshift-build-root-extra.rhel9
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-installer-etcd-artifacts-container
@@ -40,11 +40,11 @@ from:
   builder:
   # IMPORTANT: etcd has unique approval to track its own etcd version. Other repos need arch
   # approval to diverge from what kube apiserver uses for a given release.
-  - stream: rhel-9-golang
-  - stream: rhel-9-golang
-  - stream: rhel-9-golang
-  - stream: rhel-9-golang
-  - stream: rhel-9-golang
+  - stream: rhel-9-golang-1.25
+  - stream: rhel-9-golang-1.25
+  - stream: rhel-9-golang-1.25
+  - stream: rhel-9-golang-1.25
+  - stream: rhel-9-golang-1.25
   member: openshift-enterprise-base-rhel9
 labels:
   License: GPLv2+
