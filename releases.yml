@@ -44,7 +44,22 @@ releases:
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:46fa6b08ab9b0f091a5161bd613695c8034b630f2e67f7ceb1a83b28fe538054
       members:
         rpms: []
-        images: []
+        images:
+          - distgit_key: ptp-operator
+            why: "4.14.78: exclude - verify_attached_operators mismatch; bundle references linuxptp-daemon operand not selected into the release"
+            exclude: true
+          - distgit_key: sriov-network-operator
+            why: "4.14.78: exclude - verify_attached_operators mismatch; bundle references sriov-cni operand not selected into the release"
+            exclude: true
+          - distgit_key: ose-metallb-operator
+            why: "4.14.78: exclude - bundle rebase failed; kube-rbac-proxy operand image missing in registry"
+            exclude: true
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: "4.14.78: exclude - bundle rebase failed; nmstate-console-plugin operand image missing in registry"
+            exclude: true
+          - distgit_key: ingress-node-firewall-operator
+            why: "4.14.78: exclude - bundle rebase failed; kube-rbac-proxy operand image missing in registry"
+            exclude: true
   4.14.77:
     assembly:
       type: standard
