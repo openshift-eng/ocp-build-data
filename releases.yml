@@ -67,6 +67,9 @@ releases:
             metadata:
               is:
                 nvr: ose-cluster-openshift-controller-manager-operator-container-v5.1.0-202609011727.p2.g8da2f1f.assembly.stream.el9
+          - distgit_key: ose-haproxy-router-haproxy34
+            exclude: true
+            why: "Image added after ec.2 nightly cutoff time"
   ec.1:
     assembly:
       type: preview
