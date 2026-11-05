@@ -98,6 +98,11 @@ releases:
             metadata:
               is:
                 nvr: sriov-network-operator-container-v4.19.0-202611050700.p2.gb58ab9d.assembly.4.19.55.el9
+          - distgit_key: local-storage-diskmaker
+            why: "Pin diskmaker to the NVR the local-storage-operator bundle references (202611031655) so it is present in the release; its only dependent is local-storage-operator."
+            metadata:
+              is:
+                nvr: local-storage-diskmaker-container-v4.19.0-202611031655.p2.gc489dd6.assembly.stream.el9
   4.19.54:
     assembly:
       type: standard
