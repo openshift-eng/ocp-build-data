@@ -8,6 +8,12 @@ content:
     - action: replace
       match: "ARG BOOTC_BASE=registry.redhat.io/rhel10/rhel-bootc"
       replacement: "ARG BOOTC_BASE=registry.redhat.io/rhel10/rhel-bootc:10.2"
+    - action: replace
+      match: "ARG FRR_IMAGE\n"
+      replacement: "ARG FRR_IMAGE=registry.redhat.io/openshift5/frr-rhel9@sha256:99a93527c8a4d1bf1025be822cdd38f7af8a81ec7a6256c9b755200b5cc6eb87\n"
+    - action: replace
+      match: "ARG NODE_EXPORTER_IMAGE\n"
+      replacement: "ARG NODE_EXPORTER_IMAGE=registry.redhat.io/openshift5/ose-prometheus-node-exporter-rhel9@sha256:77cb18f2ff5a095e3e009fffb02a771e193e506781116e99077eb4137c6469a1\n"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
