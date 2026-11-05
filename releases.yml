@@ -39,6 +39,10 @@ releases:
       members:
         rpms: []
         images: []
+      issues:
+        exclude:
+          - id: OCPBUGS-133964
+          # why: RHCOS/ignition CVE tracker delivered via bootimage; no attached builds for this assembly
   4.20.45:
     assembly:
       type: standard
