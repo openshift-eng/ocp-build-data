@@ -1,4 +1,99 @@
 releases:
+  ec.2:
+    assembly:
+      type: preview
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: cluster-node-tuning-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-agent
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-ansible-operator
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: openshift-enterprise-tests
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-network-tools
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-tools
+      basis:
+        time: "2026-11-02T19:18:12+00:00"
+        reference_releases:
+          x86_64: 5.1.0-0.nightly-2026-11-03-015420
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+          microshift: 172758
+        release_jira: ART-23288
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 63643
+            - kind: extras
+              live_id: 63644
+            - kind: metadata
+              live_id: 63645
+            - kind: fbc
+          env: stage
+        release_date: 2027-Feb-01
+        upgrades: 5.0.0,5.0.1,5.0.9,5.1.0-ec.0,5.1.0-ec.1
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.61.1.el9_8
+              why: Pin kernel to resolve inconsistent kernel versions across stream images
+              non_gc_tag: hotfix
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:d3a500a357aed7ab58c5e04d9e818bad3b601ae6d59ac2978bf07c4c31d111de
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:deef62da6a65de13803cab47c95b222fd691bf91652b830a955c99628f39d526
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:e60aded0449eb22de180426220e8512aaba5df649dd13fb619be972e29f7145a
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:76fa1ca7e538816faf291db4d73b194bc33045297ee58a1dded74cd5bfe45101
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:95163b463e09f42381210d54a11a4f01b8352e50d8f7ebf1e8ac82976bb252de
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:5025f826e4f94e8780fdf116794ab188c14ee659b4bb0b2f86aea718f1a147b1
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:d4de7dd392e8491c808bc0f1d8f231b8090f630102674c9fd4e5c1655a60f69c
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:9a7d62ce5f83a5ed00ccdff9e93a291d238d74a37d701ca1dc0c96910e5e643b
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:45717d3657af7d9c1d4d920b74d07cf62f7b45eb205ee53b853f0adc978cf24c
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:15737ef857a830d593a3051ad9ad78bdbf3926d1ab604c381a98a2d699ff1636
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:c7e4b854e2d033a016b90c11bfa1ab53d180cf1f1db4e7c96f2963fe1cb7ead2
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:f5773e13fd7865d3b9191227fb6fc476a712fde7ffb0b936fd51016003531300
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:4be256152025060b67b196edd9ef3092b98d8c1c9cd264b62244303e8e0f5d39
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:c96d2757dc63e591f8fdab62f4fee2418b4cac1f9107fa82efb5181c5f83b65a
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:c7a283bac3db7fbc7bea07632d2fb97406d3a07d1042acf5c94deba7d356761a
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:2897f3f0940f97bc653836e848dc8f1d06aefb99f5d277db0f36024b767b0758
+      members:
+        rpms: []
+        images:
+          - distgit_key: driver-toolkit-rhel10
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: driver-toolkit-rhel10-container-v5.1.0-202610272032.p2.gb63b175.assembly.stream.el10
+          - distgit_key: driver-toolkit
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v5.1.0-202610272032.p2.gb63b175.assembly.stream.el9
+          - distgit_key: ose-cluster-openshift-controller-manager-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-cluster-openshift-controller-manager-operator-container-v5.1.0-202609011727.p2.g8da2f1f.assembly.stream.el9
+          - distgit_key: ose-haproxy-router-haproxy34
+            exclude: true
+            why: "Image added after ec.2 nightly cutoff time"
   ec.1:
     assembly:
       type: preview
