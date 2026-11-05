@@ -103,6 +103,11 @@ releases:
             metadata:
               is:
                 nvr: local-storage-diskmaker-container-v4.19.0-202611031655.p2.gc489dd6.assembly.stream.el9
+          - distgit_key: node-feature-discovery
+            why: "Pin node-feature-discovery to the NVR the cluster-nfd-operator bundle (202611041656) references; the operand built after the 4.19.55 basis cutoff so the assembly otherwise selects an older build. Fixes prepare-release-konflux verify_attached_operators. Its only dependent is cluster-nfd-operator."
+            metadata:
+              is:
+                nvr: node-feature-discovery-container-v4.19.0-202611041656.p2.g9b1875f.assembly.stream.el9
   4.19.54:
     assembly:
       type: standard
