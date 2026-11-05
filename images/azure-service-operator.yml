@@ -31,3 +31,8 @@ from:
 name: multicluster-engine/azure-service-operator-rhel9
 owners:
 - acm-cicd@redhat.com
+konflux:
+  # The 5.1 controller compile reaches the default 8Gi build-step limit
+  # before go build starts, then runs until the pipeline times out.
+  build_step_resources:
+    memory: 32Gi
