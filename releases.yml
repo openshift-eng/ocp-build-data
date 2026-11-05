@@ -40,6 +40,8 @@ releases:
         rpms: []
         images: []
       issues:
+        include:
+          - id: OCPBUGS-135017  # CVE-2026-98432 RHCOS kernel tracker
         exclude:
           - id: OCPBUGS-133964
           # why: RHCOS/ignition CVE tracker delivered via bootimage; no attached builds for this assembly
