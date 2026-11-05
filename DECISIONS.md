@@ -57,6 +57,11 @@ Created as part of JIRA ticket [HYPBLD-894](https://redhat.atlassian.net/browse/
 - **Decision**: Keep builder `rhel9`, builder `rhel-9-golang-1.26`, and final `member: base-rhel9`.
 - **Rationale**: `backplane-5.1` `build/Dockerfile.rhtap` still has three non-stage `FROM` lines (cloner, Go 1.26 builder, `ubi-minimal-pqc`). The cloner line in git names standard `ubi-minimal`; Doozer substitutes the `rhel9` PQC stream for that parent.
 
+## Azure Service Operator Build Memory
+
+- **Decision**: `azure-service-operator.yml` sets `konflux.build_step_resources.memory` to `32Gi`.
+- **Rationale**: The 5.1 `stolostron/Dockerfile.stolostron` compiles a larger controller than 5.0. The default Konflux build step is limited to 8Gi, and the 5.1 log shows about 38Mi free when `go build` starts. The 5.0 compile finishes in a few minutes inside that limit. The 5.1 compile stays running until the pipeline times out.
+
 ## Azure Service Operator Dockerfile
 
 - **Decision**: `azure-service-operator.yml` no longer rewrites `COPY` lines.
