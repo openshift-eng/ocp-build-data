@@ -1,6 +1,6 @@
 content:
   source:
-    dockerfile: Dockerfile.art
+    dockerfile: Dockerfile
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
@@ -24,18 +24,9 @@ from:
   member: openshift-enterprise-base-rhel9
 name: openshift4/ose-networking-console-plugin-rhel9
 owners:
-- upalatuc@redhat.com
-- yzamir@redhat.com
-- mschatzm@redhat.com
+- phbailey@redhat.com
+- rlavi@redhat.com
 payload_name: networking-console-plugin
 konflux:
   vm_override:
     aarch64: linux-d160-c4xlarge/arm64
-okd:
-  content:
-    source:
-      dockerfile: Dockerfile
-      modifications:
-      - action: replace
-        match: "RUN npm ci && npm run build"
-        replacement: "RUN for i in 1 2 3; do npm ci && break || sleep 5; done && npm run build"
