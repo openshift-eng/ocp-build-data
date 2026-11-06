@@ -8,6 +8,347 @@ releases:
             - kind: image
             - kind: fbc
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1144
+        fbc_builds:
+          '4.12':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261104225503.ocp4.12
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1072f271031db9042a6485bff68a86760f716f4fece8174684cb0098ab32d830
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.12
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:62a9612b6cf6c35c9c7e82ac7a4795ba156e5af884423ba7459ac1f4eda6638f
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.12
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:164b4aa04272cf1468fb4bf6c76e8745058ec598994ec753a6cdb2a6b0e54daa
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.14':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261104225503.ocp4.14
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:216031ac897bbf5e817c5b5a185b8513ffd4a986f4d16454bf97f72e84b92cbd
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.14
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:555946b158bbec71fc7d0cd818e11e82bf455826148b6f2bc2079fd598e0aa6c
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.14
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:0e2cb402e82c3be5875d00481fec45580dedec7e20afd955fd14e355109506a9
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.15':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261104225503.ocp4.15
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:dd280ba3e78d3428aac7b6e88be7df98073e7fef767b768b55462a6e2f9b2b2c
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.15
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:7a2319df7a7a3b850fa18b42971380306c5ce2007857c8a4e238994c81fdd77d
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.15
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:73dfe794a2722ff9007c88acace91ead505887be924a5e1920b7780e29cb4ea2
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.16':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261105034851.ocp4.16
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:409072b9d7c312e8cc8131a4754e6168408b474a2632eb5aa0d2c151b9e083e6
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.16
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:13222279ffd2e8973f98eb5ee8e8d7115e18949039fe6b22eafbebedb26d6e46
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.16
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d7bf770b0a74500b1c73749a3330abdbe68bd1ab7f2644184d6e2ac18187e884
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.17':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261105034851.ocp4.17
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:c9fa7c4482590c4b5570e8eea9193b8b8820baf1093ad4e81f252051834fbf29
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.17
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:239dfcb24cf65f2c9321232a456ea32a9f38a5aef61484a8e5dab28415521c0f
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.17
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:627b5b622d2e33e0a836faaf74507f927096ec9ef2dbd26897cd9b4d1e3a826f
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.18':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261104225503.ocp4.18
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:ebc63522b21a8d1ef5f7421e5a812e6abb4eff669a378c0db5eda60f41fa63fe
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.18
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1d2895abe0a0f7a29545e3f96b23aeefbdfcb4d4cbfcb9e1d30b5882c7f5e0bb
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.18
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:24b2c20776a2de481c43260d0de68e9e894e6db7680186cd9a878f1773a5f3ac
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.19':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261104225503.ocp4.19
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:372d716dc699f3251aada216050c88c020a453ce1ea25d8e7a80b7abbd6bfd97
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.19
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d097547dfc34cc90b290421d3b18b83e743a28be0b76a5a9e0d8a53dc281a762
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.19
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1222c9294c62ff570c0dde97ac151ae17733deb676096110258be213754b544c
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.20':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261105034851.ocp4.20
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:373a488f183bbdcf15ec6674a5aa0f3e98515dd0ceddf716df83826730cabd5a
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.20
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:4e57b3daafe1a8e37ab623e3d45af50e7c3c2a3b429ae1673b72d05c1c6d70b7
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.20
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:b12a23e4e599e0f8af7f4cc4330b9c33219fd03bc69dd26c61866fe3835073dc
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.21':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261105034851.ocp4.21
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:5cf6df47cb35063ef9f561323f838b934d67213cad510a74e12ebbd5755f97c1
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.21
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:074f59fd8f1cb89614bdd8c6ed525696331407834f7c8780f244ebd50b7f4c48
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.21
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:ab645ecb10c3f84efce9597c4bec3ca359ad88371fa2ca597b0c49fd7e3362c9
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+          '4.22':
+            container-security-operator:
+              nvr: container-security-operator-fbc-3.16.7-20261105034851.ocp4.22
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d0f880e4504fd3963ee1f2cc3a57152e99b90ed51215457fa0eeaf73f12c22e3
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-bridge-operator:
+              nvr: quay-bridge-operator-fbc-3.16.7-20261028043147.ocp4.22
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:ffbbe8ceacbaa756efb24a4a1cdda966f70fb36d4d06ca457ffe731ebe3fa829
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
+            quay-operator:
+              nvr: quay-operator-fbc-3.16.7-20261106225029.ocp4.22
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:eb1c4d5e473d53518ade1722025a7a5a5ff556c4ff10a314df833fe9a1a74099
+              operand_nvrs:
+                - container-security-operator-container-3.16.7-202611041541.p2.g0d739b6.assembly.stream.el9
+                - quay-bridge-operator-container-3.16.7-202610260619.p2.gfb76353.assembly.stream.el9
+                - quay-builder-container-3.16.7-202610271524.p2.ge9b3146.assembly.stream.el9
+                - quay-builder-qemu-container-3.16.7-202611041541.p2.g60d6174.assembly.stream.el9
+                - quay-clair-container-3.16.7-202610271850.p2.g752611c.assembly.stream.el9
+                - quay-operator-container-3.16.7-202611041541.p2.g0897e24.assembly.stream.el9
+                - quay-quay-container-3.16.7-202611061913.p3.g3d3a26e.assembly.stream.el9
       members:
         images:
           - distgit_key: container-security-operator
