@@ -75,7 +75,12 @@ releases:
             s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:c7a283bac3db7fbc7bea07632d2fb97406d3a07d1042acf5c94deba7d356761a
             ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:2897f3f0940f97bc653836e848dc8f1d06aefb99f5d277db0f36024b767b0758
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-5.1.0~ec.2-202611062124.p0.g6d9435a.assembly.ec.2.el9
         images:
           - distgit_key: driver-toolkit-rhel10
             why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
