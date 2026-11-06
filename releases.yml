@@ -95,6 +95,36 @@ releases:
           - distgit_key: ose-haproxy-router-haproxy34
             exclude: true
             why: "Image added after ec.2 nightly cutoff time"
+          - distgit_key: sriov-network-operator
+            exclude: true
+            why: "verify_attached_operators: bundle references operand not in release; excluded from ec.2"
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            exclude: true
+            why: "verify_attached_operators: bundle references operand not in release; excluded from ec.2"
+          - distgit_key: pf-status-relay-operator
+            exclude: true
+            why: "verify_attached_operators: bundle references operand not in release; excluded from ec.2"
+          - distgit_key: ose-secrets-store-csi-driver-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
+          - distgit_key: ose-smb-csi-driver-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
+          - distgit_key: vertical-pod-autoscaler-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
+          - distgit_key: local-storage-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
+          - distgit_key: ose-aws-efs-csi-driver-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
+          - distgit_key: ose-gcp-filestore-csi-driver-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
+          - distgit_key: clusterresourceoverride-operator
+            exclude: true
+            why: "Bundle build failing (persistent its_error, 0 successful in 14 days); excluded from ec.2"
   ec.1:
     assembly:
       type: preview
