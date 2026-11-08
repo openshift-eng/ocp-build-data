@@ -49,6 +49,15 @@ releases:
         exclude:
           # Closed as duplicate of OCPBUGS-111547; attached to 4.15 in error
           - id: OCPBUGS-136182
+      promotion_permits:
+        - code: ATTACHED_BUGS
+          why: >-
+            OCPBUGS-136182 was attached to rpm advisory 176769 in error (closed as a
+            duplicate of OCPBUGS-111547) and has been removed from the advisory by
+            Product Security. Its orphaned flaw bug and CVE Names entry remain on the
+            advisory, which fails elliott verify-attached-bugs --verify-flaws during
+            promote-assembly. Permitting ATTACHED_BUGS so 4.15.71 promotion can
+            proceed; advisory flaw/CVE-name cleanup is handled separately.
   4.15.70:
     assembly:
       type: standard
