@@ -57,6 +57,11 @@ Created as part of JIRA ticket [HYPBLD-894](https://redhat.atlassian.net/browse/
 - **Decision**: Keep builder `rhel9`, builder `rhel-9-golang-1.26`, and final `member: base-rhel9`.
 - **Rationale**: `backplane-5.1` `build/Dockerfile.rhtap` still has three non-stage `FROM` lines (cloner, Go 1.26 builder, `ubi-minimal-pqc`). The cloner line in git names standard `ubi-minimal`; Doozer substitutes the `rhel9` PQC stream for that parent.
 
+## Azure Service Operator Build VM
+
+- **Decision**: `azure-service-operator.yml` sets `konflux.vm_override` to `linux-m2xlarge/amd64` for `x86_64` and `linux-m2xlarge/arm64` for `aarch64`.
+- **Rationale**: The 5.1 controller compile exceeds the default 8Gi hosts. On `aarch64` that default is the `linux/arm64` VM (`m6g.large`, 8Gi). On `x86_64` the default `linux/x86_64` build runs in-cluster with an 8Gi step limit, even when the node has more memory. `linux-m2xlarge` is the 32Gi memory-optimized flavor (`m6a.2xlarge` / `m6g.2xlarge`). Konflux documents it as the larger replacement for the default arm64 host, other `ocp-build-data` branches select hosts with `konflux.vm_override`, and both flavors are available on `kflux-ocp-p01`. `ppc64le` and `s390x` already build on larger hosts and stay on those defaults.
+
 ## Azure Service Operator Dockerfile
 
 - **Decision**: `azure-service-operator.yml` no longer rewrites `COPY` lines.
