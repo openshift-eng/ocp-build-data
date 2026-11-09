@@ -14,9 +14,13 @@ dependents:
 delivery:
   delivery_repo_names:
   - openshift-logging/log-file-metric-exporter-rhel9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 from:
   builder:
     - stream: rhel-9-golang
+    - stream: rhel9
   stream: rhel9-micro
 name: openshift-logging/log-file-metric-exporter-rhel9
 owners:
