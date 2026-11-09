@@ -1,0 +1,25 @@
+cachito:
+  enabled: true
+  packages:
+    gomod:
+    - path: .
+content:
+  source:
+    dockerfile: Containerfile.art
+    git:
+      branch:
+        target: mirror-registry-3.0
+      url: git@github.com:openshift-priv/quay-quay.git
+      web: https://github.com/quay/quay
+distgit:
+  branch: mirror-registry-{MAJOR}.{MINOR}-rhel-9
+  component: mirror-registry-container
+from:
+  builder:
+  - stream: rhel-9-golang
+  stream: rhel9
+name: openshift/mirror-registry-rhel9
+owners:
+- quay-devel@redhat.com
+for_payload: false
+canonical_builders_from_upstream: false
