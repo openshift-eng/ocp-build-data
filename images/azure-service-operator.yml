@@ -31,3 +31,9 @@ from:
 name: multicluster-engine/azure-service-operator-rhel9
 owners:
 - acm-cicd@redhat.com
+konflux:
+  # Default arm64 is an 8Gi VM, and the default x86_64 build is an in-cluster
+  # pod limited to 8Gi. linux-m2xlarge is 32Gi and is available on kflux-ocp-p01.
+  vm_override:
+    x86_64: linux-m2xlarge/amd64
+    aarch64: linux-m2xlarge/arm64
