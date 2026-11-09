@@ -44,26 +44,24 @@ Answers marked A1–A3 are from the HYPBLD-880 spec.
 
 ## Image scope
 
-33 configs: the same names as ART 2.8 (operand names, five assisted images, and `base-rhel9`). Nothing was dropped and nothing 2.6-only was added. Bundle stays out of `images/*.yml`.
+29 configs. ART 2.8's operand set stays, except the four RHEL 8 Assisted Installer images are not ART builds. `assisted-service-9` and `base-rhel9` stay. Bundle stays out of `images/*.yml`.
 
-The four rhel8 assisted Dockerfiles on `release-ocm-2.11` are ubi8. Their delivery names, distgit branch suffix, builders, and runtimes are rhel8. `assisted-service-9` stays on `Dockerfile.assisted-service-rhel9-mce` and `base-rhel9`.
+`assisted-image-service`, `assisted-installer`, `assisted-installer-agent`, and `assisted-installer-controller` are published by the assisted-installer team's el8 advisories (`assisted-installer-acm-prod-el8-2-11` and `assisted-installer-acm-stage-el8-2-11`). Quay receives `v2.6-latest`. The operator bundle pins production `registry.redhat.io` digests, because `art.yaml` has one replace string. Digests are from `stolostron/mce-operator-bundle` `backplane-2.6` snapshot `3551d66` (2026-11-07):
 
-| Component | Dockerfile | Branch | Builder | Runtime |
-|-----------|------------|--------|---------|---------|
-| assisted-image-service | `Dockerfile.image-service-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.25` | `ubi8/ubi:8.10` |
-| assisted-installer | `Dockerfile.assisted-installer-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.26` | `ubi8/ubi:8.10` |
-| assisted-installer-agent | `Dockerfile.assisted_installer_agent-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.26` | `ubi8/ubi:8.10` |
-| assisted-installer-controller | `Dockerfile.assisted-installer-controller-mce` | `release-ocm-2.11` | `ubi8/go-toolset:1.26` | `ubi8/ubi:8.10` |
-| assisted-service-9 | `Dockerfile.assisted-service-rhel9-mce` | `release-ocm-2.11` | `rhel-9-golang-1.26` | `base-rhel9` |
+- `assisted-image-service-rhel8` `sha256:2dd7f78c027e34d73e35b47e72802d45fddaa669110b4ecfd796bb4646b5dbd1`
+- `assisted-installer-rhel8` `sha256:b4d0b73985d4024a832d21848e2d0f603b2c9c9e9b33a629761daa18a3ff81a7`
+- `assisted-installer-agent-rhel8` `sha256:a213b32c343d269882aa62a260140d32e6df6d76b46df06615b9299b60930759`
+- `assisted-installer-controller-rhel8` `sha256:db21b2f0d0dd2454bc38812479a0ba39c54f954925c47ea82c78f604b878d585`
 
-`assisted-image-service` has two `FROM` lines and no packages stage, so there is no extra `base-rhel9` parent and no 2.14 gzip/tar change. `assisted-installer-controller` installs `openshift-clients` with `dnf` on ubi8, so it uses `rhocp-4.16-rhel8-rpms` instead of 2.8's `rhocp-4.17-rhel9-rpms` pin. `assisted-service-9` still installs `openshift-clients` on rhel9 and keeps `rhocp-4.17-rhel9-rpms`.
+The MCE 2.6 advisory ReleasePlanAdmissions do not publish those four repositories. `assisted-service-8` stays a separate external image.
+
+`assisted-service-9` stays an ART image on `Dockerfile.assisted-service-rhel9-mce`, `release-ocm-2.11`, builder `rhel-9-golang-1.26`, member `base-rhel9`. It still installs `openshift-clients` and keeps `rhocp-4.17-rhel9-rpms`.
 
 Not copied from 2.9 and up: `maestro`, `cluster-permission`, `cloudevents-conductor`, PQC ubi-minimal.
 
 ## Streams
 
 - **Go**: floating `rhel-9-golang` stays `golang-builder-v1.26-rhel9`. A3: the backplane-2.6 stolostron Dockerfiles use that tag, so `--golang-version 1.26` does not retarget them. Per-image changes from the 2.8 mix:
-  - four rhel8 assisted images: `ubi8-go-toolset-1.25` or `ubi8-go-toolset-1.26`, runtime stream `ubi8` (`ubi8/ubi:8.10`). Not `rhel-9-golang` and not `base-rhel9`
   - `cluster-api-provider-agent`: `rhel-9-golang-1.25` → `rhel-9-golang-1.24` (`rhel_9_1.24` on `release-ocm-2.11`)
   - `hypershift-cli`: `rhel-9-golang-1.26` → `rhel-9-golang-1.24` (`rhel_9_golang_1.24` on `release-4.16`)
   - `hypershift-release`: `rhel-9-golang-1.22` → `ubi9-go-toolset-9.5` (`ubi9/go-toolset:9.5-1739267472`). `Containerfile.operator` already has `COPY . .`, so the 2.9 `--chown=default` replace is not applied
@@ -78,7 +76,7 @@ Not copied from 2.9 and up: `maestro`, `cluster-permission`, `cloudevents-conduc
 
 ## group.yml extras from 2.8
 
-- **Decision**: Keep `cachi2.lockfile.backend`, `mr_approvers`, and per-image `jira:` blocks. `OCP_RELEASE_NOTES_VERSION` is `4.16`. Added `rhel-8-baseos-rpms`, `rhel-8-appstream-rpms`, and `rhocp-4.16-rhel8-rpms` for the ubi8 assisted images.
+- **Decision**: Keep `cachi2.lockfile.backend`, `mr_approvers`, and per-image `jira:` blocks. `OCP_RELEASE_NOTES_VERSION` is `4.16`. The rhel8 baseos, appstream, and `rhocp-4.16-rhel8-rpms` repos were removed when the four Assisted Installer images stopped being ART builds.
 
 ## Owners
 
@@ -98,9 +96,9 @@ Separate `stolostron/backplane-operator` pull request branched from `backplane-2
 - OSE replace tag is `v4.16`
 - `postgresql-12` replace is `registry.redhat.io/rhel8/postgresql-12:1-1789954358`
 - `assisted-service-el8` replace is the digest in `stolostron/mce-operator-bundle` `backplane-2.6` `config/mce-manifest-gen-config.json` (`sha256:4f94b0e0…`)
-- four assisted image-references tags are the rhel8 delivery names
+- the four RHEL 8 Assisted Installer images are external images. Their `art.yaml` names match the `image-references` names, and the replace digests are the 2026-11-07 production digests listed under Image scope
 
-Merge that pull request after this `mce-2.6` branch contains the five assisted image configs.
+Merge that pull request after this `mce-2.6` branch contains the `assisted-service-9` image config. The other four assisted images are external and must stay out of `images/`.
 
 ## Konflux
 
@@ -157,6 +155,8 @@ What was patched after:
 12. `mce-2-6-base-rhel9` added to `acm-base-images-silent-prod-rhel9.yaml`
 13. Advisory RPA delivery URLs for the four assisted images changed from rhel9 to rhel8
 14. Rebased the KRD branch onto `origin/main` before push
+
+Items 7, 9, and 13 were later reversed. The four RHEL 8 Assisted Installer images are external, the rhel8 repos and ubi8 streams are gone, and the advisory RPAs no longer publish those four repositories. Item 5 still applies to `assisted-service-9` and `cluster-api-provider-agent`.
 
 `base-rhel9.yml` has no `dependents:` entry. That matches 2.8 (base image, not an operand).
 
