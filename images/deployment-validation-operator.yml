@@ -1,0 +1,34 @@
+cachito:
+  packages:
+    gomod:
+      - path: .
+content:
+  source:
+    dockerfile: build/Dockerfile
+    git:
+      branch:
+        target: master
+      url: git@github.com:openshift-priv/deployment-validation-operator.git
+      web: https://github.com/app-sre/deployment-validation-operator
+distgit:
+  bundle_component: deployment-validation-operator-bundle-container
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: deployment-validation-operator-container
+delivery:
+  bundle_delivery_repo_name: dvo/deployment-validation-operator-bundle
+  delivery_repo_names:
+  - dvo/deployment-validation-rhel8-operator
+from:
+  builder:
+  - stream: rhel-9-golang
+  - stream: cli
+  member: base-rhel9
+name: dvo/deployment-validation-rhel8-operator
+name_in_bundle: deployment-validation-rhel8-operator
+owners:
+- ijimeno@redhat.com
+update-csv:
+  bundle-dir: manifests/
+  manifests-dir: konflux-ci/bundle/manifests/
+  registry: image-registry.openshift-image-registry.svc:5000
+  valid-subscription-label: '["OpenShift Container Platform", "OpenShift Platform Plus"]'

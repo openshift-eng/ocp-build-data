@@ -1,28 +1,32 @@
-name: kueue-1.5
-csv_namespace: kueue-operator
-product: kueue
-version: 1.5.1
+name: dvo-0.7
+csv_namespace: dvo
+product: dvo
+version: 0.7.19
 vars:
-  GO_LATEST: '1.26'
-  GO_EXTRA: '1.26'
+  GO_LATEST: '1.25'
+  GO_EXTRA: '1.25'
   MAJOR: 4
-  MINOR: 18
+  MINOR: 22
 arches:
   - x86_64
+  - aarch64
 operator_image_ref_mode: manifest-list
 konflux:
   arches:
     - x86_64
+    - aarch64
   cachi2:
     enabled: true
   network_mode: hermetic
 OCP_TARGET_VERSIONS:
+  - '4.12'
+  - '4.14'
+  - '4.16'
   - '4.18'
   - '4.19'
   - '4.20'
   - '4.21'
   - '4.22'
-  - '4.23'
   - '5.0'
 assemblies:
   enabled: true
@@ -31,6 +35,8 @@ public_upstreams:
     public: https://github.com/openshift
   - private: https://github.com/openshift-priv/ocp-build-data
     public: https://github.com/openshift-eng/ocp-build-data
+  - private: https://github.com/openshift-priv/deployment-validation-operator
+    public: https://github.com/app-sre/deployment-validation-operator
 urls:
   brewhub: https://brewhub.engineering.redhat.com/brewhub
   brew_image_host: registry-proxy.engineering.redhat.com
