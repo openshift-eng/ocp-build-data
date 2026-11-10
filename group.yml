@@ -2,11 +2,6 @@ name: kueue-1.5
 csv_namespace: kueue-operator
 product: kueue
 version: 1.5.1
-mr_approvers:
-  QE:
-    - anahas
-  DOCS:
-    - mipeter
 vars:
   GO_LATEST: '1.26'
   GO_EXTRA: '1.26'
@@ -14,16 +9,10 @@ vars:
   MINOR: 18
 arches:
   - x86_64
-  - aarch64
-  - ppc64le
-  - s390x
 operator_image_ref_mode: manifest-list
 konflux:
   arches:
     - x86_64
-    - aarch64
-    - ppc64le
-    - s390x
   cachi2:
     enabled: true
   network_mode: hermetic
