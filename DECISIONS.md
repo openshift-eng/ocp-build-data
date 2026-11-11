@@ -67,6 +67,11 @@ Created as part of JIRA ticket [HYPBLD-894](https://redhat.atlassian.net/browse/
 - **Decision**: `azure-service-operator.yml` no longer rewrites `COPY` lines.
 - **Rationale**: `backplane-5.1` `stolostron/Dockerfile.stolostron` already copies `v2/` and `stolostron/crds`. The 5.0 replacements do not match `COPY v2/ ./`, which fails the rebase, and `v2/stolostron/crds` does not exist. The Go module path stays `v2`.
 
+## Assisted Image Service Parents
+
+- **Decision**: `assisted-image-service.yaml` keeps builder `rhel-9-golang` and final `member: base-rhel9`. The extra builder `member: base-rhel9` is removed.
+- **Rationale**: `backplane-5.1` commit `4cbecce` removes the `AS packages` stage from `Dockerfile.image-service-mce`. The file now has two non-stage `FROM` lines: `ubi9/go-toolset:1.26` and final `ubi-minimal-pqc`. Doozer requires one parent entry per non-stage `FROM`. The remaining entries match the other assisted images.
+
 ## Assisted Images
 
 - **Decision**: The five assisted images stay in the ART image set and stay out of `bundle/art.yaml` `external-images`.
