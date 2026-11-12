@@ -15,6 +15,10 @@ content:
       streams_prs:
         ci_build_root:
           member: ci-openshift-build-root-latest.rhel9
+    modifications:
+    - action: replace
+      match: "RUN dnf install -y gcc nmstate-devel nmstate-libs && dnf clean all"
+      replacement: "RUN dnf install -y gcc nmstate-devel && dnf clean all"
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: ose-agent-installer-utils-container
