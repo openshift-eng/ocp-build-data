@@ -1,4 +1,80 @@
 releases:
+  4.20.47:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-11-11T07:37:01+00:00"
+        reference_releases:
+          x86_64: 4.20.0-0.nightly-2026-11-11-125558
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Nov-18
+        upgrades: 4.19.15,4.19.16,4.19.17,4.19.18,4.19.19,4.19.20,4.19.21,4.19.22,4.19.23,4.19.24,4.19.25,4.19.26,4.19.27,4.19.28,4.19.29,4.19.30,4.19.31,4.19.32,4.19.33,4.19.34,4.19.35,4.19.36,4.19.37,4.19.38,4.19.39,4.19.40,4.19.41,4.19.42,4.19.43,4.19.44,4.19.45,4.19.46,4.19.47,4.19.48,4.19.49,4.19.50,4.19.51,4.19.52,4.19.53,4.19.54,4.19.55,4.19.56,4.20.0,4.20.1,4.20.2,4.20.3,4.20.4,4.20.5,4.20.6,4.20.8,4.20.9,4.20.10,4.20.11,4.20.12,4.20.13,4.20.14,4.20.15,4.20.16,4.20.17,4.20.18,4.20.19,4.20.20,4.20.21,4.20.22,4.20.23,4.20.24,4.20.25,4.20.26,4.20.27,4.20.28,4.20.29,4.20.30,4.20.31,4.20.32,4.20.33,4.20.34,4.20.35,4.20.36,4.20.37,4.20.38,4.20.39,4.20.40,4.20.41,4.20.42,4.20.43,4.20.44,4.20.45,4.20.46
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5e1a80eba007fce65fc95edcd858651d439094c52c06c20f67a02844d4c1cbd4
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7043f28d34a42d798745382db0fde44b7dc673f463c11791f232ba57638ef592
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:813b1916de6709814bb76163ce79d0bc00df332e847d2a302848e864c702f3dd
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d3b2bbde28804fae327708e92f66ede8cf2909f24c22a294fc5339530b5de784
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e7d55cc4bb5efdd1eea8df759d14e3a0e91a62b6aca6e7dbf97ee760bb608d6b
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ff1118e0332ed205d048f230a06c2551a4cd846b28d0303fd4dd58d65b941d53
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:0bbf9765ae31a4cd4f80e953fe0bc9371cd4cca03764bff4a9477004cbfd0e63
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:401052d7591252f04c9a7a2ef2760c6fce9dbe52fb666b1874750f99a49896ed
+      members:
+        rpms: []
+        images:
+          - distgit_key: ose-cluster-ingress-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-cluster-ingress-operator-container-v4.20.0-202611050348.p2.g8e4c40f.assembly.stream.el9
+          - distgit_key: monitoring-plugin
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: monitoring-plugin-container-v4.20.0-202611110006.p2.ge37e1a3.assembly.stream.el9
+          - distgit_key: ose-machine-config-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-machine-config-operator-container-v4.20.0-202611110006.p2.g45ac1ae.assembly.stream.el9
+          - distgit_key: ose-image-customization-controller
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-image-customization-controller-container-v4.20.0-202611050348.p2.g146f6c5.assembly.stream.el9
+          - distgit_key: ose-cluster-samples-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-cluster-samples-operator-container-v4.20.0-202611100534.p2.geb9a4a3.assembly.stream.el9
+          - distgit_key: egress-router-cni
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-egress-router-cni-container-v4.20.0-202611050348.p2.gcfcc6c4.assembly.stream.el9
+          - distgit_key: ose-multus-whereabouts-ipam-cni
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-multus-whereabouts-ipam-cni-container-v4.20.0-202611050348.p2.ga36aafc.assembly.stream.el9
+          - distgit_key: ose-azure-service-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-azure-service-operator-container-v4.20.0-202611050348.p2.gd957de4.assembly.stream.el9
   4.20.46:
     assembly:
       type: standard
