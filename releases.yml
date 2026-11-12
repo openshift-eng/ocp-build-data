@@ -104,6 +104,61 @@ releases:
             metadata:
               is:
                 nvr: aws-kms-encryption-provider-container-v4.19.0-202611091723.p2.g65915f0.assembly.stream.el9
+          - distgit_key: openshift-kubernetes-nmstate-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-kubernetes-nmstate-operator-container-v4.19.0-202611121417.p2.g8ed4806.assembly.4.19.56.el9
+          - distgit_key: ingress-node-firewall-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ingress-node-firewall-operator-container-v4.19.0-202611121417.p2.g7357384.assembly.4.19.56.el9
+          - distgit_key: ose-aws-efs-csi-driver-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-aws-efs-csi-driver-operator-container-v4.19.0-202611121417.p2.g1601562.assembly.4.19.56.el9
+          - distgit_key: ose-gcp-filestore-csi-driver-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-gcp-filestore-csi-driver-operator-container-v4.19.0-202611121417.p2.g542cc81.assembly.4.19.56.el9
+          - distgit_key: ose-metallb-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-metallb-operator-container-v4.19.0-202611121417.p2.g1e1cf0e.assembly.4.19.56.el9
+          - distgit_key: ose-smb-csi-driver-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-smb-csi-driver-operator-container-v4.19.0-202611121417.p2.g1601562.assembly.4.19.56.el9
+          - distgit_key: pf-status-relay-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: pf-status-relay-operator-container-v4.19.0-202611121417.p2.g819a7b2.assembly.4.19.56.el9
+          - distgit_key: ptp-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-ptp-operator-container-v4.19.0-202611121417.p2.g3836778.assembly.4.19.56.el9
+          - distgit_key: sriov-network-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: sriov-network-operator-container-v4.19.0-202611121417.p2.gb58ab9d.assembly.4.19.56.el9
+          - distgit_key: clusterresourceoverride-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-clusterresourceoverride-operator-container-v4.19.0-202611121417.p2.gd2c49ee.assembly.4.19.56.el9
+          - distgit_key: ose-secrets-store-csi-driver-operator
+            why: "Rebuilt in-assembly 4.19.56 so the operator bundle references the operands present in the payload (fixes prepare-release-konflux bundle rebase)."
+            metadata:
+              is:
+                nvr: ose-secrets-store-csi-driver-operator-container-v4.19.0-202611121417.p2.gd830230.assembly.4.19.56.el9
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
