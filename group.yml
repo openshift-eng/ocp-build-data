@@ -107,3 +107,30 @@ repos:
       default: rhocp-4.7-for-rhel-8-x86_64-rpms
     reposync:
       enabled: false
+
+  rhel-9-baseos-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/baseos/os/
+    content_set:
+      default: rhel-9-for-x86_64-baseos-rpms
+    reposync:
+      enabled: false
+
+  rhel-9-appstream-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/rhel9/9/x86_64/appstream/os/
+    content_set:
+      default: rhel-9-for-x86_64-appstream-rpms
+    reposync:
+      enabled: false
+
+  rhocp-4.19-for-rhel-9-x86_64-rpms:
+    conf:
+      baseurl:
+        x86_64: https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel9/x86_64/rhocp/4.19/os/
+    content_set:
+      default: rhocp-4.19-for-rhel-9-x86_64-rpms
+    reposync:
+      enabled: false
