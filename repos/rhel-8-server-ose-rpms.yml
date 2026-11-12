@@ -1,9 +1,4 @@
 - conf:
-    baseurl:
-      aarch64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/aarch64/os/
-      ppc64le: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/ppc64le/os/
-      s390x: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/s390x/os/
-      x86_64: https://ocp-artifacts.engineering.redhat.com/pub/RHOCP/plashets/{MAJOR}.{MINOR}/{runtime_assembly}/el8/latest/x86_64/os/
     ci_alignment:
       localdev:
         enabled: true
@@ -14,7 +9,39 @@
   content_set:
     optional: true
   name: rhel-8-server-ose-rpms
+  plashet:
+    assembly_aware: true
+    embargo_aware: true
+    exclude_packages:
+    - kernel
+    - kernel-rt
+    include_previous_packages:
+    - conmon
+    - cri-o
+    - cri-tools
+    - crun
+    - haproxy
+    - ignition
+    - kernel
+    - kernel-rt
+    - libreswan
+    - nmstate
+    - openshift
+    - openvswitch
+    - ovn
+    - podman
+    - python3-openvswitch
+    - spdlog
+    slug: el8
+    source:
+      embargoed_tags:
+      - rhaos-{MAJOR}.{MINOR}-rhel-8-embargoed
+      from_tags:
+      - name: rhaos-{MAJOR}.{MINOR}-rhel-8-candidate
+        product_version: OSE-{MAJOR}.{MINOR}-RHEL-8
+        release_tag: rhaos-{MAJOR}.{MINOR}-rhel-8
+      type: brew
   reposync:
     enabled: true
     latest_only: false
-  type: external
+  type: plashet
