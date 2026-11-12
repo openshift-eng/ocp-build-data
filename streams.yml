@@ -17,19 +17,18 @@ rhel-8-golang-1.26:
 rhel-9-golang-1.26:
   image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel9
 
-# release-4.16 Containerfile.operator pins this builder. Do not substitute the 2.8 golang-builder 1.22 stream.
 ubi9-go-toolset-9.5:
-  image: registry.access.redhat.com/ubi9/go-toolset:9.5-1739267472
+  image: registry.access.redhat.com/ubi9/go-toolset:latest
 
-# Floating nodejs tag. ubi-minimal is :latest (not PQC). ose-cli follows OCP 4.16.
+# Floating nodejs tag. ubi-minimal is :latest (not PQC).
 rhel-9-nodejs-24:
   image: registry.redhat.io/ubi9/nodejs-24-minimal:latest
 
 ose-cli-artifacts:
-  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.16
+  image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:latest
 
 ose-cli-rhel9:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.16
+  image: registry.redhat.io/openshift4/ose-cli-rhel9:latest
 
 rhel9:
   image: registry.redhat.io/ubi9/ubi-minimal:latest
