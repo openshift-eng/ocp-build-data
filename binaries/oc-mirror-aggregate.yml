@@ -1,0 +1,34 @@
+# Collect the four architectures of an oc-mirror build into one CDN transport image.
+# Only binaries commands load this member; image builds continue to build images/oc-mirror.yml.
+arches:
+- x86_64
+canonical_builders_from_upstream: false
+content:
+  source:
+    dockerfile: Dockerfile
+    path: binaries/oc-mirror-aggregate
+    git:
+      branch:
+        target: oc-mirror-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/ocp-build-data.git
+      web: https://github.com/openshift-eng/ocp-build-data
+distgit:
+  branch: oc-mirror-{MAJOR}.{MINOR}-rhel-9
+from:
+  builder:
+  - member: oc-mirror
+  - member: oc-mirror
+  - member: oc-mirror
+  - member: oc-mirror
+  stream: rhel9
+konflux:
+  allow_cross_platform_images: true
+  cachi2:
+    enabled: false
+  network_mode: hermetic
+  no_shell: true
+name: openshift5/oc-mirror-2-0-binaries
+owners:
+- jpower@redhat.com
+- dmesser@redhat.com
+- aflom@redhat.com
