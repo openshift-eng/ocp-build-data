@@ -1,0 +1,29 @@
+for_release: false
+content:
+  source:
+    dockerfile: konflux.Dockerfile
+    git:
+      branch:
+        target: main
+      url: git@github.com:openshift-priv/migtools-mta-eclipse.jdt.ls.git
+      web: https://github.com/migtools/mta-eclipse.jdt.ls
+jira:
+  project: MTA
+  component: JDTLS Server
+distgit:
+  component: mta-jdtls-container
+delivery:
+  delivery_repo_names:
+  - mta/mta-jdtls-rhel9
+enabled_repos:
+- rhel-98-appstream-rpms
+- rhel-98-baseos-rpms
+from:
+  builder:
+    - stream: rhel-9-openjdk-21
+  member: base-rhel9
+name: mta/mta-jdtls-rhel9
+owners:
+- jleflete@redhat.com
+dependents:
+  - mta-jdtls-server-base
