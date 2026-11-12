@@ -84,6 +84,31 @@ releases:
             metadata:
               is:
                 nvr: ose-azure-service-operator-container-v4.20.0-202611050348.p2.gd957de4.assembly.stream.el9
+          - distgit_key: node-feature-discovery
+            why: 'verify_attached_operators 4.20.47: pin non-payload operand referenced by its bundle so it is included in the release'
+            metadata:
+              is:
+                nvr: node-feature-discovery-container-v4.20.0-202611050348.p2.g44c1cab.assembly.stream.el9
+          - distgit_key: clusterresourceoverride
+            why: 'verify_attached_operators 4.20.47: pin non-payload operand referenced by its bundle so it is included in the release'
+            metadata:
+              is:
+                nvr: ose-clusterresourceoverride-container-v4.20.0-202611050348.p2.g69b6999.assembly.stream.el9
+          - distgit_key: vertical-pod-autoscaler
+            why: 'verify_attached_operators 4.20.47: pin non-payload operand referenced by its bundle so it is included in the release'
+            metadata:
+              is:
+                nvr: ose-vertical-pod-autoscaler-container-v4.20.0-202611050348.p2.ge174507.assembly.stream.el9
+          - distgit_key: local-storage-operator
+            why: 'verify_attached_operators 4.20.47: pin operator to the 202611111301 rebuild whose bundle references the in-nightly (202611110219) kube-rbac-proxy/ose-frr payload operands'
+            metadata:
+              is:
+                nvr: local-storage-operator-container-v4.20.0-202611111301.p2.gd81ba42.assembly.stream.el9
+          - distgit_key: ose-metallb-operator
+            why: 'verify_attached_operators 4.20.47: pin operator to the 202611111301 rebuild whose bundle references the in-nightly (202611110219) kube-rbac-proxy/ose-frr payload operands'
+            metadata:
+              is:
+                nvr: ose-metallb-operator-container-v4.20.0-202611111301.p2.gca3a89e.assembly.stream.el9
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
