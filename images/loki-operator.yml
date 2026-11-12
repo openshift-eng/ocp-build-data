@@ -1,12 +1,11 @@
 content:
   source:
     dockerfile: Dockerfile.art
-    path: operator
     git:
       branch:
-        target: main
-      url: git@github.com:openshift-priv/loki.git
-      web: https://github.com/openshift/loki
+        target: release-6.7
+      url: git@github.com:openshift-priv/loki-operator.git
+      web: https://github.com/openshift/loki-operator
 distgit:
   component: loki-rhel9-operator-container
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
