@@ -18,6 +18,7 @@ vars:
   GO_EXTRA: "1.23"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
   MINOR: 12
+  FBC_DISABLE_CHANNEL_SKIPS: true
 
 arches:
 - x86_64
@@ -37,7 +38,6 @@ konflux:
     enabled: true
   network_mode: hermetic
 
-  FBC_DISABLE_CHANNEL_SKIPS: true
 
 # OCP versions to publish FBC builds to
 OCP_TARGET_VERSIONS: [
