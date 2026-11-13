@@ -18,6 +18,7 @@ vars:
   GO_EXTRA: "1.25"  # There is no extra version at this time, so just duplicate latest.
   MAJOR: 4
   MINOR: 12
+  FBC_DISABLE_CHANNEL_SKIPS: true
 
 arches:
 - x86_64
@@ -43,7 +44,6 @@ konflux:
   # Each failed attempt will result in a failed record in BigQuery
   build_attempts: 1
 
-  FBC_DISABLE_CHANNEL_SKIPS: true
 
 # OCP versions to publish FBC builds to
 OCP_TARGET_VERSIONS: [
