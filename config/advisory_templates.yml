@@ -1,4 +1,24 @@
 boilerplates:
+  openshift-update-service:
+    synopsis: Red Hat OpenShift Update Service - {PRODUCT_MAJOR}.{PRODUCT_MINOR}.{PRODUCT_PATCH}
+    topic: |
+      Updated images are now available for Red Hat OpenShift Update Service
+      (OSUS), which typically include new features, bug fixes, and/or
+      security patches.
+    description: |
+      See the release notes (link in the references section) for a
+      description of the fixes and enhancements in this particular release.
+    solution: |
+      If you are using an earlier version of OSUS, you are advised to
+      upgrade to the version of OSUS mentioned in the synopsis and release
+      notes in order to take advantage of the enhancements, bug fixes, and/or
+      security patches in the release.
+
+      OSUS follows the Rolling Stream Operator life cycle. Cluster
+      administrators must upgrade to the latest release to remain supported.
+      For details, see the OpenShift Operator life cycle policy:
+
+      https://access.redhat.com/support/policy/updates/openshift_operators#rolling-stream
   image:
     rhsa:
       # This is to enable leaving legacy style comment when we create an advisory
