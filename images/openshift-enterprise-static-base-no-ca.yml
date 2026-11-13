@@ -1,0 +1,41 @@
+base_only: true
+content:
+  source:
+    dockerfile: Containerfile.no-ca
+    git:
+      branch:
+        target: release-{MAJOR}.{MINOR}
+      url: git@github.com:openshift-priv/images.git
+      web: https://github.com/openshift/images
+    path: static-base
+    ci_alignment:
+      streams_prs:
+        auto_label:
+        - approved
+        - lgtm
+        merge_first: true
+      mirror: true
+      upstream_image: registry.ci.openshift.org/ocp/{MAJOR}.{MINOR}:static-base-no-ca
+distgit:
+  branch: rhaos-{MAJOR}.{MINOR}-rhel-9
+  component: openshift-enterprise-static-base-no-ca-container
+for_payload: false
+for_release: false
+from:
+  builder:
+  - stream: ubi9
+  stream: scratch
+labels:
+  License: GPLv2+
+  io.k8s.description: This is the base image from which all static OpenShift Container Platform images that do not need global CA certificates inherit.
+  io.k8s.display-name: OpenShift Container Platform Static Base (no CA)
+  io.openshift.tags: openshift,base,static,rhel9
+name: openshift/openshift-enterprise-static-base-no-ca
+owners:
+- aos-team-art@redhat.com
+konflux:
+  # Installs packages from public UBI9 repositories.
+  network_mode: open
+okd:
+  # hi/static includes CA data in its base layers.
+  mode: disabled
