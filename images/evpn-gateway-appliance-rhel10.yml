@@ -9,11 +9,11 @@ content:
       match: "ARG BOOTC_BASE=registry.redhat.io/rhel10/rhel-bootc"
       replacement: "ARG BOOTC_BASE=registry.redhat.io/rhel10/rhel-bootc:10.2"
     - action: replace
-      match: "ARG FRR_IMAGE\n"
-      replacement: "ARG FRR_IMAGE=registry.redhat.io/openshift5/frr-rhel9@sha256:99a93527c8a4d1bf1025be822cdd38f7af8a81ec7a6256c9b755200b5cc6eb87\n"
+      match: "ARG FRR_IMAGE=registry.redhat.io/openshift4/frr-rhel9@sha256:82fd7cc0123f6286bad46231a9939799ae79c30b9369047d2ffd109dacefa76e"
+      replacement: "ARG FRR_IMAGE=registry.redhat.io/openshift5/frr-rhel9@sha256:99a93527c8a4d1bf1025be822cdd38f7af8a81ec7a6256c9b755200b5cc6eb87"
     - action: replace
-      match: "ARG NODE_EXPORTER_IMAGE\n"
-      replacement: "ARG NODE_EXPORTER_IMAGE=registry.redhat.io/openshift5/ose-prometheus-node-exporter-rhel9@sha256:77cb18f2ff5a095e3e009fffb02a771e193e506781116e99077eb4137c6469a1\n"
+      match: "ARG NODE_EXPORTER_IMAGE=registry.redhat.io/openshift4/ose-prometheus-node-exporter-rhel9@sha256:7d2884dc16f902e31b897d475d3e0dc09bc735df16b22544d0fefc4396a0ca48"
+      replacement: "ARG NODE_EXPORTER_IMAGE=registry.redhat.io/openshift5/ose-prometheus-node-exporter-rhel9@sha256:77cb18f2ff5a095e3e009fffb02a771e193e506781116e99077eb4137c6469a1"
     git:
       branch:
         target: release-{MAJOR}.{MINOR}
