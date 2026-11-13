@@ -24,6 +24,10 @@ konflux:
   network_mode: hermetic
   # The number of times a build should be attempted before giving up.
   build_attempts: 1
+  # OSUS ships its operator, operand and bundle through the advisory plans.
+  # ART catalog release plans are not configured for this product.
+  fbc:
+    enabled: false
 OCP_TARGET_VERSIONS:
   - '4.12'
   - '4.13'
