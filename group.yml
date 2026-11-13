@@ -4,6 +4,8 @@ product: zero-trust-workload-identity-manager
 version: 1.0.5
 
 vars:
+  # Insert late 1.0.z bundles before 1.1.z in shared OLM channels.
+  FBC_ENABLE_MID_STREAM_REWIRE: true
   GO_LATEST: "1.26"
   GO_EXTRA: "1.25"
   MAJOR: 4
