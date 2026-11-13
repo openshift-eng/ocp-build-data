@@ -1,0 +1,129 @@
+releases:
+  1.5.9:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.19': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:59ca539f7fcdd414090e6accbc4c91449ff8e81785d94249e439a846c58c1939
+          '4.20': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:104019cf5ba5b193223592af7e8168262a0c806dbcaffb4386e9f0d78503219e
+          '4.21': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d735d8e828f2d0020176f6833ab09a5291bfec4e8c9b72a590b4bd6bee6489fc
+      members:
+        images:
+          - distgit_key: oadp-cli-binaries
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-cli-container-1.5.9-202611121939.p2.g5e73459.assembly.stream.el9
+          - distgit_key: oadp-hypershift-velero-plugin
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-hypershift-velero-plugin-container-1.5.9-202611121939.p2.g2b0a1c4.assembly.stream.el9
+          - distgit_key: oadp-kubevirt-velero-plugin
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-kubevirt-velero-plugin-container-1.5.9-202611121939.p2.gd4f0fd8.assembly.stream.el9
+          - distgit_key: oadp-mustgather
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-mustgather-container-1.5.9-202611121939.p2.g95e5a0e.assembly.stream.el9
+          - distgit_key: oadp-non-admin
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-non-admin-container-1.5.9-202611121939.p2.g25707a3.assembly.stream.el9
+          - distgit_key: oadp-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-operator-container-1.5.9-202611121939.p2.g27afc60.assembly.stream.el9
+          - distgit_key: oadp-velero
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-velero-container-1.5.9-202611121939.p2.g99ef9f0.assembly.stream.el9
+          - distgit_key: oadp-velero-plugin
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-velero-plugin-container-1.5.9-202611121939.p2.gde1b5c0.assembly.stream.el9
+          - distgit_key: oadp-velero-plugin-for-aws
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-velero-plugin-for-aws-container-1.5.9-202611121939.p2.g011fd4b.assembly.stream.el9
+          - distgit_key: oadp-velero-plugin-for-gcp
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-velero-plugin-for-gcp-container-1.5.9-202611121939.p2.ga65035a.assembly.stream.el9
+          - distgit_key: oadp-velero-plugin-for-legacy-aws
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-velero-plugin-for-legacy-aws-container-1.5.9-202611121939.p2.g3527ab9.assembly.stream.el9
+          - distgit_key: oadp-velero-plugin-for-microsoft-azure
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: oadp-velero-plugin-for-microsoft-azure-container-1.5.9-202611121939.p2.gb7da243.assembly.stream.el9
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+          mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1209
+        fbc_builds:
+          '4.19':
+            oadp-operator:
+              nvr: oadp-operator-fbc-1.5.9-20261113044941.ocp4.19
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:59ca539f7fcdd414090e6accbc4c91449ff8e81785d94249e439a846c58c1939
+              operand_nvrs:
+                - oadp-cli-container-1.5.9-202611121939.p2.g5e73459.assembly.stream.el9
+                - oadp-hypershift-velero-plugin-container-1.5.9-202611121939.p2.g2b0a1c4.assembly.stream.el9
+                - oadp-kubevirt-velero-plugin-container-1.5.9-202611121939.p2.gd4f0fd8.assembly.stream.el9
+                - oadp-mustgather-container-1.5.9-202611121939.p2.g95e5a0e.assembly.stream.el9
+                - oadp-non-admin-container-1.5.9-202611121939.p2.g25707a3.assembly.stream.el9
+                - oadp-operator-container-1.5.9-202611121939.p2.g27afc60.assembly.stream.el9
+                - oadp-velero-container-1.5.9-202611121939.p2.g99ef9f0.assembly.stream.el9
+                - oadp-velero-plugin-container-1.5.9-202611121939.p2.gde1b5c0.assembly.stream.el9
+                - oadp-velero-plugin-for-aws-container-1.5.9-202611121939.p2.g011fd4b.assembly.stream.el9
+                - oadp-velero-plugin-for-gcp-container-1.5.9-202611121939.p2.ga65035a.assembly.stream.el9
+                - oadp-velero-plugin-for-legacy-aws-container-1.5.9-202611121939.p2.g3527ab9.assembly.stream.el9
+                - oadp-velero-plugin-for-microsoft-azure-container-1.5.9-202611121939.p2.gb7da243.assembly.stream.el9
+          '4.20':
+            oadp-operator:
+              nvr: oadp-operator-fbc-1.5.9-20261113044947.ocp4.20
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:104019cf5ba5b193223592af7e8168262a0c806dbcaffb4386e9f0d78503219e
+              operand_nvrs:
+                - oadp-cli-container-1.5.9-202611121939.p2.g5e73459.assembly.stream.el9
+                - oadp-hypershift-velero-plugin-container-1.5.9-202611121939.p2.g2b0a1c4.assembly.stream.el9
+                - oadp-kubevirt-velero-plugin-container-1.5.9-202611121939.p2.gd4f0fd8.assembly.stream.el9
+                - oadp-mustgather-container-1.5.9-202611121939.p2.g95e5a0e.assembly.stream.el9
+                - oadp-non-admin-container-1.5.9-202611121939.p2.g25707a3.assembly.stream.el9
+                - oadp-operator-container-1.5.9-202611121939.p2.g27afc60.assembly.stream.el9
+                - oadp-velero-container-1.5.9-202611121939.p2.g99ef9f0.assembly.stream.el9
+                - oadp-velero-plugin-container-1.5.9-202611121939.p2.gde1b5c0.assembly.stream.el9
+                - oadp-velero-plugin-for-aws-container-1.5.9-202611121939.p2.g011fd4b.assembly.stream.el9
+                - oadp-velero-plugin-for-gcp-container-1.5.9-202611121939.p2.ga65035a.assembly.stream.el9
+                - oadp-velero-plugin-for-legacy-aws-container-1.5.9-202611121939.p2.g3527ab9.assembly.stream.el9
+                - oadp-velero-plugin-for-microsoft-azure-container-1.5.9-202611121939.p2.gb7da243.assembly.stream.el9
+          '4.21':
+            oadp-operator:
+              nvr: oadp-operator-fbc-1.5.9-20261113045000.ocp4.21
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d735d8e828f2d0020176f6833ab09a5291bfec4e8c9b72a590b4bd6bee6489fc
+              operand_nvrs:
+                - oadp-cli-container-1.5.9-202611121939.p2.g5e73459.assembly.stream.el9
+                - oadp-hypershift-velero-plugin-container-1.5.9-202611121939.p2.g2b0a1c4.assembly.stream.el9
+                - oadp-kubevirt-velero-plugin-container-1.5.9-202611121939.p2.gd4f0fd8.assembly.stream.el9
+                - oadp-mustgather-container-1.5.9-202611121939.p2.g95e5a0e.assembly.stream.el9
+                - oadp-non-admin-container-1.5.9-202611121939.p2.g25707a3.assembly.stream.el9
+                - oadp-operator-container-1.5.9-202611121939.p2.g27afc60.assembly.stream.el9
+                - oadp-velero-container-1.5.9-202611121939.p2.g99ef9f0.assembly.stream.el9
+                - oadp-velero-plugin-container-1.5.9-202611121939.p2.gde1b5c0.assembly.stream.el9
+                - oadp-velero-plugin-for-aws-container-1.5.9-202611121939.p2.g011fd4b.assembly.stream.el9
+                - oadp-velero-plugin-for-gcp-container-1.5.9-202611121939.p2.ga65035a.assembly.stream.el9
+                - oadp-velero-plugin-for-legacy-aws-container-1.5.9-202611121939.p2.g3527ab9.assembly.stream.el9
+                - oadp-velero-plugin-for-microsoft-azure-container-1.5.9-202611121939.p2.gb7da243.assembly.stream.el9
