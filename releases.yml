@@ -58,7 +58,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b86620c4e59ebbfd5181ab40d6db6c5be5106ba6a49086098705062c9cfd5454
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d9282d1f46588b97cec06e0809581fbf3dcdb4f4d8ba7f3e1b18c4ce8035c8a7
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.22.23-202611132104.p0.g4fff151.assembly.4.22.23.el9
         images:
           - distgit_key: ose-image-customization-controller
             why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
