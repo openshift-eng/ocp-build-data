@@ -4,13 +4,17 @@ cachito:
     npm:
     - path: .
     - path: ./frontend
+    gomod:
     - path: ./backend
 content:
   source:
+    pkg_managers:
+    - npm
+    - gomod
     dockerfile: Containerfile.acm
     git:
       branch:
-        target: release-5.0
+        target: release-5.1
       url: git@github.com:openshift-priv/stolostron-console.git
       web: https://github.com/stolostron/console
 distgit:
@@ -23,9 +27,9 @@ dependents:
 - multiclusterhub-operator
 from:
   builder:
-    - stream: rhel9-ubi
     - stream: rhel-9-nodejs-24
-  stream: rhel-9-nodejs-24
+    - stream: rhel-9-golang-1.26
+  stream: rhel9
 name: rhacm2/console-rhel9
 owners:
 - acm-cicd@redhat.com
