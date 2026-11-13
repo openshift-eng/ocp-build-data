@@ -209,6 +209,11 @@ releases:
           - distgit_key: ose-smb-csi-driver-operator
             exclude: true
             why: "4.21.43 verify_attached_operators: no build matches the in-release mixed operand batch; exclude from this z-stream"
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v4.21-202611131759.p2.gc569471.assembly.4.21.43.el9
+            why: Pin microshift-bootc image to assembly
       permits:
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: cluster-node-tuning-operator
