@@ -12,17 +12,38 @@ rhel-9-golang-1.26:
   image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.26-rhel9
 
 rhel-9-nodejs-24:
-  image: registry.redhat.io/ubi9/nodejs-24-minimal@sha256:920a22bf794c1e3806b1279a26337ba02d18af7370df18045f5ffd5bf5d54dbc
+  image: registry.redhat.io/ubi9/nodejs-24-minimal:latest
 
 ose-cli-artifacts:
   image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.21
 
 ose-cli-rhel9:
-  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.21
+  image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.22
 
 rhel9:
-  image: registry.redhat.io/ubi9/ubi-minimal:9.7
+  image: registry.redhat.io/ubi9/ubi-minimal:latest
 
 
 rhel-9-nginx-124:
   image: registry.redhat.io/ubi9/nginx-124:latest
+
+rhel-9-golang-1.24:
+  image: registry.redhat.io/openshift/golang-builder:golang-builder-v1.24-rhel9
+
+rhel9-4-els-rhel-9.4:
+  image: registry.redhat.io/rhel9-4-els/rhel:9.4
+
+ubi9-latest:
+  image: registry.access.redhat.com/ubi9/ubi:latest
+
+ubi9-latest-786f7faf:
+  image: registry.access.redhat.com/ubi9:latest
+
+ubi9-minimal-pqc-latest:
+  image: registry.redhat.io/ubi9/ubi-minimal-pqc:latest
+
+ubi9-go-toolset-1.26:
+  image: registry.access.redhat.com/ubi9/go-toolset:1.26
+
+ubi9-go-toolset-1.27:
+  image: registry.access.redhat.com/ubi9/go-toolset:1.27
