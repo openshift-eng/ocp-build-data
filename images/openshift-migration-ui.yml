@@ -25,6 +25,11 @@ from:
   builder:
     - stream: nodejs-18
   stream: nodejs-18-minimal
+scan_sources:
+  exempt_rpms:
+    - python3-setuptools
+    - python3-setuptools-wheel
+    - platform-python-setuptools
 konflux:
   cachi2:
     lockfile:
