@@ -557,14 +557,15 @@ check_golang_versions: exact
 canonical_builders_from_upstream: False
 
 # To decide whether to build and use signed RPMs, and to decide if a strict bug validation flow is necessary.
-# Possible values are defined here: https://github.com/openshift-eng/art-tools/blob/main/artcommon/artcommonlib/release_util.py#L55-L59
+# Possible values are defined here: https://github.com/openshift-eng/art-tools/blob/main/artcommon/artcommonlib/release_util.py#L106-L111
 # At the moment of writing this comment, there are:
 # - 'pre-release': For EC time
 # - 'signing': for RC time
 # - 'release': for post GA time
+# - 'extended-support': for EUS time
 # - 'eol': For when a release will not formally ship anymore
 software_lifecycle:
-  phase: release
+  phase: extended-support
 
 external_scanners:
   sast_scanning:
