@@ -23,7 +23,7 @@ The master switch lives in [config/automation.yml](config/automation.yml) on
 `main`. Set `freeze_automation: true` there to freeze all groups using Pyartcd's
 freeze checks, regardless of their group settings or manual-run exceptions.
 Set it back to `false` to restore each group's existing `freeze_automation`
-policy. The switch defaults to `false`.
+policy. The switch is currently enabled to pause automation.
 
 Pyartcd reads this setting from the canonical repository's `main` branch even
 when a job uses a different build-data branch, ref, or fork. This requires the
