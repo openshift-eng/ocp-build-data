@@ -17,6 +17,19 @@ sources for base images, golang-builder specs, or
 which is referred to by an ART service that mirrors images once a day to
 `registry.reg-aws`.
 
+# Freezing build automation
+
+The master switch lives in [config/automation.yml](config/automation.yml) on
+`main`. Set `freeze_automation: true` there to freeze all groups using Pyartcd's
+freeze checks, regardless of their group settings or manual-run exceptions.
+Set it back to `false` to restore each group's existing `freeze_automation`
+policy. The switch defaults to `false`.
+
+Pyartcd reads this setting from the canonical repository's `main` branch even
+when a job uses a different build-data branch, ref, or fork. This requires the
+corresponding global-freeze support in `art-tools`; it does not cancel builds
+already running or affect commands that do not use Pyartcd freeze checks.
+
 # Contributing
 
 All changes to this repo must be submitted as pull requests against
