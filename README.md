@@ -33,8 +33,8 @@ already running or affect commands that do not use Pyartcd freeze checks.
 # Security build priorities
 
 [config/build-priority.yml](config/build-priority.yml) on `main` controls the
-optional image build priority policy. It starts disabled, retaining existing
-priorities. Set `enabled: true` during an incident to prioritize the listed
+optional image build priority policy. Set `enabled: true` during an incident
+to prioritize the listed
 development-cutoff OCP streams, followed by layered products, then remaining
 OCP streams. Update the explicit stream list as development cutoffs change.
 Rules use canonical product IDs, match in order, and support `versions` or
