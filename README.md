@@ -30,6 +30,26 @@ when a job uses a different build-data branch, ref, or fork. This requires the
 corresponding global-freeze support in `art-tools`; it does not cancel builds
 already running or affect commands that do not use Pyartcd freeze checks.
 
+# Security build priorities
+
+[config/build-priority.yml](config/build-priority.yml) on `main` controls the
+optional image build priority policy. It starts disabled, retaining existing
+priorities. Set `enabled: true` during an incident to prioritize the listed
+development-cutoff OCP streams, followed by layered products, then remaining
+OCP streams. Update the explicit stream list as development cutoffs change.
+Rules use canonical product IDs, match in order, and support `versions` or
+`min_version` constraints. Policy priorities range from 2 (highest allowed) to
+10 (lowest); priority 1 is reserved and rejected by validation.
+
+This requires the corresponding `art-tools` support. The policy is read from
+the canonical repository's `main`, independently of each build's data branch
+or fork. Explicit numeric Doozer priorities still override it. Disabling it
+restores normal priorities for subsequent invocations; already submitted
+builds are unchanged. It covers OCP and layered-product image builds, not
+Brew builds or bundle/FBC release priorities.
+Golang builders and release FBCs retain their priority 2 defaults independently
+of this policy and do not need it enabled.
+
 # Contributing
 
 All changes to this repo must be submitted as pull requests against
