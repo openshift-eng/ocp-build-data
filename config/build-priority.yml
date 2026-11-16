@@ -1,0 +1,16 @@
+# Disabled: retain existing image build priorities.
+# Enabled: development-cutoff OCP streams > layered products > remaining OCP.
+# ART priorities run from 1 (highest) to 10 (lowest); first matching rule wins.
+enabled: false
+
+rules:
+  # Maintain this list as development-cutoff streams change.
+  - product: ocp
+    versions: ["4.19", "4.20", "4.21", "4.22", "5.0"]
+    priority: 1
+
+  - product: ocp
+    priority: 3
+
+# Layered products and other non-OCP image builds.
+default_priority: 2
