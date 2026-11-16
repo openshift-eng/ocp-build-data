@@ -38,7 +38,8 @@ priorities. Set `enabled: true` during an incident to prioritize the listed
 development-cutoff OCP streams, followed by layered products, then remaining
 OCP streams. Update the explicit stream list as development cutoffs change.
 Rules use canonical product IDs, match in order, and support `versions` or
-`min_version` constraints. Priority 1 is highest; 10 is lowest.
+`min_version` constraints. Policy priorities range from 2 (highest allowed) to
+10 (lowest); priority 1 is reserved and rejected by validation.
 
 This requires the corresponding `art-tools` support. The policy is read from
 the canonical repository's `main`, independently of each build's data branch
