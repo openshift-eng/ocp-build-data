@@ -47,6 +47,8 @@ or fork. Explicit numeric Doozer priorities still override it. Disabling it
 restores normal priorities for subsequent invocations; already submitted
 builds are unchanged. It covers OCP and layered-product image builds, not
 Brew builds or bundle/FBC release priorities.
+Golang builders and release FBCs retain their priority 2 defaults independently
+of this policy and do not need it enabled.
 
 # Contributing
 
