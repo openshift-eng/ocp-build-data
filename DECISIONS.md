@@ -25,8 +25,8 @@ marked Gus are from the HYPBLD-888 spec.
 
 ## group.yml version
 
-- **Decision**: `version: 2.10.8`
-- **Rationale**: Gus (A4). Konflux is releasing 2.10.7 now; ART should build the next z-stream, 2.10.8. ReleasePlan synopsis uses `v2.10.8` as well.
+- **Decision**: `version: 2.10.9`
+- **Rationale**: Gus (A4). Konflux is releasing 2.10.7 now; ART should build the next z-stream, 2.10.9. ReleasePlan synopsis uses `v2.10.9` as well.
 - **Tool patch**: tool wrote `2.10.0`.
 
 ## Git Source Branches
