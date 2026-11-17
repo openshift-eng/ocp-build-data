@@ -25,8 +25,8 @@ are from the HYPBLD-886 spec.
 
 ## group.yml version
 
-- **Decision**: `version: 2.9.9`
-- **Rationale**: Next unreleased z-stream. Konflux stage/prod text is still `v2.9.8`. ReleasePlan synopsis uses `v2.9.9`.
+- **Decision**: `version: 2.9.10`
+- **Rationale**: Next unreleased z-stream. Konflux stage/prod text is still `v2.9.8`. ReleasePlan synopsis uses `v2.9.10`.
 - **Tool patch**: tool wrote `2.9.0`.
 
 ## Git Source Branches
