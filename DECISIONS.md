@@ -14,7 +14,7 @@ Aligned with lessons from the operating `acm-2.15` ART branch after reopen onto
 
 ## Version (z-stream)
 
-- **Decision**: `version: 2.14.7`
+- **Decision**: `version: 2.14.8`
 - **Rationale**: ACM 2.14 is already shipping at **2.14.6** (paired with MCE **2.9.8**). ART `group.yml` `version` is the next shipped z — same rule as operating 2.15 (`2.15.9` after catalog head `2.15.8`). Starting at `2.14.0` or `2.14.6` would produce an OLM/build version at or behind the catalog head.
 - **Note**: MCH `release-2.14` source/`art.yaml` still carry `2.14.0` placeholders; CSV/`OPERATOR_VERSION` bumps happen via MCH `bundle/art.yaml` at cutover, not automatically from this field alone.
 - **Revisit**: Confirm 2.14.7 is still the next z at cutover.
