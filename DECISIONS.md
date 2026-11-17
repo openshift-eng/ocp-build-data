@@ -11,8 +11,8 @@ Created as part of JIRA ticket [HYPBLD-879](https://redhat.atlassian.net/browse/
 
 ## Version (z-stream)
 
-- **Decision**: `version: 2.11.14`
-- **Rationale**: ACM 2.11 is already shipping at **2.11.13** (paired with MCE **2.6**, not yet ART-onboarded). ART `group.yml` `version` is the next z-stream under preparation.
+- **Decision**: `version: 2.11.15`
+- **Rationale**: ACM 2.11 pairs with MCE **2.6**. ART `group.yml` `version` tracks the next z-stream under preparation, which is now **2.11.15**.
 - **Revisit**: Bump with each z-stream cut.
 
 ## OCP Version Alignment
