@@ -25,8 +25,8 @@ are from the HYPBLD-884 spec.
 
 ## group.yml version
 
-- **Decision**: `version: 2.8.13`
-- **Rationale**: Next unreleased z-stream. ReleasePlan synopsis uses `v2.8.13`.
+- **Decision**: `version: 2.8.14`
+- **Rationale**: Next unreleased z-stream. ReleasePlan synopsis uses `v2.8.14`.
 - **Tool patch**: tool wrote `2.8.0`.
 
 ## Git Source Branches
