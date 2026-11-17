@@ -11,7 +11,7 @@ Created as part of JIRA ticket [HYPBLD-883](https://redhat.atlassian.net/browse/
 
 ## Version (z-stream)
 
-- **Decision**: `version: 2.13.14`
+- **Decision**: `version: 2.13.16`
 - **Rationale**: ACM 2.13 is already shipping at **2.13.13** (paired with MCE **2.8**). ART `group.yml` `version` is the next shipped z — same rule as operating ACM branches (e.g. acm-2.14 at `2.14.7` after catalog head `2.14.6`). Starting at `2.13.0` or `2.13.13` would produce an OLM/build version at or behind the catalog head.
 - **Note**: MCH `release-2.13` CSV currently carries `2.13.0`; CSV/`OPERATOR_VERSION` bumps happen via MCH `bundle/art.yaml` at cutover (`search: "2.13.0"` → `replace: "2.13.14"`), not automatically from this field alone.
 - **Revisit**: Confirm 2.13.14 is still the next z at cutover.
