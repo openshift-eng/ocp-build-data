@@ -12,7 +12,7 @@ Scaffolded from `acm-2.16` (the ART config landed under [HYPBLD-847](https://red
 
 ## Version (z-stream)
 
-- **Decision**: `version: 2.15.9`
+- **Decision**: `version: 2.15.10`
 - **Rationale**: ACM 2.15 is already in production at **2.15.8** (`advanced-cluster-management.v2.15.8`; existing `crt-redhat-acm` RPA tags `v2.15` / `v2.15.8`). ART `group.yml` `version` is the next shipped z. Starting at 2.15.0 or 2.15.8 would produce an OLM version at or behind the catalog head.
 - **Revisit**: Confirm 2.15.9 is still the next z at cutover.
 
