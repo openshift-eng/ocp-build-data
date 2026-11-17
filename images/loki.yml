@@ -1,6 +1,6 @@
 content:
   source:
-    dockerfile: Dockerfile.ocp
+    dockerfile: Dockerfile.micro
     git:
       branch:
         target: upstream-v3.7.9
@@ -14,10 +14,13 @@ dependents:
 delivery:
   delivery_repo_names:
   - openshift-logging/logging-loki-rhel9
+enabled_repos:
+- rhel-9-baseos-rpms
+- rhel-9-appstream-rpms
 from:
   builder:
     - stream: rhel-9-golang
-  member: base-rhel9
+  stream: rhel9-micro
 name: openshift-logging/logging-loki-rhel9
 owners:
 - rojacob@redhat.com
