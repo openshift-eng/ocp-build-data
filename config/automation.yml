@@ -1,3 +1,7 @@
 # Master switch for all groups using Pyartcd freeze checks.
 # Set true to freeze automation; false restores each group's freeze policy.
-freeze_automation: true
+# Set to:
+# - scheduled to disable automation, but to allow manual builds
+# - false: builds are not frozen and are running
+# - true: builds are frozen. Manually triggered builds will also not run
+freeze_automation: false
