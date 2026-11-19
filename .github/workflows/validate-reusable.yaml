@@ -57,6 +57,7 @@ jobs:
               - 'bug.yml'
               - 'rpms/**.yml'
               - 'images/**.yml'
+              - 'binaries/**.yml'
 
       - name: Run validator
         if: steps.changed-files.outputs.config_any_changed == 'true'
