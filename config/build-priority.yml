@@ -1,12 +1,15 @@
 # Disabled: retain existing image build priorities.
-# Enabled: development-cutoff OCP streams > layered products > remaining OCP.
+# Enabled: development-cutoff OCP streams > layered products > remaining OCP > OKD.
 # Policy priorities run from 2 (highest allowed) to 10 (lowest); priority 1 is reserved.
 # First matching rule wins.
 # Golang builders and release FBCs retain priority 2 independently of this policy.
-# OKD image builds always use priority 8 and bypass this policy.
+# OKD image builds use their own rule; when disabled, group.yml supplies the fallback.
 enabled: true
 
 rules:
+  - product: okd
+    priority: 8
+
   # Maintain this list as development-cutoff streams change.
   - product: ocp
     versions: ["4.19", "4.20", "4.21", "4.22", "5.0"]
