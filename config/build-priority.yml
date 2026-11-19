@@ -3,8 +3,9 @@
 # Policy priorities run from 2 (highest allowed) to 10 (lowest); priority 1 is reserved.
 # First matching rule wins.
 # Golang builders and release FBCs retain priority 2 independently of this policy.
-# OKD image builds use their own rule; when disabled, group.yml supplies the fallback.
-enabled: true
+# OKD image builds always use priority 8 and bypass this policy.
+
+enabled: false
 
 rules:
   - product: okd
