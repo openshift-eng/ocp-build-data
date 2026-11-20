@@ -13,13 +13,13 @@ content:
     modifications:
     - action: replace
       match: "ARG OPENSHIFT_VERSION=overridden"
-      replacement: "ARG OPENSHIFT_VERSION=5.0"
+      replacement: "ARG OPENSHIFT_VERSION=5.1"
     - action: replace
       match: "ARG IMAGE_NAME"
       replacement: "ARG IMAGE_NAME=openshift/rhcos-node-image-rhel9"
     - action: replace
       match: "ARG IMAGE_CPE"
-      replacement: "ARG IMAGE_CPE=cpe:/a:redhat:openshift:5.0::el9"
+      replacement: "ARG IMAGE_CPE=cpe:/a:redhat:openshift:5.1::el9"
     - action: replace
       match: "ARG TARGETARCH"
       replacement: "ARG TARGETARCH=amd64"
@@ -46,6 +46,9 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: rhcos-node-image-container
+delivery:
+  delivery_repo_names:
+  - openshift5/ose-rhel-coreos-rhel9
 enabled_repos:
 - rhel-9-fast-datapath-rpms
 - rhel-9-server-ose-rpms
@@ -58,7 +61,7 @@ from:
 labels:
   distribution-scope: public
   url: "https://access.redhat.com/errata"
-name: openshift/rhcos-node-image-rhel9
+name: openshift5/ose-rhel-coreos-rhel9
 owners:
 - aos-team-art@redhat.com
 canonical_builders_from_upstream: false
