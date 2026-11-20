@@ -72,6 +72,20 @@ rhel10:
   upstream_image: registry.ci.openshift.org/ocp/builder:ubi10-minimal-openshift-{MAJOR}.{MINOR}.art
   mirror: false
 
+ubi9:
+  # Builder for static-base installroots.
+  image: registry.access.redhat.com/ubi9/ubi:latest
+  upstream_image: registry.ci.openshift.org/ocp/builder:ubi9-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+  mirror_manifest_list: true
+
+hi-static:
+  # Static base for OKD; not available for ppc64le.
+  image: registry.access.redhat.com/hi/static:latest
+  upstream_image: registry.ci.openshift.org/ocp/builder:hi-static-openshift-{MAJOR}.{MINOR}.art
+  mirror: true
+  mirror_manifest_list: true
+
 nodejs-rhel9:
   image: registry.redhat.io/ubi9/nodejs-24:latest
   upstream_image: registry.ci.openshift.org/ocp/builder:rhel-9-openshift-nodejs-base-{MAJOR}.{MINOR}.art
