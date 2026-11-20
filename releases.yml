@@ -2875,3 +2875,8 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.22.0-202611192045.p2.g7aa4007.assembly.stream.el9
+          - distgit_key: ose-tools
+            why: 'Temporary stream pin: match the tools image to the same source commit (ca2205a) as the other openshift/oc sibling images (openshift-enterprise-cli/deployer/ose-cli-artifacts) and the pinned openshift-clients RPM so gen-payload MISMATCHED_RPM_IMAGE_SIBLINGS clears. Revert after resync.'
+            metadata:
+              is:
+                nvr: ose-tools-container-v4.22.0-202611181617.p2.gca2205a.assembly.stream.el9
