@@ -2835,6 +2835,14 @@ releases:
         - code: FAILED_CONSISTENCY_REQUIREMENT
           component: '*'
       members:
+        rpms:
+          - distgit_key: openshift-clients
+            why: 'Temporary stream pin: align openshift-clients RPM with the build carried by the stream RHCOS node image (4.22.9.8.202611200836-0, RPM batch 202611180030) so gen-payload CONFLICTING_GROUP_RPM_INSTALLED clears. Revert once the node image and stream RPMs resync.'
+            metadata:
+              is:
+                el8: openshift-clients-4.22.0-202611180030.p2.gca2205a.assembly.stream.el8
+                el9: openshift-clients-4.22.0-202611180030.p2.gca2205a.assembly.stream.el9
+                el10: openshift-clients-4.22.0-202611180030.p2.gca2205a.assembly.stream.el10
         images:
           - distgit_key: '*'
             why: Exclude rpm updates that should not cause mass rebuilds
@@ -2847,3 +2855,23 @@ releases:
                   # - libgcrypt
                   # - "openssl*"
                   # - "*libc*"
+          - distgit_key: openshift-enterprise-cli
+            why: 'Temporary stream pin: match the cli image to the same source commit (ca2205a) as the pinned openshift-clients RPM so gen-payload MISMATCHED_RPM_IMAGE_SIBLINGS clears. Revert after resync.'
+            metadata:
+              is:
+                nvr: openshift-enterprise-cli-container-v4.22.0-202611181617.p2.gca2205a.assembly.stream.el9
+          - distgit_key: openshift-enterprise-deployer
+            why: 'Temporary stream pin: match the deployer image to the same source commit (ca2205a) as the pinned openshift-clients RPM for RPM/image sibling consistency. Revert after resync.'
+            metadata:
+              is:
+                nvr: openshift-enterprise-deployer-container-v4.22.0-202611181617.p2.gca2205a.assembly.stream.el9
+          - distgit_key: ose-cli-artifacts
+            why: 'Temporary stream pin: match the cli-artifacts image to the same source commit (ca2205a) as the pinned openshift-clients RPM for RPM/image sibling consistency. Revert after resync.'
+            metadata:
+              is:
+                nvr: ose-cli-artifacts-container-v4.22.0-202611181617.p2.gca2205a.assembly.stream.el9
+          - distgit_key: ose-tools
+            why: 'Temporary stream pin: match the tools image to the same source commit (ca2205a) as the other openshift/oc sibling images (openshift-enterprise-cli/deployer/ose-cli-artifacts) and the pinned openshift-clients RPM so gen-payload MISMATCHED_RPM_IMAGE_SIBLINGS clears. Revert after resync.'
+            metadata:
+              is:
+                nvr: ose-tools-container-v4.22.0-202611181617.p2.gca2205a.assembly.stream.el9
