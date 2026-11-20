@@ -66,6 +66,7 @@ owners:
 - aos-team-art@redhat.com
 canonical_builders_from_upstream: false
 konflux:
+  post_build: rhcos_node_image
   its:
     enabled: true
   image_repo: quay.io/redhat-user-workloads/ocp-art-tenant/art-rhcos-images
