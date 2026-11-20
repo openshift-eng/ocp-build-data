@@ -7,7 +7,9 @@
 # Doozer rewrites every FROM at rebase time from from.builder (per-arch digests of the members
 # ose-installer, ose-installer-artifacts and ose-baremetal-installer) and from.stream (rhel9). The
 # literal digests below are the 4.22.18 images, only for local validation builds.
-# The build args are set by the binaries-cdn-release job from the promoted release payloads.
+# RELEASE_VERSION and DIGEST_* come from the promoted release payloads. The binaries-cdn-release job
+# has doozer write them as ARG defaults at rebase instead of passing build args, because Conforma's
+# trusted_task.trusted_parameters rejects sha256 digests in the build task's BUILD_ARGS.
 
 FROM --platform=linux/amd64 quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ac852ceb358abe9c7dc62412fd1c7e37dece2291624b8464f030fb89c1681268 AS inst_amd64
 FROM --platform=linux/arm64 quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:941589e9bd111fdc31faa9ef9c64e0f7c7ec2fe27c09db58138871db21bd9023 AS inst_arm64
