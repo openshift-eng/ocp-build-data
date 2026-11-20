@@ -1,7 +1,8 @@
 # ART-22737: the openshift-install client tarballs, shipped through the Konflux push-artifacts-to-cdn
 # pipeline. Built as a container image that carries them under /releases/ (build context:
-# binaries/openshift-install/), only by the binaries-cdn-release job after promote, with the release
-# values as build args. Image commands and mass rebuilds never load binaries/.
+# binaries/openshift-install/), only by the binaries-cdn-release job after promote. The rebase writes
+# the release values into the Dockerfile as ARG defaults, not build args (see the Dockerfile header).
+# Image commands and mass rebuilds never load binaries/.
 arches:
 - x86_64
 canonical_builders_from_upstream: false

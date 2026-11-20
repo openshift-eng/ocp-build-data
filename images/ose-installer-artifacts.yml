@@ -17,6 +17,8 @@ delivery:
   delivery_repo_names:
   - openshift4/ose-installer-artifacts-rhel9
 for_payload: true
+base_image_release:
+  force: true
 from:
   builder:
   - member: ose-installer-kube-apiserver-artifacts

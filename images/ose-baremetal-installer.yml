@@ -27,6 +27,8 @@ enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-server-ose-rpms-embargoed
 for_payload: true
+base_image_release:
+  force: true
 # Once this moves to rhel9, pyartcd.pipelines.promote.PromotePipeline.publish_baremetal_installer_binary
 # needs to bump to account for the new tarball suffix
 from:
