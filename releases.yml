@@ -2870,11 +2870,6 @@ releases:
             metadata:
               is:
                 nvr: ose-cli-artifacts-container-v4.22.0-202611181617.p2.gca2205a.assembly.stream.el9
-          - distgit_key: driver-toolkit
-            why: 'Temporary stream pin: align driver-toolkit with a kernel 5.14.0-687.69.1.el9_8 build matching the stream RHCOS node image kernel so gen-payload FAILED_CONSISTENCY_REQUIREMENT (driver-toolkit) clears. Revert after resync.'
-            metadata:
-              is:
-                nvr: driver-toolkit-container-v4.22.0-202611192045.p2.g7aa4007.assembly.stream.el9
           - distgit_key: ose-tools
             why: 'Temporary stream pin: match the tools image to the same source commit (ca2205a) as the other openshift/oc sibling images (openshift-enterprise-cli/deployer/ose-cli-artifacts) and the pinned openshift-clients RPM so gen-payload MISMATCHED_RPM_IMAGE_SIBLINGS clears. Revert after resync.'
             metadata:
