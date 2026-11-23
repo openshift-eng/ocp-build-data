@@ -1,9 +1,102 @@
 releases:
   8.2.3:
     assembly:
-      type: stream
+      type: standard
       group:
-        shipment: {}
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+          mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1225
+        fbc_builds:
+          '4.18':
+            mta-operator:
+              nvr: mta-operator-fbc-8.2.3-20261008124329.ocp4.18
+              pullspec: quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d803a6df1447d16557cc1291d02146c4d78637cd905096f7e2b012738993b5b6
+              operand_nvrs:
+                - mta-analyzer-addon-container-8.2.3-202610081038.p2.g84722fb.assembly.stream.el9
+                - mta-cli-container-8.2.3-202610081038.p2.gcbcc977.assembly.stream.el9
+                - mta-discovery-addon-container-8.2.3-202610081038.p2.g495fcb4.assembly.stream.el9
+                - mta-dotnet-external-provider-container-8.2.3-202610081038.p2.g8de7fd3.assembly.stream.el9
+                - mta-go-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+                - mta-hub-container-8.2.3-202610081038.p2.g85f6e45.assembly.stream.el9
+                - mta-java-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+                - mta-nodejs-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+                - mta-operator-container-8.2.3-202610081038.p2.ge7c3318.assembly.stream.el9
+                - mta-platform-addon-container-8.2.3-202610081038.p2.g8819b93.assembly.stream.el9
+                - mta-python-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+                - mta-solution-server-container-8.2.3-202610081038.p2.gf7b9a37.assembly.stream.el9
+                - mta-ui-container-8.2.3-202609200505.p2.g2f0c745.assembly.stream.el9
+      basis:
+        fbc_pullspecs:
+          '4.18': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:d803a6df1447d16557cc1291d02146c4d78637cd905096f7e2b012738993b5b6
+      members:
+        images:
+          - distgit_key: mta-analyzer-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-analyzer-addon-container-8.2.3-202610081038.p2.g84722fb.assembly.stream.el9
+          - distgit_key: mta-cli
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-cli-container-8.2.3-202610081038.p2.gcbcc977.assembly.stream.el9
+          - distgit_key: mta-discovery-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-discovery-addon-container-8.2.3-202610081038.p2.g495fcb4.assembly.stream.el9
+          - distgit_key: mta-dotnet-external-provider
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-dotnet-external-provider-container-8.2.3-202610081038.p2.g8de7fd3.assembly.stream.el9
+          - distgit_key: mta-go-external-provider
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-go-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+          - distgit_key: mta-hub
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-hub-container-8.2.3-202610081038.p2.g85f6e45.assembly.stream.el9
+          - distgit_key: mta-java-external-provider
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-java-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+          - distgit_key: mta-nodejs-external-provider
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-nodejs-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+          - distgit_key: mta-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-operator-container-8.2.3-202610081038.p2.ge7c3318.assembly.stream.el9
+          - distgit_key: mta-platform-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-platform-addon-container-8.2.3-202610081038.p2.g8819b93.assembly.stream.el9
+          - distgit_key: mta-python-external-provider
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-python-external-provider-container-8.2.3-202610081038.p2.g4aa4ca7.assembly.stream.el9
+          - distgit_key: mta-solution-server
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-solution-server-container-8.2.3-202610081038.p2.gf7b9a37.assembly.stream.el9
+          - distgit_key: mta-ui
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mta-ui-container-8.2.3-202609200505.p2.g2f0c745.assembly.stream.el9
   8.2.4:
     assembly:
       type: stream
