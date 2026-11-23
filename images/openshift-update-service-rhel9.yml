@@ -10,20 +10,21 @@ content:
       web: https://github.com/openshift/cincinnati
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-  component: openshift-update-service-rhel8-container
+  component: openshift-update-service-rhel9-container
 delivery:
   delivery_repo_names:
-  - openshift-update-service/openshift-update-service-rhel8
+  - openshift-update-service/openshift-update-service-rhel9
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
 for_release: true
 dependents:
-- openshift-update-service-rhel8-operator
+- openshift-update-service-rhel9-operator
 from:
   builder:
   - stream: rhel9
   stream: rhel9
-name: openshift-update-service/openshift-update-service-rhel8
+name: openshift-update-service/openshift-update-service-rhel9
+name_in_bundle: openshift-update-service-rhel9
 owners:
 - wking@redhat.com
