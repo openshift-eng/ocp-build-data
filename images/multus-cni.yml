@@ -1,3 +1,8 @@
+cachito:
+  packages:
+    gomod:
+    - path: .
+    - path: test
 content:
   source:
     dockerfile: Dockerfile.openshift
@@ -13,6 +18,8 @@ content:
         - approved
         - lgtm
         enabled: false
+    pkg_managers:
+    - gomod
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
   component: multus-cni-container
