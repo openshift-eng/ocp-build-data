@@ -5,3 +5,221 @@ releases:
       group:
         shipment:
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1140
+  2.17.5:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.19': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:2a9af45ea36f6612cc2f325acebe5c887bd24b781210dddeeae867830ccf1f5e
+          '4.20': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:61428e742bbc06c75f497a56e6aaef094d967047d7cc1bf7bd4234c495697144
+          '4.21': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:c3d34bca5ffe2d5cda7279e7d35eb5afe1827ad309f1eebf72e38bb461773f6d
+          '4.22': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:1f957bed501bd69b1ba15c41105e60cabae37d7c870db3893e53f9d43ffb7730
+          '5.0': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:5fca3ebc17a71cd9a6df29691f275246b66830e56d951b379824ced71030e3d6
+      members:
+        images:
+          - distgit_key: addon-manager
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-addon-manager-container-2.17.5-202611202020.p2.gb2bd521.assembly.stream.el9
+          - distgit_key: assisted-image-service
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-assisted-image-service-container-2.17.5-202611230530.p2.g4108b1b.assembly.stream.el9
+          - distgit_key: assisted-installer
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-assisted-installer-container-2.17.5-202611222316.p2.g9bf0c6a.assembly.stream.el9
+          - distgit_key: assisted-installer-agent
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-assisted-installer-agent-container-2.17.5-202611230530.p2.g2408479.assembly.stream.el9
+          - distgit_key: assisted-installer-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-assisted-installer-controller-container-2.17.5-202611222316.p2.g9bf0c6a.assembly.stream.el9
+          - distgit_key: assisted-service-9
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-assisted-service-9-container-2.17.5-202611230530.p2.g3660a36.assembly.stream.el9
+          - distgit_key: azure-service-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-azure-service-operator-container-2.17.5-202611202020.p2.gf1d1e18.assembly.stream.el9
+          - distgit_key: backplane-must-gather
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-backplane-must-gather-container-2.17.5-202611202020.p2.gfa3828b.assembly.stream.el9
+          - distgit_key: backplane-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-backplane-operator-container-2.17.5-202611230530.p2.gbe82957.assembly.stream.el9
+          - distgit_key: capoa-bootstrap
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-capoa-bootstrap-container-2.17.5-202611202020.p2.g87f4108.assembly.stream.el9
+          - distgit_key: capoa-control-plane
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-capoa-control-plane-container-2.17.5-202611202020.p2.g87f4108.assembly.stream.el9
+          - distgit_key: cloudevents-conductor
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cloudevents-conductor-container-2.17.5-202611202020.p2.g42fd14b.assembly.stream.el9
+          - distgit_key: cluster-api-provider-agent
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-api-provider-agent-container-2.17.5-202611210217.p2.g456aad2.assembly.stream.el9
+          - distgit_key: cluster-api-provider-aws
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-api-provider-aws-container-2.17.5-202611202020.p2.g45ed98d.assembly.stream.el9
+          - distgit_key: cluster-api-provider-azure
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-api-provider-azure-container-2.17.5-202611202020.p2.gec3e7f8.assembly.stream.el9
+          - distgit_key: cluster-api-provider-kubevirt
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-api-provider-kubevirt-container-2.17.5-202611192204.p2.g9932c37.assembly.stream.el9
+          - distgit_key: cluster-api-webhook-config
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-api-webhook-config-container-2.17.5-202611202020.p2.g0c89c6f.assembly.stream.el9
+          - distgit_key: cluster-curator-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-curator-controller-container-2.17.5-202611202020.p2.g6678dc6.assembly.stream.el9
+          - distgit_key: cluster-image-set-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-image-set-controller-container-2.17.5-202611202020.p2.g6e87b42.assembly.stream.el9
+          - distgit_key: cluster-permission
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-permission-container-2.17.5-202611202020.p2.gfb05785.assembly.stream.el9
+          - distgit_key: cluster-proxy
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-cluster-proxy-container-2.17.5-202611202020.p2.g92453fd.assembly.stream.el9
+          - distgit_key: clusterclaims-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-clusterclaims-controller-container-2.17.5-202611202020.p2.g7c09811.assembly.stream.el9
+          - distgit_key: clusterlifecycle-state-metrics
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-clusterlifecycle-state-metrics-container-2.17.5-202611202020.p2.g7fb61d7.assembly.stream.el9
+          - distgit_key: console-mce
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-console-mce-container-2.17.5-202611210414.p2.g811316e.assembly.stream.el9
+          - distgit_key: discovery-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-discovery-operator-container-2.17.5-202611202020.p2.gb1c704f.assembly.stream.el9
+          - distgit_key: hive
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-hive-container-2.17.5-202611230530.p2.g3d1cf03.assembly.stream.el9
+          - distgit_key: hypershift-addon-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-hypershift-addon-operator-container-2.17.5-202611202020.p2.g02fe58c.assembly.stream.el9
+          - distgit_key: hypershift-cli
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-hypershift-cli-container-2.17.5-202611220916.p2.g879de1a.assembly.stream.el9
+          - distgit_key: hypershift-release
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-hypershift-release-container-2.17.5-202611202020.p2.g879de1a.assembly.stream.el9
+          - distgit_key: image-based-install-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-image-based-install-operator-container-2.17.5-202611202020.p2.g9c5a9fc.assembly.stream.el9
+          - distgit_key: kube-rbac-proxy
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-kube-rbac-proxy-container-2.17.5-202611202020.p2.gfa7a3f3.assembly.stream.el9
+          - distgit_key: maestro
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-maestro-container-2.17.5-202611202020.p2.gff7aa01.assembly.stream.el9
+          - distgit_key: managed-serviceaccount
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-managed-serviceaccount-container-2.17.5-202611202020.p2.ga5b5fb1.assembly.stream.el9
+          - distgit_key: managedcluster-import-controller-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-managedcluster-import-controller-container-2.17.5-202611202020.p2.g73211ff.assembly.stream.el9
+          - distgit_key: multicloud-manager
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-multicloud-manager-container-2.17.5-202611202020.p2.g781d653.assembly.stream.el9
+          - distgit_key: placement
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-placement-container-2.17.5-202611202020.p2.gb2bd521.assembly.stream.el9
+          - distgit_key: provider-credential-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-provider-credential-controller-container-2.17.5-202611202020.p2.gd87cf23.assembly.stream.el9
+          - distgit_key: registration
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-registration-container-2.17.5-202611202020.p2.gb2bd521.assembly.stream.el9
+          - distgit_key: registration-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-registration-operator-container-2.17.5-202611202020.p2.gb2bd521.assembly.stream.el9
+          - distgit_key: work
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: mce-work-container-2.17.5-202611202020.p2.gb2bd521.assembly.stream.el9
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+          mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1227
