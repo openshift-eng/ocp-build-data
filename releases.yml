@@ -5,3 +5,251 @@ releases:
       group:
         shipment:
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1133
+  2.17.5:
+    assembly:
+      type: standard
+      basis:
+        fbc_pullspecs:
+          '4.19': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:90b6aae769c81b02fba41a644f81b9a817fbc287b4c98ae980f15d41b25875f6
+          '4.20': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:229e8238dd1daaa697eabfa46b9ee542683e978c2885979e57af0aad3776342a
+          '4.21': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:c32c727d6b48a3f4bd26d76ff98fc95b41ce09f8b45b697d0698e19e0d78ff0e
+          '4.22': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:33a73d70088faad8665f968d2b3ca45b0f8686940aee78b3b9da85adec22be18
+          '5.0': quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:ab2fa26aa4574ee1729c8f0b1aa169a305e1d133c88e6d58cb3cb3291ce8423b
+      members:
+        images:
+          - distgit_key: acm-cli
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-cli-container-2.17.5-202611202102.p2.g3a37ddf.assembly.stream.el9
+          - distgit_key: cert-policy-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-cert-policy-controller-container-2.17.5-202611202102.p2.ga250fcc.assembly.stream.el9
+          - distgit_key: cluster-backup-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-cluster-backup-controller-container-2.17.5-202611202102.p2.g0538731.assembly.stream.el9
+          - distgit_key: config-policy-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-config-policy-controller-container-2.17.5-202611210213.p2.g524559a.assembly.stream.el9
+          - distgit_key: console
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-console-container-2.17.5-202611210412.p2.g811316e.assembly.stream.el9
+          - distgit_key: endpoint-monitoring-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-endpoint-monitoring-operator-container-2.17.5-202611202102.p2.g7bab55b.assembly.stream.el9
+          - distgit_key: governance-policy-addon-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-governance-policy-addon-controller-container-2.17.5-202611202102.p2.g7d28b2f.assembly.stream.el9
+          - distgit_key: governance-policy-framework-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-governance-policy-framework-addon-container-2.17.5-202611202102.p2.g2aa28f4.assembly.stream.el9
+          - distgit_key: governance-policy-propagator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-governance-policy-propagator-container-2.17.5-202611210213.p2.g65c2ae0.assembly.stream.el9
+          - distgit_key: grafana
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-grafana-container-2.17.5-202611202102.p2.gb9eb94a.assembly.stream.el9
+          - distgit_key: grafana-dashboard-loader
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-grafana-dashboard-loader-container-2.17.5-202611202102.p2.g7bab55b.assembly.stream.el9
+          - distgit_key: insights-client
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-insights-client-container-2.17.5-202611202102.p2.gf125fd7.assembly.stream.el9
+          - distgit_key: insights-metrics
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-insights-metrics-container-2.17.5-202611202102.p2.g118a360.assembly.stream.el9
+          - distgit_key: klusterlet-addon-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-klusterlet-addon-controller-container-2.17.5-202611202102.p2.g632b73c.assembly.stream.el9
+          - distgit_key: kube-rbac-proxy
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-kube-rbac-proxy-container-2.17.5-202611202102.p2.gfa7a3f3.assembly.stream.el9
+          - distgit_key: kube-state-metrics
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-kube-state-metrics-container-2.17.5-202611202102.p2.g3b03315.assembly.stream.el9
+          - distgit_key: memcached-exporter
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-memcached-exporter-container-2.17.5-202611202102.p2.g8375afd.assembly.stream.el9
+          - distgit_key: metrics-collector
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-metrics-collector-container-2.17.5-202611202102.p2.g7bab55b.assembly.stream.el9
+          - distgit_key: mtv-integrations
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-mtv-integrations-container-2.17.5-202611202102.p2.gff2893e.assembly.stream.el9
+          - distgit_key: multicloud-integrations
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicloud-integrations-container-2.17.5-202611202102.p2.g44f57e7.assembly.stream.el9
+          - distgit_key: multicluster-observability-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicluster-observability-addon-container-2.17.5-202611202102.p2.gab7fa43.assembly.stream.el9
+          - distgit_key: multicluster-observability-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicluster-observability-operator-container-2.17.5-202611202102.p2.g7bab55b.assembly.stream.el9
+          - distgit_key: multicluster-operators-application
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicluster-operators-application-container-2.17.5-202611202102.p2.gea039e1.assembly.stream.el9
+          - distgit_key: multicluster-operators-channel
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicluster-operators-channel-container-2.17.5-202611202102.p2.g2375cff.assembly.stream.el9
+          - distgit_key: multicluster-operators-subscription
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicluster-operators-subscription-container-2.17.5-202611230527.p2.g92a955f.assembly.stream.el9
+          - distgit_key: multicluster-role-assignment
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multicluster-role-assignment-container-2.17.5-202611202102.p2.gdc767d6.assembly.stream.el9
+          - distgit_key: multiclusterhub-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-multiclusterhub-operator-container-2.17.5-202611230527.p2.g44b1954.assembly.stream.el9
+          - distgit_key: must-gather
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-must-gather-container-2.17.5-202611202102.p2.g505e8d3.assembly.stream.el9
+          - distgit_key: node-exporter
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-node-exporter-container-2.17.5-202611202102.p2.g738bdeb.assembly.stream.el9
+          - distgit_key: obo-prometheus-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-obo-prometheus-operator-container-2.17.5-202611202102.p2.gc16bed8.assembly.stream.el9
+          - distgit_key: observatorium
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-observatorium-container-2.17.5-202611202102.p2.g9bcc61d.assembly.stream.el9
+          - distgit_key: observatorium-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-observatorium-operator-container-2.17.5-202611202102.p2.gd6ae48a.assembly.stream.el9
+          - distgit_key: prometheus
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-prometheus-container-2.17.5-202611202102.p2.g5217450.assembly.stream.el9
+          - distgit_key: prometheus-alertmanager
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-prometheus-alertmanager-container-2.17.5-202611202102.p2.gb5b2dd9.assembly.stream.el9
+          - distgit_key: prometheus-config-reloader
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-prometheus-config-reloader-container-2.17.5-202611202102.p2.g012b7ca.assembly.stream.el9
+          - distgit_key: prometheus-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-prometheus-operator-container-2.17.5-202611202102.p2.g012b7ca.assembly.stream.el9
+          - distgit_key: rbac-query-proxy
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-rbac-query-proxy-container-2.17.5-202611202102.p2.g7bab55b.assembly.stream.el9
+          - distgit_key: search-collector
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-search-collector-container-2.17.5-202611202102.p2.g76de817.assembly.stream.el9
+          - distgit_key: search-indexer
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-search-indexer-container-2.17.5-202611202102.p2.g86b8f14.assembly.stream.el9
+          - distgit_key: search-v2-api
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-search-v2-api-container-2.17.5-202611202102.p2.gd326134.assembly.stream.el9
+          - distgit_key: search-v2-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-search-v2-operator-container-2.17.5-202611202102.p2.g0a3fc96.assembly.stream.el9
+          - distgit_key: siteconfig
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-siteconfig-container-2.17.5-202611210412.p2.gaaac4ca.assembly.stream.el9
+          - distgit_key: submariner-addon
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-submariner-addon-container-2.17.5-202611202102.p2.g93055db.assembly.stream.el9
+          - distgit_key: thanos
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-thanos-container-2.17.5-202611202102.p2.gd94e8c2.assembly.stream.el9
+          - distgit_key: thanos-receive-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-thanos-receive-controller-container-2.17.5-202611202102.p2.g88d31e6.assembly.stream.el9
+          - distgit_key: volsync-addon-controller
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: acm-volsync-addon-controller-container-2.17.5-202611202102.p2.g9f8ecbe.assembly.stream.el9
+      group:
+        shipment:
+          advisories:
+            - kind: image
+            - kind: fbc
+          mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1228
