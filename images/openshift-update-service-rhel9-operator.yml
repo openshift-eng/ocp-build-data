@@ -8,11 +8,11 @@ content:
       web: https://github.com/openshift/cincinnati-operator
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-9
-  component: openshift-update-service-rhel8-operator-container
+  component: openshift-update-service-rhel9-operator-container
 delivery:
   bundle_delivery_repo_name: openshift-update-service/cincinnati-operator-bundle
   delivery_repo_names:
-  - openshift-update-service/openshift-update-service-rhel8-operator
+  - openshift-update-service/openshift-update-service-rhel9-operator
 enabled_repos:
 - rhel-9-baseos-rpms
 - rhel-9-appstream-rpms
@@ -21,7 +21,7 @@ from:
   builder:
   - stream: rhel-9-golang
   stream: rhel9
-name: openshift-update-service/openshift-update-service-rhel8-operator
+name: openshift-update-service/openshift-update-service-rhel9-operator
 name_in_bundle: openshift-update-service-rhel9-operator
 owners:
 - wking@redhat.com
