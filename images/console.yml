@@ -4,9 +4,13 @@ cachito:
     npm:
     - path: .
     - path: ./frontend
-    - path: ./backend
+    gomod:
+    - path: backend
 content:
   source:
+    pkg_managers:
+    - npm
+    - gomod
     dockerfile: Containerfile.acm
     git:
       branch:
@@ -23,9 +27,9 @@ dependents:
 - multiclusterhub-operator
 from:
   builder:
-    - stream: rhel9-ubi
     - stream: rhel-9-nodejs-24
-  stream: rhel-9-nodejs-24
+    - stream: rhel-9-golang
+  stream: rhel9
 name: rhacm2/console-rhel9
 owners:
 - acm-cicd@redhat.com
