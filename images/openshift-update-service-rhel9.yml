@@ -19,11 +19,15 @@ enabled_repos:
 - rhel-9-appstream-rpms
 for_release: true
 dependents:
-- openshift-update-service-rhel8-operator
+- openshift-update-service-rhel9-operator
 from:
   builder:
   - stream: rhel9
   stream: rhel9
 name: openshift-update-service/openshift-update-service-rhel8
+name_in_bundle: openshift-update-service-rhel9
+konflux:
+  component:
+    name_override: osus-5-0-openshift-update-service-rhel8
 owners:
 - wking@redhat.com

@@ -22,6 +22,11 @@ from:
   - stream: rhel-9-golang
   stream: rhel9
 name: openshift-update-service/openshift-update-service-rhel8-operator
+name_in_bundle: openshift-update-service-rhel9-operator
+bundle_name_override: openshift-update-service-rhel8-operator-bundle
+konflux:
+  component:
+    name_override: osus-5-0-openshift-update-service-rhel8-operator
 owners:
 - wking@redhat.com
 update-csv:
