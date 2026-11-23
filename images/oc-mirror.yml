@@ -15,12 +15,15 @@ content:
 distgit:
   branch: oc-mirror-{MAJOR}.{MINOR}-rhel-9
   component: oc-mirror-container
+delivery:
+  delivery_repo_names:
+  - openshift5/oc-mirror-plugin-rhel9
 from:
   builder:
   - stream: rhel-8-golang
   - stream: rhel-9-golang
   - stream: rhel9
-name: openshift5/oc-mirror-2-0
+name: openshift5/oc-mirror-plugin-rhel9
 owners:
 - jpower@redhat.com
 - dmesser@redhat.com
