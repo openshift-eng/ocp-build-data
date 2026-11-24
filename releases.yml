@@ -47,7 +47,66 @@ releases:
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/972
   6.0.18:
     assembly:
-      type: stream
+      type: standard
       group:
         shipment:
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1218
+          advisories:
+            - kind: image
+            - kind: fbc
+      basis:
+        fbc_pullspecs:
+          '4.14':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:34899bd6cf879dc143a7368eb813c1c9421e14b4dbec84923fbde497a11f7cb6
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:a0aea6d1611e64add037575cdb10d93e30546b1a08b631ceefa2ca4a44fc89b2
+          '4.15':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:380db9e169688073c4979b66552161b772404359794c8dd7aa94a28c54ab121a
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:84387c01e92d766df786979811cb4420ea616c4253142d6a5fa356f0dfda7916
+          '4.16':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:415ade71f4009de33db421d4c193abcbe6cdd64ff9700f81043f4cbc7019c74b
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:8e81aec0875e11f81d7c1f9d8d3c230517c362905d90771ceebc7c7a753f2fda
+          '4.17':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:5329583631702e8c8f59739b8146e7dc7cb6641a8b333a51c5d89fabba111fd3
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:e895475552e0390cdfd486e955ea3f80d36be6ec1ee3659d0cda98548cdac711
+      members:
+        images:
+          - distgit_key: cluster-logging-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: ose-cluster-logging-operator-container-6.0.18-202611241832.p2.gb8f8610.assembly.stream.el9
+          - distgit_key: eventrouter
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: ose-logging-eventrouter-container-6.0.18-202611201735.p2.gc1d3915.assembly.stream.el9
+          - distgit_key: log-file-metric-exporter
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: log-file-metric-exporter-container-6.0.18-202611182302.p2.g8990e88.assembly.stream.el9
+          - distgit_key: loki
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: logging-loki-rhel9-container-6.0.18-202611182302.p2.gfc7172a.assembly.stream.el9
+          - distgit_key: loki-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: loki-rhel9-operator-container-6.0.18-202611182302.p2.g4c33414.assembly.stream.el9
+          - distgit_key: lokistack-gateway
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: lokistack-gateway-rhel9-container-6.0.18-202611182302.p2.g0e5fa8f.assembly.stream.el9
+          - distgit_key: opa-openshift
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: opa-openshift-rhel9-container-6.0.18-202611182302.p2.g1a62db1.assembly.stream.el9
+          - distgit_key: vector
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: vector-container-6.0.18-202611241832.p2.g5cc7e3b.assembly.stream.el9
