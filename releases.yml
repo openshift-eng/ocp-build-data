@@ -51,40 +51,40 @@ releases:
         rpms: []
         images:
           - distgit_key: ose-baremetal-installer
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the post-cutoff public rebuild from Jenkins build 51252.
             metadata:
               is:
-                nvr: ose-baremetal-installer-container-v4.22.0-202611131136.p2.g8d5ee72.assembly.stream.el9
+                nvr: ose-baremetal-installer-container-v4.22.0-202611241853.p2.gb0e3050.assembly.stream.el9
           - distgit_key: ose-installer
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the post-cutoff public rebuild from Jenkins build 51252.
             metadata:
               is:
-                nvr: ose-installer-container-v4.22.0-202611130251.p2.g8d5ee72.assembly.stream.el9
+                nvr: ose-installer-container-v4.22.0-202611241853.p2.gb0e3050.assembly.stream.el9
           - distgit_key: ose-machine-os-images
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the post-cutoff public rebuild from Jenkins build 51252.
             metadata:
               is:
-                nvr: ose-machine-os-images-container-v4.22.0-202611101133.p2.ge5342c9.assembly.stream.el9
+                nvr: ose-machine-os-images-container-v4.22.0-202611241853.p2.ge5342c9.assembly.stream.el9
           - distgit_key: openshift-enterprise-hyperkube
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the public Kubernetes rebuild from Jenkins build 51252. The reconciliation commit preserves the openshift RPM source tree.
             metadata:
               is:
-                nvr: openshift-enterprise-hyperkube-container-v4.22.0-202611181617.p2.ge2a920b.assembly.stream.el9
+                nvr: openshift-enterprise-hyperkube-container-v4.22.0-202611241853.p2.g4d78645.assembly.stream.el9
           - distgit_key: kube-proxy
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the public Kubernetes rebuild from Jenkins build 51252. The reconciliation commit preserves the openshift RPM source tree.
             metadata:
               is:
-                nvr: kube-proxy-container-v4.22.0-202611181617.p2.ge2a920b.assembly.stream.el9
+                nvr: kube-proxy-container-v4.22.0-202611241853.p2.g4d78645.assembly.stream.el9
           - distgit_key: ose-installer-artifacts
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the post-cutoff public rebuild from Jenkins build 51252.
             metadata:
               is:
-                nvr: ose-installer-artifacts-container-v4.22.0-202611130251.p2.g8d5ee72.assembly.stream.el9
+                nvr: ose-installer-artifacts-container-v4.22.0-202611241853.p2.gb0e3050.assembly.stream.el9
           - distgit_key: openshift-enterprise-pod
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: Use the public Kubernetes rebuild from Jenkins build 51252. The reconciliation commit preserves the openshift RPM source tree.
             metadata:
               is:
-                nvr: openshift-enterprise-pod-container-v4.22.0-202611181617.p2.ge2a920b.assembly.stream.el9
+                nvr: openshift-enterprise-pod-container-v4.22.0-202611241853.p2.g4d78645.assembly.stream.el9
   4.22.23:
     assembly:
       type: standard
