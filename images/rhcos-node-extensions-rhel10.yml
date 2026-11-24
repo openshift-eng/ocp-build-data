@@ -25,6 +25,9 @@ content:
 distgit:
   branch: rhaos-{MAJOR}.{MINOR}-rhel-10
   component: rhcos-node-extensions-container
+delivery:
+  delivery_repo_names:
+  - openshift5/ose-rhel-coreos-extensions-rhel10
 enabled_repos:
 - rhel-102-baseos
 - rhel-102-appstream
@@ -42,7 +45,7 @@ from:
 labels:
   distribution-scope: public
   url: "https://access.redhat.com/errata"
-name: openshift/rhcos-node-extensions-rhel10
+name: openshift5/ose-rhel-coreos-extensions-rhel10
 owners:
 - aos-team-art@redhat.com
 canonical_builders_from_upstream: false
