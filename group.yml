@@ -252,7 +252,7 @@ check_golang_versions: "x.y"
 # If set to True, it will honor the image's config
 # Note: If upstream uses a different RHEL version (e.g., el9 vs el10), you must add a
 # corresponding alternative_upstream config with a "when: el{version}" clause to handle the divergence
-canonical_builders_from_upstream: true
+canonical_builders_from_upstream: false
 
 # This is a toggle to allow streams prs to not yet be opened. This can be useful when golang
 # builders are not yet set up correctly for the release at branch cut time, and we want to limit
