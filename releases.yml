@@ -28,9 +28,6 @@ releases:
             - el9: kernel-5.14.0-687.68.1.el9_8
               why: Pin kernel to match RHCOS build 5.0.9.8.202611200722-0 in nightly 5.0.0-0.nightly-2026-11-23-133527
               non_gc_tag: hotfix
-            - el10: kernel-6.12.0-211.75.1.el10_2
-              why: Pin kernel to RHCOS build
-              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
@@ -60,10 +57,10 @@ releases:
         rpms: []
         images:
           - distgit_key: driver-toolkit-rhel10
-            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            why: RHCOS aligned dtk-10 fails conforma
             metadata:
               is:
-                nvr: driver-toolkit-rhel10-container-v5.0.0-202611130327.p2.gb63b175.assembly.stream.el10
+                nvr: driver-toolkit-rhel10-container-v5.0.0-202611181649.p2.gb63b175.assembly.stream.el10
           - distgit_key: driver-toolkit
             why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
             metadata:
