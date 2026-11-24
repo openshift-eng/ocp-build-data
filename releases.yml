@@ -1,4 +1,74 @@
 releases:
+  5.0.3:
+    assembly:
+      type: standard
+      basis:
+        time: "2026-11-23T07:43:01+00:00"
+        reference_releases:
+          x86_64: 5.0.0-0.nightly-2026-11-23-133527
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Dec-01
+        upgrades: 4.22.17,4.22.18,4.22.19,4.22.20,4.22.21,4.22.22,4.22.23,4.22.24,5.0.0,5.0.1,5.0.2
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.68.1.el9_8
+              why: Pin kernel to match RHCOS build 5.0.9.8.202611200722-0 in nightly 5.0.0-0.nightly-2026-11-23-133527
+              non_gc_tag: hotfix
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:2028e8fc60cd0ca8ab8434940029e7887defe80c5ebb33cacd01305f700a9da5
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:94093000865c9440940cac7b03bd5b055c0c8a13de3356b757cda286c0018ca2
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b6e1c7b332ef0922603bccc4611889a63747e8aa255b22b33472d85753ed891a
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:1b70d90a353db5f6d437d4ea0a32b3d067f4f6ed63804050084079d9bc1db3df
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:3374492a4aa9713c22392db284028e7707d7cba1a4a0c7c1fef75d1f61236a2a
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:75032faf64312f88cd40421c76831272bfc61ab9b040bbfff8f1257306b16743
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:000843488565e71495492fde5d6f27804caf88c5caa6a6a877e3ea399ddf67fb
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7d87a30479a4d888e257cbbb0b1872da2befcff605dd141d5309c0e939d9ea42
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:77b8fad29cf4fd2e6b3e70d082e49f1d523dcd9b03a699dcc37b6d1d94807ffd
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a17380cc08c1fa3f14796b9d6c12b56d893855cdabafbb7cd07dfe5b01751d80
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aec9d4a1d6c0625d91c3e09ca14d63864d6562625695af61cf80a050d71fa618
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:949bf169a08a88bfb31eccec7bb180be396514ce9591a46aec947aa84e9ee557
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:3978c70bb9f394b738e8d0bc5b3ab137ebcace2f75543d9aec19b25aaa1ecd1c
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8cb6921fafa8287f40d918e9d50b654f4af1c82125b8f82b9fdfadbd664fda1e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:72a21f4e9d4bf0a14f16ac4dd902369b74b1e6b597b433534b79664522602aea
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:bf27f9e2cd1be1ff596c4d89b43f0b0db5252a472b491505f6920faae83f97ea
+      members:
+        rpms: []
+        images:
+          - distgit_key: driver-toolkit-rhel10
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: driver-toolkit-rhel10-container-v5.0.0-202611130327.p2.gb63b175.assembly.stream.el10
+          - distgit_key: driver-toolkit
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v5.0.0-202611181649.p2.gb63b175.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
   5.0.2:
     assembly:
       type: standard
