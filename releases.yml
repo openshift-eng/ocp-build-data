@@ -1,7 +1,53 @@
 releases:
   5.0.0:
     assembly:
-      type: stream
+      type: standard
       group:
         shipment:
           mr: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1224
+          advisories:
+            - kind: image
+            - kind: fbc
+      basis:
+        fbc_pullspecs:
+          '5.0':
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:a82c8d6a4c73d5f99e3d4380b2c138788e3396f1e392a602ddaae2dc3fe10723
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:b34b33a52a35864e5d4577cb06fefd8022287776a7b40223ee065dce35cb5c10
+            - quay.io/redhat-user-workloads/ocp-art-tenant/art-fbc@sha256:b7c9527d567e4e826d4891ea56a9252e9c898724c2e475e8aebc77cd2dcd18e2
+      members:
+        images:
+          - distgit_key: container-security-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: container-security-operator-container-5.0.0-202611202114.p2.g6e3654c.assembly.stream.el9
+          - distgit_key: quay-bridge-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: quay-bridge-operator-container-5.0.0-202611202114.p2.gb89e5d6.assembly.stream.el9
+          - distgit_key: quay-builder
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: quay-builder-container-5.0.0-202611230529.p2.ge952b09.assembly.stream.el9
+          - distgit_key: quay-builder-qemu
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: quay-builder-qemu-container-5.0.0-202611231021.p2.g363ac9b.assembly.stream.el9
+          - distgit_key: quay-clair
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: quay-clair-container-5.0.0-202611202114.p2.gd1e4508.assembly.stream.el9
+          - distgit_key: quay-operator
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: quay-operator-container-5.0.0-202611231021.p2.ga00de74.assembly.stream.el9
+          - distgit_key: quay-quay
+            why: Pin this image build for the assembly
+            metadata:
+              is:
+                nvr: quay-quay-container-5.0.0-202611230529.p2.g499b283.assembly.stream.el9
