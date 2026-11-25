@@ -1,4 +1,77 @@
 releases:
+  ec.3:
+    assembly:
+      type: preview
+      basis:
+        time: "2026-11-23T22:39:43+00:00"
+        reference_releases:
+          x86_64: 5.1.0-0.nightly-2026-11-24-072328
+      group:
+        advisories:
+          rpm: 176745
+          rhcos: 176746
+          microshift: 172758
+        release_jira: ART-23288
+        shipment:
+          advisories:
+            - kind: image
+              live_id: 63643
+            - kind: extras
+              live_id: 63644
+            - kind: metadata
+              live_id: 63645
+            - kind: fbc
+          env: stage
+        release_date: 2027-Feb-01
+        upgrades: 5.0.0,5.0.1,5.0.2,5.0.3,5.0.9,5.1.0-ec.0,5.1.0-ec.1,5.1.0-ec.2
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:851671c5471fe8c5f130eff7384b1e528cd996ce71b5c286375d5b68e5470931
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:e4d1efd95946bbe5e79e58112019d5cb117d45768902bd147782bca02f137b3d
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:8242300be1a5d7265e7e04fe104820ef9b5ac90a1e4cda816c5855cd0b6427f1
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:ab541582d7324266b3711b5b8b2e29eb63302ee3efd792c306fa43862aced837
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:a588ba06e9fc178d0dba598e34b04cd232f9d5ef9c0fa2ee5e5930903d1c315d
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:0600182353d3e56c5a7398c7b35bc3c21dab18665c04196941b7ed4a5f7347ef
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:4b117a5638f2a70512b5157e8c840638eedeffaa1a592948e04b30a5af16188d
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:b1032ce9cfec3ee5b3efa91ed9dd8b7fab85a42d610ee68d35f00a2de5f60ce4
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:819bc8c5980fd0ce5c2d95ccebbdc4f550b117a63be8403a0fdeb4075a5d4349
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:fa7ae93a3289e0d7ad0e4b02346d7c6ec01ca73b7b268fad7b3df493b40fe627
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:af54fae97b17caa4e1e7f6d31d2e061a09def6fa5caa1debabe2143c1dde934c
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:43cdf54a45ad04f90aedf8fca1cf17de674909327cdcc25233bc8249cad9b575
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v5.0-art-dev@sha256:8775ebec793d6d87465fa62a63a557af45b88d0a07b403f0321557b1013cd1af
+            aarch64: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:e29654e428ea5f22f9c3170b8564054b04f607d5b56f51c577918db294bbb887
+            s390x: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:9ac057a6412fb65a0507320cca8866b535420babdcb7f466a347925ddd717e30
+            ppc64le: quay.io/redhat-user-workloads/ocp-art-tenant/art-images@sha256:ed7cc2158024d4a53a1cfb4c713f9121c66d8e08573a9bf9b2286439415a6f0b
+      members:
+        rpms: []
+        images:
+          - distgit_key: driver-toolkit-rhel10
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: driver-toolkit-rhel10-container-v5.1.0-202611090058.p2.gb63b175.assembly.stream.el10
+          - distgit_key: multus-cni-container-microshift
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: multus-cni-container-microshift-container-v5.1.0-202611192245.p2.g65b175b.assembly.stream.el9
+          - distgit_key: ose-cluster-openshift-controller-manager-operator
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-cluster-openshift-controller-manager-operator-container-v5.1.0-202609011727.p2.g8da2f1f.assembly.stream.el9
+          - distgit_key: driver-toolkit
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: driver-toolkit-container-v5.1.0-202611121700.p2.gb63b175.assembly.stream.el9
   ec.2:
     assembly:
       type: preview
