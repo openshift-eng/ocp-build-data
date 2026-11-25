@@ -3,9 +3,9 @@ releases:
     assembly:
       type: preview
       basis:
-        time: "2026-11-24T04:40:54+00:00"
+        time: "2026-11-19T11:08:07+00:00"
         reference_releases:
-          x86_64: 4.23.0-0.nightly-2026-11-24-134137
+          x86_64: 4.23.0-0.nightly-2026-11-19-130458
       group:
         advisories:
           rpm: 172620
@@ -22,48 +22,74 @@ releases:
               live_id: 65566
             - kind: fbc
           env: stage
-          url: https://gitlab.cee.redhat.com/hybrid-platforms/art/ocp-shipment-data/-/merge_requests/1253
         release_date: 2027-Feb-01
         upgrades: 4.22.0-rc.0,4.22.0-rc.1,4.22.0-rc.2,4.22.0-rc.3,4.22.0-rc.4,4.22.0-rc.5,4.22.0,4.22.1,4.22.2,4.22.3,4.22.4,4.22.5,4.22.6,4.22.7,4.22.8,4.22.9,4.22.10,4.22.11,4.22.12,4.22.13,4.22.14,4.22.15,4.22.16,4.22.17,4.22.18,4.22.19,4.22.20,4.22.21,4.22.22,4.22.23,4.22.30,4.23.0-ec.0,4.23.0-ec.1,4.23.0-ec.2
         dependencies:
           rpms:
-            - el9: kernel-5.14.0-687.68.1.el9_8
-              why: Pin kernel to match RHCOS build 4.23.9.8.202611230352-0 in nightly 4.23.0-0.nightly-2026-11-24-134137
+            - el9: kernel-5.14.0-687.67.1.el9_8
+              why: Pin kernel to match RHCOS build 4.23.9.8.202611130907-0 in nightly 4.23.0-0.nightly-2026-11-19-130458
               non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7d029fb62760a5e441b9a64576f21402dec5bc605f1bb60555c281db41da0702
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a38744630a77380b0bfcc455a97b12526017b5a38dcbec968f465845dc4cc2a7
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:89e1bdc91de4045f4ce1f11450f8226628425a140d55bc15ef10969bb3823ec4
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e036f5bc005ead3cd6081568c6d78d5ce252e0860189a040c7905c8bf2e5b858
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:00fbc7984605cca9f72832b12d4ac82a92b799c14d5c749a89fce25e3dd39224
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:025f3d62e3bc2e1c338fa1ba647e6d5440767e2a42167fd0e8039e714d9a0391
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:05d56b3bfdb1c5a9ead2a30a8c82054a2396710f76167505da2872b73dcc0d03
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d15fb70fbe81c217f43276e8b400017a6c205a25446d51f919ebb1b2b9b7dd65
         rhel-coreos-10:
           images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b6a90a1ae8eae074bcfc85e6fd1b587d2f325af8c5405dfc35cab8f37a1dc763
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e06a4477a7219ffb8faee60c3811e4c24e425d0b771bb8e255188765725bdc83
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7683e47a6d1bf6bfd2cc25caa8fa356f10926ad3bbfd4ef5206648530597e3a3
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:69c8074fba3dd866eb441e08f87890071c254d94dcb3097221f4d4a072f3dc1c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:211abba232bf1b6cc5455112f7dfaf44b80cce93730f8826d9285294be3f6043
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ae1d4eb5c2fcd05ae3e22d9a37d1e058ab4c188774a5741212604ef8013d7e81
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a8ba4e0ed992ddac53a93e87170f70fd0f70145f7d95b720f8d05d05e11ed2c7
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c36dc90300486e17df2e87d0cf78c6bb4119e834024318f7c74b16a807dd2397
         rhel-coreos-10-extensions:
           images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:00ae9893748304236897c7b015a5dc55b698137d927afddd7b48363fd4f46f87
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a2d79252c9b14ac4d6d793be9e274d754beacde59b0634a8aca8de52d9e8cdab
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5e4178beedf5a592f4cfa7ee95e3a42e19694986c05a4681bab36f55a59481ce
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3c870e9ef14397e9ebcf9b6667a5511570a87cba37f8558e9355d64a03ca3f5c
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:41306f668f14b372fd1e869bef634c0670f9208d1c221b571dcd986bbcf996f2
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4ae9493d435d142917442e0e8b1cf29c04fb3a551b33e17baa2137ddd1eadb37
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b755dee7f3250f7aafbfcadc3703ac8f1629df850f3b85c831d3030e5831edc5
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f039530d5babe08ffe73db854b765b3dd31f02390758212704ef8a221a63d951
         rhel-coreos-extensions:
           images:
-            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:b70e9039c343b6a1b9b389f3cda46d278b3deb5526354028bc3239409f258623
-            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7bc37048a808862e1dec29a5167e1e4a39d49d44eeea466e8dc7d571b8a7a466
-            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3a2bac892f09e01f5cb5f08eb38d75e23ae8c3916948738d13aaacd314b24ae3
-            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:7fe266e327d2f0113116a8f3998968bf85f62349d91bbb110dbcf46600fdec8d
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ad8138830d81e5a7a37d34a491918f5b30e623b2f3d07c9f81dcd5b0c87b97a1
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aa007f574c65a9f3b149aae7798d63c9992c99054b98f3fde015def14d70019e
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f000eab9a02ef8d9e8db996dc522eeb250a9cf48514a46fd01c61f0ecd827bd0
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c7b0d6b14555408631af03be2b85d01dd2944a76d898514e62298218d228838f
       members:
         rpms: []
         images:
+          - distgit_key: ose-baremetal-installer
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-baremetal-installer-container-v4.23.0-202611131747.p2.g9da764a.assembly.stream.el9
+          - distgit_key: ose-insights-runtime-extractor
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-insights-runtime-extractor-container-v4.23.0-202610200135.p2.g0aa2032.assembly.stream.el9
           - distgit_key: driver-toolkit
             why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
             metadata:
               is:
-                nvr: driver-toolkit-container-v4.23.0-202611190122.p2.gb63b175.assembly.stream.el9
+                nvr: driver-toolkit-container-v4.23.0-202611121731.p2.gb63b175.assembly.stream.el9
+          - distgit_key: golang-github-openshift-oauth-proxy
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: golang-github-openshift-oauth-proxy-container-v4.23.0-202611090131.p2.gcd72f88.assembly.stream.el9
+          - distgit_key: openshift-enterprise-console
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: openshift-enterprise-console-container-v4.23.0-202610120923.p2.g0216b2d.assembly.stream.el9
+          - distgit_key: ose-insights-runtime-exporter
+            why: Query from assembly basis event failed to replicate referenced nightly content exactly. Pinning to replicate.
+            metadata:
+              is:
+                nvr: ose-insights-runtime-exporter-container-v4.23.0-202610161733.p2.g0aa2032.assembly.stream.el9
       permits:
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
         - code: CONFLICTING_INHERITED_DEPENDENCY
           component: ironic
         - code: CONFLICTING_INHERITED_DEPENDENCY
