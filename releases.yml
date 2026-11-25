@@ -1,4 +1,88 @@
 releases:
+  4.22.24:
+    assembly:
+      type: standard
+      permits:
+        - code: MISMATCHED_RPM_IMAGE_SIBLINGS
+          component: openshift
+      basis:
+        time: "2026-11-24T07:51:27+00:00"
+      group:
+        advisories:
+          rpm: -1
+          rhcos: -1
+        release_jira: ART-0
+        shipment:
+          advisories:
+            - kind: image
+            - kind: extras
+            - kind: metadata
+            - kind: fbc
+        release_date: 2026-Dec-01
+        upgrades: 4.21.6,4.21.7,4.21.8,4.21.9,4.21.10,4.21.11,4.21.12,4.21.13,4.21.14,4.21.15,4.21.16,4.21.17,4.21.18,4.21.19,4.21.20,4.21.21,4.21.22,4.21.23,4.21.24,4.21.25,4.21.26,4.21.27,4.21.28,4.21.29,4.21.30,4.21.31,4.21.32,4.21.33,4.21.34,4.21.35,4.21.36,4.21.37,4.21.38,4.21.39,4.21.40,4.21.41,4.21.42,4.21.43,4.21.44,4.22.0,4.22.1,4.22.2,4.22.3,4.22.4,4.22.5,4.22.6,4.22.7,4.22.8,4.22.9,4.22.10,4.22.11,4.22.12,4.22.13,4.22.14,4.22.15,4.22.16,4.22.17,4.22.18,4.22.19,4.22.20,4.22.21,4.22.22,4.22.23
+      rhcos:
+        rhel-coreos:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c321d031bcdd40ea537ad694537d3c47969b40a18a5bde2f840528035f1220be
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ae7829c250e85bc3d68fcc06ddbb20f0b533b0b87452e6555131416f84f6b4e0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2e95e32c7a8d85468ce8bb7f2655955bacf4757fc9a7522fc4eeeffcd4179a0b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:29ed169e671fe6f7bf9f7e83d74a69a6d9af1ef6ca8ca81364a8ef28ccc33f48
+        rhel-coreos-10:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:27b4538aa14e55547c41f51d9212d836a0160a42ae2ed7b69fccd7a19eacf133
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ec0b58f220329920883d980ff2cf7f2c545af6b79c0fd84c51daf1b1a3eb5ab0
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:69f0605792fe734314ee2eea5b3b52bbca4ce1cb75410393d12279d09d376b5b
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:ddba4bcd29e036353427a7037cdd477ec66d539da30f81a9dced1749ba9ad57f
+        rhel-coreos-10-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a52783ed469e47b23ea91813ef21875d846180a37ec09c14ab0bddbb51c0d330
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:fc82a022957d0aeb22571c9e5e7b9446e6656358379a303a290fdcc0e0cf9e71
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e61af4c0eaeef09be1a5f7993feeffe0f8f33991d3db582a95b7bb5082fa4a77
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:aa6cf6b60ebfbde602eb1fcfe985ca771721e5ba536f272a27707d45d671ab0b
+        rhel-coreos-extensions:
+          images:
+            x86_64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:80949d5058b3a9918aebed1fb1efa7eaea88b785e1d4eba3fd3194edcdb4ba02
+            aarch64: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f2b7546e329b337a0395ca5dd3563e6f15f77157f33b21c72594f3b4a3990aa5
+            s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a17727247e8e7a8d0973e1c80878aea65ffcf063dde61cc2bc67d57969e7a5ea
+            ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9d4f67f557dfe7e7ba37752ebfb5b834a101063514d83f5796508dd74db6d538
+      members:
+        rpms: []
+        images:
+          - distgit_key: ose-baremetal-installer
+            why: Use the public image rebuilt after the November 16 cutoff.
+            metadata:
+              is:
+                nvr: ose-baremetal-installer-container-v4.22.0-202611241853.p2.gb0e3050.assembly.stream.el9
+          - distgit_key: ose-installer
+            why: Use the public image rebuilt after the November 16 cutoff.
+            metadata:
+              is:
+                nvr: ose-installer-container-v4.22.0-202611241853.p2.gb0e3050.assembly.stream.el9
+          - distgit_key: ose-machine-os-images
+            why: Use the public image rebuilt after the November 16 cutoff.
+            metadata:
+              is:
+                nvr: ose-machine-os-images-container-v4.22.0-202611241853.p2.ge5342c9.assembly.stream.el9
+          - distgit_key: openshift-enterprise-hyperkube
+            why: Use the public Kubernetes rebuild. The upstream image and openshift RPM commits have identical Git trees.
+            metadata:
+              is:
+                nvr: openshift-enterprise-hyperkube-container-v4.22.0-202611241853.p2.g4d78645.assembly.stream.el9
+          - distgit_key: kube-proxy
+            why: Use the public Kubernetes rebuild. The upstream image and openshift RPM commits have identical Git trees.
+            metadata:
+              is:
+                nvr: kube-proxy-container-v4.22.0-202611241853.p2.g4d78645.assembly.stream.el9
+          - distgit_key: ose-installer-artifacts
+            why: Use the public image rebuilt after the November 16 cutoff.
+            metadata:
+              is:
+                nvr: ose-installer-artifacts-container-v4.22.0-202611241853.p2.gb0e3050.assembly.stream.el9
+          - distgit_key: openshift-enterprise-pod
+            why: Use the public Kubernetes rebuild. The upstream image and openshift RPM commits have identical Git trees.
+            metadata:
+              is:
+                nvr: openshift-enterprise-pod-container-v4.22.0-202611241853.p2.g4d78645.assembly.stream.el9
   4.22.23:
     assembly:
       type: standard
