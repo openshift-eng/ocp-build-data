@@ -35,7 +35,7 @@ content:
       match: "LABEL architecture=${TARGETARCH}"
       replacement: ""
     - action: replace
-      match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo /run/src/build-node-image.sh'
+      match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/yumrepos.repo /run/src/build-node-image.sh'
       replacement: |
         COPY build-node-image.sh /tmp/art-build-node-image.sh
         RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo \
