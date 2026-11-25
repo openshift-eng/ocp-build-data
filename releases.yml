@@ -62,6 +62,13 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v4.23.0-202611190122.p2.gb63b175.assembly.stream.el9
+      permits:
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ironic-rhcos-downloader
+        - code: CONFLICTING_INHERITED_DEPENDENCY
+          component: ose-insights-runtime-extractor
   ec.2:
     assembly:
       type: preview
