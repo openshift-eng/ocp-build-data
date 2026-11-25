@@ -8,16 +8,17 @@
 enabled: false
 
 rules:
-  - product: okd
-    priority: 8
-
   # Maintain this list as development-cutoff streams change.
+  
   - product: ocp
     versions: ["4.19", "4.20", "4.21", "4.22", "5.0"]
     priority: 2
 
   - product: ocp
     priority: 4
+
+  - product: okd
+    priority: 8
 
 # Layered products and other non-OCP image builds covered by this policy.
 default_priority: 3
