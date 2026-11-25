@@ -16,6 +16,8 @@ distgit:
 delivery:
   delivery_repo_names:
   - cluster-observability-operator/korrel8r-rhel9
+envs:
+  GOFLAGS: "-mod=readonly"
 from:
   builder:
   - stream: rhel-9-golang
