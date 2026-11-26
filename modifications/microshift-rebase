@@ -62,9 +62,8 @@ echo "Using registry auth file: $HOST_AUTH_FILE"
 
 # Build the podman image
 DIR=$(dirname $(readlink -f $0))
-PODMAN_BUILD_CMD="podman build  -t microshift-rebase:$BREW_TAG $DIR"
-echo $PODMAN_BUILD_CMD
-eval $PODMAN_BUILD_CMD
+echo "podman build --authfile $HOST_AUTH_FILE -t microshift-rebase:$BREW_TAG $DIR"
+podman build --authfile "$HOST_AUTH_FILE" -t "microshift-rebase:$BREW_TAG" "$DIR"
 podman image prune -f  # clean up unused images
 
 # Run the podman container
