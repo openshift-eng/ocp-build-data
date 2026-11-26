@@ -2,6 +2,9 @@ releases:
   ec.3:
     assembly:
       type: preview
+      permits:
+        - code: CONFLICTING_GROUP_RPM_INSTALLED
+          component: rhcos
       basis:
         time: "2026-11-23T22:39:43+00:00"
         reference_releases:
@@ -24,6 +27,11 @@ releases:
           env: stage
         release_date: 2027-Feb-01
         upgrades: 5.0.0,5.0.1,5.0.2,5.0.3,5.0.9,5.1.0-ec.0,5.1.0-ec.1,5.1.0-ec.2
+        dependencies:
+          rpms:
+            - el9: kernel-5.14.0-687.67.1.el9_8
+              why: Pin kernel to match RHCOS build 5.1.9.8.202611121700-0 in nightly 5.1.0-0.nightly-2026-11-24-072328
+              non_gc_tag: hotfix
       rhcos:
         rhel-coreos:
           images:
