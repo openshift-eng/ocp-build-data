@@ -33,7 +33,7 @@ content:
       match: "LABEL architecture=${TARGETARCH}"
       replacement: ""
     - action: replace
-      match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo /run/src/build-node-image.sh'
+      match: 'RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/yumrepos.repo /run/src/build-node-image.sh'
       replacement: |
         RUN --mount=type=bind,target=/run/src --mount=type=secret,id=yumrepos,target=/run/src/secret.repo \
             sed -e 's/dnf --repo="${YUM_REPO_NAMES}"/dnf/' \
