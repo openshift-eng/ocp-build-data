@@ -87,6 +87,27 @@ releases:
             metadata:
               is:
                 nvr: driver-toolkit-container-v5.1.0-202611121700.p2.gb63b175.assembly.stream.el9
+          - distgit_key: ose-gcp-filestore-csi-driver-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: ose-secrets-store-csi-driver-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: ose-smb-csi-driver-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: ose-aws-efs-csi-driver-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: local-storage-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: vertical-pod-autoscaler-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: clusterresourceoverride-operator
+            exclude: true
+            why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
   ec.2:
     assembly:
       type: preview
