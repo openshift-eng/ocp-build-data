@@ -77,6 +77,16 @@ releases:
             metadata:
               is:
                 nvr: marketplace-operator-container-v5.0.0-202611241947.p2.gfa9e19b.assembly.stream.el9
+          - distgit_key: microshift-bootc-rhel10
+            metadata:
+              is:
+                nvr: microshift-bootc-rhel10-container-v5.0-202611271524.p2.gc387321.assembly.5.0.3.el10
+            why: Pin microshift-bootc-rhel10 image to assembly
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v5.0-202611271524.p2.gc387321.assembly.5.0.3.el9
+            why: Pin microshift-bootc image to assembly
       issues:
         exclude:
           - id: OCPBUGS-135344  # No CVE id assigned
