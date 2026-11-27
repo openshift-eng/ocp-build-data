@@ -51,7 +51,12 @@ releases:
             s390x: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a17727247e8e7a8d0973e1c80878aea65ffcf063dde61cc2bc67d57969e7a5ea
             ppc64le: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9d4f67f557dfe7e7ba37752ebfb5b834a101063514d83f5796508dd74db6d538
       members:
-        rpms: []
+        rpms:
+          - distgit_key: microshift
+            why: Pin microshift to assembly
+            metadata:
+              is:
+                el9: microshift-4.22.24-202611271332.p0.g6023584.assembly.4.22.24.el9
         images:
           - distgit_key: ose-baremetal-installer
             why: Use the public image rebuilt after the November 16 cutoff.
