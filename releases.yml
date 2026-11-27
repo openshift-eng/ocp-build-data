@@ -113,6 +113,16 @@ releases:
           - distgit_key: clusterresourceoverride-operator
             exclude: true
             why: "Bundle fails EC/conforma verification (olm.allowed_resource_kinds: NetworkPolicy manifest kind not allowed). Excluded from ec.3 to unblock release prep pending an EnterpriseContractPolicy exception (RELAUTO-5084); to be re-added once the exception lands."
+          - distgit_key: microshift-bootc-rhel10
+            metadata:
+              is:
+                nvr: microshift-bootc-rhel10-container-v5.1-202611271454.p2.g64f9378.assembly.ec.3.el10
+            why: Pin microshift-bootc-rhel10 image to assembly
+          - distgit_key: microshift-bootc
+            metadata:
+              is:
+                nvr: microshift-bootc-container-v5.1-202611271454.p2.g64f9378.assembly.ec.3.el9
+            why: Pin microshift-bootc image to assembly
   ec.2:
     assembly:
       type: preview
